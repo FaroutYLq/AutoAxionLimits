@@ -1,5 +1,174 @@
 {
   "schema_version": 1,
-  "last_checked": null,
-  "files": {}
+  "last_checked": "2026-03-22T19:58:28.586943+00:00",
+  "files": {
+    "limit_data/AxionEDM/BBN.txt": {
+      "arxiv_id": "1401.6460",
+      "known_version": 2,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": false
+    },
+    "limit_data/AxionEDM/BeamEDM.txt": {
+      "arxiv_id": "2204.01454",
+      "known_version": 3,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": true
+    },
+    "limit_data/AxionEDM/CASPEr-electric.txt": {
+      "arxiv_id": "2101.01241",
+      "known_version": 3,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": true
+    },
+    "limit_data/AxionEDM/JEDI.txt": {
+      "arxiv_id": "2208.07293",
+      "known_version": 4,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": false
+    },
+    "limit_data/AxionEDM/ONIX.txt": {
+      "arxiv_id": "2410.02218",
+      "known_version": 2,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": false
+    },
+    "limit_data/AxionEDM/PlanckBao.txt": {
+      "arxiv_id": "2205.01637",
+      "known_version": 2,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": true
+    },
+    "limit_data/AxionEDM/Projections/CASPEr-electric-PhaseI.txt": {
+      "arxiv_id": "1711.08999",
+      "known_version": 3,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": false
+    },
+    "limit_data/AxionEDM/Projections/CASPEr-electric-PhaseII.txt": {
+      "arxiv_id": "1711.08999",
+      "known_version": 3,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": false
+    },
+    "limit_data/AxionEDM/Projections/CASPEr-electric-PhaseIII.txt": {
+      "arxiv_id": "1711.08999",
+      "known_version": 3,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": false
+    },
+    "limit_data/AxionEDM/Projections/PolarisationHaloscope_discover.txt": {
+      "arxiv_id": "2209.12901",
+      "known_version": 2,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": true
+    },
+    "limit_data/AxionEDM/Projections/PolarisationHaloscope_scan.txt": {
+      "arxiv_id": "2209.12901",
+      "known_version": 2,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": true
+    },
+    "limit_data/AxionEDM/Projections/StorageRingEDM.txt": {
+      "arxiv_id": "1711.08999",
+      "known_version": 3,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": false
+    },
+    "limit_data/AxionEDM/RbQuartz.txt": {
+      "arxiv_id": "2212.04413",
+      "known_version": 1,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": false
+    },
+    "limit_data/AxionEDM/SN1987A.txt": {
+      "arxiv_id": "2410.19902",
+      "known_version": 2,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": false
+    },
+    "limit_data/AxionEDM/nEDM.txt": {
+      "arxiv_id": "1708.06367",
+      "known_version": 1,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": true
+    },
+    "limit_data/AxionElectron/DarkSide.txt": {
+      "arxiv_id": "2207.11968",
+      "known_version": 2,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": true
+    },
+    "limit_data/AxionElectron/FermionicAxionInterferometer.txt": {
+      "arxiv_id": "2311.16364",
+      "known_version": 2,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": false
+    },
+    "limit_data/AxionElectron/GERDA.txt": {
+      "arxiv_id": "2005.14184",
+      "known_version": 2,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": true
+    },
+    "limit_data/AxionElectron/Magnons.txt": {
+      "arxiv_id": "2102.08764",
+      "known_version": 4,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": true
+    },
+    "limit_data/AxionElectron/OldComagnetometers.txt": {
+      "arxiv_id": "1907.03767",
+      "known_version": 2,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": true
+    },
+    "limit_data/AxionElectron/PandaX.txt": {
+      "arxiv_id": "2408.07641",
+      "known_version": 2,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": true
+    },
+    "limit_data/AxionElectron/Projections/AxionWindMultilayer.txt": {
+      "arxiv_id": "2312.11601",
+      "known_version": 2,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": true
+    },
+    "limit_data/AxionElectron/Projections/AxionWindMultilayer_SinglePhoton.txt": {
+      "arxiv_id": "2312.11601",
+      "known_version": 2,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": true
+    },
+    "limit_data/AxionElectron/Projections/ElectronStorageRing.txt": {
+      "arxiv_id": "2211.08439",
+      "known_version": 1,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": false
+    },
+    "limit_data/AxionElectron/Projections/FutureComagnetometers.txt": {
+      "arxiv_id": "1907.03767",
+      "known_version": 2,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": true
+    },
+    "limit_data/AxionNeutron/JEDI.txt": {
+      "arxiv_id": "2208.07293",
+      "known_version": 4,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": false
+    },
+    "limit_data/AxionNeutron/Projections/ElectrostaticStorageRing.txt": {
+      "arxiv_id": "2211.08439",
+      "known_version": 1,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": false
+    },
+    "limit_data/DarkPhoton/DarkSide.txt": {
+      "arxiv_id": "2207.11968",
+      "known_version": 2,
+      "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": true
+    }
+  }
 }
