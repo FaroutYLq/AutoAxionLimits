@@ -148,7 +148,8 @@ def create_pull_request(
     )
 
     pr_url = _run_gh(
-        ["pr", "create", "--title", title, "--body", body, "--base", "master"],
+        ["pr", "create", "--title", title, "--body", body, "--base", "master",
+         "--repo", "FaroutYLq/AutoAxionLimits"],
         repo_root,
     )
     logger.info("Created PR: %s", pr_url)
@@ -168,7 +169,8 @@ def create_pull_request_preprint(
     """Push branch and open a preprint-update PR."""
     _run_git(["push", "-u", "origin", branch_name], repo_root)
     pr_url = _run_gh(
-        ["pr", "create", "--title", title, "--body", body, "--base", "master"],
+        ["pr", "create", "--title", title, "--body", body, "--base", "master",
+         "--repo", "FaroutYLq/AutoAxionLimits"],
         repo_root,
     )
     logger.info("Created preprint PR: %s", pr_url)

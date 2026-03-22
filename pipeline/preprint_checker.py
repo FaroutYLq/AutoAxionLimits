@@ -410,7 +410,8 @@ def _create_update_pr(
     )
 
     _run_gh(
-        ["pr", "create", "--title", title, "--body", body, "--base", "master"],
+        ["pr", "create", "--title", title, "--body", body, "--base", "master",
+         "--repo", "FaroutYLq/AutoAxionLimits"],
         repo_root,
     )
     logger.info("Created PR for preprint update %s v%d→v%d", arxiv_id, old_version, new_version)
