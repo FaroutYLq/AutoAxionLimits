@@ -407,7 +407,16 @@ def insert_notebook_call(notebook_path: Path, notebook_call: str) -> None:
         new_cell = nbformat.v4.new_code_cell(source=notebook_call)
         nb.cells.append(new_cell)
     else:
-        nb.cells[target_cell_idx].source += f"\n{notebook_call}"
+        source = nb.cells[target_cell_idx].source
+        # Insert before MySaveFig if present, so the new limit appears in the saved figure
+        save_match = re.search(r"\nMySaveFig\(", source)
+        if save_match:
+            insert_at = save_match.start()
+            nb.cells[target_cell_idx].source = (
+                source[:insert_at] + f"\n{notebook_call.rstrip()}" + source[insert_at:]
+            )
+        else:
+            nb.cells[target_cell_idx].source += f"\n{notebook_call}"
 
     nbformat.write(nb, str(notebook_path))
     logger.info("Updated notebook %s", notebook_path.name)

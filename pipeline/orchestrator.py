@@ -30,7 +30,7 @@ from .monitor import (
     save_state,
     STATE_PATH,
 )
-from .plot_regen import execute_notebook
+from .plot_regen import execute_notebook, get_notebook_plot_names
 from .pr_creator import create_feature_branch, stage_and_commit_files, create_pull_request, checkout_branch
 from .reviewer import ReviewResult, run_reviewer_agent, write_repo_files
 
@@ -164,15 +164,12 @@ def _process_paper(paper, paper_id: str, client: anthropic.Anthropic, state: dic
         review.notebook_path,
         review.docs_file,
     ]
-    # Include plot files if they exist
-    import os
-    from .config import COUPLING_TYPES
-    cfg = COUPLING_TYPES.get(extraction.coupling_type, {})
-    plot_base = f"plots/{extraction.coupling_type}.pdf"
-    plot_png = f"plots/plots_png/{extraction.coupling_type}.png"
-    for p in [plot_base, plot_png]:
-        if (REPO_ROOT / p).exists():
-            changed_files.append(p)
+    # Include plot files actually produced by the notebook
+    plot_names = get_notebook_plot_names(review.notebook_path, REPO_ROOT)
+    for name in plot_names:
+        for p in [f"plots/{name}.pdf", f"plots/plots_png/{name}.png"]:
+            if (REPO_ROOT / p).exists():
+                changed_files.append(p)
 
     commit_msg = (
         f"Add {review.experiment_name} {extraction.coupling_type} limit\n\n"
