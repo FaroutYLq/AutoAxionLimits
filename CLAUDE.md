@@ -93,8 +93,13 @@ To regenerate all plots, run all cells in the relevant notebook. The final cell 
 
 ## Dependencies
 
-No requirements file exists. Dependencies (inferred from imports):
+Plotting dependencies (no requirements file — inferred from imports):
 - `numpy`, `scipy`, `matplotlib` (with `patheffects`)
+
+Pipeline dependencies (see `requirements_pipeline.txt`):
+- `anthropic`, `arxiv`, `pymupdf`, `httpx`, `nbformat`, `nbconvert`, `numpy`
+
+Install pipeline deps with `pip install -r requirements_pipeline.txt`. Python 3.11+ required.
 
 ## Architecture
 

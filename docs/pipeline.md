@@ -193,19 +193,121 @@ automatic density rescaling for a new coupling type.
 
 ---
 
-## Running Locally
+## First-time Setup
+
+Follow these steps once after forking the repository.
+
+### 1. Clone and configure remotes
+
+```bash
+# Clone your fork
+git clone https://github.com/<your-username>/AutoAxionLimits.git
+cd AutoAxionLimits
+
+# Point origin at your fork, upstream at the original repo
+git remote rename origin upstream   # cajohare/AxionLimits → upstream
+git remote add origin https://github.com/<your-username>/AutoAxionLimits.git
+```
+
+### 2. Install dependencies
+
+Python 3.11 or later is required.
 
 ```bash
 pip install -r requirements_pipeline.txt
-export ANTHROPIC_API_KEY=sk-...
+```
+
+Pipeline dependencies (`requirements_pipeline.txt`):
+
+| Package | Purpose |
+|---------|---------|
+| `anthropic` | Claude API — extraction and reviewer agents |
+| `arxiv` | arXiv search and paper metadata |
+| `pymupdf` | PDF text and page-image extraction |
+| `httpx` | PDF download |
+| `nbformat` | Read/write Jupyter notebooks |
+| `nbconvert` | Headless notebook execution |
+| `numpy` | Data file loading and comparison in preprint checker |
+
+The plotting code (`PlotFuncs.py`, notebooks) additionally requires `numpy`,
+`scipy`, and `matplotlib`, which are assumed to be present in the environment.
+
+### 3. Authenticate the GitHub CLI
+
+PR creation uses the `gh` CLI. Authenticate once:
+
+```bash
+gh auth login
+```
+
+Select **GitHub.com → HTTPS → Login with a web browser** (or paste a token).
+Verify with `gh auth status`.
+
+### 4. Set the Anthropic API key
+
+```bash
+export ANTHROPIC_API_KEY=sk-ant-...
+```
+
+Add this to your shell profile (`.bashrc` / `.zshrc`) for persistence.
+
+### 5. Add the GitHub Actions secret
+
+In your fork on GitHub: **Settings → Secrets and variables → Actions → New repository secret**
+
+| Name | Value |
+|------|-------|
+| `ANTHROPIC_API_KEY` | Your Anthropic API key |
+
+`GITHUB_TOKEN` is provided automatically by Actions — no manual setup needed.
+
+### 6. Initialize the preprint version baseline
+
+This scans all existing `limit_data/**/*.txt` files, records their current
+arXiv versions, and writes `pipeline/state/preprint_versions.json`. Run this
+**once** before the first scheduled workflow run. No PRs are created.
+
+```bash
+python -m pipeline.preprint_checker --init-only
+git add pipeline/state/preprint_versions.json
+git commit -m "chore: initialize preprint version baseline"
+git push origin master
+```
+
+### 7. Verify with a dry run
+
+```bash
+# Check the daily digest finds papers and extracts data (writes nothing)
+python -m pipeline.orchestrator --dry-run
+
+# Force-process a known paper to test the full extraction path
+python -m pipeline.orchestrator --arxiv-id 2003.13144 --dry-run
+```
+
+### 8. Enable the Actions workflows
+
+GitHub disables scheduled workflows on forks by default. Go to
+**Actions → (select a workflow) → Enable workflow** for both:
+- `Daily arXiv Digest`
+- `Weekly Preprint Update Checker`
+
+Then trigger a manual run via **Run workflow** to confirm everything works
+end-to-end before the first scheduled execution.
+
+---
+
+## Running Locally
+
+```bash
+export ANTHROPIC_API_KEY=sk-ant-...
 
 # Dry run: print what would happen, write nothing
 python -m pipeline.orchestrator --dry-run
 
-# Process a specific paper
+# Process a specific paper end-to-end (creates branch + PR)
 python -m pipeline.orchestrator --arxiv-id 2412.12345
 
-# Initialize preprint version baseline (first-time setup)
+# Initialize preprint version baseline (first-time only)
 python -m pipeline.preprint_checker --init-only
 
 # Run preprint check without opening PRs
@@ -213,6 +315,13 @@ python -m pipeline.preprint_checker --dry-run
 ```
 
 `GH_TOKEN` (or `GITHUB_TOKEN` in Actions) must be set when creating PRs.
+
+### `[skip ci]` on state commits
+
+Both Actions workflows commit state files back to `master` with the message
+suffix `[skip ci]`. This prevents the state commit from re-triggering other
+workflows that watch for pushes to `master`. Do not remove that suffix if you
+add push-triggered workflows.
 
 ---
 
