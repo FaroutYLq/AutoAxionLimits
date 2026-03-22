@@ -232,6 +232,11 @@ def run_weekly_check(
         file_state = state["files"].get(file_path, {})
         known_version = file_state.get("known_version")
 
+        # Skip papers already known to be published — they won't be updated.
+        if file_state.get("published") and not init_only:
+            logger.debug("Skipping %s (%s): already published", file_path, arxiv_id)
+            continue
+
         try:
             latest_version, published = get_latest_version(arxiv_id)
         except Exception as e:
