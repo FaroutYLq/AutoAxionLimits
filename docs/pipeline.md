@@ -28,16 +28,17 @@ found, it extracts the data and opens a PR that adds the limit to the repo.
 
 ### What it does, step by step
 
-1. **Fetch** — queries arXiv (hep-ph, hep-ex, astro-ph, physics.ins-det) for
-   papers submitted in the last 3 days matching tracked keywords.
+1. **Fetch** — queries arXiv (`hep-ph`, `hep-ex`, `astro-ph.CO`, `astro-ph.HE`,
+   `physics.ins-det`) for papers submitted in the last 3 days matching tracked keywords.
 2. **Pre-filter** — cheap local keyword match against `ARXIV_KEYWORDS` in
    `pipeline/config.py` to skip obviously irrelevant papers before calling Claude.
 3. **Extract** — two-stage Claude extraction:
    - *Stage 1 (text)*: sends sanitized PDF text to Claude; asks for coupling
      type, data points (mass [eV], coupling), DM density assumption, and a
      suggested experiment name.
-   - *Stage 2 (vision)*: if Stage 1 finds no numeric data, renders PDF pages
-     to PNG and asks Claude to trace the exclusion boundary from the plot.
+   - *Stage 2 (vision)*: fallback when Stage 1 returns no data points, reports
+     `is_new_limit=False`, or confidence < 0.4. Renders PDF pages to PNG and
+     asks Claude to trace the exclusion boundary from the plot.
 4. **Review** — applies deterministic physical corrections (see below), then
    asks Claude to generate a `PlotFuncs.py` static method following the exact
    style of existing methods.
@@ -178,6 +179,14 @@ Edit these to tune sensitivity vs. noise.
 Per-coupling correction metadata. Add a `dm_density` block here to enable
 automatic density rescaling for a new coupling type.
 
+### Top-level constants
+
+| Constant | Default | Purpose |
+|----------|---------|---------|
+| `LOW_CONFIDENCE_THRESHOLD` | `0.6` | Extractions below this confidence get a `[LOW CONFIDENCE]` PR title |
+| `MAX_PAPERS_PER_RUN` | `5` | Maximum papers processed per daily digest run |
+| `ARXIV_CATEGORIES` | see config | arXiv categories searched: `hep-ph`, `hep-ex`, `astro-ph.CO`, `astro-ph.HE`, `physics.ins-det` |
+
 ---
 
 ## Security Notes
@@ -228,11 +237,25 @@ Pipeline dependencies (`requirements_pipeline.txt`):
 | `nbformat` | Read/write Jupyter notebooks |
 | `nbconvert` | Headless notebook execution |
 | `numpy` | Data file loading and comparison in preprint checker |
+| `scipy` | Required by `PlotFuncs.py` during headless notebook execution |
+| `matplotlib` | Required by `PlotFuncs.py` during headless notebook execution |
 
-The plotting code (`PlotFuncs.py`, notebooks) additionally requires `numpy`,
-`scipy`, and `matplotlib`, which are assumed to be present in the environment.
+All packages above must be in the same environment. `scipy` and `matplotlib`
+are needed because the pipeline executes notebooks headlessly via `nbconvert`,
+which imports `PlotFuncs.py`.
 
-### 3. Authenticate the GitHub CLI
+### 3. Configure git identity (local runs)
+
+The orchestrator creates commits locally. Set your identity if not already configured:
+
+```bash
+git config user.email "you@example.com"
+git config user.name "Your Name"
+```
+
+In GitHub Actions this is handled automatically by the workflow.
+
+### 4. Authenticate the GitHub CLI
 
 PR creation uses the `gh` CLI. Authenticate once:
 
@@ -243,7 +266,7 @@ gh auth login
 Select **GitHub.com → HTTPS → Login with a web browser** (or paste a token).
 Verify with `gh auth status`.
 
-### 4. Set the Anthropic API key
+### 5. Set the Anthropic API key
 
 ```bash
 export ANTHROPIC_API_KEY=sk-ant-...
@@ -259,7 +282,8 @@ In your fork on GitHub: **Settings → Secrets and variables → Actions → New
 |------|-------|
 | `ANTHROPIC_API_KEY` | Your Anthropic API key |
 
-`GITHUB_TOKEN` is provided automatically by Actions — no manual setup needed.
+`GITHUB_TOKEN` is provided automatically by Actions with `contents: write` and
+`pull-requests: write` permissions — no manual setup needed.
 
 ### 6. Initialize the preprint version baseline
 

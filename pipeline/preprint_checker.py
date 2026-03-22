@@ -23,7 +23,7 @@ from .extractor import (
     download_pdf,
     run_extraction_agent,
 )
-from .pr_creator import create_feature_branch, stage_and_commit_files, create_pull_request_preprint
+from .pr_creator import create_feature_branch, stage_and_commit_files
 from .reviewer import ReviewResult, apply_corrections, format_data_file
 
 logger = logging.getLogger(__name__)
