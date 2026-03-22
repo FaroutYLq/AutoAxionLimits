@@ -30,6 +30,7 @@ jobs:
         with:
           python-version: '3.11'
           cache: 'pip'
+          cache-dependency-path: requirements_pipeline.txt
 
       - name: Configure git identity
         run: |
@@ -55,16 +56,6 @@ jobs:
             ARGS="$ARGS --dry-run"
           fi
           python -m pipeline.orchestrator $ARGS
-
-      # FIX: commit updated state files back to master so next run sees them
-      - name: Commit state back to master
-        run: |
-          git add pipeline/state/processed.json
-          # Only commit if there are staged changes
-          if ! git diff --cached --quiet; then
-            git commit -m "chore: update pipeline state [skip ci]"
-            git push origin HEAD:master
-          fi
 
       - name: Upload pipeline logs
         if: always()

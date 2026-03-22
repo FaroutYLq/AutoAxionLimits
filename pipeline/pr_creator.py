@@ -160,6 +160,11 @@ def create_pull_request(
 # PR creation — preprint updates (used by preprint_checker)
 # ---------------------------------------------------------------------------
 
+def checkout_branch(branch: str, repo_root: Path = REPO_ROOT) -> None:
+    """Check out an existing branch."""
+    _run_git(["checkout", branch], repo_root)
+
+
 def create_pull_request_preprint(
     branch_name: str,
     title: str,
