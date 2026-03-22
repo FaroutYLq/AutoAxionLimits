@@ -1,0 +1,241 @@
+# AutoAxionLimits Pipeline
+
+This document describes the two automated pipelines added to this fork of
+[cajohare/AxionLimits](https://github.com/cajohare/AxionLimits).
+
+---
+
+## Overview
+
+Two GitHub Actions workflows run on a schedule and open pull requests when new
+or updated limits are detected. **Nothing merges to master automatically** —
+every change requires a human to review and merge the PR.
+
+| Pipeline | Schedule | Entrypoint |
+|----------|----------|------------|
+| Daily arXiv digest | 9 AM UTC daily | `python -m pipeline.orchestrator` |
+| Weekly preprint checker | Monday 10 AM UTC | `python -m pipeline.preprint_checker` |
+
+Both workflows can also be triggered manually via `workflow_dispatch` on GitHub.
+
+---
+
+## Pipeline 1: Daily arXiv Digest
+
+Monitors arXiv for newly submitted papers that present experimental exclusion
+limits on axions, dark photons, or other ultralight bosons. For each new limit
+found, it extracts the data and opens a PR that adds the limit to the repo.
+
+### What it does, step by step
+
+1. **Fetch** — queries arXiv (hep-ph, hep-ex, astro-ph, physics.ins-det) for
+   papers submitted in the last 3 days matching tracked keywords.
+2. **Pre-filter** — cheap local keyword match against `ARXIV_KEYWORDS` in
+   `pipeline/config.py` to skip obviously irrelevant papers before calling Claude.
+3. **Extract** — two-stage Claude extraction:
+   - *Stage 1 (text)*: sends sanitized PDF text to Claude; asks for coupling
+     type, data points (mass [eV], coupling), DM density assumption, and a
+     suggested experiment name.
+   - *Stage 2 (vision)*: if Stage 1 finds no numeric data, renders PDF pages
+     to PNG and asks Claude to trace the exclusion boundary from the plot.
+4. **Review** — applies deterministic physical corrections (see below), then
+   asks Claude to generate a `PlotFuncs.py` static method following the exact
+   style of existing methods.
+5. **Write** — creates the data file, inserts the method into `PlotFuncs.py`
+   via AST (never regex), adds a call to the appropriate notebook via
+   `nbformat`, and appends a bullet to the relevant `docs/*.md` file.
+6. **Regenerate** — executes the notebook headlessly with `nbconvert` to
+   produce updated plot PDF/PNG files.
+7. **PR** — creates a git branch, stages only the named changed files, and
+   opens a PR titled:
+   - `Add {Experiment} {CouplingType} limit (arXiv:{id})` — normal
+   - `[LOW CONFIDENCE] Add ...` — extraction confidence < 60 %
+   - `[PROJECTION] Add ...` — sensitivity projection rather than observed limit
+
+### State file: `pipeline/state/processed.json`
+
+Records every arXiv ID that has been processed (successfully or not). The
+Actions workflow commits this file back to `master` after each run so the next
+run does not re-process the same papers.
+
+```json
+{
+  "schema_version": 1,
+  "last_run": "2026-03-22T09:00:00Z",
+  "processed_ids": ["2412.12345", "2501.99999"],
+  "failed_ids": {"2412.22222": "timeout"}
+}
+```
+
+---
+
+## Pipeline 2: Weekly Preprint Checker
+
+Scans every file in `limit_data/**/*.txt` for arXiv IDs embedded in header
+comment lines, checks whether a newer version of each paper has been posted,
+and opens a PR if the numerical data changed.
+
+### What it does, step by step
+
+1. **Scan** — reads the first 10 comment lines of each `.txt` data file and
+   extracts arXiv IDs from URLs matching `arxiv.org/abs/{id}` or `arXiv:{id}`.
+2. **Check version** — queries the arXiv API for the latest version number and
+   whether the paper has a `journal_ref` (i.e. is no longer a preprint).
+3. **Decision logic**:
+   - *Published* (`journal_ref` present): mark as published, stop tracking.
+   - *First time seen*: record current version as baseline — no PR created.
+   - *Version unchanged*: update `last_checked` timestamp only.
+   - *New version*: download the new PDF, run the extraction agent, compare
+     data numerically (sorted by mass, relative tolerance 1 × 10⁻⁶).
+4. **PR** — if data changed, writes the updated data file and opens a PR
+   titled `Update {Experiment} {CouplingType}: arXiv:{id} v{old}→v{new}`,
+   with a Claude-generated summary of what likely changed.
+
+### State file: `pipeline/state/preprint_versions.json`
+
+Records the known version and publication status of every tracked paper. The
+Actions workflow commits this file back to `master` after each run.
+
+```json
+{
+  "schema_version": 1,
+  "last_checked": "2026-03-17T10:00:00Z",
+  "files": {
+    "limit_data/DarkPhoton/FUNK.txt": {
+      "arxiv_id": "2003.13144",
+      "known_version": 2,
+      "last_checked": "2026-03-17T10:00:00Z",
+      "published": false
+    }
+  }
+}
+```
+
+**Initial population**: run `python -m pipeline.preprint_checker --init-only`
+once to scan all existing data files and record their current arXiv versions as
+the baseline. No PRs are created on the first scan.
+
+---
+
+## Physical Corrections
+
+Corrections are defined in `pipeline/config.py` under `PHYSICAL_CORRECTIONS`
+and applied deterministically before any data is written.
+
+### DM density rescaling
+
+Haloscope and DM-absorption experiments quote limits that scale with the assumed
+local dark matter density ρ_DM. This repo uses **ρ_repo = 0.45 GeV/cm³**. When
+a paper assumes a different value ρ_paper, the coupling is rescaled:
+
+```
+coupling_corrected = coupling_paper × sqrt(ρ_repo / ρ_paper)
+```
+
+This is applied automatically only when:
+- Claude reports a `dm_density_assumed` value for the paper, **and**
+- the coupling type has a `dm_density` entry in `PHYSICAL_CORRECTIONS`
+  (i.e. haloscope/DM-search types: DarkPhoton, AxionPhoton, AxionElectron,
+  AxionNeutron, AxionProton).
+
+Stellar, cosmological, and collider bounds are never rescaled.
+
+### Polarization corrections
+
+Some haloscopes assume a specific polarisation direction. When Claude detects a
+polarisation assumption, it is flagged in the PR body for human review rather
+than corrected automatically (the formula varies per experiment geometry).
+
+---
+
+## Configuration Reference (`pipeline/config.py`)
+
+### `COUPLING_TYPES`
+
+Maps each coupling type to its repo artifacts:
+
+```python
+"DarkPhoton": {
+    "class_name": "DarkPhoton",          # PlotFuncs.py class name
+    "plotfuncs_file": "PlotFuncs.py",    # or "PlotFuncs_ScalarVector.py"
+    "data_dir": "limit_data/DarkPhoton",
+    "notebooks": ["DarkPhoton.ipynb"],   # first entry = primary notebook
+    "docs_file": "docs/dp.md",
+}
+```
+
+Supported coupling types: DarkPhoton, AxionPhoton, AxionElectron, AxionNeutron,
+AxionProton, AxionEDM, AxionCPV, AxionMass, MonopoleDipole, ScalarPhoton,
+ScalarElectron, ScalarBaryon, ScalarNucleon, VectorBL.
+
+### `ARXIV_KEYWORDS`
+
+Per-coupling keyword lists used for cheap pre-filtering before calling Claude.
+Edit these to tune sensitivity vs. noise.
+
+### `PHYSICAL_CORRECTIONS`
+
+Per-coupling correction metadata. Add a `dm_density` block here to enable
+automatic density rescaling for a new coupling type.
+
+---
+
+## Security Notes
+
+- **Prompt injection**: PDF text is sanitized (control characters stripped) and
+  enclosed in `===PAPER_CONTENT===` delimiters before being sent to Claude.
+  The system prompt instructs Claude to treat content inside those markers as
+  untrusted data only.
+- **Shell injection**: `workflow_dispatch` inputs are passed to shell scripts
+  via env vars (`$INPUT_ARXIV_ID`), never interpolated directly into commands.
+- **Minimal git staging**: only explicitly named files are staged per commit —
+  `git add -A` is never used.
+
+---
+
+## Running Locally
+
+```bash
+pip install -r requirements_pipeline.txt
+export ANTHROPIC_API_KEY=sk-...
+
+# Dry run: print what would happen, write nothing
+python -m pipeline.orchestrator --dry-run
+
+# Process a specific paper
+python -m pipeline.orchestrator --arxiv-id 2412.12345
+
+# Initialize preprint version baseline (first-time setup)
+python -m pipeline.preprint_checker --init-only
+
+# Run preprint check without opening PRs
+python -m pipeline.preprint_checker --dry-run
+```
+
+`GH_TOKEN` (or `GITHUB_TOKEN` in Actions) must be set when creating PRs.
+
+---
+
+## PR Formats
+
+### Daily digest PR
+
+```
+Add {ExperimentName} {CouplingType} limit (arXiv:{id})
+[LOW CONFIDENCE] Add ...    ← extraction confidence < 60%
+[PROJECTION] Add ...        ← sensitivity projection
+```
+
+Body includes: paper title and link, data source (table / text / vision),
+mass and coupling range, corrections applied, corrections flagged for review,
+files changed, embedded updated plot PNG.
+
+### Preprint update PR
+
+```
+Update {ExperimentName} {CouplingType}: arXiv:{id} v{old}→v{new}
+```
+
+Body includes: links to old and new arXiv versions, Claude-generated summary
+of what changed, old vs. new data comparison, corrections re-applied, note
+that the paper is still a preprint.
