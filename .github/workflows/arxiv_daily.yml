@@ -57,16 +57,6 @@ jobs:
           fi
           python -m pipeline.orchestrator $ARGS
 
-      # FIX: commit updated state files back to master so next run sees them
-      - name: Commit state back to master
-        run: |
-          git add pipeline/state/processed.json
-          # Only commit if there are staged changes
-          if ! git diff --cached --quiet; then
-            git commit -m "chore: update pipeline state [skip ci]"
-            git push origin HEAD:master
-          fi
-
       - name: Upload pipeline logs
         if: always()
         uses: actions/upload-artifact@v4
