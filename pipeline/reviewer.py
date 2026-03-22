@@ -29,6 +29,95 @@ from .extractor import ExtractionResult, _call_with_retry
 
 logger = logging.getLogger(__name__)
 
+# ---------------------------------------------------------------------------
+# Coupling type normalization
+# ---------------------------------------------------------------------------
+
+# Maps common LLM free-form strings → canonical COUPLING_TYPES keys.
+_COUPLING_ALIASES: dict[str, str] = {
+    # AxionProton
+    "axionproton": "AxionProton",
+    "g_ap": "AxionProton",
+    "alp-proton": "AxionProton",
+    "alp proton": "AxionProton",
+    "axion proton": "AxionProton",
+    "axion-proton": "AxionProton",
+    # AxionNeutron
+    "axionneutron": "AxionNeutron",
+    "g_an": "AxionNeutron",
+    "alp-neutron": "AxionNeutron",
+    "alp neutron": "AxionNeutron",
+    "axion neutron": "AxionNeutron",
+    # AxionElectron
+    "axionelectron": "AxionElectron",
+    "g_ae": "AxionElectron",
+    "gaee": "AxionElectron",
+    "alp-electron": "AxionElectron",
+    "axion electron": "AxionElectron",
+    # AxionPhoton
+    "axionphoton": "AxionPhoton",
+    "gagg": "AxionPhoton",
+    "g_agamma": "AxionPhoton",
+    "alp-photon": "AxionPhoton",
+    "alp photon": "AxionPhoton",
+    "axion photon": "AxionPhoton",
+    # DarkPhoton
+    "darkphoton": "DarkPhoton",
+    "dark photon": "DarkPhoton",
+    "kinetic mixing": "DarkPhoton",
+    "hidden photon": "DarkPhoton",
+    # AxionEDM
+    "axionedm": "AxionEDM",
+    "axion edm": "AxionEDM",
+    # AxionCPV
+    "axioncpv": "AxionCPV",
+    "axion cpv": "AxionCPV",
+    "axion cp violation": "AxionCPV",
+    # AxionMass
+    "axionmass": "AxionMass",
+    "axion mass": "AxionMass",
+    # MonopoleDipole
+    "monopoledipole": "MonopoleDipole",
+    "monopole dipole": "MonopoleDipole",
+    "monopole-dipole": "MonopoleDipole",
+    # ScalarPhoton
+    "scalarphoton": "ScalarPhoton",
+    "scalar photon": "ScalarPhoton",
+    # ScalarElectron
+    "scalarelectron": "ScalarElectron",
+    "scalar electron": "ScalarElectron",
+    # ScalarBaryon
+    "scalarbaryon": "ScalarBaryon",
+    "scalar baryon": "ScalarBaryon",
+    # ScalarNucleon
+    "scalarnucleon": "ScalarNucleon",
+    "scalar nucleon": "ScalarNucleon",
+    # VectorBL
+    "vectorbl": "VectorBL",
+    "vector b-l": "VectorBL",
+    "b-l": "VectorBL",
+}
+
+
+def _normalize_coupling_type(raw: str) -> str:
+    """
+    Map a free-form LLM coupling type string to a canonical COUPLING_TYPES key.
+    Returns the canonical key if found, otherwise raises KeyError.
+    """
+    # Exact match first
+    if raw in COUPLING_TYPES:
+        return raw
+    # Case-insensitive alias lookup — also try stripping parenthetical suffixes
+    key = raw.lower().strip()
+    # Strip anything after '(' e.g. "g_ap (ALP-proton coupling)" → "g_ap"
+    key_no_paren = key.split("(")[0].strip()
+    for candidate in (key, key_no_paren):
+        if candidate in _COUPLING_ALIASES:
+            canonical = _COUPLING_ALIASES[candidate]
+            logger.info("Normalized coupling type %r → %r", raw, canonical)
+            return canonical
+    raise KeyError(raw)
+
 CLAUDE_MODEL = "claude-sonnet-4-6"
 
 REPO_ROOT = Path(__file__).parent.parent
@@ -336,7 +425,8 @@ def run_reviewer_agent(
     if result.coupling_type is None:
         raise ValueError(f"Cannot review paper {result.arxiv_id}: no coupling type")
 
-    cfg = COUPLING_TYPES[result.coupling_type]
+    canonical = _normalize_coupling_type(result.coupling_type)
+    cfg = COUPLING_TYPES[canonical]
     experiment_name = _sanitize_name(result.suggested_experiment_name)
 
     # --- Apply physical corrections ---
