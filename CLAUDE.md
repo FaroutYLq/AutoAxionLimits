@@ -69,9 +69,15 @@ pipeline/
 
 - **Human-in-the-loop**: Every update becomes a PR; nothing merges automatically.
 - **Low confidence PRs**: Created but titled `[LOW CONFIDENCE]`.
-- **State persistence**: `processed.json` and `preprint_versions.json` are git-tracked; no external storage needed.
-- **AST-based insertion**: New methods in `PlotFuncs.py` are inserted using `ast.parse()`, never regex.
+- **State persistence**: `processed.json` and `preprint_versions.json` are git-tracked and committed back to `master` by the Actions workflow after each run; no external storage needed.
+- **AST-based insertion**: New methods in `PlotFuncs.py` are inserted using the last `FunctionDef.end_lineno` inside the target class — never regex.
 - **Text-first extraction**: Tables/text → vision fallback reduces API cost.
+- **Prompt injection defence**: PDF text is sanitized (control chars stripped) and wrapped in `===PAPER_CONTENT===` delimiters before being sent to Claude.
+- **API retry**: All Claude calls use exponential backoff on rate-limit and HTTP 529 errors.
+- **DM density correction scope**: `sqrt(rho_DM)` rescaling is only applied to coupling types that have a `dm_density` entry in `PHYSICAL_CORRECTIONS` (i.e. haloscope/DM-search experiments), never to stellar, cosmological, or collider bounds.
+- **Notebook selection**: `_select_notebook()` picks the target notebook by mass range — ultralight (< 1 μeV), collider (> 10 keV), or primary.
+- **Shell injection prevention**: `workflow_dispatch` inputs are passed to shell scripts via env vars, never interpolated directly into the command string.
+- **`@staticmethod` guarantee**: A post-generation guard in `reviewer.py` prepends `@staticmethod` to any LLM-generated method that omits it.
 
 ## Running the Code
 
@@ -117,9 +123,11 @@ Markdown files (one per coupling, e.g., `docs/dp.md`, `docs/ap.md`) document all
 1. Add a data file to `limit_data/<CouplingType>/ExperimentName.txt`
 2. Add a static method to the relevant class in `PlotFuncs.py`:
    ```python
+   @staticmethod
    def ExperimentName(ax, col='color', text_on=True, lw=1.5, zorder=1.0):
        dat = loadtxt('limit_data/CouplingType/ExperimentName.txt')
        ax.fill_between(dat[:,0], dat[:,1], y2=1e99, ...)
    ```
+   The `@staticmethod` decorator is required — methods without it will not be callable from notebook code.
 3. Call the method in the relevant notebook
 4. Add documentation in `docs/<type>.md`
