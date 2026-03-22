@@ -1,6 +1,10 @@
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3932430.svg)](https://doi.org/10.5281/zenodo.3932430)
 
+> **AutoAxionLimits fork**: this repository includes automated pipelines that monitor arXiv for new limits and open pull requests. See [docs/pipeline.md](docs/pipeline.md) for details.
+
+---
+
 The purpose of this website is to host data files and python notebooks to create limit plots on axions, axion-like particles, dark photons, and other ultralight bosons. Please email me [ciaran.aj.ohare@gmail.com] if you have any questions/comments/complaints. I greatly appreciate corrections to anything here, no matter how minor or trivial. Please also inform me if a limit you have made isn't here, usually it will just be because I missed it. Also if you have made one of the limits shown here and it has been revised (e.g. in a v2 of the paper) please let me know as I am much more likely to have missed the update.
 
 Please go to [refs/](refs/README.md) to see a full list of all references, including a .tex and .bib file with all citation details collected from Inspire.

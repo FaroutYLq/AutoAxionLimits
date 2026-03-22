@@ -1,0 +1,75 @@
+name: Weekly Preprint Update Checker
+
+on:
+  schedule:
+    - cron: '0 10 * * 1'  # Monday 10 AM UTC
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (print actions without writing files or opening PRs)'
+        required: false
+        default: 'false'
+      init_only:
+        description: 'Init only: populate preprint_versions.json, no PRs'
+        required: false
+        default: 'false'
+
+jobs:
+  preprint-check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Configure git identity
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+      - name: Install pipeline dependencies
+        run: pip install -r requirements_pipeline.txt
+
+      # FIX: pass inputs via env vars, never interpolate directly into shell (prevents injection)
+      - name: Run preprint update checker
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_DRY_RUN: ${{ github.event.inputs.dry_run }}
+          INPUT_INIT_ONLY: ${{ github.event.inputs.init_only }}
+        run: |
+          ARGS=""
+          if [ "$INPUT_DRY_RUN" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          if [ "$INPUT_INIT_ONLY" = "true" ]; then
+            ARGS="$ARGS --init-only"
+          fi
+          python -m pipeline.preprint_checker $ARGS
+
+      # FIX: commit updated state files back to master so next run sees them
+      - name: Commit state back to master
+        run: |
+          git add pipeline/state/preprint_versions.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update preprint version state [skip ci]"
+            git push origin HEAD:master
+          fi
+
+      - name: Upload pipeline logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: preprint-logs-${{ github.run_id }}
+          path: pipeline/logs/
+          if-no-files-found: ignore
+          retention-days: 7

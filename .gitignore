@@ -135,3 +135,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .DS_Store
+
+# AutoAxionLimits pipeline
+pipeline/logs/
+pipeline/state/*.tmp
