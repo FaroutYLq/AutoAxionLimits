@@ -9,9 +9,34 @@ import subprocess
 import sys
 from pathlib import Path
 
+import json
+import re
+
 logger = logging.getLogger(__name__)
 
 REPO_ROOT = Path(__file__).parent.parent
+
+
+def get_notebook_plot_names(notebook_path: str, repo_root: Path = REPO_ROOT) -> list[str]:
+    """
+    Parse a notebook and return the plot names passed to MySaveFig().
+
+    Returns a list of names (without extension), e.g. ['AxionPhoton_ColliderBounds'].
+    Falls back to an empty list if the notebook cannot be read.
+    """
+    try:
+        nb_text = (repo_root / notebook_path).read_text()
+        nb = json.loads(nb_text)
+    except Exception:
+        return []
+    names = []
+    for cell in nb.get("cells", []):
+        if cell.get("cell_type") != "code":
+            continue
+        source = "".join(cell.get("source", []))
+        for m in re.finditer(r"MySaveFig\s*\(\s*\w+\s*,\s*['\"]([^'\"]+)['\"]", source):
+            names.append(m.group(1))
+    return names
 
 
 def execute_notebook(

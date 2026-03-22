@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Optional
 
 from .extractor import ExtractionResult
+from .plot_regen import get_notebook_plot_names
 from .reviewer import ReviewResult
 
 logger = logging.getLogger(__name__)
@@ -121,8 +122,10 @@ def create_pull_request(
         else ""
     )
 
-    plot_coupling = coupling.lower().replace("axion", "Axion")
-    plot_png = f"plots/plots_png/{coupling}.png"
+    # Use the first plot name produced by the selected notebook; fall back to coupling name
+    plot_names = get_notebook_plot_names(review.notebook_path, repo_root)
+    plot_stem = plot_names[0] if plot_names else coupling
+    plot_png = f"plots/plots_png/{plot_stem}.png"
 
     body = (
         f"## New Limit: {review.experiment_name}\n\n"
