@@ -16,6 +16,7 @@ import logging
 import math
 import re
 import textwrap
+import time
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
@@ -24,7 +25,7 @@ import anthropic
 import arxiv
 
 from .config import COUPLING_TYPES, PHYSICAL_CORRECTIONS
-from .extractor import ExtractionResult
+from .extractor import ExtractionResult, _call_with_retry
 
 logger = logging.getLogger(__name__)
 
@@ -86,10 +87,14 @@ def apply_corrections(
     applied: list[str] = []
     flagged: list[str] = []
 
-    # DM density correction
+    # DM density correction — only for DM-search haloscope experiments.
+    # Guard: coupling type must have dm_density in PHYSICAL_CORRECTIONS (filters out
+    # stellar, cosmological, collider couplings) AND Claude must have reported a
+    # dm_density_assumed (should only happen for DM-absorption/haloscope results).
     rho_paper = result.dm_density_assumed
-    if rho_paper is not None:
-        rho_repo = corrections.get("dm_density", {}).get("repo_convention", 0.45)
+    dm_corr_cfg = corrections.get("dm_density")
+    if rho_paper is not None and dm_corr_cfg is not None:
+        rho_repo = dm_corr_cfg.get("repo_convention", 0.45)
         if abs(rho_paper - rho_repo) > 0.01:
             data, note = apply_dm_density_correction(data, rho_paper, rho_repo)
             applied.append(note)
@@ -139,20 +144,26 @@ _METHOD_GEN_SYSTEM = """\
 You are a Python expert specialising in matplotlib-based scientific visualisation.
 
 You will be given:
-1. Two example @staticmethod method bodies from PlotFuncs.py as style exemplars.
+1. An example @staticmethod method from PlotFuncs.py as a style exemplar.
 2. A new experiment name, coupling type, and data file path.
 
-Generate a COMPLETE @staticmethod method following the EXACT same style (loadtxt, fill_between,
+Generate a COMPLETE static method following the EXACT same style (loadtxt, fill_between,
 y2 = ax.get_ylim()[1], conditional text_on, etc.).
 
-Return ONLY the Python code block — no explanations, no markdown fences.
+IMPORTANT requirements:
+- The output must start with the LITERAL decorator line `    @staticmethod`
+- Then the `def` line indented by 4 spaces
+- The method body indented by 8 spaces
+- Return ONLY the code — no explanations, no markdown fences.
+
 The method signature must be:
     def {name}(ax, col='crimson', fs=15, text_on=True, lw=1.5):
 """
 
 _EXEMPLAR_METHODS = [
-    # A minimal single-dataset method (SENSEI pattern)
+    # A minimal single-dataset method (SENSEI pattern) — includes @staticmethod decorator
     textwrap.dedent("""\
+        @staticmethod
         def SENSEI(ax,col='firebrick',fs=21,text_on=True,lw=1.5):
             y2 = ax.get_ylim()[1]
             dat = loadtxt("limit_data/DarkPhoton/SENSEI.txt")
@@ -184,16 +195,19 @@ def generate_plotfuncs_method(
         f"# Class: {coupling_type}\n\n"
         f"Generate the complete @staticmethod method for {experiment_name}."
     )
-    resp = client.messages.create(
+    resp = _call_with_retry(lambda: client.messages.create(
         model=CLAUDE_MODEL,
         max_tokens=1024,
         system=_METHOD_GEN_SYSTEM,
         messages=[{"role": "user", "content": prompt}],
-    )
+    ))
     code = resp.content[0].text.strip()
     # Remove any markdown fences if present
     code = re.sub(r"^```python\n?", "", code)
     code = re.sub(r"\n?```$", "", code)
+    # Guarantee @staticmethod is present — if the LLM omitted it, prepend it
+    if not re.search(r"^\s*@staticmethod", code, re.MULTILINE):
+        code = "@staticmethod\n" + code
     return code
 
 
@@ -232,7 +246,10 @@ def insert_method_into_plotfuncs(
 ) -> None:
     """
     Insert a new static method at the end of class_name in plotfuncs_path.
-    Uses ast.parse() to locate the class boundary — never regex.
+    Uses ast.parse() to locate the last method's end_lineno — never regex.
+
+    Insertion is INSIDE the class (before its closing line), correctly indented,
+    regardless of whether there is trailing whitespace after the last method.
     """
     source = plotfuncs_path.read_text()
     tree = ast.parse(source)
@@ -247,26 +264,30 @@ def insert_method_into_plotfuncs(
     if class_node is None:
         raise ValueError(f"Class '{class_name}' not found in {plotfuncs_path}")
 
-    # Find the last line of the class
-    last_line = max(
-        getattr(child, "end_lineno", class_node.end_lineno)
-        for child in ast.walk(class_node)
-        if hasattr(child, "end_lineno")
-    )
+    # Find the last direct method (FunctionDef) in the class body.
+    # We insert AFTER the last method's end_lineno, which is guaranteed to be
+    # inside the class regardless of trailing blank lines.
+    last_method_end = class_node.end_lineno  # fallback: class end
+    for child in class_node.body:
+        if isinstance(child, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            if hasattr(child, "end_lineno"):
+                last_method_end = max(last_method_end, child.end_lineno)
 
     lines = source.splitlines(keepends=True)
 
-    # Determine indentation from existing methods (4 spaces inside class)
+    # Indent: 4 spaces for class body
     indent = "    "
+    # Ensure @staticmethod and def are both properly indented
     indented_method = textwrap.indent(method_code.rstrip(), indent) + "\n"
 
-    # Insert after last_line (0-indexed: last_line - 1)
-    insert_pos = last_line  # insert *after* the last line of the class
+    # Insert after last_method_end (lines list is 0-indexed; line N is index N-1).
+    # Inserting at index `last_method_end` places content after line last_method_end.
+    insert_pos = last_method_end
     lines.insert(insert_pos, "\n" + indented_method + "\n")
 
     plotfuncs_path.write_text("".join(lines))
     logger.info(
-        "Inserted method into %s::%s at line %d", plotfuncs_path.name, class_name, insert_pos
+        "Inserted method into %s::%s after line %d", plotfuncs_path.name, class_name, insert_pos
     )
 
 
@@ -341,7 +362,7 @@ def run_reviewer_agent(
     )
 
     # --- Notebook ---
-    notebook_path = cfg["notebooks"][0]
+    notebook_path = _select_notebook(cfg, result.data_points)
     notebook_call = generate_notebook_call(
         experiment_name, result.coupling_type, notebook_path
     )
@@ -412,3 +433,33 @@ def _sanitize_name(name: str) -> str:
     if name and name[0].isdigit():
         name = "Exp_" + name
     return name or "UnknownExp"
+
+
+def _select_notebook(cfg: dict, data_points: list[tuple[float, float]]) -> str:
+    """
+    Select the most appropriate notebook for a new limit.
+
+    For couplings with only one notebook, that's always the right choice.
+    For AxionPhoton (4 notebooks), pick by mass range:
+      - mass < 1e-6 eV  → AxionPhoton_Ultralight.ipynb
+      - mass > 1e4 eV   → AxionPhoton_ColliderBounds.ipynb
+      - otherwise       → AxionPhoton.ipynb  (the main plot)
+    All other multi-notebook couplings default to the first (primary) notebook.
+    """
+    notebooks = cfg.get("notebooks", [])
+    if len(notebooks) == 1 or not data_points:
+        return notebooks[0]
+
+    masses = [m for m, _ in data_points]
+    min_mass = min(masses)
+    max_mass = max(masses)
+
+    # AxionPhoton-specific logic
+    for nb in notebooks:
+        if "Ultralight" in nb and min_mass < 1e-6:
+            return nb
+        if "Collider" in nb and max_mass > 1e4:
+            return nb
+
+    # Default: first notebook in list is always the main comprehensive plot
+    return notebooks[0]

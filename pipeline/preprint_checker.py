@@ -155,7 +155,9 @@ def data_has_changed(
     if old_data.ndim == 1:
         old_data = old_data.reshape(1, -1)
 
-    new_array = sorted(new_data_points)
+    # Sort both arrays by mass (column 0) before comparing row-by-row
+    old_data = old_data[old_data[:, 0].argsort()]
+    new_array = sorted(new_data_points, key=lambda x: x[0])
 
     if len(old_data) != len(new_array):
         return True

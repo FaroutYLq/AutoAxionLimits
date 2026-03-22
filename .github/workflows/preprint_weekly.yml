@@ -31,22 +31,39 @@ jobs:
           python-version: '3.11'
           cache: 'pip'
 
+      - name: Configure git identity
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
       - name: Install pipeline dependencies
         run: pip install -r requirements_pipeline.txt
 
+      # FIX: pass inputs via env vars, never interpolate directly into shell (prevents injection)
       - name: Run preprint update checker
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_DRY_RUN: ${{ github.event.inputs.dry_run }}
+          INPUT_INIT_ONLY: ${{ github.event.inputs.init_only }}
         run: |
           ARGS=""
-          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+          if [ "$INPUT_DRY_RUN" = "true" ]; then
             ARGS="$ARGS --dry-run"
           fi
-          if [ "${{ github.event.inputs.init_only }}" = "true" ]; then
+          if [ "$INPUT_INIT_ONLY" = "true" ]; then
             ARGS="$ARGS --init-only"
           fi
           python -m pipeline.preprint_checker $ARGS
+
+      # FIX: commit updated state files back to master so next run sees them
+      - name: Commit state back to master
+        run: |
+          git add pipeline/state/preprint_versions.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update preprint version state [skip ci]"
+            git push origin HEAD:master
+          fi
 
       - name: Upload pipeline logs
         if: always()
