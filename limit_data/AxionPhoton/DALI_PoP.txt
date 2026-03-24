@@ -1,0 +1,9 @@
+# First Limits on Axion Dark Matter from a DALI Prototype
+# arXiv: https://arxiv.org/abs/2603.21951
+# Coupling type: AxionPhoton
+# Extracted from: text
+# Confidence level: 0.9
+# Extraction confidence: 0.92
+# mass [eV]    coupling
+2.846600e-05   1.270000e-11
+2.862100e-05   1.270000e-11
