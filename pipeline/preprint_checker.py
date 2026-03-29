@@ -112,20 +112,28 @@ def get_latest_version(arxiv_id: str) -> tuple[int, bool, arxiv.Result]:
         raise ValueError(f"arXiv paper {arxiv_id} not found")
 
     paper = results[0]
-    # Extract version from entry_id (e.g. "http://arxiv.org/abs/2412.12345v3")
-    version_match = re.search(r"v(\d+)$", paper.entry_id)
-    version = int(version_match.group(1)) if version_match else 1
-
+    version = _parse_paper_version(paper)
     published = is_published(paper)
     return version, published, paper
 
 
-def _parse_paper_result(paper: arxiv.Result) -> tuple[int, bool]:
-    """Extract version number and published status from an arxiv.Result."""
+def _parse_paper_version(paper: arxiv.Result) -> int:
+    """Extract version number from an arxiv.Result."""
     version_match = re.search(r"v(\d+)$", paper.entry_id)
-    version = int(version_match.group(1)) if version_match else 1
-    published = is_published(paper)
-    return version, published
+    return int(version_match.group(1)) if version_match else 1
+
+
+def _is_published_fast(paper: arxiv.Result) -> bool:
+    """Check published status using only arXiv metadata (no external API calls)."""
+    if paper.journal_ref and paper.journal_ref.strip():
+        return True
+    if paper.doi and paper.doi.strip():
+        return True
+    if paper.comment and re.search(
+        r"published|accepted|in press|to appear", paper.comment, re.IGNORECASE
+    ):
+        return True
+    return False
 
 
 def batch_get_latest_versions(
@@ -197,7 +205,9 @@ def batch_get_latest_versions(
 
             for paper in papers:
                 short_id = paper.get_short_id().split("v")[0]
-                version, published = _parse_paper_result(paper)
+                version = _parse_paper_version(paper)
+                # Fast check using only arXiv metadata (no Semantic Scholar)
+                published = _is_published_fast(paper)
                 results[short_id] = (version, published, paper)
 
             logger.info(
@@ -212,9 +222,9 @@ def batch_get_latest_versions(
                 batch_num, total_batches, i, i + len(batch),
             )
 
-        # Polite delay between successful batches
+        # Polite delay between batches — arXiv needs time to reset rate limits
         if i + batch_size < len(unique_ids):
-            time.sleep(3)
+            time.sleep(30)
 
     logger.info(
         "Batch-fetched %d/%d arXiv papers in %d batches",
@@ -447,9 +457,12 @@ def run_weekly_check(
                 state["files"][file_path]["published"] = True
             continue
 
-        # New version available!
+        # New version available — do full published check (including Semantic Scholar)
+        if not published:
+            published = is_published(new_paper)
         logger.info(
-            "%s: new version v%d (was v%d)", arxiv_id, latest_version, known_version
+            "%s: new version v%d (was v%d)%s", arxiv_id, latest_version, known_version,
+            " [published]" if published else "",
         )
 
         # Extract data from new version
