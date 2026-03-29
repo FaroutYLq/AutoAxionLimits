@@ -99,6 +99,7 @@ _orig_plot = _mpl_axes.Axes.plot
 _orig_text = _mpl_axes.Axes.text
 _orig_axhline = _mpl_axes.Axes.axhline
 _orig_axvline = _mpl_axes.Axes.axvline
+_orig_arrow = _mpl_axes.Axes.arrow
 _orig_fig_text = _mpl_figure.Figure.text
 
 _HIGHLIGHT_ACTIVE = False
@@ -123,8 +124,19 @@ def _patched_fill(self, *args, **kwargs):
 
 def _patched_plot(self, *args, **kwargs):
     if not _HIGHLIGHT_ACTIVE:
+        # Strip colour characters from any format-string arg (e.g. 'k-',
+        # 'r--', 'b.') so we can safely pass our own color= kwarg without
+        # triggering matplotlib's "duplicate colour" ValueError.
+        _FMT_COLORS = set('bgrcmykwBGRCMYKW')
+        cleaned = []
+        for a in args:
+            if isinstance(a, str) and len(a) <= 4:
+                a = ''.join(ch for ch in a if ch not in _FMT_COLORS) or '-'
+            cleaned.append(a)
         kwargs['color'] = _GREY_EDGE
-        kwargs['alpha'] = 0.4
+        kwargs['alpha'] = 0.0
+        kwargs.pop('path_effects', None)
+        return _orig_plot(self, *cleaned, **kwargs)
     return _orig_plot(self, *args, **kwargs)
 
 def _patched_text(self, *args, **kwargs):
@@ -151,12 +163,18 @@ def _patched_axvline(self, x=0, **kwargs):
         kwargs['alpha'] = 0.3
     return _orig_axvline(self, x=x, **kwargs)
 
+def _patched_arrow(self, *args, **kwargs):
+    if not _HIGHLIGHT_ACTIVE:
+        kwargs['alpha'] = 0.0
+    return _orig_arrow(self, *args, **kwargs)
+
 _mpl_axes.Axes.fill_between = _patched_fill_between
 _mpl_axes.Axes.fill = _patched_fill
 _mpl_axes.Axes.plot = _patched_plot
 _mpl_axes.Axes.text = _patched_text
 _mpl_axes.Axes.axhline = _patched_axhline
 _mpl_axes.Axes.axvline = _patched_axvline
+_mpl_axes.Axes.arrow = _patched_arrow
 _mpl_figure.Figure.text = _patched_fig_text
 '''
 
@@ -166,6 +184,7 @@ def execute_notebook_highlighted(
     notebook_call: str,
     repo_root: Path = REPO_ROOT,
     timeout_seconds: int = 300,
+    data_file_path: str | None = None,
 ) -> tuple[bool, str, list[str]]:
     """
     Execute a modified copy of the notebook that greys out all existing limits
@@ -173,6 +192,9 @@ def execute_notebook_highlighted(
 
     The resulting plot files are saved with a ``_highlighted`` suffix so they
     don't overwrite the standard plots.
+
+    *data_file_path* (relative, e.g. "limit_data/AxionPhoton/X.txt") is used
+    to overlay a bright marker at the limit's data points.
 
     Returns (success, stderr, list_of_highlight_plot_relative_paths).
     """
@@ -186,6 +208,18 @@ def execute_notebook_highlighted(
     nb = copy.deepcopy(nb)
 
     call_line = notebook_call.strip()
+
+    # Build the highlighted call: force bright red colour and thick edges,
+    # then overlay a prominent marker so the limit is unmissable even for
+    # single-point data files.
+    # Parse "CouplingClass.Method(ax)" or "CouplingClass.Method(ax, ...)"
+    hl_match = re.match(r"(\w+\.\w+)\(ax(.*)\)", call_line)
+    if hl_match:
+        method_ref = hl_match.group(1)  # e.g. "AxionPhoton.DALI_Prototype"
+        extra_args = hl_match.group(2)  # e.g. "" or ", fs=20"
+        hl_call = f"{method_ref}(ax{extra_args}, col='red', lw=3)"
+    else:
+        hl_call = call_line
 
     # 1. Inject the monkey-patch cell at position 0
     patch_cell = {
@@ -207,10 +241,19 @@ def execute_notebook_highlighted(
         if call_line not in source:
             continue
 
-        # Wrap the call so only it draws in colour
+        # Wrap the call so only it draws in colour, with bright red override.
+        # Also overlay a prominent marker so the limit stands out even for
+        # single-data-point files.
+        marker_code = ""
+        if data_file_path:
+            marker_code = (
+                f'_hl_dat = loadtxt("{data_file_path}", ndmin=2)\n'
+                f'ax.plot(_hl_dat[:,0], _hl_dat[:,1], "r*", markersize=25, '
+                f'zorder=1000, markeredgecolor="darkred", markeredgewidth=0.5)\n'
+            )
         source = source.replace(
             call_line,
-            f"_HIGHLIGHT_ACTIVE = True\n{call_line}\n_HIGHLIGHT_ACTIVE = False",
+            f"_HIGHLIGHT_ACTIVE = True\n{hl_call}\n{marker_code}_HIGHLIGHT_ACTIVE = False",
         )
 
         # Rename MySaveFig outputs → *_highlighted

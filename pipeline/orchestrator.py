@@ -151,6 +151,7 @@ def _process_paper(paper, paper_id: str, client: anthropic.Anthropic, state: dic
     # Generate highlighted plot (new limit in colour, everything else grey)
     hl_ok, hl_err, highlight_files = execute_notebook_highlighted(
         review.notebook_path, review.notebook_call, REPO_ROOT,
+        data_file_path=review.data_file_path,
     )
     if not hl_ok:
         logger.warning("Highlighted plot generation failed: %s", hl_err[-500:])
