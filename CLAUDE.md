@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is **AutoAxionLimits** — a fork of `cajohare/AxionLimits` with two automated pipelines built on top:
 
 1. **Daily arXiv digest** (`pipeline/orchestrator.py`): Monitors arXiv for new dark matter limit papers, extracts data via Claude agents, and opens a GitHub PR per new limit.
-2. **Weekly preprint checker** (`pipeline/preprint_checker.py`): Scans existing data files for arXiv IDs, detects updated preprint versions with changed results, and opens PRs.
+2. **Weekly preprint checker** (`pipeline/preprint_checker.py`): Scans existing data files for arXiv IDs, detects updated preprint versions with changed results, and opens PRs. Also flags published papers whose published version yields no extractable data (`[NEEDS REVIEW]` PRs).
 
 All updates go through PRs — nothing merges to master automatically.
 
@@ -79,6 +79,7 @@ pipeline/
 - **Shell injection prevention**: `workflow_dispatch` inputs are passed to shell scripts via env vars, never interpolated directly into the command string.
 - **`@staticmethod` guarantee**: A post-generation guard in `reviewer.py` prepends `@staticmethod` to any LLM-generated method that omits it.
 - **Highlighted plots**: `execute_notebook_highlighted()` in `plot_regen.py` generates a greyed-out version of the constraint plot with only the new limit in red. Theoretical benchmarks (QCD axion band) are preserved in their original colours. The highlighted plot is shown prominently in the PR body.
+- **Published paper handling**: When a tracked preprint transitions to published, the checker still runs extraction and comparison (no early short-circuit). If the published version yields no data, a `[NEEDS REVIEW]` flag PR is created instead of silently skipping. Papers are only marked `"published": true` in state after the transition is fully processed.
 - **PR separation**: Pipeline/infrastructure changes and new limit proposals must always be in separate PRs. Never mix technical updates with science content.
 
 ## Running the Code
