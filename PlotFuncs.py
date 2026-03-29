@@ -1460,6 +1460,12 @@ class AxionPhoton():
         FilledLimit(ax,dat,text_label,text_pos=text_pos,col=col,text_col=text_col,edgecolor=edgecolor,edgealpha=1,fs=fs,zorder=zorder,text_on=text_on,lw=lw,ha='right',facealpha=facealpha)
         return
 
+    @staticmethod
+    def eROSITA_LMC_DR1(ax,text_label=r'{\bf eROSITA LMC}',text_pos=[3e3,3e-16],col='#4a7ab5',edgecolor='k',text_col='#4a7ab5',fs=15,zorder=0.00001,text_on=True,lw=1.5,facealpha=1):
+        dat = loadtxt("limit_data/AxionPhoton/eROSITA_LMC_DR1.txt")
+        FilledLimit(ax,dat,text_label,text_pos=text_pos,col=col,text_col=text_col,edgecolor=edgecolor,edgealpha=1,fs=fs,zorder=zorder,text_on=text_on,lw=lw,ha='right',facealpha=facealpha)
+        return
+
     def M82_decay(ax,text_label=r'{\bf M82}',text_pos=[0.4e6,7e-12],col='#105631',edgecolor='k',text_col='w',fs=17,zorder=0.008,text_on=True,lw=1.5,facealpha=1,rotation=-55,edgealpha=1):
         dat = loadtxt("limit_data/AxionPhoton/M82_decay.txt")
         FilledLimit(ax,dat,text_label,text_pos=text_pos,col=col,text_col=text_col,

@@ -1,0 +1,21 @@
+# Searching for dark matter X-ray lines from the Large Magellanic Cloud with eROSITA
+# arXiv: https://arxiv.org/abs/2603.19109
+# Coupling type: AxionPhoton
+# Extracted from: text
+# Confidence level: 0.95
+# Extraction confidence: 0.45
+# mass [eV]    coupling
+2.000000e+03   3.000000e-17
+2.500000e+03   2.000000e-17
+3.000000e+03   1.500000e-17
+4.000000e+03   1.200000e-17
+5.000000e+03   1.100000e-17
+6.000000e+03   1.300000e-17
+7.000000e+03   1.500000e-17
+8.000000e+03   1.800000e-17
+9.000000e+03   2.200000e-17
+1.000000e+04   2.800000e-17
+1.200000e+04   4.000000e-17
+1.400000e+04   6.000000e-17
+1.600000e+04   9.000000e-17
+1.800000e+04   1.400000e-16
