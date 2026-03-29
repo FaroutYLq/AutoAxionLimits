@@ -88,6 +88,7 @@ def create_pull_request(
     review: ReviewResult,
     extraction: ExtractionResult,
     repo_root: Path = REPO_ROOT,
+    highlight_files: list[str] | None = None,
 ) -> str:
     """Push branch and open a GitHub PR. Returns the PR URL."""
     _run_git(["push", "-u", "origin", branch_name], repo_root)
@@ -128,6 +129,21 @@ def create_pull_request(
     plot_stem = plot_names[0] if plot_names else coupling
     plot_png = f"https://raw.githubusercontent.com/FaroutYLq/AutoAxionLimits/{branch_name}/plots/plots_png/{plot_stem}.png"
 
+    # Highlighted plot: new limit in colour, everything else grey
+    highlight_png_files = [f for f in (highlight_files or []) if f.endswith(".png")]
+    if highlight_png_files:
+        hl_stem = Path(highlight_png_files[0]).name
+        hl_png = f"https://raw.githubusercontent.com/FaroutYLq/AutoAxionLimits/{branch_name}/plots/plots_png/{hl_stem}"
+        plot_section = (
+            f"## Highlighted Plot (new limit in colour)\n\n"
+            f"![{review.experiment_name} highlighted]({hl_png})\n\n"
+            f"<details><summary>Full plot with all colours</summary>\n\n"
+            f"![{coupling} limits]({plot_png})\n\n"
+            f"</details>\n\n"
+        )
+    else:
+        plot_section = f"## Plot\n\n![{coupling} limits]({plot_png})\n\n"
+
     body = (
         f"## New Limit: {review.experiment_name}\n\n"
         f"**Paper:** [{review.paper_title}]({review.arxiv_url})\n"
@@ -143,8 +159,7 @@ def create_pull_request(
         f"- `{review.plotfuncs_file}` (new method `{review.plotfuncs_class}.{review.experiment_name}`)\n"
         f"- `{review.notebook_path}`\n"
         f"- `{review.docs_file}`\n\n"
-        f"## Plot\n\n"
-        f"![{coupling} limits]({plot_png})\n\n"
+        f"{plot_section}"
         f"---\n"
         f"> All updates are PRs — nothing merges automatically. "
         f"Please verify extraction accuracy before merging.\n\n"
