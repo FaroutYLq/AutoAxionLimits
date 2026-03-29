@@ -242,18 +242,25 @@ def execute_notebook_highlighted(
             continue
 
         # Wrap the call so only it draws in colour, with bright red override.
-        # Also overlay a prominent marker so the limit stands out even for
-        # single-data-point files.
-        marker_code = ""
+        # For single-point or narrow limits the fill_between spike is
+        # infinitely thin and invisible, so we re-draw the limit as a
+        # visible red band with a small finite width in log-space.
+        spike_code = ""
         if data_file_path:
-            marker_code = (
+            spike_code = (
                 f'_hl_dat = loadtxt("{data_file_path}", ndmin=2)\n'
-                f'ax.plot(_hl_dat[:,0], _hl_dat[:,1], "r*", markersize=25, '
-                f'zorder=1000, markeredgecolor="darkred", markeredgewidth=0.5)\n'
+                f'_hl_y2 = ax.get_ylim()[1]\n'
+                f'for _hl_row in _hl_dat:\n'
+                f'    _hl_m, _hl_g = _hl_row[0], _hl_row[1]\n'
+                f'    _hl_w = _hl_m * 0.15\n'
+                f'    ax.fill_between([_hl_m - _hl_w, _hl_m + _hl_w],\n'
+                f'        [_hl_g, _hl_g], y2=_hl_y2,\n'
+                f'        facecolor="red", edgecolor="darkred", '
+                f'lw=1.5, zorder=1000, alpha=0.85)\n'
             )
         source = source.replace(
             call_line,
-            f"_HIGHLIGHT_ACTIVE = True\n{hl_call}\n{marker_code}_HIGHLIGHT_ACTIVE = False",
+            f"_HIGHLIGHT_ACTIVE = True\n{hl_call}\n{spike_code}_HIGHLIGHT_ACTIVE = False",
         )
 
         # Rename MySaveFig outputs → *_highlighted
