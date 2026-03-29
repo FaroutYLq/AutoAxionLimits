@@ -241,7 +241,22 @@ def execute_notebook_highlighted(
         if call_line not in source:
             continue
 
-        # Wrap the call so only it draws in colour, with bright red override.
+        # Keep theoretical benchmarks (QCD axion band, etc.) in their
+        # original colours — only experimental constraints should be grey.
+        _THEORY_PATTERNS = [".QCDAxion(", ".BlackHoleSpins("]
+        lines = source.split("\n")
+        new_lines = []
+        for line in lines:
+            stripped = line.strip()
+            if any(pat in stripped for pat in _THEORY_PATTERNS) and not stripped.startswith("#"):
+                new_lines.append("_HIGHLIGHT_ACTIVE = True")
+                new_lines.append(line)
+                new_lines.append("_HIGHLIGHT_ACTIVE = False")
+            else:
+                new_lines.append(line)
+        source = "\n".join(new_lines)
+
+        # Wrap the new limit call so it draws in bright red.
         # For single-point or narrow limits the fill_between spike is
         # infinitely thin and invisible, so we re-draw the limit as a
         # visible red band with a small finite width in log-space.
