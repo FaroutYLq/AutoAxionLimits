@@ -100,10 +100,10 @@ def scan_data_files_for_arxiv_ids(repo_root: Path = REPO_ROOT) -> dict[str, str]
 # arXiv version checking
 # ---------------------------------------------------------------------------
 
-def get_latest_version(arxiv_id: str) -> tuple[int, bool]:
+def get_latest_version(arxiv_id: str) -> tuple[int, bool, arxiv.Result]:
     """
     Query arXiv for the latest version number and whether the paper is published.
-    Returns (latest_version_number, is_published).
+    Returns (latest_version_number, is_published, paper).
     """
     client_arxiv = arxiv.Client(delay_seconds=3, num_retries=3)
     search = arxiv.Search(id_list=[arxiv_id])
@@ -117,7 +117,7 @@ def get_latest_version(arxiv_id: str) -> tuple[int, bool]:
     version = int(version_match.group(1)) if version_match else 1
 
     published = is_published(paper)
-    return version, published
+    return version, published, paper
 
 
 def is_published(paper: arxiv.Result) -> bool:
@@ -238,7 +238,7 @@ def run_weekly_check(
             continue
 
         try:
-            latest_version, published = get_latest_version(arxiv_id)
+            latest_version, published, new_paper = get_latest_version(arxiv_id)
         except Exception as e:
             logger.warning("Could not check %s (%s): %s", file_path, arxiv_id, e)
             continue
@@ -274,14 +274,6 @@ def run_weekly_check(
             "%s: new version v%d (was v%d)", arxiv_id, latest_version, known_version
         )
 
-        client_arxiv = arxiv.Client(delay_seconds=3, num_retries=3)
-        papers = list(client_arxiv.results(arxiv.Search(id_list=[arxiv_id])))
-        new_paper = papers[0] if papers else None
-
-        if new_paper is None:
-            logger.warning("Could not fetch paper %s", arxiv_id)
-            continue
-
         # Extract data from new version
         with tempfile.TemporaryDirectory() as tmpdir:
             try:
@@ -302,7 +294,6 @@ def run_weekly_check(
                     "known_version": latest_version,
                     "last_checked": now_iso,
                     "published": True,
-                    "needs_review": True,
                 }
                 state["last_checked"] = now_iso
                 save_version_state(state)
@@ -336,6 +327,8 @@ def run_weekly_check(
             logger.info("Data unchanged for %s v%d", arxiv_id, latest_version)
             state["files"][file_path]["known_version"] = latest_version
             state["files"][file_path]["last_checked"] = now_iso
+            if published:
+                state["files"][file_path]["published"] = True
             continue
 
         # Data changed — create PR
@@ -391,10 +384,7 @@ def _create_removal_flag_pr(
 
     from .pr_creator import _run_git, _run_gh
 
-    try:
-        _run_git(["checkout", "-b", branch], repo_root)
-    except Exception:
-        _run_git(["checkout", branch], repo_root)
+    _run_git(["checkout", "-B", branch], repo_root)
 
     # Commit only the updated state file (no data file changes)
     state_file_rel = str(STATE_PATH.relative_to(repo_root))
@@ -471,10 +461,7 @@ def _create_update_pr(
 
     from .pr_creator import _run_git, _run_gh
 
-    try:
-        _run_git(["checkout", "-b", branch], repo_root)
-    except Exception:
-        _run_git(["checkout", branch], repo_root)
+    _run_git(["checkout", "-B", branch], repo_root)
 
     state_file_rel = str(STATE_PATH.relative_to(repo_root))
     commit_msg = (
