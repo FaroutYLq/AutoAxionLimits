@@ -139,3 +139,4 @@ dmypy.json
 # AutoAxionLimits pipeline
 pipeline/logs/
 pipeline/state/*.tmp
+*_highlighted_tmp.ipynb
