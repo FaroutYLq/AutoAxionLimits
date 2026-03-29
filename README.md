@@ -1,7 +1,16 @@
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3932430.svg)](https://doi.org/10.5281/zenodo.3932430)
 
-> **AutoAxionLimits fork**: this repository includes automated pipelines that monitor arXiv for new limits and open pull requests. See [docs/pipeline.md](docs/pipeline.md) for details.
+> **AutoAxionLimits fork**: this repository extends the upstream repo with automated pipelines that keep limit plots up to date. See below and [docs/pipeline.md](docs/pipeline.md) for details.
+
+### Automated limit updates
+
+Two GitHub Actions pipelines keep this repository current with new experimental results:
+
+- **Daily arXiv digest** — scans arXiv each morning for new dark matter limit papers, uses Claude to extract constraint data from PDFs, and opens a PR with the new data file, plotting code, and a highlighted comparison plot.
+- **Weekly preprint checker** — detects when an existing paper (already in the repo) publishes a new arXiv version with updated results, and opens a PR to refresh the data.
+
+Every update goes through a pull request for human review — nothing merges automatically. Low-confidence extractions are flagged in the PR title. Pipeline code lives in `pipeline/` and can be run locally with `python -m pipeline.orchestrator` (daily) or `python -m pipeline.preprint_checker` (weekly). Both support `--dry-run`.
 
 ---
 
