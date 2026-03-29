@@ -130,50 +130,134 @@ def _parse_paper_result(paper: arxiv.Result) -> tuple[int, bool]:
 
 def batch_get_latest_versions(
     arxiv_ids: list[str],
-    batch_size: int = 50,
+    batch_size: int = 20,
 ) -> dict[str, tuple[int, bool, arxiv.Result]]:
     """
     Fetch version info for many arXiv IDs using batched API calls.
     Returns {arxiv_id: (version, is_published, paper)} for each found paper.
     Papers that could not be fetched are omitted from the result.
+
+    Uses httpx directly with exponential backoff to handle arXiv rate limits
+    more gracefully than the arxiv library's built-in retry logic.
     """
     import time
+    import xml.etree.ElementTree as ET
+
+    import httpx
 
     results: dict[str, tuple[int, bool, arxiv.Result]] = {}
-    # Deduplicate while preserving order
     unique_ids = list(dict.fromkeys(arxiv_ids))
+    base_url = "https://export.arxiv.org/api/query"
 
     for i in range(0, len(unique_ids), batch_size):
         batch = unique_ids[i : i + batch_size]
-        client_arxiv = arxiv.Client(delay_seconds=5, num_retries=5)
-        search = arxiv.Search(id_list=batch)
+        batch_num = i // batch_size + 1
+        total_batches = (len(unique_ids) + batch_size - 1) // batch_size
 
-        try:
-            papers = list(client_arxiv.results(search))
-        except Exception as e:
-            logger.warning(
-                "Batch fetch failed for IDs %d–%d: %s", i, i + len(batch), e
+        # Retry with exponential backoff
+        fetched = False
+        for attempt in range(6):
+            if attempt > 0:
+                wait = min(10 * (2 ** (attempt - 1)), 120)  # 10, 20, 40, 80, 120s
+                logger.info(
+                    "Batch %d/%d: retry %d, waiting %ds...",
+                    batch_num, total_batches, attempt, wait,
+                )
+                time.sleep(wait)
+
+            try:
+                resp = httpx.get(
+                    base_url,
+                    params={
+                        "id_list": ",".join(batch),
+                        "max_results": str(len(batch)),
+                    },
+                    timeout=30,
+                )
+                if resp.status_code == 429:
+                    logger.warning(
+                        "Batch %d/%d: HTTP 429 (attempt %d/6)",
+                        batch_num, total_batches, attempt + 1,
+                    )
+                    continue
+                resp.raise_for_status()
+            except Exception as e:
+                logger.warning(
+                    "Batch %d/%d: request failed (attempt %d/6): %s",
+                    batch_num, total_batches, attempt + 1, e,
+                )
+                continue
+
+            # Parse the Atom XML feed
+            try:
+                papers = _parse_arxiv_feed(resp.text)
+            except Exception as e:
+                logger.warning("Batch %d/%d: XML parse failed: %s", batch_num, total_batches, e)
+                break
+
+            for paper in papers:
+                short_id = paper.get_short_id().split("v")[0]
+                version, published = _parse_paper_result(paper)
+                results[short_id] = (version, published, paper)
+
+            logger.info(
+                "Batch %d/%d: fetched %d papers", batch_num, total_batches, len(papers),
             )
-            # Wait longer before retrying next batch
-            time.sleep(10)
-            continue
+            fetched = True
+            break
 
-        for paper in papers:
-            # Extract the base arXiv ID (without version) from the entry_id
-            short_id = paper.get_short_id().split("v")[0]
-            version, published = _parse_paper_result(paper)
-            results[short_id] = (version, published, paper)
+        if not fetched:
+            logger.warning(
+                "Batch %d/%d: all retries exhausted for IDs %d–%d",
+                batch_num, total_batches, i, i + len(batch),
+            )
 
-        # Respect rate limits between batches
+        # Polite delay between successful batches
         if i + batch_size < len(unique_ids):
-            time.sleep(5)
+            time.sleep(3)
 
     logger.info(
         "Batch-fetched %d/%d arXiv papers in %d batches",
-        len(results), len(unique_ids),
-        (len(unique_ids) + batch_size - 1) // batch_size,
+        len(results), len(unique_ids), total_batches,
     )
     return results
+
+
+# Atom XML namespace used by arXiv API
+_ATOM_NS = "http://www.w3.org/2005/Atom"
+_ARXIV_NS = "http://arxiv.org/schemas/atom"
+
+
+def _parse_arxiv_feed(xml_text: str) -> list[arxiv.Result]:
+    """Parse arXiv Atom XML feed into arxiv.Result objects."""
+    import xml.etree.ElementTree as ET
+
+    root = ET.fromstring(xml_text)
+    papers: list[arxiv.Result] = []
+
+    for entry in root.findall(f"{{{_ATOM_NS}}}entry"):
+        entry_id = entry.findtext(f"{{{_ATOM_NS}}}id", "")
+        # Skip error entries (arXiv returns these for invalid IDs)
+        if not entry_id or "arxiv.org" not in entry_id:
+            continue
+
+        title = entry.findtext(f"{{{_ATOM_NS}}}title", "").strip()
+        summary = entry.findtext(f"{{{_ATOM_NS}}}summary", "").strip()
+        comment = entry.findtext(f"{{{_ARXIV_NS}}}comment", "") or ""
+        journal_ref = entry.findtext(f"{{{_ARXIV_NS}}}journal_ref", "") or ""
+        doi_el = entry.findtext(f"{{{_ARXIV_NS}}}doi", "") or ""
+
+        paper = arxiv.Result(
+            entry_id=entry_id,
+            title=title,
+            summary=summary,
+            comment=comment.strip(),
+            journal_ref=journal_ref.strip(),
+            doi=doi_el.strip(),
+        )
+        papers.append(paper)
+
+    return papers
 
 
 def is_published(paper: arxiv.Result) -> bool:
