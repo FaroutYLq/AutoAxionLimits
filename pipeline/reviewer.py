@@ -239,6 +239,9 @@ You will be given:
 Generate a COMPLETE static method following the EXACT same style (loadtxt, fill_between,
 y2 = ax.get_ylim()[1], conditional text_on, etc.).
 
+CRITICAL: Always use `loadtxt(..., ndmin=2)` to ensure the data array is 2D even for
+single-row data files. Without ndmin=2, loadtxt returns a 1D array and dat[:,0] will crash.
+
 IMPORTANT requirements:
 - The output must start with the LITERAL decorator line `    @staticmethod`
 - Then the `def` line indented by 4 spaces
@@ -251,11 +254,12 @@ The method signature must be:
 
 _EXEMPLAR_METHODS = [
     # A minimal single-dataset method (SENSEI pattern) — includes @staticmethod decorator
+    # ndmin=2 ensures loadtxt always returns a 2D array even for single-row data files
     textwrap.dedent("""\
         @staticmethod
         def SENSEI(ax,col='firebrick',fs=21,text_on=True,lw=1.5):
             y2 = ax.get_ylim()[1]
-            dat = loadtxt("limit_data/DarkPhoton/SENSEI.txt")
+            dat = loadtxt("limit_data/DarkPhoton/SENSEI.txt",ndmin=2)
             dat[:,1] = dat[:,1]*sqrt(0.3/0.45)
             plt.fill_between(dat[:,0],dat[:,1],y2=y2,edgecolor=None,facecolor=col,zorder=1)
             plt.plot(dat[:,0],dat[:,1],color='k',alpha=1,zorder=1,lw=lw)
@@ -297,7 +301,17 @@ def generate_plotfuncs_method(
     # Guarantee @staticmethod is present — if the LLM omitted it, prepend it
     if not re.search(r"^\s*@staticmethod", code, re.MULTILINE):
         code = "@staticmethod\n" + code
+    # Guarantee ndmin=2 in loadtxt calls — single-row data files return 1D arrays without it
+    code = re.sub(r'loadtxt\(([^)]*?)(?<!ndmin=2)\)', _ensure_ndmin2, code)
     return code
+
+
+def _ensure_ndmin2(match: re.Match) -> str:
+    """Add ndmin=2 to a loadtxt() call if not already present."""
+    args = match.group(1)
+    if "ndmin" in args:
+        return match.group(0)
+    return f"loadtxt({args.rstrip()},ndmin=2)"
 
 
 # ---------------------------------------------------------------------------
@@ -366,8 +380,8 @@ def insert_method_into_plotfuncs(
 
     # Indent: 4 spaces for class body
     indent = "    "
-    # Ensure @staticmethod and def are both properly indented
-    indented_method = textwrap.indent(method_code.rstrip(), indent) + "\n"
+    # Dedent first (LLM may return pre-indented code), then re-indent to class level
+    indented_method = textwrap.indent(textwrap.dedent(method_code.rstrip()), indent) + "\n"
 
     # Insert after last_method_end (lines list is 0-indexed; line N is index N-1).
     # Inserting at index `last_method_end` places content after line last_method_end.
