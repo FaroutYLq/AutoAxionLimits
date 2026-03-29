@@ -9,6 +9,7 @@ import logging
 import os
 import re
 import tempfile
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
@@ -26,37 +27,70 @@ STATE_PATH = Path(__file__).parent / "state" / "processed.json"
 # arXiv fetching
 # ---------------------------------------------------------------------------
 
-def _build_query(days_back: int = 3) -> str:
-    """Build a broad OR query across all tracked keywords."""
-    all_keywords: set[str] = set()
-    for kws in ARXIV_KEYWORDS.values():
-        all_keywords.update(kws)
+def _build_queries() -> list[str]:
+    """Build per-coupling-group queries to keep each URL short.
 
-    # arXiv search uses ti: (title) or abs: (abstract) prefixes.
-    # We search abs: to capture results tables / intro mentions too.
-    keyword_query = " OR ".join(f'abs:"{kw}"' for kw in sorted(all_keywords))
+    arXiv rate-limits aggressively on very long query strings.  Splitting
+    into smaller batches avoids HTTP 429 / 503 failures.
+    """
     cat_query = " OR ".join(f"cat:{c}" for c in ARXIV_CATEGORIES)
-    return f"({keyword_query}) AND ({cat_query})"
+
+    # Group coupling types into batches so each query has a manageable
+    # number of keywords (roughly ≤20 phrases per request).
+    MAX_KEYWORDS_PER_BATCH = 20
+    all_keywords_ordered: list[str] = []
+    seen: set[str] = set()
+    for kws in ARXIV_KEYWORDS.values():
+        for kw in kws:
+            if kw not in seen:
+                seen.add(kw)
+                all_keywords_ordered.append(kw)
+
+    queries: list[str] = []
+    for i in range(0, len(all_keywords_ordered), MAX_KEYWORDS_PER_BATCH):
+        batch = all_keywords_ordered[i : i + MAX_KEYWORDS_PER_BATCH]
+        keyword_query = " OR ".join(f'abs:"{kw}"' for kw in batch)
+        queries.append(f"({keyword_query}) AND ({cat_query})")
+    return queries
 
 
 def fetch_recent_papers(days_back: int = 3, max_results: int = 200) -> list[arxiv.Result]:
-    """Return recent arXiv papers matching dark matter / axion / dark photon keywords."""
-    query = _build_query(days_back)
-    client = arxiv.Client(delay_seconds=3, num_retries=3)
-    search = arxiv.Search(
-        query=query,
-        max_results=max_results,
-        sort_by=arxiv.SortCriterion.SubmittedDate,
-        sort_order=arxiv.SortOrder.Descending,
-    )
-    results = list(client.results(search))
-    logger.info("Fetched %d papers from arXiv", len(results))
+    """Return recent arXiv papers matching dark matter / axion / dark photon keywords.
+
+    Splits the keyword list into smaller batches and queries arXiv
+    separately for each batch to avoid HTTP 429 rate-limit errors on
+    very long query strings.  Results are deduplicated by arXiv ID.
+    """
+    queries = _build_queries()
+    client = arxiv.Client(delay_seconds=5, num_retries=5)
+
+    seen_ids: set[str] = set()
+    results: list[arxiv.Result] = []
+
+    for idx, query in enumerate(queries):
+        if idx > 0:
+            # Polite pause between batch requests to avoid rate-limiting.
+            time.sleep(5)
+        logger.info("arXiv query batch %d/%d", idx + 1, len(queries))
+        search = arxiv.Search(
+            query=query,
+            max_results=max_results,
+            sort_by=arxiv.SortCriterion.SubmittedDate,
+            sort_order=arxiv.SortOrder.Descending,
+        )
+        for paper in client.results(search):
+            pid = _arxiv_id(paper)
+            if pid not in seen_ids:
+                seen_ids.add(pid)
+                results.append(paper)
+
+    logger.info("Fetched %d unique papers from arXiv (%d batches)", len(results), len(queries))
     return results
 
 
 def fetch_paper_by_id(arxiv_id: str) -> arxiv.Result:
     """Fetch a single paper by arXiv ID."""
-    client = arxiv.Client(delay_seconds=3, num_retries=3)
+    client = arxiv.Client(delay_seconds=5, num_retries=5)
     search = arxiv.Search(id_list=[arxiv_id])
     results = list(client.results(search))
     if not results:
