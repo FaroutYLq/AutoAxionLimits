@@ -257,20 +257,25 @@ def execute_notebook_highlighted(
         source = "\n".join(new_lines)
 
         # Wrap the new limit call so it draws in bright red.
-        # For single-point or narrow limits the fill_between spike is
-        # infinitely thin and invisible, so we re-draw the limit as a
-        # visible red band with a small finite width in log-space.
+        # Re-draw the limit data as a bright overlay so it is unmissable.
+        # For multi-point limits draw a single continuous fill_between;
+        # for single-point limits draw a spike with finite width.
         spike_code = ""
         if data_file_path:
             spike_code = (
                 f'_hl_dat = loadtxt("{data_file_path}", ndmin=2)\n'
                 f'_hl_y2 = ax.get_ylim()[1]\n'
-                f'for _hl_row in _hl_dat:\n'
-                f'    _hl_m, _hl_g = _hl_row[0], _hl_row[1]\n'
-                f'    _hl_w = _hl_m * 0.15\n'
-                f'    ax.fill_between([_hl_m - _hl_w, _hl_m + _hl_w],\n'
-                f'        [_hl_g, _hl_g], y2=_hl_y2,\n'
+                f'if len(_hl_dat) > 2:\n'
+                f'    ax.fill_between(_hl_dat[:,0], _hl_dat[:,1], y2=_hl_y2,\n'
                 f'        facecolor="red", edgecolor="darkred", '
+                f'lw=1.5, zorder=1000, alpha=0.85)\n'
+                f'else:\n'
+                f'    for _hl_row in _hl_dat:\n'
+                f'        _hl_m, _hl_g = _hl_row[0], _hl_row[1]\n'
+                f'        _hl_w = _hl_m * 0.15\n'
+                f'        ax.fill_between([_hl_m - _hl_w, _hl_m + _hl_w],\n'
+                f'            [_hl_g, _hl_g], y2=_hl_y2,\n'
+                f'            facecolor="red", edgecolor="darkred", '
                 f'lw=1.5, zorder=1000, alpha=0.85)\n'
             )
         source = source.replace(
