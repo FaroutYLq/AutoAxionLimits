@@ -50,7 +50,7 @@ pipeline/
   extractor.py        # Claude extraction agent: PDF → ExtractionResult
   reviewer.py         # Claude reviewer agent: ExtractionResult → repo artifacts
   preprint_checker.py # Weekly: scan existing files, detect updated preprints
-  plot_regen.py       # Headless notebook execution via nbconvert
+  plot_regen.py       # Headless notebook execution + highlighted plot generation
   pr_creator.py       # git branch + commit + gh pr create
   orchestrator.py     # Daily digest entrypoint
   state/
@@ -78,6 +78,8 @@ pipeline/
 - **Notebook selection**: `_select_notebook()` picks the target notebook by mass range — ultralight (< 1 μeV), collider (> 10 keV), or primary.
 - **Shell injection prevention**: `workflow_dispatch` inputs are passed to shell scripts via env vars, never interpolated directly into the command string.
 - **`@staticmethod` guarantee**: A post-generation guard in `reviewer.py` prepends `@staticmethod` to any LLM-generated method that omits it.
+- **Highlighted plots**: `execute_notebook_highlighted()` in `plot_regen.py` generates a greyed-out version of the constraint plot with only the new limit in red. Theoretical benchmarks (QCD axion band) are preserved in their original colours. The highlighted plot is shown prominently in the PR body.
+- **PR separation**: Pipeline/infrastructure changes and new limit proposals must always be in separate PRs. Never mix technical updates with science content.
 
 ## Running the Code
 
