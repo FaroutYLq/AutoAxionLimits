@@ -1,0 +1,10 @@
+# First Limits on Axion Dark Matter from a DALI Prototype
+# arXiv: https://arxiv.org/abs/2603.21951
+# Coupling type: AxionPhoton
+# Extracted from: text
+# Confidence level: 0.9
+# Extraction confidence: 0.75
+# Corrections applied:
+#   DM density: paper=0.3 GeV/cm³ → repo=0.45 GeV/cm³; factor=sqrt(0.45/0.3)=1.2247
+# mass [eV]    coupling
+2.853000e-05   1.555426e-11
