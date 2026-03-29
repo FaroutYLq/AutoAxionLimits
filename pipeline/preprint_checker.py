@@ -216,8 +216,8 @@ def run_weekly_check(
     2. Load version state.
     3. For each file:
        a. Check latest version on arXiv.
-       b. If published: mark, stop tracking.
-       c. If newer version: extract, compare, open PR if changed.
+       b. If newer version: extract, compare, open PR if changed.
+       c. If published + no data: flag for review.
     4. Save state.
     """
     api_key = __import__("os").environ.get("ANTHROPIC_API_KEY")
@@ -253,28 +253,20 @@ def run_weekly_check(
             }
             continue
 
-        if published:
-            logger.info("%s is published; stopping tracking of %s", arxiv_id, file_path)
-            state["files"][file_path] = {
-                "arxiv_id": arxiv_id,
-                "known_version": latest_version,
-                "last_checked": now_iso,
-                "published": True,
-            }
-            continue
-
         # First time seeing this file — set baseline, no PR
         if known_version is None:
             state["files"][file_path] = {
                 "arxiv_id": arxiv_id,
                 "known_version": latest_version,
                 "last_checked": now_iso,
-                "published": False,
+                "published": published,
             }
             continue
 
         if latest_version <= known_version:
             state["files"][file_path]["last_checked"] = now_iso
+            if published:
+                state["files"][file_path]["published"] = True
             continue
 
         # New version available!
@@ -300,9 +292,39 @@ def run_weekly_check(
                 continue
 
         if not new_extraction.data_points:
-            logger.info("No data extracted from %s v%d", arxiv_id, latest_version)
-            state["files"][file_path]["known_version"] = latest_version
-            state["files"][file_path]["last_checked"] = now_iso
+            if published:
+                logger.warning(
+                    "Published paper %s v%d yielded no data — possible limit removal for %s",
+                    arxiv_id, latest_version, file_path,
+                )
+                state["files"][file_path] = {
+                    "arxiv_id": arxiv_id,
+                    "known_version": latest_version,
+                    "last_checked": now_iso,
+                    "published": True,
+                    "needs_review": True,
+                }
+                state["last_checked"] = now_iso
+                save_version_state(state)
+
+                if not dry_run:
+                    _create_removal_flag_pr(
+                        repo_root=repo_root,
+                        file_path=file_path,
+                        arxiv_id=arxiv_id,
+                        old_version=known_version,
+                        new_version=latest_version,
+                        new_paper=new_paper,
+                    )
+                else:
+                    logger.info(
+                        "[DRY RUN] Would create removal flag PR for %s v%d",
+                        arxiv_id, latest_version,
+                    )
+            else:
+                logger.info("No data extracted from %s v%d", arxiv_id, latest_version)
+                state["files"][file_path]["known_version"] = latest_version
+                state["files"][file_path]["last_checked"] = now_iso
             continue
 
         # Apply corrections
@@ -327,7 +349,7 @@ def run_weekly_check(
             "arxiv_id": arxiv_id,
             "known_version": latest_version,
             "last_checked": now_iso,
-            "published": False,
+            "published": published,
         }
         state["last_checked"] = now_iso
         save_version_state(state)
@@ -345,6 +367,7 @@ def run_weekly_check(
                 flagged=flagged,
                 change_summary=change_summary,
                 new_paper=new_paper,
+                published=published,
             )
         else:
             logger.info("[DRY RUN] Would create PR for %s v%d→v%d", arxiv_id, known_version, latest_version)
@@ -352,6 +375,71 @@ def run_weekly_check(
     state["last_checked"] = now_iso
     save_version_state(state)
     logger.info("Preprint check complete.")
+
+
+def _create_removal_flag_pr(
+    repo_root: Path,
+    file_path: str,
+    arxiv_id: str,
+    old_version: int,
+    new_version: int,
+    new_paper: arxiv.Result,
+) -> None:
+    """Create a flag PR when a published paper yields no extractable data."""
+    experiment_name = Path(file_path).stem
+    branch = f"pipeline/review-{arxiv_id.replace('.', '-')}-v{new_version}"
+
+    from .pr_creator import _run_git, _run_gh
+
+    try:
+        _run_git(["checkout", "-b", branch], repo_root)
+    except Exception:
+        _run_git(["checkout", branch], repo_root)
+
+    # Commit only the updated state file (no data file changes)
+    state_file_rel = str(STATE_PATH.relative_to(repo_root))
+    commit_msg = (
+        f"Flag {experiment_name} for review: arXiv:{arxiv_id} v{new_version} (published)\n\n"
+        f"Published version yielded no extractable data.\n"
+        f"Auto-generated by preprint_checker\n"
+    )
+    try:
+        _run_git(["add", state_file_rel], repo_root)
+        _run_git(["commit", "-m", commit_msg], repo_root)
+        _run_git(["push", "-u", "origin", branch], repo_root)
+    except Exception:
+        _run_git(["checkout", "master"], repo_root)
+        raise
+
+    old_url = f"https://arxiv.org/abs/{arxiv_id}v{old_version}"
+    new_url = f"https://arxiv.org/abs/{arxiv_id}v{new_version}"
+
+    title = f"[NEEDS REVIEW] {experiment_name}: published version may have removed limit"
+    body = (
+        f"## Possible Limit Removal: {experiment_name}\n\n"
+        f"**Paper:** [{new_paper.title}]({new_url})\n\n"
+        f"**arXiv ID:** [{arxiv_id}]({new_url})\n"
+        f"- Old version: [v{old_version}]({old_url})\n"
+        f"- Published version: [v{new_version}]({new_url})\n\n"
+        f"> ⚠️ The published version of this paper yielded no extractable data points.\n"
+        f"> This may indicate that the limit has been removed or substantially changed\n"
+        f"> in the peer-reviewed version.\n\n"
+        f"## Action Required\n\n"
+        f"Please verify whether the limit in `{file_path}` is still valid by checking\n"
+        f"the published version of the paper.\n\n"
+        f"**No data files have been modified by this PR.**\n\n"
+        f"🤖 Generated by AutoAxionLimits preprint checker"
+    )
+
+    try:
+        _run_gh(
+            ["pr", "create", "--title", title, "--body", body, "--base", "master",
+             "--repo", "FaroutYLq/AutoAxionLimits"],
+            repo_root,
+        )
+        logger.info("Created removal flag PR for %s v%d", arxiv_id, new_version)
+    finally:
+        _run_git(["checkout", "master"], repo_root)
 
 
 def _create_update_pr(
@@ -366,6 +454,7 @@ def _create_update_pr(
     flagged: list[str],
     change_summary: str,
     new_paper: arxiv.Result,
+    published: bool = False,
 ) -> None:
     """Write updated data file and open a PR for a preprint update."""
     # Derive experiment name from file path
@@ -414,7 +503,7 @@ def _create_update_pr(
         f"**arXiv ID:** [{arxiv_id}]({new_url})\n"
         f"- Old version: [v{old_version}]({old_url})\n"
         f"- New version: [v{new_version}]({new_url})\n\n"
-        f"> Note: Paper is still a preprint (not yet peer-reviewed)\n\n"
+        f"> Note: {'Paper is now published in a journal. This is likely the final update.' if published else 'Paper is still a preprint (not yet peer-reviewed)'}\n\n"
         f"## What Changed\n\n{change_summary}\n\n"
         f"## Corrections Applied\n\n{corrections_md}\n\n"
         f"## Corrections Flagged for Human Review\n\n{flagged_md}\n\n"
