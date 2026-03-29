@@ -94,6 +94,7 @@ import matplotlib.axes as _mpl_axes
 import matplotlib.figure as _mpl_figure
 
 _orig_fill_between = _mpl_axes.Axes.fill_between
+_orig_fill = _mpl_axes.Axes.fill
 _orig_plot = _mpl_axes.Axes.plot
 _orig_text = _mpl_axes.Axes.text
 _orig_axhline = _mpl_axes.Axes.axhline
@@ -111,6 +112,14 @@ def _patched_fill_between(self, x, y1, y2=0, **kwargs):
         kwargs.pop('edgecolor', None)
         kwargs['edgecolor'] = None
     return _orig_fill_between(self, x, y1, y2=y2, **kwargs)
+
+def _patched_fill(self, *args, **kwargs):
+    if not _HIGHLIGHT_ACTIVE:
+        kwargs.pop('color', None)
+        kwargs['facecolor'] = _GREY_FACE
+        kwargs.pop('edgecolor', None)
+        kwargs['edgecolor'] = None
+    return _orig_fill(self, *args, **kwargs)
 
 def _patched_plot(self, *args, **kwargs):
     if not _HIGHLIGHT_ACTIVE:
@@ -143,6 +152,7 @@ def _patched_axvline(self, x=0, **kwargs):
     return _orig_axvline(self, x=x, **kwargs)
 
 _mpl_axes.Axes.fill_between = _patched_fill_between
+_mpl_axes.Axes.fill = _patched_fill
 _mpl_axes.Axes.plot = _patched_plot
 _mpl_axes.Axes.text = _patched_text
 _mpl_axes.Axes.axhline = _patched_axhline
