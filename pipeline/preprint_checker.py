@@ -120,6 +120,62 @@ def get_latest_version(arxiv_id: str) -> tuple[int, bool, arxiv.Result]:
     return version, published, paper
 
 
+def _parse_paper_result(paper: arxiv.Result) -> tuple[int, bool]:
+    """Extract version number and published status from an arxiv.Result."""
+    version_match = re.search(r"v(\d+)$", paper.entry_id)
+    version = int(version_match.group(1)) if version_match else 1
+    published = is_published(paper)
+    return version, published
+
+
+def batch_get_latest_versions(
+    arxiv_ids: list[str],
+    batch_size: int = 50,
+) -> dict[str, tuple[int, bool, arxiv.Result]]:
+    """
+    Fetch version info for many arXiv IDs using batched API calls.
+    Returns {arxiv_id: (version, is_published, paper)} for each found paper.
+    Papers that could not be fetched are omitted from the result.
+    """
+    import time
+
+    results: dict[str, tuple[int, bool, arxiv.Result]] = {}
+    # Deduplicate while preserving order
+    unique_ids = list(dict.fromkeys(arxiv_ids))
+
+    for i in range(0, len(unique_ids), batch_size):
+        batch = unique_ids[i : i + batch_size]
+        client_arxiv = arxiv.Client(delay_seconds=5, num_retries=5)
+        search = arxiv.Search(id_list=batch)
+
+        try:
+            papers = list(client_arxiv.results(search))
+        except Exception as e:
+            logger.warning(
+                "Batch fetch failed for IDs %d–%d: %s", i, i + len(batch), e
+            )
+            # Wait longer before retrying next batch
+            time.sleep(10)
+            continue
+
+        for paper in papers:
+            # Extract the base arXiv ID (without version) from the entry_id
+            short_id = paper.get_short_id().split("v")[0]
+            version, published = _parse_paper_result(paper)
+            results[short_id] = (version, published, paper)
+
+        # Respect rate limits between batches
+        if i + batch_size < len(unique_ids):
+            time.sleep(5)
+
+    logger.info(
+        "Batch-fetched %d/%d arXiv papers in %d batches",
+        len(results), len(unique_ids),
+        (len(unique_ids) + batch_size - 1) // batch_size,
+    )
+    return results
+
+
 def is_published(paper: arxiv.Result) -> bool:
     """Return True if the paper has been published in a journal.
 
@@ -256,20 +312,30 @@ def run_weekly_check(
 
     now_iso = datetime.now(timezone.utc).isoformat()
 
+    # Filter to papers that need checking, then batch-fetch from arXiv
+    ids_to_fetch: list[str] = []
+    for file_path, arxiv_id in file_arxiv_map.items():
+        file_state = state["files"].get(file_path, {})
+        if file_state.get("published") and not init_only:
+            logger.debug("Skipping %s (%s): already published", file_path, arxiv_id)
+            continue
+        ids_to_fetch.append(arxiv_id)
+
+    arxiv_cache = batch_get_latest_versions(ids_to_fetch)
+
     for file_path, arxiv_id in file_arxiv_map.items():
         file_state = state["files"].get(file_path, {})
         known_version = file_state.get("known_version")
 
         # Skip papers already known to be published — they won't be updated.
         if file_state.get("published") and not init_only:
-            logger.debug("Skipping %s (%s): already published", file_path, arxiv_id)
             continue
 
-        try:
-            latest_version, published, new_paper = get_latest_version(arxiv_id)
-        except Exception as e:
-            logger.warning("Could not check %s (%s): %s", file_path, arxiv_id, e)
+        cached = arxiv_cache.get(arxiv_id)
+        if cached is None:
+            logger.warning("Could not check %s (%s): not in batch results", file_path, arxiv_id)
             continue
+        latest_version, published, new_paper = cached
 
         if init_only:
             # Just record the current state, no PRs
