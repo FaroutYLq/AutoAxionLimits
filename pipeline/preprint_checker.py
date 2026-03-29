@@ -121,15 +121,43 @@ def get_latest_version(arxiv_id: str) -> tuple[int, bool, arxiv.Result]:
 
 
 def is_published(paper: arxiv.Result) -> bool:
-    """Return True if the paper has a journal reference (no longer a preprint)."""
+    """Return True if the paper has been published in a journal.
+
+    Checks arXiv metadata first (journal_ref, DOI, comment keywords),
+    then falls back to Semantic Scholar for papers where authors did not
+    update the arXiv record after publication.
+    """
     if paper.journal_ref and paper.journal_ref.strip():
         return True
-    # Some papers include "published in" in comments
+    if paper.doi and paper.doi.strip():
+        return True
     if paper.comment and re.search(
         r"published|accepted|in press|to appear", paper.comment, re.IGNORECASE
     ):
         return True
-    return False
+
+    # Fallback: query Semantic Scholar (free, no auth required)
+    arxiv_id = paper.get_short_id().split("v")[0]
+    return _check_semantic_scholar(arxiv_id)
+
+
+def _check_semantic_scholar(arxiv_id: str) -> bool:
+    """Query Semantic Scholar to check if a paper is a journal article."""
+    import httpx
+
+    try:
+        resp = httpx.get(
+            f"https://api.semanticscholar.org/graph/v1/paper/ArXiv:{arxiv_id}",
+            params={"fields": "publicationTypes"},
+            timeout=10,
+        )
+        if resp.status_code != 200:
+            return False
+        data = resp.json()
+        pub_types = data.get("publicationTypes") or []
+        return "JournalArticle" in pub_types
+    except Exception:
+        return False
 
 
 # ---------------------------------------------------------------------------
