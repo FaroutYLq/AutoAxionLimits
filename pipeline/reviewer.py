@@ -366,8 +366,8 @@ def insert_method_into_plotfuncs(
 
     # Indent: 4 spaces for class body
     indent = "    "
-    # Ensure @staticmethod and def are both properly indented
-    indented_method = textwrap.indent(method_code.rstrip(), indent) + "\n"
+    # Dedent first (LLM may return pre-indented code), then re-indent to class level
+    indented_method = textwrap.indent(textwrap.dedent(method_code.rstrip()), indent) + "\n"
 
     # Insert after last_method_end (lines list is 0-indexed; line N is index N-1).
     # Inserting at index `last_method_end` places content after line last_method_end.
