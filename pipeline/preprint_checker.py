@@ -577,14 +577,17 @@ def run_weekly_check(
                 state["last_checked"] = now_iso
                 save_version_state(state)
                 if not dry_run:
-                    _create_removal_flag_pr(
-                        repo_root=repo_root,
-                        file_path=file_path,
-                        arxiv_id=arxiv_id,
-                        old_version=0,
-                        new_version=latest_version,
-                        new_paper=new_paper,
-                    )
+                    try:
+                        _create_removal_flag_pr(
+                            repo_root=repo_root,
+                            file_path=file_path,
+                            arxiv_id=arxiv_id,
+                            old_version=0,
+                            new_version=latest_version,
+                            new_paper=new_paper,
+                        )
+                    except Exception as e:
+                        logger.error("Failed to create removal flag PR for %s: %s", arxiv_id, e)
                 else:
                     logger.info("[DRY RUN] Would create removal flag PR for %s", arxiv_id)
                 continue
@@ -638,14 +641,17 @@ def run_weekly_check(
                 save_version_state(state)
 
                 if not dry_run:
-                    _create_removal_flag_pr(
-                        repo_root=repo_root,
-                        file_path=file_path,
-                        arxiv_id=arxiv_id,
-                        old_version=known_version or 0,
-                        new_version=latest_version,
-                        new_paper=new_paper,
-                    )
+                    try:
+                        _create_removal_flag_pr(
+                            repo_root=repo_root,
+                            file_path=file_path,
+                            arxiv_id=arxiv_id,
+                            old_version=known_version or 0,
+                            new_version=latest_version,
+                            new_paper=new_paper,
+                        )
+                    except Exception as e:
+                        logger.error("Failed to create removal flag PR for %s: %s", arxiv_id, e)
                 else:
                     logger.info(
                         "[DRY RUN] Would create removal flag PR for %s v%d",
@@ -692,20 +698,23 @@ def run_weekly_check(
         save_version_state(state)
 
         if not dry_run:
-            _create_update_pr(
-                repo_root=repo_root,
-                file_path=file_path,
-                arxiv_id=arxiv_id,
-                old_version=old_ver,
-                new_version=latest_version,
-                new_extraction=new_extraction,
-                corrected_data=corrected_data,
-                applied=applied,
-                flagged=flagged,
-                change_summary=change_summary,
-                new_paper=new_paper,
-                published=published,
-            )
+            try:
+                _create_update_pr(
+                    repo_root=repo_root,
+                    file_path=file_path,
+                    arxiv_id=arxiv_id,
+                    old_version=old_ver,
+                    new_version=latest_version,
+                    new_extraction=new_extraction,
+                    corrected_data=corrected_data,
+                    applied=applied,
+                    flagged=flagged,
+                    change_summary=change_summary,
+                    new_paper=new_paper,
+                    published=published,
+                )
+            except Exception as e:
+                logger.error("Failed to create update PR for %s: %s", arxiv_id, e)
         else:
             logger.info("[DRY RUN] Would create PR for %s v%s→v%d", arxiv_id, known_version or "new", latest_version)
 
