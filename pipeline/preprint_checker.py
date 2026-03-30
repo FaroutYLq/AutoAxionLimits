@@ -564,8 +564,8 @@ def run_weekly_check(
                     logger.warning("Verification failed for %s: %s — baselining", arxiv_id, e)
                     verification = None
 
-            if verification is not None and not verification.data_points:
-                # Published version has no data — flag for review
+            if verification is None or not verification.data_points:
+                # Published version has no data or extraction failed — flag for review
                 logger.warning(
                     "Published paper %s yielded no data — possible limit removal for %s",
                     arxiv_id, file_path,
