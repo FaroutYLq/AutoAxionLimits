@@ -148,6 +148,7 @@ def batch_get_latest_versions(
     Uses httpx directly with exponential backoff to handle arXiv rate limits
     more gracefully than the arxiv library's built-in retry logic.
     """
+    import random
     import time
     import xml.etree.ElementTree as ET
 
@@ -155,6 +156,7 @@ def batch_get_latest_versions(
 
     results: dict[str, tuple[int, bool, arxiv.Result]] = {}
     unique_ids = list(dict.fromkeys(arxiv_ids))
+    random.shuffle(unique_ids)
     base_url = "https://export.arxiv.org/api/query"
 
     for i in range(0, len(unique_ids), batch_size):
