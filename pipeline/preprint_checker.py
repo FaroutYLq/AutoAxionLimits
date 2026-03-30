@@ -310,6 +310,65 @@ def _check_semantic_scholar(arxiv_id: str) -> bool:
         return False
 
 
+def batch_check_published_semantic_scholar(
+    arxiv_ids: list[str],
+    batch_size: int = 500,
+) -> dict[str, bool]:
+    """
+    Batch-check published status via Semantic Scholar.
+    Returns {arxiv_id: is_published} for papers found.
+    Uses POST /paper/batch endpoint (up to 500 IDs per request).
+    """
+    import time
+
+    import httpx
+
+    results: dict[str, bool] = {}
+    unique_ids = list(dict.fromkeys(arxiv_ids))
+
+    for i in range(0, len(unique_ids), batch_size):
+        batch = unique_ids[i : i + batch_size]
+        s2_ids = [f"ArXiv:{aid}" for aid in batch]
+
+        for attempt in range(3):
+            if attempt > 0:
+                time.sleep(5 * attempt)
+            try:
+                resp = httpx.post(
+                    "https://api.semanticscholar.org/graph/v1/paper/batch",
+                    params={"fields": "externalIds,publicationTypes"},
+                    json={"ids": s2_ids},
+                    timeout=30,
+                )
+                if resp.status_code == 429:
+                    logger.warning("Semantic Scholar batch: HTTP 429 (attempt %d/3)", attempt + 1)
+                    continue
+                resp.raise_for_status()
+            except Exception as e:
+                logger.warning("Semantic Scholar batch failed (attempt %d/3): %s", attempt + 1, e)
+                continue
+
+            data = resp.json()
+            for paper_data in data:
+                if paper_data is None:
+                    continue
+                aid = (paper_data.get("externalIds") or {}).get("ArXiv")
+                if not aid:
+                    continue
+                pub_types = paper_data.get("publicationTypes") or []
+                results[aid] = "JournalArticle" in pub_types
+            logger.info(
+                "Semantic Scholar batch: checked %d/%d papers",
+                len(results), len(unique_ids),
+            )
+            break
+
+        if i + batch_size < len(unique_ids):
+            time.sleep(3)
+
+    return results
+
+
 # ---------------------------------------------------------------------------
 # Data comparison
 # ---------------------------------------------------------------------------
@@ -406,16 +465,55 @@ def run_weekly_check(
 
     now_iso = datetime.now(timezone.utc).isoformat()
 
-    # Filter to papers that need checking, then batch-fetch from arXiv
-    ids_to_fetch: list[str] = []
+    # Filter to papers that need checking
+    ids_to_check: list[str] = []
     for file_path, arxiv_id in file_arxiv_map.items():
         file_state = state["files"].get(file_path, {})
         if file_state.get("published") and not init_only:
             logger.debug("Skipping %s (%s): already published", file_path, arxiv_id)
             continue
-        ids_to_fetch.append(arxiv_id)
+        ids_to_check.append(arxiv_id)
 
-    arxiv_cache = batch_get_latest_versions(ids_to_fetch)
+    # Step 1: Batch-check published status via Semantic Scholar (fast, 1-2 requests)
+    s2_published = batch_check_published_semantic_scholar(ids_to_check)
+    n_published = sum(1 for v in s2_published.values() if v)
+    logger.info(
+        "Semantic Scholar: %d/%d papers are published journal articles",
+        n_published, len(s2_published),
+    )
+
+    # Step 2: For papers already tracked + published (no version change possible),
+    # mark them and skip arXiv. For NEW papers that are published, baseline them
+    # without arXiv. Only query arXiv for unpublished papers that need version checks.
+    ids_need_arxiv: list[str] = []
+    for file_path, arxiv_id in file_arxiv_map.items():
+        file_state = state["files"].get(file_path, {})
+        if file_state.get("published") and not init_only:
+            continue
+        known_version = file_state.get("known_version")
+        s2_is_published = s2_published.get(arxiv_id, False)
+
+        # New file + published → baseline without arXiv
+        if known_version is None and s2_is_published:
+            state["files"][file_path] = {
+                "arxiv_id": arxiv_id,
+                "known_version": 0,  # unknown, but won't be checked again
+                "last_checked": now_iso,
+                "published": True,
+            }
+            continue
+
+        # Tracked + same status → still need arXiv for version check
+        if arxiv_id not in ids_need_arxiv:
+            ids_need_arxiv.append(arxiv_id)
+
+    logger.info(
+        "Need arXiv version check for %d papers (skipped %d published)",
+        len(ids_need_arxiv), len(ids_to_check) - len(ids_need_arxiv),
+    )
+
+    # Step 3: Batch-fetch from arXiv (only unpublished papers)
+    arxiv_cache = batch_get_latest_versions(ids_need_arxiv)
 
     for file_path, arxiv_id in file_arxiv_map.items():
         file_state = state["files"].get(file_path, {})
@@ -425,11 +523,17 @@ def run_weekly_check(
         if file_state.get("published") and not init_only:
             continue
 
+        # Skip papers already baselined as published in step 2
+        if known_version == 0 and file_state.get("published"):
+            continue
+
         cached = arxiv_cache.get(arxiv_id)
         if cached is None:
             logger.warning("Could not check %s (%s): not in batch results", file_path, arxiv_id)
             continue
-        latest_version, published, new_paper = cached
+        latest_version, published_fast, new_paper = cached
+        # Merge: if Semantic Scholar says published, trust it
+        published = published_fast or s2_published.get(arxiv_id, False)
 
         if init_only:
             # Just record the current state, no PRs
