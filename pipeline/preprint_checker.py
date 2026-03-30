@@ -538,83 +538,38 @@ def run_weekly_check(
             }
             continue
 
-        # First time seeing this file
+        # First time seeing this file — set baseline, no PR
         if known_version is None:
-            if not published:
-                # Unpublished preprint — set baseline, no PR
-                state["files"][file_path] = {
-                    "arxiv_id": arxiv_id,
-                    "known_version": latest_version,
-                    "last_checked": now_iso,
-                    "published": False,
-                }
-                continue
-            # Published paper with existing data file — extract to verify
-            # the published version still provides this limit. Only flag
-            # if extraction yields NO data (possible limit removal).
-            logger.info(
-                "%s: new file %s is already published — verifying data",
-                arxiv_id, file_path,
-            )
-            with tempfile.TemporaryDirectory() as tmpdir:
-                try:
-                    pdf_path = download_pdf(arxiv_id, Path(tmpdir))
-                    verification = run_extraction_agent(new_paper, pdf_path, client)
-                except Exception as e:
-                    logger.warning("Verification failed for %s: %s — baselining", arxiv_id, e)
-                    verification = None
-
-            if verification is None or not verification.data_points:
-                # Published version has no data or extraction failed — flag for review
-                logger.warning(
-                    "Published paper %s yielded no data — possible limit removal for %s",
-                    arxiv_id, file_path,
-                )
-                state["files"][file_path] = {
-                    "arxiv_id": arxiv_id,
-                    "known_version": latest_version,
-                    "last_checked": now_iso,
-                    "published": True,
-                }
-                state["last_checked"] = now_iso
-                save_version_state(state)
-                if not dry_run:
-                    try:
-                        _create_removal_flag_pr(
-                            repo_root=repo_root,
-                            file_path=file_path,
-                            arxiv_id=arxiv_id,
-                            old_version=0,
-                            new_version=latest_version,
-                            new_paper=new_paper,
-                        )
-                    except Exception as e:
-                        logger.error("Failed to create removal flag PR for %s: %s", arxiv_id, e)
-                else:
-                    logger.info("[DRY RUN] Would create removal flag PR for %s", arxiv_id)
-                continue
-
-            # Extraction found data or failed — baseline as published, trust existing file
             state["files"][file_path] = {
                 "arxiv_id": arxiv_id,
                 "known_version": latest_version,
                 "last_checked": now_iso,
-                "published": True,
+                "published": published,
             }
             continue
 
-        if latest_version <= known_version:
+        # Detect status change: preprint → published (even if same version)
+        was_published = file_state.get("published", False)
+        newly_published = published and not was_published
+
+        if latest_version <= known_version and not newly_published:
+            # No version change, no status change — nothing to do
             state["files"][file_path]["last_checked"] = now_iso
             if published:
                 state["files"][file_path]["published"] = True
             continue
 
-        # Version change or new published file — do full published check
+        # Something changed: new version, or preprint → published transition
         if not published:
             published = is_published(new_paper)
-        if known_version is not None:
+        if newly_published:
             logger.info(
-                "%s: new version v%d (was v%s)%s", arxiv_id, latest_version, known_version or "new",
+                "%s: now published (was preprint v%d) — verifying limit for %s",
+                arxiv_id, known_version, file_path,
+            )
+        else:
+            logger.info(
+                "%s: new version v%d (was v%d)%s", arxiv_id, latest_version, known_version,
                 " [published]" if published else "",
             )
 
