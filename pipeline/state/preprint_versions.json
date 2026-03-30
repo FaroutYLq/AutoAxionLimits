@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_checked": "2026-03-22T19:58:28.586943+00:00",
+  "last_checked": "2026-03-30T02:41:00.341638+00:00",
   "files": {
     "limit_data/AxionEDM/BBN.txt": {
       "arxiv_id": "1401.6460",
@@ -168,6 +168,2226 @@
       "arxiv_id": "2207.11968",
       "known_version": 2,
       "last_checked": "2026-03-22T19:58:28.586943+00:00",
+      "published": true
+    },
+    "limit_data/AxionElectron/Projections/NVCenters.txt": {
+      "arxiv_id": "2302.12756",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionElectron/TorsionPendulum-Spin.txt": {
+      "arxiv_id": "1508.02463",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionMass/Ballesteros16.txt": {
+      "arxiv_id": "1608.05414",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionMass/Beyer23.txt": {
+      "arxiv_id": "2211.14635",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionMass/Buschmann20.txt": {
+      "arxiv_id": "1906.00967",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionMass/Buschmann21.txt": {
+      "arxiv_id": "2108.05368",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionMass/Kim24.txt": {
+      "arxiv_id": "2402.00741",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionMass/Saikawa24.txt": {
+      "arxiv_id": "2401.17253",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionNeutron/ChangE-NMR.txt": {
+      "arxiv_id": "2309.16600",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionNeutron/ChangE.txt": {
+      "arxiv_id": "2306.08039",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionNeutron/Hefei.txt": {
+      "arxiv_id": "2306.08039",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionNeutron/Mainz_Krakow.txt": {
+      "arxiv_id": "2408.02668",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionNeutron/NASDUCK-SERF.txt": {
+      "arxiv_id": "2209.13588",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionNeutron/NASDUCK.txt": {
+      "arxiv_id": "2105.04603",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionNeutron/NeutronStars.txt": {
+      "arxiv_id": "2111.09892",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionNeutron/PSI_HgM.txt": {
+      "arxiv_id": "2212.02403",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionNeutron/Projections/SuperfluidHe3.txt": {
+      "arxiv_id": "2208.14454",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionNeutron/nEDM.txt": {
+      "arxiv_id": "1905.13650",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/ABRACADABRA_run2.txt": {
+      "arxiv_id": "2102.06722",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/ADBC.txt": {
+      "arxiv_id": "2404.12517",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/ADMX2021.txt": {
+      "arxiv_id": "2110.06096",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/ADMX2024.txt": {
+      "arxiv_id": "2408.15227",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/ADMX2025.txt": {
+      "arxiv_id": "2504.07279",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/ADMX_SLIC.txt": {
+      "arxiv_id": "1911.05772",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/ADMX_Sidecar_JTWPA.txt": {
+      "arxiv_id": "2110.10262",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/ATLAS_pp.txt": {
+      "arxiv_id": "2211.04172",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/BelleII.txt": {
+      "arxiv_id": "2007.13071",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Betelgeuse.txt": {
+      "arxiv_id": "2009.09059",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/BreakthroughListen.txt": {
+      "arxiv_id": "2112.03439",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/BulletCluster.txt": {
+      "arxiv_id": "2109.11734",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/CAPP-2.txt": {
+      "arxiv_id": "2008.10141",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/CAPP-4.txt": {
+      "arxiv_id": "2206.08845",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/CAPP-5.txt": {
+      "arxiv_id": "2207.13597",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/CAPP-6.txt": {
+      "arxiv_id": "2210.10961",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/CAPP-7.txt": {
+      "arxiv_id": "2308.09077",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/CAPP-9.txt": {
+      "arxiv_id": "2403.13390",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/CAPP-MAX.txt": {
+      "arxiv_id": "2402.12892",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/CAST-CAPP.txt": {
+      "arxiv_id": "2211.02902",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/CMB_Anisotropies.txt": {
+      "arxiv_id": "2303.07370",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Chandra_WhiteDwarfs_Wphobic.txt": {
+      "arxiv_id": "2104.12772",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Chandra_WhiteDwarfs_electron_equals_photon.txt": {
+      "arxiv_id": "2104.12772",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/CosmicBackground.txt": {
+      "arxiv_id": "2407.10618",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/DANCE.txt": {
+      "arxiv_id": "2303.03594",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/EuXFL.txt": {
+      "arxiv_id": "2404.17333",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/FASER.txt": {
+      "arxiv_id": "2410.10363",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/FIRAS.txt": {
+      "arxiv_id": "2405.08059",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/FermiQuasars.txt": {
+      "arxiv_id": "2211.03414",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/GW170817_Fermi.txt": {
+      "arxiv_id": "2305.01002",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/GammaRayDecayCompilation.txt": {
+      "arxiv_id": "2312.11608",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/GigaBREAD.txt": {
+      "arxiv_id": "2501.17119",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/GlueX.txt": {
+      "arxiv_id": "2308.06339",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/HAWC.txt": {
+      "arxiv_id": "2203.04332",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/HAYSTAC_PhaseII_ab.txt": {
+      "arxiv_id": "2008.01853",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/HAYSTAC_PhaseII_cd.txt": {
+      "arxiv_id": "2409.08998",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/HST.txt": {
+      "arxiv_id": "2301.06560",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/HST_dwarfs.txt": {
+      "arxiv_id": "2412.02543",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/JWST.txt": {
+      "arxiv_id": "2310.15395",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/LIDA.txt": {
+      "arxiv_id": "2307.01365",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/LensedQuasar.txt": {
+      "arxiv_id": "2007.01440",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/M82.txt": {
+      "arxiv_id": "2404.14476",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/M82_decay.txt": {
+      "arxiv_id": "2412.03660",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/MADMAX.txt": {
+      "arxiv_id": "2409.11777",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/MAGIC.txt": {
+      "arxiv_id": "2401.07798",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/MWDXrays.txt": {
+      "arxiv_id": "2104.12772",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Mrk421-Fermi-HAWC.txt": {
+      "arxiv_id": "2406.00387",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/NeutronStars_Battye2.txt": {
+      "arxiv_id": "2303.11792",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/NeutronStars_BreakthroughListen.txt": {
+      "arxiv_id": "2202.08274",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/NuSTAR_Sun.txt": {
+      "arxiv_id": "2407.03828",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/OPAL.txt": {
+      "arxiv_id": "1607.06083",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/ORGAN-1b.txt": {
+      "arxiv_id": "2310.00904",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/ORGAN-Q.txt": {
+      "arxiv_id": "2407.18586",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/POLARBEAR.txt": {
+      "arxiv_id": "2303.08410",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/POLARBEAR_TauT.txt": {
+      "arxiv_id": "2403.02096",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/PPA.txt": {
+      "arxiv_id": "2412.02229",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Planck_unWISE.txt": {
+      "arxiv_id": "2409.10514",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/21cm.txt": {
+      "arxiv_id": "2312.11608",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/ATHENA.txt": {
+      "arxiv_id": "2211.05136",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/BREAD.txt": {
+      "arxiv_id": "2111.12103",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/BabyIAXO_RADES.txt": {
+      "arxiv_id": "2306.17243",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/BlackHolePolarimetry.txt": {
+      "arxiv_id": "2311.02149",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/CONUS.txt": {
+      "arxiv_id": "1912.05733",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/DANCE.txt": {
+      "arxiv_id": "1805.11753",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/DUNE.txt": {
+      "arxiv_id": "2011.07054",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/DarkGEO.txt": {
+      "arxiv_id": "2401.11907",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/EQC.txt": {
+      "arxiv_id": "2410.05549",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/PPA.txt": {
+      "arxiv_id": "2111.10615",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/SKA_PolarisedLenses.txt": {
+      "arxiv_id": "2007.01440",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/TOORAD_2025.txt": {
+      "arxiv_id": "2504.12572",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/TwistedAnyonCavity.txt": {
+      "arxiv_id": "2208.01640",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/PulsarPolarCap.txt": {
+      "arxiv_id": "2209.09917",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/QUAX4.txt": {
+      "arxiv_id": "2304.07505",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/QUAX5.txt": {
+      "arxiv_id": "2402.19063",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/RADES2.txt": {
+      "arxiv_id": "2403.07790",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/SN1987A_PVO.txt": {
+      "arxiv_id": "2303.11395",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/SN1987A_decay.txt": {
+      "arxiv_id": "2304.01060",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/SN1987A_gamma_ProgenitorBfield.txt": {
+      "arxiv_id": "2405.19393",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/SNIPE.txt": {
+      "arxiv_id": "2306.11575",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/SNe-decay-Fiorillo.txt": {
+      "arxiv_id": "2503.13653",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/SNe-decay.txt": {
+      "arxiv_id": "2201.09890",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/SNe-gamma.txt": {
+      "arxiv_id": "2006.06722",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/SolarBasin.txt": {
+      "arxiv_id": "2205.05700",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/SolarBasin_Beaufort.txt": {
+      "arxiv_id": "2303.06968",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/StAB.txt": {
+      "arxiv_id": "2307.11216",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/SuperMAG2.txt": {
+      "arxiv_id": "2408.16045",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/TASEH.txt": {
+      "arxiv_id": "2205.05574",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Telescopes_MUSE.txt": {
+      "arxiv_id": "2307.07403",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/UPLOAD-2.txt": {
+      "arxiv_id": "2301.06778",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/WINERED.txt": {
+      "arxiv_id": "2402.07976",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/XMM-Newton.txt": {
+      "arxiv_id": "2102.02207",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionProton/CASPEr-gradient.txt": {
+      "arxiv_id": "2504.16044",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionProton/ChangE-NMR.txt": {
+      "arxiv_id": "2309.16600",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionProton/ChangE.txt": {
+      "arxiv_id": "2306.08039",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionProton/Mainz_Krakow.txt": {
+      "arxiv_id": "2408.02668",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionProton/NASDUCK-SERF.txt": {
+      "arxiv_id": "2209.13588",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionProton/NASDUCK.txt": {
+      "arxiv_id": "2105.04603",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionProton/NeutronStars.txt": {
+      "arxiv_id": "2111.09892",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionProton/Projections/MnCO3.txt": {
+      "arxiv_id": "2307.08577",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionProton/Projections/SuperfluidHe3.txt": {
+      "arxiv_id": "2208.14454",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionProton/SN1987A.txt": {
+      "arxiv_id": "2306.01048",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionProton/SuperKamiokande.txt": {
+      "arxiv_id": "2412.09595",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionTop/ATLAS_direct.txt": {
+      "arxiv_id": "2303.17634",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/AMAILS.txt": {
+      "arxiv_id": "2305.00890",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/BRASS-p.txt": {
+      "arxiv_id": "2306.05934",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Blazars.txt": {
+      "arxiv_id": "2407.16628",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/COBEFIRAS.txt": {
+      "arxiv_id": "2002.05165",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/COBEFIRAS_Arsenadze.txt": {
+      "arxiv_id": "2409.12940",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/COBEFIRAS_Chluba.txt": {
+      "arxiv_id": "2409.12115",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/COBEFIRAS_SpectralDistortions.txt": {
+      "arxiv_id": "2409.12940",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Cosmology_Caputo_HeII.txt": {
+      "arxiv_id": "2002.05165",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/DAMIC.txt": {
+      "arxiv_id": "1907.12628",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/DOSUE-RR-2.txt": {
+      "arxiv_id": "2308.14656",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/DOSUE-RR.txt": {
+      "arxiv_id": "2205.03679",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/FAST.txt": {
+      "arxiv_id": "2207.05767",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/FIRAS.txt": {
+      "arxiv_id": "2002.05165",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/FIRAS_homo.txt": {
+      "arxiv_id": "2002.05165",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/GigaBREAD.txt": {
+      "arxiv_id": "2310.13891",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/JWST.txt": {
+      "arxiv_id": "2402.17140",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Jupiter.txt": {
+      "arxiv_id": "2312.06746",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/LAMPOST.txt": {
+      "arxiv_id": "2110.01582",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/LOFAR.txt": {
+      "arxiv_id": "2301.03622",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/LSW_ADMX.txt": {
+      "arxiv_id": "1007.3766",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/LymanAlpha.txt": {
+      "arxiv_id": "2410.02858",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/MADMAX.txt": {
+      "arxiv_id": "2408.02368",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/ParkerSolarProbe.txt": {
+      "arxiv_id": "2405.12285",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Planck_unWISE.txt": {
+      "arxiv_id": "2406.02546",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Projections/BREAD.txt": {
+      "arxiv_id": "2111.12103",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Projections/Dandelion.txt": {
+      "arxiv_id": "2310.16505",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Projections/IAXO-Longitudinal.txt": {
+      "arxiv_id": "2312.10150",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/SHUKET.txt": {
+      "arxiv_id": "1905.05579",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/SNIPE.txt": {
+      "arxiv_id": "2306.11575",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/SQMS.txt": {
+      "arxiv_id": "2208.03183",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/SuperMAG2.txt": {
+      "arxiv_id": "2408.16045",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/TEXONO.txt": {
+      "arxiv_id": "1804.10777",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/WSi_Nanowire.txt": {
+      "arxiv_id": "1903.05101",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/ElectronNucleon/ACME.txt": {
+      "arxiv_id": "2309.10023",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/ElectronNucleon/PerihelionShift.txt": {
+      "arxiv_id": "2302.03882",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/ElectronNucleon/SMILE.txt": {
+      "arxiv_id": "1801.02757",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/ElectronNucleon/UltracoldMolecules.txt": {
+      "arxiv_id": "2309.10023",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/NucleonNucleon/ARIADNE_projection1.txt": {
+      "arxiv_id": "1403.1290",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/NucleonNucleon/ARIADNE_projection2.txt": {
+      "arxiv_id": "1403.1290",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/NucleonNucleon/Comagnetometer_projection.txt": {
+      "arxiv_id": "2210.09027",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/NucleonNucleon/Grenoble.txt": {
+      "arxiv_id": "1009.3434",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/NucleonNucleon/Hefei.txt": {
+      "arxiv_id": "2303.10352",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/NucleonNucleon/Moon.txt": {
+      "arxiv_id": "2302.09096",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/NucleonNucleon/ProtonRing_projection.txt": {
+      "arxiv_id": "2210.17547",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/NucleonNucleon/SMILE.txt": {
+      "arxiv_id": "1801.02757",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/NucleonNucleon/Sun.txt": {
+      "arxiv_id": "2302.09096",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/NucleonNucleon/Washington.txt": {
+      "arxiv_id": "2303.10352",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/NucleonNucleon/YbTrap_Mass.txt": {
+      "arxiv_id": "2309.10023",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarBaryon/IUPUI.txt": {
+      "arxiv_id": "1410.7267",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarBaryon/MICROSCOPE.txt": {
+      "arxiv_id": "1712.00483",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/AURIGA.txt": {
+      "arxiv_id": "1607.07327",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/Cavities.txt": {
+      "arxiv_id": "2312.13723",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/CsCav.txt": {
+      "arxiv_id": "2201.02042",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/HQuartzSapphire.txt": {
+      "arxiv_id": "2010.08107",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/HSi.txt": {
+      "arxiv_id": "2008.08773",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/Holometer.txt": {
+      "arxiv_id": "2108.04746",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/I2.txt": {
+      "arxiv_id": "2111.06883",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/LIGO.txt": {
+      "arxiv_id": "2401.18076",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/NANOGrav.txt": {
+      "arxiv_id": "2306.16219",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/Projections/AION-10.txt": {
+      "arxiv_id": "2108.02468",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/Projections/DUAL.txt": {
+      "arxiv_id": "1508.01798",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/Projections/HELIOS.txt": {
+      "arxiv_id": "2309.07995",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/Projections/Resonator-Helium.txt": {
+      "arxiv_id": "1910.07574",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/Projections/Resonator-Pillar.txt": {
+      "arxiv_id": "1910.07574",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/Projections/Resonator-Quartz.txt": {
+      "arxiv_id": "1910.07574",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/Projections/Resonator-Sapphire.txt": {
+      "arxiv_id": "1910.07574",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/RbQuartz.txt": {
+      "arxiv_id": "2212.04413",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/WhiteDwarfs.txt": {
+      "arxiv_id": "2303.00778",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/YbCs.txt": {
+      "arxiv_id": "2212.05721",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarNucleon/EotWash2020.txt": {
+      "arxiv_id": "2002.11761",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarNucleon/EotWash_EP_2007_left.txt": {
+      "arxiv_id": "0712.0607",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarNucleon/EotWash_EP_2007_right.txt": {
+      "arxiv_id": "0712.0607",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarNucleon/IUPUI.txt": {
+      "arxiv_id": "1410.7267",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarNucleon/MICROSCOPE.txt": {
+      "arxiv_id": "1712.00483",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarNucleon/WhiteDwarfs.txt": {
+      "arxiv_id": "2303.00778",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/AURIGA.txt": {
+      "arxiv_id": "1607.07327",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/CsCav.txt": {
+      "arxiv_id": "2201.02042",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/DyDy.txt": {
+      "arxiv_id": "1503.06886",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/DyQuartz.txt": {
+      "arxiv_id": "2212.04413",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/HQuartzSapphire.txt": {
+      "arxiv_id": "2010.08107",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/Holometer.txt": {
+      "arxiv_id": "2108.04746",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/I2.txt": {
+      "arxiv_id": "2111.06883",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/LIGO.txt": {
+      "arxiv_id": "2401.18076",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/PTB.txt": {
+      "arxiv_id": "2301.03433",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/Projections/AEDGE.txt": {
+      "arxiv_id": "2108.02468",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/Projections/AION-10.txt": {
+      "arxiv_id": "2108.02468",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/Projections/AION-100.txt": {
+      "arxiv_id": "2108.02468",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/Projections/AION-km.txt": {
+      "arxiv_id": "2108.02468",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/Projections/DUAL.txt": {
+      "arxiv_id": "1508.01798",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/Projections/Resonator-Helium.txt": {
+      "arxiv_id": "1910.07574",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/Projections/Resonator-Pillar.txt": {
+      "arxiv_id": "1910.07574",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/Projections/Resonator-Quartz.txt": {
+      "arxiv_id": "1910.07574",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/Projections/Resonator-Sapphire.txt": {
+      "arxiv_id": "1910.07574",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/QSNET.txt": {
+      "arxiv_id": "2302.04565",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/RbCs.txt": {
+      "arxiv_id": "1604.08514",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/SrSi.txt": {
+      "arxiv_id": "2008.08773",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/VectorB-L/KAGRA.txt": {
+      "arxiv_id": "2403.03004",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/VectorB-L/LISAPathfinder-RelativeAcceleration.txt": {
+      "arxiv_id": "2310.06017",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/VectorB-L/POLONAISE.txt": {
+      "arxiv_id": "2409.03814",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/VectorB-L/Projections/HELIOS.txt": {
+      "arxiv_id": "2309.07995",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/VectorB-L/Projections/OptomechanicalMembranes.txt": {
+      "arxiv_id": "2007.04899",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/VectorB-L/Projections/POLONAISE.txt": {
+      "arxiv_id": "2409.03814",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/Axinovae.txt": {
+      "arxiv_id": "2302.00685",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/BeamEDM.txt": {
+      "arxiv_id": "2204.01454",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/BlackHoleSpins_Hoof.txt": {
+      "arxiv_id": "2406.10337",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/BlackHoleSpins_Witte.txt": {
+      "arxiv_id": "2412.03655",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/GW170817.txt": {
+      "arxiv_id": "2105.13963",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/I2Ca.txt": {
+      "arxiv_id": "2404.00616",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/JEDI.txt": {
+      "arxiv_id": "2208.07293",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/K40.txt": {
+      "arxiv_id": "2412.20932",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/MICROSCOPE.txt": {
+      "arxiv_id": "2504.00720",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/NeutronStarCooling.txt": {
+      "arxiv_id": "2408.07740",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/ONIX.txt": {
+      "arxiv_id": "2410.02218",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/Projections/PolarisationHaloscope_discover.txt": {
+      "arxiv_id": "2209.12901",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/Projections/PolarisationHaloscope_scan.txt": {
+      "arxiv_id": "2209.12901",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/RbQuartz.txt": {
+      "arxiv_id": "2212.04413",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/Tritium.txt": {
+      "arxiv_id": "2303.09865",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/WhiteDwarfs.txt": {
+      "arxiv_id": "2211.02661",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/Yb.txt": {
+      "arxiv_id": "2301.10784",
+      "known_version": 0,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionMass/Dine17.txt": {
+      "arxiv_id": "1705.00676",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionMass/Fleury15.txt": {
+      "arxiv_id": "1509.00026",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionMass/Gorghetto20.txt": {
+      "arxiv_id": "2007.04990",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionMass/GorghettoDW_6.txt": {
+      "arxiv_id": "2007.04990",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionMass/Kawasaki12.txt": {
+      "arxiv_id": "1202.5851",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionMass/Kawasaki14.txt": {
+      "arxiv_id": "1412.0789",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionMass/Klaer17.txt": {
+      "arxiv_id": "1708.07521",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionMass/Petreczky16.txt": {
+      "arxiv_id": "1606.03145",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionMass/SaikawaDW_6_10.txt": {
+      "arxiv_id": "1904.09155",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionMass/SaikawaDW_6_9.txt": {
+      "arxiv_id": "1904.09155",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionMass/VISHnu.txt": {
+      "arxiv_id": "2206.11598",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/AxionMass/Wantz09.txt": {
+      "arxiv_id": "0910.1066",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionNeutron/Casimir.txt": {
+      "arxiv_id": "2009.04517",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionNeutron/K-3He_Comagnetometer_DarkMatter.txt": {
+      "arxiv_id": "2209.03289",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionNeutron/SN1987A.txt": {
+      "arxiv_id": "1906.11844",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/ALPS.txt": {
+      "arxiv_id": "1004.1313",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/ALP_CDM.txt": {
+      "arxiv_id": "1201.5902",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/ATLAS_PbPb.txt": {
+      "arxiv_id": "2008.05355",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/BBN_10MeV.txt": {
+      "arxiv_id": "2002.08370",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/BBN_Neff.txt": {
+      "arxiv_id": "2002.08370",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/BESIII.txt": {
+      "arxiv_id": "2211.12699",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/BICEP-KECK.txt": {
+      "arxiv_id": "2108.03316",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/BeamDump.txt": {
+      "arxiv_id": "1709.00009",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/CAPP-8.txt": {
+      "arxiv_id": "2312.11003",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/AxionPhoton/CIBER.txt": {
+      "arxiv_id": "1704.05189",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/CMS_PbPb.txt": {
+      "arxiv_id": "1810.04602",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/COBE-FIRAS.txt": {
+      "arxiv_id": "2012.07292",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/COBEFIRAS_Cyr.txt": {
+      "arxiv_id": "2411.13701",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/AxionPhoton/Chandra_H1821643.txt": {
+      "arxiv_id": "2109.03261",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Chandra_NGC1275.txt": {
+      "arxiv_id": "1907.05475",
+      "known_version": 4,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/DiffuseGammaRays.txt": {
+      "arxiv_id": "2109.03244",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/EBL2.txt": {
+      "arxiv_id": "1201.5902",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/EPTA.txt": {
+      "arxiv_id": "2412.02232",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/AxionPhoton/Eskdalemuir.txt": {
+      "arxiv_id": "2504.07559",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/AxionPhoton/GammaRayAttenuation.txt": {
+      "arxiv_id": "2208.13794",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/HAYSTAC_PhaseI.txt": {
+      "arxiv_id": "1803.03690",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/HST_Nakayama.txt": {
+      "arxiv_id": "2205.01079",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/JWST_Pinetti.txt": {
+      "arxiv_id": "2503.11753",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/AxionPhoton/JWST_Saha.txt": {
+      "arxiv_id": "2503.14582",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/AxionPhoton/MOJAVE.txt": {
+      "arxiv_id": "1811.10997",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/MWDPolarisation.txt": {
+      "arxiv_id": "2203.04319",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/MWDPolarisation_KeckLick.txt": {
+      "arxiv_id": "2504.12377",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/AxionPhoton/MiniBooNE.txt": {
+      "arxiv_id": "2307.03878",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/AxionPhoton/Mrk421.txt": {
+      "arxiv_id": "2008.09464",
+      "known_version": 4,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/NuSTAR.txt": {
+      "arxiv_id": "1609.00667",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/PPTA-QUIJOTE.txt": {
+      "arxiv_id": "2201.03422",
+      "known_version": 4,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/PSRJ0437-4715.txt": {
+      "arxiv_id": "1902.02695",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/ADMX_Projected.txt": {
+      "arxiv_id": "1602.00039",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/CADEx.txt": {
+      "arxiv_id": "2206.02980",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/CMB-S4.txt": {
+      "arxiv_id": "2203.16567",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/FASER_LLP.txt": {
+      "arxiv_id": "1811.12522",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/IAXO_plus_SN_Spica1.txt": {
+      "arxiv_id": "2008.03924",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/NeutronStars_SKA.txt": {
+      "arxiv_id": "2104.07670",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/THESEUS.txt": {
+      "arxiv_id": "2008.08306",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/WINERED.txt": {
+      "arxiv_id": "2208.05975",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/Projections/XRISM.txt": {
+      "arxiv_id": "2305.17160",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/AxionPhoton/Projections/eROSITA.txt": {
+      "arxiv_id": "2103.13241",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/RADES.txt": {
+      "arxiv_id": "2104.13798",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/SAPPHIRES.txt": {
+      "arxiv_id": "2208.09880",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/AxionPhoton/SN1987A_HeavyALP_gamma.txt": {
+      "arxiv_id": "2109.03244",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/SN1987A_HeavyALP_nu.txt": {
+      "arxiv_id": "2008.04918",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/SN1987A_gamma.txt": {
+      "arxiv_id": "2212.09764",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/SPT.txt": {
+      "arxiv_id": "2203.16567",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/SgrA.txt": {
+      "arxiv_id": "2008.13662",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/SuperMAG.txt": {
+      "arxiv_id": "2112.09620",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/WhiteDwarfs.txt": {
+      "arxiv_id": "2102.00379",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionPhoton/XRISM.txt": {
+      "arxiv_id": "2503.04726",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/AxionPhoton/eROSITA.txt": {
+      "arxiv_id": "2401.16747",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/AxionProton/Casimir.txt": {
+      "arxiv_id": "2009.04517",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/AFM.txt": {
+      "arxiv_id": "2008.02209",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/CAST.txt": {
+      "arxiv_id": "0801.1527",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/COBEFIRAS_Cyr.txt": {
+      "arxiv_id": "2411.13701",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/DarkPhoton/CROWS.txt": {
+      "arxiv_id": "1310.8098",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Cavendish.txt": {
+      "arxiv_id": "2008.02209",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Cosmology_Arias.txt": {
+      "arxiv_id": "1201.5902",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Cosmology_Witte_homogeneous.txt": {
+      "arxiv_id": "2003.13698",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Cosmology_Witte_inhomogeneous.txt": {
+      "arxiv_id": "2003.13698",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Crab.txt": {
+      "arxiv_id": "0810.5501",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Crab_2.txt": {
+      "arxiv_id": "2002.01796",
+      "known_version": 4,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/DarkEfield.txt": {
+      "arxiv_id": "2101.02805",
+      "known_version": 4,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/DarkEfield2.txt": {
+      "arxiv_id": "2405.20444",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/DarkPhoton/DarkSRF.txt": {
+      "arxiv_id": "2301.11512",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/DarkPhoton/Earth.txt": {
+      "arxiv_id": "2110.02875",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/DarkPhoton/FUNK.txt": {
+      "arxiv_id": "2003.13144",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/GasClouds.txt": {
+      "arxiv_id": "1903.12190",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/HB.txt": {
+      "arxiv_id": "2304.12907",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Hefei.txt": {
+      "arxiv_id": "2404.12731",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/DarkPhoton/ISM.txt": {
+      "arxiv_id": "1509.00039",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/LSW_CERN.txt": {
+      "arxiv_id": "1207.3275",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/DarkPhoton/LSW_UWA.txt": {
+      "arxiv_id": "1410.5244",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/LeoT.txt": {
+      "arxiv_id": "1903.12190",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/NeutronStarCooling.txt": {
+      "arxiv_id": "2012.05427",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/PlimptonLawton.txt": {
+      "arxiv_id": "2008.02209",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Projections/ALPS-II.txt": {
+      "arxiv_id": "1302.5647",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Projections/AharonovBohm.txt": {
+      "arxiv_id": "1603.01282",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Projections/DarkEfield.txt": {
+      "arxiv_id": "2101.02805",
+      "known_version": 4,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Projections/DarkSRF.txt": {
+      "arxiv_id": "2203.12714",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/DarkPhoton/Projections/LAMPOST.txt": {
+      "arxiv_id": "1803.11455",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Projections/STAX.txt": {
+      "arxiv_id": "2212.01139",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/RG.txt": {
+      "arxiv_id": "2304.12907",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Rescaled/Hefei.txt": {
+      "arxiv_id": "2404.12731",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/DarkPhoton/SHIPS.txt": {
+      "arxiv_id": "1502.04490",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/SPring-8.txt": {
+      "arxiv_id": "1301.6557",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/SUPAX.txt": {
+      "arxiv_id": "2308.08337",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/DarkPhoton/Solar-Global.txt": {
+      "arxiv_id": "1501.01639",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Solar.txt": {
+      "arxiv_id": "2304.12907",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/SuperMAG.txt": {
+      "arxiv_id": "2106.00022",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Tokyo-Dish.txt": {
+      "arxiv_id": "2003.13144",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Tokyo-Knirck.txt": {
+      "arxiv_id": "1806.05120",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Tokyo-Tomita.txt": {
+      "arxiv_id": "2006.02828",
+      "known_version": 4,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/XENON1T_Solar_S2.txt": {
+      "arxiv_id": "2006.13929",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/DarkPhoton/Xenon1T_S1S2.txt": {
+      "arxiv_id": "2006.09721",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/ElectronNucleon/EotWash_left.txt": {
+      "arxiv_id": "0808.2673",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/ElectronNucleon/EotWash_right.txt": {
+      "arxiv_id": "0808.2673",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/ElectronNucleon/PenningTrap.txt": {
+      "arxiv_id": "2310.18797",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": false
+    },
+    "limit_data/MonopoleDipole/ElectronNucleon/QUAX.txt": {
+      "arxiv_id": "1705.06044",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/MonopoleDipole/ElectronNucleon/QUAX_RLC.txt": {
+      "arxiv_id": "1606.04751",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/EotWashEP.txt": {
+      "arxiv_id": "1807.04512",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarElectron/IPTA.txt": {
+      "arxiv_id": "2205.06817",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarNucleon/Casimir.txt": {
+      "arxiv_id": "2009.04517",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/ScalarPhoton/EotWashEP.txt": {
+      "arxiv_id": "1807.04512",
+      "known_version": 3,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/VectorB-L/HorizontalBranch.txt": {
+      "arxiv_id": "2304.12907",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/VectorB-L/RedGiant.txt": {
+      "arxiv_id": "2304.12907",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/VectorB-L/Sun.txt": {
+      "arxiv_id": "2304.12907",
+      "known_version": 2,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/Projections/NSBH-Inspiral.txt": {
+      "arxiv_id": "1708.08464",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/Projections/NSNS-Inspiral.txt": {
+      "arxiv_id": "1708.08464",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/Projections/NeutronStars.txt": {
+      "arxiv_id": "1708.08464",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/Pulsar.txt": {
+      "arxiv_id": "1708.08464",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/SolarCore.txt": {
+      "arxiv_id": "1708.08464",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
+      "published": true
+    },
+    "limit_data/fa/nEDM.txt": {
+      "arxiv_id": "1708.06367",
+      "known_version": 1,
+      "last_checked": "2026-03-30T02:41:00.341638+00:00",
       "published": true
     }
   }
