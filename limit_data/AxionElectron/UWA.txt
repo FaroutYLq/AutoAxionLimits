@@ -1,7 +1,9 @@
-# UWA Ferromagnetic haloscope Flower et al.
-# https://arxiv.org/pdf/1811.09348.pdf
-# Mass [eV]   g_aee
-33.79e-6    1e0
-33.79e-6    3.7e-9
-33.94e-6    3.7e-9
-33.94e-6    1e0
+# Broadening Frequency Range of a Ferromagnetic Axion Haloscope with Strongly Coupled Cavity-Magnon Polaritons
+# arXiv: https://arxiv.org/abs/1811.09348
+# Coupling type: AxionElectron
+# Extracted from: text
+# Confidence level: 0.95
+# Extraction confidence: 0.85
+# mass [eV]    coupling
+3.379000e-05   3.700000e-09
+3.394000e-05   3.700000e-09
