@@ -482,9 +482,9 @@ def run_weekly_check(
         n_published, len(s2_published),
     )
 
-    # Step 2: For papers already tracked + published (no version change possible),
-    # mark them and skip arXiv. For NEW papers that are published, baseline them
-    # without arXiv. Only query arXiv for unpublished papers that need version checks.
+    # Step 2: Papers already tracked AND published can skip arXiv (they won't
+    # change). All other papers — including NEW files whose paper is published —
+    # need arXiv so we can extract and verify the data is still valid.
     ids_need_arxiv: list[str] = []
     for file_path, arxiv_id in file_arxiv_map.items():
         file_state = state["files"].get(file_path, {})
@@ -493,17 +493,12 @@ def run_weekly_check(
         known_version = file_state.get("known_version")
         s2_is_published = s2_published.get(arxiv_id, False)
 
-        # New file + published → baseline without arXiv
-        if known_version is None and s2_is_published:
-            state["files"][file_path] = {
-                "arxiv_id": arxiv_id,
-                "known_version": 0,  # unknown, but won't be checked again
-                "last_checked": now_iso,
-                "published": True,
-            }
+        # Already tracked + published via S2 → mark and skip arXiv
+        if known_version is not None and s2_is_published:
+            state["files"][file_path]["published"] = True
+            state["files"][file_path]["last_checked"] = now_iso
             continue
 
-        # Tracked + same status → still need arXiv for version check
         if arxiv_id not in ids_need_arxiv:
             ids_need_arxiv.append(arxiv_id)
 
@@ -521,10 +516,6 @@ def run_weekly_check(
 
         # Skip papers already known to be published — they won't be updated.
         if file_state.get("published") and not init_only:
-            continue
-
-        # Skip papers already baselined as published in step 2
-        if known_version == 0 and file_state.get("published"):
             continue
 
         cached = arxiv_cache.get(arxiv_id)
@@ -545,29 +536,38 @@ def run_weekly_check(
             }
             continue
 
-        # First time seeing this file — set baseline, no PR
+        # First time seeing this file
         if known_version is None:
-            state["files"][file_path] = {
-                "arxiv_id": arxiv_id,
-                "known_version": latest_version,
-                "last_checked": now_iso,
-                "published": published,
-            }
-            continue
+            if not published:
+                # Unpublished preprint — set baseline, no PR
+                state["files"][file_path] = {
+                    "arxiv_id": arxiv_id,
+                    "known_version": latest_version,
+                    "last_checked": now_iso,
+                    "published": False,
+                }
+                continue
+            # Published paper with existing data file — fall through to
+            # extraction below so we can verify the data is still valid
+            logger.info(
+                "%s: new file %s is already published — verifying data",
+                arxiv_id, file_path,
+            )
 
-        if latest_version <= known_version:
+        if known_version is not None and latest_version <= known_version:
             state["files"][file_path]["last_checked"] = now_iso
             if published:
                 state["files"][file_path]["published"] = True
             continue
 
-        # New version available — do full published check (including Semantic Scholar)
+        # Version change or new published file — do full published check
         if not published:
             published = is_published(new_paper)
-        logger.info(
-            "%s: new version v%d (was v%d)%s", arxiv_id, latest_version, known_version,
-            " [published]" if published else "",
-        )
+        if known_version is not None:
+            logger.info(
+                "%s: new version v%d (was v%d)%s", arxiv_id, latest_version, known_version,
+                " [published]" if published else "",
+            )
 
         # Extract data from new version
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -598,7 +598,7 @@ def run_weekly_check(
                         repo_root=repo_root,
                         file_path=file_path,
                         arxiv_id=arxiv_id,
-                        old_version=known_version,
+                        old_version=known_version or 0,
                         new_version=latest_version,
                         new_paper=new_paper,
                     )
@@ -609,8 +609,12 @@ def run_weekly_check(
                     )
             else:
                 logger.info("No data extracted from %s v%d", arxiv_id, latest_version)
-                state["files"][file_path]["known_version"] = latest_version
-                state["files"][file_path]["last_checked"] = now_iso
+                state["files"][file_path] = {
+                    "arxiv_id": arxiv_id,
+                    "known_version": latest_version,
+                    "last_checked": now_iso,
+                    "published": False,
+                }
             continue
 
         # Apply corrections
