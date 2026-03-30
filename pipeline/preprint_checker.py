@@ -583,11 +583,35 @@ def run_weekly_check(
                 logger.warning("Extraction failed for %s v%d: %s", arxiv_id, latest_version, e)
                 continue
 
-        if not new_extraction.data_points:
+        # Determine if extraction should be treated as "no usable limit data":
+        # 1. No data points at all
+        # 2. Extractor flagged it as a projection (projections ≠ limits)
+        # 3. Extraction confidence too low to trust
+        _MIN_CONFIDENCE = 0.5
+        no_data = not new_extraction.data_points
+        is_projection = new_extraction.is_projection
+        low_confidence = new_extraction.extraction_confidence < _MIN_CONFIDENCE
+
+        # Determine whether this file is in a Projections/ directory
+        is_projection_file = "Projections/" in file_path
+
+        # Projection data is only usable if the file is already a projection file.
+        # If the extractor returns projection data for a limits file, treat as
+        # "no limit data" — the paper may have replaced its limit with a projection.
+        no_usable_limit = no_data or (is_projection and not is_projection_file) or low_confidence
+
+        if no_usable_limit:
+            if no_data:
+                reason = "no data extracted"
+            elif is_projection and not is_projection_file:
+                reason = "extraction returned projection data, not a limit"
+            else:
+                reason = f"extraction confidence too low ({new_extraction.extraction_confidence:.2f} < {_MIN_CONFIDENCE})"
+
             if published:
                 logger.warning(
-                    "Published paper %s v%d yielded no data — possible limit removal for %s",
-                    arxiv_id, latest_version, file_path,
+                    "Published paper %s v%d: %s — possible limit removal for %s",
+                    arxiv_id, latest_version, reason, file_path,
                 )
                 state["files"][file_path] = {
                     "arxiv_id": arxiv_id,
@@ -607,16 +631,17 @@ def run_weekly_check(
                             old_version=known_version or 0,
                             new_version=latest_version,
                             new_paper=new_paper,
+                            reason=reason,
                         )
                     except Exception as e:
                         logger.error("Failed to create removal flag PR for %s: %s", arxiv_id, e)
                 else:
                     logger.info(
-                        "[DRY RUN] Would create removal flag PR for %s v%d",
-                        arxiv_id, latest_version,
+                        "[DRY RUN] Would create removal flag PR for %s v%d (%s)",
+                        arxiv_id, latest_version, reason,
                     )
             else:
-                logger.info("No data extracted from %s v%d", arxiv_id, latest_version)
+                logger.info("No usable limit data from %s v%d: %s", arxiv_id, latest_version, reason)
                 state["files"][file_path] = {
                     "arxiv_id": arxiv_id,
                     "known_version": latest_version,
@@ -688,8 +713,9 @@ def _create_removal_flag_pr(
     old_version: int,
     new_version: int,
     new_paper: arxiv.Result,
+    reason: str = "no extractable data",
 ) -> None:
-    """Create a flag PR when a published paper yields no extractable data."""
+    """Create a flag PR when a published paper yields no usable limit data."""
     experiment_name = Path(file_path).stem
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
     branch = f"pipeline/review-{arxiv_id.replace('.', '-')}-v{new_version}-{timestamp}"
@@ -723,8 +749,9 @@ def _create_removal_flag_pr(
         f"**arXiv ID:** [{arxiv_id}]({new_url})\n"
         f"- Old version: [v{old_version}]({old_url})\n"
         f"- Published version: [v{new_version}]({new_url})\n\n"
-        f"> ⚠️ The published version of this paper yielded no extractable data points.\n"
-        f"> This may indicate that the limit has been removed or substantially changed\n"
+        f"> ⚠️ The published version of this paper yielded no usable limit data.\n"
+        f"> **Reason:** {reason}\n"
+        f"> This may indicate that the limit has been removed or replaced with a projection\n"
         f"> in the peer-reviewed version.\n\n"
         f"## Action Required\n\n"
         f"Please verify whether the limit in `{file_path}` is still valid by checking\n"
