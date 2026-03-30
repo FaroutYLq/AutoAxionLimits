@@ -547,14 +547,58 @@ def run_weekly_check(
                     "published": False,
                 }
                 continue
-            # Published paper with existing data file — fall through to
-            # extraction below so we can verify the data is still valid
+            # Published paper with existing data file — extract to verify
+            # the published version still provides this limit. Only flag
+            # if extraction yields NO data (possible limit removal).
             logger.info(
                 "%s: new file %s is already published — verifying data",
                 arxiv_id, file_path,
             )
+            with tempfile.TemporaryDirectory() as tmpdir:
+                try:
+                    pdf_path = download_pdf(arxiv_id, Path(tmpdir))
+                    verification = run_extraction_agent(new_paper, pdf_path, client)
+                except Exception as e:
+                    logger.warning("Verification failed for %s: %s — baselining", arxiv_id, e)
+                    verification = None
 
-        if known_version is not None and latest_version <= known_version:
+            if verification is not None and not verification.data_points:
+                # Published version has no data — flag for review
+                logger.warning(
+                    "Published paper %s yielded no data — possible limit removal for %s",
+                    arxiv_id, file_path,
+                )
+                state["files"][file_path] = {
+                    "arxiv_id": arxiv_id,
+                    "known_version": latest_version,
+                    "last_checked": now_iso,
+                    "published": True,
+                }
+                state["last_checked"] = now_iso
+                save_version_state(state)
+                if not dry_run:
+                    _create_removal_flag_pr(
+                        repo_root=repo_root,
+                        file_path=file_path,
+                        arxiv_id=arxiv_id,
+                        old_version=0,
+                        new_version=latest_version,
+                        new_paper=new_paper,
+                    )
+                else:
+                    logger.info("[DRY RUN] Would create removal flag PR for %s", arxiv_id)
+                continue
+
+            # Extraction found data or failed — baseline as published, trust existing file
+            state["files"][file_path] = {
+                "arxiv_id": arxiv_id,
+                "known_version": latest_version,
+                "last_checked": now_iso,
+                "published": True,
+            }
+            continue
+
+        if latest_version <= known_version:
             state["files"][file_path]["last_checked"] = now_iso
             if published:
                 state["files"][file_path]["published"] = True
@@ -565,7 +609,7 @@ def run_weekly_check(
             published = is_published(new_paper)
         if known_version is not None:
             logger.info(
-                "%s: new version v%d (was v%d)%s", arxiv_id, latest_version, known_version,
+                "%s: new version v%d (was v%s)%s", arxiv_id, latest_version, known_version or "new",
                 " [published]" if published else "",
             )
 
@@ -631,8 +675,9 @@ def run_weekly_check(
             continue
 
         # Data changed — create PR
+        old_ver = known_version or 0
         change_summary = summarise_changes(
-            arxiv_id, known_version, latest_version, new_paper, client
+            arxiv_id, old_ver, latest_version, new_paper, client
         )
 
         # Update and save state before creating the PR so it can be included in
@@ -651,7 +696,7 @@ def run_weekly_check(
                 repo_root=repo_root,
                 file_path=file_path,
                 arxiv_id=arxiv_id,
-                old_version=known_version,
+                old_version=old_ver,
                 new_version=latest_version,
                 new_extraction=new_extraction,
                 corrected_data=corrected_data,
@@ -662,7 +707,7 @@ def run_weekly_check(
                 published=published,
             )
         else:
-            logger.info("[DRY RUN] Would create PR for %s v%d→v%d", arxiv_id, known_version, latest_version)
+            logger.info("[DRY RUN] Would create PR for %s v%s→v%d", arxiv_id, known_version or "new", latest_version)
 
     state["last_checked"] = now_iso
     save_version_state(state)
