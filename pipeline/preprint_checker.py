@@ -724,7 +724,8 @@ def _create_removal_flag_pr(
 ) -> None:
     """Create a flag PR when a published paper yields no extractable data."""
     experiment_name = Path(file_path).stem
-    branch = f"pipeline/review-{arxiv_id.replace('.', '-')}-v{new_version}"
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+    branch = f"pipeline/review-{arxiv_id.replace('.', '-')}-v{new_version}-{timestamp}"
 
     from .pr_creator import _run_git, _run_gh
 
@@ -801,7 +802,8 @@ def _create_update_pr(
     data_path.write_text(new_content)
 
     # Git branch + commit + PR
-    branch = f"pipeline/preprint-{arxiv_id.replace('.', '-')}-v{old_version}-to-v{new_version}"
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+    branch = f"pipeline/preprint-{arxiv_id.replace('.', '-')}-v{old_version}-to-v{new_version}-{timestamp}"
 
     from .pr_creator import _run_git, _run_gh
 
