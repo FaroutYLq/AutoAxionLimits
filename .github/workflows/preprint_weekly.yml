@@ -57,6 +57,16 @@ jobs:
           fi
           python -m pipeline.preprint_checker $ARGS
 
+      - name: Commit updated state back to master
+        run: |
+          if git diff --quiet pipeline/state/preprint_versions.json; then
+            echo "No state changes to commit"
+          else
+            git add pipeline/state/preprint_versions.json
+            git commit -m "chore: update preprint_versions.json state [skip ci]"
+            git push origin master
+          fi
+
       - name: Upload pipeline logs
         if: always()
         uses: actions/upload-artifact@v4
