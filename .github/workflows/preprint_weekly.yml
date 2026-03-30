@@ -57,14 +57,24 @@ jobs:
           fi
           python -m pipeline.preprint_checker $ARGS
 
-      - name: Commit updated state back to master
+      - name: Commit updated state via PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if git diff --quiet pipeline/state/preprint_versions.json; then
             echo "No state changes to commit"
           else
+            BRANCH="chore/update-preprint-state-$(date +%Y%m%d-%H%M%S)"
+            git checkout -b "$BRANCH"
             git add pipeline/state/preprint_versions.json
             git commit -m "chore: update preprint_versions.json state [skip ci]"
-            git push origin master
+            git push -u origin "$BRANCH"
+            gh pr create \
+              --title "chore: update preprint_versions.json state" \
+              --body "Auto-generated state update from weekly preprint checker run." \
+              --base master \
+              --repo FaroutYLq/AutoAxionLimits
+            gh pr merge "$BRANCH" --squash --auto --repo FaroutYLq/AutoAxionLimits
           fi
 
       - name: Upload pipeline logs
