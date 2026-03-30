@@ -74,7 +74,7 @@ jobs:
               --body "Auto-generated state update from daily arXiv digest run." \
               --base master \
               --repo FaroutYLq/AutoAxionLimits
-            gh pr merge "$BRANCH" --squash --auto --repo FaroutYLq/AutoAxionLimits
+            gh pr merge "$BRANCH" --squash --auto --repo FaroutYLq/AutoAxionLimits || echo "Auto-merge not available — PR needs manual merge"
           fi
 
       - name: Upload pipeline logs
