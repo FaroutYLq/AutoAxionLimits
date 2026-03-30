@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_checked": "2026-03-30T13:46:28.276090+00:00",
+  "last_checked": "2026-03-30T15:00:10.492077+00:00",
   "files": {
     "limit_data/AxionEDM/BBN.txt": {
       "arxiv_id": "1401.6460",
@@ -233,7 +233,7 @@
     "limit_data/AxionMass/VISHnu.txt": {
       "arxiv_id": "2206.11598",
       "known_version": 3,
-      "last_checked": "2026-03-30T13:46:28.276090+00:00",
+      "last_checked": "2026-03-30T15:00:10.492077+00:00",
       "published": false
     },
     "limit_data/AxionMass/Wantz09.txt": {
@@ -365,7 +365,7 @@
     "limit_data/AxionPhoton/EPTA.txt": {
       "arxiv_id": "2412.02232",
       "known_version": 1,
-      "last_checked": "2026-03-30T13:46:28.276090+00:00",
+      "last_checked": "2026-03-30T15:00:10.492077+00:00",
       "published": false
     },
     "limit_data/AxionPhoton/Eskdalemuir.txt": {
@@ -425,7 +425,7 @@
     "limit_data/AxionPhoton/MiniBooNE.txt": {
       "arxiv_id": "2307.03878",
       "known_version": 2,
-      "last_checked": "2026-03-30T13:46:28.276090+00:00",
+      "last_checked": "2026-03-30T15:00:10.492077+00:00",
       "published": false
     },
     "limit_data/AxionPhoton/Mrk421.txt": {
@@ -503,7 +503,7 @@
     "limit_data/AxionPhoton/Projections/XRISM.txt": {
       "arxiv_id": "2305.17160",
       "known_version": 1,
-      "last_checked": "2026-03-30T13:46:28.276090+00:00",
+      "last_checked": "2026-03-30T15:00:10.492077+00:00",
       "published": false
     },
     "limit_data/AxionPhoton/Projections/eROSITA.txt": {
@@ -521,7 +521,7 @@
     "limit_data/AxionPhoton/SAPPHIRES.txt": {
       "arxiv_id": "2208.09880",
       "known_version": 1,
-      "last_checked": "2026-03-30T13:46:28.276090+00:00",
+      "last_checked": "2026-03-30T15:00:10.492077+00:00",
       "published": false
     },
     "limit_data/AxionPhoton/SN1987A_HeavyALP_gamma.txt": {
@@ -653,13 +653,13 @@
     "limit_data/DarkPhoton/DarkEfield2.txt": {
       "arxiv_id": "2405.20444",
       "known_version": 1,
-      "last_checked": "2026-03-30T13:46:28.276090+00:00",
+      "last_checked": "2026-03-30T15:00:10.492077+00:00",
       "published": false
     },
     "limit_data/DarkPhoton/DarkSRF.txt": {
       "arxiv_id": "2301.11512",
       "known_version": 1,
-      "last_checked": "2026-03-30T13:46:28.276090+00:00",
+      "last_checked": "2026-03-30T15:00:10.492077+00:00",
       "published": false
     },
     "limit_data/DarkPhoton/Earth.txt": {
@@ -701,7 +701,7 @@
     "limit_data/DarkPhoton/LSW_CERN.txt": {
       "arxiv_id": "1207.3275",
       "known_version": 1,
-      "last_checked": "2026-03-30T13:46:28.276090+00:00",
+      "last_checked": "2026-03-30T15:00:10.492077+00:00",
       "published": false
     },
     "limit_data/DarkPhoton/LSW_UWA.txt": {
@@ -2477,13 +2477,13 @@
     "limit_data/AxionMass/Benabou24.txt": {
       "arxiv_id": "2412.08699",
       "known_version": 1,
-      "last_checked": "2026-03-30T13:46:28.276090+00:00",
+      "last_checked": "2026-03-30T15:00:10.492077+00:00",
       "published": false
     },
     "limit_data/AxionMass/Benabou24_DW.txt": {
       "arxiv_id": "2412.08699",
       "known_version": 1,
-      "last_checked": "2026-03-30T13:46:28.276090+00:00",
+      "last_checked": "2026-03-30T15:00:10.492077+00:00",
       "published": false
     },
     "limit_data/AxionMass/Berkowitz15.txt": {
@@ -2555,7 +2555,7 @@
     "limit_data/ScalarPhoton/Projections/NuclearClock.txt": {
       "arxiv_id": "2203.14915",
       "known_version": 1,
-      "last_checked": "2026-03-30T13:46:28.276090+00:00",
+      "last_checked": "2026-03-30T15:00:10.492077+00:00",
       "published": false
     },
     "limit_data/ScalarPhoton/Projections/QSNET.txt": {
