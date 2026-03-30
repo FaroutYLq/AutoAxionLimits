@@ -495,9 +495,10 @@ def run_weekly_check(
         known_version = file_state.get("known_version")
         s2_is_published = s2_published.get(arxiv_id, False)
 
-        # Already tracked + published via S2 → mark and skip arXiv
-        if known_version is not None and s2_is_published:
-            state["files"][file_path]["published"] = True
+        # Already tracked + already marked published → skip arXiv
+        # (Don't skip newly-published papers — they need status-change verification)
+        was_published = file_state.get("published", False)
+        if known_version is not None and s2_is_published and was_published:
             state["files"][file_path]["last_checked"] = now_iso
             continue
 
