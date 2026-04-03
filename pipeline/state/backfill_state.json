@@ -8,96 +8,6 @@
   },
   "queue": [
     {
-      "arxiv_id": "2012.10764",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2001.08940",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2406.16840",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2105.04572",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2110.14406",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2303.08666",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2110.03679",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2204.09475",
-      "title": "ADMX-Orpheus first search for <math display=\"inline\"><mrow><mn>70</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>\u03bc</mi><mi>eV</mi></mrow></math> dark photon dark matter: Detailed design, operations, and analysis",
-      "abstract": "Dark matter makes up 85% of the matter in the Universe and 27% of its energy density, but we do not know what comprises dark matter. It is possible that dark matter is composed of either axions or dark photons, both of which can be detected using an ultrasensitive microwave cavity known as a haloscope. The haloscope employed by ADMX consists of a cylindrical cavity operating at the <math display=\"inline\"><mrow><msub><mrow><mi>TM</mi></mrow><mrow><mn>010</mn></mrow></msub></mrow></math> mode and is sensitive to the QCD axion with masses of few <math display=\"inline\"><mrow><mi>\u03bc</mi><mi>eV</mi></mrow></math>. However, this haloscope design becomes challenging to implement for higher masses. This is because higher masses require smaller-diameter cavities, consequently reducing the detection volume which diminishes the detected signal power. ADMX-Orpheus mitigates this issue by operating a tunable, dielectrically loaded cavity at a higher-order mode, allowing the detection volume to remain large. This paper describes the design, operation, analysis, and results of the inaugural ADMX-Orpheus dark photon search between <math display=\"inline\"><mrow><mn>65.5</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>\u03bc</mi><mi>eV</mi></mrow></math> (15.8\u00a0GHz) and <math display=\"inline\"><mrow><mn>69.3</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>\u03bc</mi><mi>eV</mi></mrow></math> (16.8\u00a0GHz), as well as future directions for axion searches and for exploring more parameter space.",
-      "citations": 50,
-      "coupling_guess": "DarkPhoton",
-      "inspire_id": "2069751",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2209.03419",
-      "title": "Wideband Direct Detection Constraints on Hidden Photon Dark Matter with the QUALIPHIDE Experiment",
-      "abstract": "We report direction detection constraints on the presence of hidden photon dark matter with masses between <math display=\"inline\"><mrow><mn>20</mn><mi>\u2013</mi><mn>30</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi mathvariant=\"normal\">\u03bc</mi><mi>eV</mi><mtext>\u2009</mtext><msup><mrow><mi mathvariant=\"normal\">c</mi></mrow><mrow><mo>\u2212</mo><mn>2</mn></mrow></msup></mrow></math>, using a cryogenic emitter-receiver-amplifier spectroscopy setup designed as the first iteration of QUALIPHIDE (quantum limited photons in the dark experiment). A metallic dish sources conversion photons, from hidden photon kinetic mixing, onto a horn antenna which is coupled to a <math display=\"inline\"><mi>C</mi></math> band kinetic inductance traveling wave parametric amplifier, providing for near quantum-limited noise performance. We demonstrate a first probing of the kinetic mixing parameter <math display=\"inline\"><mi>\u03c7</mi></math> to the <math display=\"inline\"><msup><mn>10</mn><mrow><mo>-</mo><mn>12</mn></mrow></msup></math> level for the majority of hidden photon masses in this region. These results not only represent stringent constraints on new dark matter parameter space, but are also the first demonstrated use of wideband quantum-limited amplification for astroparticle applications.",
-      "citations": 48,
-      "coupling_guess": "DarkPhoton",
-      "inspire_id": "2148929",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2402.01839",
-      "title": "Indirect Searches for Dark Photon-Photon Tridents in Celestial Objects",
-      "abstract": "We model and constrain the unique indirect detection signature produced by dark matter particles that annihilate through a $U(1)$ gauge symmetry into dark photons that subsequently decay into three-photon final states. We focus on scenarios where the dark photon is long-lived, and show that $\\gamma$-ray probes of celestial objects can set strong constraints on the dark matter/baryon scattering cross section that in many cases surpass the power of current direct detection constraints, and in some cases even peer into the neutrino fog.",
-      "citations": 46,
-      "coupling_guess": "DarkPhoton",
-      "inspire_id": "2755444",
-      "publication_types": []
-    },
-    {
       "arxiv_id": "2009.13909",
       "title": "Implications of Gravitational-wave Production from Dark Photon Resonance to Pulsar-timing Observations and Effective Number of Relativistic Species",
       "abstract": "The coherent oscillation of axionic fields naturally drives copious production of dark photon particles in the early universe, due to resonance and tachyonic enhancement. During the process, energy is abruptly transferred from the former to the latter, sourcing gravitational wave generation. The resulting gravitational waves are eventually to be observed as stochastic background today. We report analytical results of this production and connect them to the recent pulsar-timing results by the NANOGrav collaboration. We show an available parameter space, around the mass $m_\\phi \\sim 10^{-13} \\, {\\rm eV}$ and the decay constant $f_\\phi \\sim 10^{16} \\, {\\rm GeV}$ with a dimensionless coupling of ${\\cal O}(1)$, for our mechanism to account for the signal. A mechanism to avoid the axion over-dominating the universe is a necessary ingredient of this model, and we discuss a possibility to recover a symmetry and render the axion massless after the production. We also comment on potential implications of the required effective number of relativistic species to the determination of the present Hubble constant.",
@@ -557,11 +467,22 @@
       "publication_types": []
     }
   ],
-  "processed_ids": [],
+  "processed_ids": [
+    "2012.10764",
+    "2001.08940",
+    "2406.16840",
+    "2105.04572",
+    "2110.14406",
+    "2303.08666",
+    "2110.03679",
+    "2204.09475",
+    "2209.03419"
+  ],
   "skipped_ids": {
     "2010.03833": "no_keyword_match",
     "2006.15787": "write_error: Class 'AxionCPV' not found in /home/runner/work/AutoAxionLimits/AutoAxionLimits/PlotFuncs.py",
-    "2205.08582": "no_data_points"
+    "2205.08582": "no_data_points",
+    "2402.01839": "review_error: Coupling range [1.22e-46, 1.22e-34] outside valid range [1e-22, 1e+00] for DarkPhoton \u2014 likely a unit conversion error"
   },
   "runs": [
     {
@@ -569,6 +490,12 @@
       "processed": 10,
       "prs_created": 5,
       "remaining": 54
+    },
+    {
+      "timestamp": "2026-04-03T21:34:47.767972+00:00",
+      "processed": 10,
+      "prs_created": 1,
+      "remaining": 51
     }
   ]
 }
