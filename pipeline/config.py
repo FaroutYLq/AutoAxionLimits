@@ -297,3 +297,72 @@ LOW_CONFIDENCE_THRESHOLD = 0.6
 
 # Number of papers to process per daily run.
 MAX_PAPERS_PER_RUN = 5
+
+# ---------------------------------------------------------------------------
+# Backfill configuration
+# ---------------------------------------------------------------------------
+BACKFILL_MAX_PAPERS_PER_RUN = 10
+BACKFILL_DEFAULT_MIN_CITATIONS = 10
+
+# Curated search queries for INSPIRE-HEP (per coupling type).
+# These are used with INSPIRE's SPIRES syntax: find (t "..." or abs "...").
+# Keep queries short (2-3 key terms) for good recall; precision comes from
+# the subsequent keyword classification and LLM filters.
+INSPIRE_SEARCH_QUERIES = {
+    "DarkPhoton": [
+        "dark photon",
+        "hidden photon",
+        "kinetic mixing",
+    ],
+    "AxionPhoton": [
+        "axion photon coupling",
+        "haloscope",
+        "axion-like particle",
+    ],
+    "AxionElectron": [
+        "axion electron",
+        "solar axion",
+    ],
+    "AxionNeutron": [
+        "axion neutron",
+        "axion nucleon",
+    ],
+    "AxionProton": [
+        "axion proton",
+    ],
+    "AxionEDM": [
+        "axion electric dipole moment",
+        "oscillating EDM",
+    ],
+    "AxionCPV": [
+        "axion CP violation",
+        "strong CP",
+    ],
+    "AxionMass": [
+        "axion mass",
+        "axion decay constant",
+    ],
+    "MonopoleDipole": [
+        "monopole-dipole",
+        "spin-mass coupling",
+    ],
+    "ScalarPhoton": [
+        "scalar photon coupling",
+        "dilaton photon",
+    ],
+    "ScalarElectron": [
+        "scalar electron coupling",
+        "dilaton electron",
+    ],
+    "ScalarBaryon": [
+        "scalar baryon",
+    ],
+    "ScalarNucleon": [
+        "scalar nucleon",
+        "dilaton nucleon",
+    ],
+    "VectorBL": [
+        "B-L gauge boson",
+        "B-L boson",
+    ],
+}

@@ -1,0 +1,161 @@
+name: Backfill Historical Papers
+
+on:
+  workflow_dispatch:
+    inputs:
+      date_from:
+        description: 'Start date (YYYY-MM-DD)'
+        required: false
+        default: ''
+      date_to:
+        description: 'End date (YYYY-MM-DD)'
+        required: false
+        default: ''
+      min_citations:
+        description: 'Minimum citation count'
+        required: false
+        default: '10'
+      max_papers:
+        description: 'Max papers to process this run'
+        required: false
+        default: '10'
+      coupling_types:
+        description: 'Comma-separated coupling types (empty = all)'
+        required: false
+        default: ''
+      dry_run:
+        description: 'Dry run (log actions without writing files)'
+        required: false
+        default: 'false'
+      discover_only:
+        description: 'Only discover candidates, do not extract'
+        required: false
+        default: 'false'
+      resume:
+        description: 'Resume processing from existing queue'
+        required: false
+        default: 'false'
+
+concurrency:
+  group: backfill
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: write    # needed for auto re-trigger via gh workflow run
+
+    outputs:
+      queue_remaining: ${{ steps.run.outputs.queue_remaining }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: requirements_pipeline.txt
+
+      - name: Configure git identity
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+      - name: Install pipeline dependencies
+        run: pip install -r requirements_pipeline.txt
+
+      - name: Run backfill pipeline
+        id: run
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_DATE_FROM: ${{ github.event.inputs.date_from }}
+          INPUT_DATE_TO: ${{ github.event.inputs.date_to }}
+          INPUT_MIN_CITATIONS: ${{ github.event.inputs.min_citations }}
+          INPUT_MAX_PAPERS: ${{ github.event.inputs.max_papers }}
+          INPUT_COUPLING_TYPES: ${{ github.event.inputs.coupling_types }}
+          INPUT_DRY_RUN: ${{ github.event.inputs.dry_run }}
+          INPUT_DISCOVER_ONLY: ${{ github.event.inputs.discover_only }}
+          INPUT_RESUME: ${{ github.event.inputs.resume }}
+        run: |
+          ARGS=""
+          if [ -n "$INPUT_DATE_FROM" ]; then
+            ARGS="$ARGS --date-from $INPUT_DATE_FROM"
+          fi
+          if [ -n "$INPUT_DATE_TO" ]; then
+            ARGS="$ARGS --date-to $INPUT_DATE_TO"
+          fi
+          if [ -n "$INPUT_MIN_CITATIONS" ]; then
+            ARGS="$ARGS --min-citations $INPUT_MIN_CITATIONS"
+          fi
+          if [ -n "$INPUT_MAX_PAPERS" ]; then
+            ARGS="$ARGS --max-papers $INPUT_MAX_PAPERS"
+          fi
+          if [ -n "$INPUT_COUPLING_TYPES" ]; then
+            ARGS="$ARGS --coupling-types $INPUT_COUPLING_TYPES"
+          fi
+          if [ "$INPUT_DRY_RUN" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          if [ "$INPUT_DISCOVER_ONLY" = "true" ]; then
+            ARGS="$ARGS --discover-only"
+          fi
+          if [ "$INPUT_RESUME" = "true" ]; then
+            ARGS="$ARGS --resume"
+          fi
+          python -m pipeline.backfill $ARGS
+
+      - name: Commit updated state via PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if git diff --quiet pipeline/state/; then
+            echo "No state changes to commit"
+          else
+            BRANCH="chore/update-backfill-state-$(date +%Y%m%d-%H%M%S)"
+            git checkout -b "$BRANCH"
+            git add pipeline/state/
+            git commit -m "chore: update backfill state [skip ci]"
+            git push -u origin "$BRANCH"
+            gh pr create \
+              --title "chore: update backfill state" \
+              --body "Auto-generated state update from backfill pipeline run." \
+              --base master \
+              --repo FaroutYLq/AutoAxionLimits
+            gh pr merge "$BRANCH" --squash --auto --repo FaroutYLq/AutoAxionLimits || echo "Auto-merge not available — PR needs manual merge"
+          fi
+
+      - name: Upload pipeline logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backfill-logs-${{ github.run_id }}
+          path: pipeline/logs/
+          if-no-files-found: ignore
+          retention-days: 7
+
+  # Auto re-trigger if there are still items in the queue
+  schedule-next:
+    needs: backfill
+    if: needs.backfill.outputs.queue_remaining > 0 && github.event.inputs.dry_run != 'true' && github.event.inputs.discover_only != 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Schedule next backfill batch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Queue has ${{ needs.backfill.outputs.queue_remaining }} items remaining"
+          echo "Triggering next backfill run with --resume"
+          gh workflow run backfill.yml \
+            --repo FaroutYLq/AutoAxionLimits \
+            -f resume=true \
+            -f max_papers=${{ github.event.inputs.max_papers || '10' }} \
+            -f dry_run=false

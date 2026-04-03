@@ -4,10 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is **AutoAxionLimits** — a fork of `cajohare/AxionLimits` with two automated pipelines built on top:
+This is **AutoAxionLimits** — a fork of `cajohare/AxionLimits` with three automated pipelines built on top:
 
 1. **Daily arXiv digest** (`pipeline/orchestrator.py`): Monitors arXiv for new dark matter limit papers, extracts data via Claude agents, and opens a GitHub PR per new limit.
 2. **Weekly preprint checker** (`pipeline/preprint_checker.py`): Scans existing data files for arXiv IDs, detects updated preprint versions with changed results, and opens PRs. Also flags published papers whose published version yields no extractable data (`[NEEDS REVIEW]` PRs).
+3. **Historical backfill** (`pipeline/backfill.py`): Manual-only workflow that searches Semantic Scholar for older papers in a date range, filters by citation count, and processes them through the extraction pipeline. Automatically splits large jobs across multiple daily runs.
 
 All updates go through PRs — nothing merges to master automatically.
 
@@ -29,6 +30,15 @@ python -m pipeline.preprint_checker --init-only
 
 # Weekly preprint checker: dry run
 python -m pipeline.preprint_checker --dry-run
+
+# Historical backfill: discover candidates only (review before extracting)
+python -m pipeline.backfill --date-from 2020-01-01 --date-to 2024-12-31 --min-citations 10 --discover-only
+
+# Historical backfill: process queued candidates
+python -m pipeline.backfill --resume --max-papers 10
+
+# Historical backfill: dry run on specific coupling types
+python -m pipeline.backfill --date-from 2023-01-01 --date-to 2023-12-31 --coupling-types AxionPhoton,DarkPhoton --dry-run
 ```
 
 ### Pipeline dependencies
@@ -50,12 +60,14 @@ pipeline/
   extractor.py        # Claude extraction agent: PDF → ExtractionResult
   reviewer.py         # Claude reviewer agent: ExtractionResult → repo artifacts
   preprint_checker.py # Weekly: scan existing files, detect updated preprints
+  backfill.py         # Historical backfill via Semantic Scholar search
   plot_regen.py       # Headless notebook execution + highlighted plot generation
   pr_creator.py       # git branch + commit + gh pr create
   orchestrator.py     # Daily digest entrypoint
   state/
     processed.json           # Git-tracked: processed arXiv IDs
     preprint_versions.json   # Git-tracked: known arXiv versions per data file
+    backfill_state.json      # Git-tracked: backfill queue and progress
   logs/               # .gitignore'd
 ```
 
@@ -63,7 +75,8 @@ pipeline/
 
 - `.github/workflows/arxiv_daily.yml` — runs daily at 9 AM UTC
 - `.github/workflows/preprint_weekly.yml` — runs every Monday at 10 AM UTC
-- Both support `workflow_dispatch` for manual triggering
+- `.github/workflows/backfill.yml` — manual-only (`workflow_dispatch`); auto re-triggers itself daily until the queue is empty
+- Daily and weekly workflows also support `workflow_dispatch` for manual triggering
 
 ### Key design decisions
 
@@ -81,6 +94,8 @@ pipeline/
 - **Highlighted plots**: `execute_notebook_highlighted()` in `plot_regen.py` generates a greyed-out version of the constraint plot with only the new limit in red. Theoretical benchmarks (QCD axion band) are preserved in their original colours. The highlighted plot is shown prominently in the PR body.
 - **Published paper handling**: When a tracked preprint transitions to published, the checker still runs extraction and comparison (no early short-circuit). If the published version yields no data, a `[NEEDS REVIEW]` flag PR is created instead of silently skipping. Papers are only marked `"published": true` in state after the transition is fully processed.
 - **PR separation**: Pipeline/infrastructure changes and new limit proposals must always be in separate PRs. Never mix technical updates with science content.
+- **Backfill search strategy**: Uses INSPIRE-HEP API (not arXiv API or Semantic Scholar) for historical searches because INSPIRE is purpose-built for HEP literature, provides citation counts (`topcite`), date filtering, and has no aggressive rate limiting. Papers are pre-filtered through stages (citation threshold → duplicate detection → keyword classification → LLM batch relevance check) before expensive Claude extraction.
+- **Backfill auto-scheduling**: When the candidate queue is larger than one run can handle, the workflow automatically re-triggers itself to process the next batch. The `concurrency` setting prevents overlap.
 
 ## Running the Code
 
