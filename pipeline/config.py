@@ -297,3 +297,71 @@ LOW_CONFIDENCE_THRESHOLD = 0.6
 
 # Number of papers to process per daily run.
 MAX_PAPERS_PER_RUN = 5
+
+# ---------------------------------------------------------------------------
+# Backfill configuration
+# ---------------------------------------------------------------------------
+BACKFILL_MAX_PAPERS_PER_RUN = 10
+BACKFILL_DEFAULT_MIN_CITATIONS = 10
+
+# Curated queries for Semantic Scholar search (per coupling type).
+# These are optimised for S2's relevance ranking — fewer, more distinctive
+# phrases work better than the exhaustive keyword lists used for arXiv.
+S2_SEARCH_QUERIES = {
+    "DarkPhoton": [
+        "dark photon exclusion limit",
+        "hidden photon kinetic mixing search",
+    ],
+    "AxionPhoton": [
+        "axion photon coupling exclusion",
+        "haloscope axion search limit",
+        "ADMX CAST axion constraint",
+    ],
+    "AxionElectron": [
+        "axion electron coupling limit",
+        "solar axion electron search",
+    ],
+    "AxionNeutron": [
+        "axion neutron coupling constraint",
+        "spin-dependent axion nucleon limit",
+    ],
+    "AxionProton": [
+        "axion proton coupling constraint",
+        "axion nucleon spin-dependent search",
+    ],
+    "AxionEDM": [
+        "axion electric dipole moment limit",
+        "oscillating EDM axion search",
+    ],
+    "AxionCPV": [
+        "axion CP violation constraint",
+        "strong CP axion limit",
+    ],
+    "AxionMass": [
+        "axion mass bound constraint",
+        "axion decay constant limit",
+    ],
+    "MonopoleDipole": [
+        "monopole-dipole fifth force axion",
+        "spin-mass coupling constraint",
+    ],
+    "ScalarPhoton": [
+        "scalar photon coupling limit",
+        "dilaton photon constraint",
+    ],
+    "ScalarElectron": [
+        "scalar electron coupling limit",
+        "dilaton electron constraint",
+    ],
+    "ScalarBaryon": [
+        "scalar baryon coupling constraint",
+    ],
+    "ScalarNucleon": [
+        "scalar nucleon coupling limit",
+        "dilaton nucleon constraint",
+    ],
+    "VectorBL": [
+        "B-L gauge boson limit",
+        "vector B-L constraint search",
+    ],
+}
