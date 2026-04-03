@@ -1,0 +1,21 @@
+# Stringent axion constraints with Event Horizon Telescope polarimetric measurements of M87$^\star$
+# arXiv: https://arxiv.org/abs/2105.04572
+# Coupling type: AxionPhoton
+# Extracted from: text
+# Confidence level: 0.95
+# Extraction confidence: 0.35
+# mass [eV]    g_agamma [GeV^-1]
+2.000000e-21   1.000000e+00
+2.000000e-21   1.260000e-14
+2.000000e-21   1.000000e-13
+2.000000e-21   1.000000e-12
+3.000000e-21   1.260000e-14
+3.000000e-21   1.000000e-13
+3.000000e-21   1.000000e-12
+5.000000e-21   1.260000e-14
+5.000000e-21   1.000000e-13
+5.000000e-21   1.000000e-12
+1.000000e-20   1.260000e-14
+1.000000e-20   1.000000e-13
+1.000000e-20   1.000000e-12
+1.000000e-20   1.000000e+00
