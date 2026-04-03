@@ -1,0 +1,10 @@
+# First Results from Axion Haloscope at CAPP around 10.7 $μ$eV
+# arXiv: https://arxiv.org/abs/2012.10764
+# Coupling type: AxionPhoton
+# Extracted from: text
+# Confidence level: 0.9
+# Extraction confidence: 0.75
+# mass [eV]    coupling
+1.025500e-05   2.240000e-14
+1.071435e-05   2.490000e-15
+1.137000e-05   2.240000e-14
