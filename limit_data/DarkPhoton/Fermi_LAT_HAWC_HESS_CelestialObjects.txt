@@ -1,0 +1,19 @@
+# Indirect Searches for Dark Photon-Photon Tridents in Celestial Objects
+# arXiv: https://arxiv.org/abs/2402.01839
+# Coupling type: DarkPhoton
+# Extracted from: text
+# Confidence level: 0.95
+# Extraction confidence: 0.65
+# Corrections applied:
+#   DM density: paper=0.3 GeV/cm³ → repo=0.45 GeV/cm³; factor=sqrt(0.45/0.3)=1.2247
+# mass [eV]    coupling
+1.000000e-02   1.224745e-37
+1.000000e-02   1.224745e-37
+1.000000e-02   1.224745e-35
+1.000000e-01   1.224745e-36
+1.000000e+00   1.224745e-35
+1.000000e+01   1.224745e-35
+1.000000e+02   1.224745e-44
+1.000000e+03   1.224745e-46
+5.000000e+03   1.224745e-46
+7.000000e+04   1.224745e-46
