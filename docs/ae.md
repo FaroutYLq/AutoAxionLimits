@@ -84,3 +84,5 @@ See [Berlin et al. 2023](https://arxiv.org/abs/2312.11601) for a summary of the 
 * Solar neutrinos: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionElectron/SolarNu.txt), [reference](https://arxiv.org/abs/0807.2926)
 * White dwarf hint: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionElectron/WDhint.txt), [reference](https://arxiv.org/abs/1708.02111)
 * X-rays (1-loop decay to photons): [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionElectron/Xray_1loop.txt), [reference](https://arxiv.org/abs/2202.08858)
+
+- **QUAX**: [Axion search with a quantum-limited ferromagnetic haloscope](https://arxiv.org/abs/2001.08940)
