@@ -1,0 +1,15 @@
+# Search for dark photon decays to $μ^+μ^-$ at NA62
+# arXiv: https://arxiv.org/abs/2303.08666
+# Coupling type: DarkPhoton
+# Extracted from: text
+# Confidence level: 0.9
+# Extraction confidence: 0.55
+# mass [eV]    coupling
+2.150000e-01   1.000000e-06
+2.500000e-01   8.000000e-07
+3.000000e-01   6.000000e-07
+3.500000e-01   5.000000e-07
+4.000000e-01   4.500000e-07
+4.500000e-01   4.000000e-07
+5.000000e-01   3.500000e-07
+5.500000e-01   3.000000e-07
