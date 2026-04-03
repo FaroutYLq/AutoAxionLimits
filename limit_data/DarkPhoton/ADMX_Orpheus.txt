@@ -1,0 +1,37 @@
+# Search for 70 μeV Dark Photon Dark Matter with a Dielectrically-Loaded Multi-Wavelength Microwave Cavity
+# arXiv: https://arxiv.org/abs/2204.03818
+# Coupling type: DarkPhoton
+# Extracted from: figure_vision
+# Confidence level: 0.9
+# Extraction confidence: 0.75
+# Corrections applied:
+#   DM density: paper=0.045 GeV/cm³ → repo=0.45 GeV/cm³; factor=sqrt(0.45/0.045)=3.1623
+# mass [eV]    kinetic mixing chi
+6.550000e-05   1.000000e+00
+6.550000e-05   6.324555e-13
+6.550000e-05   7.905694e-13
+6.580000e-05   6.957011e-13
+6.600000e-05   5.692100e-13
+6.620000e-05   6.008328e-13
+6.650000e-05   5.059644e-13
+6.680000e-05   5.059644e-13
+6.700000e-05   4.743416e-13
+6.720000e-05   4.585303e-13
+6.750000e-05   4.427189e-13
+6.780000e-05   4.110961e-13
+6.800000e-05   4.110961e-13
+6.850000e-05   3.636619e-13
+6.850000e-05   3.794733e-13
+6.900000e-05   3.320392e-13
+6.900000e-05   3.478505e-13
+6.950000e-05   3.099032e-13
+6.950000e-05   3.162278e-13
+7.000000e-05   2.909295e-13
+7.000000e-05   3.004164e-13
+7.050000e-05   2.751182e-13
+7.050000e-05   2.846050e-13
+7.100000e-05   2.593068e-13
+7.100000e-05   2.687936e-13
+7.150000e-05   2.466577e-13
+7.150000e-05   2.529822e-13
+7.150000e-05   1.000000e+00
