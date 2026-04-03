@@ -231,3 +231,4 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+- **SHANHE**: [First Scan Search for Dark Photon Dark Matter with a Tunable Superconducting Radio-Frequency Cavity](https://arxiv.org/abs/2305.09711)
