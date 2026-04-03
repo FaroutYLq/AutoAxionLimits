@@ -1,0 +1,16 @@
+# Probing the explanation of the muon (g-2) anomaly and thermal light dark matter with the semi-visible dark photon channel
+# arXiv: https://arxiv.org/abs/2107.02021
+# Coupling type: DarkPhoton
+# Extracted from: text
+# Confidence level: 0.9
+# Extraction confidence: 0.65
+# mass [eV]    kinetic mixing chi
+3.906000e-07   1.000000e+00
+3.906000e-07   3.000000e-05
+3.906000e-07   1.000000e-04
+3.906000e-07   2.000000e-02
+1.022000e-06   3.000000e-05
+1.022000e-06   1.000000e-04
+1.022000e-06   2.000000e-02
+2.044000e-06   1.000000e-04
+2.044000e-06   1.000000e+00
