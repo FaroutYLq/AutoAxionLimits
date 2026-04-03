@@ -5,12 +5,13 @@
 
 ### Automated limit updates
 
-Two GitHub Actions pipelines keep this repository current with new experimental results:
+Three GitHub Actions pipelines keep this repository current with new experimental results:
 
 - **Daily arXiv digest** — scans arXiv each morning for new dark matter limit papers, uses Claude to extract constraint data from PDFs, and opens a PR with the new data file, plotting code, and a highlighted comparison plot.
 - **Weekly preprint checker** — detects when an existing paper (already in the repo) publishes a new arXiv version with updated results, and opens a PR to refresh the data.
+- **Historical backfill** — manual-only workflow that searches [INSPIRE-HEP](https://inspirehep.net) for older papers in a user-specified date range, filters by citation count, and processes them through the same extraction pipeline. Automatically splits large jobs across multiple daily runs.
 
-Every update goes through a pull request for human review — nothing merges automatically. Low-confidence extractions are flagged in the PR title. Pipeline code lives in `pipeline/` and can be run locally with `python -m pipeline.orchestrator` (daily) or `python -m pipeline.preprint_checker` (weekly). Both support `--dry-run`.
+Every update goes through a pull request for human review — nothing merges automatically. Low-confidence extractions are flagged in the PR title. Pipeline code lives in `pipeline/` and can be run locally with `python -m pipeline.orchestrator` (daily), `python -m pipeline.preprint_checker` (weekly), or `python -m pipeline.backfill` (backfill). All support `--dry-run`.
 
 ---
 
