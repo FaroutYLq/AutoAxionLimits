@@ -461,7 +461,12 @@ def _process_candidate(
         len(extraction.data_points), extraction.extraction_confidence,
     )
 
-    review = run_reviewer_agent(extraction, client)
+    try:
+        review = run_reviewer_agent(extraction, client)
+    except Exception as e:
+        logger.warning("Review failed for %s: %s", arxiv_id, e)
+        backfill_state.setdefault("skipped_ids", {})[arxiv_id] = f"review_error: {e}"
+        return False
 
     if dry_run:
         logger.info(
@@ -472,7 +477,12 @@ def _process_candidate(
         return False
 
     # Write repo files
-    write_repo_files(review, REPO_ROOT)
+    try:
+        write_repo_files(review, REPO_ROOT)
+    except Exception as e:
+        logger.warning("Writing repo files failed for %s: %s", arxiv_id, e)
+        backfill_state.setdefault("skipped_ids", {})[arxiv_id] = f"write_error: {e}"
+        return False
 
     # Regenerate plot(s)
     nb_ok, nb_err = execute_notebook(review.notebook_path, REPO_ROOT)
