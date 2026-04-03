@@ -2463,6 +2463,18 @@ class AxionElectron():
             AxionElectron.Magnon(ax,fs=fs,text_on=text_on)
             AxionElectron.MagnonScan(ax,fs=fs,text_on=text_on)
         return
+
+    @staticmethod
+    def QUAX_Quantum_Axion_Experiment(ax,col='crimson',fs=15,text_on=True,lw=1.5):
+        y2 = ax.get_ylim()[1]
+        dat = loadtxt("limit_data/AxionElectron/QUAX_Quantum_Axion_Experiment.txt",ndmin=2)
+        plt.fill_between(dat[:,0],dat[:,1],y2=y2,edgecolor=None,facecolor=col,zorder=1)
+        plt.plot(dat[:,0],dat[:,1],color='k',alpha=1,zorder=1,lw=lw)
+        if text_on:
+            plt.text(1e-6,1e-12,r'{\bf QUAX}',fontsize=fs,color=col,rotation=0,
+                rotation_mode='anchor',ha='center',va='center',clip_on=True)
+        return
+
 #==============================================================================#
 
 
