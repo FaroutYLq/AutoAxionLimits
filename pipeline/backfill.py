@@ -27,7 +27,7 @@ from .config import (
     ARXIV_KEYWORDS,
     BACKFILL_DEFAULT_MIN_CITATIONS,
     BACKFILL_MAX_PAPERS_PER_RUN,
-    S2_SEARCH_QUERIES,
+    INSPIRE_SEARCH_QUERIES,
 )
 from .extractor import download_pdf, run_extraction_agent
 from .monitor import (
@@ -210,13 +210,13 @@ def discover_candidates(
     Each candidate dict has: arxiv_id, title, abstract, citations, coupling_guess,
     inspire_id.
     """
-    target_types = coupling_types or list(S2_SEARCH_QUERIES.keys())
+    target_types = coupling_types or list(INSPIRE_SEARCH_QUERIES.keys())
 
     seen_arxiv_ids: set[str] = set()
     candidates: list[dict] = []
 
     for ct in target_types:
-        queries = S2_SEARCH_QUERIES.get(ct, [])
+        queries = INSPIRE_SEARCH_QUERIES.get(ct, [])
         if not queries:
             logger.warning("No search queries for coupling type %s; skipping", ct)
             continue
@@ -656,6 +656,15 @@ def main(
         # Step 2: Local pre-filtering
         known_ids = build_known_ids()
         filtered = filter_candidates(raw_candidates, known_ids)
+
+        # Log candidates before LLM filter for transparency
+        logger.info("Candidates before LLM filter (%d):", len(filtered))
+        for i, c in enumerate(sorted(filtered, key=lambda x: x.get("citations", 0), reverse=True)):
+            logger.info(
+                "  [%d] %s (citations=%d, coupling=%s) %s",
+                i, c["arxiv_id"], c.get("citations", 0),
+                c.get("coupling_guess", "?"), c.get("title", "")[:80],
+            )
 
         # Step 3: LLM relevance check
         if client and filtered:

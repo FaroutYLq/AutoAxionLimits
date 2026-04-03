@@ -308,7 +308,7 @@ BACKFILL_DEFAULT_MIN_CITATIONS = 10
 # These are used with INSPIRE's SPIRES syntax: find (t "..." or abs "...").
 # Keep queries short (2-3 key terms) for good recall; precision comes from
 # the subsequent keyword classification and LLM filters.
-S2_SEARCH_QUERIES = {
+INSPIRE_SEARCH_QUERIES = {
     "DarkPhoton": [
         "dark photon",
         "hidden photon",
