@@ -1,6 +1,10 @@
-# Grenoble haloscope
-#  2110.14406 
-# Mass [eV] g_agamma [GeV^-1]
-26.37e-6  2.2e-13
-26.37e-6  2.2e-13
-26.37e-6  1e0
+# The Grenoble Axion Haloscope platform (GrAHal): development plan and first results
+# arXiv: https://arxiv.org/abs/2110.14406
+# Coupling type: AxionPhoton
+# Extracted from: text
+# Confidence level: 0.95
+# Extraction confidence: 0.95
+# Corrections applied:
+#   DM density: paper=0.3 GeV/cm³ → repo=0.45 GeV/cm³; factor=sqrt(0.45/0.3)=1.2247
+# mass [eV]    coupling
+2.637000e-05   2.694439e-13
