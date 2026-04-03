@@ -1,7 +1,589 @@
 {
   "schema_version": 1,
-  "config": null,
-  "queue": [],
+  "config": {
+    "date_from": "2020-01-01",
+    "date_to": "2026-03-15",
+    "min_citations": 10,
+    "coupling_types": null
+  },
+  "queue": [
+    {
+      "arxiv_id": "2012.10764",
+      "title": "First Results from an Axion Haloscope at CAPP around 10.7  $\\mu$eV",
+      "abstract": "The Center for Axion and Precision Physics Research at the Institute for Basic Science is searching for axion dark matter using ultralow temperature microwave resonators. We report the exclusion of the axion mass range 10.7126\u201310.7186\u2009\u2009\u03bceV with near Kim-Shifman-Vainshtein-Zakharov (KSVZ) coupling sensitivity and the range 10.16\u201311.37\u2009\u2009\u03bceV with about 9 times larger coupling at 90%\u00a0confidence level. This is the first axion search result in these ranges. It is also the first with a resonator physical temperature of less than 40\u00a0mK.",
+      "citations": 224,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "1837601",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2001.08940",
+      "title": "Axion search with a quantum-limited ferromagnetic haloscope",
+      "abstract": "A ferromagnetic axion haloscope searches for dark matter in the form of axions by exploiting their interaction with electronic spins. It is composed of an axion-to-electromagnetic field transducer coupled to a sensitive rf detector. The former is a photon-magnon hybrid system, and the latter is based on a quantum-limited Josephson parametric amplifier. The hybrid system consists of ten 2.1\u00a0mm diameter yttrium iron garnet spheres coupled to a single microwave cavity mode by means of a static magnetic field. Our setup is the most sensitive rf spin magnetometer ever realized. The minimum detectable field is 5.5\u00d710-19\u2009\u2009T with 9\u00a0h integration time, corresponding to a limit on the axion-electron coupling constant gaee\u22641.7\u00d710-11 at 95%\u00a0C.L. The scientific run of our haloscope resulted in the best limit on dark matter axions to electron coupling constant in a frequency span of about 120\u00a0MHz, corresponding to the axion-mass range 42.4\u201343.1\u2009\u2009\u03bceV. This is also the first apparatus to perform a wide axion-mass scanning by only changing the static magnetic field.",
+      "citations": 154,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "1777123",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2010.03833",
+      "title": "The RGB tip of galactic globular clusters and the revision of the axion-electron coupling bound",
+      "abstract": "Context. The production of neutrinos by plasma oscillations is the most important energy sink process operating in the degenerate core of low-mass red giant stars. This process counterbalances the release of energy induced by nuclear reactions and gravitational contraction, and determines the luminosity attained by a star at the moment of the He ignition. This occurrence coincides with the tip of the red giant branch (RGB), whose luminosity is extensively used as a calibrated standard candle in several cosmological studies.Aims. We aim to investigate the possible activation of additional energy sink mechanisms, as predicted by many extensions of the so-called Standard Model. In particular, our objective is to test the possible production of axions or axion-like particles, mainly through their coupling with electrons.Methods. By combining Hubble Space Telescope and ground-based optical and near-infrared photometric samples, we derived the RGB tip absolute magnitude of 22 galactic globular clusters (GGCs). The effects of varying the distance and the metallicity scales were also investigated. Then we compared the observed tip luminosities with those predicted by state-of-the-art stellar models that include the energy loss due to the axion production in the degenerate core of red giant stars.Results. We find that theoretical predictions including only the energy loss by plasma neutrinos are, in general, in good agreement with the observed tip bolometric magnitudes, even though the latter are \u223c0.04 mag brighter on average. This small shift may be the result of systematic errors affecting the evaluation of the RGB tip bolometric magnitudes, or, alternatively, it could be ascribed to an axion-electron coupling causing a non-negligible thermal production of axions. In order to estimate the strength of this possible axion sink, we performed a cumulative likelihood analysis using the RGB tips of the whole set of 22 GGCs. All the possible sources of uncertainties affecting both the measured bolometric magnitudes and the corresponding theoretical predictions were carefully considered. As a result, we find that the value of the axion-electron coupling parameter that maximizes the likelihood probability is gae/10\u221213 \u223c 0.60\u22120.58+0.32. This hint is valid, however, if the dominant energy sinks operating in the core of red giant stars are standard neutrinos and axions coupled with electrons. Any additional energy-loss process, not included in the stellar models, would reduce such a hint. Nevertheless, we find that values gae/10\u221213\u2004> \u20041.48 can be excluded with 95% confidence.Conclusions. The new bound we find represents the most stringent constraint for the axion-electron coupling available so far. The new scenario that emerges after this work represents a greater challenge for future experimental axion searches. In particular, we can exclude that the recent signal seen by the XENON1T experiment was due to solar axions.Key words: elementary particles / stars: low-mass / globular clusters: general / Hertzsprung-Russell / C\u2013M diagrams",
+      "citations": 95,
+      "coupling_guess": "AxionElectron",
+      "inspire_id": "1822026",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2006.15787",
+      "title": "Experimental Constraint on Axionlike Particles over Seven Orders of Magnitude in Mass",
+      "abstract": "We use our recent electric dipole moment (EDM) measurement data to constrain the possibility that the HfF+ EDM oscillates in time due to interactions with candidate dark matter axionlike particles (ALPs). We employ a Bayesian analysis method which accounts for both the look-elsewhere effect and the uncertainties associated with stochastic density fluctuations in the ALP field. We find no evidence of an oscillating EDM over a range spanning from 27\u00a0nHz to 400\u00a0mHz, and we use this result to constrain the ALP-gluon coupling over the mass range 10-22\u201310-15\u2009\u2009eV. This is the first laboratory constraint on the ALP-gluon coupling in the 10-17\u201310-15\u2009\u2009eV range, and the first laboratory constraint to properly account for the stochastic nature of the ALP field.",
+      "citations": 92,
+      "coupling_guess": "AxionEDM",
+      "inspire_id": "1803616",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2406.16840",
+      "title": "New Upper Limit on the Axion-Photon Coupling with an Extended CAST Run with a Xe-Based Micromegas Detector",
+      "abstract": "Hypothetical axions provide a compelling explanation for dark matter and could be emitted from the hot solar interior. The CERN Axion Solar Telescope has been searching for solar axions via their back conversion to x-ray photons in a 9-T 10-m long magnet directed toward the Sun. We report on an extended run with the International Axion Observatory pathfinder detector, doubling the previous exposure time. The detector was operated with a xenon-based gas mixture for part of the new run, providing technical insights for future configurations. No counts were detected in the 95% signal-encircling region during the new run, while 0.75 were expected. The new data improve the axion-photon coupling limit to <math display=\"inline\"><mrow><mn>5.8</mn><mo>\u00d7</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>11</mn></mrow></msup><mtext>\u2009</mtext><mtext>\u2009</mtext><mrow><msup><mrow><mi>GeV</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></mrow></math> at 95% CL (for <math display=\"inline\"><mrow><msub><mrow><mi>m</mi></mrow><mrow><mi>a</mi></mrow></msub><mo>\u2272</mo><mn>0.02</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>eV</mi></mrow></math>), the most restrictive experimental limit to date.",
+      "citations": 86,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "2801541",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2105.04572",
+      "title": "Stringent axion constraints with Event Horizon Telescope polarimetric measurements of M87$^{\u22c6}$",
+      "abstract": "An axion cloud surrounding a spinning black hole would rotate the electric vector position angles of linearly polarized emissions. Tight constraints on the axion\u2013photon coupling can therefore be obtained from polarization information in the Event Horizon Telescope\u2019s images of M87$^{\u22c6}$.",
+      "citations": 81,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "1862808",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2110.14406",
+      "title": "The Grenoble Axion Haloscope platform (GrAHal): development plan and first results",
+      "abstract": "In this note we report on the development plans and first results of the Grenoble Axion Haloscope (GrAHal) project. It is aimed at developing a haloscope platform dedicated to the search for axion dark matter particles. We discuss its general framework and the plans to reach the sensitivity required to probe well known invisible axion models, over particularly relevant axion masses and coupling regions. We also present our first haloscope prototype and the result of its test run at liquid He temperature, setting a new exclusion limit $g_{a \\gamma \\gamma} \\leq 2.2 \\times 10^{-13}~ \\text{GeV}^{-1}$ ($g_{a \\gamma \\gamma} \\leq 22 \\times g_{\\text{KSVZ}}$) around 6.375 GHz ($m_a \\simeq 26.37$$\\mu \\text{eV}$).",
+      "citations": 74,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "1953566",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2303.08666",
+      "title": "Search for dark photon decays to \u03bc$^{+}$\u03bc$^{\u2212}$ at NA62",
+      "abstract": "The NA62 experiment at CERN, designed to study the ultra-rare decay K$^{+}$ \u2192 \u03c0$^{+} \\nu \\overline{\\nu} $, has also collected data in beam-dump mode. In this configuration, dark photons may be produced by protons dumped on an absorber and reach a decay volume beginning 80 m downstream. A search for dark photons decaying in flight to \u03bc$^{+}$\u03bc$^{\u2212}$ pairs is reported, based on a sample of 1.4 \u00d7 10$^{17}$ protons on dump collected in 2021. No evidence for a dark photon signal is observed. A region of the parameter space is excluded at 90% CL, improving on previous experimental limits for dark photon masses between 215 and 550 MeV/c$^{2}$.",
+      "citations": 65,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2642398",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2110.03679",
+      "title": "3D template-based Fermi-LAT constraints on the diffuse supernova axion-like particle background",
+      "abstract": "Axion-like particles (ALPs) may be abundantly produced in core-collapse (CC) supernovae (SNe); hence, the cumulative signal from all past supernova (SN) events can create a diffuse flux peaked at energies of about 25\u00a0MeV. We improve upon the modeling of the ALPs flux by including a set of CC SN models with different progenitor masses, as well as the effects of failed CC SNe, which yield the formation of black holes instead of explosions. Relying on the coupling strength of ALPs to photons and the related Primakoff process, the diffuse SN ALP flux is converted into gamma rays while traversing the magnetic field of the Milky\u00a0Way. The spatial morphology of this signal is expected to follow the shape of the Galactic magnetic field lines. We make use of this via a template-based analysis that utilizes 12\u00a0years of Fermi-LAT data in the energy range from 50\u00a0MeV to 500\u00a0GeV. In our benchmark case of the realization of astrophysical and cosmological parameters, we find an upper limit of <math display=\"inline\"><mrow><msub><mrow><mi>g</mi></mrow><mrow><mi>a</mi><mi>\u03b3</mi></mrow></msub><mo>\u2272</mo><mn>3.76</mn><mo>\u00d7</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>11</mn></mrow></msup><mtext>\u2009</mtext><mtext>\u2009</mtext><msup><mrow><mi>GeV</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></math> at a 95%\u00a0confidence level for <math display=\"inline\"><msub><mi>m</mi><mi>a</mi></msub><mo>\u226a</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>11</mn></mrow></msup><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>eV</mi></math>, while we find that systematic deviations from this benchmark scenario induce an uncertainty as large as about a factor of two. Our result slightly improves the CAST bound, while still being a factor of six (baseline scenario) weaker than the SN1987A gamma-ray burst limit.",
+      "citations": 60,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "1940046",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2205.08582",
+      "title": "Search for long-lived particles decaying to a pair of muons in proton-proton collisions at $ \\sqrt{s} $ = 13 TeV",
+      "abstract": "An inclusive search for long-lived exotic particles decaying to a pair of muons is presented. The search uses data collected by the CMS experiment at the CERN LHC in proton-proton collisions at $ \\sqrt{s} $ = 13 TeV in 2016 and 2018 and corresponding to an integrated luminosity of 97.6 fb$^{\u22121}$. The experimental signature is a pair of oppositely charged muons originating from a common secondary vertex spatially separated from the pp interaction point by distances ranging from several hundred \u03bcm to several meters. The results are interpreted in the frameworks of the hidden Abelian Higgs model, in which the Higgs boson decays to a pair of long-lived dark photons Z$_{D}$, and of a simplified model, in which long-lived particles are produced in decays of an exotic heavy neutral scalar boson. For the hidden Abelian Higgs model with m(Z$_{D}$) greater than 20 GeV and less than half the mass of the Higgs boson, they provide the best limits to date on the branching fraction of the Higgs boson to dark photons for c\u03c4(Z$_{D}$) (varying with m(Z$_{D}$)) between 0.03 and \u22480.5 mm, and above \u22480.5 m. Our results also yield the best constraints on long-lived particles with masses larger than 10 GeV produced in decays of an exotic scalar boson heavier than the Higgs boson and decaying to a pair of muons.[graphic not available: see fulltext]",
+      "citations": 59,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2083735",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2204.09475",
+      "title": "ADMX-Orpheus first search for <math display=\"inline\"><mrow><mn>70</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>\u03bc</mi><mi>eV</mi></mrow></math> dark photon dark matter: Detailed design, operations, and analysis",
+      "abstract": "Dark matter makes up 85% of the matter in the Universe and 27% of its energy density, but we do not know what comprises dark matter. It is possible that dark matter is composed of either axions or dark photons, both of which can be detected using an ultrasensitive microwave cavity known as a haloscope. The haloscope employed by ADMX consists of a cylindrical cavity operating at the <math display=\"inline\"><mrow><msub><mrow><mi>TM</mi></mrow><mrow><mn>010</mn></mrow></msub></mrow></math> mode and is sensitive to the QCD axion with masses of few <math display=\"inline\"><mrow><mi>\u03bc</mi><mi>eV</mi></mrow></math>. However, this haloscope design becomes challenging to implement for higher masses. This is because higher masses require smaller-diameter cavities, consequently reducing the detection volume which diminishes the detected signal power. ADMX-Orpheus mitigates this issue by operating a tunable, dielectrically loaded cavity at a higher-order mode, allowing the detection volume to remain large. This paper describes the design, operation, analysis, and results of the inaugural ADMX-Orpheus dark photon search between <math display=\"inline\"><mrow><mn>65.5</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>\u03bc</mi><mi>eV</mi></mrow></math> (15.8\u00a0GHz) and <math display=\"inline\"><mrow><mn>69.3</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>\u03bc</mi><mi>eV</mi></mrow></math> (16.8\u00a0GHz), as well as future directions for axion searches and for exploring more parameter space.",
+      "citations": 50,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2069751",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2209.03419",
+      "title": "Wideband Direct Detection Constraints on Hidden Photon Dark Matter with the QUALIPHIDE Experiment",
+      "abstract": "We report direction detection constraints on the presence of hidden photon dark matter with masses between <math display=\"inline\"><mrow><mn>20</mn><mi>\u2013</mi><mn>30</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi mathvariant=\"normal\">\u03bc</mi><mi>eV</mi><mtext>\u2009</mtext><msup><mrow><mi mathvariant=\"normal\">c</mi></mrow><mrow><mo>\u2212</mo><mn>2</mn></mrow></msup></mrow></math>, using a cryogenic emitter-receiver-amplifier spectroscopy setup designed as the first iteration of QUALIPHIDE (quantum limited photons in the dark experiment). A metallic dish sources conversion photons, from hidden photon kinetic mixing, onto a horn antenna which is coupled to a <math display=\"inline\"><mi>C</mi></math> band kinetic inductance traveling wave parametric amplifier, providing for near quantum-limited noise performance. We demonstrate a first probing of the kinetic mixing parameter <math display=\"inline\"><mi>\u03c7</mi></math> to the <math display=\"inline\"><msup><mn>10</mn><mrow><mo>-</mo><mn>12</mn></mrow></msup></math> level for the majority of hidden photon masses in this region. These results not only represent stringent constraints on new dark matter parameter space, but are also the first demonstrated use of wideband quantum-limited amplification for astroparticle applications.",
+      "citations": 48,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2148929",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2402.01839",
+      "title": "Indirect Searches for Dark Photon-Photon Tridents in Celestial Objects",
+      "abstract": "We model and constrain the unique indirect detection signature produced by dark matter particles that annihilate through a $U(1)$ gauge symmetry into dark photons that subsequently decay into three-photon final states. We focus on scenarios where the dark photon is long-lived, and show that $\\gamma$-ray probes of celestial objects can set strong constraints on the dark matter/baryon scattering cross section that in many cases surpass the power of current direct detection constraints, and in some cases even peer into the neutrino fog.",
+      "citations": 46,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2755444",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2009.13909",
+      "title": "Implications of Gravitational-wave Production from Dark Photon Resonance to Pulsar-timing Observations and Effective Number of Relativistic Species",
+      "abstract": "The coherent oscillation of axionic fields naturally drives copious production of dark photon particles in the early universe, due to resonance and tachyonic enhancement. During the process, energy is abruptly transferred from the former to the latter, sourcing gravitational wave generation. The resulting gravitational waves are eventually to be observed as stochastic background today. We report analytical results of this production and connect them to the recent pulsar-timing results by the NANOGrav collaboration. We show an available parameter space, around the mass $m_\\phi \\sim 10^{-13} \\, {\\rm eV}$ and the decay constant $f_\\phi \\sim 10^{16} \\, {\\rm GeV}$ with a dimensionless coupling of ${\\cal O}(1)$, for our mechanism to account for the signal. A mechanism to avoid the axion over-dominating the universe is a necessary ingredient of this model, and we discuss a possibility to recover a symmetry and render the axion massless after the production. We also comment on potential implications of the required effective number of relativistic species to the determination of the present Hubble constant.",
+      "citations": 45,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "1820116",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2111.06407",
+      "title": "Probing the axion\u2013nucleon coupling with the next generation of\u00a0axion helioscopes",
+      "abstract": "A finite axion\u2013nucleon coupling, nearly unavoidable for QCD axions, leads to the production of axions via the thermal excitation and subsequent de-excitation of $^{57}$Fe\u00a0isotopes in the sun. We revise the solar bound on this flux adopting the up to date emission rate, and investigate the sensitivity of the proposed International Axion Observatory IAXO and its intermediate stage BabyIAXO to detect these axions. We compare different realistic experimental options and discuss the model dependence of the signal. Already BabyIAXO\u00a0has sensitivity far beyond previous solar axion searches via the nucleon coupling and IAXO can improve on this by more than an order of magnitude.",
+      "citations": 45,
+      "coupling_guess": "AxionElectron",
+      "inspire_id": "1967014",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2312.12055",
+      "title": "Search for Leptonic Decays of Dark Photons at NA62",
+      "abstract": "The NA62 experiment at CERN, configured in beam-dump mode, has searched for dark photon decays in flight to electron-positron pairs using a sample of <math display=\"inline\"><mn>1.4</mn><mo>\u00d7</mo><msup><mn>10</mn><mn>17</mn></msup></math> protons on dump collected in 2021. No evidence for a dark photon signal is observed. The combined result for dark photon searches in lepton\u2013antilepton final states is presented and a region of the parameter space is excluded at 90% confidence level, improving on previous experimental limits for dark photon mass values between 50 and <math display=\"inline\"><mrow><mn>600</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>MeV</mi><mo>/</mo><msup><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></math> and coupling values in the range <math display=\"inline\"><msup><mn>10</mn><mrow><mo>-</mo><mn>6</mn></mrow></msup></math> to <math display=\"inline\"><mn>4</mn><mo>\u00d7</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>5</mn></mrow></msup></math>. An interpretation of the <math display=\"inline\"><msup><mi>e</mi><mo>+</mo></msup><msup><mi>e</mi><mo>-</mo></msup></math> search result in terms of the emission and decay of an axionlike particle is also presented.",
+      "citations": 43,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2738578",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2305.09711",
+      "title": "First Scan Search for Dark Photon Dark Matter with a Tunable Superconducting Radio-Frequency Cavity",
+      "abstract": "Dark photons have emerged as promising candidates for dark matter, and their search is a top priority in particle physics, astrophysics, and cosmology. We report the first use of a tunable niobium superconducting radio-frequency cavity for a scan search of dark photon dark matter with innovative data analysis techniques. We mechanically adjusted the resonant frequency of a cavity submerged in liquid helium at a temperature of 2\u00a0K, and scanned the dark photon mass over a frequency range of 1.37\u00a0MHz centered at 1.3\u00a0GHz. Our study leveraged the superconducting radio-frequency cavity\u2019s remarkably high quality factors of approximately <math display=\"inline\"><msup><mn>10</mn><mn>10</mn></msup></math>, resulting in the most stringent constraints to date on a substantial portion of the exclusion parameter space on the kinetic mixing coefficient <math display=\"inline\"><mi>\u03b5</mi></math> between dark photons and electromagnetic photons, yielding a value of <math display=\"inline\"><mi>\u03b5</mi><mo>&lt;</mo><mn>2.2</mn><mo>\u00d7</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>16</mn></mrow></msup></math>.",
+      "citations": 42,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2807114",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2204.03818",
+      "title": "Search for <math display=\"inline\"><mrow><mn>70</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>\u03bc</mi><mi>eV</mi></mrow></math> Dark Photon Dark Matter with a Dielectrically Loaded Multiwavelength Microwave Cavity",
+      "abstract": "Microwave cavities have been deployed to search for bosonic dark matter candidates with masses of a few <math display=\"inline\"><mrow><mi>\u03bc</mi><mi>eV</mi></mrow></math>. However, the sensitivity of these cavity detectors is limited by their volume, and the traditionally employed half-wavelength cavities suffer from a significant volume reduction at higher masses. Axion dark matter experiment (ADMX)-Orpheus mitigates this issue by operating a tunable, dielectrically loaded cavity at a higher-order mode, which allows the detection volume to remain large. The ADMX-Orpheus inaugural run excludes dark photon dark matter with kinetic mixing angle <math display=\"inline\"><mrow><mi>\u03c7</mi><mo>&gt;</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>\u2212</mo><mn>13</mn></mrow></msup></mrow></math> between <math display=\"inline\"><mrow><mn>65.5</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>\u03bc</mi><mi>eV</mi></mrow></math> (<math display=\"inline\"><mrow><mn>15.8</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>GHz</mi></mrow></math>) and <math display=\"inline\"><mrow><mn>69.3</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>\u03bc</mi><mi>eV</mi></mrow></math> (<math display=\"inline\"><mrow><mn>16.8</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>GHz</mi></mrow></math>), marking the highest-frequency tunable microwave cavity dark matter search to date.",
+      "citations": 40,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2064799",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2212.03884",
+      "title": "Detecting Hidden Photon Dark Matter Using the Direct Excitation of Transmon Qubits",
+      "abstract": "We propose a novel dark matter detection method utilizing the excitation of superconducting transmon qubits. Assuming the hidden photon dark matter of a mass of <math display=\"inline\"><mrow><mi>O</mi><mo stretchy=\"false\">(</mo><mn>10</mn><mo stretchy=\"false\">)</mo><mtext>\u2009</mtext><mtext>\u2009</mtext><mi mathvariant=\"normal\">\u03bc</mi><mi>eV</mi></mrow></math>, the classical wave-matter oscillation induces an effective ac electric field via the small kinetic mixing with the ordinary photon. This serves as a coherent drive field for a qubit when it is resonant, evolving it from the ground state towards the first-excited state. We evaluate the rate of such evolution and observable excitations in the measurements, as well as the search sensitivity to the hidden photon dark matter. For a selected mass, one can reach <math display=\"inline\"><mrow><mi>\u03b5</mi><mo>\u223c</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>13</mn></mrow></msup><mi>\u2013</mi><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>12</mn></mrow></msup></mrow></math> (where <math display=\"inline\"><mi>\u03b5</mi></math> is the kinetic mixing parameter of the hidden photon) with a few tens of seconds using a single standard transmon qubit. A simple extension to the frequency-tunable SQUID-based transmon enables the mass scan to cover the range of <math display=\"inline\"><mrow><mn>4</mn><mi>\u2013</mi><mn>40</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi mathvariant=\"normal\">\u03bc</mi><mi>eV</mi></mrow></math> (1\u201310\u00a0GHz) within a reasonable length of run time. The scheme has great potential to extend the sensitivity towards various directions including being incorporated into the cavity-based haloscope experiments or the currently available multibit noisy intermediate-scale quantum (NISQ) computer machines.",
+      "citations": 39,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2612891",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2107.02021",
+      "title": "Probing the explanation of the muon (g-2) anomaly and thermal light dark matter with the semi-visible dark photon channel",
+      "abstract": "We report the results of a search for a new vector boson ($ A'$) decaying into two dark matter particles $\\chi _1 \\chi _2$ of different mass. The heavier $\\chi _2$ particle subsequently decays to $\\chi _1$ and an off-shell Dark Photon $ A'^* \\rightarrow e^+e^-$. For a sufficiently large mass splitting, this model can explain in terms of new physics the recently confirmed discrepancy observed in the muon anomalous magnetic moment at Fermilab. Remarkably, it also predicts the observed yield of thermal dark matter relic abundance. A detailed Monte-Carlo simulation was used to determine the signal yield and detection efficiency for this channel in the NA64 setup. The results were obtained re-analyzing the previous NA64 searches for an invisible decay $A'\\rightarrow \\chi \\overline{\\chi }$ and axion-like or pseudo-scalar particles $a \\rightarrow \\gamma \\gamma $. With this method, we exclude a significant portion of the parameter space justifying the muon g-2 anomaly and being compatible with the observed dark matter relic density for $A'$ masses from 2$m_e$ up to 390 MeV and mixing parameter $\\varepsilon $ between $3\\times 10^{-5}$ and $2\\times 10^{-2}$.",
+      "citations": 37,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "1876557",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2002.07571",
+      "title": "Implications of axion-like particles from the Fermi-LAT and H.E.S.S. observations of PG 1553+113 and PKS 2155\u2212304",
+      "abstract": "We investigate the axion-like particle (ALP)-photon oscillation effect in the high-energy -ray spectra of PG 1553+113 and PKS 2155\u2212304 measured by Fermi-LAT and H.E.S.S. The choice of extragalactic background light (EBL) model, which induces the attenuation effect in observed -ray spectra, affects the ALP implications. For the ordinary EBL model that prefers a null hypothesis, we set constraints on the ALP-photon coupling constant at 95% C.L. as for the ALP mass neV. We also consider the CIBER observation of the cosmic infrared radiation, which shows an excess at wavelengths of m after the substraction of foregrounds. High-energy gamma-rays from extragalactic sources at high redshifts would suffer from a more significant attenuation effect caused by this excess. In this case, we find that the ALP-photon oscillation would improve the fit to the observed spectra of PKS 2155\u2212304 and PG 1553+113 and find a favored parameter region at 95% C.L..",
+      "citations": 36,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "1781335",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2203.01510",
+      "title": "Probing the dark photon via polarized DIS scattering at the HERA and EIC",
+      "abstract": "The dark photon is widely predicted in many new physics beyond the Standard Model. In this work, we propose to utilize the polarized lepton cross section and single-spin asymmetry in neutral current DIS process at the HERA and upcoming Electron-Ion Collider (EIC) to probe the properties of the dark photon. It shows that we can constrain the mixing parameter <math altimg=\"si1.svg\"><mi>\u03f5</mi><mo linebreak=\"goodbreak\" linebreakstyle=\"after\">&lt;</mo><mn>0.02</mn></math> when the dark photon mass <math altimg=\"si2.svg\"><msub><mrow><mi>m</mi></mrow><mrow><msub><mrow><mi>A</mi></mrow><mrow><mi>D</mi></mrow></msub></mrow></msub><mo linebreak=\"goodbreak\" linebreakstyle=\"after\">&lt;</mo><mn>10</mn><mspace width=\"0.25em\"/><mtext>GeV</mtext></math> at the HERA with polarized lepton beam and this bound is comparable to the limit from the unpolarized data of HERA I and II. With the help of high integrated luminosity and high electron beam polarization of the EIC, the upper limit of the \u03f5 could be further improved. Depending on the assumption of the systematic error of the cross section measurements, we obtain <math altimg=\"si3.svg\"><mi>\u03f5</mi><mo linebreak=\"goodbreak\" linebreakstyle=\"after\">&lt;</mo><mn>0.01</mn><mo>\u223c</mo><mn>0.02</mn></math> for the mass region <math altimg=\"si2.svg\"><msub><mrow><mi>m</mi></mrow><mrow><msub><mrow><mi>A</mi></mrow><mrow><mi>D</mi></mrow></msub></mrow></msub><mo linebreak=\"goodbreak\" linebreakstyle=\"after\">&lt;</mo><mn>10</mn><mspace width=\"0.25em\"/><mtext>GeV</mtext></math> under the integrated luminosity of <math altimg=\"si4.svg\"><mn>300</mn><mspace width=\"0.25em\"/><msup><mrow><mtext>fb</mtext></mrow><mrow><mo linebreak=\"badbreak\" linebreakstyle=\"after\">\u2212</mo><mn>1</mn></mrow></msup></math>. A similar and robust upper limit for the \u03f5 could be obtained from the single-spin asymmetry measurement, which is not depending on the assumption of the systematic errors.",
+      "citations": 35,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2044789",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2208.06519",
+      "title": "One-Electron Quantum Cyclotron as a Milli-eV Dark-Photon Detector",
+      "abstract": "We propose using trapped electrons as high-<math display=\"inline\"><mi>Q</mi></math> resonators for detecting meV dark photon dark matter. When the rest energy of the dark photon matches the energy splitting of the two lowest cyclotron levels, the first excited state of the electron cyclotron will be resonantly excited. A proof-of-principle measurement, carried out with one electron, demonstrates that the method is background free over a 7.4\u00a0day search. It sets a limit on dark photon dark matter at 148\u00a0GHz (0.6\u00a0meV) that is around 75 times better than previous constraints. Dark photon dark matter in the 0.1\u20131\u00a0meV mass range (20\u2013200\u00a0GHz) could likely be detected at a similar sensitivity in an apparatus designed for dark photon detection.",
+      "citations": 32,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2135969",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2207.00509",
+      "title": "Search for a Dark Photon and an Invisible Dark Higgs Boson in <math display=\"inline\"><msup><mi>\u03bc</mi><mo>+</mo></msup><msup><mi>\u03bc</mi><mo>-</mo></msup></math> and Missing Energy Final States with the Belle II Experiment",
+      "abstract": "The dark photon <math display=\"inline\"><msup><mi>A</mi><mo>\u2032</mo></msup></math> and the dark Higgs boson <math display=\"inline\"><msup><mi>h</mi><mo>\u2032</mo></msup></math> are hypothetical particles predicted in many dark sector models. We search for the simultaneous production of <math display=\"inline\"><msup><mi>A</mi><mo>\u2032</mo></msup></math> and <math display=\"inline\"><msup><mi>h</mi><mo>\u2032</mo></msup></math> in the dark Higgsstrahlung process <math display=\"inline\"><msup><mi>e</mi><mo>+</mo></msup><msup><mi>e</mi><mo>-</mo></msup><mo stretchy=\"false\">\u2192</mo><msup><mi>A</mi><mo>\u2032</mo></msup><msup><mi>h</mi><mo>\u2032</mo></msup></math> with <math display=\"inline\"><msup><mi>A</mi><mo>\u2032</mo></msup><mo stretchy=\"false\">\u2192</mo><msup><mi>\u03bc</mi><mo>+</mo></msup><msup><mi>\u03bc</mi><mo>-</mo></msup></math> and <math display=\"inline\"><msup><mi>h</mi><mo>\u2032</mo></msup></math> invisible in electron-positron collisions at a center-of-mass energy of 10.58\u00a0GeV in data collected by the Belle II experiment in 2019. With an integrated luminosity of <math display=\"inline\"><mrow><mn>8.34</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><msup><mrow><mi>fb</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></math>, we observe no evidence for signal. We obtain exclusion limits at 90% Bayesian credibility in the range of 1.7\u20135.0\u00a0fb on the cross section and in the range of <math display=\"inline\"><mrow><mn>1.7</mn><mo>\u00d7</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>8</mn></mrow></msup><mi>\u2013</mi><mn>200</mn><mo>\u00d7</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>8</mn></mrow></msup></mrow></math> on the effective coupling <math display=\"inline\"><msup><mi>\u03f5</mi><mn>2</mn></msup><mo>\u00d7</mo><msub><mi>\u03b1</mi><mi>D</mi></msub></math> for the <math display=\"inline\"><msup><mi>A</mi><mo>\u2032</mo></msup></math> mass in the range of <math display=\"inline\"><mrow><mn>4.0</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>GeV</mi><mo>/</mo><msup><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msup><mo>&lt;</mo><msub><mrow><mi>M</mi></mrow><mrow><msup><mrow><mi>A</mi></mrow><mrow><mo>\u2032</mo></mrow></msup></mrow></msub><mo>&lt;</mo><mn>9.7</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>GeV</mi><mo>/</mo><msup><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></math> and for the <math display=\"inline\"><msup><mi>h</mi><mo>\u2032</mo></msup></math> mass <math display=\"inline\"><msub><mi>M</mi><msup><mi>h</mi><mo>\u2032</mo></msup></msub><mo>&lt;</mo><msub><mi>M</mi><msup><mi>A</mi><mo>\u2032</mo></msup></msub></math>, where <math display=\"inline\"><mi>\u03f5</mi></math> is the mixing strength between the standard model and the dark photon and <math display=\"inline\"><msub><mi>\u03b1</mi><mi>D</mi></msub></math> is the coupling of the dark photon to the dark Higgs boson. Our limits are the first in this mass range.",
+      "citations": 31,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2104717",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2007.12585",
+      "title": "Hidden Photon Dark Matter Interacting via Axion-like Particles",
+      "abstract": "We investigate a scenario where the dark matter of the Universe is made from very light hidden photons transforming under a Z 2-symmetry. In contrast to the usual situation, kinetic mixing is forbidden by the symmetry and the dark photon interacts with the Standard Model photon only via an axion-like particle acting as a \u201cmessenger\u201d. Focusing on signatures involving the ordinary photon, our survey of the phenomenology includes limits from cosmological stability, CMB distortions, astrophysical energy loss, light-shining-through-walls experiments, helioscopes and solar X-ray observations.",
+      "citations": 31,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "1808707",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2104.09334",
+      "title": "Searching for dark photons with existing haloscope data",
+      "abstract": "The dark (or hidden) photon is a massive U(1) gauge boson theorized as a dark force mediator and as a dark matter candidate. Dark photons can be detected with axion cavity haloscopes by probing for a power excess caused by the dark photon\u2019s kinetic mixing with Standard Model photons. Haloscope axion exclusion limits may therefore be converted into competitive dark photon parameter limits via the calculation of a corresponding dark photon to photon coupling factor. This calculation allows for an improvement in sensitivity of around 4 orders of magnitude relative to other dark photon exclusions and may be attained using existing data. We present how one converts haloscope axion search limits and a summary of relevant experimental parameters from published searches. In addition, we have included the code that can be used to generate our dark photon exclusion limits for the cases described in this paper. Finally, we present limits on the kinetic mixing coefficient between dark photons and the Standard Model photons based on existing haloscope axion searches.",
+      "citations": 31,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "1859144",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2404.04640",
+      "title": "Search for diphoton decays of an axionlike particle in radiative <math display=\"inline\"><mi>J</mi><mo>/</mo><mi>\u03c8</mi></math> decays",
+      "abstract": "We search for the diphoton decay of a light pseudoscalar axionlike particle, <math display=\"inline\"><mi>a</mi></math>, in radiative <math display=\"inline\"><mi>J</mi><mo>/</mo><mi>\u03c8</mi></math> decays, using <math display=\"inline\"><mrow><msup><mrow><mn>10</mn></mrow><mrow><mn>10</mn></mrow></msup><mtext>\u2009</mtext><mi>J</mi><mo>/</mo><mi>\u03c8</mi></mrow></math> events collected with the BESIII detector. We find no evidence of a signal and set upper limits at the 95%\u00a0confidence level on the product branching fraction <math display=\"inline\"><mi mathvariant=\"script\">B</mi><mo stretchy=\"false\">(</mo><mi>J</mi><mo>/</mo><mi>\u03c8</mi><mo stretchy=\"false\">\u2192</mo><mi>\u03b3</mi><mi>a</mi><mo stretchy=\"false\">)</mo><mo>\u00d7</mo><mi mathvariant=\"script\">B</mi><mo stretchy=\"false\">(</mo><mi>a</mi><mo stretchy=\"false\">\u2192</mo><mi>\u03b3</mi><mi>\u03b3</mi><mo stretchy=\"false\">)</mo></math> and the axionlike particle photon coupling constant <math display=\"inline\"><msub><mi>g</mi><mrow><mi>a</mi><mi>\u03b3</mi><mi>\u03b3</mi></mrow></msub></math> in the ranges of <math display=\"inline\"><mrow><mo stretchy=\"false\">(</mo><mn>3.7</mn><mi>\u2013</mi><mn>48.5</mn><mo stretchy=\"false\">)</mo><mo>\u00d7</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>8</mn></mrow></msup></mrow></math> and <math display=\"inline\"><mrow><mo stretchy=\"false\">(</mo><mn>2.2</mn><mi>\u2013</mi><mn>101.8</mn><mo stretchy=\"false\">)</mo><mo>\u00d7</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>4</mn></mrow></msup><mtext>\u2009</mtext><mtext>\u2009</mtext><mrow><msup><mrow><mi>GeV</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></mrow></math>, respectively, for <math display=\"inline\"><mn>0.18</mn><mo>\u2264</mo><msub><mi>m</mi><mi>a</mi></msub><mo>\u2264</mo><mn>2.85</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mrow><mi>GeV</mi><mo>/</mo></mrow><msup><mi>c</mi><mn>2</mn></msup></math>. These are the most stringent limits to date in this mass region.",
+      "citations": 31,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "2775015",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2110.10497",
+      "title": "Search for dark photons using a multilayer dielectric haloscope equipped with a single-photon avalanche diode",
+      "abstract": "We report the results of the search for dark photons with mass around <math display=\"inline\"><mrow><mn>1.5</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>eV</mi><mo>/</mo><msup><mrow><mi mathvariant=\"normal\">c</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></math> using a multilayer dielectric haloscope equipped with an affordable and commercially available photosensor. The multilayer stack, which enables the conversion of dark photons (DP) to Standard Model photons, is made of 23 bilayers of alternating <math display=\"inline\"><mrow><msub><mrow><mi>SiO</mi></mrow><mrow><mn>2</mn></mrow></msub></mrow></math> and <math display=\"inline\"><msub><mi>Si</mi><mn>3</mn></msub><msub><mi mathvariant=\"normal\">N</mi><mn>4</mn></msub></math> thin films with linearly increasing thicknesses through the stack (a configuration known as a \u201cchirped stack\u201d). The thicknesses have been chosen according to an optimization algorithm in order to maximize the DP-photon conversion in the energy region where the photosensor sensitivity peaks. This prototype experiment, dubbed \u201cMuDHI\u201d  (Multilayer Dielectric Haloscope Investigation) by the authors of this paper, has been designed, developed, and run at the Astroparticle Laboratory of New York University Abu Dhabi, which marks the first time a dark matter experiment has been operated in the Middle East. No significant signal excess is observed, and the method of maximum log likelihood is used to set exclusion limits at 90%\u00a0confidence level on the kinetic mixing coupling constant between dark photons and ordinary photons.",
+      "citations": 30,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "1949011",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2008.12765",
+      "title": "Dark photon from light scalar boson decays at FASER",
+      "abstract": "FASER is one of the promising experiments which search for long-lived particles beyond the Standard Model. In this paper, we focus on dark photon associating with an additional U(1) gauge symmetry, and also a scalar boson breaking this U(1) gauge symmetry. We study the sensitivity to the dark photon originated from U(1)-breaking scalar decays. We find that a sizable number of dark photon signatures can be expected in wider parameter space than previous studies.",
+      "citations": 29,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "1813807",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2206.13520",
+      "title": "Comparison of Low-Redshift Lyman-<math display=\"inline\"><mi>\u03b1</mi></math> Forest Observations to Hydrodynamical Simulations with Dark Photon Dark Matter",
+      "abstract": "Recent work has suggested that an additional <math display=\"inline\"><mrow><mo>\u2272</mo><mn>6.9</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>eV</mi></mrow></math> per baryon of heating in the intergalactic medium is needed to reconcile hydrodynamical simulations with Lyman-<math display=\"inline\"><mi>\u03b1</mi></math> forest absorption line widths at redshift <math display=\"inline\"><mrow><mi>z</mi><mo>\u2243</mo><mn>0.1</mn></mrow></math>. Resonant conversion of dark photon dark matter into low frequency photons is a viable source of such heating. We perform the first hydrodynamical simulations including dark photon heating and show that dark photons with mass <math display=\"inline\"><mrow><msub><mrow><mi>m</mi></mrow><mrow><msup><mrow><mi>A</mi></mrow><mrow><mo>\u2032</mo></mrow></msup></mrow></msub><mo>\u223c</mo><mn>8</mn><mo>\u00d7</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>14</mn></mrow></msup><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>eV</mi><mtext>\u2009</mtext><msup><mrow><mi mathvariant=\"normal\">c</mi></mrow><mrow><mo>-</mo><mn>2</mn></mrow></msup></mrow></math> and kinetic mixing <math display=\"inline\"><mrow><mi>\u03b5</mi><mo>\u223c</mo><mn>5</mn><mo>\u00d7</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>15</mn></mrow></msup></mrow></math> can alleviate the heating excess. A prediction of this model is a nonstandard thermal history for underdense gas at <math display=\"inline\"><mrow><mi>z</mi><mo>\u2273</mo><mn>3</mn></mrow></math>.",
+      "citations": 29,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2102687",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2105.06476",
+      "title": "Supernova constraints on an axion-photon-dark photon interaction",
+      "abstract": "We present the supernova constraints on an axion-photon-dark photon coupling, which can be the leading coupling to dark sector models and can also lead to dramatic changes to axion cosmology. We show that the supernova bound on this coupling has two unusual features. One occurs because the scattering that leads to the trapping regime converts axions and dark photons into each other. Thus, if one of the two new particles is sufficiently massive, both production and scattering become suppressed and the bounds from bulk emission and trapped (area) emission both weaken exponentially and do not intersection The other unusual feature occurs because for light dark photons, longitudinal modes couple more weakly than transverse modes do. Since the longitudinal mode is more weakly coupled, it can still cause excessive cooling even if the transverse mode is trapped. Thus, the supernova constraints for massive dark photons look like two independent supernova bounds super-imposed on top of each other.",
+      "citations": 29,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "1863335",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2404.10066",
+      "title": "Solar reflection of dark matter with dark-photon mediators",
+      "abstract": "We consider the scattering of low-mass halo dark-matter particles in the hot plasma of theSun, focusing on dark matter that interact with ordinary matter through a dark-photon mediator.The resulting \u201csolar-reflected\u201d dark matter (SRDM) component contains high-velocity particles,which significantly extend the sensitivity of terrestrial direct-detection experiments to sub-MeVdark-matter masses. We use a detailed Monte Carlo simulation to model the propagation andscattering of dark-matter particles in the Sun, including thermal effects, with special emphasison ultralight dark-photon mediators. We study the properties of the SRDM flux, obtain exclusionlimits from various direct-detection experiments, and provide projections for future experiments,focusing especially on those with silicon and xenon targets. We find that proposed futureexperiments with xenon and silicon targets can probe the entire \u201cfreeze-in benchmark\u201d, in whichdark matter is coupled to an ultralight dark photon, including dark-matter masses as low as\u00a0\ud835\udcaa(keV). Our simulations and SRDM fluxes are publicly\u00a0available.",
+      "citations": 29,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2777880",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2206.12271",
+      "title": "Axion haloscope using an 18\u00a0T high temperature superconducting magnet",
+      "abstract": "We report details on the axion dark matter search experiment that uses the new technologies of a high-temperature superconducting (HTS) magnet and a Josephson parametric converter (JPC). An 18\u00a0T HTS solenoid magnet is developed for this experiment. The JPC is used as the first stage amplifier to achieve a near quantum-limited low-noise condition. A first dark-matter axion search was performed with the 18\u00a0T axion haloscope [Youngjae Lee , Phys. Rev. Lett. 128, 241805 (2022)]. The scan frequency range is from 4.7789\u00a0GHz to 4.8094\u00a0GHz (30.5\u00a0MHz range). No significant signal consistent with Galactic dark matter axion is observed. Our results set the best limit of the axion-photon-photon coupling (<math display=\"inline\"><mrow><msub><mrow><mi>g</mi></mrow><mrow><mi>a</mi><mi>\u03b3</mi><mi>\u03b3</mi></mrow></msub></mrow></math>) in the axion mass range of <math display=\"inline\"><mrow><mn>19.764</mn><mi>\u2013</mi><mrow><mn>19.890</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi mathvariant=\"normal\">\u03bc</mi><mi>eV</mi></mrow></mrow></math>. Using the Bayesian method, the upper bounds of <math display=\"inline\"><msub><mi>g</mi><mrow><mi>a</mi><mi>\u03b3</mi><mi>\u03b3</mi></mrow></msub></math> are set at <math display=\"inline\"><mn>0.98</mn><mo>\u00d7</mo><mo stretchy=\"false\">|</mo><msubsup><mi>g</mi><mrow><mi>a</mi><mi>\u03b3</mi><mi>\u03b3</mi></mrow><mrow><mi>KSVZ</mi></mrow></msubsup><mo stretchy=\"false\">|</mo></math> (<math display=\"inline\"><mn>1.11</mn><mo>\u00d7</mo><mo stretchy=\"false\">|</mo><msubsup><mi>g</mi><mrow><mi>a</mi><mi>\u03b3</mi><mi>\u03b3</mi></mrow><mrow><mi>KSVZ</mi></mrow></msubsup><mo stretchy=\"false\">|</mo></math>) in the mass ranges of <math display=\"inline\"><mrow><mn>19.764</mn><mi>\u2013</mi><mn>19.771</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi mathvariant=\"normal\">\u03bc</mi><mi>eV</mi></mrow></math> (19.863 to <math display=\"inline\"><mrow><mn>19.890</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi mathvariant=\"normal\">\u03bc</mi><mi>eV</mi></mrow></math>), and at <math display=\"inline\"><mn>1.76</mn><mo>\u00d7</mo><mo stretchy=\"false\">|</mo><msubsup><mi>g</mi><mrow><mi>a</mi><mi>\u03b3</mi><mi>\u03b3</mi></mrow><mrow><mi>KSVZ</mi></mrow></msubsup><mo stretchy=\"false\">|</mo></math> in the mass ranges of <math display=\"inline\"><mrow><mn>19.772</mn><mi>\u2013</mi><mn>19.863</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi mathvariant=\"normal\">\u03bc</mi><mi>eV</mi></mrow></math> with 90%\u00a0confidence level, respectively. We report design, construction, operation, and data analysis of the 18\u00a0T axion haloscope experiment.",
+      "citations": 29,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "2100419",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2310.18398",
+      "title": "Maglev for dark matter: Dark-photon and axion dark matter sensing with levitated superconductors",
+      "abstract": "Ultraprecise mechanical sensors offer an exciting avenue for testing new physics. While many of these sensors are tailored to detect inertial forces, magnetically levitated (Maglev) systems are particularly interesting, in that they are also sensitive to electromagnetic forces. In this work, we propose the use of magnetically levitated superconductors to detect dark-photon and axion dark matter through their couplings to electromagnetism. Several existing laboratory experiments search for these dark-matter candidates at high frequencies, but few are sensitive to frequencies below 1\u00a0kHz (corresponding to dark-matter masses <math display=\"inline\"><msub><mi>m</mi><mi>DM</mi></msub><mo>\u2272</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>12</mn></mrow></msup><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>eV</mi></math>). As a mechanical resonator, magnetically levitated superconductors are sensitive to lower frequencies, and so can probe parameter space currently unexplored by laboratory experiments. Dark-photon and axion dark matter can source an oscillating magnetic field that drives the motion of a magnetically levitated superconductor. This motion is resonantly enhanced when the dark matter Compton frequency matches the levitated superconductor\u2019s trapping frequency. We outline the necessary modifications to make magnetically levitated superconductors sensitive to dark matter, including specifications for both broadband and resonant schemes. We show that in the <math display=\"inline\"><mrow><mi>Hz</mi><mo>\u2272</mo><msub><mrow><mi>f</mi></mrow><mrow><mi>DM</mi></mrow></msub><mo>\u2272</mo><mi>kHz</mi></mrow></math> frequency range our technique can achieve the leading sensitivity among laboratory probes of both dark-photon and axion dark\u00a0matter.",
+      "citations": 28,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "2715331",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2208.04496",
+      "title": "Search for a massless dark photon in <math display=\"inline\"><msubsup><mi mathvariant=\"normal\">\u039b</mi><mi>c</mi><mo>+</mo></msubsup><mo stretchy=\"false\">\u2192</mo><mi>p</mi><msup><mi>\u03b3</mi><mo>\u2032</mo></msup></math> decay",
+      "abstract": "A search for a massless dark photon <math display=\"inline\"><mrow><msup><mrow><mi>\u03b3</mi></mrow><mrow><mo>\u2032</mo></mrow></msup></mrow></math> is conducted using <math display=\"inline\"><mn>4.5</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><msup><mi>fb</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup></math> of <math display=\"inline\"><msup><mi>e</mi><mo>+</mo></msup><msup><mi>e</mi><mo>-</mo></msup></math> collision data collected at center-of-mass energies between 4.600 and 4.699\u00a0GeV with the BESIII detector at BEPCII. No significant signal is observed, and the upper limit on the branching fraction <math display=\"inline\"><mi mathvariant=\"script\">B</mi><mo stretchy=\"false\">(</mo><msubsup><mi mathvariant=\"normal\">\u039b</mi><mi>c</mi><mo>+</mo></msubsup><mo stretchy=\"false\">\u2192</mo><mi>p</mi><msup><mi>\u03b3</mi><mo>\u2032</mo></msup><mo stretchy=\"false\">)</mo></math> is determined to be <math display=\"inline\"><mn>8.0</mn><mo>\u00d7</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>5</mn></mrow></msup></math> at 90%\u00a0confidence level.",
+      "citations": 27,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2172587",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2205.01911",
+      "title": "Constraints on the dark photon from parity violation and the <math display=\"inline\"><mrow><mi>W</mi></mrow></math> mass",
+      "abstract": "We present an analysis of the experimental data for parity violating electron scattering and atomic parity violation, including the effects of a dark photon. We derive the favored region of dark photon parameter space, which provides a good description of the experimental data from the Qweak Collaboration and the Jefferson Lab PVDIS Collaboration and simultaneously relieves the tension between the neutron skin thickness determined in the PREX-II experiment and nuclear-model predictions. In addition, we extract the parameter region required to explain the latest <math display=\"inline\"><mi>W</mi></math>-boson mass anomaly. Our results indicate that a heavy dark photon with mass above the <math display=\"inline\"><mi>Z</mi></math>-boson mass is favored, while other sources of new physics beyond the Standard Model in addition to the dark photon would also be expected.",
+      "citations": 27,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2077371",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2012.09179",
+      "title": "Searching for axion-like particle decay in the near-infrared background: an updated analysis",
+      "abstract": "The extragalactic background light is comprised of the cumulative radiation from all galaxies across the history of the universe. The angular power spectrum of the anisotropies of such a background at near-infrared (IR) frequencies lacks of a complete understanding and shows a robust excess which cannot be easily explained with known sources. Dark matter in the form of axion-like particles (ALPs) with a mass around the electronvolt will decay into two photons with wavelengths in the near-IR band, possibly contributing to the background intensity. We compute the near-IR background angular power spectrum including emissions from galaxies, as well as the contributions from the intra-halo light and ALP decay, and compare it to measurements from the Hubble Space Telescope and Spitzer. We find that the preferred values for the ALP mass and ALP-photon coupling to explain the excess are in tension with star cooling data and observations of dwarf spheroidal galaxies.",
+      "citations": 27,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "1837096",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2406.19445",
+      "title": "X-ray constraints on dark photon tridents",
+      "abstract": "Dark photons that are sufficiently light and/or weakly interacting represent a compelling vision of dark matter. Dark photon decay into three photons, which we call the dark photon trident, can be the dominant channel when the dark photon mass falls below the electron pair threshold and can produce a significant flux of x rays. We use 16\u00a0years of data from Interrnational Gamma-Ray Astro Physics Laboratory (INTEGRAL)/Spectrometer of INTEGRAL (SPI) to constrain sub-MeV dark photon decay, producing new worlds-best constraints on the kinetic mixing parameter for dark photon masses between 90 and 1022\u00a0keV, and comment on the potential for future x-ray observatories to discover the trident decay process.",
+      "citations": 26,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2803124",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2111.05664",
+      "title": "Constraints on the dark photon from deep inelastic scattering",
+      "abstract": "We investigate constraints on the dark photon arising from an analysis of deep inelastic scattering data. We perform extractions of parton distribution functions with and without a dark photon being present and allow the dark photon mixing parameter and mass to vary. We also include the effects of vector-meson dominance to ensure the correct photoproduction limit. By considering the variation of the total <math display=\"inline\"><mrow><msup><mrow><mi>\u03c7</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></math> arising from such extractions, we infer exclusion limits on the kinetic mixing parameter of the dark photon for dark photon mass up to 80\u00a0GeV.",
+      "citations": 26,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "1965236",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2205.02053",
+      "title": "A haloscope amplification chain based on a traveling wave parametric amplifier",
+      "abstract": "In this paper, we will describe the characterization of an RF amplification chain based on a traveling wave parametric amplifier. The detection chain is meant to be used for dark matter axion searches, and thus, it is coupled to a high Q microwave resonant cavity. A system noise temperature Tsys = (3.3 \u00b1 0.1) K is measured at a frequency of 10.77\u00a0GHz, using a novel calibration scheme, allowing for measurement of Tsys exactly at the cavity output port.",
+      "citations": 26,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "2077310",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2206.05789",
+      "title": "Search for Solar Axions via Axion-Photon Coupling with the Majorana Demonstrator",
+      "abstract": "Axions were originally proposed to explain the strong-<math display=\"inline\"><mrow><mi>C</mi><mi>P</mi></mrow></math> problem in QCD. Through axion-photon coupling, the Sun could be a major source of axions, which could be measured in solid state detection experiments with enhancements due to coherent Primakoff-Bragg scattering. The Majorana Demonstrator experiment has searched for solar axions with a set of <math display=\"inline\"><mrow><mmultiscripts><mrow><mi>Ge</mi></mrow><mprescripts/><none/><mrow><mn>76</mn></mrow></mmultiscripts></mrow></math>-enriched high purity germanium detectors using a 33\u00a0kg-yr exposure collected between January, 2017 and November, 2019. A temporal-energy analysis gives a new limit on the axion-photon coupling as <math display=\"inline\"><mrow><msub><mrow><mi>g</mi></mrow><mrow><mi>a</mi><mi>\u03b3</mi></mrow></msub><mo>&lt;</mo><mn>1.45</mn><mo>\u00d7</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>9</mn></mrow></msup><mtext>\u2009</mtext><mtext>\u2009</mtext><mrow><msup><mrow><mi>GeV</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></mrow></math> (95% confidence level) for axions with mass up to <math display=\"inline\"><mrow><mn>100</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>eV</mi><mo>/</mo><msup><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></math>. This improves laboratory-based limits between about <math display=\"inline\"><mrow><mn>1</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>eV</mi><mo>/</mo><msup><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></math> and <math display=\"inline\"><mrow><mn>100</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>eV</mi><mo>/</mo><msup><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></math>.",
+      "citations": 23,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "2094759",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2001.04363",
+      "title": "A first proof of principle booster setup for the MADMAX dielectric haloscope",
+      "abstract": "Axions and axion-like particles are excellent low-mass dark matter candidates. The MADMAX experiment aims to directly detect galactic axions with masses between 40 and $400\\,\\upmu \\mathrm{eV}$ by using the axion-induced emission of electromagnetic waves from boundaries between materials of different dielectric constants under a strong magnetic field. Combining many such surfaces, this emission can be significantly enhanced (boosted) using constructive interference and resonances. We present a first proof of principle realization of such a booster system consisting of a copper mirror and up to five sapphire disks. The electromagnetic response of the system is investigated by reflectivity measurements. The mechanical accuracy, calibration process of unwanted reflections and the repeatability of a basic tuning algorithm to place the disks are investigated. We find that for the presented cases the electromagnetic response in terms of the group delay predicted by one-dimensional calculations is sufficiently realized in our setup. The repeatability of the tuning is at the percent level, and would have small impact on the sensitivity of such a booster.",
+      "citations": 23,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "1775254",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2412.00180",
+      "title": "Strong Constraints on Dark Photon and Scalar Dark Matter Decay from INTEGRAL and AMS-02",
+      "abstract": "We investigate the decay of bosonic dark matter with masses between 1 MeV and 2 TeV into Standard Model final states. We specifically focus on dark photons that kinetically mix with the Standard Model, as well as scalar dark matter models that have Yukawa couplings with the Standard Model. Using INTEGRAL and AMS-02 data, we constrain the dark matter decay lifetime into final states that include photons or positrons, setting strong constraints on the dark matter lifetime that reach 10$^{25}$ s for dark matter below 10 GeV and up to 10$^{29}$ s for dark matter above 10 GeV.",
+      "citations": 22,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2854628",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2209.11780",
+      "title": "Probing high-energy solar axion flux with a large scintillation neutrino detector",
+      "abstract": "We investigate the 5.49\u00a0MeV solar axions flux produced in the p(d,He3)a reaction and analyze the potential to detect it with the forthcoming large underground neutrino oscillation experiment Jiangmen Underground Neutrino Observatory (JUNO). The JUNO detector could reveal axions through various processes such as Compton and inverse Primakoff conversion, as well as through their decay into two photons or electron-positron pairs inside the detector. We perform a detailed numerical analysis in order to forecast the sensitivity on different combinations of the axion-electron (<math display=\"inline\"><msub><mi>g</mi><mrow><mi>a</mi><mi>e</mi></mrow></msub></math>), axion-photon (<math display=\"inline\"><msub><mi>g</mi><mrow><mi>a</mi><mi>\u03b3</mi></mrow></msub></math>), and isovector axion-nucleon (<math display=\"inline\"><msub><mi>g</mi><mrow><mn>3</mn><mi>a</mi><mi>N</mi></mrow></msub></math>) couplings, using the expected JUNO data for different benchmark values of axion mass in a model-independent way. We find that JUNO would improve by approximately one order of magnitude current bounds by Borexino and it has the best sensitivity among neutrino experiments.",
+      "citations": 22,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "2156653",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2209.13893",
+      "title": "Search for invisible decays of a dark photon using e+e\u2212 annihilation data at BESIII",
+      "abstract": "We report a search for a dark photon using 14.9 fb<sup loc=\"post\">\u22121</sup> of <math altimg=\"si1.svg\"><msup><mrow><mi>e</mi></mrow><mrow><mo linebreak=\"badbreak\" linebreakstyle=\"after\">+</mo></mrow></msup><msup><mrow><mi>e</mi></mrow><mrow><mo linebreak=\"badbreak\" linebreakstyle=\"after\">\u2212</mo></mrow></msup></math> annihilation data taken at center-of-mass energies from 4.13 to 4.60 GeV with the BESIII detector operated at the BEPCII storage ring. The dark photon is assumed to be produced in the radiative annihilation process of <math altimg=\"si1.svg\"><msup><mrow><mi>e</mi></mrow><mrow><mo linebreak=\"badbreak\" linebreakstyle=\"after\">+</mo></mrow></msup><msup><mrow><mi>e</mi></mrow><mrow><mo linebreak=\"badbreak\" linebreakstyle=\"after\">\u2212</mo></mrow></msup></math> and to predominantly decay into light dark matter particles, which escape from the detector undetected. The mass range from 1.5 to 2.9 GeV is scanned for the dark photon candidate, and no significant signal is observed. The mass dependent upper limits at the 90% confidence level on the coupling strength parameter \u03f5 for a dark photon coupling with an ordinary photon vary between <math altimg=\"si2.svg\"><mn>1.6</mn><mo>\u00d7</mo><msup><mrow><mn>10</mn></mrow><mrow><mo linebreak=\"badbreak\" linebreakstyle=\"after\">\u2212</mo><mn>3</mn></mrow></msup></math> and <math altimg=\"si3.svg\"><mn>5.7</mn><mo>\u00d7</mo><msup><mrow><mn>10</mn></mrow><mrow><mo linebreak=\"badbreak\" linebreakstyle=\"after\">\u2212</mo><mn>3</mn></mrow></msup></math>.",
+      "citations": 21,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2157931",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2505.04626",
+      "title": "Testing Thermal-Relic Dark Matter with a Dark Photon Mediator",
+      "abstract": "In light of recent DAMIC-M results, we present the status of thermal-relic dark matter $\\chi$ coupled to a kinetically-mixed dark photon $A^\\prime$. In the predictive \"direct annihilation\" regime, $m_{A'} > m_\\chi$, the relic abundance depends on the kinetic mixing parameter, and there is a minimum value compatible with thermal freeze out. Using only electron and nuclear recoil direct detection results, we find that for complex scalar dark matter, the direct-annihilation regime is now excluded for nearly all values of $m_\\chi$; the only exception is the resonant annihilation regime where $m_{A'}\\approx 2 m_\\chi$. Direct annihilation relic targets for other representative models, including Majorana and Pseudo-Dirac candidates, remain viable across a wide range of model parameters, but will be tested with a combination of dedicated accelerator searches in the near future. In the opposite \"secluded annihilation\" regime, where $m_\\chi > m_{A'}$, this scenario is excluded by cosmic microwave background measurements for all $m_\\chi \\lesssim 30$ GeV. Similar conclusions in both the direct and secluded regimes hold for all anomaly-free vector mediators that couple to the first generation of electrically-charged Standard Model particles.",
+      "citations": 20,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2919064",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2207.13659",
+      "title": "Axionlike particle production at beam dump experiments with distinct nuclear excitation lines",
+      "abstract": "Searches for axionlike particles (ALPs) are motivated by the strong <math display=\"inline\"><mi>C</mi><mi>P</mi></math> problem in particle physics and by unexplained dark matter in astrophysics. In this paper, we discuss novel ALP searches using monoenergetic nuclear deexcitation photons from a beam dump, using the isotope decay-at-rest (IsoDAR) experiment as an example. We show that IsoDAR can set limits that close a gap in traditional QCD axion searches using the ALP-photon coupling, as well as provide sensitivity to large regions of new parameter space in models where ALPs couple to nucleons and electrons. We also show how isotope decay-at-rest experiments may be designed to improve potential ALP production and optimize detection sensitivity.",
+      "citations": 18,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "2126695",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2205.13237",
+      "title": "Search for Monopole-Dipole Interactions at the Submillimeter Range with a <math display=\"inline\"><mrow><mrow><mmultiscripts><mrow><mi>Xe</mi></mrow><mprescripts/><none/><mrow><mn>129</mn></mrow></mmultiscripts></mrow><mtext>-</mtext><mrow><mmultiscripts><mrow><mi>Xe</mi></mrow><mprescripts/><none/><mrow><mn>131</mn></mrow></mmultiscripts></mrow><mtext>-</mtext><mi>Rb</mi></mrow></math> Comagnetometer",
+      "abstract": "Monopole-dipole interactions involving scalar couplings between a spin and a massive particle violate both <math display=\"inline\"><mi>P</mi></math> and <math display=\"inline\"><mi>T</mi></math> symmetry, and can be mediated by axions. We use a <math display=\"inline\"><mrow><mrow><mmultiscripts><mrow><mi>Xe</mi></mrow><mprescripts/><none/><mrow><mn>129</mn></mrow></mmultiscripts></mrow><mtext>-</mtext><mrow><mmultiscripts><mrow><mi>Xe</mi></mrow><mprescripts/><none/><mrow><mn>131</mn></mrow></mmultiscripts></mrow><mtext>-</mtext><mi>Rb</mi></mrow></math> atomic cell comagnetometer to measure the ratio of precession frequencies between the two xenon isotopes, and search for changes of the ratio correlated with the distance between the atomic cell and a nonmagnetic bismuth germanate crystal. A modulated Rb polarization scheme is used to suppress systematic effects by 2 orders of magnitude. The null results of this search improve the upper limit on the coupling strength <math display=\"inline\"><mrow><msubsup><mrow><mi>g</mi></mrow><mrow><mi>s</mi></mrow><mrow><mi>N</mi></mrow></msubsup><msubsup><mrow><mi>g</mi></mrow><mrow><mi>p</mi></mrow><mrow><mi>n</mi></mrow></msubsup></mrow></math> over the interaction range 0.11\u20130.55\u00a0mm, and by a maximum improvement factor of 30 at 0.24\u00a0mm. The corresponding propagator mass range of this new excluded region covers 0.36\u20131.80\u00a0meV.",
+      "citations": 18,
+      "coupling_guess": "MonopoleDipole",
+      "inspire_id": "2087915",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2212.11926",
+      "title": "Novel model-marginalized cosmological bound on the QCD axion mass",
+      "abstract": "We present model-marginalized limits on mixed hot dark matter scenarios, which consider both thermal neutrinos and thermal QCD axions. A novel aspect of our analyses is the inclusion of small-scale cosmic microwave background (CMB) observations from the Atacama Cosmology Telescope (ACT) and the South Pole Telescope (SPT), together with those from the Planck satellite and baryon acoustic oscillation (BAO) data. After marginalizing over a number of well-motivated nonminimal background cosmologies, the tightest 95%\u00a0Confidential Level (CL) upper bound we obtain is 0.21\u00a0eV, both for <math display=\"inline\"><mo>\u2211</mo><msub><mi>m</mi><mi>\u03bd</mi></msub></math> and <math display=\"inline\"><msub><mi>m</mi><mi mathvariant=\"normal\">a</mi></msub></math>, from the combination of ACT, Planck and BAO measurements. Restricting the analyses to the standard <math display=\"inline\"><mi mathvariant=\"normal\">\u039b</mi><mi>CDM</mi></math> picture, we find <math display=\"inline\"><mo>\u2211</mo><msub><mi>m</mi><mi>\u03bd</mi></msub><mo>&lt;</mo><mn>0.16</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>eV</mi></math> and <math display=\"inline\"><msub><mi>m</mi><mi mathvariant=\"normal\">a</mi></msub><mo>&lt;</mo><mn>0.18</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>eV</mi></math>, both at 95%\u00a0CL Interestingly, the best background cosmology is never found within the minimal <math display=\"inline\"><mi mathvariant=\"normal\">\u039b</mi><mi>CDM</mi></math> plus hot relics, regardless of the datasets exploited in the analyses. The combination of Planck with either BAO, SPT or ACT prefers a universe with a nonzero value of the running in the primordial power spectrum with strong evidence. Small-scale CMB probes, both alone and combined with BAO, either prefer, with substantial evidence, nonflat universes (as in the case of SPT) or a model with a time varying dark energy component (as in the case of ACT).",
+      "citations": 17,
+      "coupling_guess": "AxionMass",
+      "inspire_id": "2617475",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2511.15785",
+      "title": "Heavy dark photon handbook: Cosmological and astrophysical bounds",
+      "abstract": "We investigate cosmological and astrophysical constraints on dark photons with masses <math display=\"inline\"><mrow><mo>\u223c</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msup><mtext>-</mtext><msup><mrow><mn>10</mn></mrow><mrow><mn>3</mn></mrow></msup><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>MeV</mi></mrow></math>. These dark photons can be copiously produced either in the early Universe or during core-collapse supernovae, potentially leaving distinct observational signatures. First, we derive updated constraints from cosmological and astrophysical observables that rely on the thermal relic abundance of dark photons, including the cosmic microwave background spectrum, primordial light element abundances, and Galactic/extragalactic <math display=\"inline\"><mi>\u03b3</mi></math>-ray flux. We consider the minimal reheating temperature possible, <math display=\"inline\"><mrow><msub><mrow><mi>T</mi></mrow><mrow><mi>RH</mi></mrow></msub><mrow><mo>=</mo><mn>6</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>MeV</mi></mrow></mrow></math>, such that our constraints are conservative, but unavoidable within the minimal dark photon model. Then, for supernova-sourced dark photons, we systematically examine all relevant observational bounds, revisit the standard cooling argument and derive limits from other arguments such as fireball formation, low energy supernovae and Galactic positron injection.",
+      "citations": 15,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "3085090",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2006.15945",
+      "title": "$Z$-boson decays into an invisible dark photon at the LHC, HL-LHC and future lepton colliders",
+      "abstract": "We study the decay of the Z vector boson into a photon and a massless (invisible) dark photon in high-energy collisions. The photon can be used as a trigger for the event, while the dark photon is detected indirectly as missing momentum in the event final state. We investigate the possibility of searching for such a dark photon at the LHC, HL-LHC, and future lepton colliders, and compare the respective sensitivities. As expected, the best result is found for the lepton colliders running at the Z mass, FCC-ee and CEPC, with a final sensitivity to branching ratios of order O(10-11). We also discuss how to use the photon angular distribution of the events in lepton collisions to discriminate between the dark photon and a pseudoscalar state like the axion.",
+      "citations": 14,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "1803584",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2205.01477",
+      "title": "Taiwan axion search experiment with haloscope: Designs and operations",
+      "abstract": "We report on a holoscope axion search experiment near 19.6\u00a0\u00b5eV from the Taiwan Axion Search Experiment with Haloscope collaboration. This experiment is carried out via a frequency-tunable cavity detector with a volume V = 0.234\u00a0liter in a magnetic field B0 = 8\u00a0T. With a signal receiver that has a system noise temperature Tsys \u2245 2.2\u00a0K and an experiment time of about one month, the search excludes values of the axion\u2013photon coupling constant ga\u03b3\u03b3 \u2273 8.1 \u00d7 10\u221214\u00a0GeV\u22121, a factor of 11 above the Kim\u2013Shifman\u2013Vainshtein\u2013Zakharov benchmark model, at the 95% confidence level in the mass range of 19.4687\u201319.8436\u00a0\u00b5eV. We present the experimental setup and procedures to accomplish this search.",
+      "citations": 14,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "2076156",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2203.07218",
+      "title": "Snowmass White Paper: Strong CP Beyond Axion Direct Detection",
+      "abstract": "We sketch recent progress and promising future directions for research connected with the strong CP problem. Topics surveyed include axion dark matter substructure and its gravitational detection; axion model building and the quality problem; experimental tests of ultraviolet solutions; and connections to lattice QCD.",
+      "citations": 14,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "2050809",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2503.09682",
+      "title": "Probing the axion-electron coupling with NuSTAR observations of galaxies",
+      "abstract": "We search for the existence of ultralight axions coupling to electrons and photons using data from the NuSTAR telescope directed toward the galaxies M82, M87, and M31. We focus on electron bremsstrahlung and Compton scattering for axion production in stars, summing over the stellar populations found in the target galaxies when computing the axion luminosity. We then compute the hard x-ray signal that arises from the conversion of these axions to photons in each galaxy\u2019s magnetic fields, inferred from analog galaxies in cosmological magnetohydrodynamic simulations. Analyzing NuSTAR data toward these galaxies between roughly 20 to 70\u00a0keV, we find no evidence for axions and set leading constraints on the combined axion-electron and axion-photon coupling at the level of <math display=\"inline\"><mo stretchy=\"false\">|</mo><msub><mi>g</mi><mrow><mi>a</mi><mi>e</mi><mi>e</mi></mrow></msub><mo>\u00d7</mo><msub><mi>g</mi><mrow><mi>a</mi><mi>\u03b3</mi><mi>\u03b3</mi></mrow></msub><mo stretchy=\"false\">|</mo><mo>\u2272</mo><mn>8.3</mn><mo>\u00d7</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>27</mn></mrow></msup><mtext>\u2009</mtext><mtext>\u2009</mtext><mrow><msup><mrow><mi>GeV</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></math> for <math display=\"inline\"><msub><mi>m</mi><mi>a</mi></msub><mo>\u2272</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>10</mn></mrow></msup><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>eV</mi></math> at 95%\u00a0confidence, with M82 providing the most stringent constraints.",
+      "citations": 13,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "2899846",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2307.10771",
+      "title": "Lepton flavor violating dark photon",
+      "abstract": "We study the possible impact of dark photons on lepton flavor phenomenology. We derive the constraints on nondiagonal dark photon couplings with leptons by analyzing corresponding contributions to lepton anomalous magnetic moments, rare lepton decays, and the prospects of fixed-target experiments aimed at searching for light dark matter based on missing energy/momentum techniques.",
+      "citations": 12,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2678817",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2406.06117",
+      "title": "New Constraints on Axionlike Particles with the NEON Detector at a Nuclear Reactor",
+      "abstract": "We report new constraints on axionlike particles (ALPs) using data from the NEON experiment, which features 16.7\u00a0kg of NaI(Tl) target located 23.7\u00a0m from a 2.8\u00a0GW thermal power nuclear reactor. Analyzing a total exposure of <math display=\"inline\"><mrow><mn>3063</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>kg</mi><mo>\u00b7</mo><mi>day</mi></mrow></math>, with <math display=\"inline\"><mrow><mn>1596</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>kg</mi><mo>\u00b7</mo><mi>day</mi></mrow></math> during reactor-on and <math display=\"inline\"><mrow><mn>1467</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>kg</mi><mo>\u00b7</mo><mi>day</mi></mrow></math> during reactor-off periods, we compared energy spectra to search for ALP-induced signals. No significant signal was observed, enabling us to set exclusion limits at the 95%\u00a0confidence level. These limits probe previously unexplored regions of the ALP parameter space, particularly for axion masses (<math display=\"inline\"><mrow><msub><mrow><mi mathvariant=\"normal\">m</mi></mrow><mrow><mi>a</mi></mrow></msub></mrow></math>) near <math display=\"inline\"><mrow><mn>1</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>MeV</mi><mo>/</mo><msup><mrow><mi mathvariant=\"normal\">c</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></math>. For ALP-photon coupling (<math display=\"inline\"><msub><mi>g</mi><mrow><mi>a</mi><mi>\u03b3</mi></mrow></msub></math>), limits reach as low as <math display=\"inline\"><mrow><mn>6.24</mn><mo>\u00d7</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>6</mn></mrow></msup><mtext>\u2009</mtext><mtext>\u2009</mtext><mrow><msup><mrow><mi>GeV</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></mrow></math> at <math display=\"inline\"><mrow><msub><mrow><mi mathvariant=\"normal\">m</mi></mrow><mrow><mi>a</mi></mrow></msub><mo>=</mo><mn>3.0</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>MeV</mi><mo>/</mo><msup><mrow><mi mathvariant=\"normal\">c</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></math>, while for ALP-electron coupling (<math display=\"inline\"><msub><mi>g</mi><mrow><mi>a</mi><mi>e</mi></mrow></msub></math>), limits reach <math display=\"inline\"><mrow><mn>4.95</mn><mo>\u00d7</mo><mrow><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>8</mn></mrow></msup></mrow></mrow></math> at <math display=\"inline\"><mrow><msub><mrow><mi mathvariant=\"normal\">m</mi></mrow><mrow><mi>a</mi></mrow></msub><mo>=</mo><mn>1.02</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>MeV</mi><mo>/</mo><msup><mrow><mi mathvariant=\"normal\">c</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></math>. This Letter demonstrates the potential for future reactor experiments to probe unexplored ALP parameter space.",
+      "citations": 12,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "2796575",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2110.05084",
+      "title": "Dark photon bursts from compact binary systems and constraints",
+      "abstract": "In this work, we consider the burst signal of the dark photon, the hypothetical vector boson of the <math display=\"inline\"><mi>U</mi><mo stretchy=\"false\">(</mo><mn>1</mn><msub><mo stretchy=\"false\">)</mo><mi>B</mi></msub></math> or <math display=\"inline\"><mi>U</mi><mo stretchy=\"false\">(</mo><mn>1</mn><msub><mo stretchy=\"false\">)</mo><mrow><mi>B</mi><mo>-</mo><mi>L</mi></mrow></msub></math> gauge group, generated by a compact binary star system. The absence of the signal in the laser interferometer puts bounds on the coupling constant <math display=\"inline\"><mi>\u03b5</mi></math> to the ordinary matter. It turns out that if the dark photon is massless, <math display=\"inline\"><msup><mi>\u03b5</mi><mn>2</mn></msup></math> is on the order of <math display=\"inline\"><mrow><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>37</mn></mrow></msup><mi>\u2013</mi><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>33</mn></mrow></msup></mrow></math> at most; in the massive case, the upper bound of <math display=\"inline\"><msup><mi>\u03b5</mi><mn>2</mn></msup></math> is about <math display=\"inline\"><mrow><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>38</mn></mrow></msup><mi>\u2013</mi><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>31</mn></mrow></msup></mrow></math> in the mass range from <math display=\"inline\"><msup><mn>10</mn><mrow><mo>-</mo><mn>19</mn></mrow></msup></math> to <math display=\"inline\"><msup><mn>10</mn><mrow><mo>-</mo><mn>11</mn></mrow></msup><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>eV</mi></math>. These are the first bounds derived from the interferometer observations independent of the assumption of dark photons being dark matter.",
+      "citations": 11,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "1941298",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2308.01565",
+      "title": "New constraint on dark photon at T2K off-axis near detector",
+      "abstract": "The T2K experiment is one of the most powerful long-baseline experiments to investigate neutrino oscillations. The off-axis near detector called ND280 is installed 280 m downstream from the neutrino production target to measure the neutrino energy spectrum. In this paper, we study the capability of the ND280 detector to search for the dark photon produced through the meson rare decay and proton bremsstrahlung processes at the proton beam dump. We find that the ten-year operation of T2K with the ND280 detector excludes the unexplored parameter region for the dark photon mass and kinetic mixing. We also show that a broader parameter region can be searched by the ND280 in the future T2K operation for dark photon as well as U(1)$_{B\u2212L}$ gauge boson.",
+      "citations": 11,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2685088",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2204.14265",
+      "title": "Taiwan Axion Search Experiment with Haloscope: CD102 analysis details",
+      "abstract": "This paper presents the analysis of the data acquired during the first physics run of the Taiwan Axion Search Experiment with Haloscope (TASEH), a search for axions using a microwave cavity at frequencies between 4.70750 and 4.79815\u00a0GHz. The data were collected from October 13, 2021 to November 15, 2021, and are referred to as the CD102 data. The analysis of the TASEH CD102 data excludes models with the axion-two-photon coupling <math display=\"inline\"><mrow><mrow><mo stretchy=\"false\">|</mo><msub><mrow><mi>g</mi></mrow><mrow><mi>a</mi><mi>\u03b3</mi><mi>\u03b3</mi></mrow></msub><mo stretchy=\"false\">|</mo></mrow><mo>\u2273</mo><mn>8.1</mn><mo>\u00d7</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>14</mn></mrow></msup><mtext>\u2009</mtext><mtext>\u2009</mtext><msup><mrow><mi>GeV</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></math>, a factor of 11 above the benchmark Kim-Shifman-Vainshtein-Zakharov model for the mass range <math display=\"inline\"><mn>19.4687</mn><mo>&lt;</mo><msub><mi>m</mi><mi>a</mi></msub><mo>&lt;</mo><mn>19.8436</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>\u03bc</mi><mi>eV</mi></math>.",
+      "citations": 11,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "2074508",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2405.05104",
+      "title": "Dark photon constraints from CMB temperature anisotropies",
+      "abstract": "The resonant conversion, within the inter-galactic medium, of regular photons into dark photons amplifies the anisotropy observed in the CMB, thereby imposing stringent constraints on the existence of light dark photons. In this study, we investigate the impact of light dark photons, with masses in the range 3 \u00d7 10$^{-15}$ eV < mA' < 3 \u00d7 10$^{-12}$ eV on the power spectrum of temperature anisotropies within the cosmic microwave background (CMB) radiation utilizing the state-of-the-art large-volume FLAMINGO cosmological simulations. Our results show that using full Planck data, one can expect the existing constraints on the dark photon mixing parameter in this mass range to improve by an order of magnitude.",
+      "citations": 10,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2784468",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2404.00908",
+      "title": "Dark photon constraints from a 7.139\u00a0GHz cavity haloscope experiment",
+      "abstract": "The dark photon is a promising candidate for the dark matter which comprises most of the matter in our visible Universe. Via kinetic mixing with the Standard Model it can also be resonantly converted to photons in an electromagnetic cavity, offering novel experimental possibilities for the discovery and study of dark matter. We report the results of a pathfinder dark photon dark matter cavity search experiment performed at Hunan Normal University and the Institute of Physics, Chinese Academy of Sciences, representing the first stage of the Axion and dark Photon EXperiment program. Finding no statistically significant excess, we place an upper limit on the kinetic mixing parameter <math display=\"inline\"><mrow><mo stretchy=\"false\">|</mo><mi>\u03c7</mi><mo stretchy=\"false\">|</mo><mo>&lt;</mo><mn>3.7</mn><mo>\u00d7</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>13</mn></mrow></msup></mrow></math> around <math display=\"inline\"><mrow><msub><mrow><mi>m</mi></mrow><mrow><mi>A</mi></mrow></msub><mo>\u2243</mo><mn>29.5</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi mathvariant=\"normal\">\u03bc</mi><mi>eV</mi></mrow></math> at 90%\u00a0confidence level. This result exceeds other constraints on dark photon dark matter in this frequency range by roughly an order of magnitude.",
+      "citations": 10,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2773353",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2009.11155",
+      "title": "Dark Photon Search at Yemilab, Korea",
+      "abstract": "Dark photons are well motivated hypothetical dark sector particles that could account for observations that cannot be explained by the standard model of particle physics. A search for dark photons that are produced by an electron beam striking a thick tungsten target and subsequently interact in a 3 kiloton-scale neutrino detector in Yemilab, a new underground lab in Korea, is proposed. Dark photons can be produced by \u201cdarkstrahlung\u201d or by oscillations from ordinary photons produced in the target and detected by their visible decays, \u201cabsorption\u201d or by their oscillation to ordinary photons. By detecting the absorption process or the oscillation-produced photons, a world\u2019s best sensitivity for measurements of the dark-photon kinetic mixing parameter of \u03f5$^{2}$> 1.5 \u00d7 10$^{\u221213}$(6.1 \u00d7 10$^{\u221213}$) at the 95% confidence level (C.L.) could be obtained for dark photon masses between 80 eV and 1 MeV in a year-long exposure to a 100 MeV\u2013100 kW electron beam with zero (10$^{3}$) background events. In parallel, the detection of e$^{+}$e$^{\u2212}$ pairs from decays of dark photons with mass between 1 MeV and \u223c86 MeV would have sensitivities of \u03f5$^{2}$>$ \\mathcal{O}\\left({10}^{-17}\\right)\\left(\\mathcal{O}\\left({10}^{-16}\\right)\\right) $ at the 95% C.L. with zero (10$^{3}$) background events. This is comparable to that of the Super-K experiment under the same zero background assumption.",
+      "citations": 10,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "1818659",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2211.13384",
+      "title": "Exploring dark photons via a subfrequency laser search in gravitational wave detectors",
+      "abstract": "We propose a novel idea to detect a dark photon in gravitational wave experiments. Our setups are capable of performing the whole process of dark photon production, its decay products, and new physics signal discovery. This \u201cmini-LHC\u201d is inspired by the recent idea of dark photon detection using laser light in light shining through the wall (LSW) experiments such as ALPS II. Taking the subfrequency light emitted from the laser source as the new physics signal, we show that the sensitivity of our proposal is 2 orders of magnitude better than the original idea in the LSW studies.",
+      "citations": 10,
+      "coupling_guess": "DarkPhoton",
+      "inspire_id": "2593354",
+      "publication_types": []
+    },
+    {
+      "arxiv_id": "2004.08011",
+      "title": "Improved axion haloscope search analysis",
+      "abstract": "One of the most significant and practical figures of merit in axion haloscope searches is the scanning rate, because of the unknown axion mass. Under the best experimental parameters, the only way to improve the figure of merit is to increase the experimentally designed signal to noise ratio in the axion haloscope search analysis procedure. In this paper, we report an improved axion haloscope search analysis using the data taken by the CAPP-8TB haloscope. By correcting for the background biased by the background parametrizations in the presence of axion signals, we realized a signal to noise ratio efficiency of about 100%. Given the axion haloscope search analyses to date, the scanning rate can be improved by 21%, with about a 10% improvement in the signal to noise ratio. This improvement is another low cost innovation in axion haloscope searches, where all the experimental parameters are currently at their best.",
+      "citations": 10,
+      "coupling_guess": "AxionPhoton",
+      "inspire_id": "1791629",
+      "publication_types": []
+    }
+  ],
   "processed_ids": [],
   "skipped_ids": {},
   "runs": []
