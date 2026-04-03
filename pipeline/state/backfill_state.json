@@ -8,42 +8,6 @@
   },
   "queue": [
     {
-      "arxiv_id": "2009.13909",
-      "title": "Implications of Gravitational-wave Production from Dark Photon Resonance to Pulsar-timing Observations and Effective Number of Relativistic Species",
-      "abstract": "The coherent oscillation of axionic fields naturally drives copious production of dark photon particles in the early universe, due to resonance and tachyonic enhancement. During the process, energy is abruptly transferred from the former to the latter, sourcing gravitational wave generation. The resulting gravitational waves are eventually to be observed as stochastic background today. We report analytical results of this production and connect them to the recent pulsar-timing results by the NANOGrav collaboration. We show an available parameter space, around the mass $m_\\phi \\sim 10^{-13} \\, {\\rm eV}$ and the decay constant $f_\\phi \\sim 10^{16} \\, {\\rm GeV}$ with a dimensionless coupling of ${\\cal O}(1)$, for our mechanism to account for the signal. A mechanism to avoid the axion over-dominating the universe is a necessary ingredient of this model, and we discuss a possibility to recover a symmetry and render the axion massless after the production. We also comment on potential implications of the required effective number of relativistic species to the determination of the present Hubble constant.",
-      "citations": 45,
-      "coupling_guess": "DarkPhoton",
-      "inspire_id": "1820116",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2111.06407",
-      "title": "Probing the axion\u2013nucleon coupling with the next generation of\u00a0axion helioscopes",
-      "abstract": "A finite axion\u2013nucleon coupling, nearly unavoidable for QCD axions, leads to the production of axions via the thermal excitation and subsequent de-excitation of $^{57}$Fe\u00a0isotopes in the sun. We revise the solar bound on this flux adopting the up to date emission rate, and investigate the sensitivity of the proposed International Axion Observatory IAXO and its intermediate stage BabyIAXO to detect these axions. We compare different realistic experimental options and discuss the model dependence of the signal. Already BabyIAXO\u00a0has sensitivity far beyond previous solar axion searches via the nucleon coupling and IAXO can improve on this by more than an order of magnitude.",
-      "citations": 45,
-      "coupling_guess": "AxionElectron",
-      "inspire_id": "1967014",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2312.12055",
-      "title": "Search for Leptonic Decays of Dark Photons at NA62",
-      "abstract": "The NA62 experiment at CERN, configured in beam-dump mode, has searched for dark photon decays in flight to electron-positron pairs using a sample of <math display=\"inline\"><mn>1.4</mn><mo>\u00d7</mo><msup><mn>10</mn><mn>17</mn></msup></math> protons on dump collected in 2021. No evidence for a dark photon signal is observed. The combined result for dark photon searches in lepton\u2013antilepton final states is presented and a region of the parameter space is excluded at 90% confidence level, improving on previous experimental limits for dark photon mass values between 50 and <math display=\"inline\"><mrow><mn>600</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>MeV</mi><mo>/</mo><msup><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></math> and coupling values in the range <math display=\"inline\"><msup><mn>10</mn><mrow><mo>-</mo><mn>6</mn></mrow></msup></math> to <math display=\"inline\"><mn>4</mn><mo>\u00d7</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>5</mn></mrow></msup></math>. An interpretation of the <math display=\"inline\"><msup><mi>e</mi><mo>+</mo></msup><msup><mi>e</mi><mo>-</mo></msup></math> search result in terms of the emission and decay of an axionlike particle is also presented.",
-      "citations": 43,
-      "coupling_guess": "DarkPhoton",
-      "inspire_id": "2738578",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2305.09711",
-      "title": "First Scan Search for Dark Photon Dark Matter with a Tunable Superconducting Radio-Frequency Cavity",
-      "abstract": "Dark photons have emerged as promising candidates for dark matter, and their search is a top priority in particle physics, astrophysics, and cosmology. We report the first use of a tunable niobium superconducting radio-frequency cavity for a scan search of dark photon dark matter with innovative data analysis techniques. We mechanically adjusted the resonant frequency of a cavity submerged in liquid helium at a temperature of 2\u00a0K, and scanned the dark photon mass over a frequency range of 1.37\u00a0MHz centered at 1.3\u00a0GHz. Our study leveraged the superconducting radio-frequency cavity\u2019s remarkably high quality factors of approximately <math display=\"inline\"><msup><mn>10</mn><mn>10</mn></msup></math>, resulting in the most stringent constraints to date on a substantial portion of the exclusion parameter space on the kinetic mixing coefficient <math display=\"inline\"><mi>\u03b5</mi></math> between dark photons and electromagnetic photons, yielding a value of <math display=\"inline\"><mi>\u03b5</mi><mo>&lt;</mo><mn>2.2</mn><mo>\u00d7</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>16</mn></mrow></msup></math>.",
-      "citations": 42,
-      "coupling_guess": "DarkPhoton",
-      "inspire_id": "2807114",
-      "publication_types": []
-    },
-    {
       "arxiv_id": "2204.03818",
       "title": "Search for <math display=\"inline\"><mrow><mn>70</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>\u03bc</mi><mi>eV</mi></mrow></math> Dark Photon Dark Matter with a Dielectrically Loaded Multiwavelength Microwave Cavity",
       "abstract": "Microwave cavities have been deployed to search for bosonic dark matter candidates with masses of a few <math display=\"inline\"><mrow><mi>\u03bc</mi><mi>eV</mi></mrow></math>. However, the sensitivity of these cavity detectors is limited by their volume, and the traditionally employed half-wavelength cavities suffer from a significant volume reduction at higher masses. Axion dark matter experiment (ADMX)-Orpheus mitigates this issue by operating a tunable, dielectrically loaded cavity at a higher-order mode, which allows the detection volume to remain large. The ADMX-Orpheus inaugural run excludes dark photon dark matter with kinetic mixing angle <math display=\"inline\"><mrow><mi>\u03c7</mi><mo>&gt;</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>\u2212</mo><mn>13</mn></mrow></msup></mrow></math> between <math display=\"inline\"><mrow><mn>65.5</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>\u03bc</mi><mi>eV</mi></mrow></math> (<math display=\"inline\"><mrow><mn>15.8</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>GHz</mi></mrow></math>) and <math display=\"inline\"><mrow><mn>69.3</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>\u03bc</mi><mi>eV</mi></mrow></math> (<math display=\"inline\"><mrow><mn>16.8</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>GHz</mi></mrow></math>), marking the highest-frequency tunable microwave cavity dark matter search to date.",
@@ -476,13 +440,17 @@
     "2303.08666",
     "2110.03679",
     "2204.09475",
-    "2209.03419"
+    "2209.03419",
+    "2312.12055",
+    "2305.09711"
   ],
   "skipped_ids": {
     "2010.03833": "no_keyword_match",
     "2006.15787": "write_error: Class 'AxionCPV' not found in /home/runner/work/AutoAxionLimits/AutoAxionLimits/PlotFuncs.py",
     "2205.08582": "no_data_points",
-    "2402.01839": "review_error: Coupling range [1.22e-46, 1.22e-29] outside valid range [1e-22, 1e+00] for DarkPhoton \u2014 likely a unit conversion error"
+    "2402.01839": "review_error: Coupling range [1.22e-46, 1.22e-29] outside valid range [1e-22, 1e+00] for DarkPhoton \u2014 likely a unit conversion error",
+    "2009.13909": "not_new_limit",
+    "2111.06407": "review_error: 'AxionNucleon'"
   },
   "runs": [
     {
