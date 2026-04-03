@@ -24,7 +24,7 @@ from typing import Optional
 import anthropic
 import arxiv
 
-from .config import COUPLING_TYPES, PHYSICAL_CORRECTIONS
+from .config import COUPLING_TYPES, PHYSICAL_CORRECTIONS, VALID_RANGES
 from .extractor import ExtractionResult, _call_with_retry
 
 logger = logging.getLogger(__name__)
@@ -210,6 +210,36 @@ def apply_corrections(
     return data, applied, flagged
 
 
+def validate_data_ranges(
+    data_points: list[tuple[float, float]],
+    coupling_type: str,
+) -> None:
+    """Raise ValueError if extracted data falls outside physically reasonable ranges.
+
+    Catches unit-conversion failures (e.g. mass in μeV reported as eV, coupling
+    missing a 10^-14 prefactor) before artifacts are generated.
+    """
+    ranges = VALID_RANGES.get(coupling_type)
+    if not ranges or not data_points:
+        return
+    masses = [m for m, _ in data_points]
+    couplings = [abs(g) for _, g in data_points]
+    m_lo, m_hi = ranges["mass"]
+    g_lo, g_hi = ranges["coupling"]
+    if min(masses) < m_lo or max(masses) > m_hi:
+        raise ValueError(
+            f"Mass range [{min(masses):.2e}, {max(masses):.2e}] eV outside "
+            f"valid range [{m_lo:.0e}, {m_hi:.0e}] for {coupling_type} — "
+            f"likely a unit conversion error"
+        )
+    if min(couplings) < g_lo or max(couplings) > g_hi:
+        raise ValueError(
+            f"Coupling range [{min(couplings):.2e}, {max(couplings):.2e}] outside "
+            f"valid range [{g_lo:.0e}, {g_hi:.0e}] for {coupling_type} — "
+            f"likely a unit conversion error"
+        )
+
+
 # ---------------------------------------------------------------------------
 # Data file formatting
 # ---------------------------------------------------------------------------
@@ -219,7 +249,18 @@ def format_data_file(
     result: ExtractionResult,
     corrections_applied: list[str],
 ) -> str:
-    """Format corrected data as 2-column ASCII with header comments."""
+    """Format corrected data as 2-column ASCII with header comments.
+
+    For narrow-band haloscope results, adds boundary closure points at
+    coupling=1e0 at the first and last mass values. This ensures
+    fill_between closes cleanly at the top of the plot (matching the
+    convention used by existing CAPP data files).
+    """
+    # Use coupling-specific axis labels from config
+    cfg = COUPLING_TYPES.get(result.coupling_type or "", {})
+    axes = cfg.get("axes", {})
+    x_label = axes.get("x", "mass [eV]")
+    y_label = axes.get("y", "coupling")
     header = (
         f"# {result.paper_title}\n"
         f"# arXiv: {result.arxiv_url}\n"
@@ -232,8 +273,22 @@ def format_data_file(
         header += "# Corrections applied:\n"
         for c in corrections_applied:
             header += f"#   {c}\n"
-    header += "# mass [eV]    coupling\n"
-    rows = "\n".join(f"{m:.6e}   {g:.6e}" for m, g in sorted(data_points))
+    header += f"# {x_label}    {y_label}\n"
+
+    sorted_pts = sorted(data_points)
+
+    # Add boundary closure points for narrow-band results (haloscopes).
+    # The convention (see CAPP-1.txt etc.) is to start and end the data at
+    # coupling=1e0 so fill_between closes at the top of the plot.
+    if len(sorted_pts) >= 2:
+        first_mass = sorted_pts[0][0]
+        last_mass = sorted_pts[-1][0]
+        mass_span = last_mass / first_mass if first_mass > 0 else 1e99
+        # "Narrow-band": mass range spans less than a factor of 10
+        if mass_span < 10:
+            sorted_pts = [(first_mass, 1e0)] + sorted_pts + [(last_mass, 1e0)]
+
+    rows = "\n".join(f"{m:.6e}   {g:.6e}" for m, g in sorted_pts)
     return header + rows + "\n"
 
 
@@ -250,6 +305,10 @@ You will be given:
 
 Generate a COMPLETE static method following the EXACT same style (loadtxt, fill_between,
 y2 = ax.get_ylim()[1], conditional text_on, etc.).
+
+IMPORTANT: Do NOT draw a black outline with plt.plot() along the boundary — the data file
+already includes closure points at coupling=1e0, so fill_between handles the shape correctly.
+Only use plt.plot() for the lower boundary edge (dat[:,1]), not the full outline.
 
 CRITICAL: Always use `loadtxt(..., ndmin=2)` to ensure the data array is 2D even for
 single-row data files. Without ndmin=2, loadtxt returns a 1D array and dat[:,0] will crash.
@@ -420,11 +479,15 @@ def insert_notebook_call(notebook_path: Path, notebook_call: str) -> None:
     nb = nbformat.read(str(notebook_path), as_version=4)
     coupling_class = notebook_call.split(".")[0]
 
-    # Find the last code cell that already contains calls to this class
+    # Find the first code cell that calls this class AND contains MySaveFig
+    # (i.e. a plot-generating cell, not just an import line).
+    # Using the first cell ensures the call lands in the primary plot, not a
+    # rescaled/secondary variant (e.g. AxionPhoton_Rescaled_NoProjections).
     target_cell_idx = None
     for i, cell in enumerate(nb.cells):
-        if cell.cell_type == "code" and f"{coupling_class}." in cell.source:
+        if cell.cell_type == "code" and f"{coupling_class}." in cell.source and "MySaveFig" in cell.source:
             target_cell_idx = i
+            break
 
     if target_cell_idx is None:
         logger.warning(
@@ -469,6 +532,9 @@ def run_reviewer_agent(
 
     if not corrected_data:
         raise ValueError(f"No data points for {result.arxiv_id} after corrections")
+
+    # --- Validate data ranges (catch unit-conversion errors) ---
+    validate_data_ranges(corrected_data, canonical)
 
     # --- Data file ---
     if result.is_projection:
