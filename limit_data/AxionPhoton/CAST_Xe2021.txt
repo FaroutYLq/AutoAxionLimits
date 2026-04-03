@@ -1,0 +1,9 @@
+# A new upper limit on the axion-photon coupling with an extended CAST run with a Xe-based Micromegas detector
+# arXiv: https://arxiv.org/abs/2406.16840
+# Coupling type: AxionPhoton
+# Extracted from: text
+# Confidence level: 0.95
+# Extraction confidence: 0.95
+# mass [eV]    coupling
+1.000000e-03   5.800000e-11
+2.000000e-02   5.800000e-11
