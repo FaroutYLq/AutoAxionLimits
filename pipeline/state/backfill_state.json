@@ -8,69 +8,6 @@
   },
   "queue": [
     {
-      "arxiv_id": "2012.10764",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2001.08940",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2406.16840",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2105.04572",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2110.14406",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2303.08666",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2110.03679",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
       "arxiv_id": "2204.09475",
       "title": "ADMX-Orpheus first search for <math display=\"inline\"><mrow><mn>70</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>\u03bc</mi><mi>eV</mi></mrow></math> dark photon dark matter: Detailed design, operations, and analysis",
       "abstract": "Dark matter makes up 85% of the matter in the Universe and 27% of its energy density, but we do not know what comprises dark matter. It is possible that dark matter is composed of either axions or dark photons, both of which can be detected using an ultrasensitive microwave cavity known as a haloscope. The haloscope employed by ADMX consists of a cylindrical cavity operating at the <math display=\"inline\"><mrow><msub><mrow><mi>TM</mi></mrow><mrow><mn>010</mn></mrow></msub></mrow></math> mode and is sensitive to the QCD axion with masses of few <math display=\"inline\"><mrow><mi>\u03bc</mi><mi>eV</mi></mrow></math>. However, this haloscope design becomes challenging to implement for higher masses. This is because higher masses require smaller-diameter cavities, consequently reducing the detection volume which diminishes the detected signal power. ADMX-Orpheus mitigates this issue by operating a tunable, dielectrically loaded cavity at a higher-order mode, allowing the detection volume to remain large. This paper describes the design, operation, analysis, and results of the inaugural ADMX-Orpheus dark photon search between <math display=\"inline\"><mrow><mn>65.5</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>\u03bc</mi><mi>eV</mi></mrow></math> (15.8\u00a0GHz) and <math display=\"inline\"><mrow><mn>69.3</mn><mtext>\u2009</mtext><mtext>\u2009</mtext><mi>\u03bc</mi><mi>eV</mi></mrow></math> (16.8\u00a0GHz), as well as future directions for axion searches and for exploring more parameter space.",
@@ -557,7 +494,15 @@
       "publication_types": []
     }
   ],
-  "processed_ids": [],
+  "processed_ids": [
+    "2012.10764",
+    "2001.08940",
+    "2406.16840",
+    "2105.04572",
+    "2110.14406",
+    "2303.08666",
+    "2110.03679"
+  ],
   "skipped_ids": {
     "2010.03833": "no_keyword_match",
     "2006.15787": "write_error: Class 'AxionCPV' not found in /home/runner/work/AutoAxionLimits/AutoAxionLimits/PlotFuncs.py",
