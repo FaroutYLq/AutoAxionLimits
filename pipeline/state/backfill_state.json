@@ -8,15 +8,6 @@
   },
   "queue": [
     {
-      "arxiv_id": "2012.10764",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
       "arxiv_id": "2001.08940",
       "title": "",
       "abstract": "",
@@ -557,7 +548,9 @@
       "publication_types": []
     }
   ],
-  "processed_ids": [],
+  "processed_ids": [
+    "2012.10764"
+  ],
   "skipped_ids": {
     "2010.03833": "no_keyword_match",
     "2006.15787": "write_error: Class 'AxionCPV' not found in /home/runner/work/AutoAxionLimits/AutoAxionLimits/PlotFuncs.py",
@@ -569,6 +562,12 @@
       "processed": 10,
       "prs_created": 5,
       "remaining": 54
+    },
+    {
+      "timestamp": "2026-04-03T09:21:57.265808+00:00",
+      "processed": 1,
+      "prs_created": 0,
+      "remaining": 60
     }
   ]
 }
