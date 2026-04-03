@@ -231,3 +231,4 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+- **One_Electron_Quantum_Cyclotron_Harvard_Stanford**: [One-Electron Quantum Cyclotron as a Milli-eV Dark-Photon Detector](https://arxiv.org/abs/2208.06519)
