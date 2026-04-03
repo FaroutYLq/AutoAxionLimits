@@ -1,0 +1,21 @@
+# One-Electron Quantum Cyclotron as a Milli-eV Dark-Photon Detector
+# arXiv: https://arxiv.org/abs/2208.06519
+# Coupling type: DarkPhoton
+# Extracted from: figure_vision
+# Confidence level: 0.9
+# Extraction confidence: 0.70
+# Corrections applied:
+#   DM density: paper=0.3 GeV/cm³ → repo=0.45 GeV/cm³; factor=sqrt(0.45/0.3)=1.2247
+# mass [eV]    kinetic mixing chi
+6.075000e-04   1.000000e+00
+6.075000e-04   1.306395e-11
+6.080000e-04   1.567673e-11
+6.085000e-04   2.090231e-11
+6.090000e-04   2.612789e-11
+6.095000e-04   3.919184e-11
+6.100000e-04   5.225578e-11
+6.105000e-04   6.531973e-11
+6.110000e-04   7.315809e-11
+6.115000e-04   7.838367e-11
+6.122000e-04   8.360925e-11
+6.122000e-04   1.000000e+00
