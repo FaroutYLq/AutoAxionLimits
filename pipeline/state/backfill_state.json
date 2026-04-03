@@ -8,24 +8,6 @@
   },
   "queue": [
     {
-      "arxiv_id": "2012.10764",
-      "title": "First Results from an Axion Haloscope at CAPP around 10.7  $\\mu$eV",
-      "abstract": "The Center for Axion and Precision Physics Research at the Institute for Basic Science is searching for axion dark matter using ultralow temperature microwave resonators. We report the exclusion of the axion mass range 10.7126\u201310.7186\u2009\u2009\u03bceV with near Kim-Shifman-Vainshtein-Zakharov (KSVZ) coupling sensitivity and the range 10.16\u201311.37\u2009\u2009\u03bceV with about 9 times larger coupling at 90%\u00a0confidence level. This is the first axion search result in these ranges. It is also the first with a resonator physical temperature of less than 40\u00a0mK.",
-      "citations": 224,
-      "coupling_guess": "AxionPhoton",
-      "inspire_id": "1837601",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2001.08940",
-      "title": "Axion search with a quantum-limited ferromagnetic haloscope",
-      "abstract": "A ferromagnetic axion haloscope searches for dark matter in the form of axions by exploiting their interaction with electronic spins. It is composed of an axion-to-electromagnetic field transducer coupled to a sensitive rf detector. The former is a photon-magnon hybrid system, and the latter is based on a quantum-limited Josephson parametric amplifier. The hybrid system consists of ten 2.1\u00a0mm diameter yttrium iron garnet spheres coupled to a single microwave cavity mode by means of a static magnetic field. Our setup is the most sensitive rf spin magnetometer ever realized. The minimum detectable field is 5.5\u00d710-19\u2009\u2009T with 9\u00a0h integration time, corresponding to a limit on the axion-electron coupling constant gaee\u22641.7\u00d710-11 at 95%\u00a0C.L. The scientific run of our haloscope resulted in the best limit on dark matter axions to electron coupling constant in a frequency span of about 120\u00a0MHz, corresponding to the axion-mass range 42.4\u201343.1\u2009\u2009\u03bceV. This is also the first apparatus to perform a wide axion-mass scanning by only changing the static magnetic field.",
-      "citations": 154,
-      "coupling_guess": "AxionPhoton",
-      "inspire_id": "1777123",
-      "publication_types": []
-    },
-    {
       "arxiv_id": "2010.03833",
       "title": "The RGB tip of galactic globular clusters and the revision of the axion-electron coupling bound",
       "abstract": "Context. The production of neutrinos by plasma oscillations is the most important energy sink process operating in the degenerate core of low-mass red giant stars. This process counterbalances the release of energy induced by nuclear reactions and gravitational contraction, and determines the luminosity attained by a star at the moment of the He ignition. This occurrence coincides with the tip of the red giant branch (RGB), whose luminosity is extensively used as a calibrated standard candle in several cosmological studies.Aims. We aim to investigate the possible activation of additional energy sink mechanisms, as predicted by many extensions of the so-called Standard Model. In particular, our objective is to test the possible production of axions or axion-like particles, mainly through their coupling with electrons.Methods. By combining Hubble Space Telescope and ground-based optical and near-infrared photometric samples, we derived the RGB tip absolute magnitude of 22 galactic globular clusters (GGCs). The effects of varying the distance and the metallicity scales were also investigated. Then we compared the observed tip luminosities with those predicted by state-of-the-art stellar models that include the energy loss due to the axion production in the degenerate core of red giant stars.Results. We find that theoretical predictions including only the energy loss by plasma neutrinos are, in general, in good agreement with the observed tip bolometric magnitudes, even though the latter are \u223c0.04 mag brighter on average. This small shift may be the result of systematic errors affecting the evaluation of the RGB tip bolometric magnitudes, or, alternatively, it could be ascribed to an axion-electron coupling causing a non-negligible thermal production of axions. In order to estimate the strength of this possible axion sink, we performed a cumulative likelihood analysis using the RGB tips of the whole set of 22 GGCs. All the possible sources of uncertainties affecting both the measured bolometric magnitudes and the corresponding theoretical predictions were carefully considered. As a result, we find that the value of the axion-electron coupling parameter that maximizes the likelihood probability is gae/10\u221213 \u223c 0.60\u22120.58+0.32. This hint is valid, however, if the dominant energy sinks operating in the core of red giant stars are standard neutrinos and axions coupled with electrons. Any additional energy-loss process, not included in the stellar models, would reduce such a hint. Nevertheless, we find that values gae/10\u221213\u2004> \u20041.48 can be excluded with 95% confidence.Conclusions. The new bound we find represents the most stringent constraint for the axion-electron coupling available so far. The new scenario that emerges after this work represents a greater challenge for future experimental axion searches. In particular, we can exclude that the recent signal seen by the XENON1T experiment was due to solar axions.Key words: elementary particles / stars: low-mass / globular clusters: general / Hertzsprung-Russell / C\u2013M diagrams",
@@ -584,7 +566,10 @@
       "publication_types": []
     }
   ],
-  "processed_ids": [],
+  "processed_ids": [
+    "2012.10764",
+    "2001.08940"
+  ],
   "skipped_ids": {},
   "runs": []
 }
