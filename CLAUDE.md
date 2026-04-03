@@ -2,6 +2,11 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Critical Rules
+
+- **NEVER push directly to master.** Always create a branch and open a PR. Wait for the user to review and merge. No exceptions.
+- **NEVER close or delete branches for PRs created by the daily/weekly pipelines** (#17, #19, #80, and similar). Only clean up PRs clearly from backfill cascades (`[BACKFILL]` prefix or `chore: update backfill state`).
+
 ## Project Overview
 
 This is **AutoAxionLimits** — a fork of `cajohare/AxionLimits` with three automated pipelines built on top:
