@@ -231,3 +231,4 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+- **SQUID_based_transmon_qubit_hidden_photon_search** *(projection)*: [Detection of hidden photon dark matter using the direct excitation of transmon qubits](https://arxiv.org/abs/2212.03884)
