@@ -319,3 +319,5 @@
 * NOMAD: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionPhoton/NOMAD.txt), [reference](https://www.sciencedirect.com/science/article/abs/pii/S0370269300003750?via%3Dihub)
 * OPAL: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionPhoton/OPAL.txt), [reference](https://arxiv.org/abs/1607.06083)
 * PrimEx: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionPhoton/PrimEx.txt), [reference](https://arxiv.org/abs/1903.03586)
+
+- **CAPP_PACE_Center_for_Axion_and_Precision_Physics_Research_Axion_Cavity_Experiment**: [First Results from Axion Haloscope at CAPP around 10.7 $μ$eV](https://arxiv.org/abs/2012.10764)
