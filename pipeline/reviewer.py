@@ -249,7 +249,13 @@ def format_data_file(
     result: ExtractionResult,
     corrections_applied: list[str],
 ) -> str:
-    """Format corrected data as 2-column ASCII with header comments."""
+    """Format corrected data as 2-column ASCII with header comments.
+
+    For narrow-band haloscope results, adds boundary closure points at
+    coupling=1e0 at the first and last mass values. This ensures
+    fill_between closes cleanly at the top of the plot (matching the
+    convention used by existing CAPP data files).
+    """
     # Use coupling-specific axis labels from config
     cfg = COUPLING_TYPES.get(result.coupling_type or "", {})
     axes = cfg.get("axes", {})
@@ -268,7 +274,21 @@ def format_data_file(
         for c in corrections_applied:
             header += f"#   {c}\n"
     header += f"# {x_label}    {y_label}\n"
-    rows = "\n".join(f"{m:.6e}   {g:.6e}" for m, g in sorted(data_points))
+
+    sorted_pts = sorted(data_points)
+
+    # Add boundary closure points for narrow-band results (haloscopes).
+    # The convention (see CAPP-1.txt etc.) is to start and end the data at
+    # coupling=1e0 so fill_between closes at the top of the plot.
+    if len(sorted_pts) >= 2:
+        first_mass = sorted_pts[0][0]
+        last_mass = sorted_pts[-1][0]
+        mass_span = last_mass / first_mass if first_mass > 0 else 1e99
+        # "Narrow-band": mass range spans less than a factor of 10
+        if mass_span < 10:
+            sorted_pts = [(first_mass, 1e0)] + sorted_pts + [(last_mass, 1e0)]
+
+    rows = "\n".join(f"{m:.6e}   {g:.6e}" for m, g in sorted_pts)
     return header + rows + "\n"
 
 
@@ -285,6 +305,10 @@ You will be given:
 
 Generate a COMPLETE static method following the EXACT same style (loadtxt, fill_between,
 y2 = ax.get_ylim()[1], conditional text_on, etc.).
+
+IMPORTANT: Do NOT draw a black outline with plt.plot() along the boundary — the data file
+already includes closure points at coupling=1e0, so fill_between handles the shape correctly.
+Only use plt.plot() for the lower boundary edge (dat[:,1]), not the full outline.
 
 CRITICAL: Always use `loadtxt(..., ndmin=2)` to ensure the data array is 2D even for
 single-row data files. Without ndmin=2, loadtxt returns a 1D array and dat[:,0] will crash.
