@@ -26,6 +26,11 @@ logger = logging.getLogger(__name__)
 
 CLAUDE_MODEL = "claude-haiku-4-5-20251001"
 
+# Minimum data points from text extraction to skip vision fallback.
+# Exclusion curves typically need 10+ points to define a boundary properly.
+# If text extraction returns fewer than this, try vision to trace the plot.
+MIN_DATA_POINTS_TEXT = 5
+
 # ---------------------------------------------------------------------------
 # API retry helper
 # ---------------------------------------------------------------------------
@@ -248,30 +253,46 @@ def run_extraction_agent(
     pdf_text = extract_text_from_pdf(pdf_path)
     stage1_result = _run_stage1(paper, pdf_text, client)
 
-    if (
+    stage1_points = len(stage1_result.get("data_points") or [])
+    stage1_ok = (
         stage1_result.get("is_new_limit")
-        and stage1_result.get("data_points")
+        and stage1_points >= MIN_DATA_POINTS_TEXT
         and stage1_result.get("extraction_confidence", 0) >= 0.4
-    ):
+    )
+
+    if stage1_ok:
         data_source = stage1_result.get("data_source", "table")
         logger.info(
             "Stage 1 succeeded for %s (%d points, conf=%.2f)",
             arxiv_id,
-            len(stage1_result["data_points"]),
+            stage1_points,
             stage1_result.get("extraction_confidence", 0),
         )
     else:
         # --- Stage 2: vision fallback ---
-        logger.info("Stage 1 insufficient for %s; trying vision", arxiv_id)
+        if stage1_points > 0 and stage1_points < MIN_DATA_POINTS_TEXT:
+            logger.info(
+                "Stage 1 returned too few points (%d < %d) for %s; trying vision",
+                stage1_points, MIN_DATA_POINTS_TEXT, arxiv_id,
+            )
+        else:
+            logger.info("Stage 1 insufficient for %s; trying vision", arxiv_id)
         figure_paths = extract_figures_from_pdf(pdf_path)
         stage2_result = _run_stage2(paper, figure_paths, client) if figure_paths else {}
         if stage2_result.get("found_limit_plot") and stage2_result.get("data_points"):
-            # Merge stage1 metadata with stage2 data
-            stage1_result["data_points"] = stage2_result["data_points"]
-            stage1_result["data_source"] = "figure_vision"
-            stage1_result["extraction_confidence"] = stage2_result.get(
-                "extraction_confidence", 0.4
-            )
+            # Use vision data if it has more points than text extraction
+            stage2_points = len(stage2_result["data_points"])
+            if stage2_points > stage1_points:
+                stage1_result["data_points"] = stage2_result["data_points"]
+                stage1_result["data_source"] = "figure_vision"
+                stage1_result["extraction_confidence"] = stage2_result.get(
+                    "extraction_confidence", 0.4
+                )
+            else:
+                logger.info(
+                    "Vision returned fewer points (%d) than text (%d); keeping text",
+                    stage2_points, stage1_points,
+                )
             stage1_result["is_new_limit"] = True
             if stage2_result.get("coupling_type"):
                 stage1_result["coupling_type"] = stage2_result["coupling_type"]
