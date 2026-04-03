@@ -1,22 +1,23 @@
 # AutoAxionLimits Pipeline
 
-This document describes the two automated pipelines added to this fork of
+This document describes the three automated pipelines added to this fork of
 [cajohare/AxionLimits](https://github.com/cajohare/AxionLimits).
 
 ---
 
 ## Overview
 
-Two GitHub Actions workflows run on a schedule and open pull requests when new
-or updated limits are detected. **Nothing merges to master automatically** —
-every change requires a human to review and merge the PR.
+Three GitHub Actions workflows open pull requests when new or updated limits
+are detected. **Nothing merges to master automatically** — every change
+requires a human to review and merge the PR.
 
 | Pipeline | Schedule | Entrypoint |
 |----------|----------|------------|
 | Daily arXiv digest | 9 AM UTC daily | `python -m pipeline.orchestrator` |
 | Weekly preprint checker | Monday 10 AM UTC | `python -m pipeline.preprint_checker` |
+| Historical backfill | Manual only | `python -m pipeline.backfill` |
 
-Both workflows can also be triggered manually via `workflow_dispatch` on GitHub.
+The daily and weekly workflows also support `workflow_dispatch` for manual triggering.
 
 ---
 
@@ -118,6 +119,102 @@ the baseline. No PRs are created on the first scan.
 
 ---
 
+## Pipeline 3: Historical Backfill
+
+Searches [INSPIRE-HEP](https://inspirehep.net) for older papers in a
+user-specified date range that are relevant to this repo but predate the daily
+pipeline. Filters by citation count and passes candidates through the same
+extraction pipeline used by the daily digest.
+
+### Why INSPIRE-HEP?
+
+- Purpose-built for HEP literature — much less noise than general academic APIs
+- Provides citation counts via `topcite` operator
+- Supports date filtering and sorting by citations
+- Free, no authentication required, no aggressive rate limiting
+
+### What it does, step by step
+
+1. **Search** — queries INSPIRE-HEP with curated per-coupling-type keyword
+   phrases (defined in `INSPIRE_SEARCH_QUERIES` in `pipeline/config.py`),
+   filtering by date range and minimum citation count.
+2. **Dedup** — skips papers already in `processed.json`, `backfill_state.json`,
+   or embedded as arXiv IDs in existing `limit_data/**/*.txt` file headers.
+3. **Keyword classify** — same local keyword matching as the daily pipeline
+   (`ARXIV_KEYWORDS`); papers matching no coupling type are dropped.
+4. **LLM batch filter** — sends batches of 20 title+abstracts to Claude Haiku
+   asking which present NEW experimental exclusion limits. Filters out
+   theory-only, review, and phenomenology papers. Cost: ~$0.001 per batch.
+5. **Queue** — surviving candidates are sorted by citation count (highest first)
+   and saved to `pipeline/state/backfill_state.json`.
+6. **Process** — takes up to `--max-papers` (default 10) from the queue per run,
+   runs the full extraction → review → PR pipeline (same as daily digest).
+7. **Auto re-trigger** — if items remain in the queue after processing, the
+   GitHub Actions workflow dispatches itself to continue the next day.
+
+### CLI
+
+```bash
+# Discover candidates only (review queue before extracting)
+python -m pipeline.backfill --date-from 2020-01-01 --date-to 2024-12-31 --min-citations 10 --discover-only
+
+# Process queued candidates (max 10 per run)
+python -m pipeline.backfill --resume --max-papers 10
+
+# Dry run on specific coupling types
+python -m pipeline.backfill --date-from 2023-01-01 --date-to 2023-12-31 \
+  --coupling-types AxionPhoton,DarkPhoton --dry-run
+
+# Full run (discover + process in one go)
+python -m pipeline.backfill --date-from 2023-01-01 --date-to 2023-12-31 --min-citations 20
+```
+
+| Argument | Description |
+|----------|-------------|
+| `--date-from` / `--date-to` | Date range for INSPIRE search (required unless `--resume`) |
+| `--min-citations` | Minimum citation count (default 10) |
+| `--max-papers` | Max papers to process this run (default 10) |
+| `--coupling-types` | Comma-separated subset of coupling types (default: all) |
+| `--dry-run` | Log actions without writing files or creating PRs |
+| `--discover-only` | Search + filter + save queue, don't extract |
+| `--resume` | Skip discovery, process existing queue |
+
+### State file: `pipeline/state/backfill_state.json`
+
+Tracks the candidate queue, processed IDs, and run history. The queue persists
+across runs, allowing large backfill jobs to be split across multiple days.
+
+```json
+{
+  "schema_version": 1,
+  "config": {"date_from": "2020-01-01", "date_to": "2024-12-31", "min_citations": 10},
+  "queue": [{"arxiv_id": "2303.08666", "title": "...", "citations": 65, "coupling_guess": "DarkPhoton"}],
+  "processed_ids": ["2205.67890"],
+  "skipped_ids": {"2301.11111": "not_new_limit"},
+  "runs": [{"timestamp": "2026-04-02T10:00:00Z", "processed": 10, "prs_created": 3, "remaining": 54}]
+}
+```
+
+### Multi-day scheduling
+
+The GitHub Actions workflow (`backfill.yml`) uses a `schedule-next` job that
+checks the `queue_remaining` output. If the queue is non-empty and this is not a
+dry-run or discover-only run, it dispatches itself with `--resume`. A
+`concurrency` setting prevents overlapping runs.
+
+### PR format
+
+```
+[BACKFILL] Add {ExperimentName} {CouplingType} limit (arXiv:{id})
+[BACKFILL] [LOW CONFIDENCE] Add ...    ← extraction confidence < 60%
+[BACKFILL] [PROJECTION] Add ...        ← sensitivity projection
+```
+
+Body includes citation count and a note that the paper was discovered via
+historical backfill.
+
+---
+
 ## Physical Corrections
 
 Corrections are defined in `pipeline/config.py` under `PHYSICAL_CORRECTIONS`
@@ -186,6 +283,9 @@ automatic density rescaling for a new coupling type.
 | `LOW_CONFIDENCE_THRESHOLD` | `0.6` | Extractions below this confidence get a `[LOW CONFIDENCE]` PR title |
 | `MAX_PAPERS_PER_RUN` | `5` | Maximum papers processed per daily digest run |
 | `ARXIV_CATEGORIES` | see config | arXiv categories searched: `hep-ph`, `hep-ex`, `astro-ph.CO`, `astro-ph.HE`, `physics.ins-det` |
+| `BACKFILL_MAX_PAPERS_PER_RUN` | `10` | Maximum papers processed per backfill run |
+| `BACKFILL_DEFAULT_MIN_CITATIONS` | `10` | Default minimum citation count for backfill |
+| `INSPIRE_SEARCH_QUERIES` | see config | Per-coupling-type keyword queries for INSPIRE-HEP search |
 
 ---
 
@@ -311,9 +411,11 @@ python -m pipeline.orchestrator --arxiv-id 2003.13144 --dry-run
 ### 8. Enable the Actions workflows
 
 GitHub disables scheduled workflows on forks by default. Go to
-**Actions → (select a workflow) → Enable workflow** for both:
+**Actions → (select a workflow) → Enable workflow** for:
 - `Daily arXiv Digest`
 - `Weekly Preprint Update Checker`
+- `Backfill Historical Papers` (manual-only — no schedule to enable, but the
+  workflow must be present on the default branch for `workflow_dispatch` to work)
 
 Then trigger a manual run via **Run workflow** to confirm everything works
 end-to-end before the first scheduled execution.
@@ -336,6 +438,12 @@ python -m pipeline.preprint_checker --init-only
 
 # Run preprint check without opening PRs
 python -m pipeline.preprint_checker --dry-run
+
+# Historical backfill: discover candidates (no extraction)
+python -m pipeline.backfill --date-from 2020-01-01 --date-to 2024-12-31 --min-citations 10 --discover-only
+
+# Historical backfill: process queued candidates
+python -m pipeline.backfill --resume --max-papers 10
 ```
 
 `GH_TOKEN` (or `GITHUB_TOKEN` in Actions) must be set when creating PRs.
@@ -372,3 +480,15 @@ Update {ExperimentName} {CouplingType}: arXiv:{id} v{old}→v{new}
 Body includes: links to old and new arXiv versions, Claude-generated summary
 of what changed, old vs. new data comparison, corrections re-applied, note
 that the paper is still a preprint.
+
+### Backfill PR
+
+```
+[BACKFILL] Add {ExperimentName} {CouplingType} limit (arXiv:{id})
+[BACKFILL] [LOW CONFIDENCE] Add ...
+[BACKFILL] [PROJECTION] Add ...
+```
+
+Body includes: paper title and link, citation count, data source, extraction
+confidence, corrections applied/flagged, files changed, highlighted plot, and
+a note that this was discovered via historical backfill.
