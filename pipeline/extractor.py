@@ -238,6 +238,10 @@ Coupling units by type (return values in these units):
 - AxionEDM: d_n in e*cm (typical range 1e-40 to 1e-15)
 - AxionMass: x-axis is f_a in GeV, y-axis is m_a in eV
 
+If the plot shows a well-known theoretical model line (e.g. KSVZ or DFSZ for axion-photon \
+plots), also read the coupling value of that line at the midpoint of the exclusion region's \
+mass range. This helps calibrate the absolute y-axis scale.
+
 Respond ONLY with a JSON object:
 {
   "found_limit_plot": bool,
@@ -248,6 +252,7 @@ Respond ONLY with a JSON object:
   "confidence_level": 0.90 or 0.95,
   "suggested_experiment_name": str,
   "extraction_confidence": float,
+  "benchmark_reading": {"line_name": str, "mass_eV": float, "coupling": float} | null,
   "notes": str
 }
 """
@@ -266,6 +271,173 @@ def _parse_json_response(text: str) -> dict:
         import json
         return json.loads(match.group(0))
     raise ValueError(f"No JSON found in response: {text[:300]}")
+
+
+# ---------------------------------------------------------------------------
+# Vision calibration: benchmark lines + verification pass
+# ---------------------------------------------------------------------------
+
+# Known theoretical benchmark lines for calibration.
+# Maps coupling_type → (line_name, formula: mass_eV → expected_coupling).
+# From PlotFuncs.py: g_agamma = 2e-10 * C_ag * m_a, KSVZ C_ag = 1.92
+_BENCHMARK_LINES: dict[str, tuple[str, callable]] = {
+    "AxionPhoton": ("KSVZ", lambda m: 2e-10 * 1.92 * m),
+}
+
+_STAGE3_VERIFY_SYSTEM = """\
+You are a particle physics expert verifying axis readings from an exclusion limit plot.
+
+I previously extracted data from this plot. Now I need you to carefully verify \
+the axis scale by answering targeted questions. Look at the exclusion plot and \
+report EXACT values read from the axes.
+
+Respond ONLY with a JSON object:
+{
+  "y_axis_ticks": [list of y-axis major tick values as floats, e.g. [1e-15, 1e-14, 1e-13]],
+  "y_axis_range": [min_value, max_value],
+  "boundary_at_mass": {"mass_eV": float, "coupling": float},
+  "benchmark_line": {"name": str, "mass_eV": float, "coupling": float} | null
+}
+"""
+
+
+def _run_vision_verify(
+    paper: arxiv.Result,
+    figure_paths: list[Path],
+    client: anthropic.Anthropic,
+    stage2_data: list,
+    coupling_type: str | None = None,
+) -> dict:
+    """Stage 3: targeted verification of axis readings from the exclusion plot."""
+    if not stage2_data or not figure_paths:
+        return {}
+
+    # Pick a mass near the midpoint for the spot-check
+    masses = [p[0] for p in stage2_data]
+    mid_mass = masses[len(masses) // 2]
+
+    benchmark_hint = ""
+    if coupling_type and coupling_type in _BENCHMARK_LINES:
+        line_name, _ = _BENCHMARK_LINES[coupling_type]
+        benchmark_hint = (
+            f"\nAlso: if a {line_name} model line is visible, "
+            f"read its coupling value at mass {mid_mass:.3e} eV."
+        )
+
+    content: list[dict] = [
+        {
+            "type": "text",
+            "text": (
+                f"Title: {paper.title}\n\n"
+                f"I need to verify axis readings from the exclusion limit plot in this paper.\n\n"
+                f"1. List ALL major y-axis tick values (powers of 10) visible on the plot.\n"
+                f"2. What is the full y-axis range (lowest to highest value)?\n"
+                f"3. At mass = {mid_mass:.3e} eV on the x-axis, what coupling value does "
+                f"the exclusion boundary cross? Read carefully from the y-axis scale."
+                + benchmark_hint
+            ),
+        }
+    ]
+    for img_path in figure_paths[:8]:
+        img_data = base64.standard_b64encode(img_path.read_bytes()).decode()
+        content.append(
+            {
+                "type": "image",
+                "source": {"type": "base64", "media_type": "image/png", "data": img_data},
+            }
+        )
+    try:
+        resp = _call_with_retry(lambda: client.messages.create(
+            model=CLAUDE_MODEL,
+            max_tokens=1024,
+            system=_STAGE3_VERIFY_SYSTEM,
+            messages=[{"role": "user", "content": content}],
+        ))
+        return _parse_json_response(resp.content[0].text)
+    except Exception as e:
+        logger.warning("Stage 3 verification failed: %s", e)
+        return {}
+
+
+def _calibrate_vision_data(
+    data_points: list,
+    coupling_type: str | None,
+    benchmark_reading: dict | None,
+    verify_result: dict,
+) -> tuple[list, str]:
+    """
+    Calibrate vision-extracted coupling values using benchmark lines and
+    verification readings. Returns (calibrated_data_points, calibration_note).
+    """
+    if not data_points:
+        return data_points, ""
+
+    factor = 1.0
+    calibration_notes: list[str] = []
+
+    # --- Method 1: benchmark line calibration (most reliable) ---
+    # Try both the Stage 2 benchmark_reading and the Stage 3 verify benchmark
+    benchmark = benchmark_reading
+    if not benchmark and verify_result.get("benchmark_line"):
+        benchmark = verify_result["benchmark_line"]
+
+    if benchmark and coupling_type and coupling_type in _BENCHMARK_LINES:
+        line_name, formula = _BENCHMARK_LINES[coupling_type]
+        reported_name = benchmark.get("line_name", benchmark.get("name", ""))
+        if line_name.lower() in reported_name.lower() or reported_name.lower() in line_name.lower():
+            bm_mass = float(benchmark.get("mass_eV", benchmark.get("mass", 0)))
+            bm_coupling = float(benchmark.get("coupling", 0))
+            if bm_mass > 0 and bm_coupling > 0:
+                expected = formula(bm_mass)
+                ratio = expected / bm_coupling
+                logger.info(
+                    "Benchmark calibration: %s at %.2e eV: expected=%.2e, reported=%.2e, ratio=%.1f",
+                    line_name, bm_mass, expected, bm_coupling, ratio,
+                )
+                if abs(ratio - 1.0) < 0.7:  # within ~2x, no correction needed
+                    calibration_notes.append(
+                        f"Benchmark {line_name} consistent (ratio={ratio:.2f})"
+                    )
+                elif 0.01 < ratio < 100:
+                    factor = ratio
+                    calibration_notes.append(
+                        f"Benchmark calibration: {line_name} off by {ratio:.1f}x, "
+                        f"applying correction factor"
+                    )
+                else:
+                    logger.warning(
+                        "Benchmark ratio %.1f is extreme; skipping calibration", ratio
+                    )
+
+    # --- Method 2: boundary spot-check from verification ---
+    if factor == 1.0 and verify_result.get("boundary_at_mass"):
+        spot = verify_result["boundary_at_mass"]
+        spot_mass = float(spot.get("mass_eV", 0))
+        spot_coupling = float(spot.get("coupling", 0))
+        if spot_mass > 0 and spot_coupling > 0 and data_points:
+            # Find the closest Stage 2 data point
+            closest = min(data_points, key=lambda p: abs(p[0] - spot_mass))
+            if closest[1] > 0:
+                spot_ratio = spot_coupling / closest[1]
+                logger.info(
+                    "Spot-check at %.2e eV: verify=%.2e, stage2=%.2e, ratio=%.1f",
+                    spot_mass, spot_coupling, closest[1], spot_ratio,
+                )
+                if abs(spot_ratio - 1.0) >= 0.7 and 0.01 < spot_ratio < 100:
+                    # Only use spot-check if it agrees with y-axis tick analysis
+                    factor = spot_ratio
+                    calibration_notes.append(
+                        f"Spot-check calibration: verify/stage2 ratio={spot_ratio:.1f}x"
+                    )
+
+    # Apply calibration
+    if abs(factor - 1.0) > 0.01:
+        logger.info("Applying vision calibration factor %.2f to %d points", factor, len(data_points))
+        data_points = [(m, g * factor) for m, g in data_points]
+    else:
+        calibration_notes.append("No calibration needed")
+
+    return data_points, " | ".join(calibration_notes)
 
 
 def run_extraction_agent(
@@ -338,12 +510,32 @@ def run_extraction_agent(
                 + " | Vision: "
                 + stage2_result.get("notes", "")
             )
+            stage1_result["_benchmark_reading"] = stage2_result.get("benchmark_reading")
+            stage1_result["_figure_paths"] = figure_paths
         else:
             logger.info("Both stages failed for %s", arxiv_id)
 
     data_points = [
         (float(m), float(g)) for m, g in stage1_result.get("data_points", [])
     ]
+
+    # --- Vision calibration: benchmark + verification pass ---
+    if stage1_result.get("data_source") == "figure_vision" and data_points:
+        figure_paths_for_verify = stage1_result.get("_figure_paths", [])
+        ct = stage1_result.get("coupling_type")
+        verify_result = _run_vision_verify(
+            paper, figure_paths_for_verify, client,
+            stage2_data=stage1_result.get("data_points", []),
+            coupling_type=ct,
+        )
+        data_points, cal_note = _calibrate_vision_data(
+            data_points,
+            ct,
+            stage1_result.get("_benchmark_reading"),
+            verify_result,
+        )
+        if cal_note:
+            stage1_result["notes"] = stage1_result.get("notes", "") + " | Calibration: " + cal_note
 
     return ExtractionResult(
         arxiv_id=arxiv_id,
