@@ -1,0 +1,17 @@
+# Search for Leptonic Decays of Dark Photons at NA62
+# arXiv: https://arxiv.org/abs/2312.12055
+# Coupling type: DarkPhoton
+# Extracted from: text
+# Confidence level: 0.9
+# Extraction confidence: 0.65
+# mass [eV]    kinetic mixing chi
+5.000000e-08   1.000000e-06
+5.000000e-08   4.000000e-05
+1.000000e-07   1.000000e-06
+1.000000e-07   4.000000e-05
+5.000000e-07   1.000000e-06
+5.000000e-07   4.000000e-05
+1.000000e-06   1.000000e-06
+1.000000e-06   4.000000e-05
+6.000000e-06   1.000000e-06
+6.000000e-06   4.000000e-05
