@@ -52,15 +52,22 @@ _COUPLING_ALIASES: dict[str, str] = {
     "axionelectron": "AxionElectron",
     "g_ae": "AxionElectron",
     "gaee": "AxionElectron",
+    "g_aee": "AxionElectron",
+    "axion-electron coupling": "AxionElectron",
     "alp-electron": "AxionElectron",
     "axion electron": "AxionElectron",
     # AxionPhoton
     "axionphoton": "AxionPhoton",
     "gagg": "AxionPhoton",
     "g_agamma": "AxionPhoton",
+    "gaγγ": "AxionPhoton",
+    "g_aγγ": "AxionPhoton",
+    "axion-photon coupling": "AxionPhoton",
+    "axion-diphoton coupling": "AxionPhoton",
     "alp-photon": "AxionPhoton",
     "alp photon": "AxionPhoton",
     "axion photon": "AxionPhoton",
+    "axion photon coupling": "AxionPhoton",
     # DarkPhoton
     "darkphoton": "DarkPhoton",
     "dark photon": "DarkPhoton",
@@ -115,6 +122,11 @@ def _normalize_coupling_type(raw: str) -> str:
         if candidate in _COUPLING_ALIASES:
             canonical = _COUPLING_ALIASES[candidate]
             logger.info("Normalized coupling type %r → %r", raw, canonical)
+            return canonical
+    # Fuzzy: check if any alias is a substring of the input
+    for alias, canonical in _COUPLING_ALIASES.items():
+        if alias in key:
+            logger.info("Normalized coupling type %r → %r (substring match on %r)", raw, canonical, alias)
             return canonical
     raise KeyError(raw)
 

@@ -294,7 +294,8 @@ def run_extraction_agent(
                     stage2_points, stage1_points,
                 )
             stage1_result["is_new_limit"] = True
-            if stage2_result.get("coupling_type"):
+            # Only use vision's coupling type if Stage 1 didn't identify one
+            if stage2_result.get("coupling_type") and not stage1_result.get("coupling_type"):
                 stage1_result["coupling_type"] = stage2_result["coupling_type"]
             if stage2_result.get("dm_density_assumed"):
                 stage1_result["dm_density_assumed"] = stage2_result["dm_density_assumed"]
