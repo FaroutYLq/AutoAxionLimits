@@ -1,0 +1,19 @@
+# Search for dark photon decays to $μ^+μ^-$ at NA62
+# arXiv: https://arxiv.org/abs/2303.08666
+# Coupling type: DarkPhoton
+# Extracted from: text
+# Confidence level: 0.9
+# Extraction confidence: 0.55
+# mass [eV]    kinetic mixing chi
+2.150000e-01   1.000000e+00
+2.150000e-01   2.000000e-06
+2.300000e-01   1.800000e-06
+2.500000e-01   1.600000e-06
+2.750000e-01   1.400000e-06
+3.000000e-01   1.300000e-06
+3.500000e-01   1.100000e-06
+4.000000e-01   1.000000e-06
+4.500000e-01   9.000000e-07
+5.000000e-01   8.500000e-07
+5.500000e-01   8.200000e-07
+5.500000e-01   1.000000e+00
