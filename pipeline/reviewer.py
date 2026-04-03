@@ -455,11 +455,15 @@ def insert_notebook_call(notebook_path: Path, notebook_call: str) -> None:
     nb = nbformat.read(str(notebook_path), as_version=4)
     coupling_class = notebook_call.split(".")[0]
 
-    # Find the last code cell that already contains calls to this class
+    # Find the first code cell that calls this class AND contains MySaveFig
+    # (i.e. a plot-generating cell, not just an import line).
+    # Using the first cell ensures the call lands in the primary plot, not a
+    # rescaled/secondary variant (e.g. AxionPhoton_Rescaled_NoProjections).
     target_cell_idx = None
     for i, cell in enumerate(nb.cells):
-        if cell.cell_type == "code" and f"{coupling_class}." in cell.source:
+        if cell.cell_type == "code" and f"{coupling_class}." in cell.source and "MySaveFig" in cell.source:
             target_cell_idx = i
+            break
 
     if target_cell_idx is None:
         logger.warning(
