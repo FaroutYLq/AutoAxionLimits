@@ -289,6 +289,27 @@ PHYSICAL_CORRECTIONS = {
     },
 }
 
+# Physically reasonable value ranges per coupling type.
+# Used to reject extractions with obviously wrong units (e.g. mass in μeV
+# reported as eV, coupling missing a 10^-14 prefactor).
+# Ranges are intentionally generous to avoid false rejections.
+VALID_RANGES = {
+    "DarkPhoton":    {"mass": (1e-24, 1e+9), "coupling": (1e-22, 1e0)},
+    "AxionPhoton":   {"mass": (1e-24, 1e+9), "coupling": (1e-25, 1e-3)},
+    "AxionElectron": {"mass": (1e-24, 1e+9), "coupling": (1e-20, 1e0)},
+    "AxionNeutron":  {"mass": (1e-24, 1e+9), "coupling": (1e-20, 1e0)},
+    "AxionProton":   {"mass": (1e-24, 1e+9), "coupling": (1e-20, 1e0)},
+    "AxionEDM":      {"mass": (1e-24, 1e+9), "coupling": (1e-40, 1e-15)},
+    "AxionCPV":      {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},
+    "AxionMass":     {"mass": (1e-12, 1e+18), "coupling": (1e-12, 1e+3)},
+    "MonopoleDipole": {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},
+    "ScalarPhoton":  {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},
+    "ScalarElectron": {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},
+    "ScalarBaryon":  {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},
+    "ScalarNucleon": {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},
+    "VectorBL":      {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},
+}
+
 # arXiv categories to search in.
 ARXIV_CATEGORIES = ["hep-ph", "hep-ex", "astro-ph.CO", "astro-ph.HE", "physics.ins-det"]
 

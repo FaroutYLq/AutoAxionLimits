@@ -24,7 +24,7 @@ from typing import Optional
 import anthropic
 import arxiv
 
-from .config import COUPLING_TYPES, PHYSICAL_CORRECTIONS
+from .config import COUPLING_TYPES, PHYSICAL_CORRECTIONS, VALID_RANGES
 from .extractor import ExtractionResult, _call_with_retry
 
 logger = logging.getLogger(__name__)
@@ -210,6 +210,36 @@ def apply_corrections(
     return data, applied, flagged
 
 
+def validate_data_ranges(
+    data_points: list[tuple[float, float]],
+    coupling_type: str,
+) -> None:
+    """Raise ValueError if extracted data falls outside physically reasonable ranges.
+
+    Catches unit-conversion failures (e.g. mass in μeV reported as eV, coupling
+    missing a 10^-14 prefactor) before artifacts are generated.
+    """
+    ranges = VALID_RANGES.get(coupling_type)
+    if not ranges or not data_points:
+        return
+    masses = [m for m, _ in data_points]
+    couplings = [abs(g) for _, g in data_points]
+    m_lo, m_hi = ranges["mass"]
+    g_lo, g_hi = ranges["coupling"]
+    if min(masses) < m_lo or max(masses) > m_hi:
+        raise ValueError(
+            f"Mass range [{min(masses):.2e}, {max(masses):.2e}] eV outside "
+            f"valid range [{m_lo:.0e}, {m_hi:.0e}] for {coupling_type} — "
+            f"likely a unit conversion error"
+        )
+    if min(couplings) < g_lo or max(couplings) > g_hi:
+        raise ValueError(
+            f"Coupling range [{min(couplings):.2e}, {max(couplings):.2e}] outside "
+            f"valid range [{g_lo:.0e}, {g_hi:.0e}] for {coupling_type} — "
+            f"likely a unit conversion error"
+        )
+
+
 # ---------------------------------------------------------------------------
 # Data file formatting
 # ---------------------------------------------------------------------------
@@ -220,6 +250,11 @@ def format_data_file(
     corrections_applied: list[str],
 ) -> str:
     """Format corrected data as 2-column ASCII with header comments."""
+    # Use coupling-specific axis labels from config
+    cfg = COUPLING_TYPES.get(result.coupling_type or "", {})
+    axes = cfg.get("axes", {})
+    x_label = axes.get("x", "mass [eV]")
+    y_label = axes.get("y", "coupling")
     header = (
         f"# {result.paper_title}\n"
         f"# arXiv: {result.arxiv_url}\n"
@@ -232,7 +267,7 @@ def format_data_file(
         header += "# Corrections applied:\n"
         for c in corrections_applied:
             header += f"#   {c}\n"
-    header += "# mass [eV]    coupling\n"
+    header += f"# {x_label}    {y_label}\n"
     rows = "\n".join(f"{m:.6e}   {g:.6e}" for m, g in sorted(data_points))
     return header + rows + "\n"
 
@@ -469,6 +504,9 @@ def run_reviewer_agent(
 
     if not corrected_data:
         raise ValueError(f"No data points for {result.arxiv_id} after corrections")
+
+    # --- Validate data ranges (catch unit-conversion errors) ---
+    validate_data_ranges(corrected_data, canonical)
 
     # --- Data file ---
     if result.is_projection:

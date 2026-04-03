@@ -196,7 +196,17 @@ Respond ONLY with a JSON object with these keys:
 
 If you cannot find data, set data_points to [] and extraction_confidence < 0.3.
 Use scientific notation in data_points (Python float literals accepted).
-All masses must be in eV.
+All masses must be in eV (convert from μeV, meV, keV, MeV, GeV as needed).
+All coupling values must be in absolute units — do NOT drop prefactors like 10^-14.
+
+Coupling units by type (return values in these units):
+- AxionPhoton: g_agamma in GeV^-1 (typical range 1e-25 to 1e-3)
+- DarkPhoton: dimensionless kinetic mixing chi (typical range 1e-22 to 1)
+- AxionElectron: dimensionless g_ae (typical range 1e-20 to 1)
+- AxionNeutron: dimensionless g_an (typical range 1e-20 to 1)
+- AxionProton: dimensionless g_ap (typical range 1e-20 to 1)
+- AxionEDM: d_n in e*cm (typical range 1e-40 to 1e-15)
+- AxionMass: x-axis is f_a in GeV, y-axis is m_a in eV
 """
 
 _STAGE2_SYSTEM = """\
@@ -206,9 +216,27 @@ I am providing images of paper pages. Your task is to trace the LOWER boundary o
 exclusion/constraint region on any limit plot you find and return 20–50 (mass, coupling) pairs \
 along that boundary.
 
-The x-axis is the particle mass in eV (usually log scale).
+The x-axis is the particle mass (usually log scale).
 The y-axis is the coupling constant (log scale).
 The excluded region is ABOVE the boundary (higher coupling values are excluded).
+
+CRITICAL — read axis labels carefully and convert to absolute units:
+- Mass axis: convert to eV. Watch for unit prefixes: μeV (×1e-6), meV (×1e-3), \
+keV (×1e3), MeV (×1e6), GeV (×1e9). E.g. "10.7 μeV" = 1.07e-5 eV.
+- Coupling axis: report the FULL value including any scientific notation multiplier \
+shown on the axis label. E.g. if the y-axis label says "×10⁻¹⁴" or "10^{-14}" and \
+the tick reads "4", the actual value is 4e-14, NOT 4.
+- For log-scale axes with tick labels like 10⁻¹⁵, 10⁻¹⁴, 10⁻¹³: report the actual \
+values (1e-15, 1e-14, 1e-13), not just the exponents.
+
+Coupling units by type (return values in these units):
+- AxionPhoton: g_agamma in GeV^-1 (typical range 1e-25 to 1e-3)
+- DarkPhoton: dimensionless kinetic mixing chi (typical range 1e-22 to 1)
+- AxionElectron: dimensionless g_ae (typical range 1e-20 to 1)
+- AxionNeutron: dimensionless g_an (typical range 1e-20 to 1)
+- AxionProton: dimensionless g_ap (typical range 1e-20 to 1)
+- AxionEDM: d_n in e*cm (typical range 1e-40 to 1e-15)
+- AxionMass: x-axis is f_a in GeV, y-axis is m_a in eV
 
 Respond ONLY with a JSON object:
 {
@@ -278,7 +306,9 @@ def run_extraction_agent(
         else:
             logger.info("Stage 1 insufficient for %s; trying vision", arxiv_id)
         figure_paths = extract_figures_from_pdf(pdf_path)
-        stage2_result = _run_stage2(paper, figure_paths, client) if figure_paths else {}
+        # Pass coupling type hint from Stage 1 to help vision read axes correctly
+        coupling_hint = stage1_result.get("coupling_type")
+        stage2_result = _run_stage2(paper, figure_paths, client, coupling_hint=coupling_hint) if figure_paths else {}
         if stage2_result.get("found_limit_plot") and stage2_result.get("data_points"):
             # Use vision data if it has more points than text extraction
             stage2_points = len(stage2_result["data_points"])
@@ -355,8 +385,20 @@ def _run_stage1(paper: arxiv.Result, pdf_text: str, client: anthropic.Anthropic)
 
 
 def _run_stage2(
-    paper: arxiv.Result, figure_paths: list[Path], client: anthropic.Anthropic
+    paper: arxiv.Result, figure_paths: list[Path], client: anthropic.Anthropic,
+    coupling_hint: str | None = None,
 ) -> dict:
+    hint_text = ""
+    if coupling_hint:
+        from .config import COUPLING_TYPES
+        cfg = COUPLING_TYPES.get(coupling_hint, {})
+        axes = cfg.get("axes", {})
+        if axes:
+            hint_text = (
+                f"\n\nHint from text analysis: this paper likely constrains {coupling_hint}. "
+                f"Expected axes: x = {axes.get('x', 'mass [eV]')}, y = {axes.get('y', 'coupling')}. "
+                f"Make sure to convert axis values to these units."
+            )
     content: list[dict] = [
         {
             "type": "text",
@@ -364,6 +406,7 @@ def _run_stage2(
                 f"Title: {paper.title}\nAbstract: {paper.summary[:500]}\n\n"
                 "Please examine the following pages for exclusion limit plots "
                 "and trace the constraint boundary."
+                + hint_text
             ),
         }
     ]
