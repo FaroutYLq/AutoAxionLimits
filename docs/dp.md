@@ -231,3 +231,4 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+- **QUALIPHIDE_QUantum_LImited_PHotons_In_the_Dark_Experiment**: [Wideband Direct Detection Constraints on Hidden Photon Dark Matter with the QUALIPHIDE Experiment](https://arxiv.org/abs/2209.03419)
