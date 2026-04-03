@@ -8,42 +8,6 @@
   },
   "queue": [
     {
-      "arxiv_id": "2012.10764",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2001.08940",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2406.16840",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
-      "arxiv_id": "2105.04572",
-      "title": "",
-      "abstract": "",
-      "citations": 0,
-      "coupling_guess": null,
-      "inspire_id": "",
-      "publication_types": []
-    },
-    {
       "arxiv_id": "2110.14406",
       "title": "",
       "abstract": "",
@@ -557,11 +521,16 @@
       "publication_types": []
     }
   ],
-  "processed_ids": [],
+  "processed_ids": [
+    "2105.04572"
+  ],
   "skipped_ids": {
     "2010.03833": "no_keyword_match",
     "2006.15787": "write_error: Class 'AxionCPV' not found in /home/runner/work/AutoAxionLimits/AutoAxionLimits/PlotFuncs.py",
-    "2205.08582": "no_data_points"
+    "2205.08582": "no_data_points",
+    "2012.10764": "review_error: 'g_a\u03b3\u03b3 (axion-photon coupling)'",
+    "2001.08940": "review_error: 'g_aee (axion-electron coupling)'",
+    "2406.16840": "review_error: 'axion-photon coupling (g\u03b3\u03b3)'"
   },
   "runs": [
     {
