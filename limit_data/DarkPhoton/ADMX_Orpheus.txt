@@ -1,0 +1,11 @@
+# ADMX-Orpheus First Search for 70 $μ$eV Dark Photon Dark Matter: Detailed Design, Operations, and Analysis
+# arXiv: https://arxiv.org/abs/2204.09475
+# Coupling type: DarkPhoton
+# Extracted from: text
+# Confidence level: 0.9
+# Extraction confidence: 0.75
+# mass [eV]    kinetic mixing chi
+6.550000e-05   1.000000e+00
+6.550000e-05   1.000000e-13
+6.930000e-05   1.000000e-13
+6.930000e-05   1.000000e+00
