@@ -1,0 +1,20 @@
+# First Results from Axion Haloscope at CAPP around 10.7 $μ$eV
+# arXiv: https://arxiv.org/abs/2012.10764
+# Coupling type: AxionPhoton
+# Extracted from: figure_vision
+# Confidence level: 0.9
+# Extraction confidence: 0.72
+# mass [eV]    g_agamma [GeV^-1]
+1.016000e-05   1.800000e-15
+1.050000e-05   1.500000e-15
+1.071260e-05   3.000000e-16
+1.071400e-05   2.800000e-16
+1.071550e-05   2.500000e-16
+1.071700e-05   2.200000e-16
+1.071860e-05   2.000000e-16
+1.100000e-05   1.200000e-15
+1.150000e-05   9.000000e-16
+1.200000e-05   7.000000e-16
+1.250000e-05   5.500000e-16
+1.300000e-05   4.200000e-16
+1.337000e-05   3.800000e-16
