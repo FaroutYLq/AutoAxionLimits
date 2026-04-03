@@ -123,17 +123,28 @@ jobs:
           if git diff --quiet pipeline/state/; then
             echo "No state changes to commit"
           else
-            BRANCH="chore/update-backfill-state-$(date +%Y%m%d-%H%M%S)"
-            git checkout -b "$BRANCH"
-            git add pipeline/state/
-            git commit -m "chore: update backfill state [skip ci]"
-            git push -u origin "$BRANCH"
-            gh pr create \
-              --title "chore: update backfill state" \
-              --body "Auto-generated state update from backfill pipeline run." \
-              --base master \
-              --repo FaroutYLq/AutoAxionLimits
-            gh pr merge "$BRANCH" --squash --auto --repo FaroutYLq/AutoAxionLimits || echo "Auto-merge not available — PR needs manual merge"
+            BRANCH="chore/update-backfill-state"
+            # Check if the branch already exists on remote
+            if git ls-remote --exit-code origin "refs/heads/$BRANCH" >/dev/null 2>&1; then
+              echo "Branch $BRANCH exists — updating it"
+              git fetch origin "$BRANCH"
+              git checkout "$BRANCH"
+              git merge origin/master --no-edit || git reset --hard origin/"$BRANCH"
+              git add pipeline/state/
+              git commit -m "chore: update backfill state [skip ci]" || echo "No new changes to commit"
+              git push origin "$BRANCH"
+            else
+              echo "Branch $BRANCH does not exist — creating it"
+              git checkout -b "$BRANCH"
+              git add pipeline/state/
+              git commit -m "chore: update backfill state [skip ci]"
+              git push -u origin "$BRANCH"
+              gh pr create \
+                --title "chore: update backfill state" \
+                --body "Auto-generated state update from backfill pipeline run. This PR is updated in-place by each backfill batch." \
+                --base master \
+                --repo FaroutYLq/AutoAxionLimits
+            fi
           fi
 
       - name: Upload pipeline logs
