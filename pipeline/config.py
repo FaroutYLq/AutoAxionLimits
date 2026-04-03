@@ -304,64 +304,65 @@ MAX_PAPERS_PER_RUN = 5
 BACKFILL_MAX_PAPERS_PER_RUN = 10
 BACKFILL_DEFAULT_MIN_CITATIONS = 10
 
-# Curated queries for Semantic Scholar search (per coupling type).
-# These are optimised for S2's relevance ranking — fewer, more distinctive
-# phrases work better than the exhaustive keyword lists used for arXiv.
+# Curated search queries for INSPIRE-HEP (per coupling type).
+# These are used with INSPIRE's SPIRES syntax: find (t "..." or abs "...").
+# Keep queries short (2-3 key terms) for good recall; precision comes from
+# the subsequent keyword classification and LLM filters.
 S2_SEARCH_QUERIES = {
     "DarkPhoton": [
-        "dark photon exclusion limit",
-        "hidden photon kinetic mixing search",
+        "dark photon",
+        "hidden photon",
+        "kinetic mixing",
     ],
     "AxionPhoton": [
-        "axion photon coupling exclusion",
-        "haloscope axion search limit",
-        "ADMX CAST axion constraint",
+        "axion photon coupling",
+        "haloscope",
+        "axion-like particle",
     ],
     "AxionElectron": [
-        "axion electron coupling limit",
-        "solar axion electron search",
+        "axion electron",
+        "solar axion",
     ],
     "AxionNeutron": [
-        "axion neutron coupling constraint",
-        "spin-dependent axion nucleon limit",
+        "axion neutron",
+        "axion nucleon",
     ],
     "AxionProton": [
-        "axion proton coupling constraint",
-        "axion nucleon spin-dependent search",
+        "axion proton",
     ],
     "AxionEDM": [
-        "axion electric dipole moment limit",
-        "oscillating EDM axion search",
+        "axion electric dipole moment",
+        "oscillating EDM",
     ],
     "AxionCPV": [
-        "axion CP violation constraint",
-        "strong CP axion limit",
+        "axion CP violation",
+        "strong CP",
     ],
     "AxionMass": [
-        "axion mass bound constraint",
-        "axion decay constant limit",
+        "axion mass",
+        "axion decay constant",
     ],
     "MonopoleDipole": [
-        "monopole-dipole fifth force axion",
-        "spin-mass coupling constraint",
+        "monopole-dipole",
+        "spin-mass coupling",
     ],
     "ScalarPhoton": [
-        "scalar photon coupling limit",
-        "dilaton photon constraint",
+        "scalar photon coupling",
+        "dilaton photon",
     ],
     "ScalarElectron": [
-        "scalar electron coupling limit",
-        "dilaton electron constraint",
+        "scalar electron coupling",
+        "dilaton electron",
     ],
     "ScalarBaryon": [
-        "scalar baryon coupling constraint",
+        "scalar baryon",
     ],
     "ScalarNucleon": [
-        "scalar nucleon coupling limit",
-        "dilaton nucleon constraint",
+        "scalar nucleon",
+        "dilaton nucleon",
     ],
     "VectorBL": [
-        "B-L gauge boson limit",
-        "vector B-L constraint search",
+        "B-L gauge boson",
+        "B-L boson",
     ],
 }

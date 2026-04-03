@@ -1,5 +1,5 @@
 """
-Historical backfill: search Semantic Scholar for older papers not yet in the repo.
+Historical backfill: search INSPIRE-HEP for older papers not yet in the repo.
 
 Usage:
   python -m pipeline.backfill --date-from 2020-01-01 --date-to 2024-12-31 [--dry-run]
@@ -53,11 +53,13 @@ logger = logging.getLogger(__name__)
 REPO_ROOT = Path(__file__).parent.parent
 BACKFILL_STATE_PATH = Path(__file__).parent / "state" / "backfill_state.json"
 
-# Semantic Scholar free tier: ~1 request/second
-S2_BASE_URL = "https://api.semanticscholar.org/graph/v1"
-S2_DELAY = 1.1  # seconds between requests
-S2_MAX_RETRIES = 5
-S2_FIELDS = "externalIds,title,abstract,citationCount,year,publicationTypes"
+# INSPIRE-HEP API: free, no auth, designed for HEP literature.
+INSPIRE_BASE_URL = "https://inspirehep.net/api/literature"
+INSPIRE_DELAY = 1.0  # polite delay between requests
+INSPIRE_MAX_RETRIES = 5
+INSPIRE_RETRY_BASE_DELAY = 5.0
+INSPIRE_PAGE_SIZE = 100  # results per page (max 250)
+INSPIRE_FIELDS = "arxiv_eprints,titles,abstracts,citation_count,publication_info"
 
 
 # ---------------------------------------------------------------------------
@@ -113,67 +115,85 @@ def build_known_ids() -> set[str]:
 
 
 # ---------------------------------------------------------------------------
-# Semantic Scholar search
+# INSPIRE-HEP search
 # ---------------------------------------------------------------------------
 
-def _s2_request(method: str, url: str, **kwargs) -> httpx.Response:
-    """Make an S2 API request with rate limiting and retries."""
-    for attempt in range(S2_MAX_RETRIES):
+def _inspire_request(url: str, params: dict) -> httpx.Response:
+    """Make an INSPIRE-HEP API request with retries and exponential backoff."""
+    for attempt in range(INSPIRE_MAX_RETRIES):
         if attempt > 0:
-            delay = S2_DELAY * (2 ** (attempt - 1))
-            logger.info("S2 retry %d/%d in %.0fs", attempt + 1, S2_MAX_RETRIES, delay)
+            delay = INSPIRE_RETRY_BASE_DELAY * (2 ** (attempt - 1))
+            logger.info("INSPIRE retry %d/%d in %.0fs", attempt + 1, INSPIRE_MAX_RETRIES, delay)
             time.sleep(delay)
         try:
-            resp = httpx.request(method, url, timeout=30, **kwargs)
+            resp = httpx.get(url, params=params, timeout=60)
             if resp.status_code == 429:
-                logger.warning("S2 rate limit (429); backing off")
+                logger.warning("INSPIRE rate limit (429); backing off")
+                continue
+            if resp.status_code == 503:
+                logger.warning("INSPIRE unavailable (503); backing off")
                 continue
             resp.raise_for_status()
             return resp
         except httpx.HTTPStatusError:
-            if attempt == S2_MAX_RETRIES - 1:
+            if attempt == INSPIRE_MAX_RETRIES - 1:
                 raise
         except httpx.RequestError as e:
-            if attempt == S2_MAX_RETRIES - 1:
+            if attempt == INSPIRE_MAX_RETRIES - 1:
                 raise
-            logger.warning("S2 request error: %s", e)
-    raise RuntimeError("S2 request failed after retries")
+            logger.warning("INSPIRE request error: %s", e)
+    raise RuntimeError("INSPIRE request failed after retries")
 
 
-def _search_s2(query: str, year_range: str, min_citations: int) -> list[dict]:
-    """Paginated Semantic Scholar search. Returns list of paper dicts."""
+def _build_inspire_query(query_phrase: str, date_from: str, date_to: str, min_citations: int) -> str:
+    """Build INSPIRE SPIRES-style query string.
+
+    Searches both title and abstract for the query phrase.
+
+    Example output:
+      find (t "dark photon" or abs "dark photon") and de >= 2023-06-01 and de <= 2023-06-30 and topcite 20+
+    """
+    # Split multi-term query phrases into individual search terms
+    # e.g. "dark photon exclusion limit" -> search for "dark photon" in title OR abstract
+    # Use the full phrase for relevance
+    parts = [f'find (t "{query_phrase}" or abs "{query_phrase}")']
+    parts.append(f"and de >= {date_from}")
+    parts.append(f"and de <= {date_to}")
+    if min_citations > 0:
+        parts.append(f"and topcite {min_citations}+")
+    return " ".join(parts)
+
+
+def _search_inspire(query: str, date_from: str, date_to: str, min_citations: int) -> list[dict]:
+    """Paginated INSPIRE-HEP search. Returns list of hit metadata dicts."""
+    inspire_q = _build_inspire_query(query, date_from, date_to, min_citations)
     papers: list[dict] = []
-    offset = 0
-    limit = 100  # S2 max per page
+    page = 1
 
     while True:
-        time.sleep(S2_DELAY)
-        resp = _s2_request(
-            "GET",
-            f"{S2_BASE_URL}/paper/search",
+        time.sleep(INSPIRE_DELAY)
+        resp = _inspire_request(
+            INSPIRE_BASE_URL,
             params={
-                "query": query,
-                "year": year_range,
-                "fieldsOfStudy": "Physics",
-                "fields": S2_FIELDS,
-                "offset": offset,
-                "limit": limit,
-                "minCitationCount": min_citations,
+                "q": inspire_q,
+                "sort": "mostcited",
+                "size": INSPIRE_PAGE_SIZE,
+                "page": page,
+                "fields": INSPIRE_FIELDS,
             },
         )
         data = resp.json()
-        batch = data.get("data") or []
-        if not batch:
+        hits = data.get("hits", {}).get("hits", [])
+        if not hits:
             break
 
-        papers.extend(batch)
-        total = data.get("total", 0)
-        offset += limit
-        logger.info("S2 search '%s': fetched %d/%d", query[:50], len(papers), total)
+        papers.extend(hits)
+        total = data.get("hits", {}).get("total", 0)
+        logger.info("INSPIRE search '%s': fetched %d/%d", query[:50], len(papers), total)
 
-        if offset >= total or offset >= 1000:
-            # S2 caps at 1000 offset; stop to avoid errors
+        if len(papers) >= total or len(papers) >= 1000:
             break
+        page += 1
 
     return papers
 
@@ -185,55 +205,67 @@ def discover_candidates(
     coupling_types: list[str] | None = None,
 ) -> list[dict]:
     """
-    Search Semantic Scholar for relevant papers, deduplicate, return candidates.
+    Search INSPIRE-HEP for relevant papers, deduplicate, return candidates.
 
     Each candidate dict has: arxiv_id, title, abstract, citations, coupling_guess,
-    s2_id, publication_types.
+    inspire_id.
     """
     target_types = coupling_types or list(S2_SEARCH_QUERIES.keys())
-    year_range = f"{date_from[:4]}-{date_to[:4]}"
 
-    seen_s2_ids: set[str] = set()
-    raw_papers: list[dict] = []
+    seen_arxiv_ids: set[str] = set()
+    candidates: list[dict] = []
 
     for ct in target_types:
         queries = S2_SEARCH_QUERIES.get(ct, [])
         if not queries:
-            logger.warning("No S2 queries for coupling type %s; skipping", ct)
+            logger.warning("No search queries for coupling type %s; skipping", ct)
             continue
 
         for query in queries:
-            logger.info("Searching S2: coupling=%s query='%s' year=%s min_cite=%d",
-                        ct, query, year_range, min_citations)
-            results = _search_s2(query, year_range, min_citations)
-            for paper in results:
-                s2_id = paper.get("paperId", "")
-                if s2_id in seen_s2_ids:
+            logger.info(
+                "Searching INSPIRE: coupling=%s query='%s' dates=%s..%s min_cite=%d",
+                ct, query, date_from, date_to, min_citations,
+            )
+            try:
+                hits = _search_inspire(query, date_from, date_to, min_citations)
+            except Exception as e:
+                logger.warning("INSPIRE search failed for query '%s': %s; skipping", query, e)
+                continue
+
+            for hit in hits:
+                meta = hit.get("metadata", {})
+
+                # Extract arXiv ID
+                eprints = meta.get("arxiv_eprints", [])
+                if not eprints:
                     continue
-                seen_s2_ids.add(s2_id)
-                raw_papers.append(paper)
+                arxiv_id = eprints[0].get("value", "")
+                if not arxiv_id or arxiv_id in seen_arxiv_ids:
+                    continue
+                seen_arxiv_ids.add(arxiv_id)
 
-    logger.info("S2 discovery: %d unique papers before filtering", len(raw_papers))
+                # Extract title
+                titles = meta.get("titles", [])
+                title = titles[0].get("title", "") if titles else ""
 
-    # Convert to candidate dicts, keeping only papers with arXiv IDs
-    candidates = []
-    for paper in raw_papers:
-        ext_ids = paper.get("externalIds") or {}
-        arxiv_id = ext_ids.get("ArXiv")
-        if not arxiv_id:
-            continue
+                # Extract abstract
+                abstracts = meta.get("abstracts", [])
+                abstract = abstracts[0].get("value", "") if abstracts else ""
 
-        candidates.append({
-            "arxiv_id": arxiv_id,
-            "title": paper.get("title", ""),
-            "abstract": paper.get("abstract", ""),
-            "citations": paper.get("citationCount", 0),
-            "coupling_guess": None,  # filled by filter step
-            "s2_id": paper.get("paperId", ""),
-            "publication_types": paper.get("publicationTypes") or [],
-        })
+                citations = meta.get("citation_count", 0)
+                inspire_id = str(meta.get("control_number", ""))
 
-    logger.info("S2 discovery: %d candidates with arXiv IDs", len(candidates))
+                candidates.append({
+                    "arxiv_id": arxiv_id,
+                    "title": title,
+                    "abstract": abstract,
+                    "citations": citations,
+                    "coupling_guess": None,  # filled by filter step
+                    "inspire_id": inspire_id,
+                    "publication_types": [],  # INSPIRE doesn't separate pub types the same way
+                })
+
+    logger.info("INSPIRE discovery: %d unique candidates with arXiv IDs", len(candidates))
     return candidates
 
 
@@ -242,7 +274,7 @@ def discover_candidates(
 # ---------------------------------------------------------------------------
 
 def filter_candidates(candidates: list[dict], known_ids: set[str]) -> list[dict]:
-    """Apply local filters: dedup, keyword classification, publication type."""
+    """Apply local filters: dedup and keyword classification."""
     filtered = []
 
     for c in candidates:
@@ -253,14 +285,7 @@ def filter_candidates(candidates: list[dict], known_ids: set[str]) -> list[dict]
             logger.debug("Skip %s: already known", arxiv_id)
             continue
 
-        # Filter 2: publication type (skip reviews/surveys)
-        pub_types = c.get("publication_types", [])
-        if pub_types and all(t in ("Review", "Survey", "Editorial") for t in pub_types):
-            logger.debug("Skip %s: review/survey", arxiv_id)
-            continue
-
-        # Filter 3: keyword classification on title + abstract
-        # Create a lightweight object that classify_coupling_type can use
+        # Filter 2: keyword classification on title + abstract
         text = f"{c.get('title', '')} {c.get('abstract', '')}"
         coupling_guess = _classify_text(text)
         if coupling_guess is None:
@@ -345,11 +370,13 @@ def batch_relevance_check(
             response = _call_with_retry(_call)
             text = response.content[0].text.strip()
             # Parse the JSON array from the response
-            # Handle cases where Claude wraps in markdown code blocks
-            text = text.strip("`").strip()
-            if text.startswith("json"):
-                text = text[4:].strip()
-            indices = json.loads(text)
+            # Handle cases where Claude wraps in markdown code blocks or adds text
+            import re as _re
+            match = _re.search(r"\[[\d\s,]*\]", text)
+            if match:
+                indices = json.loads(match.group())
+            else:
+                indices = json.loads(text)
             if not isinstance(indices, list):
                 indices = []
             indices = [idx for idx in indices if isinstance(idx, int) and 0 <= idx < len(batch)]
@@ -556,7 +583,7 @@ def _process_candidate(
         f"- `{review.docs_file}`\n\n"
         f"{plot_section}"
         f"---\n"
-        f"> Discovered via historical backfill (Semantic Scholar search). "
+        f"> Discovered via historical backfill (INSPIRE-HEP search). "
         f"Please verify extraction accuracy before merging.\n\n"
         f"Generated by AutoAxionLimits backfill pipeline"
     )
@@ -623,7 +650,7 @@ def main(
             date_from, date_to, min_citations,
         )
 
-        # Step 1: Search Semantic Scholar
+        # Step 1: Search INSPIRE-HEP
         raw_candidates = discover_candidates(date_from, date_to, min_citations, coupling_types)
 
         # Step 2: Local pre-filtering
