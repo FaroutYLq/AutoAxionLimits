@@ -319,3 +319,5 @@
 * NOMAD: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionPhoton/NOMAD.txt), [reference](https://www.sciencedirect.com/science/article/abs/pii/S0370269300003750?via%3Dihub)
 * OPAL: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionPhoton/OPAL.txt), [reference](https://arxiv.org/abs/1607.06083)
 * PrimEx: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionPhoton/PrimEx.txt), [reference](https://arxiv.org/abs/1903.03586)
+
+- **GrAHal_Grenoble_Axion_Haloscope**: [The Grenoble Axion Haloscope platform (GrAHal): development plan and first results](https://arxiv.org/abs/2110.14406)
