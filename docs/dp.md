@@ -231,3 +231,4 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+- **Geometric_protocol_with_cavity_based_dark_photon_detection** *(projection)*: [Enhanced Dark Matter Quantum Sensing via Geometric Phase](https://arxiv.org/abs/2603.23599)
