@@ -1,0 +1,17 @@
+# Lights, Camera, Axion: Tracing Axions from Supernovae in the Diffuse $γ$-ray Sky
+# arXiv: https://arxiv.org/abs/2604.01277
+# Coupling type: AxionPhoton
+# Extracted from: text
+# Confidence level: 0.95
+# Extraction confidence: 0.75
+# mass [eV]    g_agamma [GeV^-1]
+1.000000e-12   1.860000e-13
+1.000000e-11   1.860000e-13
+1.000000e-10   4.350000e-13
+1.000000e-09   4.350000e-13
+1.000000e-08   3.760000e-12
+1.000000e-07   3.760000e-12
+1.000000e-06   3.760000e-12
+1.000000e-05   3.760000e-12
+1.000000e-04   2.850000e-12
+1.000000e-03   2.850000e-12
