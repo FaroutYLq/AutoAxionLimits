@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-04-02T09:54:08.808715+00:00",
+  "last_run": "2026-04-05T09:35:10.350771+00:00",
   "processed_ids": [
     "2603.25704",
     "2603.24200",
@@ -15,9 +15,14 @@
     "2604.00106",
     "2603.28098",
     "2603.27079",
-    "2603.27036"
+    "2603.27036",
+    "2604.01465",
+    "2604.01277",
+    "2603.26868",
+    "2603.23599"
   ],
   "failed_ids": {
-    "2603.25712": "'\u039b_NL (nonlocality scale in GeV)'"
+    "2603.25712": "'\u039b_NL (nonlocality scale in GeV)'",
+    "2604.02245": "Mass range [1.00e+09, 1.00e+11] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error"
   }
 }
