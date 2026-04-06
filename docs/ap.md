@@ -319,3 +319,5 @@
 * NOMAD: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionPhoton/NOMAD.txt), [reference](https://www.sciencedirect.com/science/article/abs/pii/S0370269300003750?via%3Dihub)
 * OPAL: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionPhoton/OPAL.txt), [reference](https://arxiv.org/abs/1607.06083)
 * PrimEx: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionPhoton/PrimEx.txt), [reference](https://arxiv.org/abs/1903.03586)
+
+- **Rydberg_Atom_Transducer_This_work** *(projection)*: [Dark Matter Detection through Rydberg Atom Transducer](https://arxiv.org/abs/2603.23337)
