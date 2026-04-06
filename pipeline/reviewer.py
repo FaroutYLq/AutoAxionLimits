@@ -632,9 +632,10 @@ def _select_notebook(cfg: dict, data_points: list[tuple[float, float]]) -> str:
 
     For couplings with only one notebook, that's always the right choice.
     For AxionPhoton (4 notebooks), pick by mass range:
-      - mass < 1e-6 eV  → AxionPhoton_Ultralight.ipynb
-      - mass > 1e4 eV   → AxionPhoton_ColliderBounds.ipynb
-      - otherwise       → AxionPhoton.ipynb  (the main plot)
+      - Ultralight only if the data fits entirely below 1e-6 eV
+        (the Ultralight plot covers ~1e-24 to 1e-14 eV)
+      - Collider only if the data fits entirely above 1e4 eV
+      - otherwise → AxionPhoton.ipynb  (the main plot)
     All other multi-notebook couplings default to the first (primary) notebook.
     """
     notebooks = cfg.get("notebooks", [])
@@ -645,11 +646,12 @@ def _select_notebook(cfg: dict, data_points: list[tuple[float, float]]) -> str:
     min_mass = min(masses)
     max_mass = max(masses)
 
-    # AxionPhoton-specific logic
+    # AxionPhoton-specific logic: only pick a specialised notebook if the
+    # limit's entire mass range fits within that notebook's axis bounds.
     for nb in notebooks:
-        if "Ultralight" in nb and min_mass < 1e-6:
+        if "Ultralight" in nb and max_mass < 1e-6:
             return nb
-        if "Collider" in nb and max_mass > 1e4:
+        if "Collider" in nb and min_mass > 1e4:
             return nb
 
     # Default: first notebook in list is always the main comprehensive plot
