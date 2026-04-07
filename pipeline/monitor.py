@@ -37,7 +37,7 @@ def _build_queries() -> list[str]:
 
     # Group coupling types into batches so each query has a manageable
     # number of keywords (roughly ≤20 phrases per request).
-    MAX_KEYWORDS_PER_BATCH = 20
+    MAX_KEYWORDS_PER_BATCH = 12
     all_keywords_ordered: list[str] = []
     seen: set[str] = set()
     for kws in ARXIV_KEYWORDS.values():
@@ -54,7 +54,33 @@ def _build_queries() -> list[str]:
     return queries
 
 
-def fetch_recent_papers(days_back: int = 3, max_results: int = 200) -> list[arxiv.Result]:
+def _iter_results_with_backoff(
+    client: arxiv.Client,
+    search: arxiv.Search,
+    max_attempts: int = 4,
+) -> list[arxiv.Result]:
+    """Iterate over arxiv search results with exponential backoff on HTTP 429.
+
+    The arxiv library has built-in retries, but they may not wait long
+    enough under heavy rate-limiting.  This wrapper catches the final
+    HTTPError and retries the whole query with increasing delays.
+    """
+    for attempt in range(max_attempts):
+        try:
+            return list(client.results(search))
+        except arxiv.HTTPError as exc:
+            if "429" not in str(exc) or attempt == max_attempts - 1:
+                raise
+            wait = 30 * (2 ** attempt)  # 30s, 60s, 120s
+            logger.warning(
+                "arXiv rate-limited (HTTP 429), retrying in %ds (attempt %d/%d)",
+                wait, attempt + 1, max_attempts,
+            )
+            time.sleep(wait)
+    return []  # unreachable, but satisfies type checker
+
+
+def fetch_recent_papers(days_back: int = 3, max_results: int = 100) -> list[arxiv.Result]:
     """Return recent arXiv papers matching dark matter / axion / dark photon keywords.
 
     Splits the keyword list into smaller batches and queries arXiv
@@ -62,7 +88,7 @@ def fetch_recent_papers(days_back: int = 3, max_results: int = 200) -> list[arxi
     very long query strings.  Results are deduplicated by arXiv ID.
     """
     queries = _build_queries()
-    client = arxiv.Client(delay_seconds=5, num_retries=5)
+    client = arxiv.Client(delay_seconds=10, num_retries=8)
 
     seen_ids: set[str] = set()
     results: list[arxiv.Result] = []
@@ -70,7 +96,7 @@ def fetch_recent_papers(days_back: int = 3, max_results: int = 200) -> list[arxi
     for idx, query in enumerate(queries):
         if idx > 0:
             # Polite pause between batch requests to avoid rate-limiting.
-            time.sleep(5)
+            time.sleep(10)
         logger.info("arXiv query batch %d/%d", idx + 1, len(queries))
         search = arxiv.Search(
             query=query,
@@ -78,7 +104,7 @@ def fetch_recent_papers(days_back: int = 3, max_results: int = 200) -> list[arxi
             sort_by=arxiv.SortCriterion.SubmittedDate,
             sort_order=arxiv.SortOrder.Descending,
         )
-        for paper in client.results(search):
+        for paper in _iter_results_with_backoff(client, search):
             pid = _arxiv_id(paper)
             if pid not in seen_ids:
                 seen_ids.add(pid)
