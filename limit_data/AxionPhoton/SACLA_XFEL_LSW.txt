@@ -1,0 +1,16 @@
+# Probing keV mass QCD axions with the SACLA X-ray free electron laser
+# arXiv: https://arxiv.org/abs/2603.15808
+# Coupling type: AxionPhoton
+# Extracted from: table
+# Confidence level: 0.9
+# Extraction confidence: 0.95
+# mass [eV]    g_agamma [GeV^-1]
+2.200000e+01   6.500000e-06
+3.461000e+03   8.140000e-06
+3.464000e+03   8.550000e-06
+3.467000e+03   8.590000e-06
+3.470000e+03   8.690000e-06
+3.473000e+03   9.100000e-06
+3.476000e+03   8.330000e-06
+3.479000e+03   7.220000e-06
+3.482000e+03   6.810000e-06
