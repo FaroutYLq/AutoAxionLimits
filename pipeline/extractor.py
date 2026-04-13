@@ -203,7 +203,7 @@ Coupling type disambiguation (use EXACTLY one of the enum values above):
 Look for: electron mass variation, clock comparison constraining m_e, molecular spectroscopy.
 - ScalarNucleon = scalar coupling to NUCLEON MASS, constrains Yukawa-type fifth force between nucleons \
 (d_hat or alpha_g). Look for: Yukawa, equivalence principle for nucleons, fifth force, ISL test, torsion pendulum.
-- ScalarBaryon = scalar coupling to BARYONIC MATTER (d_g). Look for: baryon coupling, WEP test, Eotvash, \
+- ScalarBaryon = scalar coupling to BARYONIC MATTER (d_g). Look for: baryon coupling, WEP test, Eotvos, \
 lunar laser ranging.
 - AxionMass = plots f_a [GeV] vs m_a [eV], NOT a coupling constant
 - AxionEDM = neutron EDM d_n [e*cm]
@@ -273,7 +273,7 @@ Coupling type disambiguation (use EXACTLY one of the values listed below):
 Look for: electron mass variation, clock comparison constraining m_e, molecular spectroscopy.
 - ScalarNucleon = scalar coupling to NUCLEON MASS, constrains Yukawa-type fifth force between nucleons \
 (d_hat or alpha_g). Look for: Yukawa, equivalence principle for nucleons, fifth force, ISL test, torsion pendulum.
-- ScalarBaryon = scalar coupling to BARYONIC MATTER (d_g). Look for: baryon coupling, WEP test, Eotvash, \
+- ScalarBaryon = scalar coupling to BARYONIC MATTER (d_g). Look for: baryon coupling, WEP test, Eotvos, \
 lunar laser ranging.
 - AxionMass = plots f_a [GeV] vs m_a [eV], NOT a coupling constant
 - AxionEDM = neutron EDM d_n [e*cm]
@@ -365,10 +365,14 @@ def _validate_coupling_type(result: dict) -> dict:
     # Handle list returns — take first
     if isinstance(ct, list):
         ct = ct[0] if ct else None
+    if ct is None:
+        result["coupling_type"] = None
+        return result
     if ct in _VALID_COUPLING_TYPES:
         result["coupling_type"] = ct
         return result
-    # Try normalization from reviewer aliases
+    # Try normalization from reviewer aliases (lazy import to avoid circular dependency:
+    # extractor.py <-> reviewer.py; safe because both modules are fully loaded by call time)
     try:
         from .reviewer import _normalize_coupling_type
         ct = _normalize_coupling_type(ct)
