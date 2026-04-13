@@ -185,16 +185,19 @@ def main():
                 ext_data = np.array(pts, dtype=float, ndmin=2)
             confidence = result.get("extraction_confidence")
 
-        output = PLOTS_DIR / f"{entry.arxiv_id}.png"
-        plot_comparison(
-            arxiv_id=entry.arxiv_id,
-            gt_data=gt_data,
-            ext_data=ext_data,
-            title=entry.paper_title[:80],
-            coupling_type=entry.coupling_type,
-            output_path=output,
-            extraction_confidence=confidence,
-        )
+        output = PLOTS_DIR / f"{entry.arxiv_id}_{entry.coupling_type}.png"
+        try:
+            plot_comparison(
+                arxiv_id=entry.arxiv_id,
+                gt_data=gt_data,
+                ext_data=ext_data,
+                title=entry.paper_title[:80],
+                coupling_type=entry.coupling_type,
+                output_path=output,
+                extraction_confidence=confidence,
+            )
+        except Exception as e:
+            logger.warning("Plot failed for %s: %s", entry.arxiv_id, e)
 
 
 if __name__ == "__main__":
