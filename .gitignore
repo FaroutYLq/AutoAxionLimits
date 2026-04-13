@@ -140,3 +140,6 @@ dmypy.json
 pipeline/logs/
 pipeline/state/*.tmp
 *_highlighted_tmp.ipynb
+
+# Evaluation results (cached extraction outputs)
+evaluation/results/
