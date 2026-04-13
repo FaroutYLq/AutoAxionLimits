@@ -235,7 +235,11 @@ If you are unsure which of 2+ coupling types is correct, confidence MUST be ≤0
 
 If you cannot find data, set data_points to [] and extraction_confidence < 0.3.
 Use scientific notation in data_points (Python float literals accepted).
-All masses must be in eV (convert from μeV, meV, keV, MeV, GeV as needed).
+All masses must be in eV. Common mass unit conversions:
+- 1 μeV = 1e-6 eV, 1 neV = 1e-9 eV, 1 peV = 1e-12 eV
+- 1 meV = 1e-3 eV, 1 keV = 1e3 eV, 1 MeV = 1e6 eV, 1 GeV = 1e9 eV
+- Frequency to mass: m[eV] = 4.136e-15 * f[Hz] (e.g., 1 GHz = 4.136e-6 eV)
+- Wavelength to mass: m[eV] = 1.240e-6 / λ[m]
 All coupling values must be in absolute units — do NOT drop prefactors like 10^-14.
 
 Coupling units by type (return values in these units):
@@ -438,6 +442,12 @@ Key disambiguation rules:
 - VectorBL is ONLY for explicit B-L gauge symmetry; generic dark photon searches are DarkPhoton. If the paper mentions "B-L", "B minus L", or U(1)_{B-L}, strongly prefer VectorBL.
 - For LSW (light-shining-through-wall) experiments: kinetic mixing / hidden photon → DarkPhoton; g_agamma / ALP → AxionPhoton
 - If the paper constrains multiple coupling types, choose the PRIMARY one (the one featured in the title or main result)
+- Solar neutrino experiments measuring axion production in the Sun constrain g_ae (AxionElectron), not g_agamma (AxionPhoton)
+- Superconductor-based DM detectors absorbing axions via electron coupling are AxionElectron, not DarkPhoton
+- Torsion pendulum spin-dependent coupling experiments measuring g_ae are AxionElectron, not MonopoleDipole
+- Clock comparisons constraining electron mass variation (d_me, d_{m_e}) are ScalarElectron, not ScalarPhoton
+- Neutron star cooling constraints on nucleon coupling: check if g_ap (proton, AxionProton) or g_an (neutron, AxionNeutron)
+- NMR experiments with proton-rich samples (e.g. hydrogen, 1H) that measure g_ap are AxionProton, not AxionNeutron
 """
 
 
