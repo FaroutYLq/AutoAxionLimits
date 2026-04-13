@@ -48,6 +48,8 @@ _COUPLING_ALIASES: dict[str, str] = {
     "axionnucleon": "AxionNeutron",
     "axion nucleon": "AxionNeutron",
     "axion-nucleon": "AxionNeutron",
+    "alp-nucleon": "AxionNeutron",
+    "alp nucleon": "AxionNeutron",
     "g_an": "AxionNeutron",
     "g_ann": "AxionNeutron",
     "alp-neutron": "AxionNeutron",
@@ -174,11 +176,13 @@ def _normalize_coupling_type(raw: str) -> str:
             canonical = _COUPLING_ALIASES[candidate]
             logger.info("Normalized coupling type %r → %r", raw, canonical)
             return canonical
-    # Fuzzy: check if any alias is a substring of the input
-    for alias, canonical in _COUPLING_ALIASES.items():
-        if alias in key:
-            logger.info("Normalized coupling type %r → %r (substring match on %r)", raw, canonical, alias)
-            return canonical
+    # Fuzzy: check if any alias is a substring of the input.
+    # Use longest match to avoid e.g. "d_g" matching before "d_gamma".
+    matches = [(alias, canonical) for alias, canonical in _COUPLING_ALIASES.items() if alias in key]
+    if matches:
+        alias, canonical = max(matches, key=lambda x: len(x[0]))
+        logger.info("Normalized coupling type %r → %r (substring match on %r)", raw, canonical, alias)
+        return canonical
     raise KeyError(raw)
 
 CLAUDE_MODEL = "claude-haiku-4-5-20251001"
