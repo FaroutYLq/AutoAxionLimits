@@ -219,25 +219,22 @@ def compute_all_metrics(
         all_expected = expected_couplings_by_id[entry.arxiv_id]
         ct_correct = predicted_ct in all_expected if predicted_ct else False
 
-        # Only record one coupling classification per unique arxiv_id
+        # Only record one classification per unique arxiv_id to avoid
+        # inflating counts for multi-coupling papers
         if entry.arxiv_id not in seen_coupling_ids:
-            coupling_clf.record(entry.arxiv_id, predicted_ct, entry.coupling_type)
-            # If this is a multi-coupling paper and the prediction matches a
-            # different GT entry (not this one), fix the classification record
-            if ct_correct and predicted_ct != entry.coupling_type:
-                # Undo the error that record() just added, mark as correct
-                coupling_clf.total -= 1
-                if coupling_clf.errors and coupling_clf.errors[-1]["arxiv_id"] == entry.arxiv_id:
-                    coupling_clf.errors.pop()
-                else:
-                    coupling_clf.correct -= 1
-                coupling_clf.total += 1
+            coupling_clf.total += 1
+            if ct_correct:
                 coupling_clf.correct += 1
+            else:
+                coupling_clf.errors.append({
+                    "arxiv_id": entry.arxiv_id,
+                    "predicted": str(predicted_ct),
+                    "expected": str(sorted(all_expected)) if is_multi_coupling else str(entry.coupling_type),
+                })
+            is_limit_clf.record(entry.arxiv_id, result.get("is_new_limit"), entry.is_new_limit)
+            is_projection_clf.record(entry.arxiv_id, result.get("is_projection"), entry.is_projection)
+            data_source_clf.record(entry.arxiv_id, result.get("data_source"), entry.data_source_expected)
             seen_coupling_ids.add(entry.arxiv_id)
-
-        is_limit_clf.record(entry.arxiv_id, result.get("is_new_limit"), entry.is_new_limit)
-        is_projection_clf.record(entry.arxiv_id, result.get("is_projection"), entry.is_projection)
-        data_source_clf.record(entry.arxiv_id, result.get("data_source"), entry.data_source_expected)
 
         paper_report["coupling_type_correct"] = ct_correct
         paper_report["coupling_type_predicted"] = predicted_ct
