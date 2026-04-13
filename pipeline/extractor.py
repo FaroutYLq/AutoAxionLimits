@@ -205,9 +205,11 @@ Look for: electron mass variation, clock comparison constraining m_e, molecular 
 (d_hat or alpha_g). Look for: Yukawa, equivalence principle for nucleons, fifth force, ISL test, torsion pendulum.
 - ScalarBaryon = scalar coupling to BARYONIC MATTER (d_g). Look for: baryon coupling, WEP test, Eotvos, \
 lunar laser ranging.
-- AxionMass = bounds on axion decay constant f_a [GeV] vs mass m_a [eV]. Includes cosmological bounds \
-(domain wall, hot DM, lattice QCD), astrophysical bounds (SN1987A on f_a), and any paper whose main \
-result is a constraint on f_a or the f_a-m_a relationship. NOT a coupling constant plot.
+- AxionMass = bounds on axion decay constant f_a [GeV] vs mass m_a [eV]. ONLY use this \
+when the paper's primary result is on the f_a-m_a plane itself (e.g. cosmological bounds \
+from domain wall, hot DM, lattice QCD, or SN1987A bounds directly on f_a). Do NOT use \
+AxionMass if the paper's main exclusion plot has a coupling constant (g_agamma, g_ae, \
+g_an, d_n, etc.) on the y-axis — use the corresponding coupling type instead.
 - AxionEDM = neutron EDM d_n [e*cm]
 - AxionCPV = CP-violating couplings (theta-bar / CP-odd nuclear forces), NOT the same as AxionEDM
 - AxionNeutron = coupling g_an to NEUTRONS specifically. Look for: neutron spin, comagnetometer with \
@@ -215,6 +217,13 @@ neutron-rich isotopes (e.g. 3He, 129Xe), nEDM, neutron beam. If the paper constr
 "nucleon" coupling without specifying, prefer AxionNeutron.
 - AxionProton = coupling g_ap to PROTONS specifically. Look for: proton spin, NMR with proton-rich \
 samples, hydrogen maser.
+- DarkPhoton vs AxionPhoton for LSW (light-shining-through-wall) experiments: if the paper \
+reports results as kinetic mixing chi or hidden photon mixing, use DarkPhoton. If it \
+reports results as g_agamma for axion-like particles, use AxionPhoton. Check the y-axis \
+label of the exclusion plot.
+- VectorBL: If the paper title, abstract, or exclusion plot mentions "B-L", "B minus L", \
+"baryon minus lepton", or U(1)_{B-L}, strongly prefer VectorBL over DarkPhoton even if \
+kinetic mixing is also discussed.
 
 extraction_confidence rubric (coupling type AND data quality):
 - 0.9+: coupling type unambiguous from title/abstract AND data from clearly labeled table
@@ -277,9 +286,11 @@ Look for: electron mass variation, clock comparison constraining m_e, molecular 
 (d_hat or alpha_g). Look for: Yukawa, equivalence principle for nucleons, fifth force, ISL test, torsion pendulum.
 - ScalarBaryon = scalar coupling to BARYONIC MATTER (d_g). Look for: baryon coupling, WEP test, Eotvos, \
 lunar laser ranging.
-- AxionMass = bounds on axion decay constant f_a [GeV] vs mass m_a [eV]. Includes cosmological bounds \
-(domain wall, hot DM, lattice QCD), astrophysical bounds (SN1987A on f_a), and any paper whose main \
-result is a constraint on f_a or the f_a-m_a relationship. NOT a coupling constant plot.
+- AxionMass = bounds on axion decay constant f_a [GeV] vs mass m_a [eV]. ONLY use this \
+when the paper's primary result is on the f_a-m_a plane itself (e.g. cosmological bounds \
+from domain wall, hot DM, lattice QCD, or SN1987A bounds directly on f_a). Do NOT use \
+AxionMass if the paper's main exclusion plot has a coupling constant (g_agamma, g_ae, \
+g_an, d_n, etc.) on the y-axis — use the corresponding coupling type instead.
 - AxionEDM = neutron EDM d_n [e*cm]
 - AxionCPV = CP-violating couplings (theta-bar / CP-odd nuclear forces), NOT the same as AxionEDM
 - AxionNeutron = coupling g_an to NEUTRONS specifically. Look for: neutron spin, comagnetometer with \
@@ -287,6 +298,13 @@ neutron-rich isotopes (e.g. 3He, 129Xe), nEDM, neutron beam. If the paper constr
 "nucleon" coupling without specifying, prefer AxionNeutron.
 - AxionProton = coupling g_ap to PROTONS specifically. Look for: proton spin, NMR with proton-rich \
 samples, hydrogen maser.
+- DarkPhoton vs AxionPhoton for LSW (light-shining-through-wall) experiments: if the paper \
+reports results as kinetic mixing chi or hidden photon mixing, use DarkPhoton. If it \
+reports results as g_agamma for axion-like particles, use AxionPhoton. Check the y-axis \
+label of the exclusion plot.
+- VectorBL: If the paper title, abstract, or exclusion plot mentions "B-L", "B minus L", \
+"baryon minus lepton", or U(1)_{B-L}, strongly prefer VectorBL over DarkPhoton even if \
+kinetic mixing is also discussed.
 
 extraction_confidence rubric (coupling type AND data quality):
 - 0.9+: coupling type unambiguous from title/abstract AND data from clearly labeled table
@@ -404,7 +422,7 @@ Valid coupling types:
 - AxionProton: axion-proton coupling g_ap
 - AxionEDM: neutron EDM d_n [e*cm] from axion oscillation
 - AxionCPV: CP-violating axion couplings (theta-bar, CP-odd nuclear forces)
-- AxionMass: axion mass vs decay constant f_a [GeV] — cosmological/astrophysical bounds on the f_a-m_a relationship
+- AxionMass: axion mass vs decay constant f_a [GeV] — ONLY when the primary result is on the f_a-m_a plane (cosmological/lattice QCD bounds). NOT when the y-axis is a coupling constant.
 - MonopoleDipole: spin-mass monopole-dipole force (g_s*g_p product)
 - ScalarPhoton: scalar coupling to photons via d_e/d_gamma (fine-structure constant alpha variation)
 - ScalarElectron: scalar coupling to electron mass d_me (electron mass variation)
@@ -413,11 +431,12 @@ Valid coupling types:
 - VectorBL: U(1)_{B-L} gauge boson g_BL (NOT a generic dark photon)
 
 Key disambiguation rules:
-- If the paper constrains the axion decay constant f_a (e.g. cosmological bounds, lattice QCD, domain wall), use AxionMass
+- If the paper's primary result is on the f_a-m_a plane (e.g. cosmological bounds, lattice QCD, domain wall), use AxionMass. If the main plot has a coupling (g_agamma, g_ae, etc.) on the y-axis, use the coupling type instead even if f_a is also discussed.
 - If the paper measures neutron EDM oscillation from axion dark matter, use AxionEDM
 - If the paper tests equivalence principle / fifth force with torsion balance, classify by the specific coupling parameter
 - If the paper constrains both neutron and proton couplings, prefer AxionNeutron
-- VectorBL is ONLY for explicit B-L gauge symmetry; generic dark photon searches are DarkPhoton
+- VectorBL is ONLY for explicit B-L gauge symmetry; generic dark photon searches are DarkPhoton. If the paper mentions "B-L", "B minus L", or U(1)_{B-L}, strongly prefer VectorBL.
+- For LSW (light-shining-through-wall) experiments: kinetic mixing / hidden photon → DarkPhoton; g_agamma / ALP → AxionPhoton
 - If the paper constrains multiple coupling types, choose the PRIMARY one (the one featured in the title or main result)
 """
 
