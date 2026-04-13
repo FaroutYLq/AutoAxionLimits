@@ -279,7 +279,10 @@ def compute_all_metrics(
             ext_array = np.array(extracted_points, dtype=float, ndmin=2)
 
             # Primary: interpolation-based metric
-            im = compute_interpolation_metrics(entry.arxiv_id, ext_array, gt_data)
+            im = compute_interpolation_metrics(
+                entry.arxiv_id, ext_array, gt_data,
+                coupling_type=entry.coupling_type,
+            )
             interp_metrics_list.append(im)
             confidences.append(result.get("extraction_confidence", 0.0))
             curve_arxiv_ids.append(entry.arxiv_id)
