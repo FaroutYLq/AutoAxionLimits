@@ -1,0 +1,265 @@
+"""Metric computation for extraction evaluation.
+
+All metrics operate on log10 space since limit data spans many orders of magnitude.
+"""
+
+from __future__ import annotations
+
+import math
+from dataclasses import dataclass, field
+from typing import Optional
+
+import numpy as np
+
+
+@dataclass
+class ClassificationMetrics:
+    """Metrics for categorical fields (coupling_type, is_new_limit, etc.)."""
+    total: int = 0
+    correct: int = 0
+    errors: list[dict] = field(default_factory=list)
+
+    @property
+    def accuracy(self) -> float:
+        return self.correct / self.total if self.total > 0 else 0.0
+
+    def record(self, arxiv_id: str, predicted: object, expected: object):
+        self.total += 1
+        if predicted == expected:
+            self.correct += 1
+        else:
+            self.errors.append({
+                "arxiv_id": arxiv_id,
+                "predicted": str(predicted),
+                "expected": str(expected),
+            })
+
+
+@dataclass
+class CurveMetrics:
+    """Metrics comparing extracted vs ground-truth exclusion curves."""
+    arxiv_id: str
+    num_extracted: int
+    num_ground_truth: int
+    # Log-space Hausdorff-like distance (max of directed distances)
+    hausdorff_log: float
+    # Mean directed distance: extracted → ground truth
+    mean_dist_ext_to_gt: float
+    # Mean directed distance: ground truth → extracted
+    mean_dist_gt_to_ext: float
+    # Coverage: fraction of GT points within tolerance of an extracted point
+    coverage_at_0_5dex: float  # within 0.5 dex (factor ~3)
+    coverage_at_1_0dex: float  # within 1.0 dex (factor 10)
+    # Mass range overlap (fraction of GT mass range covered)
+    mass_range_overlap: float
+    # Relative error statistics (on coupling, for mass-matched points)
+    median_coupling_log_error: float
+    p90_coupling_log_error: float
+
+
+def _log_points(data: np.ndarray) -> np.ndarray:
+    """Convert Nx2 data to log10 space, filtering out non-positive values."""
+    mask = (data[:, 0] > 0) & (data[:, 1] > 0)
+    return np.log10(data[mask])
+
+
+def _directed_distances(source: np.ndarray, target: np.ndarray) -> np.ndarray:
+    """For each point in source, find minimum Euclidean distance to any point in target.
+    Both arrays are Nx2 in log10 space."""
+    if len(source) == 0 or len(target) == 0:
+        return np.array([float("inf")])
+
+    # Normalize mass and coupling axes to comparable scales.
+    # Mass range is typically wider (20+ decades) vs coupling (10-15 decades).
+    # Use the GT spread on each axis for normalization.
+    all_pts = np.vstack([source, target])
+    spread = np.ptp(all_pts, axis=0)
+    spread[spread == 0] = 1.0  # avoid division by zero
+
+    src_norm = source / spread
+    tgt_norm = target / spread
+
+    dists = np.empty(len(src_norm))
+    for i, pt in enumerate(src_norm):
+        d = np.sqrt(np.sum((tgt_norm - pt) ** 2, axis=1))
+        dists[i] = np.min(d)
+
+    # Return in original log10 scale (undo normalization approximately)
+    return dists * np.mean(spread)
+
+
+def _mass_matched_coupling_errors(
+    extracted: np.ndarray, ground_truth: np.ndarray, mass_tolerance_dex: float = 0.1
+) -> np.ndarray:
+    """For each GT point, find the closest extracted point in mass, and compute
+    the absolute log10 coupling error. Only include points where mass match
+    is within tolerance.
+
+    Returns array of |log10(coupling_ext) - log10(coupling_gt)| values.
+    """
+    if len(extracted) == 0 or len(ground_truth) == 0:
+        return np.array([])
+
+    log_ext = _log_points(extracted)
+    log_gt = _log_points(ground_truth)
+
+    if len(log_ext) == 0 or len(log_gt) == 0:
+        return np.array([])
+
+    errors = []
+    for gt_pt in log_gt:
+        mass_diffs = np.abs(log_ext[:, 0] - gt_pt[0])
+        nearest_idx = np.argmin(mass_diffs)
+        if mass_diffs[nearest_idx] <= mass_tolerance_dex:
+            err = abs(log_ext[nearest_idx, 1] - gt_pt[1])
+            errors.append(err)
+
+    return np.array(errors) if errors else np.array([])
+
+
+def compute_curve_metrics(
+    arxiv_id: str,
+    extracted: np.ndarray,
+    ground_truth: np.ndarray,
+) -> CurveMetrics:
+    """Compare extracted data against ground truth.
+
+    Both inputs are Nx2 arrays of (mass_eV, coupling).
+    Boundary closure points (coupling=1e0 or similar sentinel values) are
+    filtered before comparison.
+    """
+    # Filter boundary closure points (coupling >= 1e-2 is likely a closure sentinel)
+    gt_mask = ground_truth[:, 1] < 1e-2
+    ext_mask = extracted[:, 1] < 1e-2
+    gt_filtered = ground_truth[gt_mask] if gt_mask.any() else ground_truth
+    ext_filtered = extracted[ext_mask] if ext_mask.any() else extracted
+
+    log_ext = _log_points(ext_filtered)
+    log_gt = _log_points(gt_filtered)
+
+    n_ext = len(log_ext)
+    n_gt = len(log_gt)
+
+    if n_ext == 0 or n_gt == 0:
+        return CurveMetrics(
+            arxiv_id=arxiv_id,
+            num_extracted=n_ext,
+            num_ground_truth=n_gt,
+            hausdorff_log=float("inf"),
+            mean_dist_ext_to_gt=float("inf"),
+            mean_dist_gt_to_ext=float("inf"),
+            coverage_at_0_5dex=0.0,
+            coverage_at_1_0dex=0.0,
+            mass_range_overlap=0.0,
+            median_coupling_log_error=float("inf"),
+            p90_coupling_log_error=float("inf"),
+        )
+
+    # Directed distances
+    d_ext_to_gt = _directed_distances(log_ext, log_gt)
+    d_gt_to_ext = _directed_distances(log_gt, log_ext)
+
+    hausdorff = max(np.max(d_ext_to_gt), np.max(d_gt_to_ext))
+
+    # Coverage: fraction of GT points with a nearby extracted point
+    coverage_05 = np.mean(d_gt_to_ext <= 0.5)
+    coverage_10 = np.mean(d_gt_to_ext <= 1.0)
+
+    # Mass range overlap
+    gt_mass_range = (log_gt[:, 0].min(), log_gt[:, 0].max())
+    ext_mass_range = (log_ext[:, 0].min(), log_ext[:, 0].max())
+    overlap_lo = max(gt_mass_range[0], ext_mass_range[0])
+    overlap_hi = min(gt_mass_range[1], ext_mass_range[1])
+    gt_span = gt_mass_range[1] - gt_mass_range[0]
+    mass_overlap = max(0, overlap_hi - overlap_lo) / gt_span if gt_span > 0 else 1.0
+
+    # Mass-matched coupling errors
+    coupling_errors = _mass_matched_coupling_errors(ext_filtered, gt_filtered)
+    if len(coupling_errors) > 0:
+        median_err = float(np.median(coupling_errors))
+        p90_err = float(np.percentile(coupling_errors, 90))
+    else:
+        median_err = float("inf")
+        p90_err = float("inf")
+
+    return CurveMetrics(
+        arxiv_id=arxiv_id,
+        num_extracted=n_ext,
+        num_ground_truth=n_gt,
+        hausdorff_log=float(hausdorff),
+        mean_dist_ext_to_gt=float(np.mean(d_ext_to_gt)),
+        mean_dist_gt_to_ext=float(np.mean(d_gt_to_ext)),
+        coverage_at_0_5dex=float(coverage_05),
+        coverage_at_1_0dex=float(coverage_10),
+        mass_range_overlap=float(mass_overlap),
+        median_coupling_log_error=median_err,
+        p90_coupling_log_error=p90_err,
+    )
+
+
+@dataclass
+class ConfidenceBin:
+    """One bin in the confidence calibration curve."""
+    bin_lo: float
+    bin_hi: float
+    n_papers: int
+    mean_confidence: float
+    # Fraction of papers in this bin with "acceptable" curve quality
+    # (coverage_at_1_0dex > 0.8 AND median_coupling_log_error < 0.5)
+    actual_accuracy: float
+    paper_ids: list[str]
+
+
+def compute_confidence_calibration(
+    confidences: list[float],
+    curve_metrics: list[CurveMetrics],
+    arxiv_ids: list[str],
+    n_bins: int = 5,
+    accuracy_threshold_coverage: float = 0.8,
+    accuracy_threshold_error: float = 0.5,
+) -> list[ConfidenceBin]:
+    """Bin papers by extraction_confidence and compute actual accuracy per bin.
+
+    A paper is "accurate" if coverage_at_1_0dex > threshold AND
+    median_coupling_log_error < threshold.
+    """
+    if not confidences:
+        return []
+
+    bin_edges = np.linspace(0.0, 1.0, n_bins + 1)
+    bins = []
+
+    for i in range(n_bins):
+        lo, hi = bin_edges[i], bin_edges[i + 1]
+        indices = [
+            j for j, c in enumerate(confidences)
+            if lo <= c < hi or (i == n_bins - 1 and c == hi)
+        ]
+
+        if not indices:
+            bins.append(ConfidenceBin(
+                bin_lo=lo, bin_hi=hi, n_papers=0,
+                mean_confidence=0.0, actual_accuracy=0.0, paper_ids=[],
+            ))
+            continue
+
+        bin_confs = [confidences[j] for j in indices]
+        bin_ids = [arxiv_ids[j] for j in indices]
+        bin_metrics = [curve_metrics[j] for j in indices]
+
+        n_accurate = sum(
+            1 for m in bin_metrics
+            if m.coverage_at_1_0dex >= accuracy_threshold_coverage
+            and m.median_coupling_log_error < accuracy_threshold_error
+        )
+
+        bins.append(ConfidenceBin(
+            bin_lo=lo,
+            bin_hi=hi,
+            n_papers=len(indices),
+            mean_confidence=float(np.mean(bin_confs)),
+            actual_accuracy=n_accurate / len(indices),
+            paper_ids=bin_ids,
+        ))
+
+    return bins
