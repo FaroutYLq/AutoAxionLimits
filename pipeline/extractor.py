@@ -414,6 +414,7 @@ Key disambiguation rules:
 - If the paper tests equivalence principle / fifth force with torsion balance, classify by the specific coupling parameter
 - If the paper constrains both neutron and proton couplings, prefer AxionNeutron
 - VectorBL is ONLY for explicit B-L gauge symmetry; generic dark photon searches are DarkPhoton
+- If the paper constrains multiple coupling types, choose the PRIMARY one (the one featured in the title or main result)
 """
 
 
@@ -436,7 +437,10 @@ def _classify_coupling_type(
         result = _parse_json_response(resp.content[0].text)
         result = _validate_coupling_type(result)
         ct = result.get("coupling_type")
-        conf = float(result.get("confidence", 0.0))
+        try:
+            conf = float(result.get("confidence", 0.0))
+        except (ValueError, TypeError):
+            conf = 0.0
         logger.info("Pre-classifier: %s (conf=%.2f) for %s", ct, conf, paper.title[:60])
         return ct, conf
     except Exception as e:
@@ -715,7 +719,7 @@ def run_extraction_agent(
 
     # --- Coupling type fallback: use pre-classifier if extraction returned None ---
     final_ct = stage1_result.get("coupling_type")
-    if not final_ct and pre_ct and pre_conf >= 0.5:
+    if not final_ct and pre_ct and pre_conf >= 0.7:
         final_ct = pre_ct
         stage1_result["notes"] = (
             stage1_result.get("notes", "")
