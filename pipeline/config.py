@@ -202,7 +202,6 @@ ARXIV_KEYWORDS = {
         "exotic spin-dependent",
         "spin-gravity",
         "long-range spin",
-        "spin-mass coupling",
         "torsion balance spin",
     ],
     "ScalarPhoton": [
@@ -251,7 +250,6 @@ ARXIV_KEYWORDS = {
         "B minus L",
         "gauged B-L",
         "Z prime B-L",
-        "light Z prime",
     ],
 }
 
