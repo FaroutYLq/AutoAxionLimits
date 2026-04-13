@@ -222,7 +222,7 @@ reports results as kinetic mixing chi or hidden photon mixing, use DarkPhoton. I
 reports results as g_agamma for axion-like particles, use AxionPhoton. Check the y-axis \
 label of the exclusion plot.
 - VectorBL: If the paper title, abstract, or exclusion plot mentions "B-L", "B minus L", \
-"baryon minus lepton", or U(1)_{B-L}, strongly prefer VectorBL over DarkPhoton even if \
+"baryon minus lepton", or U(1)_{{B-L}}, strongly prefer VectorBL over DarkPhoton even if \
 kinetic mixing is also discussed.
 
 extraction_confidence rubric (coupling type AND data quality):
