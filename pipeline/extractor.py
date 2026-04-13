@@ -203,6 +203,7 @@ Coupling type disambiguation (use EXACTLY one of the enum values above):
 - ScalarBaryon = scalar coupling to baryonic matter
 - AxionMass = plots f_a [GeV] vs m_a [eV], NOT a coupling constant
 - AxionEDM = neutron EDM d_n [e*cm]
+- AxionCPV = CP-violating couplings (theta-bar / CP-odd nuclear forces), NOT the same as AxionEDM
 - AxionNeutron vs AxionProton: check which nucleon the paper constrains
 
 extraction_confidence rubric:
@@ -263,6 +264,7 @@ Coupling type disambiguation (use EXACTLY one of the values listed below):
 - ScalarBaryon = scalar coupling to baryonic matter
 - AxionMass = plots f_a [GeV] vs m_a [eV], NOT a coupling constant
 - AxionEDM = neutron EDM d_n [e*cm]
+- AxionCPV = CP-violating couplings (theta-bar / CP-odd nuclear forces), NOT the same as AxionEDM
 - AxionNeutron vs AxionProton: check which nucleon the paper constrains
 
 extraction_confidence rubric:
@@ -334,7 +336,7 @@ def _parse_json_response(text: str) -> dict:
 # From PlotFuncs.py: g_agamma = 2e-10 * C_ag * m_a, KSVZ C_ag = 1.92
 _BENCHMARK_LINES: dict[str, tuple[str, callable]] = {
     "AxionPhoton": ("KSVZ", lambda m: 2e-10 * 1.92 * m),
-    "AxionElectron": ("DFSZ", lambda m: 8.943e-11 * (1.0 / 3.0) * m),
+    "AxionElectron": ("DFSZ_upper", lambda m: 8.943e-11 * (1.0 / 3.0) * m),
 }
 
 _STAGE3_VERIFY_SYSTEM = """\
