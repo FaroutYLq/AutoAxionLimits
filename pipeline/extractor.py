@@ -384,6 +384,67 @@ def _validate_coupling_type(result: dict) -> dict:
 
 
 # ---------------------------------------------------------------------------
+# Pre-extraction coupling type classifier (lightweight, title+abstract only)
+# ---------------------------------------------------------------------------
+
+_CLASSIFIER_SYSTEM = """\
+You are a particle physics expert. Given a paper title and abstract, determine \
+which coupling type this paper constrains. Respond ONLY with a JSON object:
+{"coupling_type": one of the values below or null, "confidence": float 0-1}
+
+Valid coupling types:
+- DarkPhoton: dark photon kinetic mixing chi
+- AxionPhoton: axion-photon coupling g_agamma [GeV^-1]
+- AxionElectron: axion-electron coupling g_ae
+- AxionNeutron: axion-neutron coupling g_an (also generic nucleon coupling)
+- AxionProton: axion-proton coupling g_ap
+- AxionEDM: neutron EDM d_n [e*cm] from axion oscillation
+- AxionCPV: CP-violating axion couplings (theta-bar, CP-odd nuclear forces)
+- AxionMass: axion mass vs decay constant f_a [GeV] — cosmological/astrophysical bounds on the f_a-m_a relationship
+- MonopoleDipole: spin-mass monopole-dipole force (g_s*g_p product)
+- ScalarPhoton: scalar coupling to photons via d_e/d_gamma (fine-structure constant alpha variation)
+- ScalarElectron: scalar coupling to electron mass d_me (electron mass variation)
+- ScalarNucleon: scalar Yukawa fifth force between nucleons (d_hat, ISL, torsion pendulum)
+- ScalarBaryon: scalar coupling to baryonic matter d_g (WEP, Eotvos, lunar laser ranging)
+- VectorBL: U(1)_{B-L} gauge boson g_BL (NOT a generic dark photon)
+
+Key disambiguation rules:
+- If the paper constrains the axion decay constant f_a (e.g. cosmological bounds, lattice QCD, domain wall), use AxionMass
+- If the paper measures neutron EDM oscillation from axion dark matter, use AxionEDM
+- If the paper tests equivalence principle / fifth force with torsion balance, classify by the specific coupling parameter
+- If the paper constrains both neutron and proton couplings, prefer AxionNeutron
+- VectorBL is ONLY for explicit B-L gauge symmetry; generic dark photon searches are DarkPhoton
+"""
+
+
+def _classify_coupling_type(
+    paper: arxiv.Result,
+    client: anthropic.Anthropic,
+) -> tuple[str | None, float]:
+    """Lightweight coupling type classification from title + abstract only.
+
+    Returns (coupling_type, confidence). Cheap (~100 tokens output).
+    """
+    prompt = f"Title: {paper.title}\n\nAbstract: {paper.summary[:2000]}"
+    try:
+        resp = _call_with_retry(lambda: client.messages.create(
+            model=CLAUDE_MODEL,
+            max_tokens=128,
+            system=_CLASSIFIER_SYSTEM,
+            messages=[{"role": "user", "content": prompt}],
+        ))
+        result = _parse_json_response(resp.content[0].text)
+        result = _validate_coupling_type(result)
+        ct = result.get("coupling_type")
+        conf = float(result.get("confidence", 0.0))
+        logger.info("Pre-classifier: %s (conf=%.2f) for %s", ct, conf, paper.title[:60])
+        return ct, conf
+    except Exception as e:
+        logger.warning("Pre-classifier failed: %s", e)
+        return None, 0.0
+
+
+# ---------------------------------------------------------------------------
 # Vision calibration: benchmark lines + verification pass
 # ---------------------------------------------------------------------------
 
@@ -560,9 +621,12 @@ def run_extraction_agent(
     arxiv_id = re.sub(r"v\d+$", "", paper.entry_id.split("/")[-1])
     arxiv_url = f"https://arxiv.org/abs/{arxiv_id}"
 
+    # --- Stage 0: lightweight coupling type pre-classification ---
+    pre_ct, pre_conf = _classify_coupling_type(paper, client)
+
     # --- Stage 1: text/table extraction ---
     pdf_text = extract_text_from_pdf(pdf_path)
-    stage1_result = _run_stage1(paper, pdf_text, client)
+    stage1_result = _run_stage1(paper, pdf_text, client, coupling_hint=pre_ct)
 
     stage1_points = len(stage1_result.get("data_points") or [])
     stage1_ok = (
@@ -589,8 +653,9 @@ def run_extraction_agent(
         else:
             logger.info("Stage 1 insufficient for %s; trying vision", arxiv_id)
         figure_paths = extract_figures_from_pdf(pdf_path)
-        # Pass coupling type hint from Stage 1 to help vision read axes correctly
-        coupling_hint = stage1_result.get("coupling_type")
+        # Pass coupling type hint to help vision read axes correctly
+        # Prefer Stage 1's result, fall back to pre-classifier
+        coupling_hint = stage1_result.get("coupling_type") or pre_ct
         stage2_result = _run_stage2(paper, figure_paths, client, coupling_hint=coupling_hint) if figure_paths else {}
         if stage2_result.get("found_limit_plot") and stage2_result.get("data_points"):
             # Use vision data if it has more points than text extraction
@@ -648,11 +713,24 @@ def run_extraction_agent(
         if cal_note:
             stage1_result["notes"] = stage1_result.get("notes", "") + " | Calibration: " + cal_note
 
+    # --- Coupling type fallback: use pre-classifier if extraction returned None ---
+    final_ct = stage1_result.get("coupling_type")
+    if not final_ct and pre_ct and pre_conf >= 0.5:
+        final_ct = pre_ct
+        stage1_result["notes"] = (
+            stage1_result.get("notes", "")
+            + f" | Coupling from pre-classifier ({pre_ct}, conf={pre_conf:.2f})"
+        )
+        logger.info(
+            "Using pre-classifier coupling %s (conf=%.2f) for %s",
+            pre_ct, pre_conf, arxiv_id,
+        )
+
     return ExtractionResult(
         arxiv_id=arxiv_id,
         paper_title=paper.title,
         arxiv_url=arxiv_url,
-        coupling_type=stage1_result.get("coupling_type"),
+        coupling_type=final_ct,
         is_new_limit=bool(stage1_result.get("is_new_limit", False)),
         is_projection=bool(stage1_result.get("is_projection", False)),
         data_points=data_points,
@@ -667,11 +745,21 @@ def run_extraction_agent(
     )
 
 
-def _run_stage1(paper: arxiv.Result, pdf_text: str, client: anthropic.Anthropic) -> dict:
+def _run_stage1(
+    paper: arxiv.Result, pdf_text: str, client: anthropic.Anthropic,
+    coupling_hint: str | None = None,
+) -> dict:
     clean_text = _sanitize_pdf_text(pdf_text)
+    hint_text = ""
+    if coupling_hint:
+        hint_text = (
+            f"\n\nNote: Pre-analysis suggests this paper likely constrains {coupling_hint}. "
+            f"Use this as a hint but override if the paper content clearly indicates otherwise.\n"
+        )
     prompt = (
         f"Title: {paper.title}\n\n"
-        f"Abstract: {paper.summary[:2000]}\n\n"
+        f"Abstract: {paper.summary[:2000]}\n"
+        f"{hint_text}\n"
         f"{_PAPER_CONTENT_DELIMITER}\n{clean_text}\n{_PAPER_CONTENT_DELIMITER}\n"
     )
     try:
