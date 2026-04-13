@@ -259,12 +259,23 @@ _STAGE2_SYSTEM = """\
 You are a particle physics expert reading exclusion limit plots from papers about dark matter.
 
 I am providing images of paper pages. Your task is to trace the LOWER boundary of the \
-exclusion/constraint region on any limit plot you find and return 20–50 (mass, coupling) pairs \
-along that boundary.
+exclusion/constraint region on any limit plot you find and return 30–80 (mass, coupling) pairs \
+along that boundary. Sample MORE densely where the boundary changes slope (corners, peaks, kinks). \
+Sample less densely where the boundary is a smooth straight line on the log-log plot.
 
 The x-axis is the particle mass (usually log scale).
 The y-axis is the coupling constant (log scale).
 The excluded region is ABOVE the boundary (higher coupling values are excluded).
+
+AXIS READING PROTOCOL — follow these steps IN ORDER:
+1. IDENTIFY all major tick labels on both x-axis and y-axis. List them explicitly.
+2. CHECK for axis label multipliers (e.g., "×10⁻¹⁴", "[10⁻¹⁵]"). These multiply ALL tick values.
+3. DETERMINE the full axis range: [x_min, x_max] and [y_min, y_max].
+4. Only THEN trace the exclusion boundary, converting each point to absolute values.
+
+Report your axis readings in the JSON response:
+  "x_axis_ticks": [list of tick values you read, in eV],
+  "y_axis_ticks": [list of tick values you read, in coupling units],
 
 CRITICAL — read axis labels carefully and convert to absolute units:
 - Mass axis: convert to eV. Watch for unit prefixes: μeV (×1e-6), meV (×1e-3), \
@@ -330,6 +341,12 @@ Coupling units by type (return values in these units):
 - VectorBL: g_BL (dimensionless, typical 1e-30 to 1)
 - AxionCPV: coupling (dimensionless, typical 1e-30 to 1)
 
+Common mass unit conversions:
+- 1 μeV = 1e-6 eV, 1 neV = 1e-9 eV, 1 peV = 1e-12 eV
+- 1 meV = 1e-3 eV, 1 keV = 1e3 eV, 1 MeV = 1e6 eV, 1 GeV = 1e9 eV
+- Frequency to mass: m[eV] = 4.136e-15 * f[Hz] (e.g., 1 GHz = 4.136e-6 eV)
+- Wavelength to mass: m[eV] = 1.240e-6 / λ[m]
+
 If the plot shows a well-known theoretical model line (e.g. KSVZ or DFSZ for axion-photon \
 plots), also read the coupling value of that line at the midpoint of the exclusion region's \
 mass range. This helps calibrate the absolute y-axis scale.
@@ -337,6 +354,8 @@ mass range. This helps calibrate the absolute y-axis scale.
 Respond ONLY with a JSON object:
 {
   "found_limit_plot": bool,
+  "x_axis_ticks": [list of x-axis tick values in eV],
+  "y_axis_ticks": [list of y-axis tick values in coupling units],
   "coupling_type": one of ["DarkPhoton", "AxionPhoton", "AxionElectron", "AxionNeutron",
     "AxionProton", "AxionEDM", "AxionCPV", "AxionMass", "MonopoleDipole", "ScalarPhoton",
     "ScalarElectron", "ScalarBaryon", "ScalarNucleon", "VectorBL"] or null,
@@ -481,6 +500,8 @@ def _classify_coupling_type(
 _BENCHMARK_LINES: dict[str, tuple[str, callable]] = {
     "AxionPhoton": ("KSVZ", lambda m: 2e-10 * 1.92 * m),
     "AxionElectron": ("DFSZ_upper", lambda m: 8.943e-11 * (1.0 / 3.0) * m),
+    "DarkPhoton": ("SolarConstraint", lambda m: 1e-14 if m < 1e-2 else 1e-12),
+    "AxionNeutron": ("KSVZ_neutron", lambda m: 2e-10 * abs(-0.02) * m),
 }
 
 _STAGE3_VERIFY_SYSTEM = """\
@@ -639,6 +660,34 @@ def _calibrate_vision_data(
     return data_points, " | ".join(calibration_notes)
 
 
+def _validate_extracted_range(data_points: list, coupling_type: str | None) -> tuple[list, str]:
+    """Check if extracted values fall within expected ranges for the coupling type."""
+    if not data_points or not coupling_type:
+        return data_points, ""
+    from .config import VALID_RANGES
+    valid = VALID_RANGES.get(coupling_type)
+    if not valid:
+        return data_points, ""
+    masses = [p[0] for p in data_points if p[0] > 0]
+    couplings = [p[1] for p in data_points if p[1] > 0]
+    if not masses or not couplings:
+        return data_points, ""
+    notes = []
+    # Check for systematic mass offset (all values off by >1000x)
+    mass_lo, mass_hi = valid["mass"]
+    if all(m > mass_hi * 1e3 for m in masses):
+        notes.append(f"WARNING: all masses > {mass_hi*1e3:.0e}, likely unit error (not in eV?)")
+    elif all(m < mass_lo * 1e-3 for m in masses):
+        notes.append(f"WARNING: all masses < {mass_lo*1e-3:.0e}, likely unit error")
+    # Check for systematic coupling offset
+    coup_lo, coup_hi = valid["coupling"]
+    if all(c > coup_hi * 1e3 for c in couplings):
+        notes.append(f"WARNING: all couplings > {coup_hi*1e3:.0e}, likely missing prefactor")
+    elif all(c < coup_lo * 1e-3 for c in couplings):
+        notes.append(f"WARNING: all couplings < {coup_lo*1e-3:.0e}, likely extra prefactor")
+    return data_points, " | ".join(notes)
+
+
 def run_extraction_agent(
     paper: arxiv.Result,
     pdf_path: Path,
@@ -752,6 +801,13 @@ def run_extraction_agent(
         )
         if cal_note:
             stage1_result["notes"] = stage1_result.get("notes", "") + " | Calibration: " + cal_note
+
+    # --- Range validation ---
+    final_ct_for_validation = stage1_result.get("coupling_type") or pre_ct
+    data_points, range_note = _validate_extracted_range(data_points, final_ct_for_validation)
+    if range_note:
+        stage1_result["notes"] = stage1_result.get("notes", "") + " | " + range_note
+        logger.warning("Range validation for %s: %s", arxiv_id, range_note)
 
     # --- Coupling type fallback: use pre-classifier if extraction returned None ---
     final_ct = stage1_result.get("coupling_type")
