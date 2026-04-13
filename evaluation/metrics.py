@@ -1,6 +1,14 @@
 """Metric computation for extraction evaluation.
 
 All metrics operate on log10 space since limit data spans many orders of magnitude.
+
+Primary metric: interpolation-based comparison.
+  1. Build a log-log interpolation function from extracted data points.
+  2. Evaluate it at the ground-truth mass values.
+  3. Report residuals (log10 coupling error) at each GT point.
+
+This directly answers: "if a physicist uses the extracted curve, how wrong
+is it at the masses where we know the true answer?"
 """
 
 from __future__ import annotations
@@ -10,6 +18,7 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 import numpy as np
+from scipy.interpolate import interp1d
 
 
 @dataclass
@@ -56,6 +65,148 @@ class CurveMetrics:
     median_coupling_log_error: float
     p90_coupling_log_error: float
 
+
+# ---------------------------------------------------------------------------
+# Primary metric: interpolation-based curve comparison
+# ---------------------------------------------------------------------------
+
+@dataclass
+class InterpolationMetrics:
+    """Compare extracted vs ground-truth curves via interpolation.
+
+    Build interp1d from extracted points in log-log space, evaluate at
+    ground-truth mass values, report coupling residuals.
+    """
+    arxiv_id: str
+    num_extracted: int
+    num_ground_truth: int
+    # How many GT points fall inside the extracted mass range (interpolatable)
+    num_interpolatable: int
+    # Fraction of GT points that are interpolatable
+    interpolation_coverage: float
+    # Residuals: |log10(g_interp) - log10(g_gt)| at interpolatable GT masses
+    residuals_dex: np.ndarray  # raw array, not serialized — use summary stats
+    median_residual_dex: float
+    mean_residual_dex: float
+    p90_residual_dex: float
+    max_residual_dex: float
+    # Fraction of interpolatable GT points within tolerance
+    frac_within_0_1dex: float  # ~25% error
+    frac_within_0_3dex: float  # factor-of-2 error
+    frac_within_0_5dex: float  # factor-of-3 error
+    frac_within_1_0dex: float  # order-of-magnitude error
+
+
+def _filter_boundary(data: np.ndarray, coupling_ceil: float = 1e-2) -> np.ndarray:
+    """Remove boundary-closure sentinel points (coupling >= ceil) and
+    non-positive values.  Returns data sorted by mass."""
+    mask = (data[:, 0] > 0) & (data[:, 1] > 0) & (data[:, 1] < coupling_ceil)
+    filtered = data[mask]
+    return filtered[np.argsort(filtered[:, 0])]
+
+
+def _deduplicate_mass(log_mass: np.ndarray, log_coupling: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """When multiple extracted points share the same log-mass, keep the
+    strongest constraint (min coupling in log space)."""
+    unique_m, inverse = np.unique(log_mass, return_inverse=True)
+    min_c = np.full(len(unique_m), np.inf)
+    for i, idx in enumerate(inverse):
+        if log_coupling[i] < min_c[idx]:
+            min_c[idx] = log_coupling[i]
+    return unique_m, min_c
+
+
+def compute_interpolation_metrics(
+    arxiv_id: str,
+    extracted: np.ndarray,
+    ground_truth: np.ndarray,
+    coupling_ceil: float = 1e-2,
+) -> InterpolationMetrics:
+    """Primary evaluation metric.
+
+    1. Filter boundary-closure points from both arrays.
+    2. Build log-log interpolation from extracted data.
+    3. Evaluate at GT mass values within the extracted mass range.
+    4. Report residual statistics.
+
+    Args:
+        extracted: Nx2 (mass_eV, coupling) from pipeline.
+        ground_truth: Mx2 (mass_eV, coupling) manually verified.
+        coupling_ceil: Points with coupling >= this are treated as boundary
+            closure sentinels and filtered out.
+    """
+    ext = _filter_boundary(extracted, coupling_ceil)
+    gt = _filter_boundary(ground_truth, coupling_ceil)
+
+    n_ext = len(ext)
+    n_gt = len(gt)
+
+    # Degenerate cases
+    _empty = InterpolationMetrics(
+        arxiv_id=arxiv_id, num_extracted=n_ext, num_ground_truth=n_gt,
+        num_interpolatable=0, interpolation_coverage=0.0,
+        residuals_dex=np.array([]),
+        median_residual_dex=float("inf"), mean_residual_dex=float("inf"),
+        p90_residual_dex=float("inf"), max_residual_dex=float("inf"),
+        frac_within_0_1dex=0.0, frac_within_0_3dex=0.0,
+        frac_within_0_5dex=0.0, frac_within_1_0dex=0.0,
+    )
+    if n_ext < 2 or n_gt == 0:
+        return _empty
+
+    # Log-space
+    log_ext_m = np.log10(ext[:, 0])
+    log_ext_c = np.log10(ext[:, 1])
+    log_gt_m = np.log10(gt[:, 0])
+    log_gt_c = np.log10(gt[:, 1])
+
+    # Deduplicate extracted masses (keep strongest constraint)
+    log_ext_m, log_ext_c = _deduplicate_mass(log_ext_m, log_ext_c)
+
+    if len(log_ext_m) < 2:
+        return _empty
+
+    # Build interpolation (linear in log-log = power-law in linear)
+    interp_fn = interp1d(
+        log_ext_m, log_ext_c,
+        kind="linear",
+        bounds_error=False,
+        fill_value=np.nan,
+    )
+
+    # Evaluate at GT masses
+    interp_c = interp_fn(log_gt_m)
+
+    # Only keep points inside the extracted mass range (not extrapolated)
+    valid = ~np.isnan(interp_c)
+    n_interpolatable = int(np.sum(valid))
+
+    if n_interpolatable == 0:
+        return _empty
+
+    residuals = np.abs(interp_c[valid] - log_gt_c[valid])
+
+    return InterpolationMetrics(
+        arxiv_id=arxiv_id,
+        num_extracted=n_ext,
+        num_ground_truth=n_gt,
+        num_interpolatable=n_interpolatable,
+        interpolation_coverage=n_interpolatable / n_gt,
+        residuals_dex=residuals,
+        median_residual_dex=float(np.median(residuals)),
+        mean_residual_dex=float(np.mean(residuals)),
+        p90_residual_dex=float(np.percentile(residuals, 90)),
+        max_residual_dex=float(np.max(residuals)),
+        frac_within_0_1dex=float(np.mean(residuals <= 0.1)),
+        frac_within_0_3dex=float(np.mean(residuals <= 0.3)),
+        frac_within_0_5dex=float(np.mean(residuals <= 0.5)),
+        frac_within_1_0dex=float(np.mean(residuals <= 1.0)),
+    )
+
+
+# ---------------------------------------------------------------------------
+# Legacy point-matching metrics (kept as secondary diagnostics)
+# ---------------------------------------------------------------------------
 
 def _log_points(data: np.ndarray) -> np.ndarray:
     """Convert Nx2 data to log10 space, filtering out non-positive values."""
@@ -212,16 +363,17 @@ class ConfidenceBin:
 
 def compute_confidence_calibration(
     confidences: list[float],
-    curve_metrics: list[CurveMetrics],
+    interp_metrics: list[InterpolationMetrics],
     arxiv_ids: list[str],
     n_bins: int = 5,
-    accuracy_threshold_coverage: float = 0.8,
-    accuracy_threshold_error: float = 0.5,
+    accuracy_threshold_residual: float = 0.3,
+    accuracy_threshold_coverage: float = 0.5,
 ) -> list[ConfidenceBin]:
     """Bin papers by extraction_confidence and compute actual accuracy per bin.
 
-    A paper is "accurate" if coverage_at_1_0dex > threshold AND
-    median_coupling_log_error < threshold.
+    A paper is "accurate" if:
+      - median interpolation residual < threshold (default 0.3 dex ≈ factor 2)
+      - interpolation coverage > threshold (default 50% of GT points)
     """
     if not confidences:
         return []
@@ -245,12 +397,12 @@ def compute_confidence_calibration(
 
         bin_confs = [confidences[j] for j in indices]
         bin_ids = [arxiv_ids[j] for j in indices]
-        bin_metrics = [curve_metrics[j] for j in indices]
+        bin_metrics = [interp_metrics[j] for j in indices]
 
         n_accurate = sum(
             1 for m in bin_metrics
-            if m.coverage_at_1_0dex >= accuracy_threshold_coverage
-            and m.median_coupling_log_error < accuracy_threshold_error
+            if m.median_residual_dex < accuracy_threshold_residual
+            and m.interpolation_coverage >= accuracy_threshold_coverage
         )
 
         bins.append(ConfidenceBin(

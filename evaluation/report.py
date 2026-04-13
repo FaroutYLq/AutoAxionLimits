@@ -32,11 +32,12 @@ def generate_report(metrics: dict, output_path: str):
 
     # --- Summary ---
     clf = metrics["classification"]
-    agg = metrics["curve_aggregate"]
+    agg_interp = metrics.get("interpolation_aggregate", {})
+    agg_curve = metrics.get("curve_aggregate", {})
 
     lines.append("## Summary\n")
     lines.append(f"- **Papers evaluated**: {clf['coupling_type']['total']}")
-    lines.append(f"- **Papers with curve comparison**: {agg.get('n_papers_with_curves', 0)}")
+    lines.append(f"- **Papers with curve comparison**: {agg_interp.get('n_papers', agg_curve.get('n_papers_with_curves', 0))}")
     lines.append("")
 
     # --- Classification ---
@@ -58,49 +59,55 @@ def generate_report(metrics: dict, output_path: str):
             lines.append(f"| {err['arxiv_id']} | {err['predicted']} | {err['expected']} |")
         lines.append("")
 
-    # --- Curve Quality ---
-    if agg.get("n_papers_with_curves", 0) > 0:
-        lines.append("## Curve Quality (aggregate)\n")
-        lines.append(f"- **Mean coverage (0.5 dex)**: {_pct(agg.get('mean_coverage_0_5dex'))}")
-        lines.append(f"- **Mean coverage (1.0 dex)**: {_pct(agg.get('mean_coverage_1_0dex'))}")
-        lines.append(f"- **Mean median coupling error**: {_fmt(agg.get('mean_median_coupling_log_error'))} dex")
-        lines.append(f"- **Mean mass range overlap**: {_pct(agg.get('mean_mass_range_overlap'))}")
+    # --- Interpolation Quality (primary) ---
+    if agg_interp.get("n_papers", 0) > 0:
+        lines.append("## Extraction Quality — Interpolation Metric (primary)\n")
+        lines.append("Build log-log interpolation from extracted points, evaluate at ground-truth masses.\n")
+        lines.append(f"- **Mean interpolation coverage**: {_pct(agg_interp.get('mean_interpolation_coverage'))}")
+        lines.append(f"- **Mean median residual**: {_fmt(agg_interp.get('mean_median_residual_dex'))} dex")
+        lines.append(f"- **Mean P90 residual**: {_fmt(agg_interp.get('mean_p90_residual_dex'))} dex")
+        lines.append(f"- **Mean fraction within 0.3 dex (factor 2)**: {_pct(agg_interp.get('mean_frac_within_0_3dex'))}")
+        lines.append(f"- **Mean fraction within 0.5 dex (factor 3)**: {_pct(agg_interp.get('mean_frac_within_0_5dex'))}")
         lines.append("")
 
     # --- Per-paper ---
     per_paper = metrics.get("per_paper", [])
     if per_paper:
         lines.append("## Per-Paper Results\n")
-        lines.append("| arXiv ID | Status | Coupling | Conf. | Coverage (1 dex) | Med. Error | Points |")
-        lines.append("|----------|--------|----------|-------|------------------|------------|--------|")
+        lines.append("| arXiv ID | Coupling | Conf. | Interp. Cov. | Med. Resid. | ≤0.3 dex | Points |")
+        lines.append("|----------|----------|-------|--------------|-------------|----------|--------|")
         for p in per_paper:
-            status = p.get("status", "?")
+            if p.get("status") != "extracted":
+                lines.append(f"| {p['arxiv_id']} | — | — | FAILED | — | — | — |")
+                continue
             coupling_ok = "✓" if p.get("coupling_type_correct") else f"✗ ({p.get('coupling_type_predicted', '?')})"
             conf = _fmt(p.get("extraction_confidence"), 2)
-            cm = p.get("curve_metrics")
-            if cm:
-                cov = _pct(cm["coverage_at_1_0dex"])
-                err = _fmt(cm["median_coupling_log_error"])
-                pts = f"{cm['num_extracted']}/{cm['num_ground_truth']}"
+            im = p.get("interp_metrics")
+            if im:
+                cov = _pct(im["interpolation_coverage"])
+                med = _fmt(im["median_residual_dex"])
+                f03 = _pct(im["frac_within_0_3dex"])
+                pts = f"{im['num_extracted']}/{im['num_ground_truth']}"
             else:
-                cov = err = pts = "—"
-            lines.append(f"| {p['arxiv_id']} | {status} | {coupling_ok} | {conf} | {cov} | {err} | {pts} |")
+                cov = med = f03 = pts = "—"
+            lines.append(f"| {p['arxiv_id']} | {coupling_ok} | {conf} | {cov} | {med} | {f03} | {pts} |")
         lines.append("")
 
     # --- Difficulty breakdown ---
     diff_bd = metrics.get("difficulty_breakdown", {})
     if diff_bd:
         lines.append("## Breakdown by Difficulty\n")
-        lines.append("| Difficulty | Papers | Extracted | Coupling Acc. | Coverage (1 dex) |")
-        lines.append("|------------|--------|-----------|---------------|------------------|")
+        lines.append("| Difficulty | Papers | Coupling Acc. | Med. Resid. | ≤0.3 dex |")
+        lines.append("|------------|--------|---------------|-------------|----------|")
         for diff in ["easy", "medium", "hard"]:
             if diff not in diff_bd:
                 continue
             d = diff_bd[diff]
             lines.append(
-                f"| {diff} | {d['total']} | {d['extracted']} | "
+                f"| {diff} | {d['total']} | "
                 f"{_pct(d['coupling_type_accuracy'])} | "
-                f"{_pct(d.get('mean_coverage_1_0dex'))} |"
+                f"{_fmt(d.get('mean_median_residual_dex'))} dex | "
+                f"{_pct(d.get('mean_frac_within_0_3dex'))} |"
             )
         lines.append("")
 
@@ -108,16 +115,16 @@ def generate_report(metrics: dict, output_path: str):
     src_bd = metrics.get("source_breakdown", {})
     if src_bd:
         lines.append("## Breakdown by Extraction Source\n")
-        lines.append("| Source | Papers | Coverage (1 dex) | Med. Error |")
-        lines.append("|--------|--------|------------------|------------|")
+        lines.append("| Source | Papers | Med. Resid. | ≤0.3 dex |")
+        lines.append("|--------|--------|-------------|----------|")
         for src in ["table", "figure_vision", "text"]:
             if src not in src_bd:
                 continue
             s = src_bd[src]
             lines.append(
                 f"| {src} | {s['total']} | "
-                f"{_pct(s.get('mean_coverage_1_0dex'))} | "
-                f"{_fmt(s.get('mean_median_coupling_error'))} dex |"
+                f"{_fmt(s.get('mean_median_residual_dex'))} dex | "
+                f"{_pct(s.get('mean_frac_within_0_3dex'))} |"
             )
         lines.append("")
 
@@ -142,16 +149,22 @@ def generate_report(metrics: dict, output_path: str):
 
     # --- Methodology ---
     lines.append("## Methodology\n")
-    lines.append("### Curve comparison")
-    lines.append("- All comparisons done in log10 space (mass, coupling)")
-    lines.append("- Boundary closure points (coupling ≥ 1e-2) filtered before comparison")
-    lines.append("- **Coverage**: fraction of ground-truth points with an extracted point within N dex")
-    lines.append("- **Median coupling error**: for mass-matched points (within 0.1 dex), absolute log10 error on coupling")
-    lines.append("- **Mass range overlap**: fraction of ground-truth mass range covered by extracted data")
-    lines.append("- **Hausdorff distance**: max of (max min-distance from ext→GT, max min-distance from GT→ext)")
+    lines.append("### Interpolation metric (primary)")
+    lines.append("1. Filter boundary-closure sentinel points (coupling >= 1e-2) from both extracted and GT data")
+    lines.append("2. Build `scipy.interpolate.interp1d` from extracted points in log10(mass) → log10(coupling) space")
+    lines.append("3. Evaluate the interpolation at each ground-truth mass value")
+    lines.append("4. Compute residual = |log10(g_interpolated) - log10(g_ground_truth)| at each GT point")
+    lines.append("5. Only GT points inside the extracted mass range are used (no extrapolation)")
+    lines.append("")
+    lines.append("**Key statistics:**")
+    lines.append("- **Interpolation coverage**: fraction of GT points inside the extracted mass range")
+    lines.append("- **Median/P90 residual**: summary of coupling errors in dex (0.3 dex ≈ factor 2)")
+    lines.append("- **Fraction within threshold**: what % of GT points have residual below 0.1/0.3/0.5/1.0 dex")
+    lines.append("")
+    lines.append("When multiple extracted points share the same mass, the strongest constraint (lowest coupling) is kept.")
     lines.append("")
     lines.append("### Confidence calibration")
-    lines.append('- A paper is "accurate" if coverage(1 dex) ≥ 80% AND median coupling error < 0.5 dex')
+    lines.append('- A paper is "accurate" if median residual < 0.3 dex AND interpolation coverage ≥ 50%')
     lines.append("- Papers binned by extraction_confidence; actual accuracy computed per bin")
     lines.append("- Perfect calibration: actual accuracy = mean confidence in each bin")
     lines.append("")

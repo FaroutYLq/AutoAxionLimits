@@ -46,8 +46,10 @@ from evaluation.ground_truth import (
 from evaluation.metrics import (
     ClassificationMetrics,
     CurveMetrics,
+    InterpolationMetrics,
     compute_confidence_calibration,
     compute_curve_metrics,
+    compute_interpolation_metrics,
 )
 from evaluation.report import generate_report
 
@@ -158,6 +160,7 @@ def compute_all_metrics(
     data_source_clf = ClassificationMetrics()
 
     curve_metrics_list: list[CurveMetrics] = []
+    interp_metrics_list: list[InterpolationMetrics] = []
     confidences: list[float] = []
     curve_arxiv_ids: list[str] = []
 
@@ -195,10 +198,31 @@ def compute_all_metrics(
         extracted_points = result.get("data_points", [])
         if gt_data is not None and len(extracted_points) > 0:
             ext_array = np.array(extracted_points, dtype=float, ndmin=2)
-            cm = compute_curve_metrics(entry.arxiv_id, ext_array, gt_data)
-            curve_metrics_list.append(cm)
+
+            # Primary: interpolation-based metric
+            im = compute_interpolation_metrics(entry.arxiv_id, ext_array, gt_data)
+            interp_metrics_list.append(im)
             confidences.append(result.get("extraction_confidence", 0.0))
             curve_arxiv_ids.append(entry.arxiv_id)
+
+            paper_report["interp_metrics"] = {
+                "num_extracted": im.num_extracted,
+                "num_ground_truth": im.num_ground_truth,
+                "num_interpolatable": im.num_interpolatable,
+                "interpolation_coverage": im.interpolation_coverage,
+                "median_residual_dex": im.median_residual_dex,
+                "mean_residual_dex": im.mean_residual_dex,
+                "p90_residual_dex": im.p90_residual_dex,
+                "max_residual_dex": im.max_residual_dex,
+                "frac_within_0_1dex": im.frac_within_0_1dex,
+                "frac_within_0_3dex": im.frac_within_0_3dex,
+                "frac_within_0_5dex": im.frac_within_0_5dex,
+                "frac_within_1_0dex": im.frac_within_1_0dex,
+            }
+
+            # Secondary: legacy point-matching metric
+            cm = compute_curve_metrics(entry.arxiv_id, ext_array, gt_data)
+            curve_metrics_list.append(cm)
 
             paper_report["curve_metrics"] = {
                 "hausdorff_log": cm.hausdorff_log,
@@ -211,16 +235,31 @@ def compute_all_metrics(
                 "num_ground_truth": cm.num_ground_truth,
             }
         else:
+            paper_report["interp_metrics"] = None
             paper_report["curve_metrics"] = None
 
         per_paper.append(paper_report)
 
-    # Confidence calibration
+    # Confidence calibration (uses interpolation metrics)
     calibration = compute_confidence_calibration(
-        confidences, curve_metrics_list, curve_arxiv_ids
+        confidences, interp_metrics_list, curve_arxiv_ids
     )
 
-    # Aggregate curve statistics
+    # Aggregate interpolation statistics (primary)
+    if interp_metrics_list:
+        valid = [m for m in interp_metrics_list if m.median_residual_dex < float("inf")]
+        aggregate_interp = {
+            "n_papers": len(interp_metrics_list),
+            "mean_interpolation_coverage": float(np.mean([m.interpolation_coverage for m in interp_metrics_list])),
+            "mean_median_residual_dex": float(np.mean([m.median_residual_dex for m in valid])) if valid else None,
+            "mean_p90_residual_dex": float(np.mean([m.p90_residual_dex for m in valid])) if valid else None,
+            "mean_frac_within_0_3dex": float(np.mean([m.frac_within_0_3dex for m in valid])) if valid else None,
+            "mean_frac_within_0_5dex": float(np.mean([m.frac_within_0_5dex for m in valid])) if valid else None,
+        }
+    else:
+        aggregate_interp = {"n_papers": 0}
+
+    # Aggregate legacy curve statistics (secondary)
     if curve_metrics_list:
         coverages_05 = [m.coverage_at_0_5dex for m in curve_metrics_list]
         coverages_10 = [m.coverage_at_1_0dex for m in curve_metrics_list]
@@ -245,7 +284,9 @@ def compute_all_metrics(
         if not subset:
             continue
         extracted = [p for p in subset if p.get("status") == "extracted"]
-        with_curves = [p for p in extracted if p.get("curve_metrics") is not None]
+        with_interp = [p for p in extracted if p.get("interp_metrics") is not None]
+        valid_interp = [p for p in with_interp
+                        if p["interp_metrics"]["median_residual_dex"] < float("inf")]
         difficulty_breakdown[diff] = {
             "total": len(subset),
             "extracted": len(extracted),
@@ -253,9 +294,13 @@ def compute_all_metrics(
                 sum(1 for p in extracted if p.get("coupling_type_correct")) / len(extracted)
                 if extracted else 0.0
             ),
-            "mean_coverage_1_0dex": (
-                float(np.mean([p["curve_metrics"]["coverage_at_1_0dex"] for p in with_curves]))
-                if with_curves else None
+            "mean_median_residual_dex": (
+                float(np.mean([p["interp_metrics"]["median_residual_dex"] for p in valid_interp]))
+                if valid_interp else None
+            ),
+            "mean_frac_within_0_3dex": (
+                float(np.mean([p["interp_metrics"]["frac_within_0_3dex"] for p in valid_interp]))
+                if valid_interp else None
             ),
         }
 
@@ -265,18 +310,18 @@ def compute_all_metrics(
         subset = [p for p in per_paper if p.get("data_source") == source]
         if not subset:
             continue
-        with_curves = [p for p in subset if p.get("curve_metrics") is not None]
+        with_interp = [p for p in subset if p.get("interp_metrics") is not None]
+        valid_interp = [p for p in with_interp
+                        if p["interp_metrics"]["median_residual_dex"] < float("inf")]
         source_breakdown[source] = {
             "total": len(subset),
-            "mean_coverage_1_0dex": (
-                float(np.mean([p["curve_metrics"]["coverage_at_1_0dex"] for p in with_curves]))
-                if with_curves else None
+            "mean_median_residual_dex": (
+                float(np.mean([p["interp_metrics"]["median_residual_dex"] for p in valid_interp]))
+                if valid_interp else None
             ),
-            "mean_median_coupling_error": (
-                float(np.mean([
-                    p["curve_metrics"]["median_coupling_log_error"] for p in with_curves
-                    if p["curve_metrics"]["median_coupling_log_error"] < float("inf")
-                ])) if with_curves else None
+            "mean_frac_within_0_3dex": (
+                float(np.mean([p["interp_metrics"]["frac_within_0_3dex"] for p in valid_interp]))
+                if valid_interp else None
             ),
         }
 
@@ -287,6 +332,7 @@ def compute_all_metrics(
             "is_projection": {"accuracy": is_projection_clf.accuracy, "total": is_projection_clf.total, "errors": is_projection_clf.errors},
             "data_source": {"accuracy": data_source_clf.accuracy, "total": data_source_clf.total, "errors": data_source_clf.errors},
         },
+        "interpolation_aggregate": aggregate_interp,
         "curve_aggregate": aggregate_curve,
         "confidence_calibration": [asdict(b) for b in calibration],
         "difficulty_breakdown": difficulty_breakdown,
