@@ -29,6 +29,7 @@ import os
 import sys
 import tempfile
 import time
+from collections import defaultdict
 from dataclasses import asdict
 from pathlib import Path
 
@@ -146,6 +147,24 @@ def run_extraction(entry: GroundTruthEntry) -> dict:
     }
 
 
+def _normalize_predicted_coupling(raw_ct):
+    """Normalize a predicted coupling type: handle lists, apply alias normalization."""
+    from pipeline.reviewer import _normalize_coupling_type
+
+    if raw_ct is None:
+        return None
+    # Handle list returns — take first element
+    if isinstance(raw_ct, list):
+        raw_ct = raw_ct[0] if raw_ct else None
+    if raw_ct is None:
+        return None
+    # Try normalization via reviewer aliases
+    try:
+        return _normalize_coupling_type(raw_ct)
+    except KeyError:
+        return raw_ct  # keep raw if normalization fails
+
+
 def compute_all_metrics(
     entries: list[GroundTruthEntry],
     results: list[dict],
@@ -166,8 +185,20 @@ def compute_all_metrics(
 
     per_paper: list[dict] = []
 
+    # Build multi-coupling map: for papers with multiple GT entries,
+    # the single extraction should match ANY expected coupling type
+    expected_couplings_by_id = defaultdict(set)
+    for entry in entries:
+        expected_couplings_by_id[entry.arxiv_id].add(entry.coupling_type)
+
+    # Track which arxiv_ids we've already recorded for coupling classification
+    # to avoid counting the same prediction multiple times for multi-coupling papers
+    seen_coupling_ids: set[str] = set()
+
     for entry, result in zip(entries, results):
         paper_report: dict = {"arxiv_id": entry.arxiv_id, "difficulty": entry.difficulty}
+        is_multi_coupling = len(expected_couplings_by_id[entry.arxiv_id]) > 1
+        paper_report["multi_coupling"] = is_multi_coupling
 
         if "error" in result:
             paper_report["status"] = "extraction_failed"
@@ -181,14 +212,38 @@ def compute_all_metrics(
         paper_report["num_points_extracted"] = result.get("num_points", 0)
         paper_report["elapsed_s"] = result.get("elapsed_s", 0.0)
 
-        # Classification metrics
-        coupling_clf.record(entry.arxiv_id, result.get("coupling_type"), entry.coupling_type)
+        # Normalize predicted coupling type (handles lists + aliases)
+        predicted_ct = _normalize_predicted_coupling(result.get("coupling_type"))
+
+        # For multi-coupling papers, check against ALL expected types
+        all_expected = expected_couplings_by_id[entry.arxiv_id]
+        ct_correct = predicted_ct in all_expected if predicted_ct else False
+
+        # Only record one coupling classification per unique arxiv_id
+        if entry.arxiv_id not in seen_coupling_ids:
+            coupling_clf.record(entry.arxiv_id, predicted_ct, entry.coupling_type)
+            # If this is a multi-coupling paper and the prediction matches a
+            # different GT entry (not this one), fix the classification record
+            if ct_correct and predicted_ct != entry.coupling_type:
+                # Undo the error that record() just added, mark as correct
+                coupling_clf.total -= 1
+                if coupling_clf.errors and coupling_clf.errors[-1]["arxiv_id"] == entry.arxiv_id:
+                    coupling_clf.errors.pop()
+                else:
+                    coupling_clf.correct -= 1
+                coupling_clf.total += 1
+                coupling_clf.correct += 1
+            seen_coupling_ids.add(entry.arxiv_id)
+
         is_limit_clf.record(entry.arxiv_id, result.get("is_new_limit"), entry.is_new_limit)
         is_projection_clf.record(entry.arxiv_id, result.get("is_projection"), entry.is_projection)
         data_source_clf.record(entry.arxiv_id, result.get("data_source"), entry.data_source_expected)
 
-        paper_report["coupling_type_correct"] = result.get("coupling_type") == entry.coupling_type
-        paper_report["coupling_type_predicted"] = result.get("coupling_type")
+        paper_report["coupling_type_correct"] = ct_correct
+        paper_report["coupling_type_predicted"] = predicted_ct
+        paper_report["coupling_type_expected"] = entry.coupling_type
+        if is_multi_coupling:
+            paper_report["all_expected_couplings"] = sorted(all_expected)
 
         # Curve comparison (if ground-truth data is available)
         gt_data = entry.load_data()
