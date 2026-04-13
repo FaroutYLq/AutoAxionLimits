@@ -1,0 +1,3 @@
+# Cached extraction results (contain API outputs, not committed)
+*.json
+!.gitkeep
