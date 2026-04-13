@@ -205,7 +205,9 @@ Look for: electron mass variation, clock comparison constraining m_e, molecular 
 (d_hat or alpha_g). Look for: Yukawa, equivalence principle for nucleons, fifth force, ISL test, torsion pendulum.
 - ScalarBaryon = scalar coupling to BARYONIC MATTER (d_g). Look for: baryon coupling, WEP test, Eotvos, \
 lunar laser ranging.
-- AxionMass = plots f_a [GeV] vs m_a [eV], NOT a coupling constant
+- AxionMass = bounds on axion decay constant f_a [GeV] vs mass m_a [eV]. Includes cosmological bounds \
+(domain wall, hot DM, lattice QCD), astrophysical bounds (SN1987A on f_a), and any paper whose main \
+result is a constraint on f_a or the f_a-m_a relationship. NOT a coupling constant plot.
 - AxionEDM = neutron EDM d_n [e*cm]
 - AxionCPV = CP-violating couplings (theta-bar / CP-odd nuclear forces), NOT the same as AxionEDM
 - AxionNeutron = coupling g_an to NEUTRONS specifically. Look for: neutron spin, comagnetometer with \
@@ -275,7 +277,9 @@ Look for: electron mass variation, clock comparison constraining m_e, molecular 
 (d_hat or alpha_g). Look for: Yukawa, equivalence principle for nucleons, fifth force, ISL test, torsion pendulum.
 - ScalarBaryon = scalar coupling to BARYONIC MATTER (d_g). Look for: baryon coupling, WEP test, Eotvos, \
 lunar laser ranging.
-- AxionMass = plots f_a [GeV] vs m_a [eV], NOT a coupling constant
+- AxionMass = bounds on axion decay constant f_a [GeV] vs mass m_a [eV]. Includes cosmological bounds \
+(domain wall, hot DM, lattice QCD), astrophysical bounds (SN1987A on f_a), and any paper whose main \
+result is a constraint on f_a or the f_a-m_a relationship. NOT a coupling constant plot.
 - AxionEDM = neutron EDM d_n [e*cm]
 - AxionCPV = CP-violating couplings (theta-bar / CP-odd nuclear forces), NOT the same as AxionEDM
 - AxionNeutron = coupling g_an to NEUTRONS specifically. Look for: neutron spin, comagnetometer with \
@@ -630,14 +634,27 @@ def run_extraction_agent(
 
     # --- Stage 1: text/table extraction ---
     pdf_text = extract_text_from_pdf(pdf_path)
-    stage1_result = _run_stage1(paper, pdf_text, client, coupling_hint=pre_ct)
+
+    # Skip Stage 1 if PDF text is too short (scanned/corrupt PDF)
+    if len(pdf_text.strip()) < 500:
+        logger.info(
+            "PDF text too short (%d chars) for %s; skipping to vision",
+            len(pdf_text.strip()), arxiv_id,
+        )
+        stage1_result = {
+            "is_new_limit": False, "data_points": [],
+            "extraction_confidence": 0.0, "coupling_type": pre_ct,
+        }
+        stage1_ok = False
+    else:
+        stage1_result = _run_stage1(paper, pdf_text, client, coupling_hint=pre_ct)
+        stage1_ok = (
+            stage1_result.get("is_new_limit")
+            and len(stage1_result.get("data_points") or []) >= MIN_DATA_POINTS_TEXT
+            and stage1_result.get("extraction_confidence", 0) >= 0.4
+        )
 
     stage1_points = len(stage1_result.get("data_points") or [])
-    stage1_ok = (
-        stage1_result.get("is_new_limit")
-        and stage1_points >= MIN_DATA_POINTS_TEXT
-        and stage1_result.get("extraction_confidence", 0) >= 0.4
-    )
 
     if stage1_ok:
         data_source = stage1_result.get("data_source", "table")
