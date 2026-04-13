@@ -38,21 +38,30 @@ _COUPLING_ALIASES: dict[str, str] = {
     # AxionProton
     "axionproton": "AxionProton",
     "g_ap": "AxionProton",
+    "g_app": "AxionProton",
     "alp-proton": "AxionProton",
     "alp proton": "AxionProton",
     "axion proton": "AxionProton",
     "axion-proton": "AxionProton",
-    # AxionNeutron
+    # AxionNeutron (also default for generic "nucleon" coupling)
     "axionneutron": "AxionNeutron",
+    "axionnucleon": "AxionNeutron",
+    "axion nucleon": "AxionNeutron",
+    "axion-nucleon": "AxionNeutron",
+    "alp-nucleon": "AxionNeutron",
+    "alp nucleon": "AxionNeutron",
     "g_an": "AxionNeutron",
+    "g_ann": "AxionNeutron",
     "alp-neutron": "AxionNeutron",
     "alp neutron": "AxionNeutron",
     "axion neutron": "AxionNeutron",
+    "axion-neutron": "AxionNeutron",
     # AxionElectron
     "axionelectron": "AxionElectron",
     "g_ae": "AxionElectron",
     "gaee": "AxionElectron",
     "g_aee": "AxionElectron",
+    "axion-electron": "AxionElectron",
     "axion-electron coupling": "AxionElectron",
     "alp-electron": "AxionElectron",
     "axion electron": "AxionElectron",
@@ -73,6 +82,7 @@ _COUPLING_ALIASES: dict[str, str] = {
     "dark photon": "DarkPhoton",
     "kinetic mixing": "DarkPhoton",
     "hidden photon": "DarkPhoton",
+    "hidden sector photon": "DarkPhoton",
     # AxionEDM
     "axionedm": "AxionEDM",
     "axion edm": "AxionEDM",
@@ -116,12 +126,18 @@ _COUPLING_ALIASES: dict[str, str] = {
     "scalarbaryon": "ScalarBaryon",
     "scalar baryon": "ScalarBaryon",
     "scalar-baryon": "ScalarBaryon",
+    "d_baryon": "ScalarBaryon",
+    "d_g": "ScalarBaryon",
     "fifth force baryon": "ScalarBaryon",
     "yukawa baryon": "ScalarBaryon",
+    "dilaton baryon": "ScalarBaryon",
+    "equivalence principle baryon": "ScalarBaryon",
     # ScalarNucleon
     "scalarnucleon": "ScalarNucleon",
     "scalar nucleon": "ScalarNucleon",
     "scalar-nucleon": "ScalarNucleon",
+    "d_nucleon": "ScalarNucleon",
+    "d_hat": "ScalarNucleon",
     "yukawa_interaction_strength": "ScalarNucleon",
     "yukawa interaction": "ScalarNucleon",
     "yukawa nucleon": "ScalarNucleon",
@@ -160,11 +176,13 @@ def _normalize_coupling_type(raw: str) -> str:
             canonical = _COUPLING_ALIASES[candidate]
             logger.info("Normalized coupling type %r → %r", raw, canonical)
             return canonical
-    # Fuzzy: check if any alias is a substring of the input
-    for alias, canonical in _COUPLING_ALIASES.items():
-        if alias in key:
-            logger.info("Normalized coupling type %r → %r (substring match on %r)", raw, canonical, alias)
-            return canonical
+    # Fuzzy: check if any alias is a substring of the input.
+    # Use longest match to avoid e.g. "d_g" matching before "d_gamma".
+    matches = [(alias, canonical) for alias, canonical in _COUPLING_ALIASES.items() if alias in key]
+    if matches:
+        alias, canonical = max(matches, key=lambda x: len(x[0]))
+        logger.info("Normalized coupling type %r → %r (substring match on %r)", raw, canonical, alias)
+        return canonical
     raise KeyError(raw)
 
 CLAUDE_MODEL = "claude-haiku-4-5-20251001"
