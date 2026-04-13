@@ -197,21 +197,30 @@ Respond ONLY with a JSON object with these keys:
 Coupling type disambiguation (use EXACTLY one of the enum values above):
 - VectorBL = U(1)_{{B-L}} gauge boson (g_BL), NOT a generic dark photon
 - MonopoleDipole = spin-mass CP-odd force (g_s*g_p product)
-- ScalarPhoton = scalar coupling to photons via d_e (fine-structure variation)
-- ScalarElectron = scalar coupling to electron mass d_me
-- ScalarNucleon = scalar coupling to nucleons (equivalence principle / fifth force)
-- ScalarBaryon = scalar coupling to baryonic matter
+- ScalarPhoton = scalar coupling to PHOTONS, constrains variation of fine-structure constant alpha \
+(d_e or d_gamma). Look for: alpha variation, clock comparison constraining alpha, optical cavity.
+- ScalarElectron = scalar coupling to ELECTRON MASS, constrains variation of m_e (d_me or d_{{m_e}}). \
+Look for: electron mass variation, clock comparison constraining m_e, molecular spectroscopy.
+- ScalarNucleon = scalar coupling to NUCLEON MASS, constrains Yukawa-type fifth force between nucleons \
+(d_hat or alpha_g). Look for: Yukawa, equivalence principle for nucleons, fifth force, ISL test, torsion pendulum.
+- ScalarBaryon = scalar coupling to BARYONIC MATTER (d_g). Look for: baryon coupling, WEP test, Eotvos, \
+lunar laser ranging.
 - AxionMass = plots f_a [GeV] vs m_a [eV], NOT a coupling constant
 - AxionEDM = neutron EDM d_n [e*cm]
 - AxionCPV = CP-violating couplings (theta-bar / CP-odd nuclear forces), NOT the same as AxionEDM
-- AxionNeutron vs AxionProton: check which nucleon the paper constrains
+- AxionNeutron = coupling g_an to NEUTRONS specifically. Look for: neutron spin, comagnetometer with \
+neutron-rich isotopes (e.g. 3He, 129Xe), nEDM, neutron beam. If the paper constrains a generic \
+"nucleon" coupling without specifying, prefer AxionNeutron.
+- AxionProton = coupling g_ap to PROTONS specifically. Look for: proton spin, NMR with proton-rich \
+samples, hydrogen maser.
 
-extraction_confidence rubric:
-- 0.9+: data read from a clearly labeled table with mass & coupling columns
-- 0.7-0.9: explicit numerical values found in text
-- 0.5-0.7: values inferred from figure captions or approximate text
-- 0.3-0.5: coupling type identified but data points uncertain
-- <0.3: cannot reliably identify coupling type or extract data
+extraction_confidence rubric (coupling type AND data quality):
+- 0.9+: coupling type unambiguous from title/abstract AND data from clearly labeled table
+- 0.7-0.9: coupling type clear AND explicit numerical values in text or readable plot
+- 0.5-0.7: coupling type probable but paper discusses multiple couplings, OR data approximate
+- 0.3-0.5: coupling type uncertain (could be multiple types) OR data points unreliable
+- <0.3: cannot identify coupling type OR no extractable data
+If you are unsure which of 2+ coupling types is correct, confidence MUST be ≤0.5.
 
 If you cannot find data, set data_points to [] and extraction_confidence < 0.3.
 Use scientific notation in data_points (Python float literals accepted).
@@ -258,21 +267,30 @@ values (1e-15, 1e-14, 1e-13), not just the exponents.
 Coupling type disambiguation (use EXACTLY one of the values listed below):
 - VectorBL = U(1)_{B-L} gauge boson (g_BL), NOT a generic dark photon
 - MonopoleDipole = spin-mass CP-odd force (g_s*g_p product)
-- ScalarPhoton = scalar coupling to photons via d_e (fine-structure variation)
-- ScalarElectron = scalar coupling to electron mass d_me
-- ScalarNucleon = scalar coupling to nucleons (equivalence principle / fifth force)
-- ScalarBaryon = scalar coupling to baryonic matter
+- ScalarPhoton = scalar coupling to PHOTONS, constrains variation of fine-structure constant alpha \
+(d_e or d_gamma). Look for: alpha variation, clock comparison constraining alpha, optical cavity.
+- ScalarElectron = scalar coupling to ELECTRON MASS, constrains variation of m_e (d_me or d_{m_e}). \
+Look for: electron mass variation, clock comparison constraining m_e, molecular spectroscopy.
+- ScalarNucleon = scalar coupling to NUCLEON MASS, constrains Yukawa-type fifth force between nucleons \
+(d_hat or alpha_g). Look for: Yukawa, equivalence principle for nucleons, fifth force, ISL test, torsion pendulum.
+- ScalarBaryon = scalar coupling to BARYONIC MATTER (d_g). Look for: baryon coupling, WEP test, Eotvos, \
+lunar laser ranging.
 - AxionMass = plots f_a [GeV] vs m_a [eV], NOT a coupling constant
 - AxionEDM = neutron EDM d_n [e*cm]
 - AxionCPV = CP-violating couplings (theta-bar / CP-odd nuclear forces), NOT the same as AxionEDM
-- AxionNeutron vs AxionProton: check which nucleon the paper constrains
+- AxionNeutron = coupling g_an to NEUTRONS specifically. Look for: neutron spin, comagnetometer with \
+neutron-rich isotopes (e.g. 3He, 129Xe), nEDM, neutron beam. If the paper constrains a generic \
+"nucleon" coupling without specifying, prefer AxionNeutron.
+- AxionProton = coupling g_ap to PROTONS specifically. Look for: proton spin, NMR with proton-rich \
+samples, hydrogen maser.
 
-extraction_confidence rubric:
-- 0.9+: data read from a clearly labeled table with mass & coupling columns
-- 0.7-0.9: explicit numerical values found in text or clearly readable plot
-- 0.5-0.7: values inferred from figure captions or approximate readings
-- 0.3-0.5: coupling type identified but data points uncertain
-- <0.3: cannot reliably identify coupling type or extract data
+extraction_confidence rubric (coupling type AND data quality):
+- 0.9+: coupling type unambiguous from title/abstract AND data from clearly labeled table
+- 0.7-0.9: coupling type clear AND explicit numerical values in text or clearly readable plot
+- 0.5-0.7: coupling type probable but paper discusses multiple couplings, OR data approximate
+- 0.3-0.5: coupling type uncertain (could be multiple types) OR data points unreliable
+- <0.3: cannot identify coupling type OR no extractable data
+If you are unsure which of 2+ coupling types is correct, confidence MUST be ≤0.5.
 
 Coupling units by type (return values in these units):
 - AxionPhoton: g_agamma in GeV^-1 (typical range 1e-25 to 1e-3)
@@ -325,6 +343,44 @@ def _parse_json_response(text: str) -> dict:
         import json
         return json.loads(match.group(0))
     raise ValueError(f"No JSON found in response: {text[:300]}")
+
+
+# ---------------------------------------------------------------------------
+# Post-extraction coupling type validation
+# ---------------------------------------------------------------------------
+
+_VALID_COUPLING_TYPES = {
+    "DarkPhoton", "AxionPhoton", "AxionElectron", "AxionNeutron",
+    "AxionProton", "AxionEDM", "AxionCPV", "AxionMass",
+    "MonopoleDipole", "ScalarPhoton", "ScalarElectron",
+    "ScalarBaryon", "ScalarNucleon", "VectorBL",
+}
+
+
+def _validate_coupling_type(result: dict) -> dict:
+    """Normalize coupling_type to a valid enum value."""
+    ct = result.get("coupling_type")
+    if ct is None:
+        return result
+    # Handle list returns — take first
+    if isinstance(ct, list):
+        ct = ct[0] if ct else None
+    if ct is None:
+        result["coupling_type"] = None
+        return result
+    if ct in _VALID_COUPLING_TYPES:
+        result["coupling_type"] = ct
+        return result
+    # Try normalization from reviewer aliases (lazy import to avoid circular dependency:
+    # extractor.py <-> reviewer.py; safe because both modules are fully loaded by call time)
+    try:
+        from .reviewer import _normalize_coupling_type
+        ct = _normalize_coupling_type(ct)
+    except (KeyError, ImportError):
+        logger.warning("Invalid coupling_type %r, setting to None", ct)
+        ct = None
+    result["coupling_type"] = ct
+    return result
 
 
 # ---------------------------------------------------------------------------
@@ -625,7 +681,8 @@ def _run_stage1(paper: arxiv.Result, pdf_text: str, client: anthropic.Anthropic)
             system=_STAGE1_SYSTEM,
             messages=[{"role": "user", "content": prompt}],
         ))
-        return _parse_json_response(resp.content[0].text)
+        result = _parse_json_response(resp.content[0].text)
+        return _validate_coupling_type(result)
     except Exception as e:
         logger.warning("Stage 1 failed: %s", e)
         return {"is_new_limit": False, "data_points": [], "extraction_confidence": 0.0}
@@ -672,7 +729,8 @@ def _run_stage2(
             system=_STAGE2_SYSTEM,
             messages=[{"role": "user", "content": content}],
         ))
-        return _parse_json_response(resp.content[0].text)
+        result = _parse_json_response(resp.content[0].text)
+        return _validate_coupling_type(result)
     except Exception as e:
         logger.warning("Stage 2 failed: %s", e)
         return {"found_limit_plot": False, "data_points": [], "extraction_confidence": 0.0}
