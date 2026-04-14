@@ -390,9 +390,17 @@ Coupling units by type (return values in these units):
 _STAGE2_SYSTEM = """\
 You are a particle physics expert reading exclusion limit plots from papers about dark matter.
 
-I am providing images of paper pages. Your task is to trace the LOWER boundary of the \
-exclusion/constraint region on any limit plot you find and return 30–80 (mass, coupling) pairs \
-along that boundary. Sample MORE densely where the boundary changes slope (corners, peaks, kinks). \
+I am providing images of paper pages. Your task is to trace the LOWER boundary of \
+THIS PAPER'S NEW exclusion/constraint region and return 30–80 (mass, coupling) pairs.
+
+CRITICAL: You must trace the NEW result from THIS paper — it is usually:
+- Highlighted in a distinct color (red, blue, or bold)
+- Labeled with the experiment name or "this work"
+- The lowest unfilled boundary curve
+Do NOT trace pre-existing limits from OTHER experiments (typically shown in grey, \
+light shading, or labeled with other experiment names like ADMX, CAST, etc.).
+
+Sample MORE densely where the boundary changes slope (corners, peaks, kinks). \
 Sample less densely where the boundary is a smooth straight line on the log-log plot.
 
 The x-axis is the particle mass (usually log scale).
@@ -842,7 +850,11 @@ def _validate_extracted_range(data_points: list, coupling_type: str | None) -> t
             notes.append(f"WARNING: median mass {median_mass:.1e} outside range [{mass_lo:.0e}, {mass_hi:.0e}]")
 
     # --- Auto-correct coupling unit errors ---
+    # Skip for AxionMass — uses f_a [GeV] vs m_a [eV], not a standard coupling
+    if coupling_type == "AxionMass":
+        return data_points, " | ".join(notes)
     # Check for missing/extra prefactors (powers of 10)
+    # Threshold: 1000x outside valid range (3 orders of magnitude margin)
     if median_coup > coup_hi * 1e3:
         # Coupling way too large — likely missing a negative exponent
         import math
@@ -864,6 +876,114 @@ def _validate_extracted_range(data_points: list, coupling_type: str | None) -> t
             data_points = [(m, g * correction) for m, g in data_points]
             notes.append(f"Auto-corrected couplings: ×{correction:.2e} ({correction_exp:.0f} orders too small)")
     return data_points, " | ".join(notes)
+
+
+def _fix_bare_exponent_data(data_points: list[tuple[float, float]]) -> list[tuple[float, float]]:
+    """Fix data points where mass or coupling values are bare exponents.
+
+    Common LLM error: returning -14 instead of 1e-14, or 6 instead of 1e6.
+    Physics values are always positive; negative values in data_points are always exponents.
+    Also detects when values look like exponents (small integers) vs actual values.
+    """
+    if not data_points:
+        return data_points
+
+    fixed = []
+    n_fixed_m = 0
+    n_fixed_g = 0
+
+    for m, g in data_points:
+        # Fix negative values (always exponents for physics quantities)
+        if m < 0 and m > -50:
+            m = 10 ** m
+            n_fixed_m += 1
+        if g < 0 and g > -50:
+            g = 10 ** g
+            n_fixed_g += 1
+        if m > 0 and g > 0:
+            fixed.append((m, g))
+
+    # Also detect when ALL coupling values look like integer exponents
+    # e.g., all couplings are between -40 and 0 (bare exponents)
+    # This catches cases where some are already fixed above but others are positive exponents
+    if fixed:
+        couplings = [g for _, g in fixed]
+        # Check if couplings look like small positive integers (exponents like 3, 7, 14)
+        # Heuristic: if median coupling is between 1 and 50 and all are < 100,
+        # they might be exponents (e.g., 14 meaning 1e14 or 10^-14)
+        import numpy as np
+        median_c = np.median(couplings)
+        if 1 < median_c < 50 and all(0.5 < c < 100 for c in couplings):
+            # These look like positive exponents. But are they?
+            # Check: if treating them as 10^-c puts them in a reasonable coupling range,
+            # they're probably exponents that should be negative
+            test_neg = [10 ** (-c) for c in couplings]
+            median_neg = np.median(test_neg)
+            # A coupling of 10^-14 is reasonable for many types; 14 is not
+            if median_neg < 1e-3:
+                logger.info(
+                    "Fixing bare positive exponents in coupling: median %.1f → %.2e",
+                    median_c, median_neg,
+                )
+                fixed = [(m, 10 ** (-g)) for m, g in fixed]
+                n_fixed_g += len(fixed)
+
+    if n_fixed_m > 0 or n_fixed_g > 0:
+        logger.info(
+            "Fixed bare exponents: %d mass values, %d coupling values",
+            n_fixed_m, n_fixed_g,
+        )
+
+    return fixed
+
+
+def _extract_mass_range_from_abstract(abstract: str) -> tuple[float, float] | None:
+    """Extract mass range mentioned in abstract using regex patterns.
+    Returns (mass_min_eV, mass_max_eV) or None."""
+    import re
+
+    # Common patterns: "10^{-6} to 10^{-3} eV", "between 1e-6 and 1e-3 eV"
+    # Also: "1-100 μeV", "0.1-10 GHz"
+    unit_factors = {
+        'ev': 1.0, 'μev': 1e-6, 'uev': 1e-6, 'nev': 1e-9, 'pev': 1e-12,
+        'mev': 1e-3, 'kev': 1e3, 'gev': 1e9, 'tev': 1e12,
+        'ghz': 4.136e-6, 'mhz': 4.136e-9, 'khz': 4.136e-12, 'hz': 4.136e-15,
+    }
+
+    # Pattern: 10^{-X} ... 10^{-Y} unit
+    pattern1 = r'10\^?\{?[−-]?(\d+)\}?\s*(?:to|--?|-|–|and)\s*10\^?\{?[−-]?(\d+)\}?\s*~?\s*((?:μ|u)?[ekgmtnp]?[eE][vV]|[GKMT]?Hz)'
+    m = re.search(pattern1, abstract)
+    if m:
+        try:
+            e1, e2 = -int(m.group(1)), -int(m.group(2))
+            unit = m.group(3).lower().replace('μ', 'u')
+            factor = 1.0
+            for k, v in unit_factors.items():
+                if k in unit:
+                    factor = v
+                    break
+            v1, v2 = 10**e1 * factor, 10**e2 * factor
+            return (min(v1, v2), max(v1, v2))
+        except (ValueError, OverflowError):
+            pass
+
+    # Pattern: X-Y unit (e.g., "1-100 μeV", "4.8-4.9 GHz")
+    pattern2 = r'(\d+\.?\d*)\s*(?:to|--?|–)\s*(\d+\.?\d*)\s*((?:μ|u)?[ekgmtnp]?[eE][vV]|[GKMT]?Hz)'
+    m = re.search(pattern2, abstract)
+    if m:
+        try:
+            v1, v2 = float(m.group(1)), float(m.group(2))
+            unit = m.group(3).lower().replace('μ', 'u')
+            factor = 1.0
+            for k, v in unit_factors.items():
+                if k in unit:
+                    factor = v
+                    break
+            return (min(v1, v2) * factor, max(v1, v2) * factor)
+        except (ValueError, OverflowError):
+            pass
+
+    return None
 
 
 def run_extraction_agent(
@@ -894,10 +1014,14 @@ def run_extraction_agent(
         stage1_ok = False
     else:
         stage1_result = _run_stage1(paper, pdf_text, client, coupling_hint=pre_ct)
+        stage1_conf = stage1_result.get("extraction_confidence", 0)
+        stage1_n_pts = len(stage1_result.get("data_points") or [])
+        # Accept text extraction with fewer points if confidence is high
+        min_pts = MIN_DATA_POINTS_TEXT if stage1_conf < 0.8 else 2
         stage1_ok = (
             stage1_result.get("is_new_limit")
-            and len(stage1_result.get("data_points") or []) >= MIN_DATA_POINTS_TEXT
-            and stage1_result.get("extraction_confidence", 0) >= 0.4
+            and stage1_n_pts >= min_pts
+            and stage1_conf >= 0.4
         )
 
     stage1_points = len(stage1_result.get("data_points") or [])
@@ -929,6 +1053,8 @@ def run_extraction_agent(
         stage2_result = _run_stage2(paper, figure_paths, client, coupling_hint=coupling_hint, axis_info=axis_info) if figure_paths else {}
 
         if stage2_result.get("found_limit_plot") and stage2_result.get("data_points"):
+            # Save Stage 1 data for potential fallback
+            stage1_result["_stage1_data_points"] = list(stage1_result.get("data_points") or [])
             # Use vision data if it has more points than text extraction
             stage2_points = len(stage2_result["data_points"])
             if stage2_points > stage1_points:
@@ -962,9 +1088,9 @@ def run_extraction_agent(
         else:
             logger.info("Both stages failed for %s", arxiv_id)
 
-    data_points = [
-        (float(m), float(g)) for m, g in stage1_result.get("data_points", [])
-    ]
+    data_points = _fix_bare_exponent_data(
+        [(float(m), float(g)) for m, g in stage1_result.get("data_points", [])],
+    )
 
     # --- Vision calibration: benchmark + verification pass ---
     if stage1_result.get("data_source") == "figure_vision" and data_points:
@@ -984,12 +1110,69 @@ def run_extraction_agent(
         if cal_note:
             stage1_result["notes"] = stage1_result.get("notes", "") + " | Calibration: " + cal_note
 
+    # --- Abstract mass range cross-validation ---
+    if data_points and paper.summary:
+        abstract_range = _extract_mass_range_from_abstract(paper.summary)
+        if abstract_range:
+            import numpy as np
+            ext_masses = [m for m, g in data_points if m > 0]
+            if ext_masses:
+                ext_median = np.median(ext_masses)
+                abs_median = np.sqrt(abstract_range[0] * abstract_range[1])
+                mass_offset = abs(np.log10(ext_median) - np.log10(abs_median))
+                if mass_offset > 3:
+                    # Extracted masses are >3 dex from abstract range — try correction
+                    ratio = abs_median / ext_median
+                    known_factors = [1e-15, 1e-12, 1e-9, 1e-6, 1e-3, 1e3, 1e6, 1e9]
+                    best = min(known_factors, key=lambda f: abs(np.log10(ratio / f)))
+                    if abs(np.log10(ratio / best)) < 1.0:
+                        logger.info(
+                            "Abstract cross-val: masses off by %.1f dex, correcting by %.1e",
+                            mass_offset, best,
+                        )
+                        data_points = [(m * best, g) for m, g in data_points]
+                        stage1_result["notes"] = (
+                            stage1_result.get("notes", "")
+                            + f" | Abstract mass correction: x{best:.0e}"
+                        )
+
     # --- Range validation ---
     final_ct_for_validation = stage1_result.get("coupling_type") or pre_ct
     data_points, range_note = _validate_extracted_range(data_points, final_ct_for_validation)
     if range_note:
         stage1_result["notes"] = stage1_result.get("notes", "") + " | " + range_note
         logger.warning("Range validation for %s: %s", arxiv_id, range_note)
+
+    # --- Retry vision if result looks bad (coupling clearly wrong for type) ---
+    if (data_points and stage1_result.get("data_source") == "figure_vision"
+            and final_ct_for_validation and not stage1_result.get("_retried")):
+        import numpy as np
+        couplings = [g for _, g in data_points if g > 0]
+        if couplings:
+            from .config import VALID_RANGES
+            vr = VALID_RANGES.get(final_ct_for_validation, {})
+            if vr:
+                coup_lo, coup_hi = vr.get("coupling", (1e-30, 1e0))
+                log_med = np.log10(np.median(couplings))
+                log_lo, log_hi = np.log10(coup_lo), np.log10(coup_hi)
+                # If median is >5 dex outside valid range, result is clearly wrong
+                if log_med > log_hi + 5 or log_med < log_lo - 5:
+                    logger.warning(
+                        "Vision result for %s has coupling %.1e (valid=[%.0e,%.0e]), "
+                        "retrying with Stage 1 text only",
+                        arxiv_id, np.median(couplings), coup_lo, coup_hi,
+                    )
+                    # Fall back to Stage 1 data even if it has fewer points
+                    s1_pts = [(float(m), float(g))
+                              for m, g in (stage1_result.get("_stage1_data_points") or [])
+                              if float(g) > 0]
+                    if len(s1_pts) >= 2:
+                        data_points = _fix_bare_exponent_data(s1_pts)
+                        stage1_result["data_source"] = "text"
+                        stage1_result["notes"] = (
+                            stage1_result.get("notes", "")
+                            + " | Vision retry: fell back to Stage 1 text data"
+                        )
 
     # --- Coupling type fallback: use pre-classifier if extraction returned None ---
     final_ct = stage1_result.get("coupling_type")
@@ -1736,9 +1919,11 @@ def _run_stage2(
         {
             "type": "text",
             "text": (
-                f"Title: {paper.title}\nAbstract: {paper.summary[:500]}\n\n"
-                "Please examine the following pages for exclusion limit plots "
-                "and trace the constraint boundary."
+                f"Paper title: {paper.title}\n"
+                f"Abstract: {paper.summary[:500]}\n\n"
+                f"Find the exclusion limit plot and trace the NEW constraint boundary "
+                f"from THIS paper (matching the title above). "
+                f"Ignore pre-existing limits from other experiments."
                 + hint_text
                 + axis_context
             ),
