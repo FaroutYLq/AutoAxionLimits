@@ -734,7 +734,6 @@ def _validate_extracted_range(data_points: list, coupling_type: str | None) -> t
             logger.info("Auto-correcting couplings: ×%.2e (%.0f orders too small)", correction, correction_exp)
             data_points = [(m, g * correction) for m, g in data_points]
             notes.append(f"Auto-corrected couplings: ×{correction:.2e} ({correction_exp:.0f} orders too small)")
-
     return data_points, " | ".join(notes)
 
 
