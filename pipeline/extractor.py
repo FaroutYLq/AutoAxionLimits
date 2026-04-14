@@ -25,11 +25,12 @@ import httpx
 logger = logging.getLogger(__name__)
 
 CLAUDE_MODEL = "claude-haiku-4-5-20251001"
+CLAUDE_MODEL_VISION = CLAUDE_MODEL  # Use same model; override for testing
 
 # Minimum data points from text extraction to skip vision fallback.
 # Exclusion curves typically need 10+ points to define a boundary properly.
 # If text extraction returns fewer than this, try vision to trace the plot.
-MIN_DATA_POINTS_TEXT = 5
+MIN_DATA_POINTS_TEXT = 3
 
 # ---------------------------------------------------------------------------
 # API retry helper
@@ -135,8 +136,11 @@ def extract_text_from_pdf(pdf_path: Path, max_chars: int = 60_000) -> str:
     return text[:max_chars]
 
 
-def extract_figures_from_pdf(pdf_path: Path, max_figures: int = 10, dpi: int = 150) -> list[Path]:
-    """Render PDF pages to PNG images (one per page, up to max_figures)."""
+def extract_figures_from_pdf(pdf_path: Path, max_figures: int = 10, dpi: int = 200) -> list[Path]:
+    """Extract figures from PDF — tries individual image extraction first, falls back to page rendering.
+
+    Cropping individual figures gives cleaner input for vision models than full pages.
+    """
     try:
         import fitz
     except ImportError:
@@ -146,6 +150,48 @@ def extract_figures_from_pdf(pdf_path: Path, max_figures: int = 10, dpi: int = 1
     out_dir = pdf_path.parent / "figures"
     out_dir.mkdir(exist_ok=True)
     paths: list[Path] = []
+
+    # Strategy 1: Extract embedded images with bounding boxes (cleaner, cropped figures)
+    figure_regions = []
+    for page_num, page in enumerate(doc):
+        images = page.get_images(full=True)
+        for img_idx, img in enumerate(images):
+            try:
+                bbox = page.get_image_bbox(img)
+                if bbox.is_empty or bbox.is_infinite:
+                    continue
+                # Filter by size: figures are typically >200x200 pixels at 72dpi
+                width = bbox.width
+                height = bbox.height
+                if width > 150 and height > 150:
+                    figure_regions.append((page_num, bbox, width * height))
+            except Exception:
+                continue
+
+    if figure_regions:
+        # Sort by area (largest first — exclusion plots are usually the biggest figures)
+        figure_regions.sort(key=lambda x: x[2], reverse=True)
+        mat = fitz.Matrix(dpi / 72, dpi / 72)
+        for i, (page_num, bbox, _) in enumerate(figure_regions[:max_figures]):
+            page = doc[page_num]
+            # Add small margin around the figure to capture axis labels
+            margin = 20  # points
+            clip = fitz.Rect(
+                max(0, bbox.x0 - margin),
+                max(0, bbox.y0 - margin),
+                min(page.rect.width, bbox.x1 + margin),
+                min(page.rect.height, bbox.y1 + margin),
+            )
+            pix = page.get_pixmap(matrix=mat, clip=clip)
+            img_path = out_dir / f"fig_{page_num:02d}_{i:03d}.png"
+            pix.save(str(img_path))
+            paths.append(img_path)
+        if paths:
+            logger.info("Extracted %d individual figures from %s", len(paths), pdf_path.name)
+            doc.close()
+            return paths
+
+    # Strategy 2: Fallback to full-page rendering (for vector graphics PDFs)
     mat = fitz.Matrix(dpi / 72, dpi / 72)
     for i, page in enumerate(doc):
         if i >= max_figures:
@@ -578,7 +624,7 @@ def _run_vision_verify(
         )
     try:
         resp = _call_with_retry(lambda: client.messages.create(
-            model=CLAUDE_MODEL,
+            model=CLAUDE_MODEL_VISION,
             max_tokens=1024,
             system=_STAGE3_VERIFY_SYSTEM,
             messages=[{"role": "user", "content": content}],
@@ -671,7 +717,7 @@ def _calibrate_vision_data(
 
 
 def _validate_extracted_range(data_points: list, coupling_type: str | None) -> tuple[list, str]:
-    """Check if extracted values fall within expected ranges for the coupling type."""
+    """Check if extracted values fall within expected ranges. Auto-correct systematic unit errors."""
     if not data_points or not coupling_type:
         return data_points, ""
     from .config import VALID_RANGES
@@ -683,18 +729,56 @@ def _validate_extracted_range(data_points: list, coupling_type: str | None) -> t
     if not masses or not couplings:
         return data_points, ""
     notes = []
-    # Check for systematic mass offset (all values off by >1000x)
     mass_lo, mass_hi = valid["mass"]
-    if all(m > mass_hi * 1e3 for m in masses):
-        notes.append(f"WARNING: all masses > {mass_hi*1e3:.0e}, likely unit error (not in eV?)")
-    elif all(m < mass_lo * 1e-3 for m in masses):
-        notes.append(f"WARNING: all masses < {mass_lo*1e-3:.0e}, likely unit error")
-    # Check for systematic coupling offset
     coup_lo, coup_hi = valid["coupling"]
-    if all(c > coup_hi * 1e3 for c in couplings):
-        notes.append(f"WARNING: all couplings > {coup_hi*1e3:.0e}, likely missing prefactor")
-    elif all(c < coup_lo * 1e-3 for c in couplings):
-        notes.append(f"WARNING: all couplings < {coup_lo*1e-3:.0e}, likely extra prefactor")
+    median_mass = sorted(masses)[len(masses) // 2]
+    median_coup = sorted(couplings)[len(couplings) // 2]
+
+    # --- Auto-correct mass unit errors ---
+    # Common conversions: frequency (Hz/GHz) not converted to eV
+    _MASS_CORRECTIONS = [
+        (1e-6, "μeV→eV"),    # reported in μeV
+        (1e-3, "meV→eV"),    # reported in meV
+        (1e3,  "keV→eV"),    # reported in keV
+        (1e6,  "MeV→eV"),    # reported in MeV
+        (1e9,  "GeV→eV"),    # reported in GeV
+        (4.136e-15, "Hz→eV"),  # reported in Hz
+        (4.136e-6, "GHz→eV"),  # reported in GHz (1 GHz = 4.136e-6 eV)
+    ]
+    if median_mass > mass_hi * 10 or median_mass < mass_lo * 0.1:
+        # Masses are outside valid range — try corrections
+        for factor, label in _MASS_CORRECTIONS:
+            corrected = median_mass * factor
+            if mass_lo * 0.1 <= corrected <= mass_hi * 10:
+                logger.info("Auto-correcting masses: %s (factor %.2e)", label, factor)
+                data_points = [(m * factor, g) for m, g in data_points]
+                notes.append(f"Auto-corrected masses: {label} (×{factor:.2e})")
+                break
+        else:
+            notes.append(f"WARNING: median mass {median_mass:.1e} outside range [{mass_lo:.0e}, {mass_hi:.0e}]")
+
+    # --- Auto-correct coupling unit errors ---
+    # Check for missing/extra prefactors (powers of 10)
+    if median_coup > coup_hi * 1e3:
+        # Coupling way too large — likely missing a negative exponent
+        import math
+        log_ratio = math.log10(median_coup) - math.log10(coup_hi)
+        # Round to nearest power of 10
+        correction_exp = -round(log_ratio)
+        correction = 10 ** correction_exp
+        if 1e-20 < correction < 1:  # sanity check
+            logger.info("Auto-correcting couplings: ×%.2e (%.0f orders too large)", correction, -correction_exp)
+            data_points = [(m, g * correction) for m, g in data_points]
+            notes.append(f"Auto-corrected couplings: ×{correction:.2e} ({-correction_exp:.0f} orders too large)")
+    elif median_coup < coup_lo * 1e-3:
+        import math
+        log_ratio = math.log10(coup_lo) - math.log10(median_coup)
+        correction_exp = round(log_ratio)
+        correction = 10 ** correction_exp
+        if 1 < correction < 1e20:
+            logger.info("Auto-correcting couplings: ×%.2e (%.0f orders too small)", correction, correction_exp)
+            data_points = [(m, g * correction) for m, g in data_points]
+            notes.append(f"Auto-corrected couplings: ×{correction:.2e} ({correction_exp:.0f} orders too small)")
     return data_points, " | ".join(notes)
 
 
@@ -755,7 +839,9 @@ def run_extraction_agent(
         # Pass coupling type hint to help vision read axes correctly
         # Prefer Stage 1's result, fall back to pre-classifier
         coupling_hint = stage1_result.get("coupling_type") or pre_ct
-        stage2_result = _run_stage2(paper, figure_paths, client, coupling_hint=coupling_hint) if figure_paths else {}
+        # Stage 2a: identify axes first (cheap, 512 tokens)
+        axis_info = _run_stage2a_axes(paper, figure_paths, client)
+        stage2_result = _run_stage2(paper, figure_paths, client, coupling_hint=coupling_hint, axis_info=axis_info) if figure_paths else {}
         if stage2_result.get("found_limit_plot") and stage2_result.get("data_points"):
             # Use vision data if it has more points than text extraction
             stage2_points = len(stage2_result["data_points"])
@@ -882,9 +968,81 @@ def _run_stage1(
         return {"is_new_limit": False, "data_points": [], "extraction_confidence": 0.0}
 
 
+_STAGE2A_AXIS_SYSTEM = """\
+You are a particle physics expert. Look at these images from a scientific paper and \
+find the main exclusion limit / constraint plot.
+
+Your ONLY task is to identify the plot's axes. Do NOT extract data points yet.
+
+Respond ONLY with a JSON object:
+{
+  "found_exclusion_plot": bool,
+  "plot_page_index": int (0-based index of which image contains the exclusion plot, or -1),
+  "x_axis_label": str (e.g., "Axion Mass [eV]", "m_a [μeV]"),
+  "x_axis_scale": "log" | "linear",
+  "x_axis_min": float (leftmost value in the axis units shown),
+  "x_axis_max": float (rightmost value in the axis units shown),
+  "x_axis_unit": str (e.g., "eV", "μeV", "GeV", "Hz"),
+  "y_axis_label": str (e.g., "g_aγ [GeV⁻¹]", "kinetic mixing χ"),
+  "y_axis_scale": "log" | "linear",
+  "y_axis_min": float (bottom value),
+  "y_axis_max": float (top value),
+  "y_axis_unit": str (e.g., "GeV^-1", "dimensionless"),
+  "y_axis_tick_values": [list of visible y-axis tick values as floats]
+}
+
+Read EVERY tick label carefully. For log-scale axes, tick values are powers of 10 \
+(e.g., 10⁻¹⁵, 10⁻¹⁴, 10⁻¹³). Report the ACTUAL values (1e-15, 1e-14, 1e-13), \
+not just the exponents.
+"""
+
+
+def _run_stage2a_axes(
+    paper: arxiv.Result,
+    figure_paths: list[Path],
+    client: anthropic.Anthropic,
+) -> dict:
+    """Stage 2a: identify axes of the exclusion plot before extracting data."""
+    if not figure_paths:
+        return {}
+    content: list[dict] = [
+        {
+            "type": "text",
+            "text": f"Title: {paper.title}\n\nFind the exclusion limit plot and identify its axes.",
+        }
+    ]
+    for img_path in figure_paths[:8]:
+        img_data = base64.standard_b64encode(img_path.read_bytes()).decode()
+        content.append(
+            {
+                "type": "image",
+                "source": {"type": "base64", "media_type": "image/png", "data": img_data},
+            }
+        )
+    try:
+        resp = _call_with_retry(lambda: client.messages.create(
+            model=CLAUDE_MODEL_VISION,
+            max_tokens=512,
+            system=_STAGE2A_AXIS_SYSTEM,
+            messages=[{"role": "user", "content": content}],
+        ))
+        result = _parse_json_response(resp.content[0].text)
+        logger.info(
+            "Stage 2a axes: x=[%s, %s] %s (%s), y=[%s, %s] %s (%s)",
+            result.get("x_axis_min"), result.get("x_axis_max"),
+            result.get("x_axis_unit", "?"), result.get("x_axis_scale", "?"),
+            result.get("y_axis_min"), result.get("y_axis_max"),
+            result.get("y_axis_unit", "?"), result.get("y_axis_scale", "?"),
+        )
+        return result
+    except Exception as e:
+        logger.warning("Stage 2a axis identification failed: %s", e)
+        return {}
+
+
 def _run_stage2(
     paper: arxiv.Result, figure_paths: list[Path], client: anthropic.Anthropic,
-    coupling_hint: str | None = None,
+    coupling_hint: str | None = None, axis_info: dict | None = None,
 ) -> dict:
     hint_text = ""
     if coupling_hint:
@@ -897,6 +1055,26 @@ def _run_stage2(
                 f"Expected axes: x = {axes.get('x', 'mass [eV]')}, y = {axes.get('y', 'coupling')}. "
                 f"Make sure to convert axis values to these units."
             )
+    # Include axis information from Stage 2a if available
+    axis_context = ""
+    if axis_info and axis_info.get("found_exclusion_plot"):
+        x_min = axis_info.get("x_axis_min", "?")
+        x_max = axis_info.get("x_axis_max", "?")
+        x_unit = axis_info.get("x_axis_unit", "eV")
+        y_min = axis_info.get("y_axis_min", "?")
+        y_max = axis_info.get("y_axis_max", "?")
+        y_ticks = axis_info.get("y_axis_tick_values", [])
+        plot_idx = axis_info.get("plot_page_index", -1)
+        axis_context = (
+            f"\n\nAXIS CALIBRATION (from prior analysis):\n"
+            f"- X-axis range: {x_min} to {x_max} {x_unit} ({axis_info.get('x_axis_scale', 'log')} scale)\n"
+            f"- Y-axis range: {y_min} to {y_max} ({axis_info.get('y_axis_scale', 'log')} scale)\n"
+        )
+        if y_ticks:
+            axis_context += f"- Y-axis tick values: {y_ticks}\n"
+        if plot_idx >= 0:
+            axis_context += f"- The exclusion plot is in image {plot_idx + 1}.\n"
+        axis_context += "Use these axis ranges to calibrate your readings. Do NOT deviate from these ranges.\n"
     content: list[dict] = [
         {
             "type": "text",
@@ -905,6 +1083,7 @@ def _run_stage2(
                 "Please examine the following pages for exclusion limit plots "
                 "and trace the constraint boundary."
                 + hint_text
+                + axis_context
             ),
         }
     ]
@@ -918,7 +1097,7 @@ def _run_stage2(
         )
     try:
         resp = _call_with_retry(lambda: client.messages.create(
-            model=CLAUDE_MODEL,
+            model=CLAUDE_MODEL_VISION,
             max_tokens=2048,
             system=_STAGE2_SYSTEM,
             messages=[{"role": "user", "content": content}],
