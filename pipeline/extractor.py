@@ -361,6 +361,12 @@ extraction_confidence rubric (coupling type AND data quality):
 - <0.3: cannot identify coupling type OR no extractable data
 If you are unsure which of 2+ coupling types is correct, confidence MUST be ≤0.5.
 
+IMPORTANT: Extract as many data points as possible from tables and text.
+If a table lists exclusion limits at multiple masses, extract ALL rows.
+If the text states "we set a limit of g < X at mass Y", extract that point.
+If only 2 data points are available (e.g., mass range endpoints with coupling limits), \
+extract those 2 points — this is still useful.
+
 If you cannot find data, set data_points to [] and extraction_confidence < 0.3.
 Use scientific notation in data_points (Python float literals accepted).
 All masses must be in eV. Common mass unit conversions:
@@ -1226,7 +1232,7 @@ def _run_stage1(
     try:
         resp = _call_with_retry(lambda: client.messages.create(
             model=CLAUDE_MODEL,
-            max_tokens=4096,
+            max_tokens=8192,
             system=_STAGE1_SYSTEM,
             messages=[{"role": "user", "content": prompt}],
             temperature=0,
