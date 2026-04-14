@@ -25,11 +25,12 @@ import httpx
 logger = logging.getLogger(__name__)
 
 CLAUDE_MODEL = "claude-haiku-4-5-20251001"
+CLAUDE_MODEL_VISION = "claude-sonnet-4-5-20241022"
 
 # Minimum data points from text extraction to skip vision fallback.
 # Exclusion curves typically need 10+ points to define a boundary properly.
 # If text extraction returns fewer than this, try vision to trace the plot.
-MIN_DATA_POINTS_TEXT = 5
+MIN_DATA_POINTS_TEXT = 3
 
 # ---------------------------------------------------------------------------
 # API retry helper
@@ -578,7 +579,7 @@ def _run_vision_verify(
         )
     try:
         resp = _call_with_retry(lambda: client.messages.create(
-            model=CLAUDE_MODEL,
+            model=CLAUDE_MODEL_VISION,
             max_tokens=1024,
             system=_STAGE3_VERIFY_SYSTEM,
             messages=[{"role": "user", "content": content}],
@@ -671,7 +672,7 @@ def _calibrate_vision_data(
 
 
 def _validate_extracted_range(data_points: list, coupling_type: str | None) -> tuple[list, str]:
-    """Check if extracted values fall within expected ranges for the coupling type."""
+    """Check if extracted values fall within expected ranges. Auto-correct systematic unit errors."""
     if not data_points or not coupling_type:
         return data_points, ""
     from .config import VALID_RANGES
@@ -683,18 +684,57 @@ def _validate_extracted_range(data_points: list, coupling_type: str | None) -> t
     if not masses or not couplings:
         return data_points, ""
     notes = []
-    # Check for systematic mass offset (all values off by >1000x)
     mass_lo, mass_hi = valid["mass"]
-    if all(m > mass_hi * 1e3 for m in masses):
-        notes.append(f"WARNING: all masses > {mass_hi*1e3:.0e}, likely unit error (not in eV?)")
-    elif all(m < mass_lo * 1e-3 for m in masses):
-        notes.append(f"WARNING: all masses < {mass_lo*1e-3:.0e}, likely unit error")
-    # Check for systematic coupling offset
     coup_lo, coup_hi = valid["coupling"]
-    if all(c > coup_hi * 1e3 for c in couplings):
-        notes.append(f"WARNING: all couplings > {coup_hi*1e3:.0e}, likely missing prefactor")
-    elif all(c < coup_lo * 1e-3 for c in couplings):
-        notes.append(f"WARNING: all couplings < {coup_lo*1e-3:.0e}, likely extra prefactor")
+    median_mass = sorted(masses)[len(masses) // 2]
+    median_coup = sorted(couplings)[len(couplings) // 2]
+
+    # --- Auto-correct mass unit errors ---
+    # Common conversions: frequency (Hz/GHz) not converted to eV
+    _MASS_CORRECTIONS = [
+        (1e-6, "μeV→eV"),    # reported in μeV
+        (1e-3, "meV→eV"),    # reported in meV
+        (1e3,  "keV→eV"),    # reported in keV
+        (1e6,  "MeV→eV"),    # reported in MeV
+        (1e9,  "GeV→eV"),    # reported in GeV
+        (4.136e-15, "Hz→eV"),  # reported in Hz
+        (4.136e-6, "GHz→eV"),  # reported in GHz (1 GHz = 4.136e-6 eV)
+    ]
+    if median_mass > mass_hi * 10 or median_mass < mass_lo * 0.1:
+        # Masses are outside valid range — try corrections
+        for factor, label in _MASS_CORRECTIONS:
+            corrected = median_mass * factor
+            if mass_lo * 0.1 <= corrected <= mass_hi * 10:
+                logger.info("Auto-correcting masses: %s (factor %.2e)", label, factor)
+                data_points = [(m * factor, g) for m, g in data_points]
+                notes.append(f"Auto-corrected masses: {label} (×{factor:.2e})")
+                break
+        else:
+            notes.append(f"WARNING: median mass {median_mass:.1e} outside range [{mass_lo:.0e}, {mass_hi:.0e}]")
+
+    # --- Auto-correct coupling unit errors ---
+    # Check for missing/extra prefactors (powers of 10)
+    if median_coup > coup_hi * 1e3:
+        # Coupling way too large — likely missing a negative exponent
+        import math
+        log_ratio = math.log10(median_coup) - math.log10(coup_hi)
+        # Round to nearest power of 10
+        correction_exp = -round(log_ratio)
+        correction = 10 ** correction_exp
+        if 1e-20 < correction < 1:  # sanity check
+            logger.info("Auto-correcting couplings: ×%.2e (%.0f orders too large)", correction, -correction_exp)
+            data_points = [(m, g * correction) for m, g in data_points]
+            notes.append(f"Auto-corrected couplings: ×{correction:.2e} ({-correction_exp:.0f} orders too large)")
+    elif median_coup < coup_lo * 1e-3:
+        import math
+        log_ratio = math.log10(coup_lo) - math.log10(median_coup)
+        correction_exp = round(log_ratio)
+        correction = 10 ** correction_exp
+        if 1 < correction < 1e20:
+            logger.info("Auto-correcting couplings: ×%.2e (%.0f orders too small)", correction, correction_exp)
+            data_points = [(m, g * correction) for m, g in data_points]
+            notes.append(f"Auto-corrected couplings: ×{correction:.2e} ({correction_exp:.0f} orders too small)")
+
     return data_points, " | ".join(notes)
 
 
@@ -918,7 +958,7 @@ def _run_stage2(
         )
     try:
         resp = _call_with_retry(lambda: client.messages.create(
-            model=CLAUDE_MODEL,
+            model=CLAUDE_MODEL_VISION,
             max_tokens=2048,
             system=_STAGE2_SYSTEM,
             messages=[{"role": "user", "content": content}],
