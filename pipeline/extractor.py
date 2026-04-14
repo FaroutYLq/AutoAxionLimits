@@ -32,6 +32,88 @@ CLAUDE_MODEL_VISION = CLAUDE_MODEL  # Use same model; override for testing
 # If text extraction returns fewer than this, try vision to trace the plot.
 MIN_DATA_POINTS_TEXT = 3
 
+# Number of grid points for structured vision extraction
+VISION_GRID_POINTS = 30
+# Number of extraction passes for multi-pass consistency
+VISION_PASSES = 2
+
+# ---------------------------------------------------------------------------
+# Unit conversion tables (native axis units → standard units)
+# ---------------------------------------------------------------------------
+
+_MASS_UNIT_TO_EV: dict[str, float] = {
+    "eV": 1.0,
+    "μeV": 1e-6, "ueV": 1e-6, "microeV": 1e-6, "µeV": 1e-6,
+    "neV": 1e-9,
+    "peV": 1e-12,
+    "feV": 1e-15,
+    "meV": 1e-3,
+    "keV": 1e3,
+    "MeV": 1e6,
+    "GeV": 1e9,
+    "TeV": 1e12,
+    "Hz": 4.136e-15,
+    "kHz": 4.136e-12,
+    "MHz": 4.136e-9,
+    "GHz": 4.136e-6,
+    "THz": 4.136e-3,
+}
+
+
+def _parse_mass_unit(unit_str: str) -> float:
+    """Parse axis unit string → conversion factor to eV.  Returns 1.0 if unknown."""
+    if not unit_str:
+        return 1.0
+    # Exact match
+    if unit_str in _MASS_UNIT_TO_EV:
+        return _MASS_UNIT_TO_EV[unit_str]
+    # Case-insensitive
+    ul = unit_str.lower().strip()
+    for key, val in _MASS_UNIT_TO_EV.items():
+        if key.lower() == ul:
+            return val
+    # Substring match (e.g., "mass [μeV]" contains "μeV")
+    for key, val in sorted(_MASS_UNIT_TO_EV.items(), key=lambda kv: -len(kv[0])):
+        if key in unit_str:
+            return val
+    # Pattern-based fallback
+    patterns = [
+        ("ghz", 4.136e-6), ("mhz", 4.136e-9), ("khz", 4.136e-12), ("hz", 4.136e-15),
+        ("tev", 1e12), ("gev", 1e9), ("mev", 1e6), ("kev", 1e3),
+        ("μev", 1e-6), ("uev", 1e-6), ("µev", 1e-6),
+        ("nev", 1e-9), ("pev", 1e-12), ("fev", 1e-15),
+    ]
+    for pat, val in patterns:
+        if pat in ul:
+            return val
+    logger.warning("Unknown mass unit %r, assuming eV", unit_str)
+    return 1.0
+
+
+def _build_x_grid(x_min: float, x_max: float, x_scale: str, n_points: int = VISION_GRID_POINTS) -> list[float]:
+    """Build a grid of x-positions in native axis units for structured extraction."""
+    import numpy as np
+    if x_min <= 0 or x_max <= 0 or x_min >= x_max:
+        return []
+    if x_scale == "log":
+        return list(np.logspace(np.log10(x_min), np.log10(x_max), n_points))
+    else:
+        return list(np.linspace(x_min, x_max, n_points))
+
+
+def _format_grid_for_prompt(grid: list[float]) -> str:
+    """Format grid values for the prompt, using the most readable notation."""
+    parts = []
+    for v in grid:
+        if v == 0:
+            parts.append("0")
+        elif abs(v) >= 0.01 and abs(v) < 10000:
+            parts.append(f"{v:.4g}")
+        else:
+            parts.append(f"{v:.3e}")
+    return ", ".join(parts)
+
+
 # ---------------------------------------------------------------------------
 # API retry helper
 # ---------------------------------------------------------------------------
@@ -531,6 +613,7 @@ def _classify_coupling_type(
             max_tokens=128,
             system=_CLASSIFIER_SYSTEM,
             messages=[{"role": "user", "content": prompt}],
+            temperature=0,
         ))
         result = _parse_json_response(resp.content[0].text)
         result = _validate_coupling_type(result)
@@ -628,6 +711,7 @@ def _run_vision_verify(
             max_tokens=1024,
             system=_STAGE3_VERIFY_SYSTEM,
             messages=[{"role": "user", "content": content}],
+            temperature=0,
         ))
         return _parse_json_response(resp.content[0].text)
     except Exception as e:
@@ -839,9 +923,11 @@ def run_extraction_agent(
         # Pass coupling type hint to help vision read axes correctly
         # Prefer Stage 1's result, fall back to pre-classifier
         coupling_hint = stage1_result.get("coupling_type") or pre_ct
-        # Stage 2a: identify axes first (cheap, 512 tokens)
+
+        # --- Stage 2a: identify axes, Stage 2: trace boundary ---
         axis_info = _run_stage2a_axes(paper, figure_paths, client)
         stage2_result = _run_stage2(paper, figure_paths, client, coupling_hint=coupling_hint, axis_info=axis_info) if figure_paths else {}
+
         if stage2_result.get("found_limit_plot") and stage2_result.get("data_points"):
             # Use vision data if it has more points than text extraction
             stage2_points = len(stage2_result["data_points"])
@@ -957,9 +1043,10 @@ def _run_stage1(
     try:
         resp = _call_with_retry(lambda: client.messages.create(
             model=CLAUDE_MODEL,
-            max_tokens=2048,
+            max_tokens=4096,
             system=_STAGE1_SYSTEM,
             messages=[{"role": "user", "content": prompt}],
+            temperature=0,
         ))
         result = _parse_json_response(resp.content[0].text)
         return _validate_coupling_type(result)
@@ -993,8 +1080,81 @@ Respond ONLY with a JSON object:
 
 Read EVERY tick label carefully. For log-scale axes, tick values are powers of 10 \
 (e.g., 10⁻¹⁵, 10⁻¹⁴, 10⁻¹³). Report the ACTUAL values (1e-15, 1e-14, 1e-13), \
-not just the exponents.
+not just the exponents (-15, -14, -13).
 """
+
+
+def _fix_exponent_values(result: dict) -> dict:
+    """Fix a common model error: reporting log-scale tick values as exponents
+    instead of actual values (e.g., -14 instead of 1e-14).
+
+    Also fixes scale type: if min/max are negative integers, the axis is log-scale
+    (physics plots don't have negative masses or couplings).
+    """
+    def _is_likely_exponent(val):
+        """Check if a value looks like a bare exponent (negative integer)."""
+        try:
+            v = float(val)
+        except (ValueError, TypeError):
+            return False
+        return v < 0 and v == int(v) and -50 < v < 0
+
+    def _maybe_fix_value(val):
+        """If val looks like a bare exponent, convert to 10^val."""
+        if val is None:
+            return val
+        try:
+            v = float(val)
+        except (ValueError, TypeError):
+            return val
+        if _is_likely_exponent(v):
+            return 10 ** v
+        return v
+
+    def _maybe_fix_list(vals):
+        if not isinstance(vals, list):
+            return vals
+        return [_maybe_fix_value(v) for v in vals]
+
+    # Detect if x-axis values are bare exponents (regardless of reported scale)
+    x_min = result.get("x_axis_min")
+    x_max = result.get("x_axis_max")
+    x_needs_fix = _is_likely_exponent(x_min) or _is_likely_exponent(x_max)
+
+    # Detect if y-axis values are bare exponents
+    y_min = result.get("y_axis_min")
+    y_max = result.get("y_axis_max")
+    y_needs_fix = _is_likely_exponent(y_min) or _is_likely_exponent(y_max)
+
+    # Also check tick values for exponent pattern
+    x_ticks = result.get("x_axis_tick_values", [])
+    if x_ticks and all(_is_likely_exponent(t) for t in x_ticks if t is not None):
+        x_needs_fix = True
+    y_ticks = result.get("y_axis_tick_values", [])
+    if y_ticks and all(_is_likely_exponent(t) for t in y_ticks if t is not None):
+        y_needs_fix = True
+
+    if x_needs_fix:
+        logger.info("Stage 2a: fixing x-axis exponent values (e.g., %s → %s)",
+                     x_min, 10 ** float(x_min) if x_min and _is_likely_exponent(x_min) else x_min)
+        result["x_axis_scale"] = "log"  # Force correct scale type
+        for key in ("x_axis_min", "x_axis_max"):
+            if key in result:
+                result[key] = _maybe_fix_value(result[key])
+        if "x_axis_tick_values" in result:
+            result["x_axis_tick_values"] = _maybe_fix_list(result["x_axis_tick_values"])
+
+    if y_needs_fix:
+        logger.info("Stage 2a: fixing y-axis exponent values (e.g., %s → %s)",
+                     y_min, 10 ** float(y_min) if y_min and _is_likely_exponent(y_min) else y_min)
+        result["y_axis_scale"] = "log"  # Force correct scale type
+        for key in ("y_axis_min", "y_axis_max"):
+            if key in result:
+                result[key] = _maybe_fix_value(result[key])
+        if "y_axis_tick_values" in result:
+            result["y_axis_tick_values"] = _maybe_fix_list(result["y_axis_tick_values"])
+
+    return result
 
 
 def _run_stage2a_axes(
@@ -1025,8 +1185,11 @@ def _run_stage2a_axes(
             max_tokens=512,
             system=_STAGE2A_AXIS_SYSTEM,
             messages=[{"role": "user", "content": content}],
+            temperature=0,
         ))
         result = _parse_json_response(resp.content[0].text)
+        # Fix common model error: exponents instead of actual values
+        result = _fix_exponent_values(result)
         logger.info(
             "Stage 2a axes: x=[%s, %s] %s (%s), y=[%s, %s] %s (%s)",
             result.get("x_axis_min"), result.get("x_axis_max"),
@@ -1038,6 +1201,500 @@ def _run_stage2a_axes(
     except Exception as e:
         logger.warning("Stage 2a axis identification failed: %s", e)
         return {}
+
+
+# ---------------------------------------------------------------------------
+# Stage 2b: grid-based boundary extraction (new structured approach)
+# ---------------------------------------------------------------------------
+
+_STAGE2B_TRACE_SYSTEM = """\
+You are reading data from an exclusion limit plot in a particle physics paper.
+
+The plot's axes have already been identified. Your task is to read the y-value of \
+the exclusion boundary at each specified x-position.
+
+CRITICAL RULES FOR IDENTIFYING THE CORRECT BOUNDARY:
+1. You must trace the NEW result from THIS paper — the one matching the paper title. \
+It is usually highlighted, colored differently, or labeled prominently. \
+Do NOT trace pre-existing limits from other experiments (typically shown in grey, \
+light colors, or labeled with other experiment names).
+2. The paper's NEW result is typically the LOWEST (strongest) unfilled boundary line, \
+or the one whose label matches the paper's experiment name.
+3. If unsure which boundary is new, look for: bold/thick lines, distinct colors, \
+labels matching the title, or "this work" annotations.
+
+RULES FOR READING VALUES:
+4. The excluded region is ABOVE the boundary (higher coupling = excluded).
+5. Trace the LOWER edge of the exclusion region (strongest constraint).
+6. Report y-values in scientific notation (e.g., 3.5e-14, NOT -13.45 or -14).
+7. For log-scale y-axis: if the boundary is between two tick marks, interpolate in \
+log space. Example: 30% between 10^-14 and 10^-13 → 10^(-14+0.3) = 2.0e-14.
+8. If no boundary exists at an x-position, write null.
+9. Report corners, peaks, or kinks as extra_points.
+
+Respond ONLY with a JSON object:
+{
+  "y_values": [y1, y2, ...],
+  "extra_points": [[x, y], ...],
+  "boundary_label": str (name of the constraint you are tracing),
+  "found_boundary": bool,
+  "notes": str
+}
+
+y_values must have the SAME length as the x-positions list. Use null for positions \
+where no boundary exists. Use scientific notation for all values (e.g., 3.5e-14).
+"""
+
+
+def _run_stage2b_trace(
+    paper: arxiv.Result,
+    figure_path: Path,
+    client: anthropic.Anthropic,
+    axis_info: dict,
+    coupling_hint: str | None = None,
+) -> dict:
+    """Stage 2b: structured grid-based boundary extraction from a single figure.
+
+    Uses the axis calibration from Stage 2a to construct an x-grid,
+    then asks the model to read y-values at each grid position.
+    Returns data_points in native axis units (caller converts to eV).
+    """
+    x_min = axis_info.get("x_axis_min")
+    x_max = axis_info.get("x_axis_max")
+    x_scale = axis_info.get("x_axis_scale", "log")
+    x_unit = axis_info.get("x_axis_unit", "eV")
+    x_label = axis_info.get("x_axis_label", "mass")
+    y_label = axis_info.get("y_axis_label", "coupling")
+    y_min = axis_info.get("y_axis_min")
+    y_max = axis_info.get("y_axis_max")
+    y_scale = axis_info.get("y_axis_scale", "log")
+    y_ticks = axis_info.get("y_axis_tick_values", [])
+    y_multiplier = axis_info.get("y_axis_multiplier")
+
+    if not x_min or not x_max or x_min <= 0 or x_max <= 0:
+        logger.warning("Stage 2b: invalid axis ranges, skipping grid extraction")
+        return {}
+
+    # Build x-grid in native axis units
+    x_grid = _build_x_grid(float(x_min), float(x_max), x_scale)
+    if not x_grid:
+        return {}
+
+    grid_text = _format_grid_for_prompt(x_grid)
+
+    # Build axis context for the prompt
+    y_ticks_text = ""
+    if y_ticks:
+        y_ticks_text = f"\nY-axis tick values: {y_ticks}"
+
+    hint_text = ""
+    coupling_range_text = ""
+    if coupling_hint:
+        from .config import COUPLING_TYPES, VALID_RANGES
+        cfg = COUPLING_TYPES.get(coupling_hint, {})
+        axes = cfg.get("axes", {})
+        if axes:
+            hint_text = f"\nThis paper constrains {coupling_hint} ({axes.get('y', 'coupling')})."
+        vr = VALID_RANGES.get(coupling_hint, {})
+        if vr.get("coupling"):
+            lo, hi = vr["coupling"]
+            coupling_range_text = (
+                f"\nExpected coupling range for {coupling_hint}: {lo:.0e} to {hi:.0e}. "
+                f"Values far outside this range indicate a reading error."
+            )
+
+    content: list[dict] = [
+        {
+            "type": "text",
+            "text": (
+                f"Paper title: {paper.title}\n"
+                f"Trace the NEW exclusion boundary from this paper (matching the title above)."
+                f"{hint_text}{coupling_range_text}\n\n"
+                f"AXIS CALIBRATION:\n"
+                f"- X-axis: {x_label}, range {x_min} to {x_max} ({x_scale} scale)\n"
+                f"- Y-axis: {y_label}, range {y_min} to {y_max} ({y_scale} scale)"
+                f"{y_ticks_text}\n\n"
+                f"Read the y-value of THIS PAPER'S exclusion boundary at each x-position below.\n"
+                f"X-positions ({x_unit}): [{grid_text}]\n\n"
+                f"Total: {len(x_grid)} positions. Return {len(x_grid)} y-values in scientific notation."
+            ),
+        },
+        {
+            "type": "image",
+            "source": {
+                "type": "base64",
+                "media_type": "image/png",
+                "data": base64.standard_b64encode(figure_path.read_bytes()).decode(),
+            },
+        },
+    ]
+
+    try:
+        resp = _call_with_retry(lambda: client.messages.create(
+            model=CLAUDE_MODEL_VISION,
+            max_tokens=2048,
+            system=_STAGE2B_TRACE_SYSTEM,
+            messages=[{"role": "user", "content": content}],
+            temperature=0,
+        ))
+        raw_text = resp.content[0].text
+        result = _parse_json_response(raw_text)
+
+        # Log raw y_values before processing for debugging
+        raw_y = result.get("y_values") or []
+        non_null_y = [y for y in raw_y if y is not None]
+        logger.info("Stage 2b raw response: found_boundary=%s, %d non-null y of %d, sample=%s",
+                     result.get("found_boundary"), len(non_null_y), len(raw_y),
+                     str(non_null_y[:5]) if non_null_y else "[]")
+
+        if not result.get("found_boundary", True) is False:
+            y_values = result.get("y_values") or []
+            extra_points = result.get("extra_points") or []
+
+            def _fix_y_value(y_val):
+                """Fix y-value: if negative, treat as exponent (10^y).
+                Physics couplings/masses are always positive."""
+                if y_val is None:
+                    return None
+                try:
+                    y_float = float(y_val)
+                except (ValueError, TypeError):
+                    return None
+                # ANY negative value is an exponent — physics values are always positive
+                if y_float < 0 and -50 < y_float:
+                    y_float = 10 ** y_float
+                if y_float <= 0:
+                    return None
+                # Apply y-axis multiplier if present
+                if y_multiplier and y_multiplier != 1.0:
+                    y_float *= float(y_multiplier)
+                return y_float
+
+            def _fix_x_value(x_val):
+                """Fix x-value: if negative, treat as exponent (10^x).
+                Physics masses are always positive."""
+                if x_val is None:
+                    return None
+                try:
+                    x_float = float(x_val)
+                except (ValueError, TypeError):
+                    return None
+                if x_float < 0 and -50 < x_float:
+                    x_float = 10 ** x_float
+                return x_float if x_float > 0 else None
+
+            # Build data_points in native axis units
+            data_points: list[list[float]] = []
+            for i, y_val in enumerate(y_values):
+                if y_val is not None and i < len(x_grid):
+                    y_fixed = _fix_y_value(y_val)
+                    if y_fixed is not None:
+                        data_points.append([x_grid[i], y_fixed])
+
+            # Add extra points (corners, kinks)
+            for pt in extra_points:
+                if isinstance(pt, (list, tuple)) and len(pt) >= 2:
+                    x_fixed = _fix_x_value(pt[0])
+                    y_fixed = _fix_y_value(pt[1])
+                    if x_fixed is not None and y_fixed is not None:
+                        data_points.append([x_fixed, y_fixed])
+
+            # Sort by x
+            data_points.sort(key=lambda p: p[0])
+
+            logger.info(
+                "Stage 2b: extracted %d boundary points from grid (%d grid + %d extra)",
+                len(data_points), sum(1 for y in y_values if y is not None), len(extra_points),
+            )
+
+            result["data_points_native"] = data_points
+            result["x_unit"] = x_unit
+
+        return result
+    except Exception as e:
+        logger.warning("Stage 2b grid extraction failed: %s", e)
+        return {}
+
+
+def _convert_native_to_standard(
+    data_points: list[list[float]],
+    x_unit: str,
+    coupling_type: str | None,
+) -> list[tuple[float, float]]:
+    """Convert data points from native axis units to standard units (mass_eV, coupling).
+
+    x: native axis unit → eV
+    y: typically already in standard coupling units, but handle AxionPhoton GeV^-1 etc.
+    """
+    mass_factor = _parse_mass_unit(x_unit)
+    converted = []
+    for x, y in data_points:
+        mass_eV = x * mass_factor
+        coupling = y  # y is already in standard units for most coupling types
+        if mass_eV > 0 and coupling > 0:
+            converted.append((mass_eV, coupling))
+    logger.info(
+        "Unit conversion: %s → eV (factor %.2e), %d points",
+        x_unit, mass_factor, len(converted),
+    )
+    return converted
+
+
+def _coupling_smoothness(data_points: list) -> float:
+    """Score how smooth a set of data points is (lower = smoother = better).
+    Measures the median absolute second derivative in log-log space."""
+    import numpy as np
+    if len(data_points) < 3:
+        return float("inf")
+    pts = sorted(data_points, key=lambda p: p[0])
+    log_m = np.array([np.log10(p[0]) for p in pts if p[0] > 0 and p[1] > 0])
+    log_g = np.array([np.log10(p[1]) for p in pts if p[0] > 0 and p[1] > 0])
+    if len(log_m) < 3:
+        return float("inf")
+    # Second derivative approximation
+    d2 = np.abs(np.diff(log_g, n=2))
+    return float(np.median(d2))
+
+
+def _coupling_range_score(data_points: list, coupling_type: str | None) -> float:
+    """Score how well the coupling values match the expected range (0 = perfect, higher = worse)."""
+    if not data_points or not coupling_type:
+        return 0.0
+    from .config import VALID_RANGES
+    import numpy as np
+    vr = VALID_RANGES.get(coupling_type, {})
+    if not vr:
+        return 0.0
+    coup_lo, coup_hi = vr.get("coupling", (1e-30, 1e0))
+    couplings = [p[1] for p in data_points if p[1] > 0]
+    if not couplings:
+        return float("inf")
+    median_c = np.median(couplings)
+    log_median = np.log10(median_c)
+    log_lo = np.log10(coup_lo)
+    log_hi = np.log10(coup_hi)
+    if log_lo <= log_median <= log_hi:
+        return 0.0
+    # Distance outside the valid range in dex
+    return min(abs(log_median - log_lo), abs(log_median - log_hi))
+
+
+def _pick_best_vision_result(grid_result: dict, legacy_result: dict, coupling_type: str | None) -> dict:
+    """Pick the better vision extraction result based on quality heuristics."""
+    grid_pts = grid_result.get("data_points", [])
+    legacy_pts = legacy_result.get("data_points", []) if legacy_result.get("found_limit_plot") else []
+
+    if not grid_pts and not legacy_pts:
+        return grid_result  # Both empty
+    if not grid_pts:
+        logger.info("Vision selection: grid empty, using legacy (%d pts)", len(legacy_pts))
+        return legacy_result
+    if not legacy_pts:
+        logger.info("Vision selection: legacy empty, using grid (%d pts)", len(grid_pts))
+        return grid_result
+
+    # Score both by smoothness and range plausibility
+    grid_smooth = _coupling_smoothness(grid_pts)
+    legacy_smooth = _coupling_smoothness(legacy_pts)
+    grid_range = _coupling_range_score(grid_pts, coupling_type)
+    legacy_range = _coupling_range_score(legacy_pts, coupling_type)
+
+    # Combined score: lower is better. Range violations and pass inconsistency penalized.
+    grid_penalty = grid_result.get("_quality_penalty", 0.0)
+    grid_score = grid_smooth + grid_range * 3 + grid_penalty * 2
+    legacy_score = legacy_smooth + legacy_range * 3
+
+    logger.info(
+        "Vision selection: grid(smooth=%.2f, range=%.1f, score=%.1f, pts=%d) vs "
+        "legacy(smooth=%.2f, range=%.1f, score=%.1f, pts=%d)",
+        grid_smooth, grid_range, grid_score, len(grid_pts),
+        legacy_smooth, legacy_range, legacy_score, len(legacy_pts),
+    )
+
+    if grid_score <= legacy_score:
+        logger.info("Vision selection: using grid result")
+        return grid_result
+    else:
+        logger.info("Vision selection: using legacy result")
+        return legacy_result
+
+
+def _calibrate_legacy_with_axis_info(
+    legacy_data: list[tuple[float, float]],
+    axis_info: dict,
+    coupling_hint: str | None,
+) -> tuple[list[tuple[float, float]], str]:
+    """Use Stage 2a axis info to detect and fix unit errors in legacy Stage 2 output.
+
+    The legacy pipeline traces the right boundary but often gets units wrong.
+    Stage 2a reads axis labels precisely. Use the axis info to detect mismatches
+    and apply corrections.
+    """
+    import numpy as np
+    if not legacy_data or not axis_info:
+        return legacy_data, ""
+
+    notes = []
+
+    # Get axis range in eV from Stage 2a
+    x_min_native = axis_info.get("x_axis_min")
+    x_max_native = axis_info.get("x_axis_max")
+    x_unit = axis_info.get("x_axis_unit", "eV")
+    y_min = axis_info.get("y_axis_min")
+    y_max = axis_info.get("y_axis_max")
+    y_multiplier = axis_info.get("y_axis_multiplier")
+
+    if not x_min_native or not x_max_native or x_min_native <= 0 or x_max_native <= 0:
+        return legacy_data, ""
+
+    mass_factor = _parse_mass_unit(x_unit)
+    x_min_eV = float(x_min_native) * mass_factor
+    x_max_eV = float(x_max_native) * mass_factor
+
+    # --- Mass range calibration ---
+    # Check if legacy masses match the Stage 2a range
+    masses = [m for m, g in legacy_data if m > 0]
+    if masses:
+        leg_mass_min = min(masses)
+        leg_mass_max = max(masses)
+
+        # Check if legacy mass range overlaps with axis range (within 1 dex tolerance)
+        log_overlap = (
+            min(np.log10(leg_mass_max), np.log10(x_max_eV))
+            - max(np.log10(leg_mass_min), np.log10(x_min_eV))
+        )
+        log_axis_span = np.log10(x_max_eV) - np.log10(x_min_eV)
+
+        if log_overlap < log_axis_span * 0.1:
+            # Very poor overlap — legacy masses are probably in completely wrong units
+            # Only correct using known unit conversion factors (conservative)
+            leg_median_mass = np.median(masses)
+            axis_median_mass = np.sqrt(x_min_eV * x_max_eV)  # geometric mean
+            ratio = axis_median_mass / leg_median_mass
+
+            known_factors = [1e-6, 1e-3, 1e3, 1e6, 1e9, 4.136e-15, 4.136e-6]
+            best_factor = min(known_factors, key=lambda f: abs(np.log10(ratio / f)))
+            if abs(np.log10(ratio / best_factor)) < 0.5:
+                logger.info(
+                    "Axis calibration: legacy masses off by ~%.0e, applying factor %.2e (x_unit=%s)",
+                    ratio, best_factor, x_unit,
+                )
+                legacy_data = [(m * best_factor, g) for m, g in legacy_data]
+                notes.append(f"Mass corrected by {best_factor:.2e} (axis: {x_unit})")
+
+    # --- Coupling range calibration ---
+    # Check if legacy couplings match the y-axis range
+    if y_min and y_max and y_min > 0 and y_max > 0:
+        couplings = [g for m, g in legacy_data if g > 0]
+        if couplings:
+            y_min_f = float(y_min)
+            y_max_f = float(y_max)
+            if y_multiplier and y_multiplier != 1.0:
+                y_min_f *= float(y_multiplier)
+                y_max_f *= float(y_multiplier)
+
+            leg_median_coup = np.median(couplings)
+            # Expected median should be somewhere in the y-axis range
+            if leg_median_coup > 0:
+                log_ymin = np.log10(y_min_f)
+                log_ymax = np.log10(y_max_f)
+                log_leg = np.log10(leg_median_coup)
+
+                # If legacy coupling is WAY outside the y-axis range (>5 dex), correct it
+                if log_leg > log_ymax + 5 or log_leg < log_ymin - 5:
+                    axis_center = 10 ** ((log_ymin + log_ymax) / 2)
+                    ratio = axis_center / leg_median_coup
+                    # Round to nearest power of 10
+                    import math
+                    exp = round(math.log10(abs(ratio)))
+                    correction = 10 ** exp
+                    logger.info(
+                        "Axis calibration: legacy coupling off by ~10^%d (median=%.2e, y-range=[%.2e,%.2e])",
+                        exp, leg_median_coup, y_min_f, y_max_f,
+                    )
+                    legacy_data = [(m, g * correction) for m, g in legacy_data]
+                    notes.append(f"Coupling corrected by 10^{exp}")
+
+    return legacy_data, " | ".join(notes)
+
+
+def _run_vision_pipeline_v2(
+    paper: arxiv.Result,
+    figure_paths: list[Path],
+    client: anthropic.Anthropic,
+    coupling_hint: str | None = None,
+) -> dict:
+    """Hybrid vision pipeline: Stage 2a (axis calibration) + legacy Stage 2 (boundary tracing).
+
+    Stage 2a reads axes precisely. Legacy Stage 2 traces the correct boundary.
+    We then use axis info to correct any unit errors in the legacy output.
+    """
+    # Stage 2a: identify axes precisely
+    axis_info = _run_stage2a_axes(paper, figure_paths, client)
+
+    # Run legacy Stage 2 for boundary tracing (it's better at finding the right boundary)
+    legacy_result = _run_stage2(paper, figure_paths, client, coupling_hint=coupling_hint, axis_info=axis_info)
+
+    if not legacy_result.get("found_limit_plot") or not legacy_result.get("data_points"):
+        logger.info("Legacy Stage 2 found no data, returning empty")
+        return legacy_result
+
+    # If Stage 2a identified axes, use them to calibrate the legacy output
+    if axis_info.get("found_exclusion_plot"):
+        raw_points = [(float(m), float(g)) for m, g in legacy_result["data_points"]]
+        calibrated, cal_note = _calibrate_legacy_with_axis_info(
+            raw_points, axis_info, coupling_hint,
+        )
+        if calibrated:
+            legacy_result["data_points"] = calibrated
+            if cal_note:
+                legacy_result["notes"] = legacy_result.get("notes", "") + " | Axis cal: " + cal_note
+                logger.info("Axis calibration applied: %s", cal_note)
+
+    return legacy_result
+
+
+def _merge_multipass(all_passes: list[list[list[float]]]) -> list[list[float]]:
+    """Merge multi-pass extraction results by taking geometric mean of y-values
+    at similar x-positions."""
+    import numpy as np
+
+    if len(all_passes) == 1:
+        return all_passes[0]
+
+    # Use the first pass's x-grid as reference
+    ref = all_passes[0]
+    ref_x = np.array([p[0] for p in ref])
+    ref_y = np.array([p[1] for p in ref])
+
+    # For each subsequent pass, match points to nearest ref x and average y
+    all_y = [np.log10(ref_y)]
+
+    for other_pass in all_passes[1:]:
+        other_x = np.array([p[0] for p in other_pass])
+        other_y = np.array([p[1] for p in other_pass])
+        matched_log_y = np.full(len(ref_x), np.nan)
+
+        for i, rx in enumerate(ref_x):
+            # Find closest point in other pass (within 0.2 dex in x)
+            log_diffs = np.abs(np.log10(other_x) - np.log10(rx))
+            best_idx = np.argmin(log_diffs)
+            if log_diffs[best_idx] < 0.2:
+                matched_log_y[i] = np.log10(other_y[best_idx])
+
+        all_y.append(matched_log_y)
+
+    # Compute median y at each x-position (ignoring NaN)
+    all_y_arr = np.array(all_y)
+    merged = []
+    for i in range(len(ref_x)):
+        valid_y = all_y_arr[:, i]
+        valid_y = valid_y[~np.isnan(valid_y)]
+        if len(valid_y) > 0:
+            median_log_y = np.median(valid_y)
+            merged.append([ref_x[i], 10 ** median_log_y])
+
+    return merged
 
 
 def _run_stage2(
@@ -1101,6 +1758,7 @@ def _run_stage2(
             max_tokens=2048,
             system=_STAGE2_SYSTEM,
             messages=[{"role": "user", "content": content}],
+            temperature=0,
         ))
         result = _parse_json_response(resp.content[0].text)
         return _validate_coupling_type(result)
