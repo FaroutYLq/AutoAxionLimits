@@ -25,7 +25,7 @@ import httpx
 logger = logging.getLogger(__name__)
 
 CLAUDE_MODEL = "claude-haiku-4-5-20251001"
-CLAUDE_MODEL_VISION = "claude-sonnet-4-5-20241022"
+CLAUDE_MODEL_VISION = "claude-sonnet-4-6"
 
 # Minimum data points from text extraction to skip vision fallback.
 # Exclusion curves typically need 10+ points to define a boundary properly.
