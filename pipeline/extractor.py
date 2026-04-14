@@ -602,6 +602,18 @@ Key disambiguation rules:
 - If the paper constrains both neutron and proton couplings, prefer AxionNeutron
 - VectorBL is ONLY for explicit B-L gauge symmetry; generic dark photon searches are DarkPhoton. If the paper mentions "B-L", "B minus L", or U(1)_{B-L}, strongly prefer VectorBL.
 - For LSW (light-shining-through-wall) experiments: kinetic mixing / hidden photon → DarkPhoton; g_agamma / ALP → AxionPhoton
+
+COMMON MISCLASSIFICATION TRAPS — avoid these:
+- ScalarPhoton vs ScalarBaryon: ScalarPhoton constrains d_e or d_gamma (alpha variation). \
+ScalarBaryon constrains d_g (gravitational coupling). If the paper mentions "fine-structure \
+constant" or "alpha variation", it is ScalarPhoton, NOT ScalarBaryon.
+- ScalarElectron vs ScalarPhoton: ScalarElectron constrains electron mass variation (d_me). \
+ScalarPhoton constrains fine-structure constant (d_e/d_gamma). Read the coupling parameter carefully.
+- AxionEDM vs AxionMass: AxionEDM has d_n [e*cm] on the y-axis. AxionMass has m_a [eV] \
+on the y-axis and f_a [GeV] on the x-axis. If the paper shows C_N/f_a or g_d on the y-axis, use AxionEDM.
+- DarkPhoton vs AxionElectron: Semiconductor-based DM detectors (DAMIC, SENSEI, SuperCDMS) \
+that absorb dark photons via electron coupling ARE DarkPhoton if the y-axis is kinetic mixing chi. \
+They are AxionElectron ONLY if the y-axis is g_ae.
 - If the paper constrains multiple coupling types, choose the PRIMARY one (the one featured in the title or main result)
 - Solar neutrino experiments measuring axion production in the Sun constrain g_ae (AxionElectron), not g_agamma (AxionPhoton)
 - Superconductor-based DM detectors absorbing axions via electron coupling are AxionElectron, not DarkPhoton
