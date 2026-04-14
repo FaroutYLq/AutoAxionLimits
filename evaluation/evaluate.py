@@ -59,6 +59,29 @@ logger = logging.getLogger(__name__)
 RESULTS_DIR = Path(__file__).parent / "results"
 
 
+def _fetch_paper_metadata(arxiv_id: str, cache_path: Path) -> tuple[str, str]:
+    """Fetch real title and abstract from arXiv API. Cache results."""
+    import json as _json
+    if cache_path.exists():
+        with open(cache_path) as f:
+            cache = _json.load(f)
+    else:
+        cache = {}
+    if arxiv_id in cache:
+        return cache[arxiv_id]["title"], cache[arxiv_id]["abstract"]
+    # Fetch from arXiv
+    import arxiv as _arxiv
+    search = _arxiv.Search(id_list=[arxiv_id])
+    result = next(_arxiv.Client().results(search), None)
+    if result:
+        cache[arxiv_id] = {"title": result.title, "abstract": result.summary}
+        cache_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(cache_path, "w") as f:
+            _json.dump(cache, f, indent=2)
+        return result.title, result.summary
+    return "", ""
+
+
 def _load_cached_result(arxiv_id: str) -> dict | None:
     """Load a cached extraction result, if it exists."""
     path = RESULTS_DIR / f"{arxiv_id}.json"
@@ -90,16 +113,20 @@ def run_extraction(entry: GroundTruthEntry) -> dict:
 
     # Create a minimal paper-like object for the extractor
     class _PaperStub:
-        def __init__(self, arxiv_id: str, title: str):
+        def __init__(self, arxiv_id: str, title: str, summary: str = "", categories: list = None):
             self.entry_id = f"http://arxiv.org/abs/{arxiv_id}"
             self.title = title
-            self.summary = ""
-            self.categories = []
+            self.summary = summary
+            self.categories = categories or []
 
         def get_short_id(self):
             return self.arxiv_id
 
-    paper_stub = _PaperStub(entry.arxiv_id, entry.paper_title)
+    real_title, abstract = _fetch_paper_metadata(
+        entry.arxiv_id, RESULTS_DIR / "metadata_cache.json"
+    )
+    title = real_title or entry.paper_title
+    paper_stub = _PaperStub(entry.arxiv_id, title, summary=abstract)
     paper_stub.arxiv_id = entry.arxiv_id
 
     with tempfile.TemporaryDirectory() as tmpdir:
@@ -252,7 +279,10 @@ def compute_all_metrics(
             ext_array = np.array(extracted_points, dtype=float, ndmin=2)
 
             # Primary: interpolation-based metric
-            im = compute_interpolation_metrics(entry.arxiv_id, ext_array, gt_data)
+            im = compute_interpolation_metrics(
+                entry.arxiv_id, ext_array, gt_data,
+                coupling_type=entry.coupling_type,
+            )
             interp_metrics_list.append(im)
             confidences.append(result.get("extraction_confidence", 0.0))
             curve_arxiv_ids.append(entry.arxiv_id)

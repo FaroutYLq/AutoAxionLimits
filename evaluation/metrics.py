@@ -97,6 +97,23 @@ class InterpolationMetrics:
     frac_within_1_0dex: float  # order-of-magnitude error
 
 
+# Coupling ceilings per type: points above this are boundary-closure sentinels.
+# AxionMass uses f_a [GeV] vs m_a [eV], so "coupling" values can be large.
+# DarkPhoton kinetic mixing can approach 1.
+_COUPLING_CEILINGS = {
+    "AxionMass": 1e6,
+    "DarkPhoton": 1e0,
+    "AxionCPV": 1e0,
+    "MonopoleDipole": 1e0,
+    "ScalarPhoton": 1e0,
+    "ScalarElectron": 1e0,
+    "ScalarBaryon": 1e0,
+    "ScalarNucleon": 1e0,
+    "VectorBL": 1e0,
+}
+_DEFAULT_COUPLING_CEIL = 1e-2
+
+
 def _filter_boundary(data: np.ndarray, coupling_ceil: float = 1e-2) -> np.ndarray:
     """Remove boundary-closure sentinel points (coupling >= ceil) and
     non-positive values.  Returns data sorted by mass."""
@@ -121,6 +138,7 @@ def compute_interpolation_metrics(
     extracted: np.ndarray,
     ground_truth: np.ndarray,
     coupling_ceil: float = 1e-2,
+    coupling_type: str | None = None,
 ) -> InterpolationMetrics:
     """Primary evaluation metric.
 
@@ -134,7 +152,13 @@ def compute_interpolation_metrics(
         ground_truth: Mx2 (mass_eV, coupling) manually verified.
         coupling_ceil: Points with coupling >= this are treated as boundary
             closure sentinels and filtered out.
+        coupling_type: If provided, override coupling_ceil with a
+            type-specific ceiling from _COUPLING_CEILINGS.
     """
+    # Use coupling-type-specific ceiling if available
+    if coupling_type and coupling_type in _COUPLING_CEILINGS:
+        coupling_ceil = _COUPLING_CEILINGS[coupling_type]
+
     ext = _filter_boundary(extracted, coupling_ceil)
     gt = _filter_boundary(ground_truth, coupling_ceil)
 
