@@ -1,197 +1,226 @@
 # AutoAxionLimits Extraction Pipeline — Evaluation Report
 
-**Date**: 2026-04-13
-**Model**: claude-haiku-4-5-20251001
-**Evaluation set**: 100 unique papers (124 ground-truth entries including multi-coupling)
+## Summary
 
----
-
-## Executive Summary
-
-The extraction pipeline was benchmarked on 100 papers spanning 13 coupling types. Key results:
-
-| Metric | Value |
-|--------|-------|
-| **Coupling type accuracy** | **86.0%** (86/100) |
-| is_new_limit accuracy | 90.0% |
-| is_projection accuracy | 96.0% |
-| Coupling errors | 14 |
-| None returns | 4 |
-
-On the original 87-paper subset (before adding 13 new papers), coupling_type accuracy was **93.1%** (6 errors). The 13 newly added papers introduced 8 additional errors, mostly from underrepresented coupling types where the extractor lacks strong disambiguation signals.
-
----
+- **Papers evaluated**: 100
+- **Papers with curve comparison**: 112
 
 ## Classification Accuracy
 
-### Coupling Type: 86.0% (14 errors out of 100)
+| Field | Accuracy | N |
+|-------|----------|---|
+| coupling_type | 80.0% | 100 |
+| is_new_limit | 90.0% | 100 |
+| is_projection | 96.0% | 100 |
+| data_source | 24.0% | 100 |
 
-| arXiv ID | Experiment | Predicted | Expected | Category |
-|----------|-----------|-----------|----------|----------|
-| 2006.04809 | Co20 | AxionPhoton | AxionMass | Ambiguous: cosmological paper |
-| 2307.08577 | MnCO3 | None | AxionProton | Projection-only, no data extracted |
-| 1310.8098 | CROWS | AxionPhoton | DarkPhoton | LSW experiment, debatable GT |
-| 1611.05852 | RedGiants | None | ScalarElectron/ScalarNucleon | Multi-coupling, None return |
-| 1708.06367 | nEDM | AxionNeutron | AxionEDM/AxionMass | Multi-coupling, wrong primary |
-| 1609.00667 | NuSTAR | None | AxionPhoton | Sterile neutrino paper, GT debatable |
-| 2102.11740 | LZ | None | AxionElectron | WIMP-focused paper, no ALP data |
-| 0807.2926 | SolarNu | AxionPhoton | AxionElectron | Solar neutrino → wrong coupling |
-| 1508.02463 | TorsionPendulum | MonopoleDipole | AxionElectron | Spin-dependent → wrong coupling |
-| 1604.06800 | Superconductors | DarkPhoton | AxionElectron | Multi-target proposal → wrong primary |
-| 1508.01798 | DUAL | ScalarPhoton | ScalarElectron | Scalar confusion: photon vs electron |
-| 1512.06165 | TorsionBalance | ScalarNucleon | VectorBL | Fifth force → wrong coupling type |
-| 2004.02733 | SNO | AxionNeutron | AxionProton | Nucleon confusion: neutron vs proton |
-| 2111.09892 | NeutronStars | AxionMass | AxionProton | NS cooling → wrong coupling type |
+### Coupling Type Misclassifications
 
-### Error Breakdown
+| arXiv ID | Predicted | Expected |
+|----------|-----------|----------|
+| 2504.00720 | AxionCPV | AxionMass |
+| 2307.08577 | AxionNeutron | AxionProton |
+| 1310.8098 | AxionPhoton | DarkPhoton |
+| 1607.07327 | ScalarBaryon | ['ScalarElectron', 'ScalarPhoton'] |
+| 1611.05852 | DarkPhoton | ['ScalarElectron', 'ScalarNucleon'] |
+| 2111.06883 | ScalarBaryon | ['ScalarElectron', 'ScalarPhoton'] |
+| 2009.04517 | AxionNeutron | ScalarNucleon |
+| 2010.08107 | ScalarElectron | ScalarPhoton |
+| 2201.02042 | ScalarElectron | ScalarPhoton |
+| 2205.03617 | DarkPhoton | VectorBL |
+| 2401.18076 | ScalarBaryon | ScalarPhoton |
+| 1207.2442 | ScalarBaryon | ['ScalarNucleon', 'VectorBL'] |
+| 1609.00667 | None | AxionPhoton |
+| 2008.08773 | ScalarElectron | ScalarPhoton |
+| 2102.11740 | None | AxionElectron |
+| 0807.2926 | AxionPhoton | AxionElectron |
+| 2006.07055 | ScalarPhoton | ScalarElectron |
+| 1512.06165 | ScalarBaryon | VectorBL |
+| 2004.02733 | AxionNeutron | AxionProton |
+| 2111.09892 | AxionMass | AxionProton |
 
-| Category | Count | Papers |
-|----------|-------|--------|
-| Baseline noise (original 87) | 6 | Co20, MnCO3, CROWS, RedGiants, nEDM, NuSTAR |
-| New paper: None return | 1 | LZ |
-| New paper: wrong coupling | 7 | SolarNu, TorsionPendulum, Superconductors, DUAL, TorsionBalance, SNO, NeutronStars |
+## Extraction Quality — Interpolation Metric (primary)
 
-The new errors cluster in **AxionElectron** (3 papers misclassified) and **AxionProton** (2 papers misclassified) — coupling types where the pipeline's disambiguation prompts are weakest. The pre-classifier receives only the paper title (no abstract) for these papers, contributing to misclassification.
+Build log-log interpolation from extracted points, evaluate at ground-truth masses.
 
-### Other Classification Metrics
+- **Mean interpolation coverage**: 55.6%
+- **Mean median residual**: 3.165 dex
+- **Mean P90 residual**: 4.352 dex
+- **Mean fraction within 0.3 dex (factor 2)**: 19.6%
+- **Mean fraction within 0.5 dex (factor 3)**: 29.3%
 
-| Field | Accuracy | Notes |
-|-------|----------|-------|
-| is_new_limit | 90.0% | 10 false negatives |
-| is_projection | 96.0% | 4 errors |
-| data_source | 31.0% | text vs figure_vision mismatch (not actionable) |
+## Per-Paper Results
 
----
-
-## Extraction Quality
-
-### Interpolation Metric (primary)
-
-Builds log-log interpolation from extracted points and evaluates at ground-truth mass values.
-
-| Statistic | Value |
-|-----------|-------|
-| Papers with curve comparison | 108 |
-| Mean interpolation coverage | 49.7% |
-| Mean median residual | 3.73 dex |
-| Mean P90 residual | 4.49 dex |
-| Mean fraction within 0.3 dex (factor 2) | 19.5% |
-| Mean fraction within 0.5 dex (factor 3) | 28.2% |
-
-The high residuals are dominated by papers with zero coverage or axis-scale misreads. Papers where the pipeline gets non-trivial coverage tend to perform much better.
-
-### Top Performing Extractions (median residual < 0.5 dex)
-
-| arXiv ID | Experiment | Coupling | Med. Resid. | <=0.3 dex | Points |
-|----------|-----------|----------|-------------|-----------|--------|
-| 2208.12670 | QUAX3 | AxionPhoton | 0.000 dex | 100% | 6/2 |
-| 2408.15227 | ADMX2024 | AxionPhoton | 0.033 dex | 100% | 8/230 |
-| 2109.11734 | BulletCluster | AxionPhoton | 0.072 dex | 81.8% | 6/12 |
-| 0807.2926 | SolarNu | AxionElectron | 0.131 dex | 100% | 14/39 |
-| 2303.11792 | NeutronStars_Battye2 | AxionPhoton | 0.141 dex | 100% | 3/20 |
-| 2407.03828 | NuSTAR_Sun | AxionPhoton | 0.171 dex | 71.4% | 6/116 |
-| 1806.05120 | Tokyo-Knirck | DarkPhoton | 0.192 dex | 81.3% | 50/94 |
-| 2011.07100 | QUAX_2020 | MonopoleDipole | 0.200 dex | 59.0% | 11/79 |
-| 1606.07001 | DARWIN | AxionElectron | 0.226 dex | 60.9% | 10/39 |
-| 2308.09077 | CAPP-7 | AxionPhoton | 0.229 dex | 85.2% | 25/54 |
-| 2308.14656 | DOSUE-RR-2 | DarkPhoton | 0.301 dex | 49.3% | 8/75 |
-| 2406.00387 | Mrk421-Fermi-HAWC | AxionPhoton | 0.329 dex | 48.2% | 22/108 |
-| 1207.3275 | LSW_CERN | DarkPhoton | 0.337 dex | 40.0% | 20/9 |
-| 2408.02368 | MADMAX | DarkPhoton | 0.416 dex | 39.4% | 5/647 |
-| 2110.06096 | ADMX2021 | AxionPhoton | 0.460 dex | 0.0% | 6/242 |
-| 2504.12377 | MWDPolarisation | AxionPhoton | 0.456 dex | 33.3% | 30/15 |
-| 2503.14582 | JWST_Saha | AxionPhoton | 0.468 dex | 23.1% | 7/224122 |
-
----
+| arXiv ID | Coupling | Conf. | Interp. Cov. | Med. Resid. | ≤0.3 dex | Points |
+|----------|----------|-------|--------------|-------------|----------|--------|
+| 2208.07293 | ✓ | 0.65 | 0.0% | ∞ | 0.0% | 2/2 |
+| 2212.04413 | ✓ | 0.85 | 48.6% | 7.741 | 0.0% | 16/109 |
+| 2410.19902 | ✓ | 0.75 | 50.0% | 2.869 | 0.0% | 30/2 |
+| 2209.12901 | ✓ | 0.88 | 100.0% | 0.836 | 17.4% | 37/602 |
+| 1907.03767 | ✓ | 0.85 | 98.8% | 1.036 | 11.1% | 10/164 |
+| 2209.06216 | ✓ | 0.75 | 81.0% | 1.997 | 14.3% | 43/2597 |
+| 2005.14184 | ✓ | 0.92 | 99.7% | 0.538 | 23.3% | 16/891 |
+| 1608.01994 | ✓ | 0.75 | 100.0% | 7.517 | 0.0% | 13/95 |
+| 2504.00720 | ✗ (AxionCPV) | 0.75 | 97.5% | 2.887 | 0.0% | 8/80 |
+| 1608.05414 | ✓ | 0.65 | 100.0% | 6.176 | 0.0% | 3/1 |
+| 2006.04809 | ✓ | 0.35 | — | — | — | — |
+| 1711.08999 | ✓ | 0.85 | 94.4% | 0.663 | 29.4% | 49/18 |
+| 2408.02668 | ✓ | 0.92 | 100.0% | 0.715 | 16.9% | 17/413 |
+| 1905.13650 | ✓ | 0.65 | 100.0% | 0.086 | 91.8% | 19/243 |
+| 2208.07293 | ✓ | 0.65 | 0.0% | ∞ | 0.0% | 2/2 |
+| 2211.08439 | ✓ | 0.65 | 100.0% | 9.465 | 0.0% | 33/16 |
+| 2110.03679 | ✓ | 0.92 | 0.0% | ∞ | 0.0% | 1/129 |
+| 2303.07370 | ✓ | 0.72 | 75.7% | 0.949 | 21.0% | 5/107 |
+| 2209.06216 | ✓ | 0.75 | 81.0% | 1.997 | 14.3% | 43/2597 |
+| 1912.05733 | ✓ | 0.70 | 71.7% | 2.416 | 9.1% | 12/46 |
+| 2408.02668 | ✓ | 0.92 | 100.0% | 0.715 | 16.9% | 17/413 |
+| 2309.16600 | ✓ | 0.82 | 100.0% | 1.523 | 0.0% | 25/196 |
+| 2504.16044 | ✓ | 0.92 | 0.0% | ∞ | 0.0% | 0/0 |
+| 2307.08577 | ✗ (AxionNeutron) | 0.35 | — | — | — | — |
+| 2312.06746 | ✓ | 0.88 | 35.7% | 0.253 | 93.4% | 3/171 |
+| 1310.8098 | ✗ (AxionPhoton) | 0.92 | 0.0% | ∞ | 0.0% | 2/44 |
+| 2408.02368 | ✓ | 0.92 | 100.0% | 0.176 | 87.8% | 3/647 |
+| 2212.01139 | ✓ | 0.75 | 98.5% | 0.306 | 49.2% | 21/134 |
+| 2011.07100 | ✓ | 0.92 | 98.7% | 0.241 | 55.1% | 12/79 |
+| 1403.1290 | ✓ | 0.85 | 18.4% | 20.494 | 0.0% | 40/38 |
+| 2302.09096 | ✓ | 0.85 | 58.5% | 24.536 | 0.0% | 9/41 |
+| 1410.7267 | ✓ | 0.85 | 0.0% | ∞ | 0.0% | 30/0 |
+| 1712.00483 | ✓ | 0.75 | 0.0% | ∞ | 0.0% | 6/119 |
+| 1607.07327 | ✗ (ScalarBaryon) | 0.75 | 100.0% | 0.687 | 0.0% | 27/35 |
+| 1611.05852 | ✗ (DarkPhoton) | 0.75 | 0.0% | ∞ | 0.0% | 29/0 |
+| 2111.06883 | ✗ (ScalarBaryon) | 0.65 | 0.0% | ∞ | 0.0% | 5/0 |
+| 2112.10618 | ✓ | 0.35 | — | — | — | — |
+| 1611.05852 | ✗ (DarkPhoton) | 0.75 | 0.0% | ∞ | 0.0% | 29/0 |
+| 0802.2350 | ✓ | 0.92 | 0.0% | ∞ | 0.0% | 3/0 |
+| 2009.04517 | ✗ (AxionNeutron) | 0.25 | — | — | — | — |
+| 2010.08107 | ✗ (ScalarElectron) | 0.85 | 0.0% | ∞ | 0.0% | 25/0 |
+| 2201.02042 | ✗ (ScalarElectron) | 0.72 | 0.0% | ∞ | 0.0% | 6/0 |
+| 2212.04413 | ✓ | 0.85 | 78.0% | 8.855 | 0.0% | 30/109 |
+| 2112.10618 | ✓ | 0.35 | — | — | — | — |
+| 2403.03004 | ✓ | 0.85 | 100.0% | 1.360 | 0.0% | 76/414 |
+| 2205.03617 | ✗ (DarkPhoton) | 0.65 | 0.0% | ∞ | 0.0% | 4/8 |
+| 2310.06017 | ✓ | 0.85 | 46.9% | 4.617 | 1.9% | 3/113 |
+| 2007.04899 | ✓ | 0.92 | 5.0% | 1.147 | 0.0% | 31/24406 |
+| 2102.08764 | ✓ | 0.75 | 100.0% | 0.354 | 0.0% | 30/2 |
+| 2308.14656 | ✓ | 0.92 | 98.7% | 0.303 | 48.6% | 3/75 |
+| 2207.03102 | ✓ | 0.95 | 0.0% | ∞ | 0.0% | 7/0 |
+| 1505.07455 | ✓ | 0.85 | 0.0% | ∞ | 0.0% | 1/1 |
+| 2105.04603 | ✓ | 0.85 | 98.3% | 1.856 | 0.0% | 7/707 |
+| 2303.11792 | ✓ | 0.85 | 0.0% | ∞ | 0.0% | 30/20 |
+| 1712.00483 | ✓ | 0.75 | 0.0% | ∞ | 0.0% | 6/119 |
+| 1607.06083 | ✓ | 0.75 | 0.0% | ∞ | 0.0% | 10/2 |
+| 2108.04746 | ✓ | 0.75 | 0.0% | ∞ | 0.0% | 4/0 |
+| 2208.12670 | ✓ | 0.95 | 100.0% | 0.000 | 100.0% | 6/2 |
+| 1806.05120 | ✓ | 0.92 | 97.9% | 0.192 | 81.5% | 5/94 |
+| 2101.01241 | ✓ | 0.85 | 0.0% | ∞ | 0.0% | 25/1 |
+| 2404.14476 | ✓ | 0.92 | 96.1% | 0.350 | 46.9% | 4/51 |
+| 2504.12377 | ✓ | 0.92 | 80.0% | 0.326 | 50.0% | 3/15 |
+| 2408.15227 | ✓ | 0.92 | 100.0% | 0.202 | 96.1% | 8/230 |
+| 2209.09917 | ✓ | 0.92 | 80.0% | 2.001 | 0.0% | 18/5 |
+| 2406.00387 | ✓ | 0.92 | 40.7% | 0.241 | 59.1% | 3/108 |
+| 1207.3275 | ✓ | 0.75 | 40.0% | 3.238 | 0.0% | 38/10 |
+| 2205.01079 | ✓ | 0.72 | 78.6% | 1.849 | 0.0% | 5/14 |
+| 2212.02403 | ✓ | 0.85 | 100.0% | 2.154 | 2.4% | 4/42 |
+| 1903.12190 | ✓ | 0.78 | 66.7% | 6.947 | 0.0% | 14/3 |
+| 2305.00890 | ✓ | 0.85 | 100.0% | 0.740 | 24.3% | 11/4991 |
+| 1708.06367 | ✓ | 0.88 | 100.0% | 5.023 | 0.0% | 51/36 |
+| 2312.13723 | ✓ | 0.75 | 0.0% | ∞ | 0.0% | 5/0 |
+| 2410.10363 | ✓ | 0.72 | 0.0% | ∞ | 0.0% | 5/367 |
+| 1202.5851 | ✓ | 0.35 | — | — | — | — |
+| 2208.06519 | ✓ | 0.85 | 0.0% | ∞ | 0.0% | 2/2 |
+| 2401.16747 | ✓ | 0.65 | 97.0% | 2.748 | 0.0% | 15/66 |
+| 2401.18076 | ✗ (ScalarBaryon) | 0.75 | 100.0% | 17.295 | 0.0% | 63/17 |
+| 2108.04746 | ✓ | 0.75 | 0.0% | ∞ | 0.0% | 4/0 |
+| 2503.13653 | ✓ | 0.65 | 74.1% | 2.145 | 0.0% | 7/54 |
+| 2308.06339 | ✓ | 0.65 | 0.0% | ∞ | 0.0% | 1/76 |
+| 2109.11734 | ✓ | 0.85 | 91.7% | 0.084 | 81.8% | 6/12 |
+| 2308.09077 | ✓ | 0.85 | 0.0% | ∞ | 0.0% | 0/54 |
+| 2110.06096 | ✓ | 0.92 | 97.5% | 0.419 | 5.5% | 6/242 |
+| 2205.03679 | ✓ | 0.75 | 98.6% | 0.730 | 0.0% | 15/1525 |
+| 2202.08858 | ✓ | 0.85 | 99.5% | 3.362 | 0.0% | 25/203 |
+| 2208.07293 | ✓ | 0.65 | 0.0% | ∞ | 0.0% | 2/4 |
+| 2503.14582 | ✓ | 0.85 | 100.0% | 0.228 | 66.2% | 8/224122 |
+| 1207.2442 | ✗ (ScalarBaryon) | 0.35 | — | — | — | — |
+| 2212.04413 | ✓ | 0.85 | 78.0% | 8.855 | 0.0% | 30/109 |
+| 1410.7267 | ✓ | 0.85 | 0.0% | ∞ | 0.0% | 30/0 |
+| 1609.00667 | ✗ (None) | 0.25 | — | — | — | — |
+| 2407.03828 | ✓ | 0.92 | 42.2% | 0.171 | 71.4% | 6/116 |
+| 1810.04602 | ✓ | 0.80 | 0.0% | ∞ | 0.0% | 6/55 |
+| 2110.10262 | ✓ | 0.85 | 0.0% | ∞ | 0.0% | 5/88 |
+| 2306.05934 | ✓ | 0.00 | — | — | — | — |
+| 1708.06367 | ✓ | 0.88 | 100.0% | 5.235 | 0.0% | 51/37 |
+| 2306.01048 | ✓ | 0.85 | 0.0% | ∞ | 0.0% | 21/38 |
+| 1607.07327 | ✗ (ScalarBaryon) | 0.75 | 100.0% | 0.687 | 0.0% | 27/35 |
+| 2008.08773 | ✗ (ScalarElectron) | 0.85 | 71.3% | 2.667 | 3.6% | 16/543 |
+| 2007.04990 | ✓ | 0.92 | 100.0% | 2.672 | 0.0% | 44/1 |
+| 2410.19902 | ✓ | 0.75 | 50.0% | 2.869 | 0.0% | 30/2 |
+| 2209.12901 | ✓ | 0.88 | 100.0% | 0.836 | 17.4% | 37/602 |
+| 1907.03767 | ✓ | 0.85 | 98.8% | 1.036 | 11.1% | 10/164 |
+| 1608.01994 | ✓ | 0.75 | 100.0% | 7.517 | 0.0% | 13/95 |
+| 2309.16600 | ✓ | 0.82 | 100.0% | 1.523 | 0.0% | 25/196 |
+| 2306.01048 | ✓ | 0.85 | 0.0% | ∞ | 0.0% | 21/38 |
+| 2211.08439 | ✓ | 0.65 | 100.0% | 9.465 | 0.0% | 33/16 |
+| 2111.06883 | ✗ (ScalarBaryon) | 0.65 | 0.0% | ∞ | 0.0% | 5/0 |
+| 1711.08999 | ✓ | 0.85 | 94.1% | 0.620 | 31.2% | 49/17 |
+| 2207.03102 | ✓ | 0.95 | 0.0% | ∞ | 0.0% | 7/0 |
+| 1207.2442 | ✗ (ScalarBaryon) | 0.35 | — | — | — | — |
+| 2207.11968 | ✓ | 0.25 | 0.0% | ∞ | 0.0% | 34/154 |
+| 2102.11740 | ✗ (None) | 0.15 | — | — | — | — |
+| 0807.2926 | ✗ (AxionPhoton) | 0.85 | 69.2% | 0.373 | 44.4% | 31/39 |
+| 1508.02463 | ✓ | 0.85 | 97.7% | 8.214 | 0.0% | 11/43 |
+| 1604.06800 | ✓ | 0.72 | 100.0% | 0.710 | 9.0% | 34/155 |
+| 1606.07001 | ✓ | 0.75 | 97.4% | 0.421 | 28.9% | 11/39 |
+| 0809.4700 | ✓ | 0.92 | 57.1% | 5.928 | 0.0% | 7/35 |
+| 2309.07995 | ✓ | 0.70 | 100.0% | 3.983 | 0.0% | 33/12 |
+| 2006.07055 | ✗ (ScalarPhoton) | 0.75 | 100.0% | 1.681 | 0.0% | 13/1 |
+| 1508.01798 | ✓ | 0.75 | 0.0% | ∞ | 0.0% | 35/50 |
+| 1512.06165 | ✗ (ScalarBaryon) | 0.35 | — | — | — | — |
+| 2004.02733 | ✗ (AxionNeutron) | 0.75 | 0.0% | ∞ | 0.0% | 6/34 |
+| 2111.09892 | ✗ (AxionMass) | 0.85 | 0.0% | ∞ | 0.0% | 1/4 |
 
 ## Breakdown by Difficulty
 
-| Difficulty | Papers | Coupling Acc. | Med. Resid. | <=0.3 dex |
-|------------|--------|---------------|-------------|-----------|
-| easy | 23 | 87.0% | 6.27 dex | 25.0% |
-| medium | 30 | 80.0% | 5.69 dex | 21.7% |
-| hard | 71 | 90.1% | 2.48 dex | 17.9% |
-
-Hard papers (figure_vision extraction) have the best coupling accuracy because they tend to be well-known experiments with clear exclusion plots. Medium papers have the lowest accuracy, often involving ambiguous multi-coupling theory papers.
+| Difficulty | Papers | Coupling Acc. | Med. Resid. | ≤0.3 dex |
+|------------|--------|---------------|-------------|----------|
+| easy | 23 | 91.3% | 3.127 dex | 14.3% |
+| medium | 30 | 63.3% | 5.611 dex | 13.1% |
+| hard | 71 | 84.5% | 2.182 dex | 23.1% |
 
 ## Breakdown by Extraction Source
 
-| Source | Papers | Med. Resid. | <=0.3 dex |
-|--------|--------|-------------|-----------|
-| table | 2 | 0.072 dex | 81.8% |
-| text | 52 | 2.18 dex | 21.7% |
-| figure_vision | 53 | 5.83 dex | 14.8% |
-
-Table extraction is by far the most accurate when available. Text extraction outperforms vision, consistent with the text-first design.
-
-## Breakdown by Coupling Type
-
-| Coupling Type | Papers | Coupling Acc. |
-|---------------|--------|---------------|
-| AxionPhoton | 24 | 95.8% |
-| DarkPhoton | 12 | 91.7% |
-| AxionElectron | 12 | 75.0% |
-| ScalarElectron | 9 | 77.8% |
-| AxionMass | 7 | 85.7% |
-| AxionEDM | 6 | 100% |
-| AxionNeutron | 6 | 100% |
-| AxionProton | 6 | 50.0% |
-| VectorBL | 6 | 83.3% |
-| ScalarPhoton | 5 | 100% |
-| MonopoleDipole | 3 | 100% |
-| ScalarBaryon | 2 | 100% |
-| ScalarNucleon | 2 | 100% |
-
-Weakest types: **AxionProton** (50% — confused with AxionNeutron/AxionMass), **AxionElectron** (75% — confused with AxionPhoton/DarkPhoton/MonopoleDipole).
+| Source | Papers | Med. Resid. | ≤0.3 dex |
+|--------|--------|-------------|----------|
+| table | 3 | 3.006 dex | 40.9% |
+| figure_vision | 44 | 3.953 dex | 10.0% |
+| text | 63 | 2.579 dex | 26.6% |
 
 ## Confidence Calibration
 
 | Bin | N | Mean Conf. | Actual Acc. | Gap |
 |-----|---|------------|-------------|-----|
-| [0.4-0.6) | 2 | 57.5% | 0.0% | +0.57 |
-| [0.6-0.8) | 67 | 72.4% | 1.5% | +0.71 |
-| [0.8-1.0) | 39 | 87.0% | 17.9% | +0.69 |
+| [0.2–0.4) | 1 | 25.0% | 0.0% | +0.25 |
+| [0.6–0.8) | 47 | 71.8% | 2.1% | +0.70 |
+| [0.8–1.0) | 64 | 87.8% | 10.9% | +0.77 |
 
-The pipeline is significantly **overconfident** — extraction_confidence does not correlate well with actual data quality. This is a known limitation: the confidence reflects coupling-type certainty, not curve accuracy.
-
----
-
-## Improvement History
-
-| Round | Date | PRs | coupling_type | N papers |
-|-------|------|-----|---------------|----------|
-| Baseline | 2026-04-12 | — | 59.6% | 87 |
-| Round 2 | 2026-04-12 | #423-#427 | 78.2% | 87 |
-| Round 3 | 2026-04-13 | #428-#429 | 93.1% | 87 |
-| Round 3 (expanded) | 2026-04-13 | #428-#429 | **86.0%** | **100** |
-
-The drop from 93.1% to 86.0% when expanding from 87 to 100 papers reflects the harder distribution of new papers (underrepresented coupling types with weaker disambiguation signals).
-
----
-
-## Remaining Issues and Next Steps
-
-### High-priority fixes (8 new errors)
-1. **AxionElectron disambiguation**: 3 papers (SolarNu, TorsionPendulum, Superconductors) misclassified. The pre-classifier receives empty abstracts for these older papers — consider fetching abstracts from arXiv API.
-2. **AxionProton vs AxionNeutron**: 2 papers (SNO, NeutronStars) confused. Add stronger proton-specific signals (hydrogen, proton spin, nucleon cooling with proton emphasis).
-3. **ScalarElectron vs ScalarPhoton**: DUAL paper misclassified. These scalar couplings need clearer disambiguation.
-
-### Systemic issues
-- **Pre-classifier with empty abstracts**: Many papers pass only the title to the classifier, yielding None/0.0 confidence. The fallback to full-text extraction then makes its own coupling decision without the classifier's guidance.
-- **Confidence calibration**: extraction_confidence is severely overconfident relative to actual data quality. Consider recalibrating or separating coupling confidence from curve confidence.
-- **Vision axis misreads**: Large residuals (>3 dex) in vision extraction stem from axis-scale misinterpretation. The calibration/verification stage catches some but not all.
-
----
+> **Interpretation**: Gap > 0 means the pipeline is overconfident; Gap < 0 means underconfident.
 
 ## Methodology
 
 ### Interpolation metric (primary)
 1. Filter boundary-closure sentinel points (coupling >= 1e-2) from both extracted and GT data
-2. Build `scipy.interpolate.interp1d` from extracted points in log10(mass) -> log10(coupling) space
+2. Build `scipy.interpolate.interp1d` from extracted points in log10(mass) → log10(coupling) space
 3. Evaluate the interpolation at each ground-truth mass value
 4. Compute residual = |log10(g_interpolated) - log10(g_ground_truth)| at each GT point
 5. Only GT points inside the extracted mass range are used (no extrapolation)
 
+**Key statistics:**
+- **Interpolation coverage**: fraction of GT points inside the extracted mass range
+- **Median/P90 residual**: summary of coupling errors in dex (0.3 dex ≈ factor 2)
+- **Fraction within threshold**: what % of GT points have residual below 0.1/0.3/0.5/1.0 dex
+
+When multiple extracted points share the same mass, the strongest constraint (lowest coupling) is kept.
+
 ### Confidence calibration
-- A paper is "accurate" if median residual < 0.3 dex AND interpolation coverage >= 50%
+- A paper is "accurate" if median residual < 0.3 dex AND interpolation coverage ≥ 50%
 - Papers binned by extraction_confidence; actual accuracy computed per bin
+- Perfect calibration: actual accuracy = mean confidence in each bin
