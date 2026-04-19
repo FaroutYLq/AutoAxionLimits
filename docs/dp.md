@@ -231,3 +231,4 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+- **BESIII_K_892_K_Dalitz_decay_dark_photon_search** *(projection)*: [Dalitz decay of $K^*(892) \rightarrow K \ell^+\ell^-$: A New Probe for Hadronic Structure and Dark Photon Searches](https://arxiv.org/abs/2604.14735)
