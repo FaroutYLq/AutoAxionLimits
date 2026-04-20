@@ -231,3 +231,4 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+- **LDMX_VisibleDecay** *(projection)*: [Expected Sensitivity of the Light Dark Matter eXperiment to Long-Lived Dark Photons and Axion-Like Particles](https://arxiv.org/abs/2604.14359)

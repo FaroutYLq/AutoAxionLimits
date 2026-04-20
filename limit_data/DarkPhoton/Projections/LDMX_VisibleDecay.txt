@@ -1,0 +1,15 @@
+# Expected Sensitivity of the Light Dark Matter eXperiment to Long-Lived Dark Photons and Axion-Like Particles
+# arXiv: https://arxiv.org/abs/2604.14359
+# Coupling type: DarkPhoton
+# Extracted from: text
+# Confidence level: 0.9
+# Extraction confidence: 0.70
+# mass [eV]    kinetic mixing chi
+5.000000e-03   1.000000e-07
+1.000000e-02   3.000000e-08
+5.000000e-02   8.000000e-09
+1.000000e-01   3.000000e-09
+2.000000e-01   1.000000e-09
+3.000000e-01   8.000000e-10
+5.000000e-01   4.000000e-10
+1.000000e+00   2.000000e-10
