@@ -24,10 +24,15 @@
     "2603.22647",
     "2603.22390",
     "2603.21951",
-    "2603.19109"
+    "2603.19109",
+    "2604.17840",
+    "2604.16882",
+    "2604.16602",
+    "2604.16244"
   ],
   "failed_ids": {
     "2603.25712": "'\u039b_NL (nonlocality scale in GeV)'",
-    "2604.02245": "Mass range [1.00e+09, 1.00e+11] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error"
+    "2604.02245": "Mass range [1.00e+09, 1.00e+11] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
+    "2604.17726": "float() argument must be a string or a real number, not 'NoneType'"
   }
 }
