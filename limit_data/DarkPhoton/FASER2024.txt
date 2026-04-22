@@ -1,0 +1,15 @@
+# Latest Results from the FASER Experiment
+# arXiv: https://arxiv.org/abs/2604.16244
+# Coupling type: DarkPhoton
+# Extracted from: text
+# Confidence level: 0.9
+# Extraction confidence: 0.75
+# mass [eV]    kinetic mixing chi
+1.000000e-02   1.000000e-05
+1.500000e-02   8.000000e-06
+2.000000e-02   6.000000e-06
+3.000000e-02   5.000000e-06
+5.000000e-02   4.000000e-06
+1.000000e-01   3.000000e-06
+1.500000e-01   2.500000e-06
+1.500000e-01   1.000000e-04
