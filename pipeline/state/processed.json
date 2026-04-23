@@ -24,10 +24,15 @@
     "2603.22647",
     "2603.22390",
     "2603.21951",
-    "2603.19109"
+    "2603.19109",
+    "2604.08193",
+    "2604.06288",
+    "2604.05041",
+    "2604.03945"
   ],
   "failed_ids": {
     "2603.25712": "'\u039b_NL (nonlocality scale in GeV)'",
-    "2604.02245": "Mass range [1.00e+09, 1.00e+11] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error"
+    "2604.02245": "Mass range [1.00e+09, 1.00e+11] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
+    "2604.07300": "Mass range [2.86e+12, 9.45e+12] eV outside valid range [1e-24, 1e+09] for MonopoleDipole \u2014 likely a unit conversion error"
   }
 }

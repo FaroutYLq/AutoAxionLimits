@@ -1,0 +1,8 @@
+# Photon Propagation through Magnetar-Hosted Axion Clouds: Time Delays and Polarimetric Constraint
+# arXiv: https://arxiv.org/abs/2604.03945
+# Coupling type: AxionPhoton
+# Extracted from: text
+# Confidence level: 0.9
+# Extraction confidence: 0.65
+# mass [eV]    g_agamma [GeV^-1]
+1.000000e-04   6.020000e-14
