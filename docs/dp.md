@@ -231,3 +231,4 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+- **Galactic_Magnetic_Field_Survival_Parker_Effect_Self_Interaction_Constraints**: [Self-Interaction and Galactic Magnetic Field Bounds on Millicharged Magnetic Monopole Dark Matter](https://arxiv.org/abs/2604.19873)
