@@ -1,0 +1,17 @@
+# Rotation-induced Relaxation of Supernova Constraints on Axionlike Particles
+# arXiv: https://arxiv.org/abs/2604.17840
+# Coupling type: AxionPhoton
+# Extracted from: text
+# Confidence level: 0.95
+# Extraction confidence: 0.65
+# mass [eV]    g_agamma [GeV^-1]
+1.000000e-02   2.500000e-10
+1.000000e-02   4.000000e-10
+1.000000e-01   1.200000e-10
+1.000000e-01   1.500000e-10
+1.000000e+00   7.000000e-11
+1.000000e+00   8.000000e-11
+1.000000e+01   4.500000e-11
+1.000000e+01   5.000000e-11
+1.000000e+02   2.800000e-11
+1.000000e+02   3.000000e-11
