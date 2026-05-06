@@ -231,3 +231,4 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+- **PPTA_DR3_and_EPTA_DR2_Pulsar_Timing_Array_Constraints**: [Constraints on Ultralight Scalar and Dark Photon Dark Matter from PPTA-DR3 and EPTA-DR2](https://arxiv.org/abs/2605.02172)
