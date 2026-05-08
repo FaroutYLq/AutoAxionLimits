@@ -4279,6 +4279,18 @@ class DarkPhoton():
             plt.text(0.6e-14,0.8e-5,r'{\bf SNIPE}',fontsize=fs,color='w',rotation=-42,rotation_mode='anchor',ha='center',va='center',path_effects=line_background(1.5,'k'),clip_on=True)
         return
 
+    @staticmethod
+    def BESIII_BaBar_NA64_E141_NA62_c_region_compilation(ax,col='crimson',fs=15,text_on=True,lw=1.5):
+        y2 = ax.get_ylim()[1]
+        dat = loadtxt("limit_data/DarkPhoton/Projections/BESIII_BaBar_NA64_E141_NA62_c_region_compilation.txt",ndmin=2)
+        plt.fill_between(dat[:,0],dat[:,1],y2=y2,edgecolor=None,facecolor=col,zorder=1)
+        plt.plot(dat[:,0],dat[:,1],color='k',alpha=1,zorder=1,lw=lw)
+        if text_on:
+            plt.text(5e-2,1e-4,r'{\bf BESIII/BaBar/NA64/E141/NA62}',fontsize=fs,color=col,rotation=0,
+                rotation_mode='anchor',ha='center',va='center',clip_on=True)
+        return
+
+
 
 
 
