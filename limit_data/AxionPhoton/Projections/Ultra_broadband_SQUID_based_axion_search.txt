@@ -1,0 +1,28 @@
+# An ultra-broadband axion dark matter experiment
+# arXiv: https://arxiv.org/abs/2605.11078
+# Coupling type: AxionPhoton
+# Extracted from: figure_vision
+# Confidence level: 0.95
+# Extraction confidence: 0.65
+# Corrections applied:
+#   DM density: paper=0.4 GeV/cm³ → repo=0.45 GeV/cm³; factor=sqrt(0.45/0.4)=1.0607
+# mass [eV]    g_agamma [GeV^-1]
+1.000000e-22   1.060660e-08
+1.000000e-21   7.954951e-09
+1.000000e-20   5.303301e-09
+1.000000e-19   3.181981e-09
+1.000000e-18   2.121320e-09
+1.000000e-17   1.272792e-09
+1.000000e-16   8.485281e-10
+1.000000e-15   5.303301e-10
+1.000000e-14   3.712311e-10
+1.000000e-13   2.651650e-10
+1.000000e-12   2.121320e-10
+1.000000e-11   1.909188e-10
+1.000000e-10   1.590990e-10
+1.000000e-09   1.272792e-10
+1.000000e-08   1.060660e-10
+1.000000e-07   1.166726e-10
+1.000000e-06   1.590990e-10
+1.000000e-05   2.651650e-10
+1.000000e-04   5.303301e-10
