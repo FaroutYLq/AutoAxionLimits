@@ -231,3 +231,4 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+- **Dark_photon_searches_in_the_photon_channel_A_D** *(projection)*: [Dark photon searches in the photon channel](https://arxiv.org/abs/2605.13696)
