@@ -2059,6 +2059,18 @@ class AxionPhoton():
         if text_on:
             plt.text(text_shift[0]*4e-20,text_shift[1]*0.7e-15,r'{\bf Twisted Anyon Cavity}',fontsize=fs,color=text_col,rotation=rotation,ha='center',va='top',clip_on=True,path_effects=path_effects)
         return
+
+    @staticmethod
+    def Axion_magnetohydrodynamics_from_reconnection_driven_axion_bursts_in_neutron_star_magnetospheres(ax,col='crimson',fs=15,text_on=True,lw=1.5):
+        y2 = ax.get_ylim()[1]
+        dat = loadtxt("limit_data/AxionPhoton/Projections/Axion_magnetohydrodynamics_from_reconnection_driven_axion_bursts_in_neutron_star_magnetospheres.txt",ndmin=2)
+        plt.fill_between(dat[:,0],dat[:,1],y2=y2,edgecolor=None,facecolor=col,zorder=1)
+        plt.plot(dat[:,0],dat[:,1],color='k',alpha=1,zorder=1,lw=lw)
+        if text_on:
+            plt.text(1e-6,1e-14,r'{\bf Axion MHD}',fontsize=fs,color=col,rotation=0,
+                rotation_mode='anchor',ha='center',va='center',clip_on=True)
+        return
+
     
 #==============================================================================#
 
