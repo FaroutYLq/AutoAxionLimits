@@ -319,3 +319,5 @@
 * NOMAD: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionPhoton/NOMAD.txt), [reference](https://www.sciencedirect.com/science/article/abs/pii/S0370269300003750?via%3Dihub)
 * OPAL: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionPhoton/OPAL.txt), [reference](https://arxiv.org/abs/1607.06083)
 * PrimEx: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionPhoton/PrimEx.txt), [reference](https://arxiv.org/abs/1903.03586)
+
+- **Globular_Clusters_R_parameter_GontcharovEtAl2026**: [Isochrone Fitting of Galactic Globular Clusters -- VIII. Homogeneous estimates of parameters for 27 clusters](https://arxiv.org/abs/2605.28505)
