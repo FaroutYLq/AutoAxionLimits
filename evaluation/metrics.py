@@ -67,6 +67,141 @@ class CurveMetrics:
 
 
 # ---------------------------------------------------------------------------
+# Symmetric / 2-D curve-distance + mass-range-agreement metrics
+# ---------------------------------------------------------------------------
+
+@dataclass
+class SymmetricCurveMetrics:
+    """Symmetric, shape-aware comparison of two curves in log-log space.
+
+    These are complementary to the (asymmetric, 1-D, vertical-only)
+    interpolation residual:
+
+    - ``area_between_log``: area between the two curves over their OVERLAPPING
+      log-mass range, normalised by the overlap width (so it is a single
+      shape+offset number in dex). Both a vertical offset and a horizontal
+      (mass) shift inflate it, so it penalises a pure mass shift that the
+      vertical residual can miss.
+    - ``mass_jaccard``: Jaccard index of the two log-mass intervals
+      (extracted vs GT). 1.0 = identical extent; small = an extraction that
+      runs well past (or well short of) the GT range. Reported SEPARATELY
+      from interpolation density/coverage.
+    """
+    arxiv_id: str
+    num_extracted: int
+    num_ground_truth: int
+    # Normalised area between curves in log-coupling-dex over the overlap range.
+    area_between_log: float
+    # Width (in dex of log10 mass) of the overlapping mass range.
+    overlap_log_mass_width: float
+    # Jaccard index of the two log-mass intervals.
+    mass_jaccard: float
+    # Extracted / GT log-mass interval endpoints (for diagnostics).
+    ext_log_mass_lo: float
+    ext_log_mass_hi: float
+    gt_log_mass_lo: float
+    gt_log_mass_hi: float
+
+
+def _log_mass_interval(log_m: np.ndarray) -> tuple[float, float]:
+    return float(np.min(log_m)), float(np.max(log_m))
+
+
+def _interval_jaccard(a: tuple[float, float], b: tuple[float, float]) -> float:
+    """Jaccard index of two closed intervals [a0,a1], [b0,b1]."""
+    inter = max(0.0, min(a[1], b[1]) - max(a[0], b[0]))
+    union = (a[1] - a[0]) + (b[1] - b[0]) - inter
+    if union <= 0:
+        # Both intervals are degenerate (single point). Identical -> 1, else 0.
+        return 1.0 if a[0] == b[0] else 0.0
+    return inter / union
+
+
+def compute_symmetric_curve_metrics(
+    arxiv_id: str,
+    extracted: np.ndarray,
+    ground_truth: np.ndarray,
+    coupling_ceil: float = 1e-2,
+    coupling_type: str | None = None,
+    n_samples: int = 200,
+) -> SymmetricCurveMetrics:
+    """Area-between-curves (log-log) + mass-range Jaccard.
+
+    Mirrors the boundary filtering / log-log interpolation of
+    ``compute_interpolation_metrics`` so the two metrics see the same points.
+
+    The area is computed by sampling both curves on a common log-mass grid
+    spanning their overlap, taking |Δ log10 coupling| and integrating
+    (trapezoid), then dividing by the overlap width so the result is in dex,
+    independent of how wide the overlap happens to be.
+    """
+    if coupling_type and coupling_type in _COUPLING_CEILINGS:
+        coupling_ceil = _COUPLING_CEILINGS[coupling_type]
+
+    ext = _filter_boundary(extracted, coupling_ceil)
+    gt = _filter_boundary(ground_truth, coupling_ceil)
+    n_ext = len(ext)
+    n_gt = len(gt)
+
+    _empty = SymmetricCurveMetrics(
+        arxiv_id=arxiv_id, num_extracted=n_ext, num_ground_truth=n_gt,
+        area_between_log=float("inf"), overlap_log_mass_width=0.0,
+        mass_jaccard=0.0,
+        ext_log_mass_lo=float("nan"), ext_log_mass_hi=float("nan"),
+        gt_log_mass_lo=float("nan"), gt_log_mass_hi=float("nan"),
+    )
+    if n_ext < 2 or n_gt < 2:
+        return _empty
+
+    log_ext_m, log_ext_c = _deduplicate_mass(np.log10(ext[:, 0]), np.log10(ext[:, 1]))
+    log_gt_m, log_gt_c = _deduplicate_mass(np.log10(gt[:, 0]), np.log10(gt[:, 1]))
+    if len(log_ext_m) < 2 or len(log_gt_m) < 2:
+        return _empty
+
+    ext_iv = _log_mass_interval(log_ext_m)
+    gt_iv = _log_mass_interval(log_gt_m)
+    jaccard = _interval_jaccard(ext_iv, gt_iv)
+
+    overlap_lo = max(ext_iv[0], gt_iv[0])
+    overlap_hi = min(ext_iv[1], gt_iv[1])
+    overlap_w = overlap_hi - overlap_lo
+    if overlap_w <= 0:
+        # No mass overlap: area is undefined (no common support).
+        return SymmetricCurveMetrics(
+            arxiv_id=arxiv_id, num_extracted=n_ext, num_ground_truth=n_gt,
+            area_between_log=float("inf"), overlap_log_mass_width=0.0,
+            mass_jaccard=jaccard,
+            ext_log_mass_lo=ext_iv[0], ext_log_mass_hi=ext_iv[1],
+            gt_log_mass_lo=gt_iv[0], gt_log_mass_hi=gt_iv[1],
+        )
+
+    ext_fn = interp1d(log_ext_m, log_ext_c, kind="linear",
+                      bounds_error=False, fill_value=np.nan)
+    gt_fn = interp1d(log_gt_m, log_gt_c, kind="linear",
+                     bounds_error=False, fill_value=np.nan)
+
+    grid = np.linspace(overlap_lo, overlap_hi, n_samples)
+    diff = np.abs(ext_fn(grid) - gt_fn(grid))
+    valid = ~np.isnan(diff)
+    if not np.any(valid):
+        area_norm = float("inf")
+    else:
+        g = grid[valid]
+        d = diff[valid]
+        # Normalised area = (∫|Δ| d(log m)) / width, i.e. mean |Δ| in dex.
+        area = float(np.trapz(d, g))
+        area_norm = area / overlap_w
+
+    return SymmetricCurveMetrics(
+        arxiv_id=arxiv_id, num_extracted=n_ext, num_ground_truth=n_gt,
+        area_between_log=area_norm, overlap_log_mass_width=float(overlap_w),
+        mass_jaccard=float(jaccard),
+        ext_log_mass_lo=ext_iv[0], ext_log_mass_hi=ext_iv[1],
+        gt_log_mass_lo=gt_iv[0], gt_log_mass_hi=gt_iv[1],
+    )
+
+
+# ---------------------------------------------------------------------------
 # Primary metric: interpolation-based curve comparison
 # ---------------------------------------------------------------------------
 
@@ -95,6 +230,21 @@ class InterpolationMetrics:
     frac_within_0_3dex: float  # factor-of-2 error
     frac_within_0_5dex: float  # factor-of-3 error
     frac_within_1_0dex: float  # order-of-magnitude error
+    # --- Reverse pass: interpolate the GT curve onto the EXTRACTED masses. ---
+    # This is the mirror of the forward pass. The forward pass alone cannot see
+    # an extraction that runs PAST the GT mass range (over-claiming): those
+    # extracted masses simply have no GT point to be scored against. Evaluating
+    # the GT interpolation at the extracted masses surfaces that error as a
+    # large reverse residual / coverage gap. A large forward-vs-reverse
+    # asymmetry flags an extent/shape mismatch.
+    # How many extracted points fall inside the GT mass range (interpolatable)
+    num_interpolatable_reverse: int = 0
+    # Fraction of extracted points that are interpolatable against GT
+    interpolation_coverage_reverse: float = 0.0
+    median_residual_dex_reverse: float = float("inf")
+    mean_residual_dex_reverse: float = float("inf")
+    p90_residual_dex_reverse: float = float("inf")
+    max_residual_dex_reverse: float = float("inf")
 
 
 # Coupling ceilings per type: points with coupling >= ceiling are treated as
@@ -140,6 +290,28 @@ def _deduplicate_mass(log_mass: np.ndarray, log_coupling: np.ndarray) -> tuple[n
         if log_coupling[i] < min_c[idx]:
             min_c[idx] = log_coupling[i]
     return unique_m, min_c
+
+
+def _interp_residuals(
+    src_m: np.ndarray, src_c: np.ndarray, tgt_m: np.ndarray, tgt_c: np.ndarray
+) -> np.ndarray | None:
+    """Build a log-log interp1d from (src_m, src_c) and evaluate it at tgt_m,
+    returning |residual| against tgt_c for the in-range target masses only.
+
+    All inputs are already in log10 space. Returns None if the source has <2
+    distinct masses or no target mass falls inside the source range.
+    """
+    src_m, src_c = _deduplicate_mass(src_m, src_c)
+    if len(src_m) < 2:
+        return None
+    interp_fn = interp1d(
+        src_m, src_c, kind="linear", bounds_error=False, fill_value=np.nan,
+    )
+    interp_c = interp_fn(tgt_m)
+    valid = ~np.isnan(interp_c)
+    if not np.any(valid):
+        return None
+    return np.abs(interp_c[valid] - tgt_c[valid])
 
 
 def compute_interpolation_metrics(
@@ -219,6 +391,22 @@ def compute_interpolation_metrics(
 
     residuals = np.abs(interp_c[valid] - log_gt_c[valid])
 
+    # --- Reverse pass: build interp from GT, evaluate at extracted masses. ---
+    # log_ext_m/log_ext_c are already deduplicated above; the GT side is
+    # deduplicated inside _interp_residuals.
+    residuals_rev = _interp_residuals(log_gt_m, log_gt_c, log_ext_m, log_ext_c)
+    if residuals_rev is None or len(residuals_rev) == 0:
+        n_interp_rev = 0
+        cov_rev = 0.0
+        med_rev = mean_rev = p90_rev = max_rev = float("inf")
+    else:
+        n_interp_rev = int(len(residuals_rev))
+        cov_rev = n_interp_rev / len(log_ext_m)
+        med_rev = float(np.median(residuals_rev))
+        mean_rev = float(np.mean(residuals_rev))
+        p90_rev = float(np.percentile(residuals_rev, 90))
+        max_rev = float(np.max(residuals_rev))
+
     return InterpolationMetrics(
         arxiv_id=arxiv_id,
         num_extracted=n_ext,
@@ -234,6 +422,12 @@ def compute_interpolation_metrics(
         frac_within_0_3dex=float(np.mean(residuals <= 0.3)),
         frac_within_0_5dex=float(np.mean(residuals <= 0.5)),
         frac_within_1_0dex=float(np.mean(residuals <= 1.0)),
+        num_interpolatable_reverse=n_interp_rev,
+        interpolation_coverage_reverse=cov_rev,
+        median_residual_dex_reverse=med_rev,
+        mean_residual_dex_reverse=mean_rev,
+        p90_residual_dex_reverse=p90_rev,
+        max_residual_dex_reverse=max_rev,
     )
 
 
@@ -448,3 +642,63 @@ def compute_confidence_calibration(
         ))
 
     return bins
+
+
+# ---------------------------------------------------------------------------
+# Synthetic self-check (issue #541). Run: python -m evaluation.metrics
+# Not a pytest suite (that is issue #544); just guards the new metric maths.
+# ---------------------------------------------------------------------------
+
+if __name__ == "__main__":
+    # A simple log-log power-law curve over a decade of mass.
+    def _curve(m_lo_dex, m_hi_dex, c0_dex, slope, n=25):
+        m = np.logspace(m_lo_dex, m_hi_dex, n)
+        c = 10.0 ** (c0_dex + slope * (np.log10(m) - m_lo_dex))
+        return np.column_stack([m, c])
+
+    gt = _curve(-6, -5, -10, -0.5)
+
+    # 1. Identical curves -> reverse residual 0, area 0, Jaccard 1.
+    im = compute_interpolation_metrics("id", gt.copy(), gt.copy(),
+                                       coupling_type="AxionPhoton")
+    sm = compute_symmetric_curve_metrics("id", gt.copy(), gt.copy(),
+                                         coupling_type="AxionPhoton")
+    assert im.median_residual_dex < 1e-9, im.median_residual_dex
+    assert im.median_residual_dex_reverse < 1e-9, im.median_residual_dex_reverse
+    assert sm.area_between_log < 1e-9, sm.area_between_log
+    assert abs(sm.mass_jaccard - 1.0) < 1e-9, sm.mass_jaccard
+    print(f"[identical]   fwd={im.median_residual_dex:.3g} "
+          f"rev={im.median_residual_dex_reverse:.3g} "
+          f"area={sm.area_between_log:.3g} jaccard={sm.mass_jaccard:.3f}")
+
+    # 2. Extraction extends WELL past the GT range (over-claiming):
+    #    GT spans [-6,-5]; extraction spans [-6,-2] (same shape on the overlap).
+    over = _curve(-6, -2, -10, -0.5, n=60)
+    im2 = compute_interpolation_metrics("over", over, gt.copy(),
+                                        coupling_type="AxionPhoton")
+    sm2 = compute_symmetric_curve_metrics("over", over, gt.copy(),
+                                          coupling_type="AxionPhoton")
+    # Forward (GT masses onto extraction) is fine; reverse (extracted masses
+    # onto GT) has many points outside the GT range -> low reverse coverage,
+    # i.e. strong forward/reverse coverage asymmetry. Jaccard is low (1 of 4
+    # decades overlap -> ~0.25).
+    assert sm2.mass_jaccard < 0.4, sm2.mass_jaccard
+    assert im2.interpolation_coverage_reverse < im2.interpolation_coverage, (
+        im2.interpolation_coverage_reverse, im2.interpolation_coverage)
+    print(f"[over-claim]  fwd_cov={im2.interpolation_coverage:.3f} "
+          f"rev_cov={im2.interpolation_coverage_reverse:.3f} "
+          f"area={sm2.area_between_log:.3g} jaccard={sm2.mass_jaccard:.3f}")
+
+    # 3. Pure horizontal (mass) shift: same coupling values, masses shifted by
+    #    half a decade. Vertical residual at matched masses looks ok-ish, but
+    #    the area-between-curves and Jaccard both penalise it.
+    shifted = gt.copy()
+    shifted[:, 0] *= 10 ** 0.5  # shift mass by +0.5 dex
+    sm3 = compute_symmetric_curve_metrics("shift", shifted, gt.copy(),
+                                          coupling_type="AxionPhoton")
+    assert sm3.area_between_log > 0.05, sm3.area_between_log
+    assert sm3.mass_jaccard < 1.0, sm3.mass_jaccard
+    print(f"[mass-shift]  area={sm3.area_between_log:.3g} "
+          f"jaccard={sm3.mass_jaccard:.3f}")
+
+    print("All synthetic checks passed.")

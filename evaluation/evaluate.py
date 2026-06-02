@@ -49,9 +49,11 @@ from evaluation.metrics import (
     ClassificationMetrics,
     CurveMetrics,
     InterpolationMetrics,
+    SymmetricCurveMetrics,
     compute_confidence_calibration,
     compute_curve_metrics,
     compute_interpolation_metrics,
+    compute_symmetric_curve_metrics,
 )
 from evaluation.report import generate_report
 
@@ -275,6 +277,7 @@ def compute_all_metrics(
 
     curve_metrics_list: list[CurveMetrics] = []
     interp_metrics_list: list[InterpolationMetrics] = []
+    symmetric_metrics_list: list[SymmetricCurveMetrics] = []
     confidences: list[float] = []
     curve_arxiv_ids: list[str] = []
 
@@ -434,6 +437,28 @@ def compute_all_metrics(
                 "frac_within_0_3dex": im.frac_within_0_3dex,
                 "frac_within_0_5dex": im.frac_within_0_5dex,
                 "frac_within_1_0dex": im.frac_within_1_0dex,
+                # Reverse pass (GT interpolated onto extracted masses).
+                "num_interpolatable_reverse": im.num_interpolatable_reverse,
+                "interpolation_coverage_reverse": im.interpolation_coverage_reverse,
+                "median_residual_dex_reverse": im.median_residual_dex_reverse,
+                "mean_residual_dex_reverse": im.mean_residual_dex_reverse,
+                "p90_residual_dex_reverse": im.p90_residual_dex_reverse,
+                "max_residual_dex_reverse": im.max_residual_dex_reverse,
+            }
+
+            # Symmetric / 2-D shape metrics: area-between-curves + mass Jaccard.
+            sm = compute_symmetric_curve_metrics(
+                arxiv_id, ext_array, gt_data, coupling_type=predicted_ct,
+            )
+            symmetric_metrics_list.append(sm)
+            paper_report["symmetric_metrics"] = {
+                "area_between_log": sm.area_between_log,
+                "overlap_log_mass_width": sm.overlap_log_mass_width,
+                "mass_jaccard": sm.mass_jaccard,
+                "ext_log_mass_lo": sm.ext_log_mass_lo,
+                "ext_log_mass_hi": sm.ext_log_mass_hi,
+                "gt_log_mass_lo": sm.gt_log_mass_lo,
+                "gt_log_mass_hi": sm.gt_log_mass_hi,
             }
 
             cm = compute_curve_metrics(arxiv_id, ext_array, gt_data)
@@ -451,6 +476,7 @@ def compute_all_metrics(
         else:
             paper_report["interp_metrics"] = None
             paper_report["curve_metrics"] = None
+            paper_report["symmetric_metrics"] = None
 
         per_paper.append(paper_report)
 
@@ -488,8 +514,40 @@ def compute_all_metrics(
             "mean_frac_within_0_3dex": float(np.mean([m.frac_within_0_3dex for m in valid])) if valid else None,
             "mean_frac_within_0_5dex": float(np.mean([m.frac_within_0_5dex for m in valid])) if valid else None,
         }
+        # Reverse pass aggregate (GT interpolated onto extracted masses).
+        # A large gap between forward and reverse residual flags extent/shape
+        # mismatch even when the forward residual alone looks good.
+        valid_rev = [m for m in interp_metrics_list
+                     if m.median_residual_dex_reverse < float("inf")]
+        rev_resids = [m.median_residual_dex_reverse for m in valid_rev]
+        aggregate_interp["n_finite_reverse"] = len(valid_rev)
+        aggregate_interp["mean_interpolation_coverage_reverse"] = float(
+            np.mean([m.interpolation_coverage_reverse for m in interp_metrics_list])
+        )
+        aggregate_interp["median_median_residual_dex_reverse"] = (
+            float(np.median(rev_resids)) if valid_rev else None
+        )
+        aggregate_interp["mean_median_residual_dex_reverse"] = (
+            float(np.mean(rev_resids)) if valid_rev else None
+        )
     else:
         aggregate_interp = {"n_papers": 0}
+
+    # Aggregate symmetric / 2-D shape metrics (area-between-curves, Jaccard).
+    if symmetric_metrics_list:
+        areas = [m.area_between_log for m in symmetric_metrics_list
+                 if m.area_between_log < float("inf")]
+        jaccards = [m.mass_jaccard for m in symmetric_metrics_list]
+        aggregate_symmetric = {
+            "n_papers": len(symmetric_metrics_list),
+            "n_finite_area": len(areas),
+            "median_area_between_log": float(np.median(areas)) if areas else None,
+            "mean_area_between_log": float(np.mean(areas)) if areas else None,
+            "median_mass_jaccard": float(np.median(jaccards)),
+            "mean_mass_jaccard": float(np.mean(jaccards)),
+        }
+    else:
+        aggregate_symmetric = {"n_papers": 0}
 
     # Aggregate legacy curve statistics (secondary)
     if curve_metrics_list:
@@ -578,6 +636,7 @@ def compute_all_metrics(
             "status_counts": dict(comparison_status_counts),
         },
         "interpolation_aggregate": aggregate_interp,
+        "symmetric_aggregate": aggregate_symmetric,
         "curve_aggregate": aggregate_curve,
         "confidence_calibration": [asdict(b) for b in calibration],
         "difficulty_breakdown": difficulty_breakdown,
