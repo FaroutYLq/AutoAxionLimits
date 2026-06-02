@@ -17,6 +17,24 @@ PAPERS_JSON = GROUND_TRUTH_DIR / "papers.json"
 DATA_DIR = GROUND_TRUTH_DIR / "data"
 
 
+def _loadtxt_tolerant(path: Path) -> Optional[np.ndarray]:
+    """Load an Nx2 numeric data file, tolerating whitespace- or comma-delimited
+    columns. A few repo-sourced ground-truth files are comma-separated (e.g.
+    ``1e-17,2.0``), which the default whitespace-splitting ``np.loadtxt`` cannot
+    parse. We try whitespace first (the common case), then comma. A genuinely
+    unparseable file is warned about and skipped (returns None) rather than
+    crashing the whole metrics run."""
+    try:
+        return np.loadtxt(str(path), ndmin=2)
+    except ValueError:
+        pass
+    try:
+        return np.loadtxt(str(path), ndmin=2, delimiter=",")
+    except ValueError as e:
+        logger.warning("Could not parse data file %s (%s); skipping", path, e)
+        return None
+
+
 @dataclass
 class GroundTruthEntry:
     arxiv_id: str
@@ -48,7 +66,7 @@ class GroundTruthEntry:
         if not path.exists():
             logger.warning("Ground truth data file not found: %s", path)
             return None
-        return np.loadtxt(str(path), ndmin=2)
+        return _loadtxt_tolerant(path)
 
     def load_reference_data(self, repo_root: Path) -> Optional[np.ndarray]:
         """Load the reference data from the repo (upstream-curated)."""
@@ -58,7 +76,7 @@ class GroundTruthEntry:
         if not path.exists():
             logger.warning("Reference repo file not found: %s", path)
             return None
-        return np.loadtxt(str(path), ndmin=2)
+        return _loadtxt_tolerant(path)
 
 
 def load_ground_truth(path: Path = PAPERS_JSON) -> list[GroundTruthEntry]:
