@@ -1,0 +1,9 @@
+# Gold-set points digitized directly from 0802.2350
+# coupling_type=ScalarNucleon source=table
+# mass_eV    coupling
+4.965000e-02  3.100000e+07
+3.310000e-02  4.600000e+05
+1.986000e-02  1.400000e+04
+1.103000e-02  1.100000e+03
+5.841000e-03  2.500000e+02
+3.009000e-03  1.500000e+02

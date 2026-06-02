@@ -1,0 +1,4 @@
+# Gold-set points digitized directly from 2302.09096
+# coupling_type=MonopoleDipole source=text
+# mass_eV    coupling
+1.970000e-18  1.600000e-35

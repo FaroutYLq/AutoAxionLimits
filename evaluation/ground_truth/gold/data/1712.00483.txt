@@ -1,0 +1,5 @@
+# Gold-set points digitized directly from 1712.00483
+# coupling_type=ScalarPhoton source=text
+# mass_eV    coupling
+1.000000e-18  1.000000e-04
+1.000000e-11  1.000000e-04
