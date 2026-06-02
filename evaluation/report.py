@@ -54,13 +54,15 @@ def generate_report(metrics: dict, output_path: str):
         _meaning = {
             "compared": "scored against a same-coupling GT curve",
             "no_comparable_gt": "extracted coupling has no GT curve in the pool (usually a coupling misclassification)",
+            "convention_mismatch": "same coupling but the GT curve uses a different convention/units (e.g. f_a [GeV] vs normalized, or d_e vs a large-valued variable) — excluded as a units gap, not extraction error",
             "gt_point_reference": "GT is a single-mass prediction/projection, not a curve (not comparable)",
             "gt_unusable": "GT curve has <2 usable points after boundary filtering",
             "no_prediction": "pipeline returned no coupling type",
             "no_extracted_points": "pipeline returned no data points",
             "extraction_failed": "extraction errored (download/parse/API)",
         }
-        for status in ["compared", "no_comparable_gt", "gt_point_reference", "gt_unusable",
+        for status in ["compared", "no_comparable_gt", "convention_mismatch",
+                       "gt_point_reference", "gt_unusable",
                        "no_extracted_points", "no_prediction", "extraction_failed"]:
             if status not in status_counts:
                 continue
