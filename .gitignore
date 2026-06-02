@@ -143,3 +143,6 @@ pipeline/state/*.tmp
 
 # Evaluation results (cached extraction outputs)
 evaluation/results/
+
+# Gold-set diff report (regenerated from cached extractions; not committed)
+evaluation/gold_report.md

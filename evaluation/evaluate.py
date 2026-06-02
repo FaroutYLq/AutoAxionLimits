@@ -660,6 +660,11 @@ def main():
                         help="Compute metrics from cached extraction results")
     parser.add_argument("--report", action="store_true",
                         help="Generate evaluation report (markdown + plots)")
+    parser.add_argument("--gold", action="store_true",
+                        help="Score cached extractions against the hand-curated "
+                             "gold set and print the gold-vs-repo upstream gap "
+                             "(delegates to evaluation.gold_diff; additive, does "
+                             "not affect the repo-pool metrics above)")
     parser.add_argument("--arxiv-id", type=str, default=None,
                         help="Only process this arXiv ID (with --extract)")
     parser.add_argument("--force", action="store_true",
@@ -669,9 +674,27 @@ def main():
 
     args = parser.parse_args()
 
-    if not any([args.populate, args.extract, args.metrics, args.report]):
+    if not any([args.populate, args.extract, args.metrics, args.report, args.gold]):
         parser.print_help()
         return
+
+    if args.gold:
+        # Additive gold-set scoring; reuses cached results + metrics, separate
+        # from the repo-pool aggregates. Kept as a thin delegate so the gold
+        # logic lives in its own module (minimal evaluate.py footprint).
+        from evaluation.gold_diff import compute_gold_diff, render_report
+        diff = compute_gold_diff()
+        s = diff["summary"]
+        logger.info("gold-vs-repo upstream gap: %.3f dex (N=%s); "
+                    "extraction-vs-gold: %.3f (N=%s); extraction-vs-repo: %.3f (N=%s)",
+                    s["gold_vs_repo_median_dex"] or float("nan"), s["gold_vs_repo_n"],
+                    s["ext_vs_gold_median_dex"] or float("nan"), s["ext_vs_gold_n"],
+                    s["ext_vs_repo_median_dex"] or float("nan"), s["ext_vs_repo_n"])
+        gold_report = Path(__file__).parent / "gold_report.md"
+        gold_report.write_text(render_report(diff))
+        logger.info("Gold report written to %s", gold_report)
+        if not any([args.populate, args.extract, args.metrics, args.report]):
+            return
 
     entries = load_ground_truth()
     logger.info("Loaded %d ground-truth papers", len(entries))
