@@ -609,29 +609,6 @@ _COUPLING_FACTOR_CANDIDATES: list[tuple[float, str]] = [(1.0, "none")] + [
     (10.0 ** e, f"×1e{e:+d}") for e in range(-20, 21) if e != 0
 ]
 
-# Tighter, physically-expected mass anchor (in eV) per coupling type, used as
-# the target for the argmin rule. VALID_RANGES masses span 1e-24..1e9 which is
-# far too wide to discriminate between candidate factors, so we anchor to the
-# geometric centre of the *typical* searched mass window for each coupling.
-# These are only used to pick among candidates that ALSO bring the median into
-# the (wide) VALID_RANGES window; they never widen what counts as valid.
-_EXPECTED_MASS_ANCHOR_EV: dict[str, float] = {
-    "DarkPhoton": 1e-5,
-    "AxionPhoton": 1e-5,
-    "AxionElectron": 1e-3,
-    "AxionNeutron": 1e-8,
-    "AxionProton": 1e-8,
-    "AxionEDM": 1e-9,
-    "AxionCPV": 1e-9,
-    "ScalarPhoton": 1e-3,
-    "ScalarElectron": 1e-3,
-    "ScalarBaryon": 1e-3,
-    "ScalarNucleon": 1e-3,
-    "MonopoleDipole": 1e-3,
-    "VectorBL": 1e-3,
-}
-
-
 def _sorted_median(values: list[float]) -> float:
     """Median over sorted values (order-independent by construction)."""
     s = sorted(values)
@@ -872,61 +849,49 @@ def _validate_extracted_range(data_points: list, coupling_type: str | None) -> t
     median_mass = _sorted_median(masses)
     median_coup = _sorted_median(couplings)
 
-    # --- Auto-correct mass unit errors (deterministic) ---
-    # The correction is a pure function of (median_mass, coupling_type): same
-    # input → same factor, regardless of point ordering.
+    # --- Auto-correct mass unit errors (deterministic, HARD trigger ONLY) ---
+    # Fire ONLY when the median mass is clearly OUTSIDE the (wide) valid window
+    # [mass_lo*0.1, mass_hi*10] — i.e. a gross unit blunder we must undo. Data
+    # already inside the window is LEFT UNTOUCHED.
     #
-    # Two triggers, both deterministic:
-    #   (A) HARD: the median mass is clearly outside the (wide) valid window
-    #       [mass_lo*0.1, mass_hi*10]. We must rescale it back in.
-    #   (B) SOFT (issue #561 unit_offset cluster): the median is nominally
-    #       inside the very wide VALID_RANGES window but sits >= 3 decades from
-    #       the physically-expected mass anchor for this coupling type. These
-    #       are the wrong-unit digitisations (e.g. axis read in GHz/keV/GeV).
-    #       We only fire when a discrete factor brings it within 1.5 decades of
-    #       the anchor AND keeps it in range — i.e. the correction must clearly
-    #       improve agreement, never make it worse.
+    # We deliberately do NOT nudge in-range data toward any "expected" mass:
+    # dark-photon / axion / scalar searches span ~1e-22..1e9 eV, so there is no
+    # single physical mass scale to anchor an in-range correction to. Issue #561
+    # originally added a SOFT anchor-distance trigger (fire when the median is
+    # >= 3 dex from a FIXED per-coupling anchor, e.g. 1e-5 eV) — the #550/#561
+    # before/after eval showed this snapped ~20 already-correct mass windows by a
+    # unit constant toward 1e-5 eV (the unit_offset zero-overlap cluster:
+    # 1705.02290 CAST 1e-3..2e-2 eV -> 1e-7..2e-5; 2007.13071 Belle II GeV-scale
+    # -> 1e-5; 2308.06339 a perfect 2e8..4.5e8 eV match -> 8e-7..1.8e-6; ...).
+    # The "improvement" guard compared distance-to-anchor, not distance-to-truth,
+    # so it actively rewarded moving correct data away from the real window.
+    # Removed; the in-range unit_offset cases from #540 are figure-metrology
+    # errors that belong to the vision/CV axis path, not a blind text-data snap.
     #
-    # In both cases the factor is chosen by the SAME argmin-toward-anchor rule
-    # with deterministic tie-breaking, restricted to factors that land the
-    # corrected median inside [mass_lo*0.1, mass_hi*10].
-    anchor = _EXPECTED_MASS_ANCHOR_EV.get(coupling_type)
-    if anchor is None or not (mass_lo <= anchor <= mass_hi):
-        # Fall back to the geometric centre of the valid window.
-        anchor = _math.sqrt(mass_lo * mass_hi)
-    _ANCHOR_TRIGGER_DEX = 3.0   # how far from anchor before SOFT trigger arms
-    _ANCHOR_IMPROVE_DEX = 1.5   # corrected median must reach within this of anchor
-    dist0 = abs(_math.log10(median_mass) - _math.log10(anchor))
-    hard_trigger = median_mass > mass_hi * 10 or median_mass < mass_lo * 0.1
-    soft_trigger = dist0 >= _ANCHOR_TRIGGER_DEX
-    if hard_trigger or soft_trigger:
+    # Determinism is preserved: sorted-median summary + fixed discrete candidate
+    # set + deterministic argmin/tie-break in _choose_discrete_factor. The argmin
+    # anchor is the geometric centre of the valid window (unbiased).
+    if median_mass > mass_hi * 10 or median_mass < mass_lo * 0.1:
+        mass_anchor = _math.sqrt(mass_lo * mass_hi)
         in_window = lambda c: mass_lo * 0.1 <= c <= mass_hi * 10
         factor, label = _choose_discrete_factor(
-            median_mass, anchor, _MASS_FACTOR_CANDIDATES, in_range=in_window
+            median_mass, mass_anchor, _MASS_FACTOR_CANDIDATES, in_range=in_window
         )
-        # For the SOFT (in-range) trigger, require the correction to genuinely
-        # move the median toward the anchor; otherwise leave the data alone.
-        if soft_trigger and not hard_trigger and factor != 1.0:
-            dist_after = abs(_math.log10(median_mass * factor) - _math.log10(anchor))
-            if dist_after > _ANCHOR_IMPROVE_DEX or dist_after >= dist0:
-                factor, label = 1.0, "none"
         if factor != 1.0:
             logger.info(
                 "Auto-correcting masses: %s (factor %.3e), anchor=%.2e eV",
-                label, factor, anchor,
+                label, factor, mass_anchor,
             )
             data_points = [(m * factor, g) for m, g in data_points]
             notes.append(
                 f"Auto-corrected masses: {label} (×{factor:.3e}, "
-                f"rule=argmin|log10(median*f)-log10(anchor={anchor:.1e})|)"
+                f"rule=argmin|log10(median*f)-log10(anchor={mass_anchor:.1e})|)"
             )
-        elif hard_trigger:
+        else:
             notes.append(
                 f"WARNING: median mass {median_mass:.1e} outside range "
                 f"[{mass_lo:.0e}, {mass_hi:.0e}]; no discrete factor recovers it"
             )
-        # soft-trigger-only with no improving factor → leave data unchanged,
-        # no note (the data is nominally in range).
 
     # --- Auto-correct coupling unit errors (deterministic) ---
     # Couplings are essentially always off by an integer power of ten. Pick the

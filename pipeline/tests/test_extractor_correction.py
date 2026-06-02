@@ -137,60 +137,43 @@ def test_validate_repeatable(coupling_type, masses):
 
 
 # ---------------------------------------------------------------------------
-# unit_offset fixtures (issue #540 cluster): chosen factor is clean + stable
+# In-range "unit_offset" clusters must be LEFT UNTOUCHED (issue #561 fix)
 # ---------------------------------------------------------------------------
 
-# (arxiv_id, coupling_type, raw_masses) — these are nominally inside the very
-# wide VALID_RANGES but many decades from the physically-expected anchor, so
-# the SOFT trigger fires and rescales them deterministically toward the anchor.
-_UNIT_OFFSET_CASES = [
-    ("2211.12699", "AxionPhoton", [0.165, 0.5, 1.2, 2.84]),
+# (arxiv_id, coupling_type, masses) — these all sit INSIDE the wide VALID_RANGES
+# window. The original #561 SOFT anchor-distance trigger rescaled them toward a
+# fixed per-coupling anchor (e.g. 1e-5 eV), which the #550/#561 before/after eval
+# showed destroyed ~20 already-correct extractions (the unit_offset zero-overlap
+# cluster). The corrected behaviour is: in-range data is never rescaled. We can
+# only correct GROSS, out-of-range unit blunders (the hard trigger below).
+_IN_RANGE_CASES = [
+    ("2211.12699", "AxionPhoton", [0.165, 0.5, 1.2, 2.84]),     # eV-scale ALP
     ("1709.00009", "AxionPhoton", [1e-4, 1e-3, 0.5, 2.0]),
     ("2111.06883", "ScalarElectron", [1e1, 1e3, 1e6, 1e8]),
-    ("2112.03439", "AxionPhoton", [1.3e9, 1.3e9, 1.29e9]),
-    ("2401.16747", "AxionPhoton", [1.8, 5.0, 10.0, 18.0]),
+    ("2112.03439", "AxionPhoton", [1.3e9, 1.3e9, 1.29e9]),      # GeV-scale collider
+    ("2401.16747", "AxionPhoton", [1.8e3, 5e3, 1e4, 1.8e4]),    # keV-scale X-ray (real eROSITA window)
 ]
 
 
-@pytest.mark.parametrize("arxiv_id,coupling_type,masses", _UNIT_OFFSET_CASES)
-def test_unit_offset_corrected_and_stable(arxiv_id, coupling_type, masses):
-    """The cluster cases must (a) actually get corrected, (b) land near the
-    physically-expected anchor, and (c) do so identically under shuffling.
-
-    We assert the corrected median is meaningfully closer to the expected mass
-    scale than the raw median, and that a clean discrete factor was applied.
-    The PRIMARY bar is determinism; this also checks the correction fires.
-    """
-    from pipeline.extractor import _EXPECTED_MASS_ANCHOR_EV
-
+@pytest.mark.parametrize("arxiv_id,coupling_type,masses", _IN_RANGE_CASES)
+def test_in_range_clusters_left_untouched(arxiv_id, coupling_type, masses):
+    """In-range mass clusters must NOT be rescaled, regardless of how far they
+    sit from any nominal "expected" mass scale. This is the #561 regression fix:
+    the soft anchor-distance trigger that used to snap these toward 1e-5 eV is
+    gone. We still require determinism (identical result under shuffling)."""
     base = _make_points(masses)
     pts, note = _validate_extracted_range(list(base), coupling_type)
 
-    raw_median = _median_mass(base)
-    corr_median = _median_mass(pts)
-    anchor = _EXPECTED_MASS_ANCHOR_EV[coupling_type]
-
-    # (a) correction fired
-    assert "Auto-corrected masses" in note, f"{arxiv_id}: expected a correction, got {note!r}"
-    assert corr_median != raw_median
-
-    # (b) correction moved the median strictly closer to the expected anchor
-    dist_before = abs(math.log10(raw_median) - math.log10(anchor))
-    dist_after = abs(math.log10(corr_median) - math.log10(anchor))
-    assert dist_after < dist_before, f"{arxiv_id}: correction did not improve anchor distance"
-    assert dist_after <= 1.5, f"{arxiv_id}: corrected median still {dist_after:.2f} dex from anchor"
-
-    # (c) the applied factor is one of the discrete candidates (clean unit/decade)
-    applied = corr_median / raw_median
-    candidate_factors = [f for f, _ in _MASS_FACTOR_CANDIDATES]
-    assert any(math.isclose(applied, f, rel_tol=1e-6) for f in candidate_factors), (
-        f"{arxiv_id}: applied factor {applied:.3e} not in discrete set"
+    # No mass correction applied; data is preserved exactly.
+    assert "Auto-corrected masses" not in note, (
+        f"{arxiv_id}: in-range data was spuriously rescaled: {note!r}"
     )
+    assert _median_mass(pts) == _median_mass(base)
 
-    # (c') stable under shuffle
+    # Still deterministic under shuffling (no-op is trivially deterministic).
     for seed in range(5):
         spts, snote = _validate_extracted_range(_shuffled(base, seed), coupling_type)
-        assert math.isclose(_median_mass(spts), corr_median, rel_tol=1e-12)
+        assert _median_mass(spts) == _median_mass(base)
         assert snote == note
 
 
