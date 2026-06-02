@@ -20,6 +20,10 @@ from typing import Optional
 import numpy as np
 from scipy.interpolate import interp1d
 
+# NumPy 2.0 renamed `np.trapz` -> `np.trapezoid` and removed the old name.
+# Resolve once so the metric works on both NumPy 1.x and 2.x.
+_trapezoid = getattr(np, "trapezoid", None) or getattr(np, "trapz")
+
 
 @dataclass
 class ClassificationMetrics:
@@ -189,7 +193,7 @@ def compute_symmetric_curve_metrics(
         g = grid[valid]
         d = diff[valid]
         # Normalised area = (∫|Δ| d(log m)) / width, i.e. mean |Δ| in dex.
-        area = float(np.trapz(d, g))
+        area = float(_trapezoid(d, g))
         area_norm = area / overlap_w
 
     return SymmetricCurveMetrics(
