@@ -97,18 +97,27 @@ class InterpolationMetrics:
     frac_within_1_0dex: float  # order-of-magnitude error
 
 
-# Coupling ceilings per type: points above this are boundary-closure sentinels.
-# AxionMass uses f_a [GeV] vs m_a [eV], so "coupling" values can be large.
-# DarkPhoton kinetic mixing can approach 1.
+# Coupling ceilings per type: points with coupling >= ceiling are treated as
+# boundary-closure sentinels (vertices added only to close a filled polygon for
+# plotting) and dropped. The ceiling must sit ABOVE the real data and BELOW the
+# closure value, so it is calibrated to each type's actual y-axis scale:
+#   - Standard couplings (g_aγγ, g_ae, ε, …): real data << 1e-2, closure at 1e0
+#     or 1e99 -> default 1e-2 / explicit 1e0.
+#   - AxionMass (m_a vs f_a plane files): the y-axis is a small normalised
+#     coupling (~1e-24..4e-3), the closure sentinel is exactly 1.0. The previous
+#     1e6 ceiling KEPT those 1.0 sentinels and corrupted the interpolation.
+#   - Scalar (dilaton-like) couplings: real curve data spans ~1e0..1e17 with
+#     closure sentinels at 1e20/1e30, so the ceiling is raised to 1e19. A 1e0
+#     ceiling discarded the entire real curve.
 _COUPLING_CEILINGS = {
-    "AxionMass": 1e6,
+    "AxionMass": 1e0,
     "DarkPhoton": 1e0,
     "AxionCPV": 1e0,
     "MonopoleDipole": 1e0,
-    "ScalarPhoton": 1e0,
-    "ScalarElectron": 1e0,
-    "ScalarBaryon": 1e0,
-    "ScalarNucleon": 1e0,
+    "ScalarPhoton": 1e19,
+    "ScalarElectron": 1e19,
+    "ScalarBaryon": 1e19,
+    "ScalarNucleon": 1e19,
     "VectorBL": 1e0,
 }
 _DEFAULT_COUPLING_CEIL = 1e-2
