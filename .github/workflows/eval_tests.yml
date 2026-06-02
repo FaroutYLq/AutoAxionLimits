@@ -1,0 +1,31 @@
+name: eval metric tests
+
+# Lightweight unit tests for the evaluation metrics (no Anthropic API calls).
+# Additive and independent of the daily/weekly/backfill pipeline workflows.
+
+on:
+  push:
+    paths:
+      - "evaluation/metrics.py"
+      - "evaluation/evaluate.py"
+      - "evaluation/tests/**"
+      - ".github/workflows/eval_tests.yml"
+  pull_request:
+    paths:
+      - "evaluation/metrics.py"
+      - "evaluation/evaluate.py"
+      - "evaluation/tests/**"
+      - ".github/workflows/eval_tests.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install test dependencies
+        run: pip install numpy scipy pytest
+      - name: Run metric unit tests
+        run: python -m pytest evaluation/tests/ -v

@@ -46,6 +46,7 @@ from evaluation.ground_truth import (
     populate_data_from_repo,
 )
 from evaluation.metrics import (
+    NOISE_FLOOR_RESIDUAL_DEX,
     ClassificationMetrics,
     CurveMetrics,
     InterpolationMetrics,
@@ -744,6 +745,90 @@ def compute_all_metrics(
     }
 
 
+def build_metrics_summary(all_metrics: dict) -> dict:
+    """Build a small, git-trackable summary of the full metrics dict.
+
+    The full ``metrics.json`` is gitignored (it embeds per-paper API outputs and
+    is large), so runs are not diffable in review. This summary distils the
+    headline numbers — per-status counts, per-type N, micro/macro residual
+    averages, and the calibration overconfidence gap — into a compact, stable
+    object that IS committed, so a metrics regression shows up in a PR diff.
+
+    Pure function of ``all_metrics`` (no I/O) so it is unit-testable.
+    """
+    coverage = all_metrics.get("comparison_coverage", {})
+    interp = all_metrics.get("interpolation_aggregate", {})
+    symmetric = all_metrics.get("symmetric_aggregate", {})
+    per_type = all_metrics.get("per_type_aggregate", {})
+    classification = all_metrics.get("classification", {})
+
+    # Per-type N (compared papers per coupling type).
+    per_type_n = {
+        ct: info.get("n", 0)
+        for ct, info in (per_type.get("per_type") or {}).items()
+    }
+
+    # Calibration overconfidence gap: the most-confident bin's mean confidence
+    # minus its actual accuracy. Positive => the extractor is overconfident in
+    # the bin it is most sure about. Uses the top NON-EMPTY confidence bin.
+    calibration = all_metrics.get("confidence_calibration", []) or []
+    overconfidence_gap = None
+    top_bin_confidence = None
+    top_bin_accuracy = None
+    for b in reversed(calibration):
+        if b.get("n_papers", 0) > 0:
+            top_bin_confidence = b.get("mean_confidence")
+            top_bin_accuracy = b.get("actual_accuracy")
+            if top_bin_confidence is not None and top_bin_accuracy is not None:
+                overconfidence_gap = top_bin_confidence - top_bin_accuracy
+            break
+
+    return {
+        "n_papers": all_metrics.get("n_papers", 0),
+        "status_counts": coverage.get("status_counts", {}),
+        "classification_accuracy": {
+            field: classification.get(field, {}).get("accuracy")
+            for field in ("coupling_type", "is_new_limit",
+                          "is_projection", "data_source")
+        },
+        "interpolation": {
+            "n_finite": interp.get("n_finite"),
+            "n_zero_overlap": interp.get("n_zero_overlap"),
+            "median_median_residual_dex": interp.get("median_median_residual_dex"),
+            "mean_frac_within_0_3dex": interp.get("mean_frac_within_0_3dex"),
+            "median_median_residual_dex_reverse": interp.get(
+                "median_median_residual_dex_reverse"),
+        },
+        "symmetric": {
+            "median_area_between_log": symmetric.get("median_area_between_log"),
+            "median_mass_jaccard": symmetric.get("median_mass_jaccard"),
+        },
+        "per_type_aggregate": {
+            "n_types": per_type.get("n_types"),
+            "n_papers_compared": per_type.get("n_papers_compared"),
+            "micro_median_residual_dex": per_type.get("micro_median_residual_dex"),
+            "macro_median_residual_dex": per_type.get("macro_median_residual_dex"),
+            "macro_minus_micro_dex": per_type.get("macro_minus_micro_dex"),
+            "per_type_n": per_type_n,
+        },
+        "calibration": {
+            "noise_floor_residual_dex": NOISE_FLOOR_RESIDUAL_DEX,
+            "top_bin_mean_confidence": top_bin_confidence,
+            "top_bin_actual_accuracy": top_bin_accuracy,
+            "overconfidence_gap": overconfidence_gap,
+        },
+    }
+
+
+def write_metrics_summary(all_metrics: dict, path: Path) -> dict:
+    """Write the diffable metrics summary to ``path`` and return it."""
+    summary = build_metrics_summary(all_metrics)
+    with open(path, "w") as f:
+        json.dump(summary, f, indent=2, default=str)
+        f.write("\n")
+    return summary
+
+
 def main():
     logging.basicConfig(
         level=logging.INFO,
@@ -846,6 +931,11 @@ def main():
         with open(metrics_path, "w") as f:
             json.dump(all_metrics, f, indent=2, default=str)
         logger.info("Metrics saved to %s", metrics_path)
+
+        # Diffable summary (committed to git; full metrics.json stays ignored).
+        summary_path = RESULTS_DIR / "metrics_summary.json"
+        write_metrics_summary(all_metrics, summary_path)
+        logger.info("Metrics summary saved to %s", summary_path)
 
         if args.report:
             report_path = args.output or str(Path(__file__).parent / "report.md")

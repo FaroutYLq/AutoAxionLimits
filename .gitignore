@@ -142,7 +142,13 @@ pipeline/state/*.tmp
 *_highlighted_tmp.ipynb
 
 # Evaluation results (cached extraction outputs)
-evaluation/results/
+evaluation/results/*
+# ... except the small, diffable metrics summary (headline numbers only) and
+# the directory's own .gitignore. The full metrics.json + per-paper caches stay
+# ignored; the summary is committed so metric regressions show up in PR diffs.
+!evaluation/results/.gitignore
+!evaluation/results/.gitkeep
+!evaluation/results/metrics_summary.json
 
 # Gold-set diff report (regenerated from cached extractions; not committed)
 evaluation/gold_report.md
