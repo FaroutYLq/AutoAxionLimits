@@ -2,8 +2,8 @@
 
 ## Summary
 
-- **Papers evaluated**: 211
-- **Papers with curve comparison**: 154
+- **Papers evaluated**: 212
+- **Papers with curve comparison**: 160
 
 ## Curve-Comparison Coverage
 
@@ -11,9 +11,10 @@ A curve is scored only against a ground-truth curve of the **same coupling**. Pa
 
 | Status | Papers | Meaning |
 |--------|--------|---------|
-| compared | 154 | scored against a same-coupling GT curve |
-| no_comparable_gt | 16 | extracted coupling has no GT curve in the pool |
-| gt_unusable | 23 | GT curve has <2 usable points after boundary filtering |
+| compared | 160 | scored against a same-coupling GT curve |
+| no_comparable_gt | 16 | extracted coupling has no GT curve in the pool (usually a coupling misclassification) |
+| gt_point_reference | 15 | GT is a single-mass prediction/projection, not a curve (not comparable) |
+| gt_unusable | 3 | GT curve has <2 usable points after boundary filtering |
 | no_extracted_points | 10 | pipeline returned no data points |
 | no_prediction | 4 | pipeline returned no coupling type |
 | extraction_failed | 4 | extraction errored (download/parse/API) |
@@ -22,7 +23,7 @@ A curve is scored only against a ground-truth curve of the **same coupling**. Pa
 
 | Field | Accuracy | N |
 |-------|----------|---|
-| coupling_type | 90.3% | 207 |
+| coupling_type | 90.4% | 208 |
 | is_new_limit | N/A — no human-verified labels | 0 |
 | is_projection | N/A — no human-verified labels | 0 |
 | data_source | N/A — no human-verified labels | 0 |
@@ -58,17 +59,17 @@ A curve is scored only against a ground-truth curve of the **same coupling**. Pa
 
 Build log-log interpolation from extracted points, evaluate at ground-truth masses.
 
-- **Papers compared**: 154 (123 with mass-range overlap, 31 with zero overlap)
+- **Papers compared**: 160 (128 with mass-range overlap, 32 with zero overlap)
 
 **Coupling-value accuracy** (papers with mass-range overlap):
-- **Median residual across papers**: 0.696 dex (IQR 0.239–1.912)
-- **Mean residual across papers** (outlier-sensitive): 2.058 dex
-- **Mean fraction within 0.3 dex (factor 2)**: 29.8%
-- **Mean fraction within 0.5 dex (factor 3)**: 40.5%
+- **Median residual across papers**: 0.847 dex (IQR 0.257–2.176)
+- **Mean residual across papers** (outlier-sensitive): 2.378 dex
+- **Mean fraction within 0.3 dex (factor 2)**: 28.6%
+- **Mean fraction within 0.5 dex (factor 3)**: 38.2%
 
 **Mass-range coverage** (a separate failure mode):
-- **Mean interpolation coverage**: 62.9%
-- **Zero-overlap papers**: 31/154 (20.1%) — extracted masses miss the GT range entirely (usually 1–2 extracted points or the wrong mass window)
+- **Mean interpolation coverage**: 62.5%
+- **Zero-overlap papers**: 32/160 (20.0%) — extracted masses miss the GT range entirely (usually 1–2 extracted points or the wrong mass window)
 
 ## Per-Paper Results
 
@@ -82,8 +83,8 @@ Build log-log interpolation from extracted points, evaluate at ground-truth mass
 | 2209.06216 | ✓ | 0.85 | 36.6% | 0.696 | 15.5% | 2/2597 |
 | 2005.14184 | ✓ | 0.85 | 99.7% | 0.825 | 14.6% | 12/891 |
 | 1608.01994 | ✗ (DarkPhoton) | 0.75 | no_comparable_gt | — | — | — |
-| 2504.00720 | ✓ | 0.65 | 88.8% | 3.154 | 0.0% | 8/80 |
-| 1608.05414 | ✓ | 0.75 | gt_unusable | — | — | — |
+| 2504.00720 | ✓ | 0.65 | 89.7% | 3.120 | 0.0% | 8/78 |
+| 1608.05414 | ✓ | 0.75 | gt_point_reference | — | — | — |
 | 2006.04809 | ✓ | 0.25 | no_extracted_points | — | — | — |
 | 1711.08999 | ✗ (AxionNeutron) | 0.75 | no_comparable_gt | — | — | — |
 | 2408.02668 | ✓ | 0.85 | 100.0% | 0.947 | 12.6% | 12/413 |
@@ -102,16 +103,16 @@ Build log-log interpolation from extracted points, evaluate at ground-truth mass
 | 2011.07100 | ✓ | 0.92 | 98.7% | 0.200 | 59.0% | 8/79 |
 | 1403.1290 | ✓ | 0.85 | 97.4% | 21.135 | 0.0% | 70/38 |
 | 2302.09096 | ✓ | 0.75 | 58.5% | 24.536 | 0.0% | 9/41 |
-| 1410.7267 | ✓ | 0.85 | gt_unusable | — | — | — |
+| 1410.7267 | ✓ | 0.85 | 67.6% | 9.217 | 0.0% | 30/74 |
 | 1712.00483 | ✓ | 0.75 | 0.0% | ∞ | 0.0% | 3/119 |
 | 1607.07327 | ✗ (ScalarBaryon) | 0.75 | no_comparable_gt | — | — | — |
 | 1611.05852 | ✗ (None) | 0.25 | no_prediction | — | — | — |
-| 2111.06883 | ✓ | 0.65 | gt_unusable | — | — | — |
+| 2111.06883 | ✓ | 0.65 | 0.0% | ∞ | 0.0% | 8/186 |
 | 2112.10618 | ✓ | 0.35 | no_extracted_points | — | — | — |
-| 0802.2350 | ✓ | 0.95 | gt_unusable | — | — | — |
+| 0802.2350 | ✓ | 0.95 | 70.8% | 4.011 | 0.0% | 6/24 |
 | 2009.04517 | ✓ | 0.25 | no_extracted_points | — | — | — |
-| 2010.08107 | ✓ | 0.75 | gt_unusable | — | — | — |
-| 2201.02042 | ✓ | 0.75 | gt_unusable | — | — | — |
+| 2010.08107 | ✓ | 0.75 | 99.5% | 1.938 | 0.0% | 2/208 |
+| 2201.02042 | ✓ | 0.75 | 100.0% | 15.304 | 0.0% | 13/98 |
 | 2403.03004 | ✓ | 0.85 | 92.3% | 1.507 | 0.0% | 30/414 |
 | 2205.03617 | ✗ (DarkPhoton) | 0.65 | no_comparable_gt | — | — | — |
 | 2310.06017 | ✓ | 0.75 | 46.9% | 1.005 | 5.7% | 3/113 |
@@ -119,14 +120,14 @@ Build log-log interpolation from extracted points, evaluate at ground-truth mass
 | 2102.08764 | ✓ | 0.92 | 0.0% | ∞ | 0.0% | 2/2 |
 | 2308.14656 | ✓ | 0.92 | 98.7% | 0.413 | 1.4% | 6/75 |
 | 2207.03102 | ✓ | 0.92 | gt_unusable | — | — | — |
-| 1505.07455 | ✓ | 0.85 | gt_unusable | — | — | — |
+| 1505.07455 | ✓ | 0.85 | gt_point_reference | — | — | — |
 | 2105.04603 | ✓ | 0.85 | 98.3% | 0.699 | 27.1% | 7/707 |
 | 2303.11792 | ✓ | 0.92 | 90.0% | 0.141 | 100.0% | 2/20 |
 | 1607.06083 | ✓ | 0.65 | 0.0% | ∞ | 0.0% | 8/2 |
-| 2108.04746 | ✓ | 0.65 | gt_unusable | — | — | — |
-| 2208.12670 | ✓ | 0.95 | 100.0% | 0.000 | 100.0% | 6/2 |
+| 2108.04746 | ✓ | 0.65 | 97.9% | 9.234 | 0.0% | 2/283 |
+| 2208.12670 | ✓ | 0.95 | gt_point_reference | — | — | — |
 | 1806.05120 | ✓ | 0.92 | 97.9% | 0.192 | 81.5% | 2/94 |
-| 2101.01241 | ✓ | 0.92 | gt_unusable | — | — | — |
+| 2101.01241 | ✓ | 0.92 | gt_point_reference | — | — | — |
 | 2404.14476 | ✓ | 0.95 | 51.0% | 0.071 | 88.5% | 3/51 |
 | 2504.12377 | ✓ | 0.92 | 13.3% | 0.003 | 100.0% | 8/15 |
 | 2408.15227 | ✓ | 0.85 | 100.0% | 0.624 | 0.0% | 8/230 |
@@ -138,10 +139,10 @@ Build log-log interpolation from extracted points, evaluate at ground-truth mass
 | 1903.12190 | ✓ | 0.65 | 66.7% | 6.526 | 0.0% | 14/3 |
 | 2305.00890 | ✓ | 0.85 | 100.0% | 7.821 | 1.4% | 19/4991 |
 | 1708.06367 | ✓ | 0.85 | 100.0% | 6.147 | 5.6% | 39/36 |
-| 2312.13723 | ✓ | 0.75 | gt_unusable | — | — | — |
+| 2312.13723 | ✓ | 0.75 | 98.5% | 1.007 | 0.0% | 5/199 |
 | 2410.10363 | ✓ | 0.65 | 0.0% | ∞ | 0.0% | 6/367 |
-| 1202.5851 | ✓ | 0.75 | gt_unusable | — | — | — |
-| 2208.06519 | ✓ | 0.92 | 100.0% | 0.432 | 0.0% | 30/2 |
+| 1202.5851 | ✓ | 0.75 | gt_point_reference | — | — | — |
+| 2208.06519 | ✓ | 0.92 | gt_point_reference | — | — | — |
 | 2401.16747 | ✓ | 0.75 | 0.0% | ∞ | 0.0% | 26/66 |
 | 2401.18076 | ✗ (ScalarBaryon) | 0.75 | no_comparable_gt | — | — | — |
 | 2503.13653 | ✓ | 0.75 | 74.1% | 1.843 | 5.0% | 9/54 |
@@ -168,8 +169,8 @@ Build log-log interpolation from extracted points, evaluate at ground-truth mass
 | 1604.06800 | ✓ | 0.75 | 100.0% | 2.281 | 6.5% | 19/155 |
 | 1606.07001 | ✓ | 0.75 | 0.0% | ∞ | 0.0% | 4/39 |
 | 0809.4700 | ✓ | 0.85 | 57.1% | 5.334 | 0.0% | 7/35 |
-| 2309.07995 | ✓ | 0.65 | 100.0% | 6.151 | 0.0% | 51/12 |
-| 2006.07055 | ✓ | 0.65 | gt_unusable | — | — | — |
+| 2309.07995 | ✓ | 0.65 | 100.0% | 10.697 | 0.0% | 51/44 |
+| 2006.07055 | ✓ | 0.65 | 77.8% | 7.708 | 0.0% | 20/158 |
 | 1508.01798 | ✓ | 0.75 | 100.0% | 0.949 | 16.0% | 37/50 |
 | 1512.06165 | ✗ (ScalarBaryon) | 0.45 | no_comparable_gt | — | — | — |
 | 2004.02733 | ✓ | 0.75 | 0.0% | ∞ | 0.0% | 6/34 |
@@ -191,19 +192,19 @@ Build log-log interpolation from extracted points, evaluate at ground-truth mass
 | 2112.12116 | ✓ | 0.65 | 0.0% | ∞ | 0.0% | 5/67 |
 | 2006.12431 | ✓ | 0.72 | 38.9% | 1.777 | 0.0% | 4/90 |
 | 2207.11330 | ✗ (AxionPhoton) | 0.85 | no_comparable_gt | — | — | — |
-| 2412.08699 | ✓ | 0.85 | gt_unusable | — | — | — |
+| 2412.08699 | ✓ | 0.85 | gt_point_reference | — | — | — |
 | 1512.06746 | ✓ | 0.25 | no_extracted_points | — | — | — |
-| 1606.07494 | ✓ | 0.85 | gt_unusable | — | — | — |
-| 1906.00967 | ✓ | 0.85 | gt_unusable | — | — | — |
-| 2108.05368 | ✓ | 0.92 | gt_unusable | — | — | — |
+| 1606.07494 | ✓ | 0.85 | gt_point_reference | — | — | — |
+| 1906.00967 | ✓ | 0.85 | gt_point_reference | — | — | — |
+| 2108.05368 | ✓ | 0.92 | gt_point_reference | — | — | — |
 | 1705.00676 | ✓ | 0.25 | no_extracted_points | — | — | — |
 | 1509.00026 | ✓ | 0.25 | no_extracted_points | — | — | — |
 | 2402.00741 | ✓ | 0.25 | no_extracted_points | — | — | — |
-| 1708.07521 | ✓ | 0.92 | gt_unusable | — | — | — |
-| 1606.03145 | ✓ | 0.85 | gt_unusable | — | — | — |
-| 2401.17253 | ✓ | 0.35 | gt_unusable | — | — | — |
+| 1708.07521 | ✓ | 0.92 | gt_point_reference | — | — | — |
+| 1606.03145 | ✓ | 0.85 | gt_point_reference | — | — | — |
+| 2401.17253 | ✓ | 0.35 | gt_point_reference | — | — | — |
 | 1412.0789 | ✓ | 0.25 | no_extracted_points | — | — | — |
-| 2206.11598 | ✓ | 0.65 | gt_unusable | — | — | — |
+| 2206.11598 | ✓ | 0.65 | gt_point_reference | — | — | — |
 | 1902.04644 | ✓ | 0.65 | 100.0% | 1.453 | 0.0% | 4/73 |
 | 2306.08039 | ✓ | 0.92 | 72.4% | 1.080 | 26.4% | 18/1158 |
 | 2102.01448 | ✓ | 0.92 | 100.0% | 1.488 | 0.0% | 13/70 |
@@ -267,7 +268,7 @@ Build log-log interpolation from extracted points, evaluate at ground-truth mass
 | 2312.11608 | ✗ (AxionMass) | 0.25 | no_comparable_gt | — | — | — |
 | 2501.17119 | ✓ | 0.75 | 100.0% | 1.301 | 0.0% | 5/799 |
 | 1406.6053 | ✓ | 0.75 | 0.0% | ∞ | 0.0% | 0/27 |
-| 2110.14406 | ✓ | 0.85 | 100.0% | 1.350 | 0.0% | 24/2 |
+| 2110.14406 | ✓ | 0.85 | gt_point_reference | — | — | — |
 | 2203.04332 | ✓ | 0.92 | 45.9% | 0.030 | 88.2% | 4/148 |
 | 1610.02580 | ✓ | 0.92 | 54.5% | 0.048 | 98.5% | 10/123 |
 | 2008.01853 | ✓ | 0.92 | 46.8% | 1.961 | 0.0% | 4/111 |
@@ -285,6 +286,7 @@ Build log-log interpolation from extracted points, evaluate at ground-truth mass
 | 2409.11777 | ✓ | 0.95 | 100.0% | 0.182 | 75.6% | 4/86 |
 | 2401.07798 | ✓ | 0.92 | 100.0% | 0.416 | 38.6% | 12/44 |
 | 1811.10997 | ✓ | 0.85 | 97.9% | 0.177 | 68.8% | 3/144 |
+| 2203.04319 | ✓ | 0.92 | 7.6% | 0.009 | 100.0% | 2/132 |
 
 ## Breakdown by Extraction Source
 
@@ -292,9 +294,9 @@ Median residual is over papers with mass-range overlap; zero-overlap papers are 
 
 | Source | Papers | Compared | Zero-overlap | Med. Resid. | ≤0.3 dex |
 |--------|--------|----------|--------------|-------------|----------|
-| table | 3 | 2 | 0 | 0.144 dex | 60.4% |
-| figure_vision | 49 | 36 | 5 | 1.350 dex | 15.3% |
-| text | 136 | 115 | 25 | 0.588 dex | 34.1% |
+| table | 3 | 3 | 0 | 0.262 dex | 40.3% |
+| figure_vision | 49 | 36 | 5 | 1.507 dex | 15.3% |
+| text | 137 | 120 | 26 | 0.616 dex | 32.7% |
 
 ## Breakdown by Difficulty
 
@@ -302,17 +304,17 @@ Median residual is over papers with mass-range overlap; zero-overlap papers are 
 
 | Difficulty | Papers | Coupling Acc. | Med. Resid. | ≤0.3 dex |
 |------------|--------|---------------|-------------|----------|
-| easy | 18 | 88.9% | 0.520 dex | 25.0% |
-| medium | 135 | 90.1% | 0.602 dex | 32.7% |
-| hard | 58 | 91.4% | 0.947 dex | 23.9% |
+| easy | 18 | 88.9% | 3.567 dex | 0.0% |
+| medium | 136 | 90.2% | 0.587 dex | 33.5% |
+| hard | 58 | 91.4% | 1.007 dex | 20.6% |
 
 ## Confidence Calibration
 
 | Bin | N | Mean Conf. | Actual Acc. | Gap |
 |-----|---|------------|-------------|-----|
 | [0.4–0.6) | 1 | 45.0% | 0.0% | +0.45 |
-| [0.6–0.8) | 59 | 72.3% | 5.1% | +0.67 |
-| [0.8–1.0) | 94 | 89.5% | 21.3% | +0.68 |
+| [0.6–0.8) | 65 | 72.1% | 4.6% | +0.67 |
+| [0.8–1.0) | 94 | 89.5% | 20.2% | +0.69 |
 
 > **Interpretation**: Gap > 0 means the pipeline is overconfident; Gap < 0 means underconfident.
 

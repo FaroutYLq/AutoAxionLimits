@@ -235,12 +235,17 @@ def _authoritative_coupling(entry: GroundTruthEntry) -> str:
     return entry.coupling_type
 
 
-def _usable_gt_count(gt_data, coupling_type: str) -> int:
-    """Number of GT points that survive boundary-closure filtering — i.e. the
-    points actually usable for a residual comparison."""
+def _usable_gt_stats(gt_data, coupling_type: str) -> tuple[int, int]:
+    """(n_points, n_unique_masses) of GT points that survive boundary-closure
+    filtering. Interpolation needs >= 2 distinct masses; a curve with only one
+    distinct mass (a single prediction or a single-mass projection) is a point
+    reference, not a comparable curve."""
     from evaluation.metrics import _COUPLING_CEILINGS, _filter_boundary
     ceil = _COUPLING_CEILINGS.get(coupling_type, 1e-2)
-    return len(_filter_boundary(gt_data, ceil))
+    f = _filter_boundary(gt_data, ceil)
+    if len(f) == 0:
+        return 0, 0
+    return len(f), int(np.unique(f[:, 0]).size)
 
 
 def _is_placeholder_entry(entry: GroundTruthEntry) -> bool:
@@ -358,6 +363,7 @@ def compute_all_metrics(
         else:
             # Candidate GT entries: same authoritative coupling AND usable data.
             candidates = []
+            has_point_ref = False  # matched GT exists but is a single-mass point
             for e in paper_entries:
                 if _authoritative_coupling(e) != predicted_ct:
                     continue
@@ -366,15 +372,20 @@ def compute_all_metrics(
                     gt = e.load_reference_data(PROJECT_ROOT)
                 if gt is None:
                     continue
-                n_use = _usable_gt_count(gt, predicted_ct)
-                if n_use >= 2:
-                    candidates.append((n_use, e, gt))
-            if not candidates:
-                comparison_status = "gt_unusable"
-            else:
+                n_pts, n_mass = _usable_gt_stats(gt, predicted_ct)
+                if n_mass >= 2:
+                    candidates.append((n_mass, e, gt))
+                elif n_pts >= 1:
+                    has_point_ref = True
+            if candidates:
                 comparison_status = "compared"
                 candidates.sort(key=lambda t: -t[0])  # richest GT curve wins
                 _, chosen, gt_data = candidates[0]
+            elif has_point_ref:
+                # GT is a single-mass prediction/projection — not a curve.
+                comparison_status = "gt_point_reference"
+            else:
+                comparison_status = "gt_unusable"
 
         paper_report["comparison_status"] = comparison_status
         comparison_status_counts[comparison_status] += 1
