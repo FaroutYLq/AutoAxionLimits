@@ -22,6 +22,108 @@ logger = logging.getLogger(__name__)
 
 STATE_PATH = Path(__file__).parent / "state" / "processed.json"
 
+# arXiv fetch robustness (issue #560). The arxiv library calls
+# requests.Session().get() with NO timeout internally, so a slow/throttling
+# export.arxiv.org endpoint (429/503 or a stalled CDN) can hang the daily
+# pipeline indefinitely. We defend on two independent axes so the wait is
+# bounded *and* a hung fetch can never block process shutdown:
+#
+#   1. Socket timeout — inject a default per-request ``timeout`` into the
+#      client's ``requests.Session`` (see ``_install_session_timeout``). The
+#      blocking ``get()`` then *raises* ``requests.Timeout`` instead of hanging,
+#      so the worker thread actually terminates rather than merely leaking.
+#   2. Wall-clock deadline — run the (blocking) iteration on a *daemon* thread
+#      joined with a timeout (see ``_call_with_deadline``). Daemon threads are
+#      never joined by the interpreter at exit (unlike ThreadPoolExecutor
+#      workers, which ``_python_exit`` joins unconditionally with no timeout),
+#      so even a still-hung fetch can never stall process shutdown.
+ARXIV_FETCH_TIMEOUT_S = 60  # per-query hard wall-clock deadline (seconds)
+# Per-request socket timeout injected into the arxiv client's session. Kept
+# below the wall-clock deadline so the socket-level timeout fires first and the
+# worker thread dies cleanly (the wall-clock join is the backstop for the
+# pathological slow-drip case the socket read-timeout does not cover).
+ARXIV_SOCKET_TIMEOUT_S = 30
+
+
+def _install_session_timeout(client: arxiv.Client, timeout_s: float = ARXIV_SOCKET_TIMEOUT_S) -> None:
+    """Force a default per-request timeout onto the arxiv client's session.
+
+    The arxiv library calls ``self._session.get(url, headers=...)`` with no
+    ``timeout``, so ``requests`` passes ``timeout=None`` and a stalled socket
+    blocks forever. We wrap ``Session.request`` to inject a default ``timeout``
+    when the caller (the arxiv library) supplies none, so the underlying call
+    raises ``requests.Timeout`` and the worker thread terminates instead of
+    being abandoned. Idempotent and a no-op if the client exposes no
+    ``_session`` (e.g. a test stub).
+    """
+    session = getattr(client, "_session", None)
+    if session is None or getattr(session, "_axionlimits_timeout_installed", False):
+        return
+    _orig_request = session.request
+
+    def _request_with_timeout(method, url, **kwargs):
+        kwargs.setdefault("timeout", timeout_s)
+        return _orig_request(method, url, **kwargs)
+
+    session.request = _request_with_timeout
+    session._axionlimits_timeout_installed = True
+
+
+def _call_with_deadline(fn, timeout_s: float, label: str = "arXiv query"):
+    """Run blocking ``fn()`` under a hard wall-clock deadline on a daemon thread.
+
+    Daemon threads are never joined by the interpreter at exit, so a fetch that
+    is still hung when the deadline fires cannot block process shutdown (the
+    failure mode a ``ThreadPoolExecutor`` worker would cause, since
+    ``_python_exit`` ``join()``s non-daemon workers unconditionally). A
+    ``requests`` socket timeout is normalized to ``TimeoutError`` so the
+    socket-level and wall-clock deadlines surface identically to callers.
+    """
+    import threading
+
+    box: dict = {}
+
+    def _runner() -> None:
+        try:
+            box["result"] = fn()
+        except BaseException as exc:  # noqa: BLE001 - re-raised on the caller thread
+            box["error"] = exc
+
+    worker = threading.Thread(target=_runner, name="arxiv-fetch", daemon=True)
+    worker.start()
+    worker.join(timeout_s)
+    if worker.is_alive():
+        raise TimeoutError(f"{label} exceeded {timeout_s}s wall-clock deadline")
+    err = box.get("error")
+    if err is not None:
+        try:
+            import requests
+
+            socket_timeout = requests.exceptions.Timeout
+        except ImportError:
+            socket_timeout = ()
+        if isinstance(err, socket_timeout):
+            raise TimeoutError(f"{label} hit socket timeout: {err}") from err
+        raise err
+    return box.get("result")
+
+
+def _results_with_deadline(
+    client: arxiv.Client, search: arxiv.Search, timeout_s: int = ARXIV_FETCH_TIMEOUT_S
+) -> list[arxiv.Result]:
+    """Materialize ``client.results(search)`` under a hard wall-clock deadline.
+
+    Combines both robustness axes (see the module-level notes): a socket
+    timeout is injected into the client session so the blocking ``requests.get``
+    raises rather than hanging, and the iteration runs on a daemon thread joined
+    with ``timeout_s`` so a still-hung fetch can never block process exit. On
+    timeout we raise ``TimeoutError`` so callers never hang.
+    """
+    _install_session_timeout(client)
+    return _call_with_deadline(
+        lambda: list(client.results(search)), timeout_s, label="arXiv query"
+    )
+
 
 # ---------------------------------------------------------------------------
 # arXiv fetching
@@ -67,14 +169,17 @@ def _iter_results_with_backoff(
     """
     for attempt in range(max_attempts):
         try:
-            return list(client.results(search))
-        except arxiv.HTTPError as exc:
-            if "429" not in str(exc) or attempt == max_attempts - 1:
+            return _results_with_deadline(client, search)
+        except (arxiv.HTTPError, TimeoutError) as exc:
+            is_429 = isinstance(exc, arxiv.HTTPError) and "429" in str(exc)
+            is_timeout = isinstance(exc, TimeoutError)
+            if (not is_429 and not is_timeout) or attempt == max_attempts - 1:
                 raise
             wait = 30 * (2 ** attempt)  # 30s, 60s, 120s
+            reason = "timed out" if is_timeout else "rate-limited (HTTP 429)"
             logger.warning(
-                "arXiv rate-limited (HTTP 429), retrying in %ds (attempt %d/%d)",
-                wait, attempt + 1, max_attempts,
+                "arXiv query %s, retrying in %ds (attempt %d/%d)",
+                reason, wait, attempt + 1, max_attempts,
             )
             time.sleep(wait)
     return []  # unreachable, but satisfies type checker
@@ -118,7 +223,8 @@ def fetch_paper_by_id(arxiv_id: str) -> arxiv.Result:
     """Fetch a single paper by arXiv ID."""
     client = arxiv.Client(delay_seconds=5, num_retries=5)
     search = arxiv.Search(id_list=[arxiv_id])
-    results = list(client.results(search))
+    # Bounded by a hard wall-clock deadline so a stalled endpoint cannot hang.
+    results = _results_with_deadline(client, search)
     if not results:
         raise ValueError(f"arXiv paper {arxiv_id} not found")
     return results[0]

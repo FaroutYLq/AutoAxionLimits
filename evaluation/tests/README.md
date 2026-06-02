@@ -34,6 +34,11 @@ python -m pytest evaluation/tests/test_metrics.py -v
   (`NOISE_FLOOR_RESIDUAL_DEX == 0.32`); a confident-but-wrong set yields a
   positive overconfidence gap; the continuous `P(residual < tau)` fields.
 - **Summary builder**: `build_metrics_summary` shape + the overconfidence gap.
+- **#560 arXiv-fetch timeout** (`test_arxiv_timeout.py`): a stubbed arxiv client
+  that hangs / raises confirms `_fetch_paper_metadata` bounds the wait
+  (`ARXIV_FETCH_TIMEOUT_S` / `ARXIV_FETCH_RETRIES`) and degrades to the
+  ground-truth-title fallback instead of blocking; the happy path still caches.
+  No network access.
 
 These mirror (and fold in) the `python -m evaluation.metrics` synthetic
 self-check.
