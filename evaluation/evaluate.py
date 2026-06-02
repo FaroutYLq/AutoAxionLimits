@@ -258,6 +258,40 @@ def _is_placeholder_entry(entry: GroundTruthEntry) -> bool:
     return ("auto_expanded" in (entry.tags or [])) or entry.verified_by == "repo_upstream"
 
 
+# Below this many compared papers, a per-type median is too noisy to trust;
+# we still report it but flag it as small-sample.
+SMALL_SAMPLE_THRESHOLD = 5
+
+
+def _bootstrap_median_ci(
+    values: list[float],
+    n_resamples: int = 1000,
+    ci: float = 0.95,
+    seed: int = 0,
+) -> tuple[float | None, float | None]:
+    """Bootstrap a (lo, hi) confidence interval for the median of ``values``.
+
+    Resamples ``values`` with replacement ``n_resamples`` times, takes the
+    median of each resample, and returns the empirical ``ci`` percentile
+    interval. Returns ``(None, None)`` for an empty input and ``(v, v)`` for a
+    single value (a point with no spread). A fixed seed keeps reports
+    reproducible across runs on the same cache.
+    """
+    arr = np.asarray(values, dtype=float)
+    arr = arr[np.isfinite(arr)]
+    n = arr.size
+    if n == 0:
+        return None, None
+    if n == 1:
+        return float(arr[0]), float(arr[0])
+    rng = np.random.default_rng(seed)
+    idx = rng.integers(0, n, size=(n_resamples, n))
+    medians = np.median(arr[idx], axis=1)
+    lo_pct = (1.0 - ci) / 2.0 * 100.0
+    hi_pct = (1.0 + ci) / 2.0 * 100.0
+    return float(np.percentile(medians, lo_pct)), float(np.percentile(medians, hi_pct))
+
+
 def compute_all_metrics(
     entries: list[GroundTruthEntry],
     results: list[dict],
@@ -416,6 +450,11 @@ def compute_all_metrics(
 
         if comparison_status == "compared":
             paper_report["gt_file"] = chosen.reference_repo_file
+            # Coupling type this paper was scored under — the basis for the
+            # per-coupling-type breakdown and the macro-average. For a "compared"
+            # paper this is exactly the predicted coupling (which is guaranteed
+            # to be one of the authoritative GT couplings).
+            paper_report["comparison_coupling"] = predicted_ct
 
             im = compute_interpolation_metrics(
                 arxiv_id, ext_array, gt_data, coupling_type=predicted_ct,
@@ -621,9 +660,69 @@ def compute_all_metrics(
             ),
         }
 
+    # --- Per-coupling-type breakdown (issue #543) -----------------------------
+    # The compared-paper pool is dominated by AxionPhoton, so the micro-average
+    # (per-paper) headline is effectively an AxionPhoton number. We break the
+    # residual down by coupling type, attach a per-type N + a bootstrap 95% CI
+    # on the median residual, and flag types with N < SMALL_SAMPLE_THRESHOLD as
+    # too small to trust on their own. The macro-average (equal weight per type)
+    # is then reported alongside the micro-average so the headline is not
+    # silently driven by the largest type.
+    by_type: "OrderedDict[str, list[float]]" = OrderedDict()
+    for p in per_paper:
+        if p.get("comparison_status") != "compared":
+            continue
+        ct = p.get("comparison_coupling")
+        im = p.get("interp_metrics")
+        if ct is None or im is None:
+            continue
+        resid = im["median_residual_dex"]
+        if resid is None or resid >= float("inf"):
+            continue  # zero mass-range overlap → not a coupling-value comparison
+        by_type.setdefault(ct, []).append(float(resid))
+
+    per_type_breakdown = {}
+    per_type_medians: list[float] = []  # one median per type → macro-average
+    for ct, resids in sorted(by_type.items(), key=lambda kv: -len(kv[1])):
+        n = len(resids)
+        med = float(np.median(resids))
+        ci_lo, ci_hi = _bootstrap_median_ci(resids)
+        per_type_breakdown[ct] = {
+            "n": n,
+            "median_residual_dex": med,
+            "ci95_lo": ci_lo,
+            "ci95_hi": ci_hi,
+            "small_sample": n < SMALL_SAMPLE_THRESHOLD,
+        }
+        per_type_medians.append(med)
+
+    # Micro-average: median across all compared papers (per-paper weight) — this
+    # is the existing headline (`interpolation_aggregate.median_median_residual_dex`),
+    # recomputed here over exactly the per-type pool so micro and macro share a
+    # denominator and are directly comparable.
+    all_type_resids = [r for resids in by_type.values() for r in resids]
+    micro_median = float(np.median(all_type_resids)) if all_type_resids else None
+    # Macro-average: equal weight per coupling type (mean of per-type medians).
+    macro_median = float(np.mean(per_type_medians)) if per_type_medians else None
+    macro_micro_gap = (
+        macro_median - micro_median
+        if (macro_median is not None and micro_median is not None)
+        else None
+    )
+    per_type_aggregate = {
+        "n_types": len(per_type_breakdown),
+        "n_papers_compared": len(all_type_resids),
+        "micro_median_residual_dex": micro_median,
+        "macro_median_residual_dex": macro_median,
+        "macro_minus_micro_dex": macro_micro_gap,
+        "small_sample_threshold": SMALL_SAMPLE_THRESHOLD,
+        "per_type": per_type_breakdown,
+    }
+
     n_papers = len(by_id)
     return {
         "n_papers": n_papers,
+        "per_type_aggregate": per_type_aggregate,
         "classification": {
             "coupling_type": {"accuracy": coupling_clf.accuracy, "total": coupling_clf.total, "errors": coupling_clf.errors},
             "is_new_limit": {"accuracy": is_limit_clf.accuracy, "total": is_limit_clf.total, "errors": is_limit_clf.errors},

@@ -133,6 +133,46 @@ def generate_report(metrics: dict, output_path: str):
                      f"(forward: {_pct(agg_interp.get('mean_interpolation_coverage'))})")
         lines.append("")
 
+    # --- Per-coupling-type breakdown + macro vs micro (issue #543) ---
+    pt = metrics.get("per_type_aggregate", {})
+    if pt.get("n_types", 0) > 0:
+        thr = pt.get("small_sample_threshold", 5)
+        micro = pt.get("micro_median_residual_dex")
+        macro = pt.get("macro_median_residual_dex")
+        gap = pt.get("macro_minus_micro_dex")
+        lines.append("## Residual by Coupling Type — Micro vs Macro Average (issue #543)\n")
+        lines.append(
+            "The compared-paper pool is dominated by one coupling type "
+            "(AxionPhoton), so the per-paper **micro-average** headline is "
+            "largely that one type's number. The **macro-average** weights each "
+            "coupling type equally (mean of the per-type medians), exposing how "
+            "the pipeline does across the *range* of couplings rather than on the "
+            "most common one.\n"
+        )
+        lines.append(f"- **Micro-average median residual** (per paper, {pt.get('n_papers_compared', 0)} papers): "
+                     f"{_fmt(micro)} dex")
+        lines.append(f"- **Macro-average median residual** (equal weight per type, "
+                     f"{pt.get('n_types', 0)} types): {_fmt(macro)} dex")
+        if gap is not None:
+            direction = "worse" if gap > 0 else "better"
+            lines.append(f"- **Macro − micro gap**: {'+' if gap >= 0 else ''}{_fmt(gap)} dex "
+                         f"(macro is {direction}; a positive gap means the rarer couplings "
+                         f"are harder than the AxionPhoton-dominated micro-average implies)")
+        lines.append("")
+        lines.append(f"Per-type medians carry a bootstrap 95% CI (1000 resamples). "
+                     f"Rows with **N < {thr}** are flagged small-sample — their median "
+                     f"and CI are unstable and should not be read as a reliable per-type score.\n")
+        lines.append("| Coupling Type | N | Median Resid. (dex) | 95% CI (dex) | Flag |")
+        lines.append("|---------------|---|---------------------|--------------|------|")
+        for ct, d in pt.get("per_type", {}).items():
+            ci_lo = d.get("ci95_lo")
+            ci_hi = d.get("ci95_hi")
+            ci_str = (f"[{_fmt(ci_lo)}, {_fmt(ci_hi)}]"
+                      if ci_lo is not None and ci_hi is not None else "—")
+            flag = f"⚠ small-sample (N<{thr})" if d.get("small_sample") else ""
+            lines.append(f"| {ct} | {d['n']} | {_fmt(d['median_residual_dex'])} | {ci_str} | {flag} |")
+        lines.append("")
+
     # --- Symmetric / 2-D shape + mass-range agreement (issue #541) ---
     if agg_symmetric.get("n_papers", 0) > 0:
         lines.append("## Shape & Mass-Range Agreement — Symmetric Metrics (complementary)\n")
