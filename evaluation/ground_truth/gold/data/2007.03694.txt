@@ -1,0 +1,5 @@
+# Gold-set points digitized directly from 2007.03694
+# coupling_type=AxionElectron source=text
+# mass_eV    coupling
+1.000000e-06  1.600000e-13
+1.000000e+03  1.600000e-13

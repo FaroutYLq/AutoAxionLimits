@@ -79,6 +79,12 @@ GOLD_MODEL = "claude-opus-4-5-20251101"
 _DELIM = "===PAPER_CONTENT==="
 
 
+def _stem(sel: "GoldSelection") -> str:
+    """Manifest key / data-file stem for a selection (``entry_key`` if set,
+    else the arXiv id), filesystem-safe."""
+    return (sel.entry_key or sel.arxiv_id).replace("/", "_")
+
+
 @dataclass
 class GoldSelection:
     """A human-curated gold-curve selection. The numeric points are filled in
@@ -90,6 +96,11 @@ class GoldSelection:
     source_kind: str
     # Which figure/panel/table/line in the paper, and any in-paper rescaling.
     provenance: str
+    # Manifest key + data filename stem. Defaults to ``arxiv_id``; set it
+    # explicitly when one paper contributes more than one gold curve (e.g. the
+    # proton and neutron channels of the same neutron-star-cooling paper) so the
+    # two entries do not collide on the shared arXiv id.
+    entry_key: Optional[str] = None
     # Repo file to diff gold against (gold-vs-repo upstream gap).
     reference_repo_file: Optional[str] = None
     # Override the canonical convention if the paper publishes a different one.
@@ -252,6 +263,166 @@ GOLD_SELECTION: list[GoldSelection] = [
         provenance="Bound on the m_a-f_a plane read from the main constraint figure.",
         reference_repo_file="limit_data/fa/BBN.txt",
         digitize_hint="Read the published y-variable (f_a [GeV] or normalized coupling) vs axion mass eV (x).",
+    ),
+
+    # ---- TABLE / TEXT expansion (#537 follow-up: grow the truly-independent
+    #      gold_table tier so the gold_table-vs-repo floor has N>=10 usable
+    #      same-convention pairs). Every paper below publishes its limit as
+    #      NUMERIC values/tables in the PDF TEXT (a flat bound stated over an
+    #      explicit mass range counts: transcribe BOTH range endpoints so the
+    #      curve has >=2 distinct masses and overlaps the repo's flat segment).
+    #      Each maps to an existing repo-GT file (gold-vs-repo pair). ----------
+    GoldSelection(
+        arxiv_id="1705.02290",
+        paper_title="CAST 2017 — axion-photon coupling helioscope limit",
+        coupling_type="AxionPhoton",
+        source_kind="text",
+        provenance="World-leading helioscope bound g_agamma < 0.66e-10 GeV^-1 "
+                   "(95% CL) stated in the abstract/Sec. (Eq. for g10) over the "
+                   "explored axion-mass range (vacuum phase, m_a up to ~0.02 eV). "
+                   "Flat bound: transcribe the bound value at the mass-range "
+                   "endpoints the paper states.",
+        reference_repo_file="limit_data/AxionPhoton/CAST.txt",
+        digitize_hint="Report (mass_eV, g_agamma[GeV^-1]) pairs. The published "
+                      "limit is g_agamma < 0.66e-10 GeV^-1 flat over the vacuum "
+                      "mass range; give the two range endpoints (low mass and the "
+                      "stated upper mass ~0.02 eV) at that coupling.",
+    ),
+    GoldSelection(
+        arxiv_id="2007.03694",
+        paper_title="Red giants / omega Cen — axion-electron coupling bound",
+        coupling_type="AxionElectron",
+        source_kind="text",
+        provenance="Stellar energy-loss bound g_ae < 1.6e-13 (95% CL, M5/M3) and "
+                   "g_ae < 1.3e-13 (omega Cen) stated in the abstract/text; applies "
+                   "for light axions (flat over the sub-keV mass range).",
+        reference_repo_file="limit_data/AxionElectron/RedGiants.txt",
+        digitize_hint="Report (mass_eV, g_ae) pairs. Transcribe the published "
+                      "g_ae upper bound over the mass range it applies to; give "
+                      "the range endpoints at the flat bound value.",
+    ),
+    GoldSelection(
+        arxiv_id="2111.09892",
+        entry_key="2111.09892_proton",
+        paper_title="Isolated neutron-star cooling — axion-proton bound",
+        coupling_type="AxionProton",
+        source_kind="text",
+        provenance="Neutron-star cooling constrains the axion-nucleon couplings; "
+                   "numeric upper limit on the axion-proton coupling (lower edge "
+                   "of the excluded band, ~1.5e-9) stated in text/Fig., flat over "
+                   "the NS-temperature mass range.",
+        reference_repo_file="limit_data/AxionProton/NeutronStars.txt",
+        digitize_hint="Report (mass_eV, g_ap) pairs. Transcribe the published "
+                      "axion-proton coupling bound and its mass-range endpoints.",
+    ),
+    GoldSelection(
+        arxiv_id="2111.09892",
+        entry_key="2111.09892_neutron",
+        paper_title="Isolated neutron-star cooling — axion-neutron bound",
+        coupling_type="AxionNeutron",
+        source_kind="text",
+        provenance="Neutron-star cooling axion-neutron coupling numeric limit "
+                   "(lower edge of the excluded band) stated in text/Fig. (same "
+                   "paper, neutron channel), flat over the NS-temperature range.",
+        reference_repo_file="limit_data/AxionNeutron/NeutronStars.txt",
+        digitize_hint="Report (mass_eV, g_an) pairs. The paper states |g_ann| < "
+                      "1.3e-9 (95% CL); this model-independent bound is flat up to "
+                      "the QCD-axion mass reach (~16 meV = 1.6e-2 eV). Give BOTH "
+                      "endpoints (a low mass and 1.6e-2 eV) at g_an = 1.3e-9.",
+    ),
+    GoldSelection(
+        arxiv_id="2304.12907",
+        paper_title="Solar stellar-cooling bound on B-L gauge boson",
+        coupling_type="VectorBL",
+        source_kind="text",
+        provenance="Solar energy-loss bound g_Z' <~ 4.1e-10 for m_Z' <~ 10 keV "
+                   "stated explicitly in the text (the only B-L channel published "
+                   "as a number; HB/RG appear only as figure bands). Flat over the "
+                   "stated mass range.",
+        reference_repo_file="limit_data/VectorB-L/Sun.txt",
+        digitize_hint="Report (mass_eV, g_BL) pairs. The published solar bound is "
+                      "g_Z' <~ 4.1e-10 flat for m_Z' up to ~10 keV (=1e4 eV); give "
+                      "BOTH endpoints (a low mass and 1e4 eV) at that coupling.",
+    ),
+    GoldSelection(
+        arxiv_id="1903.06547",
+        paper_title="QUAX-a-gamma — superconducting-cavity axion-photon limit",
+        coupling_type="AxionPhoton",
+        source_kind="text",
+        provenance="Single-mass haloscope limit g_agamma < 1.03e-12 GeV^-1 at "
+                   "the cavity frequency (~37.5 ueV) stated in the abstract/text; "
+                   "narrow scan reported as numeric endpoints.",
+        reference_repo_file="limit_data/AxionPhoton/QUAX.txt",
+        digitize_hint="Report (mass_eV, g_agamma[GeV^-1]) pairs. The published "
+                      "bound is g_agamma < 1.03e-12 GeV^-1 across the scanned "
+                      "frequency band; give the band endpoints (m = h*f) at that "
+                      "coupling.",
+    ),
+    GoldSelection(
+        arxiv_id="1406.6053",
+        paper_title="Globular-cluster R parameter — axion-photon coupling bound",
+        coupling_type="AxionPhoton",
+        source_kind="text",
+        provenance="Stellar R-parameter bound g_agamma < 0.66e-10 GeV^-1 (95% CL) "
+                   "stated in the abstract; flat over the light-axion mass range "
+                   "(m_a << keV, where the production is unsuppressed).",
+        reference_repo_file="limit_data/AxionPhoton/GlobularClusters-R.txt",
+        digitize_hint="Report (mass_eV, g_agamma[GeV^-1]) pairs. The published "
+                      "bound is g_agamma < 0.66e-10 GeV^-1 flat for light axions; "
+                      "give BOTH endpoints (a low mass and ~1e4 eV) at that value.",
+    ),
+    GoldSelection(
+        arxiv_id="2207.03102",
+        paper_title="Globular-cluster R2 parameter — axion-photon coupling bound",
+        coupling_type="AxionPhoton",
+        source_kind="text",
+        provenance="Stellar R2-parameter bound g_agamma < 0.47e-10 GeV^-1 stated "
+                   "in the abstract; flat over the light-axion mass range.",
+        reference_repo_file="limit_data/AxionPhoton/GlobularClusters-R2.txt",
+        digitize_hint="Report (mass_eV, g_agamma[GeV^-1]) pairs. The published "
+                      "bound is g_agamma < 0.47e-10 GeV^-1 flat for light axions; "
+                      "give BOTH endpoints (a low mass and ~1e3 eV) at that value.",
+    ),
+    GoldSelection(
+        arxiv_id="2110.01582",
+        paper_title="LAMPOST — dark-photon dark matter kinetic-mixing limit",
+        coupling_type="DarkPhoton",
+        source_kind="text",
+        provenance="Exclusion epsilon >~ 1e-12 for dark-photon mass ~0.7-0.8 eV "
+                   "stated numerically in the abstract/text.",
+        reference_repo_file="limit_data/DarkPhoton/LAMPOST.txt",
+        digitize_hint="Report (mass_eV, epsilon) pairs (NOT epsilon^2). Transcribe "
+                      "the published epsilon bound at the stated mass-band endpoints "
+                      "(~0.7 and ~0.8 eV).",
+    ),
+    # NOTE: 1804.10777 (TEXONO dark photon) was a CANDIDATE here but dropped:
+    # verification (table-mode digitization) showed the limit exists only as a
+    # figure curve with NO numeric values in the text/tables, so it cannot be a
+    # truly-independent gold_table entry. Per the #537-follow-up rule we do NOT
+    # fall back to vision for the table tier; it is simply omitted.
+    GoldSelection(
+        arxiv_id="2102.08764",
+        paper_title="Magnon haloscope — axion-electron coupling limit",
+        coupling_type="AxionElectron",
+        source_kind="text",
+        provenance="Numeric g_ae upper limits at the scanned magnon frequencies "
+                   "stated in the text/table.",
+        reference_repo_file="limit_data/AxionElectron/Magnons.txt",
+        digitize_hint="Report (mass_eV, g_ae) pairs (m = h*f) at the published "
+                      "bound values.",
+    ),
+    GoldSelection(
+        arxiv_id="2412.09595",
+        paper_title="Super-Kamiokande — axion-proton (ALP-nucleon) coupling limit",
+        coupling_type="AxionProton",
+        source_kind="text",
+        provenance="Excluded ALP-proton coupling region g_ap ~ 2e-5 to 2e-4 "
+                   "(one order of magnitude) stated numerically in the abstract; "
+                   "report the lower edge of the excluded band over its mass range.",
+        reference_repo_file="limit_data/AxionProton/SuperKamiokande.txt",
+        digitize_hint="Report (mass_eV, g_ap) pairs. Transcribe the lower boundary "
+                      "of the excluded g_ap band (the actual exclusion limit) at "
+                      "the stated ALP mass values.",
     ),
 
     # ---- FIGURE-ONLY papers (semi-independent, vision-digitized) -----------
@@ -538,7 +709,7 @@ def _digitize_figure(client, sel: GoldSelection, pdf_path: Path) -> dict:
 
 def _write_points(sel: GoldSelection, points: list) -> Path:
     GOLD_DATA_DIR.mkdir(parents=True, exist_ok=True)
-    dest = GOLD_DATA_DIR / f"{sel.arxiv_id.replace('/', '_')}.txt"
+    dest = GOLD_DATA_DIR / f"{_stem(sel)}.txt"
     with open(dest, "w") as f:
         f.write(f"# Gold-set points digitized directly from {sel.arxiv_id}\n")
         f.write(f"# coupling_type={sel.coupling_type} source={sel.source_kind}\n")
@@ -562,11 +733,12 @@ def _resolve_convention(sel: GoldSelection, dest: Path
 
 
 def build_entry(client, sel: GoldSelection, force: bool = False) -> Optional[dict]:
-    dest = GOLD_DATA_DIR / f"{sel.arxiv_id.replace('/', '_')}.txt"
+    dest = GOLD_DATA_DIR / f"{_stem(sel)}.txt"
     conv, units = _resolve_convention(sel, dest)
 
     entry = {
         "arxiv_id": sel.arxiv_id,
+        "entry_key": sel.entry_key or sel.arxiv_id,
         "paper_title": sel.paper_title,
         "coupling_type": sel.coupling_type,
         "coupling_convention": conv,
@@ -580,7 +752,7 @@ def build_entry(client, sel: GoldSelection, force: bool = False) -> Optional[dic
         ),
         "provenance": sel.provenance,
         "reference_repo_file": sel.reference_repo_file,
-        "gold_data_file": f"{sel.arxiv_id.replace('/', '_')}.txt",
+        "gold_data_file": f"{_stem(sel)}.txt",
         "digitize_model": GOLD_MODEL,
     }
 
@@ -674,17 +846,20 @@ def main():
 
     client = _client()
     manifest = _load_manifest()
-    by_id = {c["arxiv_id"]: c for c in manifest["gold_curves"]}
+    # Key by the manifest entry_key (defaults to arxiv_id) so a paper that
+    # contributes multiple gold curves does not overwrite itself.
+    by_id = {c.get("entry_key", c["arxiv_id"]): c for c in manifest["gold_curves"]}
 
     for sel in sels:
         entry = build_entry(client, sel, force=args.force)
         if entry is not None:
-            by_id[sel.arxiv_id] = entry
+            by_id[sel.entry_key or sel.arxiv_id] = entry
 
-    # Stable order: source_kind then arxiv_id.
-    order = {s.arxiv_id: i for i, s in enumerate(GOLD_SELECTION)}
-    manifest["gold_curves"] = sorted(by_id.values(),
-                                     key=lambda e: order.get(e["arxiv_id"], 999))
+    # Stable order following GOLD_SELECTION.
+    order = {(s.entry_key or s.arxiv_id): i for i, s in enumerate(GOLD_SELECTION)}
+    manifest["gold_curves"] = sorted(
+        by_id.values(),
+        key=lambda e: order.get(e.get("entry_key", e["arxiv_id"]), 999))
     manifest["digitize_model"] = GOLD_MODEL
     _save_manifest(manifest)
 

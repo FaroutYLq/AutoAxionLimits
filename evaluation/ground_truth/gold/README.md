@@ -32,6 +32,24 @@ The gold set is a reference that does **not** come from the repo, so we can:
 `gold_vision` curves are still vision-based, so the floor they give is a *softer*
 bound — that is why the diff reports the two tiers separately.
 
+### `gold_table` tier expansion (#537 follow-up, #542)
+
+The original #537 build had only ~1 *usable* same-convention `gold_table`↔repo
+pair, far too thin to pin the truly-independent digitization floor that #542
+needs for its confidence-accuracy threshold. The tier was grown to **17
+`gold_table` entries → 10 usable same-convention pairs** spanning AxionPhoton,
+AxionElectron, AxionProton, AxionNeutron, DarkPhoton, ScalarPhoton and
+ScalarNucleon. Every added paper publishes its limit as **numeric values in the
+PDF text** (a stellar/cosmological *flat* bound stated over an explicit mass
+range counts — transcribe both range endpoints). Candidates that turned out to
+be **figure-only** (no transcribable numbers) were dropped rather than
+vision-digitized, to keep the tier truly independent (e.g. `1804.10777` TEXONO).
+
+Flat-bound curves are the same physical line regardless of which range endpoints
+each side transcribes, so `gold_diff._median_residual` measures the gold↔repo gap
+on whichever interpolation direction has shared mass support (forward, else the
+swapped reverse). The result is direction-symmetric over the overlap.
+
 The digitizer (`evaluation/gold_build.py`) uses the **strongest** available model
 (`claude-opus-4-5-20251101`) with a prompt **distinct** from the production
 extractor (`pipeline/extractor.py`, which runs Haiku). It does **not** reuse
@@ -53,6 +71,10 @@ extractor (`pipeline/extractor.py`, which runs Haiku). It does **not** reuse
   "gold_curves": [
     {
       "arxiv_id": "0802.2350",
+      "entry_key": "0802.2350",            // manifest key + data-file stem;
+                                           // defaults to arxiv_id, set explicitly
+                                           // when one paper yields >1 gold curve
+                                           // (e.g. 2111.09892_proton / _neutron)
       "paper_title": "...",
       "coupling_type": "ScalarNucleon",     // pipeline.config coupling key
       "coupling_convention": "coupling",    // inferred from the curve's range
