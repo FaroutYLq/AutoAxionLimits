@@ -33,6 +33,7 @@ def generate_report(metrics: dict, output_path: str):
     # --- Summary ---
     clf = metrics["classification"]
     agg_interp = metrics.get("interpolation_aggregate", {})
+    agg_symmetric = metrics.get("symmetric_aggregate", {})
     agg_curve = metrics.get("curve_aggregate", {})
 
     cov = metrics.get("comparison_coverage", {})
@@ -119,29 +120,69 @@ def generate_report(metrics: dict, output_path: str):
                      f"({_pct(n_zero / n_all if n_all else 0)}) — extracted masses miss the GT range entirely "
                      "(usually 1–2 extracted points or the wrong mass window)")
         lines.append("")
+        # Reverse pass + symmetric shape metrics (issue #541).
+        lines.append("**Reverse pass** (GT interpolated onto the *extracted* masses):")
+        lines.append("- Mirrors the forward pass. A large forward-vs-reverse gap, or a reverse "
+                     "coverage well below the forward coverage, flags an extraction whose mass "
+                     "*extent* or shape disagrees with the GT (e.g. running past the GT range).")
+        lines.append(f"- **Median reverse residual across papers**: "
+                     f"{_fmt(agg_interp.get('median_median_residual_dex_reverse'))} dex "
+                     f"(forward: {_fmt(agg_interp.get('median_median_residual_dex'))} dex)")
+        lines.append(f"- **Mean reverse interpolation coverage**: "
+                     f"{_pct(agg_interp.get('mean_interpolation_coverage_reverse'))} "
+                     f"(forward: {_pct(agg_interp.get('mean_interpolation_coverage'))})")
+        lines.append("")
+
+    # --- Symmetric / 2-D shape + mass-range agreement (issue #541) ---
+    if agg_symmetric.get("n_papers", 0) > 0:
+        lines.append("## Shape & Mass-Range Agreement — Symmetric Metrics (complementary)\n")
+        lines.append("These are symmetric, 2-D complements to the (asymmetric, vertical-only) "
+                     "interpolation residual. **Area-between-curves** integrates "
+                     "|Δ log10 coupling| over the overlapping log-mass range and normalises by "
+                     "the overlap width (a single shape+offset number, in dex; a pure mass shift "
+                     "inflates it even when the vertical residual looks fine). **Mass-range "
+                     "Jaccard** is the Jaccard index of the extracted vs GT log-mass intervals "
+                     "(1.0 = identical extent; small = over-/under-claimed mass range), reported "
+                     "separately from interpolation coverage.\n")
+        lines.append(f"- **Papers scored**: {agg_symmetric.get('n_papers', 0)} "
+                     f"({agg_symmetric.get('n_finite_area', 0)} with mass overlap for area)")
+        lines.append(f"- **Median area-between-curves**: "
+                     f"{_fmt(agg_symmetric.get('median_area_between_log'))} dex "
+                     f"(mean {_fmt(agg_symmetric.get('mean_area_between_log'))} dex)")
+        lines.append(f"- **Median mass-range Jaccard**: "
+                     f"{_fmt(agg_symmetric.get('median_mass_jaccard'))} "
+                     f"(mean {_fmt(agg_symmetric.get('mean_mass_jaccard'))})")
+        lines.append("")
 
     # --- Per-paper ---
     per_paper = metrics.get("per_paper", [])
     if per_paper:
         lines.append("## Per-Paper Results\n")
-        lines.append("| arXiv ID | Coupling | Conf. | Interp. Cov. | Med. Resid. | ≤0.3 dex | Points |")
-        lines.append("|----------|----------|-------|--------------|-------------|----------|--------|")
+        lines.append("| arXiv ID | Coupling | Conf. | Interp. Cov. | Med. Resid. | Rev. Resid. | Area (dex) | Mass Jaccard | ≤0.3 dex | Points |")
+        lines.append("|----------|----------|-------|--------------|-------------|-------------|------------|--------------|----------|--------|")
         for p in per_paper:
             if p.get("status") != "extracted":
-                lines.append(f"| {p['arxiv_id']} | — | — | FAILED | — | — | — |")
+                lines.append(f"| {p['arxiv_id']} | — | — | FAILED | — | — | — | — | — | — |")
                 continue
             coupling_ok = "✓" if p.get("coupling_type_correct") else f"✗ ({p.get('coupling_type_predicted', '?')})"
             conf = _fmt(p.get("extraction_confidence"), 2)
             im = p.get("interp_metrics")
+            sm = p.get("symmetric_metrics")
             if im:
                 cov_col = _pct(im["interpolation_coverage"])
                 med = _fmt(im["median_residual_dex"])
+                rev = _fmt(im.get("median_residual_dex_reverse"))
                 f03 = _pct(im["frac_within_0_3dex"])
                 pts = f"{im['num_extracted']}/{im['num_ground_truth']}"
             else:
                 cov_col = p.get("comparison_status", "—")
-                med = f03 = pts = "—"
-            lines.append(f"| {p['arxiv_id']} | {coupling_ok} | {conf} | {cov_col} | {med} | {f03} | {pts} |")
+                med = rev = f03 = pts = "—"
+            if sm:
+                area = _fmt(sm.get("area_between_log"))
+                jacc = _fmt(sm.get("mass_jaccard"))
+            else:
+                area = jacc = "—"
+            lines.append(f"| {p['arxiv_id']} | {coupling_ok} | {conf} | {cov_col} | {med} | {rev} | {area} | {jacc} | {f03} | {pts} |")
         lines.append("")
 
     # --- Data source breakdown (the meaningful one) ---
@@ -234,6 +275,19 @@ def generate_report(metrics: dict, output_path: str):
     lines.append("- **Fraction within threshold**: what % of GT points have residual below 0.1/0.3/0.5/1.0 dex")
     lines.append("")
     lines.append("When multiple extracted points share the same mass, the strongest constraint (lowest coupling) is kept.")
+    lines.append("")
+    lines.append("### Symmetric / 2-D metrics (complementary)")
+    lines.append("- **Reverse pass**: the same interpolation, swapped — build the interp from the "
+                 "GT points and evaluate at the *extracted* masses. The forward pass cannot see an "
+                 "extraction that runs past the GT range; the reverse pass surfaces it as a low "
+                 "reverse coverage / large reverse residual.")
+    lines.append("- **Area-between-curves**: sample both log-log curves on a common grid over their "
+                 "overlapping log-mass range, integrate |Δ log10 coupling| (trapezoid), normalise by "
+                 "the overlap width → mean dex offset. Penalises both vertical offset and horizontal "
+                 "(mass) shift.")
+    lines.append("- **Mass-range Jaccard**: Jaccard index of the extracted vs GT log-mass intervals "
+                 "(intersection / union). Penalises over- and under-claimed mass extent independently "
+                 "of interpolation density.")
     lines.append("")
     lines.append("### Confidence calibration")
     lines.append('- A paper is "accurate" if median residual < 0.3 dex AND interpolation coverage ≥ 50%')
