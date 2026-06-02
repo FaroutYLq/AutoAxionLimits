@@ -7,6 +7,20 @@ from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
+# Provenance of the scalar classification labels (is_new_limit, is_projection,
+# data_source). These are NOT human gold labels: they come from an INDEPENDENT
+# LLM labeler pass (evaluation/label_ground_truth.py, model claude-opus-4-5)
+# whose sole task is to classify paper properties — a distinct model and prompt
+# from the extractor it grades, so scoring is a fair cross-model test, not
+# self-agreement. A human audit of a labeled subset is reported alongside as
+# the labeler's per-field agreement with a human reader (issue #539).
+LABEL_AUDIT = {
+    "n_audited": 15,
+    "is_new_limit": "15/15",
+    "is_projection": "15/15",
+    "data_source": "14/15",
+}
+
 
 def _fmt(val, precision: int = 3) -> str:
     """Format a float, handling inf/None gracefully."""
@@ -80,10 +94,30 @@ def generate_report(metrics: dict, output_path: str):
         else:
             lines.append(f"| {field_name} | {_pct(entry['accuracy'])} | {entry['total']} |")
     lines.append("")
+    scored_scalar = [f for f in ["is_new_limit", "is_projection", "data_source"]
+                     if clf[f]["total"] > 0]
+    if scored_scalar:
+        # Provenance: these scalar labels are LLM-labeled, not human gold.
+        a = LABEL_AUDIT
+        lines.append(
+            "> **Label provenance**: `is_new_limit`, `is_projection`, and "
+            "`data_source` are scored against an **independent LLM labeler** "
+            "(`evaluation/label_ground_truth.py`, model `claude-opus-4-5`) whose "
+            "sole task is to classify paper properties — a distinct model and "
+            "prompt from the extractor it grades, so this is a fair cross-model "
+            "test, not self-agreement. These are **not human gold labels**. A "
+            f"human audit of {a['n_audited']} labeled papers found per-field "
+            f"labeler↔human agreement: is_new_limit {a['is_new_limit']}, "
+            f"is_projection {a['is_projection']}, data_source {a['data_source']} "
+            "(difficulty is derived mechanically from data_source + point count, "
+            "not labeled).")
+        lines.append("")
     if any(clf[f]["total"] == 0 for f in ["is_new_limit", "is_projection", "data_source"]):
-        lines.append("> `is_new_limit`, `is_projection`, and `data_source` are scored only against "
-                     "human-verified ground-truth entries. The current pool is entirely repo-sourced "
-                     "(placeholder labels), so these are reported as N/A rather than against placeholders.")
+        lines.append("> Entries still carrying placeholder labels "
+                     "(`auto_expanded` / `verified_by: repo_upstream`) are NOT "
+                     "scored on these fields; if no entry has been LLM-labeled "
+                     "yet a field shows N/A. Run `python -m "
+                     "evaluation.label_ground_truth` to expand the labeled pool.")
         lines.append("")
 
     # Classification errors
@@ -218,8 +252,13 @@ def generate_report(metrics: dict, output_path: str):
                  "and rescaled from the same papers), not the paper's raw numbers. A perfect extraction "
                  "still shows a nonzero residual equal to the upstream digitisation/convention gap, so "
                  "the ~0.5–0.7 dex typical residual is an upper bound on true extraction error.")
-    lines.append("- `is_new_limit`, `is_projection`, `data_source`, and `difficulty` are placeholder "
-                 "labels in the repo-sourced pool and are not scored (shown as N/A / informational).")
+    lines.append("- `is_new_limit`, `is_projection`, and `data_source` are scored against an "
+                 "**independent LLM labeler** (`label_ground_truth.py`, `claude-opus-4-5`), a "
+                 "distinct model/prompt from the extractor (so not self-agreement), audited against "
+                 "a human reader (see Classification Accuracy). Entries not yet labeled keep "
+                 "placeholder values (`auto_expanded` / `repo_upstream`) and are excluded from "
+                 "these metrics. `difficulty` is derived mechanically (figure-only + few points ⇒ "
+                 "hard; table/text + many points ⇒ easy; else medium) and is informational only.")
     lines.append("")
     lines.append("### Interpolation metric (primary)")
     lines.append("1. Filter boundary-closure sentinel points (coupling >= 1e-2) from both extracted and GT data")
