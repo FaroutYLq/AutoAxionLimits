@@ -69,22 +69,39 @@ def _fetch_paper_metadata(arxiv_id: str, cache_path: Path) -> tuple[str, str]:
         cache = {}
     if arxiv_id in cache:
         return cache[arxiv_id]["title"], cache[arxiv_id]["abstract"]
-    # Fetch from arXiv
+    # Fetch from arXiv. The metadata API (export.arxiv.org) is aggressively
+    # rate-limited; a failure here is non-fatal — we fall back to the
+    # ground-truth title and an empty abstract so extraction can proceed.
     import arxiv as _arxiv
-    search = _arxiv.Search(id_list=[arxiv_id])
-    result = next(_arxiv.Client().results(search), None)
+    result = None
+    for attempt in range(4):
+        try:
+            search = _arxiv.Search(id_list=[arxiv_id])
+            result = next(_arxiv.Client().results(search), None)
+            break
+        except Exception as e:  # HTTP 429, parse errors, transient network
+            wait = 5 * (2 ** attempt)
+            logger.warning("arXiv metadata fetch failed for %s (%s); retry in %ds",
+                           arxiv_id, e, wait)
+            time.sleep(wait)
     if result:
         cache[arxiv_id] = {"title": result.title, "abstract": result.summary}
         cache_path.parent.mkdir(parents=True, exist_ok=True)
         with open(cache_path, "w") as f:
             _json.dump(cache, f, indent=2)
         return result.title, result.summary
+    logger.warning("No arXiv metadata for %s; using ground-truth title fallback", arxiv_id)
     return "", ""
+
+
+def _safe_id(arxiv_id: str) -> str:
+    """Filesystem-safe key for an arXiv id (old-style ids contain '/')."""
+    return arxiv_id.replace("/", "_")
 
 
 def _load_cached_result(arxiv_id: str) -> dict | None:
     """Load a cached extraction result, if it exists."""
-    path = RESULTS_DIR / f"{arxiv_id}.json"
+    path = RESULTS_DIR / f"{_safe_id(arxiv_id)}.json"
     if path.exists():
         with open(path) as f:
             return json.load(f)
@@ -94,7 +111,7 @@ def _load_cached_result(arxiv_id: str) -> dict | None:
 def _save_result(arxiv_id: str, result: dict):
     """Cache an extraction result."""
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    path = RESULTS_DIR / f"{arxiv_id}.json"
+    path = RESULTS_DIR / f"{_safe_id(arxiv_id)}.json"
     with open(path, "w") as f:
         json.dump(result, f, indent=2, default=str)
     logger.info("Saved result for %s", arxiv_id)
