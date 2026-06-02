@@ -22,6 +22,39 @@ logger = logging.getLogger(__name__)
 
 STATE_PATH = Path(__file__).parent / "state" / "processed.json"
 
+# arXiv fetch robustness (issue #560). The arxiv library calls
+# requests.Session().get() with NO timeout internally, so a slow/throttling
+# export.arxiv.org endpoint (429/503 or a stalled CDN) can hang the daily
+# pipeline indefinitely. We bound each network query with a hard wall-clock
+# deadline via a ThreadPoolExecutor future (see _results_with_deadline).
+ARXIV_FETCH_TIMEOUT_S = 60  # per-query hard wall-clock deadline (seconds)
+
+
+def _results_with_deadline(
+    client: arxiv.Client, search: arxiv.Search, timeout_s: int = ARXIV_FETCH_TIMEOUT_S
+) -> list[arxiv.Result]:
+    """Materialize ``client.results(search)`` under a hard wall-clock deadline.
+
+    The arxiv library does not expose a request timeout, so we run the
+    (blocking) iteration in a worker thread and enforce the deadline via
+    ``Future.result(timeout=...)``. On timeout we abandon the worker (a
+    ``shutdown(wait=False)`` rather than the context-manager's blocking
+    ``shutdown(wait=True)``) and raise ``TimeoutError`` so callers never hang.
+    """
+    from concurrent.futures import ThreadPoolExecutor, TimeoutError as _FutureTimeout
+
+    pool = ThreadPoolExecutor(max_workers=1)
+    future = pool.submit(lambda: list(client.results(search)))
+    try:
+        out = future.result(timeout=timeout_s)
+        pool.shutdown(wait=False)
+        return out
+    except _FutureTimeout:
+        pool.shutdown(wait=False)
+        raise TimeoutError(
+            f"arXiv query exceeded {timeout_s}s wall-clock deadline"
+        )
+
 
 # ---------------------------------------------------------------------------
 # arXiv fetching
@@ -67,14 +100,17 @@ def _iter_results_with_backoff(
     """
     for attempt in range(max_attempts):
         try:
-            return list(client.results(search))
-        except arxiv.HTTPError as exc:
-            if "429" not in str(exc) or attempt == max_attempts - 1:
+            return _results_with_deadline(client, search)
+        except (arxiv.HTTPError, TimeoutError) as exc:
+            is_429 = isinstance(exc, arxiv.HTTPError) and "429" in str(exc)
+            is_timeout = isinstance(exc, TimeoutError)
+            if (not is_429 and not is_timeout) or attempt == max_attempts - 1:
                 raise
             wait = 30 * (2 ** attempt)  # 30s, 60s, 120s
+            reason = "timed out" if is_timeout else "rate-limited (HTTP 429)"
             logger.warning(
-                "arXiv rate-limited (HTTP 429), retrying in %ds (attempt %d/%d)",
-                wait, attempt + 1, max_attempts,
+                "arXiv query %s, retrying in %ds (attempt %d/%d)",
+                reason, wait, attempt + 1, max_attempts,
             )
             time.sleep(wait)
     return []  # unreachable, but satisfies type checker
@@ -118,7 +154,8 @@ def fetch_paper_by_id(arxiv_id: str) -> arxiv.Result:
     """Fetch a single paper by arXiv ID."""
     client = arxiv.Client(delay_seconds=5, num_retries=5)
     search = arxiv.Search(id_list=[arxiv_id])
-    results = list(client.results(search))
+    # Bounded by a hard wall-clock deadline so a stalled endpoint cannot hang.
+    results = _results_with_deadline(client, search)
     if not results:
         raise ValueError(f"arXiv paper {arxiv_id} not found")
     return results[0]

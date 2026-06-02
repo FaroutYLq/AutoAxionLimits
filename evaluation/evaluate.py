@@ -62,6 +62,14 @@ logger = logging.getLogger(__name__)
 
 RESULTS_DIR = Path(__file__).parent / "results"
 
+# arXiv metadata-fetch robustness (issue #560). The arxiv library uses an
+# internal requests.Session().get() with NO timeout, so when export.arxiv.org
+# is slow/throttling (429/503) or its CDN stalls, the call hangs indefinitely
+# and blocks the whole evaluation run. We bound each attempt with a hard
+# wall-clock deadline and cap the number of attempts.
+ARXIV_FETCH_TIMEOUT_S = 30  # per-attempt hard wall-clock deadline (seconds)
+ARXIV_FETCH_RETRIES = 3     # number of attempts before falling back
+
 
 def _fetch_paper_metadata(arxiv_id: str, cache_path: Path) -> tuple[str, str]:
     """Fetch real title and abstract from arXiv API. Cache results."""
@@ -76,14 +84,46 @@ def _fetch_paper_metadata(arxiv_id: str, cache_path: Path) -> tuple[str, str]:
     # Fetch from arXiv. The metadata API (export.arxiv.org) is aggressively
     # rate-limited; a failure here is non-fatal — we fall back to the
     # ground-truth title and an empty abstract so extraction can proceed.
+    #
+    # The arxiv library does not expose a request timeout (it calls
+    # requests.Session().get() with no timeout internally), so a single
+    # attempt could hang forever. We therefore run each attempt inside a
+    # ThreadPoolExecutor and enforce a hard wall-clock deadline via
+    # Future.result(timeout=...). On timeout/error we back off and retry up
+    # to ARXIV_FETCH_RETRIES times, then degrade gracefully to the
+    # ground-truth-title fallback below. This guarantees the call can never
+    # exceed ~ARXIV_FETCH_RETRIES * (ARXIV_FETCH_TIMEOUT_S + backoff) seconds.
     import arxiv as _arxiv
+    from concurrent.futures import ThreadPoolExecutor, TimeoutError as _FutureTimeout
+
+    def _do_fetch():
+        search = _arxiv.Search(id_list=[arxiv_id])
+        return next(_arxiv.Client().results(search), None)
+
     result = None
-    for attempt in range(4):
+    for attempt in range(ARXIV_FETCH_RETRIES):
+        # NB: we deliberately do NOT use the executor as a context manager —
+        # its __exit__ calls shutdown(wait=True), which would block on a hung
+        # request and defeat the timeout. On timeout we call
+        # shutdown(wait=False) and abandon the worker thread instead.
+        pool = ThreadPoolExecutor(max_workers=1)
+        future = pool.submit(_do_fetch)
         try:
-            search = _arxiv.Search(id_list=[arxiv_id])
-            result = next(_arxiv.Client().results(search), None)
+            result = future.result(timeout=ARXIV_FETCH_TIMEOUT_S)
+            pool.shutdown(wait=False)
             break
+        except _FutureTimeout:
+            # The fetch exceeded the per-attempt deadline. Abandon the worker
+            # thread (do not wait for it) so the run is never blocked.
+            pool.shutdown(wait=False)
+            wait = 5 * (2 ** attempt)
+            logger.warning(
+                "arXiv metadata fetch for %s timed out after %ds; retry in %ds",
+                arxiv_id, ARXIV_FETCH_TIMEOUT_S, wait,
+            )
+            time.sleep(wait)
         except Exception as e:  # HTTP 429, parse errors, transient network
+            pool.shutdown(wait=False)
             wait = 5 * (2 ** attempt)
             logger.warning("arXiv metadata fetch failed for %s (%s); retry in %ds",
                            arxiv_id, e, wait)
