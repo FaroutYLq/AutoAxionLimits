@@ -5,6 +5,8 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 
+from evaluation.metrics import CONTINUOUS_TAUS_DEX, NOISE_FLOOR_RESIDUAL_DEX
+
 logger = logging.getLogger(__name__)
 
 # Provenance of the scalar classification labels (is_new_limit, is_projection,
@@ -36,6 +38,33 @@ def _pct(val) -> str:
     if val is None:
         return "N/A"
     return f"{val * 100:.1f}%"
+
+
+def _lookup_tau(frac_within_tau: dict, tau: float):
+    """Look up P(residual < tau). After JSON round-tripping the dict keys are
+    strings, so match on the float value rather than identity."""
+    if not frac_within_tau:
+        return None
+    for k, v in frac_within_tau.items():
+        try:
+            if abs(float(k) - tau) < 1e-9:
+                return v
+        except (TypeError, ValueError):
+            continue
+    return None
+
+
+def _collect_taus(bins: list[dict]) -> list[float]:
+    """Collect the sorted set of tau thresholds present in the bins'
+    ``frac_within_tau`` dicts, falling back to the module default."""
+    taus: set[float] = set()
+    for b in bins:
+        for k in (b.get("frac_within_tau") or {}):
+            try:
+                taus.add(float(k))
+            except (TypeError, ValueError):
+                continue
+    return sorted(taus) if taus else list(CONTINUOUS_TAUS_DEX)
 
 
 def generate_report(metrics: dict, output_path: str):
@@ -304,6 +333,19 @@ def generate_report(metrics: dict, output_path: str):
     non_empty_bins = [b for b in cal if b["n_papers"] > 0]
     if non_empty_bins:
         lines.append("## Confidence Calibration\n")
+        lines.append(
+            f'- "Accurate" = median interpolation residual < **{_fmt(NOISE_FLOOR_RESIDUAL_DEX, 2)} dex** '
+            "AND interpolation coverage ≥ 50%."
+        )
+        lines.append(
+            f"- The **{_fmt(NOISE_FLOOR_RESIDUAL_DEX, 2)} dex** threshold is the run-to-run LLM "
+            "extraction *noise floor* (90th-pct per-paper median-residual std across repeated "
+            "extractions, PR #545) — the binding floor. It is **not** the upstream digitization "
+            "floor, which is only ~0.034 dex for table/text-sourced papers (PR #558). So a residual "
+            "gap here is **real extractor overconfidence, not a yardstick artifact**."
+        )
+        lines.append("")
+        lines.append("### Binned accuracy (pass/fail)\n")
         lines.append("| Bin | N | Mean Conf. | Actual Acc. | Gap |")
         lines.append("|-----|---|------------|-------------|-----|")
         for b in non_empty_bins:
@@ -318,6 +360,55 @@ def generate_report(metrics: dict, output_path: str):
                       "Gap < 0 means underconfident.")
         lines.append("")
 
+        # --- Continuous calibration view (issue #542) ---
+        # 1) Confidence vs the actual residual *distribution* per bin (median + IQR),
+        #    so a bin shows the real residual spread, not just a thresholded rate.
+        lines.append("### Continuous view: residual distribution per bin\n")
+        lines.append(
+            "Median (and IQR) of each bin's per-paper median residual, over papers with a "
+            "finite residual (zero mass-overlap papers excluded from the distribution but still "
+            "counted in N). If confidence tracked accuracy, the median residual would fall as "
+            "confidence rises."
+        )
+        lines.append("")
+        lines.append("| Bin | N | N finite | Median resid. (dex) | IQR (dex) |")
+        lines.append("|-----|---|----------|---------------------|-----------|")
+        for b in non_empty_bins:
+            med = b.get("median_residual_dex")
+            p25 = b.get("p25_residual_dex")
+            p75 = b.get("p75_residual_dex")
+            iqr = (
+                f"{_fmt(p25, 2)}–{_fmt(p75, 2)}"
+                if (p25 is not None and p75 is not None) else "—"
+            )
+            lines.append(
+                f"| [{_fmt(b['bin_lo'], 1)}–{_fmt(b['bin_hi'], 1)}) | {b['n_papers']} | "
+                f"{b.get('n_finite', 0)} | {_fmt(med, 2) if med is not None else '—'} | {iqr} |"
+            )
+        lines.append("")
+
+        # 2) Proper-scoring-style view: empirical P(residual < tau) per bin for several tau.
+        taus = _collect_taus(non_empty_bins)
+        if taus:
+            lines.append("### Continuous view: empirical P(residual < τ) per bin\n")
+            lines.append(
+                "Fraction of papers in each bin whose median residual is below τ dex "
+                "(τ = 0.32 is the noise floor used above). A well-calibrated, accurate "
+                "extractor would show these probabilities rising with confidence."
+            )
+            lines.append("")
+            header = "| Bin | N | " + " | ".join(f"P(<{_fmt(t, 2)})" for t in taus) + " |"
+            sep = "|-----|---|" + "|".join(["----"] * len(taus)) + "|"
+            lines.append(header)
+            lines.append(sep)
+            for b in non_empty_bins:
+                fwt = b.get("frac_within_tau", {})
+                cells = " | ".join(_pct(_lookup_tau(fwt, t)) for t in taus)
+                lines.append(
+                    f"| [{_fmt(b['bin_lo'], 1)}–{_fmt(b['bin_hi'], 1)}) | {b['n_papers']} | {cells} |"
+                )
+            lines.append("")
+
     # --- Methodology ---
     lines.append("## Methodology\n")
     lines.append("### Curve selection (what each extraction is compared against)")
@@ -330,9 +421,13 @@ def generate_report(metrics: dict, output_path: str):
     lines.append("")
     lines.append("### Caveats on the residual floor")
     lines.append("- The ground truth `g(x_i)` is the **upstream-curated** repo curve (itself digitised "
-                 "and rescaled from the same papers), not the paper's raw numbers. A perfect extraction "
-                 "still shows a nonzero residual equal to the upstream digitisation/convention gap, so "
-                 "the ~0.5–0.7 dex typical residual is an upper bound on true extraction error.")
+                 "and rescaled from the same papers), not the paper's raw numbers, so a perfect "
+                 "extraction still shows a small nonzero residual from the upstream "
+                 "digitisation/convention gap. That gap is now *measured*: only ~0.034 dex for "
+                 "table/text-sourced papers (PR #558, truly-independent gold-vs-repo, N=10) — i.e. "
+                 "the repo GT is faithful, NOT a ~0.5 dex floor. The figure-only digitisation "
+                 "component remains unmeasured. The binding floor for confidence calibration is "
+                 "instead the run-to-run LLM extraction noise floor (~0.32 dex, PR #545).")
     lines.append("- `is_new_limit`, `is_projection`, and `data_source` are scored against an "
                  "**independent LLM labeler** (`label_ground_truth.py`, `claude-opus-4-5`), a "
                  "distinct model/prompt from the extractor (so not self-agreement), audited against "
@@ -369,9 +464,32 @@ def generate_report(metrics: dict, output_path: str):
                  "of interpolation density.")
     lines.append("")
     lines.append("### Confidence calibration")
-    lines.append('- A paper is "accurate" if median residual < 0.3 dex AND interpolation coverage ≥ 50%')
-    lines.append("- Papers binned by extraction_confidence; actual accuracy computed per bin")
-    lines.append("- Perfect calibration: actual accuracy = mean confidence in each bin")
+    lines.append(
+        f'- A paper is "accurate" if median residual < **{_fmt(NOISE_FLOOR_RESIDUAL_DEX, 2)} dex** '
+        "AND interpolation coverage ≥ 50%."
+    )
+    lines.append(
+        f"- The **{_fmt(NOISE_FLOOR_RESIDUAL_DEX, 2)} dex** threshold is the run-to-run LLM "
+        "extraction noise floor (90th-pct per-paper median-residual std over repeated "
+        "extractions, PR #545) — the binding floor. It is deliberately NOT relaxed to the "
+        "upstream digitization floor, which is only ~0.034 dex for table/text papers (PR #558, "
+        "truly-independent gold-vs-repo). The original #542 premise — that 0.3 dex sits below a "
+        "~0.5 dex digitization floor — is therefore falsified; 0.3 dex was about right, but "
+        "justified by *noise*, not digitization."
+    )
+    lines.append(
+        "- **Caveat**: the 0.034 dex digitization floor is measured only for table/text sources. "
+        "For figure-only source papers the upstream figure-digitization error is unmeasured, so "
+        "this is not a universal floor."
+    )
+    lines.append("- Coverage ≥ 50% is kept as an orthogonal curve-quality gate: a low residual on "
+                 "only a sliver of the mass range is not a usable extraction.")
+    lines.append("- Papers binned by extraction_confidence; actual accuracy computed per bin. "
+                 "Perfect calibration: actual accuracy = mean confidence in each bin.")
+    lines.append("- Two continuous views supplement the pass/fail rate: the per-bin residual "
+                 "*distribution* (median + IQR) and the empirical P(residual < τ) for "
+                 "τ ∈ {0.1, 0.32, 0.5, 1.0} dex — so a bin shows the real residual spread, not "
+                 "just a thresholded rate.")
     lines.append("")
 
     report_text = "\n".join(lines)
@@ -387,7 +505,14 @@ def generate_report(metrics: dict, output_path: str):
 
 
 def _generate_calibration_plot(calibration: list[dict], report_path: str):
-    """Generate a calibration plot (confidence vs actual accuracy)."""
+    """Generate a two-panel calibration figure:
+
+    (left)  pass/fail calibration: confidence vs binned actual accuracy.
+    (right) continuous view: confidence vs the binned-median interpolation
+            residual (with IQR), plus the noise-floor threshold line. This shows
+            whether confidence tracks the *actual residual* at all, rather than
+            only a thresholded rate (issue #542).
+    """
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -400,21 +525,48 @@ def _generate_calibration_plot(calibration: list[dict], report_path: str):
     y = [b["actual_accuracy"] for b in non_empty]
     sizes = [b["n_papers"] * 50 for b in non_empty]
 
-    fig, ax = plt.subplots(1, 1, figsize=(5, 5))
+    fig, (ax, ax2) = plt.subplots(1, 2, figsize=(11, 5))
+
+    # --- Left: pass/fail calibration ---
     ax.plot([0, 1], [0, 1], "k--", alpha=0.3, label="Perfect calibration")
     ax.scatter(x, y, s=sizes, alpha=0.7, zorder=5)
     for b in non_empty:
         ax.annotate(f"n={b['n_papers']}", (b["mean_confidence"], b["actual_accuracy"]),
                      textcoords="offset points", xytext=(5, 5), fontsize=8)
-
     ax.set_xlabel("Mean extraction confidence")
-    ax.set_ylabel("Actual accuracy (coverage>80% & error<0.5 dex)")
-    ax.set_title("Confidence Calibration")
+    ax.set_ylabel(f"Actual accuracy (residual < {NOISE_FLOOR_RESIDUAL_DEX:.2f} dex & coverage ≥ 50%)")
+    ax.set_title("Confidence calibration (pass/fail)")
     ax.set_xlim(-0.05, 1.05)
     ax.set_ylim(-0.05, 1.05)
     ax.legend()
     ax.grid(True, alpha=0.3)
 
+    # --- Right: continuous residual view ---
+    cx, cmed, lo_err, hi_err = [], [], [], []
+    for b in non_empty:
+        med = b.get("median_residual_dex")
+        if med is None:
+            continue
+        cx.append(b["mean_confidence"])
+        cmed.append(med)
+        p25 = b.get("p25_residual_dex")
+        p75 = b.get("p75_residual_dex")
+        lo_err.append(med - p25 if p25 is not None else 0.0)
+        hi_err.append(p75 - med if p75 is not None else 0.0)
+    if cx:
+        ax2.errorbar(cx, cmed, yerr=[lo_err, hi_err], fmt="o", capsize=4,
+                     alpha=0.8, zorder=5, label="Bin median residual (IQR)")
+    ax2.axhline(NOISE_FLOOR_RESIDUAL_DEX, color="r", ls="--", alpha=0.6,
+                label=f"Noise floor ({NOISE_FLOOR_RESIDUAL_DEX:.2f} dex, #545)")
+    ax2.set_xlabel("Mean extraction confidence")
+    ax2.set_ylabel("Median interpolation residual (dex)")
+    ax2.set_title("Does confidence track the actual residual?")
+    ax2.set_xlim(-0.05, 1.05)
+    ax2.set_ylim(bottom=0)
+    ax2.legend()
+    ax2.grid(True, alpha=0.3)
+
+    fig.tight_layout()
     plot_path = str(Path(report_path).with_suffix(".png"))
     fig.savefig(plot_path, dpi=150, bbox_inches="tight")
     plt.close(fig)

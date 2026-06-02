@@ -575,17 +575,70 @@ def compute_curve_metrics(
     )
 
 
+# ---------------------------------------------------------------------------
+# Confidence-calibration accuracy threshold (issue #542).
+#
+# A paper counts as "accurate" iff its median interpolation residual is below
+# this threshold (in dex). It is pinned to the *extraction noise floor*, NOT
+# relaxed to the upstream-digitization floor:
+#
+#   * Extraction noise floor (BINDING): ~0.32 dex. This is the 90th-percentile
+#     of the per-paper median-residual standard deviation across repeated LLM
+#     extraction runs of the same paper (PR #545). Run-to-run LLM
+#     non-determinism alone moves a paper's median residual by up to ~0.32 dex,
+#     so demanding accuracy tighter than that would penalise extractions for
+#     irreducible sampling noise. THIS sets the threshold.
+#
+#   * Digitization floor (NOT binding): ~0.034 dex for TABLE/text-sourced
+#     papers (PR #558, truly-independent gold-vs-repo, N=10). The repo ground
+#     truth is faithful to papers that publish numbers — it is NOT the ~0.5 dex
+#     floor the original #542 premise assumed. That premise ("0.3 dex is below
+#     the digitization floor, so the yardstick is too strict") is therefore
+#     FALSIFIED: the old 0.3 dex was roughly right, but for the wrong reason.
+#
+# Consequence: any residual overconfidence gap measured against this threshold
+# is REAL extractor overconfidence, not a yardstick artifact.
+#
+# CAVEAT: the 0.034 dex digitization floor is measured only for table/text
+# sources. For FIGURE-ONLY papers the upstream figure-digitization error is
+# UNMEASURED (the gold_vision tier bounds the *combined* error at ~1.13 dex but
+# does not isolate cajohare's own figure-digitization component), so this is
+# not a universal floor.
+# ---------------------------------------------------------------------------
+NOISE_FLOOR_RESIDUAL_DEX: float = 0.32
+
+# Tau thresholds (dex) for the continuous proper-scoring view: empirical
+# P(median residual < tau) per confidence bin. 0.1 = factor ~1.3 (stringent),
+# 0.32 = the noise floor, 0.5 = factor ~3, 1.0 = order of magnitude.
+CONTINUOUS_TAUS_DEX: tuple[float, ...] = (0.1, 0.32, 0.5, 1.0)
+
+
 @dataclass
 class ConfidenceBin:
-    """One bin in the confidence calibration curve."""
+    """One bin in the confidence calibration curve.
+
+    ``actual_accuracy`` is the fraction of papers in this bin whose median
+    interpolation residual is below ``NOISE_FLOOR_RESIDUAL_DEX`` (the binding
+    run-to-run LLM noise floor) AND whose interpolation coverage is >= 50%.
+
+    The continuous fields give the *distribution* of residuals in the bin (not
+    just a pass rate), and the empirical P(residual < tau) for several tau:
+      - ``median_residual_dex``: median over finite-residual papers in the bin.
+      - ``p25_residual_dex`` / ``p75_residual_dex``: IQR over the same.
+      - ``frac_within_tau``: {tau: fraction of papers with median residual < tau}.
+    """
     bin_lo: float
     bin_hi: float
     n_papers: int
     mean_confidence: float
-    # Fraction of papers in this bin with "acceptable" curve quality
-    # (coverage_at_1_0dex > 0.8 AND median_coupling_log_error < 0.5)
     actual_accuracy: float
     paper_ids: list[str]
+    # Continuous calibration view (issue #542).
+    median_residual_dex: Optional[float] = None
+    p25_residual_dex: Optional[float] = None
+    p75_residual_dex: Optional[float] = None
+    n_finite: int = 0
+    frac_within_tau: dict[float, float] = field(default_factory=dict)
 
 
 def compute_confidence_calibration(
@@ -593,14 +646,29 @@ def compute_confidence_calibration(
     interp_metrics: list[InterpolationMetrics],
     arxiv_ids: list[str],
     n_bins: int = 5,
-    accuracy_threshold_residual: float = 0.3,
+    accuracy_threshold_residual: float = NOISE_FLOOR_RESIDUAL_DEX,
     accuracy_threshold_coverage: float = 0.5,
+    taus: tuple[float, ...] = CONTINUOUS_TAUS_DEX,
 ) -> list[ConfidenceBin]:
-    """Bin papers by extraction_confidence and compute actual accuracy per bin.
+    """Bin papers by extraction_confidence and compute calibration per bin.
 
     A paper is "accurate" if:
-      - median interpolation residual < threshold (default 0.3 dex ≈ factor 2)
-      - interpolation coverage > threshold (default 50% of GT points)
+      - median interpolation residual < ``accuracy_threshold_residual``
+        (default ``NOISE_FLOOR_RESIDUAL_DEX`` = 0.32 dex, the run-to-run LLM
+        extraction noise floor from #545 — NOT the 0.034 dex digitization floor
+        from #558; see the module-level note for why the threshold tracks
+        noise, not digitization).
+      - interpolation coverage >= ``accuracy_threshold_coverage``
+        (default 50% of GT points). Coverage is retained because a paper that
+        nails the coupling at only a sliver of the mass range is not a usable
+        extraction — a low residual on 1-2 in-range points should not count as
+        "accurate". It is a curve-quality gate, orthogonal to the residual
+        floor, so both conditions are kept.
+
+    In addition to the pass/fail ``actual_accuracy``, each bin reports the
+    *continuous* residual distribution (median + IQR) and the empirical
+    P(residual < tau) for each tau in ``taus``, so a bin shows the real residual
+    distribution rather than only a thresholded rate.
     """
     if not confidences:
         return []
@@ -619,6 +687,7 @@ def compute_confidence_calibration(
             bins.append(ConfidenceBin(
                 bin_lo=lo, bin_hi=hi, n_papers=0,
                 mean_confidence=0.0, actual_accuracy=0.0, paper_ids=[],
+                frac_within_tau={t: 0.0 for t in taus},
             ))
             continue
 
@@ -632,6 +701,27 @@ def compute_confidence_calibration(
             and m.interpolation_coverage >= accuracy_threshold_coverage
         )
 
+        # Continuous view: residual distribution over finite-residual papers
+        # (zero-overlap papers have an infinite median residual and are
+        # excluded from the distribution summary but still counted in n_papers).
+        finite_resids = [
+            m.median_residual_dex for m in bin_metrics
+            if math.isfinite(m.median_residual_dex)
+        ]
+        if finite_resids:
+            med_r = float(np.median(finite_resids))
+            p25_r = float(np.percentile(finite_resids, 25))
+            p75_r = float(np.percentile(finite_resids, 75))
+        else:
+            med_r = p25_r = p75_r = None
+
+        # Empirical P(median residual < tau) over ALL papers in the bin
+        # (an infinite residual correctly fails every finite tau).
+        frac_within_tau = {
+            t: float(np.mean([m.median_residual_dex < t for m in bin_metrics]))
+            for t in taus
+        }
+
         bins.append(ConfidenceBin(
             bin_lo=lo,
             bin_hi=hi,
@@ -639,6 +729,11 @@ def compute_confidence_calibration(
             mean_confidence=float(np.mean(bin_confs)),
             actual_accuracy=n_accurate / len(indices),
             paper_ids=bin_ids,
+            median_residual_dex=med_r,
+            p25_residual_dex=p25_r,
+            p75_residual_dex=p75_r,
+            n_finite=len(finite_resids),
+            frac_within_tau=frac_within_tau,
         ))
 
     return bins
