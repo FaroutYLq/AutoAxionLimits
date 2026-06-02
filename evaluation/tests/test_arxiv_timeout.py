@@ -161,7 +161,10 @@ def test_deadline_runs_on_daemon_thread():
 
 def test_call_with_deadline_normalizes_requests_timeout():
     """A requests socket timeout surfaces as a builtin TimeoutError."""
-    import requests
+    # ``requests`` is a transitive arxiv dependency present in production but not
+    # in the minimal metrics-only CI env; skip there (the code path itself
+    # tolerates requests being absent — see _call_with_deadline).
+    requests = pytest.importorskip("requests")
 
     def fn():
         raise requests.exceptions.ConnectTimeout("connect timed out")
@@ -229,7 +232,8 @@ def test_install_session_timeout_handles_missing_session():
 
 def test_requests_timeout_falls_back(monkeypatch, tmp_path):
     """A requests ReadTimeout degrades to the fallback, not a crash or hang."""
-    import requests
+    # See note in test_call_with_deadline_normalizes_requests_timeout.
+    requests = pytest.importorskip("requests")
 
     monkeypatch.setattr(evaluate, "ARXIV_FETCH_TIMEOUT_S", 5)
     monkeypatch.setattr(evaluate, "ARXIV_FETCH_RETRIES", 2)
