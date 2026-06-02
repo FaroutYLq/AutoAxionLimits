@@ -88,6 +88,7 @@ pipeline/
 - **Human-in-the-loop**: Every update becomes a PR; nothing merges automatically.
 - **Low confidence PRs**: Created but titled `[LOW CONFIDENCE]`.
 - **State persistence**: `processed.json` and `preprint_versions.json` are git-tracked and committed back to `master` by the Actions workflow after each run; no external storage needed.
+- **Single reusable state branch**: State updates use a fixed branch per type (`chore/update-pipeline-state`, `chore/update-preprint-state`) that is force-updated each run, so only one state PR per type is ever open. State files are cumulative snapshots — only the latest is useful — so superseded snapshots are not worth keeping as separate PRs. This is an explicit exception to the "never close pipeline PRs" rule, which protects the *science/limit* PRs (and `[NEEDS REVIEW]` flags), not the `chore: update … state` chores. Force-pushing the fixed branch is the supersede mechanism; the old timestamped-PR scheme created one PR per run and never merged, piling them up. Merge the surviving state PR periodically to advance the baseline (otherwise the same papers get re-processed daily until they age out of the arXiv query window).
 - **AST-based insertion**: New methods in `PlotFuncs.py` are inserted using the last `FunctionDef.end_lineno` inside the target class — never regex.
 - **Text-first extraction**: Tables/text → vision fallback reduces API cost.
 - **Prompt injection defence**: PDF text is sanitized (control chars stripped) and wrapped in `===PAPER_CONTENT===` delimiters before being sent to Claude.
