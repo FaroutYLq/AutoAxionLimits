@@ -10,18 +10,20 @@
       "coupling_units": "d_n [e cm]",
       "is_new_limit": true,
       "is_projection": false,
-      "data_source_expected": "table",
+      "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "easy",
-      "tags": [],
+      "difficulty": "hard",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionEDM/JEDI.txt",
       "ground_truth_data_file": "2208.07293.txt",
       "reference_repo_file": "limit_data/AxionEDM/JEDI.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 4,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -35,15 +37,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionEDM/RbQuartz.txt",
       "ground_truth_data_file": "2212.04413.txt",
       "reference_repo_file": "limit_data/AxionEDM/RbQuartz.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 109,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -54,18 +58,20 @@
       "coupling_units": "d_n [e cm]",
       "is_new_limit": true,
       "is_projection": false,
-      "data_source_expected": "table",
+      "data_source_expected": "text",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "easy",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionEDM/SN1987A.txt",
       "ground_truth_data_file": "2410.19902.txt",
       "reference_repo_file": "limit_data/AxionEDM/SN1987A.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 2,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -74,20 +80,22 @@
       "coupling_type": "AxionEDM",
       "coupling_convention": "d_n",
       "coupling_units": "d_n [e cm]",
-      "is_new_limit": true,
+      "is_new_limit": false,
       "is_projection": true,
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionEDM/Projections/PolarisationHaloscope_discover.txt",
       "ground_truth_data_file": "2209.12901.txt",
       "reference_repo_file": "limit_data/AxionEDM/Projections/PolarisationHaloscope_discover.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 602,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -101,15 +109,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionElectron/OldComagnetometers.txt",
       "ground_truth_data_file": "1907.03767.txt",
       "reference_repo_file": "limit_data/AxionElectron/OldComagnetometers.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 166,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -123,15 +133,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionElectron/IrreducibleFreezeIn.txt",
       "ground_truth_data_file": "2209.06216.txt",
       "reference_repo_file": "limit_data/AxionElectron/IrreducibleFreezeIn.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 2597,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -145,15 +157,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionElectron/GERDA.txt",
       "ground_truth_data_file": "2005.14184.txt",
       "reference_repo_file": "limit_data/AxionElectron/GERDA.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 893,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -162,20 +176,22 @@
       "coupling_type": "AxionElectron",
       "coupling_convention": "g_ae",
       "coupling_units": "g_ae (dimensionless)",
-      "is_new_limit": true,
+      "is_new_limit": false,
       "is_projection": true,
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionElectron/Projections/Semiconductors.txt",
       "ground_truth_data_file": "1608.01994.txt",
       "reference_repo_file": "limit_data/AxionElectron/Projections/Semiconductors.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 95,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -189,15 +205,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/fa/MICROSCOPE.txt",
       "ground_truth_data_file": "2504.00720.txt",
       "reference_repo_file": "limit_data/fa/MICROSCOPE.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 80,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -206,20 +224,22 @@
       "coupling_type": "AxionMass",
       "coupling_convention": "f_a_norm",
       "coupling_units": "normalized axion coupling (dimensionless)",
-      "is_new_limit": true,
-      "is_projection": false,
-      "data_source_expected": "table",
+      "is_new_limit": false,
+      "is_projection": true,
+      "data_source_expected": "text",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "easy",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionMass/Ballesteros16.txt",
       "ground_truth_data_file": "1608.05414.txt",
       "reference_repo_file": "limit_data/AxionMass/Ballesteros16.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 1,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -228,20 +248,22 @@
       "coupling_type": "AxionMass",
       "coupling_convention": "f_a_norm",
       "coupling_units": "normalized axion coupling (dimensionless)",
-      "is_new_limit": true,
-      "is_projection": false,
-      "data_source_expected": "table",
+      "is_new_limit": false,
+      "is_projection": true,
+      "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "easy",
-      "tags": [],
+      "difficulty": "hard",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionMass/Co20.txt",
       "ground_truth_data_file": "2006.04809.txt",
       "reference_repo_file": "limit_data/AxionMass/Co20.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 1,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -277,15 +299,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionNeutron/Mainz_Krakow.txt",
       "ground_truth_data_file": "2408.02668.txt",
       "reference_repo_file": "limit_data/AxionNeutron/Mainz_Krakow.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 414,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -299,15 +323,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionNeutron/CASPEr_Comagnetometer.txt",
       "ground_truth_data_file": "1905.13650.txt",
       "reference_repo_file": "limit_data/AxionNeutron/CASPEr_Comagnetometer.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 244,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -318,18 +344,20 @@
       "coupling_units": "g_an (dimensionless)",
       "is_new_limit": true,
       "is_projection": false,
-      "data_source_expected": "table",
+      "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "easy",
-      "tags": [],
+      "difficulty": "hard",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionNeutron/JEDI.txt",
       "ground_truth_data_file": "2208.07293.txt",
       "reference_repo_file": "limit_data/AxionNeutron/JEDI.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 4,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -362,18 +390,20 @@
       "coupling_units": "g_agamma [GeV^-1]",
       "is_new_limit": true,
       "is_projection": false,
-      "data_source_expected": "figure_vision",
+      "data_source_expected": "text",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "easy",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionPhoton/DSNALP.txt",
       "ground_truth_data_file": "2110.03679.txt",
       "reference_repo_file": "limit_data/AxionPhoton/DSNALP.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 129,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -387,15 +417,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionPhoton/CMB_Anisotropies.txt",
       "ground_truth_data_file": "2303.07370.txt",
       "reference_repo_file": "limit_data/AxionPhoton/CMB_Anisotropies.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 108,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -409,15 +441,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionPhoton/IrreducibleFreezeIn.txt",
       "ground_truth_data_file": "2209.06216.txt",
       "reference_repo_file": "limit_data/AxionPhoton/IrreducibleFreezeIn.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 4212,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -453,15 +487,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionProton/Mainz_Krakow.txt",
       "ground_truth_data_file": "2408.02668.txt",
       "reference_repo_file": "limit_data/AxionProton/Mainz_Krakow.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 702,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -475,15 +511,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionProton/ChangE-NMR.txt",
       "ground_truth_data_file": "2309.16600.txt",
       "reference_repo_file": "limit_data/AxionProton/ChangE-NMR.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 196,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -494,18 +532,20 @@
       "coupling_units": "g_ap (dimensionless)",
       "is_new_limit": true,
       "is_projection": false,
-      "data_source_expected": "table",
+      "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "easy",
-      "tags": [],
+      "difficulty": "hard",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/AxionProton/CASPEr-gradient.txt",
       "ground_truth_data_file": "2504.16044.txt",
       "reference_repo_file": "limit_data/AxionProton/CASPEr-gradient.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 4,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -538,18 +578,20 @@
       "coupling_units": "kinetic mixing chi (dimensionless)",
       "is_new_limit": true,
       "is_projection": false,
-      "data_source_expected": "figure_vision",
+      "data_source_expected": "text",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "easy",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/DarkPhoton/Jupiter.txt",
       "ground_truth_data_file": "2312.06746.txt",
       "reference_repo_file": "limit_data/DarkPhoton/Jupiter.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 171,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -564,14 +606,16 @@
       "confidence_level": 0.95,
       "dm_density_assumed": null,
       "difficulty": "medium",
-      "tags": [],
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/DarkPhoton/CROWS.txt",
       "ground_truth_data_file": "1310.8098.txt",
       "reference_repo_file": "limit_data/DarkPhoton/CROWS.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 44,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -585,15 +629,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/DarkPhoton/MADMAX.txt",
       "ground_truth_data_file": "2408.02368.txt",
       "reference_repo_file": "limit_data/DarkPhoton/MADMAX.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 649,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -629,15 +675,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/MonopoleDipole/ElectronNucleon/QUAX_2020.txt",
       "ground_truth_data_file": "2011.07100.txt",
       "reference_repo_file": "limit_data/MonopoleDipole/ElectronNucleon/QUAX_2020.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 79,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -646,20 +694,22 @@
       "coupling_type": "MonopoleDipole",
       "coupling_convention": "coupling",
       "coupling_units": "coupling (dimensionless)",
-      "is_new_limit": true,
-      "is_projection": false,
+      "is_new_limit": false,
+      "is_projection": true,
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
       "difficulty": "medium",
-      "tags": [],
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/MonopoleDipole/NucleonNucleon/ARIADNE_projection1.txt",
       "ground_truth_data_file": "1403.1290.txt",
       "reference_repo_file": "limit_data/MonopoleDipole/NucleonNucleon/ARIADNE_projection1.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 38,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -674,14 +724,16 @@
       "confidence_level": 0.95,
       "dm_density_assumed": null,
       "difficulty": "medium",
-      "tags": [],
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/MonopoleDipole/NucleonNucleon/Moon.txt",
       "ground_truth_data_file": "2302.09096.txt",
       "reference_repo_file": "limit_data/MonopoleDipole/NucleonNucleon/Moon.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 41,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -695,15 +747,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/ScalarBaryon/IUPUI.txt",
       "ground_truth_data_file": "1410.7267.txt",
       "reference_repo_file": "limit_data/ScalarBaryon/IUPUI.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 74,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -717,15 +771,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/ScalarBaryon/MICROSCOPE.txt",
       "ground_truth_data_file": "1712.00483.txt",
       "reference_repo_file": "limit_data/ScalarBaryon/MICROSCOPE.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 119,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -740,14 +796,16 @@
       "confidence_level": 0.95,
       "dm_density_assumed": null,
       "difficulty": "medium",
-      "tags": [],
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/ScalarElectron/AURIGA.txt",
       "ground_truth_data_file": "1607.07327.txt",
       "reference_repo_file": "limit_data/ScalarElectron/AURIGA.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 35,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -758,18 +816,20 @@
       "coupling_units": "large-valued scalar coupling variable (non-d_e convention)",
       "is_new_limit": true,
       "is_projection": false,
-      "data_source_expected": "table",
+      "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "easy",
-      "tags": [],
+      "difficulty": "hard",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/ScalarElectron/RedGiants.txt",
       "ground_truth_data_file": "1611.05852.txt",
       "reference_repo_file": "limit_data/ScalarElectron/RedGiants.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 2,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -783,15 +843,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/ScalarElectron/I2.txt",
       "ground_truth_data_file": "2111.06883.txt",
       "reference_repo_file": "limit_data/ScalarElectron/I2.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 188,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -827,15 +889,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/ScalarNucleon/RedGiant.txt",
       "ground_truth_data_file": "1611.05852.txt",
       "reference_repo_file": "limit_data/ScalarNucleon/RedGiant.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 63,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -846,18 +910,20 @@
       "coupling_units": "coupling (dimensionless)",
       "is_new_limit": true,
       "is_projection": false,
-      "data_source_expected": "table",
+      "data_source_expected": "text",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "medium",
-      "tags": [],
+      "difficulty": "easy",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/ScalarNucleon/Stanford.txt",
       "ground_truth_data_file": "0802.2350.txt",
       "reference_repo_file": "limit_data/ScalarNucleon/Stanford.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 24,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -872,14 +938,16 @@
       "confidence_level": 0.95,
       "dm_density_assumed": null,
       "difficulty": "medium",
-      "tags": [],
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/ScalarNucleon/Casimir.txt",
       "ground_truth_data_file": "2009.04517.txt",
       "reference_repo_file": "limit_data/ScalarNucleon/Casimir.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 44,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -893,15 +961,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/ScalarPhoton/HQuartzSapphire.txt",
       "ground_truth_data_file": "2010.08107.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/HQuartzSapphire.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 210,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -915,15 +985,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/ScalarPhoton/CsCav.txt",
       "ground_truth_data_file": "2201.02042.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/CsCav.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 100,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -937,15 +1009,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/ScalarPhoton/DyQuartz.txt",
       "ground_truth_data_file": "2212.04413.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/DyQuartz.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 99,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -981,15 +1055,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/VectorB-L/KAGRA.txt",
       "ground_truth_data_file": "2403.03004.txt",
       "reference_repo_file": "limit_data/VectorB-L/KAGRA.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 416,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -1000,18 +1076,20 @@
       "coupling_units": "g_BL (dimensionless)",
       "is_new_limit": true,
       "is_projection": false,
-      "data_source_expected": "table",
+      "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "medium",
-      "tags": [],
+      "difficulty": "hard",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/VectorB-L/DMStability.txt",
       "ground_truth_data_file": "2205.03617.txt",
       "reference_repo_file": "limit_data/VectorB-L/DMStability.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 9,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
@@ -1025,15 +1103,17 @@
       "data_source_expected": "figure_vision",
       "confidence_level": 0.95,
       "dm_density_assumed": null,
-      "difficulty": "hard",
-      "tags": [],
+      "difficulty": "medium",
+      "tags": [
+        "llm_labeled"
+      ],
       "notes": "Auto-selected from limit_data/VectorB-L/LISAPathfinder-RelativeAcceleration.txt",
       "ground_truth_data_file": "2310.06017.txt",
       "reference_repo_file": "limit_data/VectorB-L/LISAPathfinder-RelativeAcceleration.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 115,
-      "verified_by": "repo_upstream",
+      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
       "verification_date": "2026-04-13"
     },
     {
