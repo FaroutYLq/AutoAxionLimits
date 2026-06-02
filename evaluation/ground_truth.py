@@ -22,6 +22,8 @@ class GroundTruthEntry:
     arxiv_id: str
     paper_title: str
     coupling_type: str
+    coupling_convention: Optional[str]  # e.g. "d_e", "f_a_GeV", "epsilon"
+    coupling_units: Optional[str]       # human-readable y-axis units
     is_new_limit: bool
     is_projection: bool
     data_source_expected: str  # "table" | "figure_vision" | "text"
@@ -79,6 +81,8 @@ def load_ground_truth(path: Path = PAPERS_JSON) -> list[GroundTruthEntry]:
             arxiv_id=p["arxiv_id"],
             paper_title=p["paper_title"],
             coupling_type=p["coupling_type"],
+            coupling_convention=p.get("coupling_convention"),
+            coupling_units=p.get("coupling_units"),
             is_new_limit=p["is_new_limit"],
             is_projection=p["is_projection"],
             data_source_expected=p["data_source_expected"],

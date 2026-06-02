@@ -39,6 +39,7 @@ import numpy as np
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
+from evaluation.conventions import canonical_convention
 from evaluation.ground_truth import (
     GroundTruthEntry,
     load_ground_truth,
@@ -361,11 +362,27 @@ def compute_all_metrics(
         elif ext_array is None:
             comparison_status = "no_extracted_points"
         else:
+            # The extraction has no convention field; its expected convention is
+            # the canonical convention for its predicted coupling type. A GT
+            # curve in a DIFFERENT convention (e.g. f_a [GeV] vs normalized, or
+            # a large-valued scalar variable vs d_e) is NOT comparable: the
+            # residual would be a units gap, not extraction error.
+            expected_conv, _ = canonical_convention(predicted_ct)
+
             # Candidate GT entries: same authoritative coupling AND usable data.
             candidates = []
             has_point_ref = False  # matched GT exists but is a single-mass point
+            has_convention_mismatch = False  # same coupling, different convention
             for e in paper_entries:
                 if _authoritative_coupling(e) != predicted_ct:
+                    continue
+                # Skip (and flag) GT curves whose convention differs from the
+                # extraction's expected one. None on either side = unknown, so
+                # we do not treat it as a mismatch.
+                if (expected_conv is not None
+                        and e.coupling_convention is not None
+                        and e.coupling_convention != expected_conv):
+                    has_convention_mismatch = True
                     continue
                 gt = e.load_data()
                 if gt is None:
@@ -384,6 +401,10 @@ def compute_all_metrics(
             elif has_point_ref:
                 # GT is a single-mass prediction/projection — not a curve.
                 comparison_status = "gt_point_reference"
+            elif has_convention_mismatch:
+                # The only same-coupling GT curve(s) use a different convention.
+                # Excluded from residuals — this is a units gap, not error.
+                comparison_status = "convention_mismatch"
             else:
                 comparison_status = "gt_unusable"
 
