@@ -45,6 +45,22 @@ jobs:
       - name: Install pipeline dependencies
         run: pip install -r requirements_pipeline.txt
 
+      # Carry the accumulated state forward. The state PR is rarely merged into
+      # master right away, so master's preprint_versions.json stays stale.
+      # Restoring it from the open state branch lets tracked versions accumulate
+      # across runs without requiring a merge to master. No-ops on the first run
+      # (branch absent) or once the state PR is merged (branch deleted).
+      - name: Carry forward accumulated state
+        run: |
+          BRANCH="chore/update-preprint-state"
+          if git ls-remote --exit-code --heads origin "$BRANCH" >/dev/null 2>&1; then
+            git fetch --quiet origin "$BRANCH"
+            git checkout "origin/$BRANCH" -- pipeline/state/preprint_versions.json
+            echo "Restored preprint_versions.json from $BRANCH (carrying state forward)"
+          else
+            echo "No $BRANCH branch yet — using master's state baseline"
+          fi
+
       # FIX: pass inputs via env vars, never interpolate directly into shell (prevents injection)
       - name: Run preprint update checker
         env:
