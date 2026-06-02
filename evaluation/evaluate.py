@@ -29,7 +29,7 @@ import os
 import sys
 import tempfile
 import time
-from collections import defaultdict
+from collections import Counter, OrderedDict, defaultdict
 from dataclasses import asdict
 from pathlib import Path
 
@@ -209,6 +209,47 @@ def _normalize_predicted_coupling(raw_ct):
         return raw_ct  # keep raw if normalization fails
 
 
+# Map a limit_data/<dir>/ basename to its canonical coupling type. The data
+# file's directory is the authoritative physical coupling of a GT curve —
+# more reliable than GroundTruthEntry.coupling_type, which is a placeholder for
+# auto-expanded entries and is occasionally wrong for multi-coupling papers
+# (e.g. a DarkPhoton-labelled entry pointing at an AxionElectron data file).
+try:
+    from pipeline.config import COUPLING_TYPES as _COUPLING_TYPES_REG
+    _DIR_TO_COUPLING = {
+        Path(meta["data_dir"]).name: key for key, meta in _COUPLING_TYPES_REG.items()
+    }
+except Exception:  # pragma: no cover - config import is best-effort
+    _DIR_TO_COUPLING = {}
+_DIR_TO_COUPLING.setdefault("VectorB-L", "VectorBL")
+_DIR_TO_COUPLING["fa"] = "AxionMass"  # m_a vs f_a plane is classified AxionMass
+
+
+def _authoritative_coupling(entry: GroundTruthEntry) -> str:
+    """Physical coupling of an entry's GT *data file*, from its repo path."""
+    ref = entry.reference_repo_file
+    if ref:
+        parts = Path(ref).parts
+        if len(parts) >= 2 and parts[0] == "limit_data":
+            return _DIR_TO_COUPLING.get(parts[1], entry.coupling_type)
+    return entry.coupling_type
+
+
+def _usable_gt_count(gt_data, coupling_type: str) -> int:
+    """Number of GT points that survive boundary-closure filtering — i.e. the
+    points actually usable for a residual comparison."""
+    from evaluation.metrics import _COUPLING_CEILINGS, _filter_boundary
+    ceil = _COUPLING_CEILINGS.get(coupling_type, 1e-2)
+    return len(_filter_boundary(gt_data, ceil))
+
+
+def _is_placeholder_entry(entry: GroundTruthEntry) -> bool:
+    """True if the entry's scalar labels (is_new_limit, is_projection,
+    data_source_expected, difficulty) are auto-generated placeholders rather
+    than human-verified values, and therefore cannot be scored against."""
+    return ("auto_expanded" in (entry.tags or [])) or entry.verified_by == "repo_upstream"
+
+
 def compute_all_metrics(
     entries: list[GroundTruthEntry],
     results: list[dict],
@@ -218,6 +259,10 @@ def compute_all_metrics(
     Returns a dict with classification metrics, curve metrics, and calibration data.
     """
     coupling_clf = ClassificationMetrics()
+    # Scalar-label metrics are scored ONLY against human-verified entries.
+    # Auto-expanded / repo_upstream entries carry placeholder labels
+    # (is_new_limit=True, is_projection=False, data_source="table"), so scoring
+    # against them measures the placeholder, not the pipeline.
     is_limit_clf = ClassificationMetrics()
     is_projection_clf = ClassificationMetrics()
     data_source_clf = ClassificationMetrics()
@@ -229,24 +274,41 @@ def compute_all_metrics(
 
     per_paper: list[dict] = []
 
-    # Build multi-coupling map: for papers with multiple GT entries,
-    # the single extraction should match ANY expected coupling type
-    expected_couplings_by_id = defaultdict(set)
-    for entry in entries:
-        expected_couplings_by_id[entry.arxiv_id].add(entry.coupling_type)
+    # Why a paper did / didn't get a curve comparison. Honest aggregates require
+    # knowing this: a paper whose extracted coupling has no matching GT curve is
+    # NOT an extraction-quality failure — it is simply not comparable.
+    comparison_status_counts: Counter = Counter()
 
-    # Track which arxiv_ids we've already recorded for coupling classification
-    # to avoid counting the same prediction multiple times for multi-coupling papers
-    seen_coupling_ids: set[str] = set()
-
+    # Group all GT entries by paper; one extraction result per paper. A single
+    # paper often yields several repo files (one per coupling); we must NOT
+    # score one extraction against curves for couplings it never targeted.
+    by_id: "OrderedDict[str, dict]" = OrderedDict()
     for entry, result in zip(entries, results):
-        paper_report: dict = {"arxiv_id": entry.arxiv_id, "difficulty": entry.difficulty}
-        is_multi_coupling = len(expected_couplings_by_id[entry.arxiv_id]) > 1
-        paper_report["multi_coupling"] = is_multi_coupling
+        slot = by_id.setdefault(entry.arxiv_id, {"entries": [], "result": result})
+        slot["entries"].append(entry)
+        # Results are identical across a paper's entries; prefer a non-error one.
+        if "error" in slot["result"] and "error" not in result:
+            slot["result"] = result
+
+    for arxiv_id, slot in by_id.items():
+        paper_entries: list[GroundTruthEntry] = slot["entries"]
+        result = slot["result"]
+        rep = paper_entries[0]  # representative entry for paper-level fields
+
+        # Authoritative couplings = the couplings of the actual GT data files.
+        true_couplings = {_authoritative_coupling(e) for e in paper_entries}
+
+        paper_report: dict = {
+            "arxiv_id": arxiv_id,
+            "difficulty": rep.difficulty,
+            "num_gt_entries": len(paper_entries),
+            "true_couplings": sorted(true_couplings),
+        }
 
         if "error" in result:
             paper_report["status"] = "extraction_failed"
             paper_report["error"] = result["error"]
+            comparison_status_counts["extraction_failed"] += 1
             per_paper.append(paper_report)
             continue
 
@@ -256,53 +318,76 @@ def compute_all_metrics(
         paper_report["num_points_extracted"] = result.get("num_points", 0)
         paper_report["elapsed_s"] = result.get("elapsed_s", 0.0)
 
-        # Normalize predicted coupling type (handles lists + aliases)
+        # --- Coupling-type classification (against authoritative couplings) ---
         predicted_ct = _normalize_predicted_coupling(result.get("coupling_type"))
+        ct_correct = predicted_ct in true_couplings if predicted_ct else False
 
-        # For multi-coupling papers, check against ALL expected types
-        all_expected = expected_couplings_by_id[entry.arxiv_id]
-        ct_correct = predicted_ct in all_expected if predicted_ct else False
+        coupling_clf.total += 1
+        if ct_correct:
+            coupling_clf.correct += 1
+        else:
+            coupling_clf.errors.append({
+                "arxiv_id": arxiv_id,
+                "predicted": str(predicted_ct),
+                "expected": str(sorted(true_couplings)),
+            })
 
-        # Only record one classification per unique arxiv_id to avoid
-        # inflating counts for multi-coupling papers
-        if entry.arxiv_id not in seen_coupling_ids:
-            coupling_clf.total += 1
-            if ct_correct:
-                coupling_clf.correct += 1
-            else:
-                coupling_clf.errors.append({
-                    "arxiv_id": entry.arxiv_id,
-                    "predicted": str(predicted_ct),
-                    "expected": str(sorted(all_expected)) if is_multi_coupling else str(entry.coupling_type),
-                })
-            is_limit_clf.record(entry.arxiv_id, result.get("is_new_limit"), entry.is_new_limit)
-            is_projection_clf.record(entry.arxiv_id, result.get("is_projection"), entry.is_projection)
-            data_source_clf.record(entry.arxiv_id, result.get("data_source"), entry.data_source_expected)
-            seen_coupling_ids.add(entry.arxiv_id)
+        # --- Scalar-label classification (human-verified entries only) ---
+        verified = next((e for e in paper_entries if not _is_placeholder_entry(e)), None)
+        if verified is not None:
+            is_limit_clf.record(arxiv_id, result.get("is_new_limit"), verified.is_new_limit)
+            is_projection_clf.record(arxiv_id, result.get("is_projection"), verified.is_projection)
+            data_source_clf.record(arxiv_id, result.get("data_source"), verified.data_source_expected)
 
         paper_report["coupling_type_correct"] = ct_correct
         paper_report["coupling_type_predicted"] = predicted_ct
-        paper_report["coupling_type_expected"] = entry.coupling_type
-        if is_multi_coupling:
-            paper_report["all_expected_couplings"] = sorted(all_expected)
+        paper_report["coupling_type_expected"] = sorted(true_couplings)
 
-        # Curve comparison (if ground-truth data is available)
-        gt_data = entry.load_data()
-        if gt_data is None:
-            gt_data = entry.load_reference_data(PROJECT_ROOT)
-
+        # --- Curve comparison: ONLY against a GT curve of the same coupling ---
         extracted_points = result.get("data_points", [])
-        if gt_data is not None and len(extracted_points) > 0:
-            ext_array = np.array(extracted_points, dtype=float, ndmin=2)
+        ext_array = (np.array(extracted_points, dtype=float, ndmin=2)
+                     if extracted_points else None)
 
-            # Primary: interpolation-based metric
+        if predicted_ct is None:
+            comparison_status = "no_prediction"
+        elif predicted_ct not in true_couplings:
+            # The extraction targeted a coupling for which we hold no GT curve.
+            comparison_status = "no_comparable_gt"
+        elif ext_array is None:
+            comparison_status = "no_extracted_points"
+        else:
+            # Candidate GT entries: same authoritative coupling AND usable data.
+            candidates = []
+            for e in paper_entries:
+                if _authoritative_coupling(e) != predicted_ct:
+                    continue
+                gt = e.load_data()
+                if gt is None:
+                    gt = e.load_reference_data(PROJECT_ROOT)
+                if gt is None:
+                    continue
+                n_use = _usable_gt_count(gt, predicted_ct)
+                if n_use >= 2:
+                    candidates.append((n_use, e, gt))
+            if not candidates:
+                comparison_status = "gt_unusable"
+            else:
+                comparison_status = "compared"
+                candidates.sort(key=lambda t: -t[0])  # richest GT curve wins
+                _, chosen, gt_data = candidates[0]
+
+        paper_report["comparison_status"] = comparison_status
+        comparison_status_counts[comparison_status] += 1
+
+        if comparison_status == "compared":
+            paper_report["gt_file"] = chosen.reference_repo_file
+
             im = compute_interpolation_metrics(
-                entry.arxiv_id, ext_array, gt_data,
-                coupling_type=entry.coupling_type,
+                arxiv_id, ext_array, gt_data, coupling_type=predicted_ct,
             )
             interp_metrics_list.append(im)
             confidences.append(result.get("extraction_confidence", 0.0))
-            curve_arxiv_ids.append(entry.arxiv_id)
+            curve_arxiv_ids.append(arxiv_id)
 
             paper_report["interp_metrics"] = {
                 "num_extracted": im.num_extracted,
@@ -319,10 +404,8 @@ def compute_all_metrics(
                 "frac_within_1_0dex": im.frac_within_1_0dex,
             }
 
-            # Secondary: legacy point-matching metric
-            cm = compute_curve_metrics(entry.arxiv_id, ext_array, gt_data)
+            cm = compute_curve_metrics(arxiv_id, ext_array, gt_data)
             curve_metrics_list.append(cm)
-
             paper_report["curve_metrics"] = {
                 "hausdorff_log": cm.hausdorff_log,
                 "coverage_at_0_5dex": cm.coverage_at_0_5dex,
@@ -344,13 +427,31 @@ def compute_all_metrics(
         confidences, interp_metrics_list, curve_arxiv_ids
     )
 
-    # Aggregate interpolation statistics (primary)
+    # Aggregate interpolation statistics (primary).
+    #
+    # Two distinct failure modes are kept separate:
+    #   (1) zero mass-range overlap -> median residual is inf. This is a
+    #       MASS-RANGE failure (extraction spans the wrong masses, often only
+    #       1-2 points), NOT a coupling-value error. Folding inf into a mean
+    #       would be meaningless, so these are counted, not averaged.
+    #   (2) finite residual -> a genuine coupling-value comparison. Summarised
+    #       with the MEDIAN across papers (robust); the mean is outlier-driven
+    #       and reported only as a secondary number.
     if interp_metrics_list:
         valid = [m for m in interp_metrics_list if m.median_residual_dex < float("inf")]
+        n_zero_overlap = len(interp_metrics_list) - len(valid)
+        med_resids = [m.median_residual_dex for m in valid]
         aggregate_interp = {
             "n_papers": len(interp_metrics_list),
+            "n_zero_overlap": n_zero_overlap,
+            "n_finite": len(valid),
             "mean_interpolation_coverage": float(np.mean([m.interpolation_coverage for m in interp_metrics_list])),
-            "mean_median_residual_dex": float(np.mean([m.median_residual_dex for m in valid])) if valid else None,
+            # Robust headline: median across papers of each paper's median residual.
+            "median_median_residual_dex": float(np.median(med_resids)) if valid else None,
+            "p25_median_residual_dex": float(np.percentile(med_resids, 25)) if valid else None,
+            "p75_median_residual_dex": float(np.percentile(med_resids, 75)) if valid else None,
+            # Outlier-sensitive; kept for continuity with prior reports.
+            "mean_median_residual_dex": float(np.mean(med_resids)) if valid else None,
             "mean_p90_residual_dex": float(np.mean([m.p90_residual_dex for m in valid])) if valid else None,
             "mean_frac_within_0_3dex": float(np.mean([m.frac_within_0_3dex for m in valid])) if valid else None,
             "mean_frac_within_0_5dex": float(np.mean([m.frac_within_0_5dex for m in valid])) if valid else None,
@@ -376,7 +477,8 @@ def compute_all_metrics(
     else:
         aggregate_curve = {"n_papers_with_curves": 0}
 
-    # Per-difficulty breakdown
+    # Per-difficulty breakdown. NOTE: difficulty is a placeholder label for the
+    # repo-sourced pool (almost all "medium"), so this is informational only.
     difficulty_breakdown = {}
     for diff in ["easy", "medium", "hard"]:
         subset = [p for p in per_paper if p.get("difficulty") == diff]
@@ -393,8 +495,8 @@ def compute_all_metrics(
                 sum(1 for p in extracted if p.get("coupling_type_correct")) / len(extracted)
                 if extracted else 0.0
             ),
-            "mean_median_residual_dex": (
-                float(np.mean([p["interp_metrics"]["median_residual_dex"] for p in valid_interp]))
+            "median_residual_dex": (
+                float(np.median([p["interp_metrics"]["median_residual_dex"] for p in valid_interp]))
                 if valid_interp else None
             ),
             "mean_frac_within_0_3dex": (
@@ -403,7 +505,10 @@ def compute_all_metrics(
             ),
         }
 
-    # Per-data-source breakdown
+    # Per-data-source breakdown (grouped by the pipeline's reported source).
+    # Reported with the robust median to match the headline; the zero-overlap
+    # count is kept separate so the vision/text signal is not muddied by
+    # mass-range failures.
     source_breakdown = {}
     for source in ["table", "figure_vision", "text"]:
         subset = [p for p in per_paper if p.get("data_source") == source]
@@ -414,8 +519,10 @@ def compute_all_metrics(
                         if p["interp_metrics"]["median_residual_dex"] < float("inf")]
         source_breakdown[source] = {
             "total": len(subset),
-            "mean_median_residual_dex": (
-                float(np.mean([p["interp_metrics"]["median_residual_dex"] for p in valid_interp]))
+            "n_compared": len(with_interp),
+            "n_zero_overlap": len(with_interp) - len(valid_interp),
+            "median_residual_dex": (
+                float(np.median([p["interp_metrics"]["median_residual_dex"] for p in valid_interp]))
                 if valid_interp else None
             ),
             "mean_frac_within_0_3dex": (
@@ -424,12 +531,19 @@ def compute_all_metrics(
             ),
         }
 
+    n_papers = len(by_id)
     return {
+        "n_papers": n_papers,
         "classification": {
             "coupling_type": {"accuracy": coupling_clf.accuracy, "total": coupling_clf.total, "errors": coupling_clf.errors},
             "is_new_limit": {"accuracy": is_limit_clf.accuracy, "total": is_limit_clf.total, "errors": is_limit_clf.errors},
             "is_projection": {"accuracy": is_projection_clf.accuracy, "total": is_projection_clf.total, "errors": is_projection_clf.errors},
             "data_source": {"accuracy": data_source_clf.accuracy, "total": data_source_clf.total, "errors": data_source_clf.errors},
+        },
+        "comparison_coverage": {
+            "n_papers": n_papers,
+            "n_compared": comparison_status_counts.get("compared", 0),
+            "status_counts": dict(comparison_status_counts),
         },
         "interpolation_aggregate": aggregate_interp,
         "curve_aggregate": aggregate_curve,
