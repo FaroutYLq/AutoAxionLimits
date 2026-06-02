@@ -1,0 +1,5 @@
+# Gold-set points digitized directly from 1705.02290
+# coupling_type=AxionPhoton source=text
+# mass_eV    coupling
+1.000000e-11  6.600000e-11
+2.000000e-02  6.600000e-11

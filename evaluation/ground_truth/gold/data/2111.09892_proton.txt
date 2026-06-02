@@ -1,0 +1,5 @@
+# Gold-set points digitized directly from 2111.09892
+# coupling_type=AxionProton source=text
+# mass_eV    coupling
+1.000000e-03  1.500000e-09
+1.000000e-02  1.500000e-09

@@ -121,15 +121,37 @@ def _usable(arr: Optional[np.ndarray], coupling_type: str) -> bool:
 
 def _median_residual(src: np.ndarray, tgt: np.ndarray, coupling_type: str
                      ) -> Optional[float]:
-    """Median |Δlog10 coupling| of ``tgt`` interpolated onto ``src``'s masses,
-    via compute_interpolation_metrics (``src`` plays the role of "extracted",
-    ``tgt`` of "ground truth"). Returns None if no mass overlap."""
+    """Median |Δlog10 coupling| between ``src`` and ``tgt`` on their shared mass
+    support, via compute_interpolation_metrics (``src`` plays the role of
+    "extracted", ``tgt`` of "ground truth"). Returns None if there is no mass
+    overlap in EITHER direction.
+
+    The forward pass interpolates the ``src`` curve and evaluates it at the
+    ``tgt`` masses, so it is only defined when the ``tgt`` masses fall inside the
+    ``src`` mass span. For a FLAT bound (a stellar/cosmological limit stated as a
+    single value over a mass range) the two curves are the same physical line but
+    may be transcribed with different range endpoints, so the ``tgt`` masses can
+    fall outside the (narrower) ``src`` span even though the curves overlap. In
+    that case we fall back to the reverse pass (interpolate ``tgt``, evaluate at
+    the ``src`` masses), which compute_interpolation_metrics already computes.
+    The residual is direction-symmetric for the overlapping region, so either
+    finite value is the same gold-vs-repo gap."""
     im = compute_interpolation_metrics(
         "diff", src, tgt, coupling_type=coupling_type,
     )
-    if im.median_residual_dex == float("inf"):
-        return None
-    return im.median_residual_dex
+    if im.median_residual_dex != float("inf"):
+        return im.median_residual_dex
+    # Forward had no ``tgt`` mass inside the ``src`` span. Try the other
+    # direction by swapping the roles (interpolate ``tgt``, evaluate at ``src``).
+    # compute_interpolation_metrics short-circuits its own reverse pass when the
+    # forward pass finds no in-range points, so we re-invoke it swapped rather
+    # than read median_residual_dex_reverse.
+    im_rev = compute_interpolation_metrics(
+        "diff", tgt, src, coupling_type=coupling_type,
+    )
+    if im_rev.median_residual_dex != float("inf"):
+        return im_rev.median_residual_dex
+    return None
 
 
 def compute_gold_diff() -> dict:

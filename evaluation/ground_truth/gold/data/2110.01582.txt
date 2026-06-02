@@ -1,0 +1,5 @@
+# Gold-set points digitized directly from 2110.01582
+# coupling_type=DarkPhoton source=text
+# mass_eV    coupling
+7.000000e-01  1.000000e-12
+8.000000e-01  1.000000e-12
