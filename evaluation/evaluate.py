@@ -69,6 +69,72 @@ RESULTS_DIR = Path(__file__).parent / "results"
 # wall-clock deadline and cap the number of attempts.
 ARXIV_FETCH_TIMEOUT_S = 30  # per-attempt hard wall-clock deadline (seconds)
 ARXIV_FETCH_RETRIES = 3     # number of attempts before falling back
+# Per-request socket timeout injected into the arxiv client's session, kept
+# below the per-attempt wall-clock deadline so the socket-level timeout fires
+# first and the worker thread dies cleanly instead of leaking.
+ARXIV_SOCKET_TIMEOUT_S = 20
+
+
+def _install_session_timeout(client, timeout_s: float = ARXIV_SOCKET_TIMEOUT_S) -> None:
+    """Force a default per-request timeout onto the arxiv client's session.
+
+    The arxiv library calls ``self._session.get(url, headers=...)`` with no
+    ``timeout``, so ``requests`` passes ``timeout=None`` and a stalled socket
+    blocks forever. Wrapping ``Session.request`` to inject a default ``timeout``
+    makes the underlying call *raise* instead of hang, so the worker thread
+    actually terminates. Idempotent; a no-op if the client exposes no
+    ``_session`` (e.g. a test stub).
+    """
+    session = getattr(client, "_session", None)
+    if session is None or getattr(session, "_axionlimits_timeout_installed", False):
+        return
+    _orig_request = session.request
+
+    def _request_with_timeout(method, url, **kwargs):
+        kwargs.setdefault("timeout", timeout_s)
+        return _orig_request(method, url, **kwargs)
+
+    session.request = _request_with_timeout
+    session._axionlimits_timeout_installed = True
+
+
+def _call_with_deadline(fn, timeout_s: float, label: str = "arXiv fetch"):
+    """Run blocking ``fn()`` under a hard wall-clock deadline on a daemon thread.
+
+    Daemon threads are never joined by the interpreter at exit, so a fetch that
+    is still hung when the deadline fires cannot block process shutdown (the
+    failure mode a ``ThreadPoolExecutor`` worker would cause, since
+    ``_python_exit`` ``join()``s non-daemon workers unconditionally with no
+    timeout). A ``requests`` socket timeout is normalized to ``TimeoutError`` so
+    the socket-level and wall-clock deadlines surface identically to callers.
+    """
+    import threading
+
+    box: dict = {}
+
+    def _runner() -> None:
+        try:
+            box["result"] = fn()
+        except BaseException as exc:  # noqa: BLE001 - re-raised on the caller thread
+            box["error"] = exc
+
+    worker = threading.Thread(target=_runner, name="arxiv-meta-fetch", daemon=True)
+    worker.start()
+    worker.join(timeout_s)
+    if worker.is_alive():
+        raise TimeoutError(f"{label} exceeded {timeout_s}s wall-clock deadline")
+    err = box.get("error")
+    if err is not None:
+        try:
+            import requests
+
+            socket_timeout = requests.exceptions.Timeout
+        except ImportError:
+            socket_timeout = ()
+        if isinstance(err, socket_timeout):
+            raise TimeoutError(f"{label} hit socket timeout: {err}") from err
+        raise err
+    return box.get("result")
 
 
 def _fetch_paper_metadata(arxiv_id: str, cache_path: Path) -> tuple[str, str]:
@@ -87,35 +153,33 @@ def _fetch_paper_metadata(arxiv_id: str, cache_path: Path) -> tuple[str, str]:
     #
     # The arxiv library does not expose a request timeout (it calls
     # requests.Session().get() with no timeout internally), so a single
-    # attempt could hang forever. We therefore run each attempt inside a
-    # ThreadPoolExecutor and enforce a hard wall-clock deadline via
-    # Future.result(timeout=...). On timeout/error we back off and retry up
-    # to ARXIV_FETCH_RETRIES times, then degrade gracefully to the
-    # ground-truth-title fallback below. This guarantees the call can never
-    # exceed ~ARXIV_FETCH_RETRIES * (ARXIV_FETCH_TIMEOUT_S + backoff) seconds.
+    # attempt could hang forever. We bound each attempt on two axes (see
+    # _install_session_timeout / _call_with_deadline): a socket timeout makes
+    # the blocking get() raise so the worker thread dies, and a daemon-thread
+    # wall-clock deadline guarantees the attempt returns within
+    # ARXIV_FETCH_TIMEOUT_S even in the pathological case — and, being a daemon
+    # thread, can never block process exit. On timeout/error we back off and
+    # retry up to ARXIV_FETCH_RETRIES times, then degrade gracefully to the
+    # ground-truth-title fallback below. The call can never exceed
+    # ~ARXIV_FETCH_RETRIES * (ARXIV_FETCH_TIMEOUT_S + backoff) seconds.
     import arxiv as _arxiv
-    from concurrent.futures import ThreadPoolExecutor, TimeoutError as _FutureTimeout
 
     def _do_fetch():
+        client = _arxiv.Client()
+        _install_session_timeout(client)
         search = _arxiv.Search(id_list=[arxiv_id])
-        return next(_arxiv.Client().results(search), None)
+        return next(client.results(search), None)
 
     result = None
     for attempt in range(ARXIV_FETCH_RETRIES):
-        # NB: we deliberately do NOT use the executor as a context manager —
-        # its __exit__ calls shutdown(wait=True), which would block on a hung
-        # request and defeat the timeout. On timeout we call
-        # shutdown(wait=False) and abandon the worker thread instead.
-        pool = ThreadPoolExecutor(max_workers=1)
-        future = pool.submit(_do_fetch)
         try:
-            result = future.result(timeout=ARXIV_FETCH_TIMEOUT_S)
-            pool.shutdown(wait=False)
+            result = _call_with_deadline(
+                _do_fetch,
+                ARXIV_FETCH_TIMEOUT_S,
+                label=f"arXiv metadata fetch for {arxiv_id}",
+            )
             break
-        except _FutureTimeout:
-            # The fetch exceeded the per-attempt deadline. Abandon the worker
-            # thread (do not wait for it) so the run is never blocked.
-            pool.shutdown(wait=False)
+        except TimeoutError:
             wait = 5 * (2 ** attempt)
             logger.warning(
                 "arXiv metadata fetch for %s timed out after %ds; retry in %ds",
@@ -123,7 +187,6 @@ def _fetch_paper_metadata(arxiv_id: str, cache_path: Path) -> tuple[str, str]:
             )
             time.sleep(wait)
         except Exception as e:  # HTTP 429, parse errors, transient network
-            pool.shutdown(wait=False)
             wait = 5 * (2 ** attempt)
             logger.warning("arXiv metadata fetch failed for %s (%s); retry in %ds",
                            arxiv_id, e, wait)

@@ -132,3 +132,120 @@ def test_arxiv_cache_hit_skips_fetch(monkeypatch, tmp_path):
 
     title, abstract = evaluate._fetch_paper_metadata("1234.5678", cache)
     assert (title, abstract) == ("Cached", "Cached abs")
+
+
+# ---------------------------------------------------------------------------
+# Hardening: the worker must actually DIE (socket timeout) and must never be
+# able to block process exit (daemon thread). See issue #560 / PR #564.
+# ---------------------------------------------------------------------------
+
+
+def test_deadline_runs_on_daemon_thread():
+    """The fetch runs on a daemon thread, so a hung worker can't block exit.
+
+    ThreadPoolExecutor workers are non-daemon and ``_python_exit`` joins them
+    unconditionally at interpreter shutdown — a still-hung fetch would stall the
+    whole process. A daemon thread is never joined, closing that exit-hang.
+    """
+    import threading
+
+    captured = {}
+
+    def fn():
+        captured["daemon"] = threading.current_thread().daemon
+        return "ok"
+
+    assert evaluate._call_with_deadline(fn, 5, label="x") == "ok"
+    assert captured["daemon"] is True
+
+
+def test_call_with_deadline_normalizes_requests_timeout():
+    """A requests socket timeout surfaces as a builtin TimeoutError."""
+    import requests
+
+    def fn():
+        raise requests.exceptions.ConnectTimeout("connect timed out")
+
+    with pytest.raises(TimeoutError):
+        evaluate._call_with_deadline(fn, 5, label="x")
+
+
+def test_call_with_deadline_propagates_other_errors():
+    """Non-timeout errors propagate unchanged (so callers can react to them)."""
+
+    def fn():
+        raise ValueError("boom")
+
+    with pytest.raises(ValueError, match="boom"):
+        evaluate._call_with_deadline(fn, 5, label="x")
+
+
+def test_install_session_timeout_injects_default_and_is_idempotent():
+    """The injected timeout defaults a missing one but preserves an explicit one."""
+
+    class _Session:
+        def __init__(self):
+            self.timeouts = []
+
+        def request(self, method, url, **kwargs):
+            self.timeouts.append(kwargs.get("timeout", "MISSING"))
+            return "resp"
+
+        def get(self, url, **kwargs):  # mirrors requests.Session.get -> request
+            kwargs.setdefault("allow_redirects", True)
+            return self.request("GET", url, **kwargs)
+
+    class _Client:
+        def __init__(self):
+            self._session = _Session()
+
+    client = _Client()
+    evaluate._install_session_timeout(client, timeout_s=7)
+
+    # The arxiv library calls .get(url, headers=...) with NO timeout; the
+    # wrapper must inject the default so the underlying socket op can't hang.
+    client._session.get("http://example/x")
+    assert client._session.timeouts[-1] == 7
+
+    # An explicit caller-supplied timeout is preserved (setdefault, not force).
+    client._session.request("GET", "http://example/x", timeout=99)
+    assert client._session.timeouts[-1] == 99
+
+    # Idempotent: a second install does not re-wrap the already-wrapped session.
+    wrapped = client._session.request
+    evaluate._install_session_timeout(client, timeout_s=3)
+    assert client._session.request is wrapped
+
+
+def test_install_session_timeout_handles_missing_session():
+    """A client without a ``_session`` (e.g. a test stub) is a harmless no-op."""
+
+    class _NoSession:
+        pass
+
+    # Must not raise.
+    evaluate._install_session_timeout(_NoSession(), timeout_s=5)
+
+
+def test_requests_timeout_falls_back(monkeypatch, tmp_path):
+    """A requests ReadTimeout degrades to the fallback, not a crash or hang."""
+    import requests
+
+    monkeypatch.setattr(evaluate, "ARXIV_FETCH_TIMEOUT_S", 5)
+    monkeypatch.setattr(evaluate, "ARXIV_FETCH_RETRIES", 2)
+    monkeypatch.setattr(evaluate.time, "sleep", lambda *_a, **_k: None)
+
+    calls = {"n": 0}
+
+    def _timeout():
+        calls["n"] += 1
+        raise requests.exceptions.ReadTimeout("read timed out")
+
+    _install_fake_arxiv(monkeypatch, _timeout)
+
+    cache = tmp_path / "metadata_cache.json"
+    title, abstract = evaluate._fetch_paper_metadata("1234.5678", cache)
+
+    assert (title, abstract) == ("", "")
+    assert calls["n"] == 2  # retried exactly ARXIV_FETCH_RETRIES times
+    assert not cache.exists()
