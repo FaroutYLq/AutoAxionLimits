@@ -1,3 +1,6 @@
 # Cached extraction results (contain API outputs, not committed)
 *.json
 !.gitkeep
+# Diffable metrics summary IS tracked (small, headline numbers only) so that
+# metric regressions show up in PR diffs. The full metrics.json stays ignored.
+!metrics_summary.json
