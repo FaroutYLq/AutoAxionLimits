@@ -185,7 +185,7 @@ def _normalize_coupling_type(raw: str) -> str:
         return canonical
     raise KeyError(raw)
 
-CLAUDE_MODEL = "claude-haiku-4-5-20251001"
+CLAUDE_MODEL = "claude-opus-4-8"
 
 REPO_ROOT = Path(__file__).parent.parent
 
