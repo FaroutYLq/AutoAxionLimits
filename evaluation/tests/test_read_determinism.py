@@ -134,6 +134,46 @@ def test_create_respects_explicit_temperature():
     kw = _create(_FakeClient(), model="m", temperature=0.4)
     assert kw["temperature"] == 0.4
 
+
+class _RejectsTemperatureMessages:
+    """A client that 400s when sent `temperature` (mimics claude-opus-4-8)."""
+
+    def __init__(self):
+        self.calls = []
+
+    def create(self, **kw):
+        self.calls.append(dict(kw))
+        if "temperature" in kw:
+            raise RuntimeError(
+                "Error code: 400 - {'error': {'message': "
+                "'`temperature` is deprecated for this model.'}}"
+            )
+        return kw
+
+
+class _RejectsTemperatureClient:
+    def __init__(self):
+        self.messages = _RejectsTemperatureMessages()
+
+
+@requires_extractor
+def test_create_falls_back_when_temperature_rejected():
+    # #580: a model that deprecated `temperature` must not break extraction.
+    from pipeline.extractor import _create, _TEMPERATURE_UNSUPPORTED
+    _TEMPERATURE_UNSUPPORTED.discard("rej")
+    c = _RejectsTemperatureClient()
+    kw = _create(c, model="rej", max_tokens=10)
+    assert "temperature" not in kw                 # final successful call omitted it
+    assert len(c.messages.calls) == 2              # one rejected (with temp), one without
+    assert "rej" in _TEMPERATURE_UNSUPPORTED
+    # subsequent calls skip temperature entirely (no repeated wasted 400)
+    c2 = _RejectsTemperatureClient()
+    kw2 = _create(c2, model="rej", max_tokens=10)
+    assert "temperature" not in kw2
+    assert len(c2.messages.calls) == 1
+    _TEMPERATURE_UNSUPPORTED.discard("rej")
+
+
 @requires_extractor
 def test_all_reads_route_through_create():
     # No bare `client.messages.create(` remains outside the `_create` wrapper, so
