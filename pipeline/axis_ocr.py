@@ -26,7 +26,9 @@ from __future__ import annotations
 
 import logging
 import math
+import os
 import re
+import tempfile
 import unicodedata
 from dataclasses import dataclass
 from typing import Optional
@@ -215,11 +217,17 @@ def _label_band(bbox, axis: str, tick: float, spacing: float, shape) -> Optional
 
 
 def _ocr_crop(arr, upscale: int = 4) -> tuple[str, float]:
-    """OCR a numeric crop (numpy array) -> (joined_text, mean_conf 0..1)."""
+    """OCR a numeric crop (numpy array) -> (joined_text, mean_conf 0..1).
+
+    The crop is written to a temp PNG and tesseract is invoked on the file path
+    rather than handed a PIL object: some environments mis-handle pytesseract's
+    internal in-memory temp-save (a libpng/leptonica mismatch surfaces as a
+    decode error), and the file-path invocation is robust across them.
+    """
     try:
         img = Image.fromarray(arr)
-        if img.mode != "L":
-            img = img.convert("L")
+        if img.mode not in ("L", "RGB"):
+            img = img.convert("RGB")
         if upscale > 1:
             img = img.resize(
                 (img.width * upscale, img.height * upscale), Image.LANCZOS
@@ -228,9 +236,20 @@ def _ocr_crop(arr, upscale: int = 4) -> tuple[str, float]:
             "--psm 7 -c tessedit_char_whitelist="
             "0123456789.eExX+-^"
         )
-        data = pytesseract.image_to_data(
-            img, config=config, output_type=pytesseract.Output.DICT
-        )
+        tmp = None
+        try:
+            with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tf:
+                tmp = tf.name
+            img.save(tmp)
+            data = pytesseract.image_to_data(
+                tmp, config=config, output_type=pytesseract.Output.DICT
+            )
+        finally:
+            if tmp is not None:
+                try:
+                    os.remove(tmp)
+                except OSError:
+                    pass
         texts, confs = [], []
         for txt, conf in zip(data.get("text", []), data.get("conf", [])):
             t = (txt or "").strip()
