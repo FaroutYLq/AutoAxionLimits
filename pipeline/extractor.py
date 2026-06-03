@@ -1396,6 +1396,55 @@ def run_extraction_agent(
     )
 
 
+def _read_samples() -> int:
+    """Number of independent extraction samples to vote over (env-gated).
+
+    ``AAL_READ_SAMPLES`` (default 1 -> no voting, behaviour unchanged). Set to 3
+    to denoise the run-to-run drift that #580 reintroduced (no more temperature=0
+    on Opus 4.8); the gate/eval enables it so a no-op repeat pair stays within the
+    gate's noise floor (the prerequisite for an auto-required gate).
+    """
+    try:
+        n = int(os.environ.get("AAL_READ_SAMPLES", "1"))
+    except (TypeError, ValueError):
+        return 1
+    return max(1, min(n, 7))
+
+
+def run_extraction_agent_voted(
+    paper: arxiv.Result, pdf_path: Path, client: anthropic.Anthropic,
+) -> "ExtractionResult":
+    """Run :func:`run_extraction_agent` ``AAL_READ_SAMPLES`` times and return the
+    consensus result (majority coupling type + medoid curve, via
+    :mod:`pipeline.read_vote`). With N=1 this is exactly ``run_extraction_agent``.
+
+    Denoises run-to-run LLM drift without averaging into a non-physical curve: the
+    returned result is one real sample (the most central of the N).
+    """
+    n = _read_samples()
+    if n <= 1:
+        return run_extraction_agent(paper, pdf_path, client)
+
+    from . import read_vote
+    results: list = []
+    for i in range(n):
+        try:
+            results.append(run_extraction_agent(paper, pdf_path, client))
+        except Exception as e:
+            logger.warning("read-vote sample %d/%d failed: %s", i + 1, n, e)
+    if not results:
+        raise RuntimeError("all read-vote extraction samples failed")
+    if len(results) == 1:
+        return results[0]
+
+    samples = [(r.coupling_type, [tuple(p) for p in (r.data_points or [])]) for r in results]
+    idx, note = read_vote.select_consensus(samples)
+    chosen = results[idx]
+    chosen.notes = (chosen.notes or "") + f" | read-vote N={len(results)}: {note}"
+    logger.info("read-vote for %s: %s", getattr(chosen, "arxiv_id", "?"), note)
+    return chosen
+
+
 def _run_stage1(
     paper: arxiv.Result, pdf_text: str, client: anthropic.Anthropic,
     coupling_hint: str | None = None,
