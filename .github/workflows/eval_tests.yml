@@ -35,13 +35,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install the tesseract OCR binary
+      - name: Install the tesseract OCR binary + a TrueType font
         # Lets the P1 axis-OCR tests (test_axis_ocr.py / test_plot_calibration.py)
-        # run for real in this cheap no-API job. The tests still self-skip if the
-        # binary is ever missing, so the job stays green either way.
+        # run for real in this cheap no-API job. fonts-dejavu-core gives the OCR
+        # smoke test a reliable TTF (PIL's default bitmap font OCRs poorly). The
+        # tests still self-skip if the binary/font is ever missing, so the job
+        # stays green either way.
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq tesseract-ocr
+          sudo apt-get install -y -qq tesseract-ocr fonts-dejavu-core
       - name: Install test dependencies
         # numpy/scipy/pytest for the metric tests; anthropic/arxiv/httpx are
         # import-only deps so the transform_guard extractor-wiring tests (no API

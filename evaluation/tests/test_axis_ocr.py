@@ -162,28 +162,51 @@ def test_ocr_axis_labels_guards_short_ticklist():
 # Real-OCR smoke test (tesseract present only)
 # ---------------------------------------------------------------------------
 
+def _find_ttf():
+    """Locate a real TrueType font; PIL's default bitmap font OCRs poorly."""
+    candidates = [
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "/usr/share/fonts/dejavu/DejaVuSans.ttf",
+        "/Library/Fonts/Arial.ttf",
+        "/System/Library/Fonts/Supplemental/Arial.ttf",
+    ]
+    for c in candidates:
+        if Path(c).exists():
+            return c
+    try:  # matplotlib bundles DejaVuSans if it happens to be installed
+        from matplotlib import font_manager
+        return font_manager.findfont("DejaVu Sans")
+    except Exception:
+        return None
+
+
 @requires_ocr
 def test_ocr_reads_plain_numeric_crop(tmp_path):
-    """Render big numeric labels under an x axis and OCR them end to end."""
+    """Render numeric labels under an x axis at realistic proportions and OCR
+    them end to end (genuine tesseract path; runs only when the binary + a real
+    TTF font are present)."""
     import numpy as np
     from PIL import Image, ImageDraw, ImageFont
 
-    W, H = 700, 250
+    ttf = _find_ttf()
+    if ttf is None:
+        pytest.skip("no TrueType font available for a reliable OCR fixture")
+    font = ImageFont.truetype(ttf, 22)
+
+    W, H = 760, 420
     img = Image.new("RGB", (W, H), "white")
     d = ImageDraw.Draw(img)
-    bbox = (80, 30, 620, 170)  # plot frame
-    d.rectangle(bbox, outline="black", width=2)
-    try:
-        font = ImageFont.truetype("DejaVuSans.ttf", 28)
-    except Exception:
-        font = ImageFont.load_default()
-    ticks = [(140, "1"), (260, "10"), (380, "100"), (500, "1000")]
+    x0, y0, x1, y1 = 90, 40, 700, 330
+    d.rectangle([x0, y0, x1, y1], outline="black", width=2)
+    # Multi-digit labels OCR far more robustly than a bare "1" (-> I/l).
+    ticks = [(180, "10"), (340, "100"), (500, "1000"), (640, "5000")]
     for xp, label in ticks:
-        d.line([(xp, 170), (xp, 178)], fill="black", width=2)
-        d.text((xp - 18, 185), label, fill="black", font=font)
+        d.line([(xp, y1), (xp, y1 + 6)], fill="black", width=2)
+        d.text((xp, y1 + 12), label, fill="black", font=font, anchor="ma")
     arr = np.array(img)
     tick_pixels = [xp for xp, _ in ticks]
-    labels = axis_ocr.ocr_axis_labels(arr, bbox, "x", tick_pixels, scale="log")
+    labels = axis_ocr.ocr_axis_labels(arr, (x0, y0, x1, y1), "x",
+                                      tick_pixels, scale="log")
     # Tesseract should recover at least two of the four labels.
     assert len(labels) >= 2
     for lab in labels:
