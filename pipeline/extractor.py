@@ -33,6 +33,7 @@ from .transform_guard import (
     should_consider_vision,
     span_dex,
     R1_SPOTCHECK_BAND,
+    R2_AXIS_TRIGGER_DEX,
     R3_BENCHMARK_BAND,
 )
 
@@ -1175,9 +1176,22 @@ def run_extraction_agent(
             coupling_hint = stage1_result.get("coupling_type") or pre_ct
             # Stage 2a: identify axes first (cheap, 512 tokens)
             axis_info = _run_stage2a_axes(paper, figure_paths, client)
+            # P1 (#570): OCR-corroborated axis cross-check. Mutates axis_info in
+            # place, committing an OCR-corrected axis range ONLY when OCR+geometry
+            # agree and contradict the LLM (guarded by P0's R2); a no-op when the
+            # OCR/CV stack is unavailable. Runs BEFORE Stage 2 so the corrected
+            # range flows into the "Use these axis ranges" prompt context.
+            _attach_cv_calibration(
+                axis_info, figure_paths,
+                stage1_result.get("coupling_type") or pre_ct,
+            )
             # Stash the read-back y-axis unit so the convention normalizer (#572)
             # can detect an eV^-1 ("C/F_a"-style) axis on the vision path.
             stage1_result["_axis_y_unit"] = (axis_info or {}).get("y_axis_unit", "")
+            if (axis_info or {}).get("cv_calibration_note"):
+                stage1_result["notes"] = (
+                    stage1_result.get("notes", "") + " | " + axis_info["cv_calibration_note"]
+                )
             stage2_result = _run_stage2(
                 paper, figure_paths, client, coupling_hint=coupling_hint, axis_info=axis_info
             )
@@ -1425,6 +1439,103 @@ def _run_stage2a_axes(
     except Exception as e:
         logger.warning("Stage 2a axis identification failed: %s", e)
         return {}
+
+
+def _attach_cv_calibration(
+    axis_info: dict,
+    figure_paths: list[Path],
+    coupling_type: str | None,
+) -> None:
+    """OCR-corroborated axis cross-check (P1 of #566, #570).
+
+    Mutates ``axis_info`` IN PLACE: for each axis, an OCR-read of the tick labels
+    (``plot_calibration.calibrate_figure_axes``) proposes a corrected
+    ``x_axis_min/max`` / ``y_axis_min/max``, which is committed-or-reverted by
+    P0's :func:`guard_transform` (R2). An override commits ONLY when the OCR read
+    is *corroborated* (OCR labels and the geometric fit agree with each other and
+    are physically plausible) AND it genuinely contradicts the LLM axis
+    (``> R2_AXIS_TRIGGER_DEX`` dex). Everything else keeps the LLM axis, so this
+    can only correct-or-no-op — never regress the LLM-vision path.
+
+    Fully optional: when OpenCV / pytesseract / the ``tesseract`` binary is
+    absent (e.g. the daily pipeline runners), ``calibrate_figure_axes`` returns
+    ``None`` and this is a complete no-op. Never raises.
+    """
+    if not axis_info or not axis_info.get("found_exclusion_plot") or not figure_paths:
+        return
+    try:
+        from . import plot_calibration as pc
+        from .config import VALID_RANGES
+    except Exception:
+        return
+    if not getattr(pc, "_CV_AVAILABLE", False):
+        return
+    try:
+        idx = axis_info.get("plot_page_index", -1)
+        if not isinstance(idx, int) or not (0 <= idx < len(figure_paths)):
+            idx = 0
+        figure = figure_paths[idx]
+
+        vr = VALID_RANGES.get(coupling_type or "")
+
+        def _widen(rng):
+            if not rng:
+                return None
+            lo, hi = rng
+            return (lo * 0.1, hi * 10.0)
+
+        mass_valid = _widen(vr["mass"]) if vr else None
+        coup_valid = _widen(vr["coupling"]) if vr else None
+
+        cal = pc.calibrate_figure_axes(figure, axis_info, mass_valid, coup_valid)
+        if not cal:
+            return
+
+        notes: list[str] = []
+        axes = [
+            ("x", "x_axis_min", "x_axis_max"),
+            ("y", "y_axis_min", "y_axis_max"),
+        ]
+        for axis, kmin, kmax in axes:
+            ac = cal.get(axis)
+            if ac is None or ac.ocr_min is None or ac.ocr_max is None:
+                continue
+            try:
+                llm_min = float(axis_info.get(kmin))
+                llm_max = float(axis_info.get(kmax))
+            except (TypeError, ValueError):
+                continue
+            # Only a corroborated read that genuinely contradicts the LLM is even
+            # proposed; guard_transform then re-checks R2/R5 and decides.
+            if ac.corroborated and ac.ocr_vs_llm_dex > R2_AXIS_TRIGGER_DEX:
+                before = (llm_min, llm_max)
+                after = (ac.ocr_min, ac.ocr_max)
+                score = ConsistencyScore(
+                    in_valid_ranges=ac.endpoint_phys_ok,
+                    axis_disagree_dex=ac.ocr_vs_llm_dex,
+                )
+                committed, gnote = guard_transform(
+                    before, after, score_after=score,
+                    corroborated=True, label=f"axis {axis}",
+                )
+                if committed is after:
+                    axis_info[kmin], axis_info[kmax] = ac.ocr_min, ac.ocr_max
+                    notes.append(
+                        f"{axis}: {llm_min:g}/{llm_max:g}->{ac.ocr_min:g}/{ac.ocr_max:g} "
+                        f"corroborated=Y ({ac.note})"
+                    )
+                else:
+                    notes.append(f"{axis}: kept LLM (guard reverted; {gnote})")
+            else:
+                notes.append(
+                    f"{axis}: kept LLM (corroborated="
+                    f"{'Y' if ac.corroborated else 'N'}, vs_llm={ac.ocr_vs_llm_dex:.2f}dex)"
+                )
+        if notes:
+            axis_info["cv_calibration_note"] = "CV axis OCR: " + "; ".join(notes)
+            logger.info("CV axis OCR calibration: %s", axis_info["cv_calibration_note"])
+    except Exception as e:
+        logger.warning("_attach_cv_calibration failed (keeping LLM axes): %s", e)
 
 
 def _run_stage2(

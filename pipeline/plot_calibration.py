@@ -550,3 +550,77 @@ def calibrate_axis_ocr(
     except Exception as e:
         logger.warning("calibrate_axis_ocr failed: %s", e)
         return None
+
+
+def calibrate_figure_axes(
+    figure_path,
+    axis_info: dict,
+    mass_valid: Optional[tuple[float, float]] = None,
+    coup_valid: Optional[tuple[float, float]] = None,
+) -> Optional[dict]:
+    """OCR-calibrate the x and y axes of the best panel of a figure.
+
+    Splits the figure into panels, and for each panel detects the plot region +
+    tick pixels and runs :func:`calibrate_axis_ocr` for both axes against the
+    LLM-supplied ranges in ``axis_info`` (``x_axis_min/max`` etc.). Picks the
+    panel with the most *corroborated* axes (tie-break: most parseable labels) —
+    a cheap, OCR-grounded panel-consistency veto, since a wrong panel's labels
+    will neither corroborate nor be physically plausible.
+
+    ``mass_valid`` / ``coup_valid`` are the *already widened* physical bounds for
+    the x (mass) and y (coupling) axes (caller widens via ``VALID_RANGES``).
+
+    Returns ``{"panel": Path, "x": AxisCalibration|None, "y": AxisCalibration|None}``
+    for the best panel, or ``None`` when CV/OCR is unavailable, no plot region is
+    found, or ``axis_info`` lacks usable LLM ranges. Never raises.
+    """
+    if not _CV_AVAILABLE or not axis_info:
+        return None
+    try:
+        def _fl(v):
+            try:
+                return float(v)
+            except (TypeError, ValueError):
+                return None
+
+        x_scale = axis_info.get("x_axis_scale", "log")
+        y_scale = axis_info.get("y_axis_scale", "log")
+        x_llm = (_fl(axis_info.get("x_axis_min")), _fl(axis_info.get("x_axis_max")))
+        y_llm = (_fl(axis_info.get("y_axis_min")), _fl(axis_info.get("y_axis_max")))
+
+        panels = split_panels(Path(figure_path))
+        best = None
+        best_score = (-1, -1)
+        for p in panels:
+            img = cv2.imread(str(p), cv2.IMREAD_COLOR)
+            if img is None:
+                continue
+            bbox = detect_plot_region(img)
+            if bbox is None:
+                continue
+            ticks = detect_axis_ticks(img, bbox)
+            if not ticks:
+                continue
+            x_cal = y_cal = None
+            if None not in x_llm and len(ticks.get("x", [])) >= 2:
+                x_cal = calibrate_axis_ocr(
+                    img, bbox, "x", x_scale, ticks["x"], x_llm, mass_valid
+                )
+            if None not in y_llm and len(ticks.get("y", [])) >= 2:
+                y_cal = calibrate_axis_ocr(
+                    img, bbox, "y", y_scale, ticks["y"], y_llm, coup_valid
+                )
+            if not (x_cal or y_cal):
+                continue
+            n_corr = int(bool(x_cal and x_cal.corroborated)) + int(
+                bool(y_cal and y_cal.corroborated)
+            )
+            n_lab = (x_cal.n_labels if x_cal else 0) + (y_cal.n_labels if y_cal else 0)
+            score = (n_corr, n_lab)
+            if score > best_score:
+                best_score = score
+                best = {"panel": p, "x": x_cal, "y": y_cal}
+        return best
+    except Exception as e:
+        logger.warning("calibrate_figure_axes failed: %s", e)
+        return None
