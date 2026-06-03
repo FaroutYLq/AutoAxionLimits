@@ -65,12 +65,12 @@ def test_corroborated_contradiction_within_cap_commits(monkeypatch):
     monkeypatch.setattr(
         pc, "calibrate_figure_axes",
         lambda *a, **k: {"panel": Path("p"),
-                         "x": _cal(corroborated=True, dex=1.0, ocr_min=1.0, ocr_max=300.0),
+                         "x": _cal(corroborated=True, dex=0.8, ocr_min=1.0, ocr_max=200.0),
                          "y": None},
     )
     ai = _axis_info()
     extractor._attach_cv_calibration(ai, [Path("fig.png")], "AxionPhoton")
-    assert ai["x_axis_max"] == pytest.approx(300.0)
+    assert ai["x_axis_max"] == pytest.approx(200.0)
     assert ai["x_axis_min"] == pytest.approx(1.0)
     assert "corroborated=Y" in ai["cv_calibration_note"]
 

@@ -1442,14 +1442,16 @@ def _run_stage2a_axes(
 
 
 # Maximum magnitude (dex) of an OCR axis override that may COMMIT, even when
-# corroborated. Evidence (#570 benchmark): the only genuine LLM-axis correction
-# was 0.62 dex (2402.12892); corroborated "overrides" of 4-33 dex were OCR
-# scale-misreads — a mantissa read without its 10^n scale ("0.01" for "1e-35"),
-# internally self-consistent and in-range, so they passed geom-agree + r2 +
-# phys-ok yet were 30+ dex wrong and broke papers (2207.11968 -> zero-overlap).
-# A real axis the LLM misread is at most ~1 decade off; a multi-decade
-# "correction" is almost certainly a scale-misread, so cap and keep the LLM axis.
-P1_MAX_OVERRIDE_DEX = 1.5
+# corroborated. Evidence (#570 figure-subset benchmark): genuine LLM-axis
+# corrections cluster at <= 0.62 dex (the 2402.12892 win), while EVERY
+# corroborated override observed on real figures was >= 1.45 dex — OCR
+# scale-misreads (a mantissa read without its 10^n scale, "0.01" for "1e-35")
+# that are internally self-consistent and in-range, so they pass geom-agree + r2
+# + phys-ok yet are multiple decades wrong and broke papers (2207.11968 y-axis
+# 35.95 dex -> zero-overlap; the same paper's 1.45 dex x is a suspect wrong-panel
+# axis). The 0.62<->1.45 dex gap is clean, so cap at 1.0: a "correction" of a
+# whole decade or more is almost certainly a scale-misread -> keep the LLM axis.
+P1_MAX_OVERRIDE_DEX = 1.0
 
 
 def _attach_cv_calibration(
