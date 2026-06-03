@@ -69,14 +69,26 @@ R4_YCONST_DEX: float = 0.05
 R4_MIN_SPAN_DEX: float = 1.0
 
 # Source-tier ranking for quality(): semantics-trust. A table read is trusted
-# over a text point-limit, which is trusted over a figure-vision / CV trace, so a
-# CV trace (tier 1) can never override a text point-limit (tier 2).
+# over a text point-limit, over an LLM figure read, over a raw CV pixel trace, so
+# a CV trace can never override a text point-limit on point count alone. `cv_trace`
+# is split BELOW `figure_vision` because a pixel trace with no LLM semantic check
+# (which-curve/which-panel) is the least-trusted when it ties on validity — it is
+# exactly the source that produced the 2102.08764 / 1905.13650 regressions. On the
+# current master there is no CV-trace producer; the tier is reserved for when CV
+# metrology returns (P1+), the same way P0's R2/R4 ship ahead of their wiring.
 SOURCE_TIER: dict[str, int] = {
     "table": 3,
     "text": 2,
     "figure_vision": 1,
     "vision": 1,
+    "cv_trace": 0,
 }
+
+# Sources that are point-limits (a sparse set of (mass, coupling) bounds), not a
+# traced curve — they are exempt from the R4 degenerate-shape penalty in quality()
+# (a 2-point text limit is legitimately sparse; only a *traced curve* that
+# collapsed to a flat line or a single mass decade is degenerate).
+_POINT_LIMIT_SOURCES = frozenset({"text", "table"})
 
 
 def _median(values) -> float:
@@ -159,9 +171,37 @@ class ConsistencyScore:
     y_const: bool = False
 
 
+@dataclass(frozen=True)
+class Candidate:
+    """One scored extraction candidate for the best-extraction selector (P2, #571).
+
+    The selector ranks candidates by :func:`quality` — a validity-first ordered
+    tuple — so the *source choice* (text vs figure-vision vs CV trace) is decided
+    by which read is most valid / consistent / confident, NOT by which produced
+    more points. ``recoverable`` (T2) is precomputed by the caller (it needs
+    ``VALID_RANGES`` + the decade-factor search, which live in the extractor) so
+    this module stays dependency-free.
+    """
+
+    source: str
+    data_points: tuple
+    coupling_type: str | None
+    extraction_confidence: float
+    score: ConsistencyScore
+    recoverable: bool = False
+
+
 def _in_band(value: float, band: tuple[float, float]) -> bool:
     lo, hi = band
     return lo <= value <= hi
+
+
+def _corroborated(score: ConsistencyScore) -> bool:
+    """True iff a benchmark or spot-check ratio lands in the corroboration band."""
+    for r in (score.benchmark_ratio, score.spotcheck_ratio):
+        if r is not None and _in_band(r, CORROBORATION_BAND):
+            return True
+    return False
 
 
 def passes_contract(score: ConsistencyScore, *, corroborated: bool = False) -> tuple[bool, str]:
@@ -223,23 +263,89 @@ def guard_transform(before, after, *, score_after: ConsistencyScore,
     return before, f"{label}: reverted ({reason})"
 
 
-def quality(*, source: str, in_valid_ranges: bool, corroborated: bool,
-            confidence: float, n_points: int) -> tuple:
-    """Ordered quality tuple for comparing extraction candidates.
+def quality(c: Candidate) -> tuple:
+    """Validity-first ordered quality tuple for a :class:`Candidate` (P2, #571).
 
-    Higher tuples are better. Quality is decided by *semantics-trust first*, not
-    raw point count: a CV trace (``source_tier=1``) can never outrank a text
-    point-limit (``source_tier=2``) on point count alone — exactly the
-    point-count routing bug (``len(traced) >= max(8, stage1_points)``) P0
-    replaces. ``n_points`` is only the final tie-break.
+    Higher tuples are better; the selector takes the lexicographic argmax. The
+    tiers, in order:
 
-    P2 extends this 5-tuple to a 7-tuple; the two must not diverge — there is
-    exactly one ``quality()`` and P0's :func:`guard_transform` uses this subset.
+      T0  in_valid_ranges   — HARD validity (P0 R5 floor) promoted to the top.
+      T1  non-degenerate     — a *traced curve* that collapsed to a flat line
+                               (y_const) or a single mass decade (span < 1) is
+                               degenerate; point-limit sources (text/table) are
+                               exempt (a 2-point limit is legitimately sparse).
+      T2  recoverable        — coupling lands in VALID_RANGES under some decade
+                               factor (precomputed by the caller).
+      T3  source tier        — table > text > figure_vision > cv_trace.
+      T4  corroborated       — benchmark/spot-check ratio in [1/3, 3].
+      T5  confidence         — the LLM self-confidence (rounded so float jitter
+                               cannot reorder near-ties).
+      T6  n_points           — raw point count, the ONLY place it appears, as the
+                               last resort. This is the gate P0/P2 demote from
+                               being the *primary* routing signal.
+
+    Decided by *semantics-trust first, point count last* — the inversion of the
+    `len(traced) >= max(8, stage1_points)` / `stage2_points > stage1_points`
+    routing bugs. There is exactly one ``quality()``; P0's R-thresholds
+    (`R4_*`, `CORROBORATION_BAND`) are reused so P0 and P2 never diverge.
     """
-    return (
-        SOURCE_TIER.get(source, 1),
-        1 if in_valid_ranges else 0,
-        1 if corroborated else 0,
-        float(confidence or 0.0),
-        int(n_points or 0),
+    s = c.score
+    point_limit = c.source in _POINT_LIMIT_SOURCES
+    non_degenerate = 1 if point_limit else (
+        1 if (not s.y_const and (s.span_dex is None or s.span_dex >= R4_MIN_SPAN_DEX))
+        else 0
     )
+    return (
+        1 if s.in_valid_ranges else 0,             # T0
+        non_degenerate,                            # T1
+        1 if c.recoverable else 0,                 # T2
+        SOURCE_TIER.get(c.source, 1),              # T3
+        1 if _corroborated(s) else 0,              # T4
+        round(float(c.extraction_confidence or 0.0), 2),  # T5
+        int(s.n_points or len(c.data_points) or 0),       # T6
+    )
+
+
+def should_consider_vision(text_cand: Candidate | None) -> bool:
+    """Whether to spend the vision API call to produce a figure candidate (P2).
+
+    Returns True unless the text candidate is *already clearly dominant* — valid
+    window, not sparse (>= 5 points), confident (>= 0.6, the project's
+    ``LOW_CONFIDENCE_THRESHOLD``), and non-degenerate. A sparse/low-confidence/
+    out-of-range text read (2204.01454 conf 0.42; 1704.05189 / 2007.04899
+    conf 0.55) must NOT suppress vision; a strong 5-point text read
+    (1808.02340) keeps the one-API-call fast path. This only decides whether to
+    *spend the call*, never the winner — the selector picks on merit.
+    """
+    if text_cand is None or not text_cand.data_points:
+        return True
+    s = text_cand.score
+    strong = (
+        s.in_valid_ranges
+        and (s.n_points or len(text_cand.data_points)) >= 5
+        and float(text_cand.extraction_confidence or 0.0) >= 0.6
+        and not s.y_const
+    )
+    return not strong
+
+
+def select_best(candidates: list[Candidate]) -> tuple[Candidate | None, str]:
+    """Return ``(winner, reason)`` — the validity-first argmax over candidates.
+
+    Pure and deterministic: ties keep the earlier candidate (callers append in a
+    stable order — text before figure_vision before cv_trace), and T5 rounding +
+    integer T6 prevent float-jitter reorders. Returns ``(None, ...)`` for an empty
+    list.
+    """
+    if not candidates:
+        return None, "no candidates"
+    best = candidates[0]
+    best_q = quality(best)
+    for c in candidates[1:]:
+        q = quality(c)
+        if q > best_q:
+            best, best_q = c, q
+    if len(candidates) == 1:
+        return best, f"selector: {best.source} (sole candidate)"
+    others = ", ".join(sorted({c.source for c in candidates if c is not best}))
+    return best, f"selector: {best.source} over {others} (quality {best_q})"
