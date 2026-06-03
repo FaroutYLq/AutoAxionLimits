@@ -1,0 +1,29 @@
+{
+  "arxiv_id": "2312.11003",
+  "paper_title": "Experimental search for invisible dark matter axions around 22 \u03bceV",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.186e-05,
+      7.8e-15
+    ],
+    [
+      2.193e-05,
+      7.8e-15
+    ],
+    [
+      2.2e-05,
+      7.85e-15
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.78,
+  "suggested_experiment_name": "CAPP-12T",
+  "notes": "Cavity haloscope excludes KSVZ axions (g_agamma >= 0.93 g_KSVZ) over 21.86-22.00 ueV at 90% CL. Coupling values estimated from KSVZ coupling (~8.4e-15 GeV^-1 near 22 ueV) scaled by 0.93. No exclusion table provided; values approximate. DM density 0.45 GeV/cm^3 assumed. Mass range 21.86-22.00 ueV = 2.186e-5 to 2.200e-5 eV.",
+  "num_points": 3,
+  "elapsed_s": 13.6072359085083
+}

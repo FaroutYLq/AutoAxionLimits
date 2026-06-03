@@ -1,0 +1,153 @@
+{
+  "arxiv_id": "2101.01241",
+  "paper_title": "Search for axion-like dark matter using solid-state nuclear magnetic resonance",
+  "coupling_type": "AxionEDM",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.62e-07,
+      1e-12
+    ],
+    [
+      1.621e-07,
+      3e-13
+    ],
+    [
+      1.622e-07,
+      5e-14
+    ],
+    [
+      1.6225e-07,
+      1e-14
+    ],
+    [
+      1.623e-07,
+      3e-15
+    ],
+    [
+      1.6235e-07,
+      1.1999999999999998e-15
+    ],
+    [
+      1.624e-07,
+      9.5e-16
+    ],
+    [
+      1.625e-07,
+      9e-16
+    ],
+    [
+      1.627e-07,
+      9e-16
+    ],
+    [
+      1.629e-07,
+      8.8e-16
+    ],
+    [
+      1.631e-07,
+      9e-16
+    ],
+    [
+      1.633e-07,
+      9e-16
+    ],
+    [
+      1.635e-07,
+      8.8e-16
+    ],
+    [
+      1.637e-07,
+      9e-16
+    ],
+    [
+      1.639e-07,
+      9e-16
+    ],
+    [
+      1.641e-07,
+      8.8e-16
+    ],
+    [
+      1.643e-07,
+      9e-16
+    ],
+    [
+      1.645e-07,
+      9e-16
+    ],
+    [
+      1.647e-07,
+      8.8e-16
+    ],
+    [
+      1.649e-07,
+      9e-16
+    ],
+    [
+      1.651e-07,
+      9e-16
+    ],
+    [
+      1.653e-07,
+      8.8e-16
+    ],
+    [
+      1.655e-07,
+      9e-16
+    ],
+    [
+      1.657e-07,
+      9e-16
+    ],
+    [
+      1.659e-07,
+      9e-16
+    ],
+    [
+      1.66e-07,
+      9e-16
+    ],
+    [
+      1.661e-07,
+      9e-16
+    ],
+    [
+      1.6615e-07,
+      9.5e-16
+    ],
+    [
+      1.662e-07,
+      1.2999999999999998e-15
+    ],
+    [
+      1.6625e-07,
+      3e-15
+    ],
+    [
+      1.663e-07,
+      1e-14
+    ],
+    [
+      1.6635e-07,
+      5e-14
+    ],
+    [
+      1.664e-07,
+      3e-13
+    ],
+    [
+      1.665e-07,
+      1e-12
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "CASPEr-electric (solid-state 207Pb NMR)",
+  "notes": "CASPEr-electric solid-state NMR search using 207Pb in PMN-PT. Reports |gd|<9.5e-4 GeV^-2, corresponding to oscillating neutron EDM amplitude < 1.0e-21 e*cm, over 162-166 neV mass range (39.1-40.2 MHz). The EDM coupling g_d maps to AxionEDM (neutron EDM d_n in e*cm). Also reports gradient coupling g_aNN < 2.8e-1 GeV^-1 (AxionNeutron). Mass range converted via m=4.136e-15*f; 39.65 MHz center band corresponds to ~1.64e-7 eV. Data taken as approximately flat limit across the band; only the overall bound is quoted in text (no per-bin table). DM density standard halo assumed (~0.4 GeV/cm^3). | Vision: Y-axis plotted is nucleon EDM coupling g_d in GeV^-2 (left axis). The constraint |g_d|<9.5e-4 GeV^-2 corresponds to neutron EDM amplitude d_n < 1.0e-21 e*cm. Plotted values are g_d (GeV^-2), not d_n directly; conversion: d_n ~ 1.05e-18 * g_d (e*cm per GeV^-2 in their calibration). Box-shaped exclusion from 162-166 neV with steep walls; floor ~9e-4 GeV^-2. | Calibration: No calibration needed | Auto-corrected couplings: \u00d71.00e-12 (12 orders too large)",
+  "num_points": 34,
+  "elapsed_s": 46.052249908447266
+}

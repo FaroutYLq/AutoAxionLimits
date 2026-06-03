@@ -1,0 +1,113 @@
+{
+  "arxiv_id": "2410.10363",
+  "paper_title": "Shining Light on the Dark Sector: Search for Axion-like Particles and Other New Physics in Photonic Final States with FASER",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      60000000.0,
+      7.5e-05
+    ],
+    [
+      65000000.0,
+      6.5e-05
+    ],
+    [
+      70000000.0,
+      5.8e-05
+    ],
+    [
+      75000000.0,
+      5.3e-05
+    ],
+    [
+      80000000.0,
+      4.9e-05
+    ],
+    [
+      90000000.0,
+      4.3e-05
+    ],
+    [
+      100000000.0,
+      3.9e-05
+    ],
+    [
+      110000000.0,
+      3.5e-05
+    ],
+    [
+      120000000.0,
+      3.2e-05
+    ],
+    [
+      130000000.0,
+      3e-05
+    ],
+    [
+      140000000.0,
+      2.8e-05
+    ],
+    [
+      150000000.0,
+      2.6e-05
+    ],
+    [
+      170000000.0,
+      2.4e-05
+    ],
+    [
+      190000000.0,
+      2.2e-05
+    ],
+    [
+      200000000.0,
+      2.1e-05
+    ],
+    [
+      220000000.0,
+      2e-05
+    ],
+    [
+      240000000.0,
+      1.9e-05
+    ],
+    [
+      260000000.0,
+      1.85e-05
+    ],
+    [
+      280000000.0,
+      1.8e-05
+    ],
+    [
+      300000000.0,
+      1.78e-05
+    ],
+    [
+      320000000.0,
+      1.8e-05
+    ],
+    [
+      340000000.0,
+      1.9e-05
+    ],
+    [
+      350000000.0,
+      2e-05
+    ],
+    [
+      360000000.0,
+      2.2e-05
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "FASER ALP-W (2022-2023)",
+  "notes": "FASER search for light long-lived particles decaying to two photons. Primary target is ALP coupled to W bosons (g_aWW), with reinterpretations including ALP-photon (g_agamma), ALP-gluon, U(1)_B gauge boson, up-philic scalar, and 2HDM. Multiple coupling types are constrained; the hint suggests AxionPhoton but the primary result is g_aWW (no enum value exists for W-boson coupling). No numerical exclusion limit data points (mass vs coupling pairs) are provided in the extractable text \u2014 limits are presented only in figures not reproduced as tables. Cannot reliably extract numerical limit values. | Vision: ALP-W coupling g_aWW (labeled ALP Coupling g_a [1/GeV]) interpreted as AxionPhoton type. The exclusion region is a closed loop; the lower boundary of the lower branch of the observed limit (90% CL, blue) is traced. Excluded region is between upper and lower branches. Points sampled densely near the rightmost turnaround (~300-360 MeV) where slope changes. | Calibration: No calibration needed",
+  "num_points": 24,
+  "elapsed_s": 35.558030128479004
+}

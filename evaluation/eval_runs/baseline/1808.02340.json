@@ -1,0 +1,37 @@
+{
+  "arxiv_id": "1808.02340",
+  "paper_title": "Searches for electron interactions induced by new physics in the EDELWEISS-III germanium bolometers",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      800.0,
+      1e-12
+    ],
+    [
+      1000.0,
+      4e-13
+    ],
+    [
+      10000.0,
+      2e-13
+    ],
+    [
+      100000.0,
+      5e-13
+    ],
+    [
+      500000.0,
+      2e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.45,
+  "suggested_experiment_name": "EDELWEISS-III",
+  "notes": "Paper sets multiple limits: solar axion g_ae<1.1e-11 (massless limit), g_ae x g_aN^eff<3.5e-17, electron lifetime, and bosonic DM absorption (ALP g_ae and hidden photon kinetic mixing) over 0.8-500 keV. Primary mass-dependent exclusion plot (Fig. 5 left) is ALP DM coupling g_ae => AxionElectron. Data points are approximate reads from described mass range since no numerical table is provided; exact y-axis values not given in text. Local DM density rho_DM=0.3 GeV/cm^3 assumed. Note paper also has DarkPhoton (kinetic mixing) result in Fig 5 right; coupling type ambiguity lowers confidence.",
+  "num_points": 5,
+  "elapsed_s": 12.449713945388794
+}

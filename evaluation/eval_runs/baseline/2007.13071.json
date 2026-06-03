@@ -1,0 +1,33 @@
+{
+  "arxiv_id": "2007.13071",
+  "paper_title": "Search for Axion-Like Particles produced in $e^+e^-$ collisions at Belle II",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      200000000.0,
+      0.001
+    ],
+    [
+      1000000000.0,
+      0.001
+    ],
+    [
+      5000000000.0,
+      0.001
+    ],
+    [
+      9700000000.0,
+      0.001
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "BelleII_ALP_3gamma",
+  "notes": "Belle II search for e+e- -> gamma a, a -> gamma gamma sets 95% CL upper limits on g_agamma at the level of 1e-3 GeV^-1 in mass range 0.2 < m_a < 9.7 GeV. Coupling type is clearly AxionPhoton. However, no numerical table of limit vs mass is in the provided text (referred to Supplemental textfile); data points are approximate based on stated ~1e-3 GeV^-1 level. This is a collider production search, not a DM haloscope, so no DM density assumed. Mass converted GeV to eV.",
+  "num_points": 4,
+  "elapsed_s": 8.310534954071045
+}

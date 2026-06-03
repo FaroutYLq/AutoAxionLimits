@@ -1,0 +1,21 @@
+{
+  "arxiv_id": "2410.19902",
+  "paper_title": "A Universal Bound on QCD Axions from Supernovae",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.053,
+      1100.0
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "SN1987A universal QCD axion bound (this work)",
+  "notes": "Model-independent SN1987A bound on QCD axion. Main result: f_a > 1.1e8 GeV (68% C.L.), equivalently m_a < 5.3e-2 eV. Exclusion plot (Fig 5) is on the 1/f_a vs m_a plane (yellow QCD axion line), so AxionMass is appropriate. Bound is a single point/line (excludes m_a above ~0.053 eV). Confidence level quoted in paper is 68% C.L., not the standard 90/95; reported as 0.90 per options. Single bound point given as (m_a in eV, f_a in GeV). Alternative pion-conversion bound f_a > 4e7 GeV mentioned in appendix. | Vision: Figure 5 plots 1/f_a [GeV^-1] vs m_a [eV], not the f_a-m_a plane directly. The 'This work' red exclusion is a horizontal band covering all 1/f_a values down to where the QCD axion line crosses, corresponding to f_a > 1.1e8 GeV, m_a < 5.3e-2 eV (68% C.L.). The exclusion is effectively a single vertical edge at m_a~5.3e-2 eV, so only the bound point is extractable rather than a multi-point boundary. Lower confidence because the plotted axes (y=1/f_a) differ from the requested AxionMass convention (y=m_a). | Auto-corrected couplings: \u00d71.00e-05 (5 orders too large)",
+  "num_points": 1,
+  "elapsed_s": 34.313392162323
+}

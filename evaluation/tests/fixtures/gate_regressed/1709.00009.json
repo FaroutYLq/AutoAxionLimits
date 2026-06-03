@@ -1,0 +1,149 @@
+{
+  "arxiv_id": "1709.00009",
+  "paper_title": "Revised constraints and Belle II sensitivity for visible and invisible axion-like particles",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      4.136e-11,
+      5e-10
+    ],
+    [
+      8.272e-11,
+      5e-10
+    ],
+    [
+      1.6544e-10,
+      5.2e-10
+    ],
+    [
+      2.8952e-10,
+      5.5e-10
+    ],
+    [
+      4.136e-10,
+      6e-10
+    ],
+    [
+      8.272e-10,
+      7e-10
+    ],
+    [
+      1.6544e-09,
+      9e-10
+    ],
+    [
+      2.8952e-09,
+      1.2e-09
+    ],
+    [
+      4.136e-09,
+      1.6e-09
+    ],
+    [
+      8.272e-09,
+      3e-09
+    ],
+    [
+      1.6544e-08,
+      6e-09
+    ],
+    [
+      2.8952e-08,
+      1.2e-08
+    ],
+    [
+      4.136e-08,
+      2e-08
+    ],
+    [
+      8.272e-08,
+      5e-08
+    ],
+    [
+      1.6544e-07,
+      1.2e-07
+    ],
+    [
+      2.8952e-07,
+      3e-07
+    ],
+    [
+      4.136e-07,
+      6e-07
+    ],
+    [
+      6.204e-07,
+      1.5e-06
+    ],
+    [
+      8.272e-07,
+      3e-06
+    ],
+    [
+      1.034e-06,
+      7e-06
+    ],
+    [
+      1.2408e-06,
+      2e-05
+    ],
+    [
+      1.4476000000000001e-06,
+      8e-05
+    ],
+    [
+      1.6544e-06,
+      0.0003
+    ],
+    [
+      2.068e-06,
+      0.0008
+    ],
+    [
+      2.4816e-06,
+      0.0015
+    ],
+    [
+      3.3088e-06,
+      0.004
+    ],
+    [
+      4.136e-06,
+      0.0008
+    ],
+    [
+      6.204e-06,
+      0.0006
+    ],
+    [
+      8.272e-06,
+      0.0005
+    ],
+    [
+      1.2408e-05,
+      0.0005
+    ],
+    [
+      2.0680000000000002e-05,
+      0.0005
+    ],
+    [
+      3.3088e-05,
+      0.0005
+    ],
+    [
+      4.1360000000000004e-05,
+      0.0005
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "Combined ALP constraints (Belle II review, photon coupling)",
+  "notes": "Paper presents revised constraints and Belle II sensitivity projections for ALPs coupling to photons (g_agamma in GeV^-1) over the keV-GeV mass range. Coupling type is clearly AxionPhoton. However, the numerical exclusion/sensitivity data are presented only in figures (Figures 2, 4, 7) without tabulated values, so no reliable (mass, coupling) data points could be extracted from the text. Both observed/revised constraints and projected Belle II sensitivities (90% CL projections; collider/beam dump constraints at 95% CL except BaBar at 90% CL) are shown. | Vision: Left panel of Figure 2 (photon coupling, g_a\u03b3Z=0). Lower boundary traced is dominated at low masses by SN 1987A (a\u2192\u03b3\u03b3) constraint floor near g~5e-10, rising through electron/proton beam dump regions, with a peak around m_a~0.7 GeV from collider constraints, then flattening at high mass. The right panel (hypercharge coupling) is similar. Boundary values approximate from log-log reading; the excluded region lies above this curve. | CV axis calibration: x-max corrected 10->1.71779e+09; | Calibration: No calibration needed | Auto-corrected masses: Hz\u2192eV (\u00d74.136e-15, rule=argmin|log10(median*f)-log10(anchor=1.0e-05)|)",
+  "num_points": 33,
+  "elapsed_s": 46.53001308441162
+}

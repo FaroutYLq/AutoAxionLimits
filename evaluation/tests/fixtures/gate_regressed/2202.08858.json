@@ -1,0 +1,169 @@
+{
+  "arxiv_id": "2202.08858",
+  "paper_title": "Do direct detection experiments constrain axionlike particles coupled to electrons?",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.2407999999999999e-05,
+      9e-14
+    ],
+    [
+      1.4476e-05,
+      8e-14
+    ],
+    [
+      1.6544e-05,
+      7e-14
+    ],
+    [
+      1.8612e-05,
+      6e-14
+    ],
+    [
+      2.068e-05,
+      5e-14
+    ],
+    [
+      2.2748e-05,
+      3e-14
+    ],
+    [
+      2.4815999999999998e-05,
+      2e-14
+    ],
+    [
+      2.8952e-05,
+      1e-14
+    ],
+    [
+      3.3088e-05,
+      6e-15
+    ],
+    [
+      3.7224e-05,
+      4e-15
+    ],
+    [
+      4.136e-05,
+      3e-15
+    ],
+    [
+      4.9631999999999995e-05,
+      2e-15
+    ],
+    [
+      5.7904e-05,
+      1.2e-15
+    ],
+    [
+      6.6176e-05,
+      8e-16
+    ],
+    [
+      7.4448e-05,
+      6e-16
+    ],
+    [
+      8.272e-05,
+      4e-16
+    ],
+    [
+      9.926399999999999e-05,
+      2.5e-16
+    ],
+    [
+      0.000115808,
+      1.5e-16
+    ],
+    [
+      0.000132352,
+      1e-16
+    ],
+    [
+      0.00015716799999999998,
+      6e-17
+    ],
+    [
+      0.000181984,
+      4e-17
+    ],
+    [
+      0.00020679999999999999,
+      2.5e-17
+    ],
+    [
+      0.00022747999999999998,
+      2e-17
+    ],
+    [
+      0.00024816,
+      1.5e-17
+    ],
+    [
+      0.00028952,
+      9e-18
+    ],
+    [
+      0.00033088,
+      6e-18
+    ],
+    [
+      0.00037224,
+      4e-18
+    ],
+    [
+      0.00041359999999999997,
+      3e-18
+    ],
+    [
+      0.00049632,
+      1.8e-18
+    ],
+    [
+      0.00057904,
+      1.1e-18
+    ],
+    [
+      0.00066176,
+      7e-19
+    ],
+    [
+      0.00074448,
+      5e-19
+    ],
+    [
+      0.0008271999999999999,
+      3.5e-19
+    ],
+    [
+      0.001034,
+      1.5e-19
+    ],
+    [
+      0.0012408,
+      7e-20
+    ],
+    [
+      0.0014475999999999998,
+      4e-20
+    ],
+    [
+      0.0016543999999999999,
+      2.5e-20
+    ],
+    [
+      0.002068,
+      1.2e-20
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "X-ray and gamma-ray limits on ALP lifetime (Fig. 2 light grey lower boundary)",
+  "notes": "This is a phenomenology/reinterpretation paper, not a new experimental measurement. It argues that ALPs coupled to electrons in the keV-MeV range decay too fast to be dark matter, invalidating direct detection limits (GERDA, EDELWEISS-III, SuperCDMS, Majorana). It cites astrophysical X-ray/gamma-ray constraints excluding gae over the 6 keV-1 MeV range, but no numerical exclusion table or extractable data points are provided in the text. The only plot (Fig. 2) reproduces existing limits and grey exclusion regions without tabulated values. Coupling type is clearly AxionElectron (gae), but no new numerical limit data can be extracted. | Vision: The lower boundary traced is the X-ray and gamma-ray indirect detection constraint (light grey region) which forms the lowest exclusion boundary in Fig. 2. The y-axis multiplier and tick values were taken from the provided calibration. Steeply declining boundary with mass on log-log scale. Coupling type g_ae (AxionElectron) is unambiguous from the paper. | CV axis calibration: y-min corrected 1e-21->1.09769e-20; CV axis calibration: y-max corrected 1e-10->2.87185e-08; | Calibration: No calibration needed | Auto-corrected masses: MHz\u2192eV (\u00d74.136e-09, rule=argmin|log10(median*f)-log10(anchor=1.0e-03)|)",
+  "num_points": 38,
+  "elapsed_s": 30.342112064361572
+}

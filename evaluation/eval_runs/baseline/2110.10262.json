@@ -1,0 +1,21 @@
+{
+  "arxiv_id": "2110.10262",
+  "paper_title": "Dark Matter Axion Search Using a Josephson Traveling Wave Parametric Amplifier",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.984e-05,
+      1e-13
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "ADMX_Sidecar_JTWPA",
+  "notes": "ADMX sidecar cavity haloscope using JTWPA. Excludes axion-photon coupling above ~1e-13 GeV^-1 over 4796.7-4799.5 MHz (~19.84 ueV). Only an approximate single bound is given in text; the exact exclusion curve in Fig 7 is not numerically tabulated. DM density 0.45 GeV/cc assumed. Mass ~1.984e-5 eV from 4.798 GHz.",
+  "num_points": 1,
+  "elapsed_s": 14.744845628738403
+}

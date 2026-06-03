@@ -1,0 +1,25 @@
+{
+  "arxiv_id": "1406.6053",
+  "paper_title": "Revisiting the bound on axion-photon coupling from Globular Clusters",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.0,
+      6.6e-11
+    ],
+    [
+      1000.0,
+      6.6e-11
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "GlobularClusters_R_2014",
+  "notes": "Globular Cluster R parameter bound on axion-photon coupling: g_agamma < 0.66e-10 GeV^-1 at 95% CL, valid for axion mass below a few keV. This is a stellar astrophysics bound (not DM haloscope), so no DM density assumption. The limit is essentially mass-independent over a wide range (ma below ~10 keV). Data points are approximate representations of the flat bound; the paper does not provide a tabulated mass-vs-coupling curve.",
+  "num_points": 2,
+  "elapsed_s": 19.220364093780518
+}

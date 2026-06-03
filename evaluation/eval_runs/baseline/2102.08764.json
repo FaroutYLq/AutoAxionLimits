@@ -1,0 +1,25 @@
+{
+  "arxiv_id": "2102.08764",
+  "paper_title": "Axion search with quantum nondemolition detection of magnons",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      3.3117e-05,
+      2.6e-06
+    ],
+    [
+      3.313e-05,
+      2.6e-06
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "Magnon QND axion search",
+  "notes": "QND detection of magnons with superconducting qubit constrains axion-electron coupling g_aee < 2.6e-6 at 95% CL over 33.117-33.130 ueV (~8 GHz). Uses rho_DM = 0.45 GeV/cm^3 and vtot=220 km/s. A more conservative angular-average treatment in the appendix gives g_aee < 1.6e-7 but main result is 2.6e-6. | Vision: This work excludes a narrow vertical band at m_a = 33.117-33.130 ueV (~3.31e-5 eV) with g_aee < 2.6e-6 (red vertical line). The exclusion is a vertical line spanning from g_aee=2.6e-6 up to the top of plot. The lower boundary of the excluded region is essentially the constant g_aee = 2.6e-6 at this single narrow mass range. DFSZ benchmark line read at midpoint.",
+  "num_points": 2,
+  "elapsed_s": 27.22989296913147
+}

@@ -1,0 +1,29 @@
+{
+  "arxiv_id": "2110.14406",
+  "paper_title": "The Grenoble Axion Haloscope platform (GrAHal): development plan and first results",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.6e-05,
+      1e-11
+    ],
+    [
+      2.6e-05,
+      4e-13
+    ],
+    [
+      2.63e-05,
+      3e-13
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.45,
+  "suggested_experiment_name": "GrAHal",
+  "notes": "GrAHal pathfinding run sets g_agamma <= 2.2e-13 GeV^-1 (22x KSVZ) at 6.375 GHz (m_a = 26.37 ueV) with 95% CL, assuming axions constitute all local DM. Limit is over a narrow tuning range; single representative point extracted from text. Local DM density value not explicitly stated numerically. | Vision: The GrAHal first-result exclusion appears as a narrow vertical magenta band near m_a ~ 2.6e-5 eV (~6.375 GHz, consistent with FIG 3/4). The plot is a summary axion-photon landscape; GrAHal's own limit is a single narrow mass region rather than a continuous boundary, so only a few representative points along the GrAHal feature are given. Other curves (ADMX, RBF, HAYSTAC, CAPP, ORGAN, CAST) are external limits. Extraction confidence is limited because the GrAHal contribution is a thin vertical line whose precise extent is hard to read. | Calibration: Benchmark KSVZ consistent (ratio=0.96) | No calibration needed",
+  "num_points": 3,
+  "elapsed_s": 22.688575983047485
+}

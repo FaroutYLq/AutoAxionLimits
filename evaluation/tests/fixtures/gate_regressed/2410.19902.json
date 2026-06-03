@@ -1,0 +1,73 @@
+{
+  "arxiv_id": "2410.19902",
+  "paper_title": "A Universal Bound on QCD Axions from Supernovae",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-11,
+      1e-08
+    ],
+    [
+      1e-09,
+      1e-08
+    ],
+    [
+      1e-07,
+      1e-08
+    ],
+    [
+      1e-05,
+      1e-08
+    ],
+    [
+      0.001,
+      1e-08
+    ],
+    [
+      0.1,
+      1e-08
+    ],
+    [
+      10.0,
+      1e-08
+    ],
+    [
+      1000.0,
+      1e-08
+    ],
+    [
+      100000.0,
+      1e-08
+    ],
+    [
+      1000000.0,
+      1e-08
+    ],
+    [
+      10000000.0,
+      1e-08
+    ],
+    [
+      30000000.0,
+      9.5e-09
+    ],
+    [
+      50000000.0,
+      9e-09
+    ],
+    [
+      80000000.0,
+      8e-09
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.45,
+  "suggested_experiment_name": "SN1987A universal QCD axion bound (this work)",
+  "notes": "Model-independent bound from SN1987A cooling via new tree-level production channel. Result is a single threshold: m_a < 5.3e-2 eV (68% C.L.), equivalently f_a > 1.1e8 GeV. Quoted as one (m_a, f_a) point on the f_a-m_a (AxionMass) plane. The exclusion plot (Fig.5) shows 1/f_a vs m_a along the QCD axion line, so this is effectively a mass bound, not a free coupling curve. Confidence reduced because the result is a single bound value rather than a tabulated limit curve, and CL is 68% not the standard 90/95% (forced to 0.90 by schema). | Vision: Figure 5 plots 1/f_a [GeV^-1] vs m_a [eV], not the standard f_a-m_a AxionMass plane. The 'This work' red excluded region is a near-horizontal band with lower boundary ~1/f_a = 1e-8 GeV^-1 (f_a > 1.1e8 GeV, m_a < 5.3e-2 eV at 68% C.L.). Data points give (m_a [eV], 1/f_a [GeV^-1]) along the lower boundary of the red region. This does not match the requested AxionMass (f_a vs m_a) axis convention exactly, hence lower confidence. The y-values reported are 1/f_a in GeV^-1, NOT m_a in eV. | CV calibration unavailable (no plot region), used LLM axes | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity) | Auto-corrected masses: GeV\u2192eV (\u00d71.000e+09, rule=argmin|log10(median*f)-log10(anchor=1.0e+03)|)",
+  "num_points": 14,
+  "elapsed_s": 54.130632162094116
+}

@@ -1,0 +1,16 @@
+{
+  "arxiv_id": "2208.07293",
+  "paper_title": "First Search for Axion-Like Particles in a Storage Ring Using a Polarized Deuteron Beam",
+  "coupling_type": "AxionEDM",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "JEDI_COSY_Deuteron",
+  "notes": "Paper reports first storage-ring search for ALPs using polarized deuteron beam at COSY, constraining the oscillating deuteron EDM component (d_AC) and ALP coupling constants over axion mass range 4.95-5.02 neV (spin precession freq ~121 kHz). Coupling type is AxionEDM (oscillating EDM d_AC). However, the provided paper content cuts off before the results section (Section IV) where the actual numerical upper limits on the oscillating EDM and axion coupling g_aNgamma are presented; no extractable (mass, coupling) data points are available in the given text. Feldman-Cousins 95% CL used.",
+  "num_points": 0,
+  "elapsed_s": 19.537086009979248
+}

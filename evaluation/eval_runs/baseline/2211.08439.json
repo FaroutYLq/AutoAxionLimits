@@ -1,0 +1,125 @@
+{
+  "arxiv_id": "2211.08439",
+  "paper_title": "Towards an electrostatic storage ring for fundamental physics measurements",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      1e-19,
+      3e-06
+    ],
+    [
+      3e-19,
+      1.5e-06
+    ],
+    [
+      1e-18,
+      8e-07
+    ],
+    [
+      3e-18,
+      6e-07
+    ],
+    [
+      1e-17,
+      5e-07
+    ],
+    [
+      3e-17,
+      4.5e-07
+    ],
+    [
+      1e-16,
+      4e-07
+    ],
+    [
+      3e-16,
+      5e-07
+    ],
+    [
+      1e-15,
+      7e-07
+    ],
+    [
+      3e-15,
+      1e-06
+    ],
+    [
+      6e-15,
+      2e-06
+    ],
+    [
+      1e-14,
+      4e-06
+    ],
+    [
+      2e-14,
+      2e-06
+    ],
+    [
+      4e-14,
+      1e-06
+    ],
+    [
+      7e-14,
+      8e-07
+    ],
+    [
+      1e-13,
+      1e-06
+    ],
+    [
+      2e-13,
+      3e-06
+    ],
+    [
+      4e-13,
+      5e-05
+    ],
+    [
+      5e-13,
+      5e-05
+    ],
+    [
+      7e-13,
+      5e-05
+    ],
+    [
+      1e-12,
+      5e-05
+    ],
+    [
+      3e-12,
+      5e-05
+    ],
+    [
+      1e-11,
+      5e-05
+    ],
+    [
+      3e-11,
+      5e-05
+    ],
+    [
+      1e-10,
+      5e-05
+    ],
+    [
+      3e-10,
+      5e-05
+    ],
+    [
+      1e-09,
+      5e-05
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "Electrostatic storage ring (existing bounds: torsion/comagnetometer/long-range)",
+  "notes": "Projection paper for a proposed electrostatic storage ring. Main DM sensitivity is to axion-electron coupling (demonstrator, Fig 4 left) and axion-nucleon coupling (final stage with Xe sample, Fig 4 right), plus dark photon. Mass range 1e-19 to 1e-10 eV. The pre-analysis hint of AxionEDM is not the primary DM exclusion result; EDM is a separate measurement goal. No numerical data points are tabulated; only plotted projection curves with axis ranges (mass 1e-19 to 1e-9 eV, g_ae from ~1e-11 to higher). Multiple coupling types discussed, so confidence reduced. | Vision: Left panel y-axis is g_aee in GeV^-1 (axion-electron coupling). Lower boundary of existing exclusion region traced from torsion pendulum, comagnetometer, and long-range interaction grey curves. The blue (1s) and red (5h) lines are projected sensitivities, not exclusions. The 'Long-range' horizontal line sits at ~5e-5 GeV^-1 at higher masses. Note: g_aee here is in GeV^-1, not dimensionless as typical g_ae; reported as-is from plot axis. | Calibration: No calibration needed",
+  "num_points": 27,
+  "elapsed_s": 31.856371879577637
+}

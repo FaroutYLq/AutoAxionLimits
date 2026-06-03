@@ -1,0 +1,121 @@
+{
+  "arxiv_id": "1907.05475",
+  "paper_title": "Chandra_NGC1275",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4e-21,
+      6.3e-13
+    ],
+    [
+      1e-19,
+      6.3e-13
+    ],
+    [
+      1e-18,
+      6.3e-13
+    ],
+    [
+      1e-17,
+      6.3e-13
+    ],
+    [
+      3e-17,
+      6.3e-13
+    ],
+    [
+      5e-17,
+      7.5e-13
+    ],
+    [
+      1e-16,
+      7.5e-13
+    ],
+    [
+      1e-15,
+      7.5e-13
+    ],
+    [
+      1e-14,
+      7.5e-13
+    ],
+    [
+      1e-13,
+      7.5e-13
+    ],
+    [
+      5e-13,
+      7.5e-13
+    ],
+    [
+      1e-12,
+      7.5e-13
+    ],
+    [
+      2e-12,
+      6.5e-13
+    ],
+    [
+      3e-12,
+      7e-13
+    ],
+    [
+      4e-12,
+      6.3e-13
+    ],
+    [
+      6e-12,
+      6.3e-13
+    ],
+    [
+      1e-11,
+      6.3e-13
+    ],
+    [
+      2e-11,
+      6.5e-13
+    ],
+    [
+      4e-11,
+      7.5e-13
+    ],
+    [
+      6e-11,
+      7.5e-13
+    ],
+    [
+      8e-11,
+      6e-13
+    ],
+    [
+      1e-10,
+      1.6e-13
+    ],
+    [
+      1.3e-10,
+      5e-13
+    ],
+    [
+      1.6e-10,
+      1.5e-12
+    ],
+    [
+      2e-10,
+      2.5e-12
+    ],
+    [
+      2.5e-10,
+      3.5e-12
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "Chandra NGC1275 HETG",
+  "notes": "Chandra HETG spectroscopy of NGC 1275 in Perseus cluster constraining ALP-photon coupling via X-ray transparency (photon-ALP conversion in ICM magnetic field). 99.7% credible region: g_agamma < 6.3e-13 GeV^-1 (Model-A) and < 7.9e-13 GeV^-1 (Model-B) for m_a < 1e-12 eV. This is an astrophysical/conversion bound, not a DM haloscope, so no DM density assumed. Limit is essentially flat for masses below ~1e-12 eV; I report the conservative Model-B value. Note paper quotes 99.7% (3-sigma) limit; the 95% region picks out preferred nonzero coupling attributed to calibration. | Vision: Traced lower boundary of the HETG (99.7% excl.) constraint region in image 1. Plateau at ~6.3e-13 GeV^-1 for low masses, rising near m_a ~ 1e-10 eV. Deep dip near 1e-10 eV. Y-axis log scale 1e-13 to 2e-11. SN1987A and M87 lines also shown but HETG is the strongest (lowest) constraint. | Calibration: No calibration needed",
+  "num_points": 26,
+  "elapsed_s": 29.17257785797119
+}

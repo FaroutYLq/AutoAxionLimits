@@ -1,0 +1,125 @@
+{
+  "arxiv_id": "1508.01798",
+  "paper_title": "Sound of Dark Matter: Searching for Light Scalars with Resonant-Mass Detectors",
+  "coupling_type": "ScalarElectron",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      1e-23,
+      0.0003
+    ],
+    [
+      1e-22,
+      7e-07
+    ],
+    [
+      3e-22,
+      4e-07
+    ],
+    [
+      1e-21,
+      2e-07
+    ],
+    [
+      3e-21,
+      1.5e-07
+    ],
+    [
+      1e-20,
+      8e-08
+    ],
+    [
+      3e-20,
+      3e-07
+    ],
+    [
+      1e-19,
+      1e-06
+    ],
+    [
+      3e-19,
+      2e-06
+    ],
+    [
+      1e-18,
+      5e-06
+    ],
+    [
+      3e-18,
+      1e-05
+    ],
+    [
+      1e-17,
+      2.5e-05
+    ],
+    [
+      3e-17,
+      5e-05
+    ],
+    [
+      1e-16,
+      0.0001
+    ],
+    [
+      3e-16,
+      0.00015
+    ],
+    [
+      1e-15,
+      0.0002
+    ],
+    [
+      3e-15,
+      0.00025
+    ],
+    [
+      1e-14,
+      0.000298
+    ],
+    [
+      1e-12,
+      0.000298
+    ],
+    [
+      1e-10,
+      0.000298
+    ],
+    [
+      3e-10,
+      0.0003
+    ],
+    [
+      1e-09,
+      0.0004
+    ],
+    [
+      1e-08,
+      0.0006
+    ],
+    [
+      1e-07,
+      0.001
+    ],
+    [
+      1e-06,
+      0.0015
+    ],
+    [
+      1e-05,
+      0.002
+    ],
+    [
+      0.0001,
+      0.0025
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "Resonant-mass detectors (EP/Dy d_e constraints)",
+  "notes": "Paper proposes resonant-mass detectors to probe scalar DM (moduli) coupling to electron mass (d_me) and electromagnetic field (d_e). The exclusion/projection plot (Fig.1) covers both d_me and d_e couplings over mass range ~1e-22 to 1e-4 eV (frequencies 1 kHz - 1 GHz). Primarily projections (Cu-Si sphere, DUAL, quartz) plus a recast AURIGA limit and Earth seismology limit. Coupling type ScalarElectron (d_me) is one of two couplings shown; could also be ScalarPhoton (d_e). The only explicit numerical limit values given in text are EP/5F bounds and the Earth seismology limit |de+dme| < 2.5e-4 at f~8.1e-4 Hz; no tabulated curve data available. Numerical (mass, coupling) pairs for the projected detector curves are not provided in the text, only described qualitatively. | Vision: Figure 1 shows multiple coupling constraints (d_e and d_me) on the same vertical axis log10|d_i|. The plotted boundary traced is the lower envelope of d_e constraints: Dy d_e (purple) at low masses and EP d_e (orange dashed, ~2.98e-4) at intermediate masses. The natural d_e green band rises at high mass. Coupling type is ScalarPhoton (d_e, electromagnetic gauge modulus / fine-structure constant variation). Note the paper also discusses d_me (ScalarElectron); both appear in the same plot, hence reduced confidence on coupling assignment. | CV axis calibration succeeded (ranges consistent with LLM) | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity)",
+  "num_points": 27,
+  "elapsed_s": 45.7798228263855
+}

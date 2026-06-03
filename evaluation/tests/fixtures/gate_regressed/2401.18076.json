@@ -1,0 +1,101 @@
+{
+  "arxiv_id": "2401.18076",
+  "paper_title": "Searching for scalar field dark matter with LIGO",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      7.254e-05,
+      3e-21
+    ],
+    [
+      9.672000000000001e-05,
+      2e-21
+    ],
+    [
+      0.0001209,
+      1.5e-21
+    ],
+    [
+      0.00014508,
+      1.2000000000000002e-21
+    ],
+    [
+      0.00019344000000000002,
+      1e-21
+    ],
+    [
+      0.0002418,
+      9e-22
+    ],
+    [
+      0.00036270000000000003,
+      7.999999999999999e-22
+    ],
+    [
+      0.0004836,
+      7e-22
+    ],
+    [
+      0.0007254000000000001,
+      6.000000000000001e-22
+    ],
+    [
+      0.001209,
+      6.000000000000001e-22
+    ],
+    [
+      0.0019344,
+      6.000000000000001e-22
+    ],
+    [
+      0.002418,
+      6.000000000000001e-22
+    ],
+    [
+      0.004836,
+      6.000000000000001e-22
+    ],
+    [
+      0.007254,
+      6.000000000000001e-22
+    ],
+    [
+      0.01209,
+      7e-22
+    ],
+    [
+      0.019344,
+      7.999999999999999e-22
+    ],
+    [
+      0.02418,
+      9e-22
+    ],
+    [
+      0.03627,
+      1.2000000000000002e-21
+    ],
+    [
+      0.04836,
+      1.5999999999999999e-21
+    ],
+    [
+      0.060450000000000004,
+      2.5000000000000002e-21
+    ],
+    [
+      0.07254,
+      4e-21
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "LIGO O3 scalar dark matter",
+  "notes": "LIGO O3 search for scalar field dark matter via beamsplitter/test-mass size oscillations. Sets 95% C.L. upper limits on both d_e (coupling to photons/alpha, Lambda_gamma; ScalarPhoton) and d_me (coupling to electron mass, Lambda_e; ScalarElectron) as a function of mass over a band 10 Hz - 5000 Hz (~4e-14 eV to ~2e-11 eV), with main improvement 10-180 Hz (~5e-14 to ~1e-12 eV). The analysis uses mu=Lambda_i^-2 and cannot distinguish the two couplings (assumes the other is null), so both ScalarPhoton (d_e) and ScalarElectron (d_me) are constrained in separate panels (Fig. 3a for Lambda_e, 3b for Lambda_gamma). No numerical tables or explicit limit values are provided in the text; limits are shown only in smoothed plots, so no data points are extractable. Local DM density assumed rho_CDM = 0.4 GeV/cm^3. | Vision: Plot b) shows Lambda_gamma^-1 limit corresponding to d_e (ScalarPhoton). The blue filled LIGO exclusion region's lower boundary is traced. Y-axis is Lambda^-1 in GeV^-1 with secondary d_e axis; values reported in d_e units approximately. Boundary is broadly flat across ~1e-12 to 1e-10 eV with minimum near 6e-20. | CV axis calibration: y-min corrected 1e-25->2.06506e-26; CV axis calibration: y-max corrected 1e-08->2.9085e+13; | Calibration: Vision calibration: \u00d71e-2 (factor=1.00e-02, reason=spot-check verify/stage2, raw_ratio=0.02) | Auto-corrected masses: 1/(eV\u2192MHz) i.e. MHz\u2192eV inverse (\u00d72.418e+08, rule=argmin|log10(median*f)-log10(anchor=1.0e-03)|)",
+  "num_points": 21,
+  "elapsed_s": 29.787766933441162
+}

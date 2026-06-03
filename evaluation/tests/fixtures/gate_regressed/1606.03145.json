@@ -1,0 +1,16 @@
+{
+  "arxiv_id": "1606.03145",
+  "paper_title": "The topological susceptibility in finite temperature QCD and axion cosmology",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "HotQCD_chi_t_2016",
+  "notes": "Lattice QCD study of topological susceptibility yielding a bound on the axion decay constant f_a <= 1.2e12 GeV in the f_a - T_osc plane. This is an AxionMass-type result (f_a bound). However, the main figure (Fig. 6) plots f_a vs T_osc (oscillation temperature), not f_a vs m_a, so a clean set of (mass_eV, f_a) data points is not extractable. Only a single bound f_a <= 1.2e12 GeV is quoted in text; no tabulated coupling-vs-mass data is available.",
+  "num_points": 0,
+  "elapsed_s": 15.647135019302368
+}

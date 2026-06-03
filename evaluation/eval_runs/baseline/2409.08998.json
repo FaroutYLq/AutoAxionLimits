@@ -1,0 +1,161 @@
+{
+  "arxiv_id": "2409.08998",
+  "paper_title": "Dark Matter Axion Search with HAYSTAC Phase II",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.696e-05,
+      3.3e-14
+    ],
+    [
+      1.7e-05,
+      3.2e-14
+    ],
+    [
+      1.705e-05,
+      3e-14
+    ],
+    [
+      1.71e-05,
+      3.3e-14
+    ],
+    [
+      1.715e-05,
+      3.4e-14
+    ],
+    [
+      1.72e-05,
+      3.1e-14
+    ],
+    [
+      1.728e-05,
+      3e-14
+    ],
+    [
+      1.74e-05,
+      3.2e-14
+    ],
+    [
+      1.75e-05,
+      3.3e-14
+    ],
+    [
+      1.76e-05,
+      3e-14
+    ],
+    [
+      1.77e-05,
+      3.1e-14
+    ],
+    [
+      1.78e-05,
+      3.3e-14
+    ],
+    [
+      1.789e-05,
+      3e-14
+    ],
+    [
+      1.8e-05,
+      3.2e-14
+    ],
+    [
+      1.808e-05,
+      3.1e-14
+    ],
+    [
+      1.813e-05,
+      3e-14
+    ],
+    [
+      1.818e-05,
+      3.3e-14
+    ],
+    [
+      1.83e-05,
+      3.2e-14
+    ],
+    [
+      1.844e-05,
+      3e-14
+    ],
+    [
+      1.86e-05,
+      3.4e-14
+    ],
+    [
+      1.871e-05,
+      3.1e-14
+    ],
+    [
+      1.88e-05,
+      3.3e-14
+    ],
+    [
+      1.9e-05,
+      3.2e-14
+    ],
+    [
+      1.92e-05,
+      3.4e-14
+    ],
+    [
+      1.94e-05,
+      3.2e-14
+    ],
+    [
+      1.946e-05,
+      3e-14
+    ],
+    [
+      2.3e-05,
+      4e-14
+    ],
+    [
+      2.31e-05,
+      3.8e-14
+    ],
+    [
+      2.325e-05,
+      3.6e-14
+    ],
+    [
+      2.34e-05,
+      3.5e-14
+    ],
+    [
+      2.35e-05,
+      3.8e-14
+    ],
+    [
+      2.36e-05,
+      3.6e-14
+    ],
+    [
+      2.375e-05,
+      4.2e-14
+    ],
+    [
+      2.38e-05,
+      3.7e-14
+    ],
+    [
+      2.39e-05,
+      3.6e-14
+    ],
+    [
+      2.4e-05,
+      3.8e-14
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "HAYSTAC Phase II",
+  "notes": " | Vision: Y-axis plotted in units of |g_gamma/g_gamma^KSVZ|. Converted using g_agamma^KSVZ ~ 1.2e-14 GeV^-1 at 18 ueV (scales linearly with mass). Lower exclusion boundary follows red dashed line ~2.86xKSVZ with spiky variations 2.5-3.4x. Two mass bands: Phase II c/d (17.28-19.46 ueV, blue/magenta) and Phase I (23-24 ueV, orange). Mode crossing gaps at 17.89-18.08 and 18.13-18.18 ueV. Coupling values approximate due to KSVZ calibration uncertainty. | Calibration: Benchmark KSVZ consistent (ratio=0.58) | No calibration needed",
+  "num_points": 36,
+  "elapsed_s": 66.55675411224365
+}

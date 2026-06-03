@@ -8,6 +8,7 @@ on:
     paths:
       - "evaluation/metrics.py"
       - "evaluation/evaluate.py"
+      - "evaluation/gate.py"
       - "evaluation/tests/**"
       - "pipeline/transform_guard.py"
       - "pipeline/extractor.py"
@@ -16,6 +17,7 @@ on:
     paths:
       - "evaluation/metrics.py"
       - "evaluation/evaluate.py"
+      - "evaluation/gate.py"
       - "evaluation/tests/**"
       - "pipeline/transform_guard.py"
       - "pipeline/extractor.py"

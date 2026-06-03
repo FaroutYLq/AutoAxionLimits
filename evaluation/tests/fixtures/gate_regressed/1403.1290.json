@@ -1,0 +1,121 @@
+{
+  "arxiv_id": "1403.1290",
+  "paper_title": "Resonant detection of axion mediated forces with Nuclear Magnetic Resonance",
+  "coupling_type": "MonopoleDipole",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      0.00658,
+      8e-30
+    ],
+    [
+      0.005,
+      1e-29
+    ],
+    [
+      0.0035,
+      1.5e-29
+    ],
+    [
+      0.0025,
+      2e-29
+    ],
+    [
+      0.0018,
+      3e-29
+    ],
+    [
+      0.0013,
+      4.5e-29
+    ],
+    [
+      0.0009,
+      6e-29
+    ],
+    [
+      0.00066,
+      8e-29
+    ],
+    [
+      0.00045,
+      1e-28
+    ],
+    [
+      0.00033,
+      1.5e-28
+    ],
+    [
+      0.00025,
+      2e-28
+    ],
+    [
+      0.000197,
+      2.5e-28
+    ],
+    [
+      0.00013,
+      3.5e-28
+    ],
+    [
+      9e-05,
+      5e-28
+    ],
+    [
+      6.6e-05,
+      8e-28
+    ],
+    [
+      4.5e-05,
+      1.2e-27
+    ],
+    [
+      3.3e-05,
+      1.8e-27
+    ],
+    [
+      2.5e-05,
+      2.5e-27
+    ],
+    [
+      1.97e-05,
+      3.5e-27
+    ],
+    [
+      1.3e-05,
+      5e-27
+    ],
+    [
+      9e-06,
+      8e-27
+    ],
+    [
+      6.6e-06,
+      1.2e-26
+    ],
+    [
+      4.5e-06,
+      1.8e-26
+    ],
+    [
+      3.3e-06,
+      2.5e-26
+    ],
+    [
+      2.5e-06,
+      3e-26
+    ],
+    [
+      1.97e-06,
+      3.5e-26
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "NMR axion-mediated force search (Arvanitaki-Geraci) - existing bounds",
+  "notes": "Proposal/projection paper for resonant NMR detection of axion-mediated monopole-dipole (g_sN*g_pN) and dipole-dipole spin-dependent forces using hyperpolarized 3He. The main monopole-dipole reach (Fig. 2) plots |g_sN g_pN| vs force range/fa. This is the MonopoleDipole coupling. However, data is presented only graphically (Figs. 2 and 3) with no numerical table of points, so no reliable (mass, coupling) pairs could be extracted. Force range 0.01-10 cm maps to axion masses ~10^-6 to 10^-3 eV. The paper also discusses dipole-dipole (AxionNeutron/AxionElectron) projections and a dark photon kinetic mixing reach (~10^-12 at mm range). | Vision: Figure 2 monopole-dipole plot. X-axis 'Force Range in cm' converted to axion mass via m_a = 1.973e-5 eV\u00b7cm / lambda[cm]. Top x-axis shows f_a in GeV (1e9-1e12). The lower boundary traced is the lower edge of the combined 'Astrophysical and Experimental Bounds' shaded region (existing constraints). Y-axis is |g_s^N g_p^N| (monopole-dipole product). Values approximate from log-log plot reading. | CV calibration unavailable (no plot region), used LLM axes | Calibration: No calibration needed",
+  "num_points": 26,
+  "elapsed_s": 43.832878828048706
+}

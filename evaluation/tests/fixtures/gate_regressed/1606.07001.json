@@ -1,0 +1,16 @@
+{
+  "arxiv_id": "1606.07001",
+  "paper_title": "DARWIN: towards the ultimate dark matter detector",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "DARWIN",
+  "notes": "DARWIN projection paper for galactic ALPs and solar axions via axio-electric effect, constraining g_Ae. Figure 4 shows sensitivity projections (solar g_Ae ~ improving XENON100's 7.7e-12 by ~1 order; galactic ALP g_Ae improving by ~2 orders over XENON100's 2e-12), but no numerical exclusion table or extractable curve points are provided in the text. Only descriptive sensitivity improvements given. Coupling type is AxionElectron, but no concrete (mass, coupling) data points could be extracted. Local DM density rho0=0.3 GeV/cm^3 stated for galactic ALPs constituting DM.",
+  "num_points": 0,
+  "elapsed_s": 18.571632146835327
+}

@@ -1,0 +1,53 @@
+{
+  "arxiv_id": "2403.13390",
+  "paper_title": "Search for Dark Matter Axions with Tunable TM_020 mode",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.14e-05,
+      1e-13
+    ],
+    [
+      2.145e-05,
+      9.5e-14
+    ],
+    [
+      2.15e-05,
+      9e-14
+    ],
+    [
+      2.155e-05,
+      9.3e-14
+    ],
+    [
+      2.16e-05,
+      8.8e-14
+    ],
+    [
+      2.165e-05,
+      9e-14
+    ],
+    [
+      2.17e-05,
+      8.5e-14
+    ],
+    [
+      2.175e-05,
+      8.8e-14
+    ],
+    [
+      2.18e-05,
+      9.2e-14
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "CAPP TM020 tunable cavity haloscope",
+  "notes": "Cavity haloscope search using tunable TM020 mode, mass range 21.38-21.79 ueV (5.17-5.27 GHz). Limit reported as g_agamma > 12.0 x g_KSVZ (90% CL), approximately 10^-13 GeV^-1. KSVZ coupling at ~21.6 ueV is ~8e-15 GeV^-1, so 12x ~ 1e-13 GeV^-1. Exact per-frequency values not tabulated in text; data points are approximate from abstract/text statement. Local DM density assumed rho=0.45 GeV/cm^3. | Vision: Main result ('This work') is in the inset spanning ~21.4-21.8 ueV. The exclusion is given as ratio g_agamma/g_agamma^KSVZ ~ 10-25. With KSVZ ~6e-15 GeV^-1 at this mass, the limit is approximately ~1e-13 GeV^-1. Data points reconstructed from inset which shows red filled region; coupling values estimated from ratio times KSVZ value. Mass range narrow so few distinct points. | Calibration: Benchmark KSVZ consistent (ratio=1.38) | No calibration needed",
+  "num_points": 9,
+  "elapsed_s": 30.131322145462036
+}

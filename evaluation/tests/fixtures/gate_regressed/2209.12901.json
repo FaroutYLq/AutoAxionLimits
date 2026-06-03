@@ -1,0 +1,93 @@
+{
+  "arxiv_id": "2209.12901",
+  "paper_title": "Discovering QCD-Coupled Axion Dark Matter with Polarization Haloscopes",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      24.18,
+      1.75e-13
+    ],
+    [
+      36.269999999999996,
+      2.6e-13
+    ],
+    [
+      48.36,
+      3.5e-13
+    ],
+    [
+      72.53999999999999,
+      5.3e-13
+    ],
+    [
+      120.89999999999999,
+      8.800000000000001e-13
+    ],
+    [
+      169.26,
+      1.23e-12
+    ],
+    [
+      241.79999999999998,
+      1.75e-12
+    ],
+    [
+      362.7,
+      2.6000000000000002e-12
+    ],
+    [
+      483.59999999999997,
+      3.5e-12
+    ],
+    [
+      725.4,
+      5.3e-12
+    ],
+    [
+      1209.0,
+      8.8e-12
+    ],
+    [
+      1692.6,
+      1.23e-11
+    ],
+    [
+      2418.0,
+      1.75e-11
+    ],
+    [
+      3627.0,
+      2.5999999999999997e-11
+    ],
+    [
+      4836.0,
+      3.5e-11
+    ],
+    [
+      7254.0,
+      5.3e-11
+    ],
+    [
+      12090.0,
+      8.799999999999999e-11
+    ],
+    [
+      16926.0,
+      1.2300000000000001e-10
+    ],
+    [
+      24180.0,
+      1.7500000000000002e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.35,
+  "suggested_experiment_name": "Polarization Haloscope (Berlin & Zhou)",
+  "notes": "Projection (SNR>=2) for a proposed 'polarization haloscope' targeting the QCD axion-gluon coupling. The exclusion plot (Fig. 2) is on the 1/fa (GeV^-1) vs ma (eV) plane, spanning roughly ma ~ 1e-7 to 1e-4 eV and 1/fa ~ 1e-14 to 1e-5 GeV^-1. This is essentially a bound on the axion decay constant fa, hence AxionMass coupling type is most appropriate (the physical observable is the oscillating EDM dn ~ theta_a, related to gluon coupling and fa). No numerical table of the projected sensitivity curves is provided; only a figure exists, so no reliable data points could be extracted. Pre-analysis hint suggested AxionEDM, but the main exclusion plot y-axis is 1/fa not d_n, so AxionMass was chosen. Three benchmarks: 100L prototype (thermal), hyperpolarized cubic meter, post-discovery upgrade (tint=1yr). | Vision: This is a projected sensitivity plot with y-axis 1/f_a (GeV^-1) vs m_a (eV), NOT a standard exclusion limit. The y-axis is the inverse decay constant 1/f_a, not f_a or m_a as the AxionMass type expects. The traced 'lower boundary' here is the green QCD Axion theory line (canonical m_a-f_a relation from Eq. 2: m_a=5.7 ueV x 10^12 GeV/f_a). The shaded regions (blue scanning setups, CASPEr, storage ring) are projections, and SN1987A/Sun (gray) are upper-region constraints. Coupling type mapping to AxionMass is approximate since y-axis is 1/f_a, not f_a in GeV. Confidence low due to axis/coupling-type mismatch. | CV calibration unavailable (no plot region), used LLM axes | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=18.87) | Auto-corrected masses: 1/(eV\u2192MHz) i.e. MHz\u2192eV inverse (\u00d72.418e+08, rule=argmin|log10(median*f)-log10(anchor=1.0e+03)|)",
+  "num_points": 19,
+  "elapsed_s": 47.27413201332092
+}

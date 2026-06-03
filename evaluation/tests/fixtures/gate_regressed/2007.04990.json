@@ -1,0 +1,77 @@
+{
+  "arxiv_id": "2007.04990",
+  "paper_title": "More Axions from Strings",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      300.0,
+      6e-13
+    ],
+    [
+      500.0,
+      5e-13
+    ],
+    [
+      1000.0,
+      6e-13
+    ],
+    [
+      2000.0,
+      7e-13
+    ],
+    [
+      4000.0,
+      4e-13
+    ],
+    [
+      7000.0,
+      3e-13
+    ],
+    [
+      10000.0,
+      3e-13
+    ],
+    [
+      20000.0,
+      4e-13
+    ],
+    [
+      40000.0,
+      6e-13
+    ],
+    [
+      70000.0,
+      9e-13
+    ],
+    [
+      100000.0,
+      1.2e-12
+    ],
+    [
+      200000.0,
+      2e-12
+    ],
+    [
+      400000.0,
+      4e-12
+    ],
+    [
+      700000.0,
+      6e-12
+    ],
+    [
+      1000000.0,
+      1e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "SN1987a (axion-photon landscape)",
+  "notes": "Theoretical/numerical study of QCD axion dark matter abundance from string defects in the post-inflationary scenario. The paper derives a lower bound on the QCD axion mass (m_a vs f_a relation). However, the truncated content does not contain the final numerical exclusion bound on the axion mass (the Results section in Section 4 is cut off). No explicit (mass, coupling) data points or f_a-m_a values could be extracted. The relevant quantity constrained is the QCD axion mass / decay constant, hence AxionMass, but no extractable numerical limit is present in the provided text. | Vision: This is an axion-photon coupling (g_a\u03b3\u03b3) landscape plot, NOT an f_a vs m_a plane plot as hinted. Y-axis is |g_a\u03b3\u03b3|/GeV\u207b\u00b9. The paper's actual result is the red 'pre-inflationary' mass-range bar at the bottom (around 1e-3 eV to upper bound), indicating a lower bound on the QCD axion mass. The traced points approximate the SN1987a lower exclusion boundary, but coupling type is AxionPhoton, not AxionMass. Confidence low because the requested AxionMass interpretation does not match this plot's axes. | CV axis calibration succeeded (ranges consistent with LLM) | Calibration: No calibration needed | Auto-corrected masses: MeV\u2192eV (\u00d71.000e+06, rule=argmin|log10(median*f)-log10(anchor=1.0e+03)|)",
+  "num_points": 15,
+  "elapsed_s": 31.233189344406128
+}

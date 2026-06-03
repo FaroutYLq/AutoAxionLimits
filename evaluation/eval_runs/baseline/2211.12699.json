@@ -1,0 +1,21 @@
+{
+  "arxiv_id": "2211.12699",
+  "paper_title": "Search for an axion-like particle in radiative $J/\u03c8$ decays",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      250000000.0,
+      0.0003
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "BESIII_Jpsi_ALP",
+  "notes": "BESIII search for ALP in J/psi radiative decays, a->gamma gamma, mass range 0.165-2.84 GeV. Coupling type is clearly AxionPhoton (g_agamma). Only an approximate single data point is extractable from text: g_agamma > 3e-4 GeV^-1 excluded near m_a ~ 0.25 GeV (=2.5e8 eV). The full exclusion curve is in Fig. 6 but numerical values are not tabulated. Most stringent limit for 0.165-1.468 GeV. Collider bound, not DM haloscope, so no DM density.",
+  "num_points": 1,
+  "elapsed_s": 30.087764978408813
+}

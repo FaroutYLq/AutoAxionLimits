@@ -1,0 +1,16 @@
+{
+  "arxiv_id": "2008.05355",
+  "paper_title": "Measurement of light-by-light scattering and search for axion-like particles with 2.2 nb$^{-1}$ of Pb+Pb data with the ATLAS detector",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "ATLAS_LbyL_PbPb_2021",
+  "notes": "ATLAS light-by-light scattering search in Pb+Pb collisions sets 95% CL limits on ALP-photon coupling 1/Lambda_a for masses 6-100 GeV. The limit is reported as 1/Lambda_a ranging from 0.3 TeV^-1 (at low mass) to 0.06 TeV^-1, where 1/Lambda_a corresponds to g_agamma (in GeV^-1, i.e. 0.3 TeV^-1 = 3e-4 GeV^-1, 0.06 TeV^-1 = 6e-5 GeV^-1). However, no per-mass numerical data table is given in the text (only a plot, Figure 9/10). Specific (mass, coupling) pairs cannot be reliably extracted from the text/figures provided, so data_points left empty. This is a collider/ALP production bound, not a DM haloscope, so no DM density assumed.",
+  "num_points": 0,
+  "elapsed_s": 29.88031315803528
+}

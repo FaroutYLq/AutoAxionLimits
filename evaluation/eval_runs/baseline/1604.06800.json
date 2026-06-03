@@ -1,0 +1,149 @@
+{
+  "arxiv_id": "1604.06800",
+  "paper_title": "Detecting Ultralight Bosonic Dark Matter via Absorption in Superconductors",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      0.0012,
+      1e-08
+    ],
+    [
+      0.0015,
+      1e-09
+    ],
+    [
+      0.0018,
+      1e-10
+    ],
+    [
+      0.0022,
+      5e-11
+    ],
+    [
+      0.0026,
+      3e-11
+    ],
+    [
+      0.0028,
+      1e-11
+    ],
+    [
+      0.003,
+      3e-12
+    ],
+    [
+      0.0035,
+      1e-12
+    ],
+    [
+      0.0045,
+      5e-13
+    ],
+    [
+      0.006,
+      2e-13
+    ],
+    [
+      0.008,
+      1e-13
+    ],
+    [
+      0.012,
+      5e-14
+    ],
+    [
+      0.018,
+      2.5e-14
+    ],
+    [
+      0.025,
+      1.5e-14
+    ],
+    [
+      0.035,
+      9e-15
+    ],
+    [
+      0.05,
+      6e-15
+    ],
+    [
+      0.07,
+      4.5e-15
+    ],
+    [
+      0.1,
+      3.5e-15
+    ],
+    [
+      0.15,
+      2.8e-15
+    ],
+    [
+      0.2,
+      2.3e-15
+    ],
+    [
+      0.3,
+      1.8e-15
+    ],
+    [
+      0.4,
+      1.4e-15
+    ],
+    [
+      0.6,
+      1e-15
+    ],
+    [
+      0.8,
+      8e-16
+    ],
+    [
+      1.0,
+      7e-16
+    ],
+    [
+      1.3,
+      9e-16
+    ],
+    [
+      1.6,
+      6e-16
+    ],
+    [
+      2.0,
+      4e-16
+    ],
+    [
+      3.0,
+      2.8e-16
+    ],
+    [
+      4.0,
+      2e-16
+    ],
+    [
+      6.0,
+      1.3e-16
+    ],
+    [
+      8.0,
+      9e-17
+    ],
+    [
+      10.0,
+      6e-17
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "Al superconductor (1 kg-yr projection)",
+  "notes": "Projection (sensitivity, not measured limit) for absorption of kinetically mixed hidden photon DM in an Al superconductor target (1 kg-yr exposure). Paper also presents projections for pseudoscalar (g_aee, Fig 4) and scalar (d_phiee, Fig 5) couplings. Dark photon (kinetic mixing kappa) chosen as primary result per Fig 3. Data points are rough reads from log-log plot for the kg-yr curve; approximate. rho_DM=0.3 GeV/cm^3 assumed. 95% CL stated in text. | Vision: Traced the thick solid black '1 kg-yr' Al superconductor projected sensitivity curve (lower boundary of reach) in Fig. 3. Y-axis is kinetic mixing kappa. Curve rises steeply at low mass (~1-3 meV) then declines toward high mass. Dip near omega_D ~0.037 eV and small bumps from sigma_1 structure visible. | Calibration: No calibration needed",
+  "num_points": 33,
+  "elapsed_s": 39.7931342124939
+}

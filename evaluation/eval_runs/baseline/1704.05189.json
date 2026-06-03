@@ -1,0 +1,53 @@
+{
+  "arxiv_id": "1704.05189",
+  "paper_title": "Axion-Like Particles and Recent Observations of the Cosmic Infrared Background Radiation",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-10,
+      1.5e-11
+    ],
+    [
+      3e-10,
+      1.5e-11
+    ],
+    [
+      1e-09,
+      1.5e-11
+    ],
+    [
+      3e-09,
+      1.5e-11
+    ],
+    [
+      1e-08,
+      1.5e-11
+    ],
+    [
+      3e-08,
+      1.5e-11
+    ],
+    [
+      1e-07,
+      1.5e-11
+    ],
+    [
+      3e-07,
+      1.5e-11
+    ],
+    [
+      1e-06,
+      1.5e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.45,
+  "suggested_experiment_name": "CAST (shown in CIBER ALP paper Fig. 5)",
+  "notes": "Paper identifies an ALLOWED region (not exclusion) in the (m_a, g_agamma) plane that resolves the tension between CIBER CIB data and TeV gamma-ray transparency. The region spans m_a ~ 7e-10 to 5e-8 eV and g_agamma ~ 1.5e-11 to 8.8e-10 GeV^-1. Data points given are corner bounds from the text; the actual contour (Fig.5) is not numerically tabulated. This is a preferred/allowed region rather than a conventional exclusion limit, hence moderate confidence. | Vision: Figure 5 shows ALLOWED regions (closed contours) for CIBER-only and CIBER+IRTS+AKARI, not a conventional exclusion limit. The only true exclusion boundary is the horizontal CAST line at g_agamma ~ 8.8e-11 GeV^-1 (region above is excluded for m_a < 0.02 eV). The closed contours represent allowed parameter space resolving the gamma-ray transparency tension (m_a ~ 7e-10 to 5e-8 eV, g_agamma ~ 1.5e-11 to 8.8e-10 GeV^-1). Low confidence because this is not a standard exclusion plot; the extracted boundary is the CAST constraint only. | Calibration: Spot-check calibration: verify/stage2 ratio=0.2x",
+  "num_points": 9,
+  "elapsed_s": 38.51774787902832
+}

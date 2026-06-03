@@ -1,0 +1,89 @@
+{
+  "arxiv_id": "2209.12901",
+  "paper_title": "Discovering QCD-Coupled Axion Dark Matter with Polarization Haloscopes",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      1e-07,
+      3e-07
+    ],
+    [
+      1.5e-07,
+      3e-07
+    ],
+    [
+      2e-07,
+      3e-07
+    ],
+    [
+      3e-07,
+      3e-07
+    ],
+    [
+      4e-07,
+      3e-07
+    ],
+    [
+      5e-07,
+      3e-07
+    ],
+    [
+      7e-07,
+      3e-07
+    ],
+    [
+      1e-06,
+      3e-07
+    ],
+    [
+      1.5e-06,
+      3e-07
+    ],
+    [
+      2e-06,
+      3e-07
+    ],
+    [
+      3e-06,
+      3e-07
+    ],
+    [
+      5e-06,
+      3e-07
+    ],
+    [
+      7e-06,
+      3e-07
+    ],
+    [
+      1e-05,
+      3e-07
+    ],
+    [
+      2e-05,
+      3e-07
+    ],
+    [
+      3e-05,
+      3e-07
+    ],
+    [
+      5e-05,
+      3e-07
+    ],
+    [
+      0.0001,
+      3e-07
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "Polarization Haloscope (projected) \u2014 Solar/SN1987A constraint boundary",
+  "notes": "This is a proposal/projection paper for a 'polarization haloscope' to probe the QCD axion-gluon coupling. The exclusion plot (Fig. 2) plots projected sensitivity in terms of 1/fa (GeV^-1) vs ma (eV), spanning roughly ma ~ 1e-7 to 1e-4 eV and 1/fa ~ 1e-14 to 1e-5 GeV^-1. The physical signal arises from oscillating atomic EDMs proportional to the axion field (QCD-coupled axion / axion-gluon coupling), which is closest to AxionEDM/AxionMass physics, but the y-axis quantity is 1/fa, not g_agamma, d_n, or m_a directly. The pre-analysis hint of AxionEDM is reasonable in spirit (EDM-based detection), but the plotted result is on the 1/fa vs ma plane. No numerical table of projected limit points is provided; only a figure exists. Coupling type is genuinely ambiguous between AxionEDM (the underlying signal) and AxionMass (the f_a-m_a plane plotted), hence low extraction confidence. No tabulated data points could be extracted. | Vision: WARNING: The y-axis of this plot is 1/f_a (GeV^-1), NOT g_agamma. This is a 1/f_a vs m_a plane, not a standard axion-photon coupling plot. The traced lower boundary corresponds to the 'Sun' constraint (~3e-7 GeV^-1), which forms the lower edge of the existing-constraint excluded region. The shaded regions (100 L Prototype, Hyperpolarized Cubic Meter) are projected sensitivities, not constraints. Coupling type mapping to AxionPhoton is questionable since the axis is 1/f_a; could be considered AxionMass-related. Extraction confidence is low due to axis ambiguity. The green 'QCD Axion' line runs diagonally from ~1.5e-14 at m_a=1e-7 to higher values. | Calibration: No calibration needed",
+  "num_points": 18,
+  "elapsed_s": 50.1255738735199
+}

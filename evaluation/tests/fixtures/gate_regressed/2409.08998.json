@@ -1,0 +1,33 @@
+{
+  "arxiv_id": "2409.08998",
+  "paper_title": "Dark Matter Axion Search with HAYSTAC Phase II",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.728e-05,
+      1e-14
+    ],
+    [
+      1.844e-05,
+      1e-14
+    ],
+    [
+      1.871e-05,
+      1.2e-14
+    ],
+    [
+      1.946e-05,
+      1.2e-14
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "HAYSTAC_PhaseII",
+  "notes": "HAYSTAC Phase IIc/d axion haloscope search. Limits reported as multiples of KSVZ: |g_gamma|>=2.75x KSVZ over 17.28-18.44 ueV (Phase IId) and >=2.96x KSVZ over 18.71-19.46 ueV (Phase IIc), 90% CL. Combined Phase II: 2.86x KSVZ over 16.96-19.46 ueV. Absolute g_agamma values are approximate conversions from KSVZ units (g_aGG^KSVZ ~ 2.1e-16 x m_a[ueV] GeV^-1); original paper reports relative coupling g_gamma/g_gamma^KSVZ. Local DM density rho_a=0.45 GeV/cm^3. Mode crossings 17.89-18.08 and 18.13-18.18 ueV excluded from analysis.",
+  "num_points": 4,
+  "elapsed_s": 19.107578992843628
+}

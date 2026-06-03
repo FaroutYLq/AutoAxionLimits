@@ -1,0 +1,21 @@
+{
+  "arxiv_id": "1310.8098",
+  "paper_title": "First results of the CERN Resonant WISP Search (CROWS)",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.08e-05,
+      4.1e-09
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "CROWS",
+  "notes": "Microwave light-shining-through-wall (LSW) experiment at CERN. Reports both ALP (g_agamma = 4.5e-8 GeV^-1 at m_a = 7.2 ueV) and hidden sector photon / dark photon (chi = 4.1e-9 at m_gamma' = 10.8 ueV) limits. The HSP/dark photon result probes previously unexplored parameter space and is the headline new result (Fig. 14). Mixing parameter chi reported as kinetic mixing. Only single most-sensitive points given in text; full exclusion curves in Figs 13/14 not numerically tabulated. CL = 95%. ALP point (1.08e-5... actually 7.2e-6 eV, 4.5e-8 GeV^-1) is an AxionPhoton limit available if needed but not from a microwave haloscope DM search, so no DM density. Extraction confidence reduced because paper constrains two coupling types.",
+  "num_points": 1,
+  "elapsed_s": 19.174575090408325
+}

@@ -1,0 +1,137 @@
+{
+  "arxiv_id": "2212.01139",
+  "paper_title": "Millimeter-wave WISP search with coherent Light-Shining-Through-a-Wall towards the STAX project",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      3.2e-06,
+      9.722222222222224e-07
+    ],
+    [
+      4e-06,
+      5.555555555555556e-07
+    ],
+    [
+      5e-06,
+      3.4722222222222224e-07
+    ],
+    [
+      6e-06,
+      2.0833333333333333e-07
+    ],
+    [
+      8e-06,
+      1.1111111111111112e-07
+    ],
+    [
+      1e-05,
+      5.555555555555556e-08
+    ],
+    [
+      1.3e-05,
+      2.777777777777778e-08
+    ],
+    [
+      1.6e-05,
+      1.8055555555555556e-08
+    ],
+    [
+      2e-05,
+      1.2500000000000001e-08
+    ],
+    [
+      2.5e-05,
+      9.027777777777778e-09
+    ],
+    [
+      3e-05,
+      6.944444444444445e-09
+    ],
+    [
+      3.7e-05,
+      9.722222222222223e-09
+    ],
+    [
+      4e-05,
+      6.2500000000000005e-09
+    ],
+    [
+      5e-05,
+      5.555555555555556e-09
+    ],
+    [
+      6e-05,
+      5.277777777777778e-09
+    ],
+    [
+      7e-05,
+      5e-09
+    ],
+    [
+      8e-05,
+      4.861111111111111e-09
+    ],
+    [
+      9e-05,
+      1.1111111111111112e-08
+    ],
+    [
+      9.5e-05,
+      4.861111111111111e-09
+    ],
+    [
+      0.00011,
+      5.555555555555556e-09
+    ],
+    [
+      0.00013,
+      8.333333333333334e-09
+    ],
+    [
+      0.00015,
+      4.861111111111111e-09
+    ],
+    [
+      0.0002,
+      5.555555555555556e-09
+    ],
+    [
+      0.00025,
+      1.1111111111111112e-08
+    ],
+    [
+      0.0003,
+      2.0833333333333335e-08
+    ],
+    [
+      0.00035,
+      4.166666666666667e-09
+    ],
+    [
+      0.0004,
+      1.388888888888889e-08
+    ],
+    [
+      0.00045,
+      4.861111111111111e-09
+    ],
+    [
+      0.0005,
+      1.1111111111111112e-08
+    ],
+    [
+      0.00055,
+      4.166666666666667e-09
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "STAX LSW Stage C (projection)",
+  "notes": "Projection (2-sigma) for a millimeter-wave LSW dark photon search at 30 GHz (mass range ~1e-4 to 1e-3 eV). This is an LSW proposal, NOT a dark matter haloscope, so no local DM density applies. The paper reports kinetic mixing chi sensitivity. Exclusion limits shown only in projection figures (Fig 6/7) generated from C. O'Hare AxionLimits; the only explicitly quoted numerical sensitivity in text is chi~1e-8 around m~1e-4 eV for the low-power Stage A. Stages B and C reach lower chi but no exact numbers given in text. Data points are rough estimates from text only \u2014 figure data not numerically tabulated. Confidence kept moderate due to lack of tabulated curve values. | Vision: Plot shows projected sensitivities (Stage A green, Stage B blue, Stage C red) for a coherent LSW dark photon search. The lower boundary traced corresponds to Stage C (the most sensitive, lowest red curve). These are projected reach curves, not yet exclusion limits. Peaks correspond to resonant cavity modes. | Calibration: Spot-check calibration: verify/stage2 ratio=13.9x",
+  "num_points": 30,
+  "elapsed_s": 29.63612699508667
+}

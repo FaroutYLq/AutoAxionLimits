@@ -1,0 +1,16 @@
+{
+  "arxiv_id": "2008.05355",
+  "paper_title": "Measurement of light-by-light scattering and search for axion-like particles with 2.2 nb$^{-1}$ of Pb+Pb data with the ATLAS detector",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "ATLAS_LbyL_PbPb_2021",
+  "notes": "ATLAS Pb+Pb light-by-light scattering search for axion-like particles via gamma gamma -> a -> gamma gamma. The result is presented as 95% CL limits on the ALP coupling 1/Lambda_a (TeV^-1) vs ALP mass m_a (6-100 GeV). Limits on 1/Lambda_a range from 0.3 TeV^-1 (at low mass) to 0.06 TeV^-1 (at high mass). This is an ALP-photon coupling (related to g_agamma by g_agamma = 1/Lambda_a). No numerical table of individual (mass, coupling) points is provided in the text; only the overall range is quoted and the curve is shown in Figures 9/10. Note the coupling here is given as 1/Lambda_a in TeV^-1 rather than g_agamma in GeV^-1; conversion: 0.3 TeV^-1 = 3e-4 GeV^-1, 0.06 TeV^-1 = 6e-5 GeV^-1. No extractable point-by-point data available, so data_points left empty.",
+  "num_points": 0,
+  "elapsed_s": 36.5038480758667
+}
