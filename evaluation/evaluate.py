@@ -231,7 +231,11 @@ def run_extraction(entry: GroundTruthEntry) -> dict:
     """
     import anthropic
 
-    from pipeline.extractor import ExtractionResult, download_pdf, run_extraction_agent
+    from pipeline.extractor import (
+        ExtractionResult,
+        download_pdf,
+        run_extraction_agent_voted,
+    )
 
     client = anthropic.Anthropic()
 
@@ -267,7 +271,7 @@ def run_extraction(entry: GroundTruthEntry) -> dict:
             }
 
         try:
-            result: ExtractionResult = run_extraction_agent(
+            result: ExtractionResult = run_extraction_agent_voted(
                 paper_stub, pdf_path, client
             )
         except Exception as e:
