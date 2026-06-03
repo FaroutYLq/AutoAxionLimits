@@ -1,0 +1,16 @@
+# Raw per-paper extraction snapshots and run logs are large and reproducible
+# (regenerate with `python -m evaluation.subset_eval extract ...`). Track only
+# the derived reports + roadmap design docs.
+before/
+after/
+after_561fix/
+before_repeats/
+after_repeats/
+after_561fix_repeats/
+paper_logs/
+*.log
+
+# Drafts that were already filed as GitHub issues/PRs (kept locally only).
+comment_*.md
+new_issue_*.md
+roadmap_design/issues/

@@ -1,0 +1,1186 @@
+[
+  {
+    "arxiv_id": "1207.3275",
+    "kind": "IMPROVE_resid",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "compared",
+    "resid_b": 3.403,
+    "resid_a": 2.134,
+    "zo_cause_a": null,
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "DarkPhoton",
+      "source": "figure_vision",
+      "npts": 8,
+      "mass_range": "3.20e-06..1.07e-05",
+      "coup_median": "2.00e-06",
+      "notes": "Microwave light-shining-through-wall experiment at CERN (March 2012) constraining paraphoton/hidden photon kinetic mixing chi. Only a single representative exclusion point is explicitly given in the text/figure: at m_gamma' = 1.1e-5 eV, chi = 7.6e-9. The full exclusion curve appears in Fig. 2 but only this point has numerical values stated. Not a DM haloscope, so no DM density. This is an LSW experiment reporting chi, hence DarkPhoton. | Vision: The CERN microwave LSW exclusion region is a narrow downward-pointing V (triangle) centered near m_gamma' = 1.1e-5 eV (3 GHz). The tip of the sensitiv"
+    },
+    "after_summary": {
+      "coupling": "DarkPhoton",
+      "source": "figure_vision",
+      "npts": 30,
+      "mass_range": "8.00e-09..1.00e-02",
+      "coup_median": "3.00e-05",
+      "notes": "Microwave LSW (light shining through wall) experiment at CERN searching for paraphotons (hidden photons) via kinetic mixing chi. Quoted exclusion point: m_gamma' = 1.1e-5 eV/c^2, chi = 7.6e-9 at fsys=2.9565 GHz. This is the only explicit numerical exclusion point given in text; the full curve is shown only in Fig. 2 (not numerically extractable). Confidence level not explicitly stated; assumed 95%. | Vision: Microwave LSW exclusion at 2.9565 GHz (m_gamma' = 1.1e-5 eV). The exclusion region (cyan triangle) reaches its sensitivity tip near chi=7.6e-9 at the system frequency mass. Boundary traced"
+    },
+    "gt_mass_window": "4.05e-10..1.17e-05 eV"
+  },
+  {
+    "arxiv_id": "1403.1290",
+    "kind": "REGRESS_resid",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "compared",
+    "resid_b": 3.699,
+    "resid_a": 4.951,
+    "zo_cause_a": null,
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "MonopoleDipole",
+      "source": "figure_vision",
+      "npts": 30,
+      "mass_range": "1.97e-06..6.60e-03",
+      "coup_median": "3.00e-29",
+      "notes": "Projection paper proposing an NMR-based resonant detection of axion-mediated spin-dependent forces. Fig. 2 shows monopole-dipole reach (|gs^N gp^N| vs force range/fa), which corresponds to MonopoleDipole coupling. Fig. 3 shows dipole-dipole reach (g_pN^2 and g_pN g_pe), corresponding to AxionNeutron/AxionElectron. The primary x-axis is force range (cm) / fa (GeV) and mass range is 1e-6 to 1e-3 eV. No numerical table of (mass, coupling) limit points is provided; only plot curves. Could not extract reliable numerical data points from the figures. | Vision: Figure 2 monopole-dipole plot. X-axis i"
+    },
+    "after_summary": {
+      "coupling": "MonopoleDipole",
+      "source": "figure_vision",
+      "npts": 26,
+      "mass_range": "1.97e-06..6.58e-03",
+      "coup_median": "5.00e-28",
+      "notes": "Proposal/projection paper for resonant NMR detection of axion-mediated monopole-dipole (g_sN*g_pN) and dipole-dipole spin-dependent forces using hyperpolarized 3He. The main monopole-dipole reach (Fig. 2) plots |g_sN g_pN| vs force range/fa. This is the MonopoleDipole coupling. However, data is presented only graphically (Figs. 2 and 3) with no numerical table of points, so no reliable (mass, coupling) pairs could be extracted. Force range 0.01-10 cm maps to axion masses ~10^-6 to 10^-3 eV. The paper also discusses dipole-dipole (AxionNeutron/AxionElectron) projections and a dark photon kineti"
+    },
+    "gt_mass_window": "3.35e-05..1.00e+10 eV"
+  },
+  {
+    "arxiv_id": "1406.6053",
+    "kind": "IMPROVE_to_compared",
+    "src_b": "text",
+    "src_a": "text",
+    "status_b": "zero_overlap",
+    "status_a": "compared",
+    "resid_b": null,
+    "resid_a": 0.003,
+    "zo_cause_a": null,
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionPhoton",
+      "source": "text",
+      "npts": 2,
+      "mass_range": "1.00e+00..1.00e+03",
+      "coup_median": "6.60e-11",
+      "notes": "Globular Cluster R parameter bound on axion-photon coupling: g_agamma < 0.66e-10 GeV^-1 at 95% CL, valid for axion mass below a few keV. This is a stellar astrophysics bound (not DM haloscope), so no DM density assumption. The limit is essentially mass-independent over a wide range (ma below ~10 keV). Data points are approximate representations of the flat bound; the paper does not provide a tabulated mass-vs-coupling curve."
+    },
+    "after_summary": {
+      "coupling": "AxionPhoton",
+      "source": "text",
+      "npts": 2,
+      "mass_range": "4.14e-19..4.14e-06",
+      "coup_median": "6.60e-11",
+      "notes": "Astrophysical bound from R parameter of 39 Galactic Globular Clusters. Main result: g_agamma < 0.66e-10 GeV^-1 at 95% CL (benchmark, low-Z HII region He abundance). Bound applies for axion mass below ~keV (Primakoff production in stellar core). Best-fit g_agamma = 0.45e-10 GeV^-1 (68% CL). Mass-independent bound across wide range; representative mass points chosen to span the validity range (~10^-10 eV to ~keV). Alternative bounds: SBBN <0.50e-10, solar Y <0.76e-10 GeV^-1. Not a DM haloscope, so no DM density assumed. | Auto-corrected masses: MHz\u2192eV (\u00d74.136e-09, rule=argmin|log10(median*f)-log"
+    },
+    "gt_mass_window": "8.68e-13..3.89e+05 eV"
+  },
+  {
+    "arxiv_id": "1410.7267",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 9.588,
+    "resid_a": null,
+    "zo_cause_a": "wrong_window",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "ScalarNucleon",
+      "source": "figure_vision",
+      "npts": 33,
+      "mass_range": "3.50e-09..4.93e-03",
+      "coup_median": "1.00e+00",
+      "notes": "Paper constrains Yukawa-type fifth force (strength alpha relative to gravity vs range lambda in 30-8000 nm), a ScalarNucleon-type fifth force test. Exclusion limits are shown only in Fig. 4 (alpha vs lambda plane) with no numerical table or explicit text values, so no data points could be extracted reliably. The y-axis is alpha (Yukawa strength relative to gravity), not a standard dimensionless coupling, which complicates conversion. Mass conversion: lambda=hbar/mc, so range 30-8000 nm corresponds roughly to m ~ 6.6 eV down to 0.025 eV. | Vision: Figure 4 plots |alpha| (Yukawa strength relativ"
+    },
+    "after_summary": {
+      "coupling": "ScalarNucleon",
+      "source": "figure_vision",
+      "npts": 46,
+      "mass_range": "1.97e-04..3.94e+00",
+      "coup_median": "1.20e-09",
+      "notes": "Casimir-less differential force measurement constraining Yukawa-type fifth force (alpha vs lambda) in the 30-8000 nm range, a test of non-Newtonian gravity / fifth force (ScalarNucleon-like). The result is presented in the {lambda, alpha} plane (Fig. 4) rather than in a coupling-vs-mass plane with numerical values, and no numerical table is provided. Mass would relate to lambda via m = hbar*c/lambda, but no extractable numerical (alpha, lambda) pairs are given in the text. Improvement up to factor 10^3 over previous limits at lambda=300 nm. 95% CL. | Vision: Figure 4 plots |alpha| (Yukawa stre"
+    },
+    "gt_mass_window": "2.58e-08..1.99e-05 eV"
+  },
+  {
+    "arxiv_id": "1506.08082",
+    "kind": "REGRESS_resid",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "compared",
+    "resid_b": 0.043,
+    "resid_a": 1.03,
+    "zo_cause_a": null,
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionPhoton",
+      "source": "figure_vision",
+      "npts": 48,
+      "mass_range": "5.00e-05..3.00e-03",
+      "coup_median": "1.20e-07",
+      "notes": "OSQAR LSW experiment. Pseudoscalar ALP limit g_agamma < 3.5e-8 GeV^-1 and scalar ALP limit g_agamma < 3.2e-8 GeV^-1 for m_A < 2e-4 eV at 95% CL. Data points represent the nearly-massless plateau region from the exclusion plot (Fig. 6); precise plot values not tabulated. Scalar limit (3.2e-8) could be a separate dataset. | Vision: OSQAR photon regeneration LSW experiment. Limit g_Agamma < 3.2e-8 GeV^-1 (scalar) and 3.5e-8 GeV^-1 (pseudoscalar) for m_A < 2e-4 eV. Boundary rises with oscillatory structure (form factor zeros) above ~5e-4 eV. Lower (scalar) curve traced; oscillation peaks sampled d"
+    },
+    "after_summary": {
+      "coupling": "AxionPhoton",
+      "source": "figure_vision",
+      "npts": 46,
+      "mass_range": "4.00e-05..3.00e-03",
+      "coup_median": "1.20e-08",
+      "notes": "LSW experiment (OSQAR) reporting g_Agamma limits. Pseudoscalar: g < 3.5e-8 GeV^-1, scalar: g < 3.2e-8 GeV^-1 for m_A < 2e-4 eV at 95% C.L. Data points represent the flat exclusion in the nearly massless limit (pseudoscalar). Limit degrades above ~2e-4 eV. Reported as g_agamma so AxionPhoton. | Vision: Lower boundary of the OSQAR exclusion region (scalar ALP curve, slightly lower than pseudo-scalar). Plateau g_agamma ~3.2e-8 GeV^-1 for m_A < 2e-4 eV, rising and oscillating (resonance dips/peaks from sin(qL/2) term) for higher masses. Curve oscillation peaks approximated. ALPS dashed line not ex"
+    },
+    "gt_mass_window": "1.00e-30..4.98e-04 eV"
+  },
+  {
+    "arxiv_id": "1508.01798",
+    "kind": "IMPROVE_resid",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "compared",
+    "resid_b": 2.402,
+    "resid_a": 0.974,
+    "zo_cause_a": null,
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "ScalarElectron",
+      "source": "figure_vision",
+      "npts": 37,
+      "mass_range": "1.00e-23..1.00e-04",
+      "coup_median": "1.00e-02",
+      "notes": "Paper proposes resonant-mass detectors to search for scalar/modulus DM coupling to electron mass (d_me) and electromagnetic gauge (d_e). The hint suggests ScalarElectron; both d_me and d_e are constrained on a single plot (Fig. 1). Y-axis is log10(d_i) vs scalar mass. Most results are SNR=1 projections (Cu-Si sphere, DUAL, quartz, AURIGA recast), with the Earth breathing mode giving an actual 95% CL limit |de+dme| < 2.5e-4 at f~8.1e-4 Hz (mass ~3.4e-18 eV). However, the main proposal results are projections. No tabulated numerical data points are available for digitization from this text. Coul"
+    },
+    "after_summary": {
+      "coupling": "ScalarElectron",
+      "source": "figure_vision",
+      "npts": 27,
+      "mass_range": "1.00e-23..1.00e-04",
+      "coup_median": "1.50e-04",
+      "notes": "Paper proposes resonant-mass detectors to probe scalar DM (moduli) coupling to electron mass (d_me) and electromagnetic field (d_e). The exclusion/projection plot (Fig.1) covers both d_me and d_e couplings over mass range ~1e-22 to 1e-4 eV (frequencies 1 kHz - 1 GHz). Primarily projections (Cu-Si sphere, DUAL, quartz) plus a recast AURIGA limit and Earth seismology limit. Coupling type ScalarElectron (d_me) is one of two couplings shown; could also be ScalarPhoton (d_e). The only explicit numerical limit values given in text are EP/5F bounds and the Earth seismology limit |de+dme| < 2.5e-4 at "
+    },
+    "gt_mass_window": "2.06e-12..2.40e-11 eV"
+  },
+  {
+    "arxiv_id": "1509.00476",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 0.555,
+    "resid_a": null,
+    "zo_cause_a": "wrong_window",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionPhoton",
+      "source": "figure_vision",
+      "npts": 16,
+      "mass_range": "1.00e+06..9.00e+10",
+      "coup_median": "1.30e-03",
+      "notes": "Paper sets new LEP limits on ALP-photon (g_agamma) and ALP-hypercharge (g_aBB) couplings from Z->2gamma and Z->3gamma decays, plus LHC and FCC-ee projections. The limits are presented only as exclusion plots (Fig. 4) with no numerical tabulated coupling-vs-mass values; Table 1 gives signal/background rates for a fixed g=1e-4 GeV^-1, not exclusion limits. No extractable (mass, coupling) data points are available from the text. Mass range MeV to ~90 GeV. Coupling type is AxionPhoton (g_agamma in GeV^-1), though paper also discusses hypercharge coupling g_aBB. | Vision: Figure 4(a) left panel sho"
+    },
+    "after_summary": {
+      "coupling": "AxionPhoton",
+      "source": "figure_vision",
+      "npts": 13,
+      "mass_range": "4.14e-09..3.72e-04",
+      "coup_median": "5.00e-05",
+      "notes": "Paper constrains ALP-photon coupling g_agamma (and g_aBB hypercharge) in MeV-90 GeV range using LEP Z->2gamma/3gamma data, with LHC/FCC-ee projections. Coupling type is clearly AxionPhoton. However, no numerical exclusion table is provided; limits are shown only graphically in Fig. 4 (log10 g vs log10 ma plots) with no readable numbers. Table 1 only gives signal/background cross sections for a fixed assumed coupling (10^-4 GeV^-1), not exclusion limits. Therefore no reliable (mass, coupling) data points can be extracted. | Vision: Figure 4(a) shows the new LEP exclusion (green) from Z->2gamma "
+    },
+    "gt_mass_window": "9.83e+05..1.08e+11 eV"
+  },
+  {
+    "arxiv_id": "1607.06083",
+    "kind": "CRASH",
+    "src_b": "figure_vision",
+    "src_a": null,
+    "status_b": "zero_overlap",
+    "status_a": "error",
+    "resid_b": null,
+    "resid_a": null,
+    "zo_cause_a": null,
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionPhoton",
+      "source": "figure_vision",
+      "npts": 28,
+      "mass_range": "5.00e+03..1.00e+05",
+      "coup_median": "9.20e-05",
+      "notes": "Paper presents projected sensitivity (1 nb^-1, 10 nb^-1 Pb-Pb UPCs) and recast limits (OPAL, ATLAS, CMS) on ALP-photon coupling 1/Lambda (GeV^-1) for aFFtilde and aBBtilde operators. The coupling is 1/Lambda where g_agamma = 1/Lambda. However, only graphical results in Fig. 4 (log axis ~1e-5 to 1e-3 GeV^-1, mass 5-100 GeV) are given; no numerical table or explicit text values exist to extract reliable (mass, coupling) pairs. Mixed new/recast/projection results. Coupling type is AxionPhoton (ALP-photon). | Vision: Figure 4 left panel: aF\u0303F coupling, y-axis is 1/\u039b (GeV\u207b\u00b9) which corresponds to g_"
+    },
+    "after_summary": {
+      "error": "Extraction failed: float() argument must be a string or a real number, not 'NoneType'"
+    },
+    "gt_mass_window": "1.01e+07..6.12e+09 eV"
+  },
+  {
+    "arxiv_id": "1607.07327",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "figure_vision",
+    "src_a": "text",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 0.18,
+    "resid_a": null,
+    "zo_cause_a": "unit_offset",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "ScalarPhoton",
+      "source": "figure_vision",
+      "npts": 17,
+      "mass_range": "3.57e-12..4.01e-12",
+      "coup_median": "9.00e-06",
+      "notes": "AURIGA resonant-mass detector search for scalar moduli DM. The paper constrains both d_e (electromagnetic gauge modulus, ScalarPhoton) and d_me (electron mass modulus, ScalarElectron) with the same limit curve (di = dme = de). Limit d_i <~ 1e-5 in the sensitive band f=850-950 Hz, corresponding to m_phi ~ 3.6e-12 eV (900 Hz). Only one numerical point extractable from text/abstract; the full curve is in Fig. 5 which is not numerically tabulated. Coupling type ambiguous between ScalarPhoton (d_e) and ScalarElectron (d_me) since the limit applies equally to both. | Vision: Auriga limit curve label"
+    },
+    "after_summary": {
+      "coupling": "ScalarPhoton",
+      "source": "text",
+      "npts": 3,
+      "mass_range": "8.51e-04..9.50e-04",
+      "coup_median": "1.00e-05",
+      "notes": "AURIGA resonant-mass detector searches for scalar 'moduli' DM in the band ~850-950 Hz (mphi ~ 3.5-3.9e-12 eV). The limit di <~ 1e-5 (95% C.L.) applies EQUALLY to both the electromagnetic gauge modulus d_e (ScalarPhoton, alpha variation) and the electron mass modulus d_me (ScalarElectron, m_e variation) since the strain depends on (d_me + d_e). The coupling type is genuinely ambiguous between ScalarPhoton and ScalarElectron; abstract emphasizes d_e. Only approximate level (~1e-5) given in text; the figure with the full curve (fig 5) is not numerically tabulated. rho_DM=0.3 GeV/cm^3 assumed (SHM"
+    },
+    "gt_mass_window": "3.52e-12..3.92e-12 eV"
+  },
+  {
+    "arxiv_id": "1704.05189",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "figure_vision",
+    "src_a": "text",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 0.73,
+    "resid_a": null,
+    "zo_cause_a": "wrong_window",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionPhoton",
+      "source": "figure_vision",
+      "npts": 9,
+      "mass_range": "1.00e-10..1.00e-06",
+      "coup_median": "1.50e-11",
+      "notes": "Paper identifies an ALLOWED region (not exclusion) in the (m_a, g_agamma) plane that resolves the tension between CIBER CIB data and TeV gamma-ray transparency. The region spans m_a ~ 7e-10 to 5e-8 eV and g_agamma ~ 1.5e-11 to 8.8e-10 GeV^-1. Data points given are corner bounds from the text; the actual contour (Fig.5) is not numerically tabulated. This is a preferred/allowed region rather than a conventional exclusion limit, hence moderate confidence. | Vision: Figure 5 shows ALLOWED regions (closed contours) for CIBER-only and CIBER+IRTS+AKARI, not a conventional exclusion limit. The only tr"
+    },
+    "after_summary": {
+      "coupling": "AxionPhoton",
+      "source": "text",
+      "npts": 3,
+      "mass_range": "7.00e-07..5.00e-05",
+      "coup_median": "3.20e-11",
+      "notes": "Paper identifies an ALLOWED region (not exclusion) in (m_a, g_agamma) plane that resolves tension between CIBER CIB data and TeV gamma-ray observations. Coupling type is clearly AxionPhoton (g_agamma in GeV^-1). The favored region is m_a ~ 7e-10 to 5e-8 eV and g_agamma ~ 1.5e-11 to 8.8e-10 GeV^-1 (95% C.L.). Specific fit example used g_agamma=3.2e-11 GeV^-1, m_a=3.2e-9 eV. Detailed contour data only available in Fig.5, not as numerical table; values extracted from text describe the bounding box of allowed region rather than a true exclusion curve. | Auto-corrected masses: keV\u2192eV (\u00d71.000e+03, r"
+    },
+    "gt_mass_window": "6.92e-10..2.92e-07 eV"
+  },
+  {
+    "arxiv_id": "1705.02290",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "text",
+    "src_a": "text",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 0.066,
+    "resid_a": null,
+    "zo_cause_a": "unit_offset",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionPhoton",
+      "source": "text",
+      "npts": 3,
+      "mass_range": "1.00e-03..2.00e-02",
+      "coup_median": "6.60e-11",
+      "notes": "CAST solar helioscope vacuum phase (2013-2015). World-leading limit g_agamma < 0.66e-10 GeV^-1 (95% C.L.) for m_a <~ 0.02 eV. This is a stellar/solar axion search (Primakoff), not a DM haloscope, so no DM density assumption. Data points represent the flat low-mass limit; the limit degrades above ~0.02 eV due to loss of coherence. Exact mass-dependent values above 0.02 eV are only in Fig. 2 (plot)."
+    },
+    "after_summary": {
+      "coupling": "AxionPhoton",
+      "source": "text",
+      "npts": 4,
+      "mass_range": "1.00e-07..2.00e-05",
+      "coup_median": "6.60e-11",
+      "notes": "CAST helioscope final vacuum phase (2013-2015). Main result: g_agamma < 0.66e-10 GeV^-1 (95% C.L.) for m_a < 0.02 eV. This is a solar axion search (Primakoff production), not a DM haloscope, so no DM density assumed. The limit is mass-independent below 0.02 eV; data points represent the flat exclusion across this mass range. Above ~0.02 eV coherence is lost and sensitivity degrades. | Auto-corrected masses: meV\u2192eV (\u00d71.000e-03, rule=argmin|log10(median*f)-log10(anchor=1.0e-05)|)"
+    },
+    "gt_mass_window": "1.00e-30..1.17e+00 eV"
+  },
+  {
+    "arxiv_id": "1707.07921",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "text",
+    "src_a": "text",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 0.817,
+    "resid_a": null,
+    "zo_cause_a": "wrong_window",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionElectron",
+      "source": "text",
+      "npts": 5,
+      "mass_range": "1.00e-02..1.00e+04",
+      "coup_median": "4.00e-13",
+      "notes": "Paper sets limits on axion-electron coupling g_Ae for both solar axions (CBRD, ~4e-13 over 1e-5 to 1 keV) and galactic ALPs (~4.3e-14 over 1-25 keV). Text is internally inconsistent on exact numbers (abstract states 4.35e-12 solar, body states 4e-13). Data points are approximate, read from text since tables/plots only available as figures. Masses converted keV to eV. The galactic ALP limit appears most stringent at ~4.3e-14 dimensionless g_ae."
+    },
+    "after_summary": {
+      "coupling": "AxionElectron",
+      "source": "text",
+      "npts": 6,
+      "mass_range": "1.00e-08..2.50e-02",
+      "coup_median": "4.30e-13",
+      "notes": "Paper constrains axion-electron coupling g_Ae. Solar CBRD axion limit ~4e-13 for mA 1e-5 to 1 keV/c2; 57Fe de-excitation best limit 6e-14 at 10 keV/c2; galactic ALP limit ~4.3e-13 (abstract says 4.3e-14 but body text/figures indicate ~4e-13 scale; text contains inconsistent values e.g. 4.35e-11 vs 4.35e-12) for 1-25 keV/c2. Data points are approximate representative values extracted from text since no numerical table is provided; mass converted from keV/c2 to eV. Density 0.3 GeV/cm3 used for galactic ALP flux. | Auto-corrected masses: \u03bceV\u2192eV (\u00d71.000e-06, rule=argmin|log10(median*f)-log10(ancho"
+    },
+    "gt_mass_window": "1.00e+03..9.90e+05 eV"
+  },
+  {
+    "arxiv_id": "1708.06367",
+    "kind": "IMPROVE_resid",
+    "src_b": "text",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "compared",
+    "resid_b": 4.763,
+    "resid_a": 2.514,
+    "zo_cause_a": null,
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionEDM",
+      "source": "text",
+      "npts": 6,
+      "mass_range": "4.14e-23..4.14e-18",
+      "coup_median": "4.00e-26",
+      "notes": "Search for oscillating neutron EDM (and axion-wind effect) using ratio of UCN and 199Hg spin-precession frequencies. Fig 2 gives 95% C.L. limits on oscillation amplitude of dn-(mu_n/mu_Hg)dHg in units of 1e-26 e*cm vs frequency, combining long time-base (ILL) and short time-base (PSI) analyses. Mass=4.136e-15*f[Hz]. Data points approximate from Fig 2. The paper's headline plots (Fig 4) recast these as axion-gluon coupling CG/fa and axion-nucleon coupling CN/fa (GeV^-1); coupling type is somewhat ambiguous between AxionEDM (the directly measured oscillating EDM amplitude), the gluon coupling, a"
+    },
+    "after_summary": {
+      "coupling": "AxionEDM",
+      "source": "figure_vision",
+      "npts": 31,
+      "mass_range": "1.00e-24..2.00e-17",
+      "coup_median": "2.00e-18",
+      "notes": " | Vision: The actual exclusion plot (FIG.4 top) has y-axis C_G/f_a [GeV^-1], the axion-gluon coupling that induces an oscillating neutron EDM, NOT d_n [e cm] directly. The hint suggested AxionEDM with d_n axis, but the published plot uses C_G/f_a. Values reported here are read off the C_G/f_a axis (GeV^-1), tracing the lower boundary of the nEDM excluded region (combined long+short time-base). Coupling type is uncertain \u2014 actual y-axis units are GeV^-1 not e*cm, so confidence is reduced. Peak sensitivity ~ f_a/C_G ~ 1e21 GeV (i.e. C_G/f_a ~ 1e-21 GeV^-1) at m_a < 1e-23 eV. | CV calibration un"
+    },
+    "gt_mass_window": "1.24e-24..1.49e-17 eV"
+  },
+  {
+    "arxiv_id": "1709.00009",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 2.025,
+    "resid_a": null,
+    "zo_cause_a": "wrong_window",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionPhoton",
+      "source": "figure_vision",
+      "npts": 30,
+      "mass_range": "1.00e+04..5.00e+08",
+      "coup_median": "3.00e-07",
+      "notes": "Paper presents revised constraints and Belle II projected sensitivity for ALP-photon coupling g_agamma (GeV^-1) vs ALP mass (keV-GeV). Coupling type is clearly AxionPhoton. However, all results are shown only in figures (Fig 4, 7) with no numerical tables or explicit point values in text, so no reliable (mass, coupling) data points could be extracted. The projections probe roughly g_agamma ~ 1e-4 to 1e-6 GeV^-1 over ma ~ 1 MeV to 10 GeV. Both existing constraints (SN1987A, LEP, BaBar, beam dumps) and Belle II projections are shown; this is a collider/laboratory + astrophysical bound, not a hal"
+    },
+    "after_summary": {
+      "coupling": "AxionPhoton",
+      "source": "figure_vision",
+      "npts": 33,
+      "mass_range": "4.14e-11..4.14e-05",
+      "coup_median": "6.00e-07",
+      "notes": "Paper presents revised constraints and Belle II sensitivity projections for ALPs coupling to photons (g_agamma in GeV^-1) over the keV-GeV mass range. Coupling type is clearly AxionPhoton. However, the numerical exclusion/sensitivity data are presented only in figures (Figures 2, 4, 7) without tabulated values, so no reliable (mass, coupling) data points could be extracted from the text. Both observed/revised constraints and projected Belle II sensitivities (90% CL projections; collider/beam dump constraints at 95% CL except BaBar at 90% CL) are shown. | Vision: Left panel of Figure 2 (photon "
+    },
+    "gt_mass_window": "9.10e+00..4.98e+08 eV"
+  },
+  {
+    "arxiv_id": "1804.05750",
+    "kind": "IMPROVE_to_compared",
+    "src_b": "text",
+    "src_a": "text",
+    "status_b": "zero_overlap",
+    "status_a": "compared",
+    "resid_b": null,
+    "resid_a": 0.252,
+    "zo_cause_a": null,
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionPhoton",
+      "source": "text",
+      "npts": 5,
+      "mass_range": "1.10e-05..1.16e-05",
+      "coup_median": "1.00e-15",
+      "notes": "ADMX haloscope search excluding DFSZ axion-photon coupling for axion masses 2.66-2.81 ueV (645-680 MHz, frequency range 645-676 MHz fully excluded). Limit reported at 90% CL, density 0.45 GeV/cm^3 (isothermal halo) and 0.63 GeV/cc (N-body). The exclusion plot y-axis is |g_agg| in units of 10^-16 GeV^-1 reaching down near DFSZ (~1e-15 GeV^-1). Exact per-mass values are not tabulated in the text; data_points are approximate representative values near the DFSZ level across the excluded mass range and should be verified against Fig. 4. Masses: 2.66-2.81 ueV = 2.66e-6 to 2.81e-6 eV (note: I convert"
+    },
+    "after_summary": {
+      "coupling": "AxionPhoton",
+      "source": "text",
+      "npts": 4,
+      "mass_range": "2.67e-06..2.80e-06",
+      "coup_median": "5.00e-16",
+      "notes": "ADMX haloscope excluding DFSZ axion-photon coupling over 2.66-2.81 ueV (645-680 MHz). Exclusion reaches DFSZ level g_agamma ~ a few x10^-16 GeV^-1; KSVZ ~2.7x larger. Density 0.45 GeV/cm^3 (isothermal halo, Maxwellian) or 0.63 GeV/cc (N-body). Data points are approximate readings from Fig.4 in units near DFSZ (~6-8 x10^-16 GeV^-1 scale on plot, y-axis in 10^-16 GeV^-1). Numerical values approximate since only a plot is provided."
+    },
+    "gt_mass_window": "2.67e-06..2.79e-06 eV"
+  },
+  {
+    "arxiv_id": "1808.02340",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "text",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 1.003,
+    "resid_a": null,
+    "zo_cause_a": "wrong_window",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionElectron",
+      "source": "text",
+      "npts": 5,
+      "mass_range": "8.00e+02..5.00e+05",
+      "coup_median": "5.00e-13",
+      "notes": "Paper sets multiple limits: solar axion g_ae<1.1e-11 (massless limit), g_ae x g_aN^eff<3.5e-17, electron lifetime, and bosonic DM absorption (ALP g_ae and hidden photon kinetic mixing) over 0.8-500 keV. Primary mass-dependent exclusion plot (Fig. 5 left) is ALP DM coupling g_ae => AxionElectron. Data points are approximate reads from described mass range since no numerical table is provided; exact y-axis values not given in text. Local DM density rho_DM=0.3 GeV/cm^3 assumed. Note paper also has DarkPhoton (kinetic mixing) result in Fig 5 right; coupling type ambiguity lowers confidence."
+    },
+    "after_summary": {
+      "coupling": "AxionElectron",
+      "source": "figure_vision",
+      "npts": 297,
+      "mass_range": "9.06e-06..1.05e+00",
+      "coup_median": "9.95e-13",
+      "notes": "Paper constrains multiple couplings: solar axion g_ae < 1.1e-11 (massless limit), g_ae x g_aN^eff < 3.5e-17 at 14.4 keV, and bosonic DM absorption bounds on ALP g_ae and hidden-photon kinetic mixing kappa over 0.8-500 keV mass range (Fig 5). The mass-dependent DM-search g_ae limit (AxionElectron) is the natural extraction target, but numerical (mass, coupling) values appear only in plots (Figs 3, 4, 5) with no data tables, so no reliable data points could be extracted. Local DM density assumed rho_DM = 0.3 GeV/cm^3, <v>~1e-3 c. Note the paper also constrains hidden-photon kinetic mixing kappa "
+    },
+    "gt_mass_window": "8.60e+02..4.84e+05 eV"
+  },
+  {
+    "arxiv_id": "1902.04246",
+    "kind": "REGRESS_resid",
+    "src_b": "text",
+    "src_a": "text",
+    "status_b": "compared",
+    "status_a": "compared",
+    "resid_b": 0.234,
+    "resid_a": 5.79,
+    "zo_cause_a": null,
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionElectron",
+      "source": "text",
+      "npts": 6,
+      "mass_range": "1.00e-23..1.00e-18",
+      "coup_median": "5.10e-10",
+      "notes": "Eot-Wash rotating torsion pendulum with ~1e23 polarized electrons searching for axionlike DM wind over masses 1e-23 to 1e-18 eV. Paper reports limit as Fa/Ce >~ 2e15 eV (i.e. Ce/Fa <~ 5e-16 eV^-1). Data points are approximate conversions to dimensionless g_ae using g_ae = 2*m_e*Ce/Fa (m_e=511 keV); convention uncertain so confidence reduced. Limit roughly flat over most of range, degrading near sidereal bump (~47 zeV) and at highest masses due to finite measurement-duration attenuation. Abstract states 1e15 but body/Fig.5 states 2e15 eV."
+    },
+    "after_summary": {
+      "coupling": "AxionElectron",
+      "source": "text",
+      "npts": 6,
+      "mass_range": "1.00e-23..1.00e-18",
+      "coup_median": "5.00e-16",
+      "notes": "Paper constrains axionlike DM coupling to polarized electrons via 'wind' effect, reported as F_a/C_e >= 2e15 eV (over much of range), equivalently C_e/F_a <= 5e-16 eV^-1. The y-axis of Fig.5 is C_e/F_a in eV^-1, NOT the conventional dimensionless g_ae. Data points listed are C_e/F_a (eV^-1) at the limit ~5e-16 eV^-1 across mass range; actual exclusion plot has structure near 47 zeV (sidereal bump) and rises at high mass due to attenuation. Numerical values approximate from text limit F_a/C_e ~ 2 PeV = 2e15 eV. Coupling type mapping to standard g_ae is non-trivial; treated as AxionElectron per "
+    },
+    "gt_mass_window": "1.08e-22..1.24e-18 eV"
+  },
+  {
+    "arxiv_id": "1905.13650",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 0.342,
+    "resid_a": null,
+    "zo_cause_a": "too_few_points",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionNeutron",
+      "source": "figure_vision",
+      "npts": 27,
+      "mass_range": "1.00e-22..1.00e-13",
+      "coup_median": "4.00e-02",
+      "notes": "This is a methodology/theory paper showing that constraints from prior bosonic DM searches (operating in T<<tau_c regime) were overestimated by factors of ~3-10 due to neglecting the stochastic (Rayleigh-distributed) nature of the VULF amplitude. It re-derives correction factors for existing experiments (CASPEr-ZULF, nEDM, dilaton clock searches) rather than presenting a new measured exclusion limit or projection. The modified exclusion plots (axion-nucleon gaNN and dilaton couplings) are corrections of previously published limits, not new data. No new numerical limit table is extractable; cou"
+    },
+    "after_summary": {
+      "coupling": "AxionNeutron",
+      "source": "figure_vision",
+      "npts": 293,
+      "mass_range": "n/a",
+      "coup_median": "n/a",
+      "notes": "This is a methodology/statistics paper showing that stochastic fluctuations of bosonic dark matter (VULF) require relaxing previously published constraints by factors of ~3-10 for experiments in the T<<tau_c regime. It does not present a new independent exclusion limit but rather applies correction factors to existing limits (CASPEr-ZULF, nEDM, dilaton clock searches). The modified exclusion plots (Figs 3, 4) are re-derivations of others' limits, not numerical tables. No extractable new data points. The paper discusses both axion-nucleon (gaNN) and scalar/dilaton (d_e) couplings, so coupling t"
+    },
+    "gt_mass_window": "1.16e-22..1.49e-17 eV"
+  },
+  {
+    "arxiv_id": "1907.05475",
+    "kind": "REGRESS_resid",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "compared",
+    "resid_b": 0.073,
+    "resid_a": 1.065,
+    "zo_cause_a": null,
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionPhoton",
+      "source": "figure_vision",
+      "npts": 26,
+      "mass_range": "4.00e-21..2.50e-10",
+      "coup_median": "7.00e-13",
+      "notes": "Chandra HETG spectroscopy of NGC 1275 in Perseus cluster constraining ALP-photon coupling via X-ray transparency (photon-ALP conversion in ICM magnetic field). 99.7% credible region: g_agamma < 6.3e-13 GeV^-1 (Model-A) and < 7.9e-13 GeV^-1 (Model-B) for m_a < 1e-12 eV. This is an astrophysical/conversion bound, not a DM haloscope, so no DM density assumed. Limit is essentially flat for masses below ~1e-12 eV; I report the conservative Model-B value. Note paper quotes 99.7% (3-sigma) limit; the 95% region picks out preferred nonzero coupling attributed to calibration. | Vision: Traced lower bou"
+    },
+    "after_summary": {
+      "coupling": "AxionPhoton",
+      "source": "figure_vision",
+      "npts": 325,
+      "mass_range": "2.10e-24..7.53e-09",
+      "coup_median": "6.94e-13",
+      "notes": "Astrophysical limit on ALP-photon coupling from X-ray transparency of the Perseus cluster ICM (NGC 1275). 99.7% credible region upper limits: g_agamma < 6.3e-13 GeV^-1 (Model-A) and < 7.9e-13 GeV^-1 (Model-B) for m_a < 1e-12 eV. Not a DM haloscope, so no DM density assumption. Confidence level: the headline upper limit is quoted at 99.7% (3-sigma) credible region; data points represent the two magnetic field model limits at m_a=1e-12 eV. Full exclusion curve in Fig 6 not numerically tabulated. | Vision: Traced the HETG 99.7% exclusion lower boundary (black solid curve), the most stringent cons"
+    },
+    "gt_mass_window": "4.07e-30..1.56e-11 eV"
+  },
+  {
+    "arxiv_id": "1907.11485",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 2.29,
+    "resid_a": null,
+    "zo_cause_a": "wrong_window",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "DarkPhoton",
+      "source": "figure_vision",
+      "npts": 32,
+      "mass_range": "2.00e+02..5.00e+03",
+      "coup_median": "2.90e-16",
+      "notes": "XENON1T S2-only ionization search for light DM. Constrains absorption of dark photons (kinetic mixing kappa, panel F) and ALPs (g_ae, panel E) over mass range 0.186-1 keV. Only one explicit numerical dark photon point given in Table I: m_chi=0.5 keV/c^2 (500 eV), kappa=2.2e-16 at 90% CL. The full exclusion curve in Fig.5F is not numerically tabulated. Note the paper also reports an ALP limit (g_ae=7.7e-14 at 500 eV) which would be AxionElectron; chose DarkPhoton per hint and primary tabulated value. DM density not explicitly stated. | Vision: The supplied calibration (3-35 GeV, 1e-46 to 1e-40)"
+    },
+    "after_summary": {
+      "coupling": "DarkPhoton",
+      "source": "figure_vision",
+      "npts": 388,
+      "mass_range": "2.53e-06..1.15e-04",
+      "coup_median": "3.32e-47",
+      "notes": "Paper constrains absorption of dark photon DM (kinetic mixing kappa) and ALPs (g_ae) in mass range ~0.186-5 keV. Reported as DarkPhoton (panel F, kinetic mixing kappa) and AxionElectron (panel E, g_ae). Only one explicit numerical dark-photon point given in Table I: m=0.5 keV (500 eV), kappa=2.2e-16 at 90% CL. The exclusion curve in Fig.5F spans ~0.2-5 keV with kappa between ~10^-16 and 10^-14 but precise plot values not numerically tabulated. DM density 0.3 GeV/cm^3 assumed implicitly for absorption rate. Note an ALP limit g_ae=7.7e-14 at 0.5 keV is also reported (AxionElectron) if that coupl"
+    },
+    "gt_mass_window": "1.88e+02..5.46e+03 eV"
+  },
+  {
+    "arxiv_id": "2006.07055",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 3.949,
+    "resid_a": null,
+    "zo_cause_a": "unit_offset",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "ScalarElectron",
+      "source": "figure_vision",
+      "npts": 35,
+      "mass_range": "4.20e-11..4.00e-10",
+      "coup_median": "9.00e-01",
+      "notes": "DAMNED unequal-delay interferometer at Paris Observatory searches for oscillating scalar DM via variation of fine-structure constant (d_e, ScalarPhoton) and electron mass (d_me, ScalarElectron) in mass range [4.1e-11, 8.3e-10] eV (10-200 kHz). Paper constrains BOTH d_e and d_me using a maximum-reach approach, so coupling type is ambiguous between ScalarPhoton and ScalarElectron (hint suggests ScalarElectron). 95% CL limits presented in two models (galactic DM with rho=0.4 GeV/cm^3, and Earth relaxion halo). Numerical limits only available in Fig. 3 (no data table); no extractable (mass, coupli"
+    },
+    "after_summary": {
+      "coupling": "ScalarElectron",
+      "source": "figure_vision",
+      "npts": 37,
+      "mass_range": "4.20e-05..4.00e-04",
+      "coup_median": "5.00e-16",
+      "notes": "The DAMNED unequal-delay interferometer experiment constrains oscillating scalar-field dark matter couplings to both the fine-structure constant (d_e, ScalarPhoton) and the electron mass (d_me, ScalarElectron) using a 'maximum reach approach' (each fitted independently). The mass range probed is [4.1e-11, 8.3e-10] eV (frequency 10-200 kHz). Two DM models analyzed: standard galactic halo (rho_DM = 0.4 GeV/cm^3) and Earth relaxion halo. 95% CL upper limits presented in Fig. 3 with resonance peaks at cavity mechanical resonances (multiples of 27.6 kHz). The paper equally constrains ScalarPhoton ("
+    },
+    "gt_mass_window": "3.88e-11..8.27e-10 eV"
+  },
+  {
+    "arxiv_id": "2007.04899",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "figure_vision",
+    "src_a": "text",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 2.437,
+    "resid_a": null,
+    "zo_cause_a": "wrong_window",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "VectorBL",
+      "source": "figure_vision",
+      "npts": 40,
+      "mass_range": "3.00e-14..3.00e-10",
+      "coup_median": "4.17e-22",
+      "notes": "Paper presents projected sensitivity to vector B-L (and B) dark photon dark matter using an optomechanical accelerometer (SiN membrane + Be mirror). The main result is a projection on the g_B-L coupling vs mass plane (Fig. 2), spanning roughly mDM ~ 1e-12 to 1e-10 eV with sensitivities below g~1e-22. No numerical table is provided; data only appears as plotted curves, so no reliable (mass, coupling) pairs could be extracted. This is a projection, not a measured limit. Local DM density 0.4 GeV/cm^3 assumed. | Vision: Figure 2 shows projected sensitivity (blue/green curves) and existing constrai"
+    },
+    "after_summary": {
+      "coupling": "VectorBL",
+      "source": "text",
+      "npts": 3,
+      "mass_range": "4.84e-03..2.42e-02",
+      "coup_median": "3.00e-23",
+      "notes": "Projected sensitivity to vector B-L dark matter using a Si3N4 membrane + Be mirror optomechanical accelerometer. Main result (Fig. 2) is gB-L vs mDM over ~1e-13 to 1e-10 eV (fDM ~1-25 kHz). Data points are approximate reads from Fig. 2 for the centimeter-scale membranes (1-year integration); precise values are not tabulated in the text, so these are rough estimates near the resonance dips (~1e-23 to 1e-22). The paper also presents B-coupled dark photon projections (Fig. 4). This is a proposal/projection, not an observed limit. | Auto-corrected masses: 1/(eV\u2192MHz) i.e. MHz\u2192eV inverse (\u00d72.418e+08"
+    },
+    "gt_mass_window": "7.56e-13..3.69e-10 eV"
+  },
+  {
+    "arxiv_id": "2007.13071",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "text",
+    "src_a": "text",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 0.245,
+    "resid_a": null,
+    "zo_cause_a": "unit_offset",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionPhoton",
+      "source": "text",
+      "npts": 4,
+      "mass_range": "2.00e+08..9.70e+09",
+      "coup_median": "1.00e-03",
+      "notes": "Belle II search for e+e- -> gamma a, a -> gamma gamma sets 95% CL upper limits on g_agamma at the level of 1e-3 GeV^-1 in mass range 0.2 < m_a < 9.7 GeV. Coupling type is clearly AxionPhoton. However, no numerical table of limit vs mass is in the provided text (referred to Supplemental textfile); data points are approximate based on stated ~1e-3 GeV^-1 level. This is a collider production search, not a DM haloscope, so no DM density assumed. Mass converted GeV to eV."
+    },
+    "after_summary": {
+      "coupling": "AxionPhoton",
+      "source": "text",
+      "npts": 4,
+      "mass_range": "8.27e-07..4.01e-05",
+      "coup_median": "1.00e-03",
+      "notes": "Belle II search for e+e->gamma a, a->gamma gamma. Constrains ALP-photon coupling g_agamma at ~1e-3 GeV^-1 for 0.2 < m_a < 9.7 GeV. Coupling type (AxionPhoton) is unambiguous. However, the actual numerical limit curve is only available in Supplemental Material textfile (not present here); the y-axis label is g_agamma (GeV^-1). Data points are approximate order-of-magnitude (~1e-3) values stated in text since no table is provided in this content. Masses converted GeV->eV. | Auto-corrected masses: Hz\u2192eV (\u00d74.136e-15, rule=argmin|log10(median*f)-log10(anchor=1.0e-05)|)"
+    },
+    "gt_mass_window": "1.96e+08..9.62e+09 eV"
+  },
+  {
+    "arxiv_id": "2008.10141",
+    "kind": "REGRESS_resid",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "compared",
+    "resid_b": 0.118,
+    "resid_a": 0.71,
+    "zo_cause_a": null,
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionPhoton",
+      "source": "figure_vision",
+      "npts": 20,
+      "mass_range": "1.30e-05..1.39e-05",
+      "coup_median": "4.38e-14",
+      "notes": " | Vision: Main plot y-axis is g_a\u03b3\u03b3/g_a\u03b3\u03b3^KSVZ (linear, 10-50), with limit at ~11\u00d7 KSVZ. Converted to absolute g_a\u03b3\u03b3 using KSVZ ~3.8e-15 GeV^-1 at 13.4 \u03bceV. The limit hovers around 11-12\u00d7 KSVZ across the band; gap near 13.35 \u03bceV (mode mixing) and spikes from removed bins. Absolute values approximate due to KSVZ scaling assumption. | Calibration: Benchmark KSVZ consistent (ratio=1.35) | No calibration needed"
+    },
+    "after_summary": {
+      "coupling": "AxionPhoton",
+      "source": "figure_vision",
+      "npts": 297,
+      "mass_range": "1.30e-05..1.39e-05",
+      "coup_median": "1.11e-14",
+      "notes": "Multiple-cell (double-cell) cavity haloscope CAPP-9T. Excludes g_agamma >= 11.1 x g_KSVZ at 90% CL over 13.0-13.9 ueV (3.14-3.36 GHz). Coupling values estimated by scaling KSVZ line (g_KSVZ ~ 3.9e-16 GeV^-1 per ueV) x 11.1; exact per-mass values vary across the band (see Fig. 5) but were not tabulated. Local DM density 0.45 GeV/cm^3 assumed. | Vision: Y-axis of main plot is ratio g_a\u03b3\u03b3/g_a\u03b3\u03b3^KSVZ (range 10-50), not absolute GeV^-1. Limit ~11.1 x KSVZ. Converted to absolute g_a\u03b3\u03b3 using KSVZ benchmark ~3.3e-14 GeV^-1 at 13.4 ueV, giving limit ~3.6e-13 GeV^-1. Large gap near 13.35 ueV (mode mixin"
+    },
+    "gt_mass_window": "1.30e-05..1.39e-05 eV"
+  },
+  {
+    "arxiv_id": "2101.11290",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "text",
+    "src_a": "text",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 0.0,
+    "resid_a": null,
+    "zo_cause_a": "unit_offset",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionPhoton",
+      "source": "text",
+      "npts": 3,
+      "mass_range": "2.79e-09..2.79e-09",
+      "coup_median": "1.00e-11",
+      "notes": "BASE cryogenic Penning trap haloscope using antiproton detection circuit. Constrains g_agamma < 1e-11 GeV^-1 for ALP masses 2.7906-2.7914 neV. Local DM density rho_a = 0.4 GeV/cm^3 assumed. 95% power-constrained limit. Only the quoted upper limit value is available in text; data points approximate the narrow band exclusion."
+    },
+    "after_summary": {
+      "coupling": "AxionPhoton",
+      "source": "text",
+      "npts": 3,
+      "mass_range": "2.79e-06..2.79e-06",
+      "coup_median": "1.00e-11",
+      "notes": "Penning-trap haloscope (BASE) constraining ALP-photon coupling g_agamma < 1e-11 GeV^-1 for ALP masses 2.7906-2.7914 neV. 95% CL power-constrained limit. Detailed exclusion curve in Fig. 3 not numerically tabulated; approximate flat limit ~1e-11 GeV^-1 used. Local DM density rho_a = 0.4 GeV/cm^3 assumed. | Auto-corrected masses: keV\u2192eV (\u00d71.000e+03, rule=argmin|log10(median*f)-log10(anchor=1.0e-05)|)"
+    },
+    "gt_mass_window": "2.71e-09..2.79e-09 eV"
+  },
+  {
+    "arxiv_id": "2102.06722",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "text",
+    "src_a": "text",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 0.375,
+    "resid_a": null,
+    "zo_cause_a": "unit_offset",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionPhoton",
+      "source": "text",
+      "npts": 5,
+      "mass_range": "4.10e-10..8.27e-09",
+      "coup_median": "8.00e-11",
+      "notes": "Broadband search for axion dark matter with ABRACADABRA-10cm in 0.41-8.27 neV range. World-leading limit g_agamma < 3.2e-11 GeV^-1 at ma ~ 2.99 neV (95% CL). Data points approximated from Fig. 4; exact tabulated data available at github.com/joshwfoster/ABRA_Results_2020. SHM with v0=220 km/s, v_sun=232 km/s, rho_DM=0.4 GeV/cm^3."
+    },
+    "after_summary": {
+      "coupling": "AxionPhoton",
+      "source": "text",
+      "npts": 5,
+      "mass_range": "4.10e-07..8.27e-06",
+      "coup_median": "1.00e-10",
+      "notes": "Broadband ABRACADABRA-10cm search for axion DM in 0.41-8.27 neV range. World-leading limit g_agamma < 3.2e-11 GeV^-1 at m_a ~ 2.99 neV. Only the strongest limit and mass range endpoints are explicitly given in text; intermediate data points are approximate estimates from Fig. 4 (limit roughly ~1e-10 to ~1e-9 GeV^-1 across the range). Local DM density 0.4 GeV/cm^3 assumed. | Auto-corrected masses: keV\u2192eV (\u00d71.000e+03, rule=argmin|log10(median*f)-log10(anchor=1.0e-05)|)"
+    },
+    "gt_mass_window": "4.12e-10..8.47e-09 eV"
+  },
+  {
+    "arxiv_id": "2102.08764",
+    "kind": "IMPROVE_to_compared",
+    "src_b": "text",
+    "src_a": "figure_vision",
+    "status_b": "zero_overlap",
+    "status_a": "compared",
+    "resid_b": null,
+    "resid_a": 10.455,
+    "zo_cause_a": null,
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionElectron",
+      "source": "text",
+      "npts": 2,
+      "mass_range": "3.31e-05..3.31e-05",
+      "coup_median": "2.60e-06",
+      "notes": "QND detection of magnons with superconducting qubit constrains axion-electron coupling g_aee < 2.6e-6 at 95% CL over 33.117-33.130 ueV (~8 GHz). Uses rho_DM = 0.45 GeV/cm^3 and vtot=220 km/s. A more conservative angular-average treatment in the appendix gives g_aee < 1.6e-7 but main result is 2.6e-6. | Vision: This work excludes a narrow vertical band at m_a = 33.117-33.130 ueV (~3.31e-5 eV) with g_aee < 2.6e-6 (red vertical line). The exclusion is a vertical line spanning from g_aee=2.6e-6 up to the top of plot. The lower boundary of the excluded region is essentially the constant g_aee = 2.6"
+    },
+    "after_summary": {
+      "coupling": "AxionElectron",
+      "source": "figure_vision",
+      "npts": 268,
+      "mass_range": "1.00e-05..1.62e-03",
+      "coup_median": "8.94e-17",
+      "notes": "QND magnon detection of axion-electron coupling g_aee < 2.6e-6 at 95% CL for 33.117-33.130 ueV (~8 GHz). Uses local DM density 0.45 GeV/cm^3 and vtot=220 km/s. Mass range corresponds to ~33.123 ueV center. A more conservative analysis in Appendix gives 1.6e-7 but main result is 2.6e-6. | Vision: The 'This work' constraint is a single narrow vertical exclusion line at m_a = 33.117-33.130 ueV (\u22483.31e-5 eV) with upper limit g_aee < 2.6e-6 at 95% CL. The exclusion is essentially a point/thin band in mass. DFSZ axion line shown as solid line rising from ~3e-16 at 1e-5 eV to ~3e-15 at 1e-4 eV. The y"
+    },
+    "gt_mass_window": "3.31e-05..3.31e-05 eV"
+  },
+  {
+    "arxiv_id": "2202.08858",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 0.454,
+    "resid_a": null,
+    "zo_cause_a": "unit_offset",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionElectron",
+      "source": "figure_vision",
+      "npts": 38,
+      "mass_range": "3.00e+03..1.00e+06",
+      "coup_median": "9.00e-16",
+      "notes": "This is a phenomenology/reinterpretation paper, not a new experimental measurement. It argues that keV-MeV ALPs coupled to electrons decay too quickly to be dark matter, undermining existing direct detection limits (GERDA, EDELWEISS-III, SuperCDMS, Majorana) and noting X-ray/gamma-ray astronomy constraints. While it concerns g_ae (AxionElectron coupling), the paper presents no new tabulated numerical exclusion data \u2014 Fig. 2 reproduces existing limits and overlays lifetime/astrophysical regions. No extractable (mass, coupling) data points are provided in text or tables. | Vision: Figure 2. The "
+    },
+    "after_summary": {
+      "coupling": "AxionElectron",
+      "source": "figure_vision",
+      "npts": 38,
+      "mass_range": "1.24e-05..2.07e-03",
+      "coup_median": "1.00e-16",
+      "notes": "This is a phenomenology/reinterpretation paper, not a new experimental measurement. It argues that ALPs coupled to electrons in the keV-MeV range decay too fast to be dark matter, invalidating direct detection limits (GERDA, EDELWEISS-III, SuperCDMS, Majorana). It cites astrophysical X-ray/gamma-ray constraints excluding gae over the 6 keV-1 MeV range, but no numerical exclusion table or extractable data points are provided in the text. The only plot (Fig. 2) reproduces existing limits and grey exclusion regions without tabulated values. Coupling type is clearly AxionElectron (gae), but no new"
+    },
+    "gt_mass_window": "4.94e+03..9.99e+05 eV"
+  },
+  {
+    "arxiv_id": "2204.01454",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "figure_vision",
+    "src_a": "text",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 3.816,
+    "resid_a": null,
+    "zo_cause_a": "too_few_points",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionEDM",
+      "source": "figure_vision",
+      "npts": 29,
+      "mass_range": "1.00e-19..3.00e-12",
+      "coup_median": "1.00e-15",
+      "notes": " | Vision: Traced the 'Beam EDM' exclusion boundary from this work on the C_G/f_a vs mass plane. The y-axis is C_G/f_a in GeV^-1 (mapped to AxionEDM type per hint). The constraint covers mass range ~1e-19 to ~3e-12 eV with the lower boundary rising from ~1e-13 to the top of the plot. Top axis shows oscillation frequency. | Calibration: No calibration needed | Auto-corrected couplings: \u00d71.00e-06 (6 orders too large)"
+    },
+    "after_summary": {
+      "coupling": "AxionEDM",
+      "source": "text",
+      "npts": 4,
+      "mass_range": "1.00e-13..4.00e-06",
+      "coup_median": "8.60e+13",
+      "notes": "Paper reports oscillating neutron EDM from ALP-gluon coupling. Primary result parametrized as C_G/(f_a*m_a) in GeV^-2 (best limit 2.7e13 GeV^-2, 95% C.L., reached for ma 2e-17 to 2e-14 eV), not directly as d_n in e*cm. Mass range 1e-19 to 4e-12 eV. The plotted y-axis quantity is C_G/(f_a m_a), which does not directly map to any enum unit; AxionEDM is the closest physics match (oscillating nEDM). Data points are approximate values reconstructed from text, not from a table or readable digitized plot \u2014 coupling values shown are C_G/(f_a m_a) in GeV^-2, NOT d_n in e*cm. Confidence lowered due to u"
+    },
+    "gt_mass_window": "9.72e-20..3.31e-12 eV"
+  },
+  {
+    "arxiv_id": "2207.11968",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 2.115,
+    "resid_a": null,
+    "zo_cause_a": "wrong_window",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionElectron",
+      "source": "figure_vision",
+      "npts": 42,
+      "mass_range": "4.00e+01..2.00e+04",
+      "coup_median": "8.00e-13",
+      "notes": "Paper sets 90% C.L. limits on axioelectric coupling g_Ae (AxionElectron) for ALP absorption, as well as dark photon kinetic mixing kappa, DM-electron cross section, and sterile neutrino mixing |Ue4|^2. The g_Ae limit improves existing constraints for masses between 0.03 keV/c^2 (30 eV) and 0.2 keV/c^2 (200 eV). However, no numerical values of g_Ae are given in the text; the exclusion curve is only shown in Fig. 2, which is not numerically tabulated. Local DM density assumed = 0.3 GeV/(c^2 cm^3), Standard Halo Model, escape velocity 544 km/s, v0 238 km/s. Coupling type is unambiguous but data p"
+    },
+    "after_summary": {
+      "coupling": "DarkPhoton",
+      "source": "figure_vision",
+      "npts": 293,
+      "mass_range": "5.39e-08..1.30e-03",
+      "coup_median": "1.40e-19",
+      "notes": "Paper presents 90% C.L. limits on multiple DM-electron couplings: DM-electron cross section sigma_e, axioelectric coupling g_Ae (AxionElectron), dark photon kinetic mixing kappa (DarkPhoton), and sterile neutrino mixing |U_e4|^2. New limits on g_Ae and kappa placed for masses between 0.03-0.2 keV/c^2 (30-200 eV). Local DM density assumed 0.3 GeV/cm^3 (Standard Halo Model). No numerical data table provided in text; all results in Fig. 2 which is not machine-readable. Coupling type ambiguous since multiple couplings constrained \u2014 pre-analysis hint of DarkPhoton chosen but AxionElectron (g_Ae) is"
+    },
+    "gt_mass_window": "3.07e+01..1.96e+04 eV"
+  },
+  {
+    "arxiv_id": "2209.13588",
+    "kind": "REGRESS_resid",
+    "src_b": "text",
+    "src_a": "text",
+    "status_b": "compared",
+    "status_a": "compared",
+    "resid_b": 0.571,
+    "resid_a": 1.351,
+    "zo_cause_a": null,
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionProton",
+      "source": "text",
+      "npts": 8,
+      "mass_range": "1.40e-12..2.00e-10",
+      "coup_median": "3.00e-05",
+      "notes": "NASDUCK-SERF SERF comagnetometer using 3He and 39K. Constrains both ALP-neutron (gaNN) and ALP-proton (gaPP) couplings; the paper's novel highlight is the first reliable terrestrial ALP-proton bound, so coupling_type set to AxionProton. Mass range 1.4 peV to 200 peV. Precise bounds tabulated in external GitHub repo [57]; data_points here are approximate reads from Fig.2 (right panel, mean exclusion) and partially closes regions 5e-6 to 2e-5 GeV^-1 and (1-9)e-3 GeV^-1. A separate AxionNeutron limit (gaNN, ~1e-7 to 1e-3 GeV^-1) is also reported. Standard local DM density assumed but specific val"
+    },
+    "after_summary": {
+      "coupling": "AxionProton",
+      "source": "text",
+      "npts": 4,
+      "mass_range": "1.40e-12..2.00e-10",
+      "coup_median": "1.00e-04",
+      "notes": "Paper constrains both ALP-neutron (gaNN) and ALP-proton (gaPP) couplings using a 3He/39K SERF comagnetometer (NASDUCK-SERF). The proton coupling result is highlighted as the first reliable terrestrial bound on ALP-proton. The hint suggested AxionNeutron but the paper equally/primarily emphasizes the novel proton bound; coupling type is therefore ambiguous between AxionProton and AxionNeutron, lowering confidence. Mass range 1.4e-12 to 2e-10 eV. Numerical limits not given as a table in the text; the precise tabulated bounds are in an external GitHub repository [57]. Data points listed are appro"
+    },
+    "gt_mass_window": "1.39e-12..2.00e-10 eV"
+  },
+  {
+    "arxiv_id": "2212.01139",
+    "kind": "REGRESS_resid",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "compared",
+    "resid_b": 1.262,
+    "resid_a": 2.281,
+    "zo_cause_a": null,
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "DarkPhoton",
+      "source": "figure_vision",
+      "npts": 30,
+      "mass_range": "3.20e-06..5.50e-04",
+      "coup_median": "9.72e-09",
+      "notes": "Projection (2-sigma) for a millimeter-wave LSW dark photon search at 30 GHz (mass range ~1e-4 to 1e-3 eV). This is an LSW proposal, NOT a dark matter haloscope, so no local DM density applies. The paper reports kinetic mixing chi sensitivity. Exclusion limits shown only in projection figures (Fig 6/7) generated from C. O'Hare AxionLimits; the only explicitly quoted numerical sensitivity in text is chi~1e-8 around m~1e-4 eV for the low-power Stage A. Stages B and C reach lower chi but no exact numbers given in text. Data points are rough estimates from text only \u2014 figure data not numerically ta"
+    },
+    "after_summary": {
+      "coupling": "DarkPhoton",
+      "source": "figure_vision",
+      "npts": 32,
+      "mass_range": "3.20e-06..2.00e-04",
+      "coup_median": "1.50e-08",
+      "notes": "Projection (2sigma) for a millimeter-wave LSW dark photon search in mass range 1e-4 to 1e-3 eV. This is an LSW experiment reporting kinetic mixing chi, so DarkPhoton is appropriate (not a DM haloscope, hence no dm_density). The only explicit numerical sensitivity given in text is chi ~ 1e-8 around m_gamma' ~ 1e-4 eV for the low-power Stage A. Other stage limits (B, C) appear only in figures (Fig. 6/7) without tabulated numerical values, so they could not be reliably extracted. Confidence is moderate-low due to scarce numerical data points (figures not machine-readable). | Vision: Image 2 shows"
+    },
+    "gt_mass_window": "3.07e-06..5.51e-04 eV"
+  },
+  {
+    "arxiv_id": "2303.03594",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 0.117,
+    "resid_a": null,
+    "zo_cause_a": "unit_offset",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionPhoton",
+      "source": "figure_vision",
+      "npts": 26,
+      "mass_range": "3.50e-15..2.00e-12",
+      "coup_median": "4.00e-03",
+      "notes": "DANCE Act-1 polarization-based optical cavity axion DM search without magnetic field. 95% CL upper limit g_agamma <~ 8e-4 GeV^-1 in 1e-14 eV < m_a < 1e-13 eV. Only the quoted bound from abstract/conclusion is given as text; detailed spectrum is in Fig. 6 but not tabulated. DM density rho_a = 0.4 GeV/cm^3 assumed. Data points are approximate representing the quoted plateau bound. | Vision: Blue 'This work' region is the DANCE upper limit (exclusion above the lower boundary), spanning roughly 3e-15 to 2e-12 eV with g_agamma ~1e-3 to 2e-2 GeV^-1. The boundary is jagged due to spectral peaks; samp"
+    },
+    "after_summary": {
+      "coupling": "AxionPhoton",
+      "source": "figure_vision",
+      "npts": 20,
+      "mass_range": "7.25e-07..3.87e-04",
+      "coup_median": "8.00e-03",
+      "notes": "DANCE Act-1 polarization-based axion DM search (no external magnetic field). 95% CL upper limit g_agamma <~ 8e-4 GeV^-1 in 1e-14 eV < m_a < 1e-13 eV. DM density rho_a = 0.4 GeV/cm^3 stated. Only the quoted summary value is available in text; the full exclusion curve (Fig. 6) is not numerically tabulated, so data points are approximate based on the abstract/conclusion. | Vision: Blue 'This work' exclusion region traced as lower boundary. The boundary is highly spiky due to noise resonances; smooth trend captured. Minimum constraint ~3e-3 GeV^-1 near 1e-13 eV. CAST line shown horizontally at ~6."
+    },
+    "gt_mass_window": "4.46e-16..2.00e-12 eV"
+  },
+  {
+    "arxiv_id": "2308.06339",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "text",
+    "src_a": "text",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 0.145,
+    "resid_a": null,
+    "zo_cause_a": "unit_offset",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionPhoton",
+      "source": "text",
+      "npts": 6,
+      "mass_range": "2.00e+08..4.50e+08",
+      "coup_median": "3.00e-03",
+      "notes": "First search for ALPs via nuclear Primakoff production at GlueX on a 12C target, exploring 200<m_a<450 MeV (2e8-4.5e8 eV) via X->gammagamma. Y-axis is the ALP-photon coupling 1/Lambda in GeV^-1 (mapped to AxionPhoton g_agamma). Limits are at the scale of O(1 TeV), i.e. ~few x10^-3 GeV^-1, with most stringent point ~360 MeV due to a background dip. Data points are approximate values read from Figs. 7-8 for the observed 95% CL limit from full carbon data; precise tabulated values not provided. Background-subtracted limits are somewhat weaker (~5e-3 to 1e-2). Projections (Pb target, empty-target,"
+    },
+    "after_summary": {
+      "coupling": "AxionPhoton",
+      "source": "text",
+      "npts": 6,
+      "mass_range": "8.27e-07..1.86e-06",
+      "coup_median": "4.00e-03",
+      "notes": "Search for ALP-photon coupling via nuclear Primakoff production at GlueX, mass range 200-450 MeV via X->gamma gamma. The limit is on the inverse coupling scale 1/Lambda (GeV^-1), equivalent to g_agamma. Coupling type is clearly AxionPhoton. Data points are approximate readings from Fig. 7/8 (observed 95% CL limit on 1/Lambda), reported on the scale of O(1 TeV) i.e. ~1e-3 GeV^-1, with strongest apparent limit near 360 MeV (~1.5e-3 GeV^-1). Precise values not tabulated; values are estimates from the plotted curves. | Auto-corrected masses: Hz\u2192eV (\u00d74.136e-15, rule=argmin|log10(median*f)-log10(anc"
+    },
+    "gt_mass_window": "2.00e+08..4.51e+08 eV"
+  },
+  {
+    "arxiv_id": "2311.16364",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 0.908,
+    "resid_a": null,
+    "zo_cause_a": "unit_offset",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionElectron",
+      "source": "figure_vision",
+      "npts": 34,
+      "mass_range": "1.00e-11..4.20e-10",
+      "coup_median": "6.00e-06",
+      "notes": "Radiofrequency fermionic interferometer using NiZn ferrimagnet, sensitive to axion-electron interaction (electron gyromagnetic ratio used). Sets 90% CL limit on pseudoscalar coupling g_p. Minimum |g_p| = 1.2e-7 at m_a ~ 0.36 neV. The exclusion plot (Fig. 5) spans roughly 1e-11 to 1e-8 eV with |g_p| from ~1e-7 upward, but only the single best-limit value is given numerically in text. The y-axis is labeled |g_p|, the fermion (electron) pseudoscalar coupling, mapped here to AxionElectron since the experiment probes electron spins. | Vision: Figure 5 plots |g_p| (axion pseudoscalar coupling to fer"
+    },
+    "after_summary": {
+      "coupling": "AxionElectron",
+      "source": "figure_vision",
+      "npts": 35,
+      "mass_range": "1.00e-05..4.00e-04",
+      "coup_median": "1.50e-06",
+      "notes": "Radiofrequency fermionic interferometer using NiZn ferrimagnet (electron spins), searching for axion-electron interaction. The paper reports limits on the pseudoscalar coupling g_p, with minimum |g_p| = 1.2e-7 at m_a ~ 0.36 neV. Since the sensing material relies on electron spin resonance, this constrains the axion-electron coupling. The exclusion plot (Fig. 5) spans roughly 1e-11 to 1e-8 eV with |g_p| on the y-axis; only the single quoted minimum value is given numerically in text. The y-axis is labeled |g_p| (generic pseudoscalar coupling) rather than specifically g_ae, hence reduced confide"
+    },
+    "gt_mass_window": "1.03e-11..3.66e-10 eV"
+  },
+  {
+    "arxiv_id": "2401.16747",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "text",
+    "src_a": "text",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 0.43,
+    "resid_a": null,
+    "zo_cause_a": "unit_offset",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionPhoton",
+      "source": "text",
+      "npts": 8,
+      "mass_range": "2.00e+03..1.80e+04",
+      "coup_median": "1.00e-18",
+      "notes": "Paper presents X-ray line search with eROSITA eFEDS data, constraining decaying DM. ALP-photon coupling g_agamma limits shown in Fig 7 vs mass 2-18 keV (y-axis 1e-19 to 1e-17 GeV^-1). The paper also constrains sterile neutrino mixing angle. Data points are approximate readings from the eFEDS limit curve in Fig 7 (not a numerical table); precise values are uncertain. DM density assumed rho_sun = 0.4 GeV/cm^3 with NFW profile. Ca\u03b3\u03b3=0.75 (DFSZ) used. 95% CL upper limit."
+    },
+    "after_summary": {
+      "coupling": "AxionPhoton",
+      "source": "text",
+      "npts": 8,
+      "mass_range": "2.00e-06..1.80e-05",
+      "coup_median": "2.00e-18",
+      "notes": "Paper sets limits on decaying DM (sterile neutrino and axion-like particles) from eROSITA eFEDS X-ray observations. ALP coupling g_agamma vs mass m_a shown in Figure 7 (range ~2-18 keV, y-axis 1e-19 to 1e-17 GeV^-1). Data points are approximate readings from the eFEDS limit curve in Fig 7 since no numerical table is provided. NFW profile with rho_solar=0.4 GeV/cm^3 assumed. Cagamma=0.75 (DFSZ) used. Confidence moderate because values are read from plot, not tabulated. The paper also gives sterile neutrino (mixing angle) and decay rate limits, but the requested AxionPhoton coupling corresponds "
+    },
+    "gt_mass_window": "1.80e+03..1.80e+04 eV"
+  },
+  {
+    "arxiv_id": "2401.18076",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 20.733,
+    "resid_a": null,
+    "zo_cause_a": "wrong_window",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "ScalarPhoton",
+      "source": "figure_vision",
+      "npts": 32,
+      "mass_range": "4.00e-14..1.00e-10",
+      "coup_median": "1.56e-21",
+      "notes": "Paper sets 95% CL upper limits on scalar DM couplings 1/Lambda_gamma (d_e, ScalarPhoton) and 1/Lambda_e (d_me, ScalarElectron) using LIGO O3 data, frequency band 10-180 Hz (~5e-14 to 1e-12 eV), competitive up to 5000 Hz. Local DM density rho_CDM = 0.4 GeV/cm^3 assumed. No numerical tables given; results shown only as smoothed curves in Fig. 3 (de in panel b, dme in panel a), so no reliable data points extractable. Coupling type ambiguous between ScalarPhoton and ScalarElectron since analysis cannot distinguish Lambda_gamma vs Lambda_e. | Vision: Constraint from panel b) showing photon coupling"
+    },
+    "after_summary": {
+      "coupling": "ScalarPhoton",
+      "source": "figure_vision",
+      "npts": 21,
+      "mass_range": "7.25e-05..7.25e-02",
+      "coup_median": "9.00e-22",
+      "notes": "LIGO O3 search for scalar field dark matter via beamsplitter/test-mass size oscillations. Sets 95% C.L. upper limits on both d_e (coupling to photons/alpha, Lambda_gamma; ScalarPhoton) and d_me (coupling to electron mass, Lambda_e; ScalarElectron) as a function of mass over a band 10 Hz - 5000 Hz (~4e-14 eV to ~2e-11 eV), with main improvement 10-180 Hz (~5e-14 to ~1e-12 eV). The analysis uses mu=Lambda_i^-2 and cannot distinguish the two couplings (assumes the other is null), so both ScalarPhoton (d_e) and ScalarElectron (d_me) are constrained in separate panels (Fig. 3a for Lambda_e, 3b for "
+    },
+    "gt_mass_window": "4.45e-14..1.92e-11 eV"
+  },
+  {
+    "arxiv_id": "2402.12892",
+    "kind": "IMPROVE_resid",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "compared",
+    "resid_b": 0.853,
+    "resid_a": 0.102,
+    "zo_cause_a": null,
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionPhoton",
+      "source": "figure_vision",
+      "npts": 25,
+      "mass_range": "4.24e-06..4.91e-06",
+      "coup_median": "5.17e-15",
+      "notes": "Paper reports a cavity haloscope search for axion dark matter over 1.025-1.185 GHz (4.24-4.91 ueV), constraining axion-photon coupling at/near DFSZ sensitivity. Coupling type (AxionPhoton) is clear. Local DM density assumed 0.45 GeV/cm^3 (from Eq. 1). However, the provided paper content is truncated before the results section (Sec. V) and contains no numerical exclusion limit values or readable exclusion-plot data, so no (mass, coupling) data points could be extracted. | Vision: Lower boundary traced from the inset 'This work' panel (Fig. 22), where g_agamma is normalized to DFSZ units (DFSZ=1"
+    },
+    "after_summary": {
+      "coupling": "AxionPhoton",
+      "source": "figure_vision",
+      "npts": 19,
+      "mass_range": "4.24e-06..4.91e-06",
+      "coup_median": "6.50e-16",
+      "notes": "Paper reports a new axion-photon coupling exclusion limit from CAPP-MAX cavity haloscope over 1.025-1.185 GHz (4.24-4.91 ueV). Local DM density assumed is 0.45 GeV/cm^3 (from Eq. 1). However, the provided paper content is truncated and does not include the actual exclusion limit data table or numerical g_agamma values (the results section V is cut off). No extractable data points available. | Vision: Result is the narrow dark-navy 'This work' (CAPP MAX) region spanning 4.24-4.91 ueV (1.025-1.185 GHz). The zoom inset uses normalized units (g/g_DFSZ); I converted using the DFSZ band position at "
+    },
+    "gt_mass_window": "4.25e-06..4.89e-06 eV"
+  },
+  {
+    "arxiv_id": "2403.03004",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 0.814,
+    "resid_a": null,
+    "zo_cause_a": "unit_offset",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "VectorBL",
+      "source": "figure_vision",
+      "npts": 34,
+      "mass_range": "6.20e-14..4.14e-12",
+      "coup_median": "6.00e-19",
+      "notes": "Paper presents a U(1)_{B-L} gauge boson dark matter search using KAGRA O3GK auxiliary length channel data, clearly a VectorBL coupling (g_BL) constraint vs DM mass (~1e-14 to 1e-11 eV range). However, the provided paper content is truncated before the results section, tables, and figures, so no actual numerical (mass, coupling) data points could be extracted. The confidence level is typically 95% for such GW DM searches but not explicitly confirmed in the available text. | Vision: FIG. 5 shows 95% upper limit on B-L gauge coupling. Two channels (MICH blue, PRCL orange). Boundary traced as the "
+    },
+    "after_summary": {
+      "coupling": "VectorBL",
+      "source": "figure_vision",
+      "npts": 30,
+      "mass_range": "6.20e-05..4.14e-03",
+      "coup_median": "1.00e-18",
+      "notes": "Paper searches for U(1)_{B-L} gauge boson dark matter using KAGRA O3GK auxiliary channel data, constraining the coupling g_BL (VectorBL). Target mass range ~10^-14 to 10^-11 eV. However, the provided paper content is truncated before the results section, so no numerical limit values or data tables are available for extraction. Coupling type (VectorBL) is unambiguous from title and abstract, but no extractable data points were found. | Vision: Lower boundary traced from FIG. 5 combined MICH (blue) and PRCL (orange) 95% upper limits on g_BL. Mass converted from frequency via m=4.136e-15*f. The b"
+    },
+    "gt_mass_window": "6.27e-14..4.13e-12 eV"
+  },
+  {
+    "arxiv_id": "2410.10363",
+    "kind": "REGRESS_to_ZO",
+    "src_b": "figure_vision",
+    "src_a": "figure_vision",
+    "status_b": "compared",
+    "status_a": "zero_overlap",
+    "resid_b": 0.485,
+    "resid_a": null,
+    "zo_cause_a": "wrong_window",
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionPhoton",
+      "source": "figure_vision",
+      "npts": 24,
+      "mass_range": "6.00e+07..3.60e+08",
+      "coup_median": "2.60e-05",
+      "notes": "FASER search for light long-lived particles decaying to two photons. Primary target is ALP coupled to W bosons (g_aWW), with reinterpretations including ALP-photon (g_agamma), ALP-gluon, U(1)_B gauge boson, up-philic scalar, and 2HDM. Multiple coupling types are constrained; the hint suggests AxionPhoton but the primary result is g_aWW (no enum value exists for W-boson coupling). No numerical exclusion limit data points (mass vs coupling pairs) are provided in the extractable text \u2014 limits are presented only in figures not reproduced as tables. Cannot reliably extract numerical limit values. |"
+    },
+    "after_summary": {
+      "coupling": "AxionPhoton",
+      "source": "figure_vision",
+      "npts": 21,
+      "mass_range": "2.69e-07..1.49e-06",
+      "coup_median": "2.50e-06",
+      "notes": "FASER search for ALPs decaying to photon pairs using 57.7 fb^-1 of 13.6 TeV LHC data. The primary target is the ALP-W model (coupling g_aWW to W gauge bosons), with reinterpretations including ALP-photon (g_agamma), ALP-gluon, U(1)_B gauge boson, up-philic scalar, and Type-I 2HDM. The paper reports world-leading limits on g_aWW around 10^-4 GeV^-1 for masses up to 300 MeV. However, the primary coupling g_aWW (ALP to W bosons) does not map cleanly to AxionPhoton; the ALP-photon (g_agamma) interpretation is a secondary reinterpretation. No numerical exclusion data tables or extractable (mass, co"
+    },
+    "gt_mass_window": "1.02e+07..7.23e+07 eV"
+  },
+  {
+    "arxiv_id": "2410.19902",
+    "kind": "IMPROVE_to_compared",
+    "src_b": "text",
+    "src_a": "figure_vision",
+    "status_b": "zero_overlap",
+    "status_a": "compared",
+    "resid_b": null,
+    "resid_a": 2.131,
+    "zo_cause_a": null,
+    "coupling_a": null,
+    "before_summary": {
+      "coupling": "AxionMass",
+      "source": "text",
+      "npts": 1,
+      "mass_range": "5.30e-02..5.30e-02",
+      "coup_median": "1.10e+03",
+      "notes": "Model-independent SN1987A bound on QCD axion. Main result: f_a > 1.1e8 GeV (68% C.L.), equivalently m_a < 5.3e-2 eV. Exclusion plot (Fig 5) is on the 1/f_a vs m_a plane (yellow QCD axion line), so AxionMass is appropriate. Bound is a single point/line (excludes m_a above ~0.053 eV). Confidence level quoted in paper is 68% C.L., not the standard 90/95; reported as 0.90 per options. Single bound point given as (m_a in eV, f_a in GeV). Alternative pion-conversion bound f_a > 4e7 GeV mentioned in appendix. | Vision: Figure 5 plots 1/f_a [GeV^-1] vs m_a [eV], not the f_a-m_a plane directly. The 'Th"
+    },
+    "after_summary": {
+      "coupling": "AxionMass",
+      "source": "figure_vision",
+      "npts": 14,
+      "mass_range": "1.00e-11..8.00e+07",
+      "coup_median": "1.00e-08",
+      "notes": "Model-independent bound from SN1987A cooling via new tree-level production channel. Result is a single threshold: m_a < 5.3e-2 eV (68% C.L.), equivalently f_a > 1.1e8 GeV. Quoted as one (m_a, f_a) point on the f_a-m_a (AxionMass) plane. The exclusion plot (Fig.5) shows 1/f_a vs m_a along the QCD axion line, so this is effectively a mass bound, not a free coupling curve. Confidence reduced because the result is a single bound value rather than a tabulated limit curve, and CL is 68% not the standard 90/95% (forced to 0.90 by schema). | Vision: Figure 5 plots 1/f_a [GeV^-1] vs m_a [eV], not the s"
+    },
+    "gt_mass_window": "1.00e-30..1.00e+03 eV"
+  }
+]
