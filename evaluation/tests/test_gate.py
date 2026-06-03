@@ -39,6 +39,7 @@ from evaluation.gate import (
     evaluate_gate,
     run_gate,
     _hard_floor_violations,
+    _symmetric_ids,
 )
 from evaluation.subset_compare import _load_result_dir
 
@@ -236,3 +237,53 @@ def test_fixtures_present():
     assert (BASELINE / "META.json").exists()
     assert len(list(REGRESSED.glob("*.json"))) == 82
     assert len(list(REPEATS.glob("*.json"))) == 33
+
+
+# ---------------------------------------------------------------------------
+# Symmetric-set counting (infra drops cancel; logic errors kept)
+# ---------------------------------------------------------------------------
+
+def test_symmetric_ids_drops_infra_error_either_side():
+    b = {
+        "p1": {"data_points": [[1, 1]]},                       # clean both sides
+        "p2": {"error": "PDF download failed: 429"},           # infra on before
+        "p3": {"data_points": [[1, 1]]},
+        "p4": {"data_points": [[1, 1]]},
+    }
+    a = {
+        "p1": {"data_points": [[1, 1]]},
+        "p2": {"data_points": [[1, 1]]},
+        "p3": {"error": "read operation timed out"},           # infra on after
+        "p4": {"error": "could not parse coupling"},           # LOGIC error -> kept
+    }
+    kept, dropped = _symmetric_ids(b, a, ["p1", "p2", "p3", "p4"])
+    assert set(dropped) == {"p2", "p3"}        # infra on one side each
+    assert kept == ["p1", "p4"]                # logic error stays in the set
+
+
+def test_symmetric_ids_all_clean():
+    b = {"p1": {"data_points": [[1, 1]]}}
+    a = {"p1": {"data_points": [[1, 1]]}}
+    kept, dropped = _symmetric_ids(b, a, ["p1"])
+    assert kept == ["p1"] and dropped == []
+
+
+@requires_full_stack
+def test_gate_infra_drop_does_not_false_fail(tmp_path):
+    # A paper that downloaded cleanly in the baseline but 429s in the PR run must
+    # be dropped symmetrically, NOT counted as a new zero-overlap / lost-compared
+    # (which would false-fail G2/G7). Build an after = baseline-copy with one
+    # paper replaced by an infra error, and assert the gate still PASSes.
+    before = tmp_path / "before"
+    after = tmp_path / "after"
+    before.mkdir(); after.mkdir()
+    src = [f for f in BASELINE.glob("*.json") if f.stem != "META"]
+    for f in src:
+        shutil.copy(f, before / f.name)
+        shutil.copy(f, after / f.name)
+    victim = src[0]
+    (after / victim.name).write_text(json.dumps(
+        {"arxiv_id": victim.stem, "error": "PDF download failed: 429 Unknown Error"}))
+    rows, detail = evaluate_gate(before, after, SUBSET["union"])
+    assert victim.stem in detail["dropped_infra"]
+    assert all(r.passed for r in rows), [r.fmt() for r in rows if not r.passed]
