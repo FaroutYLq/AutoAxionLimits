@@ -12,6 +12,8 @@ on:
       - "evaluation/tests/**"
       - "pipeline/transform_guard.py"
       - "pipeline/extractor.py"
+      - "pipeline/axis_ocr.py"
+      - "pipeline/plot_calibration.py"
       - ".github/workflows/eval_tests.yml"
   pull_request:
     paths:
@@ -21,6 +23,8 @@ on:
       - "evaluation/tests/**"
       - "pipeline/transform_guard.py"
       - "pipeline/extractor.py"
+      - "pipeline/axis_ocr.py"
+      - "pipeline/plot_calibration.py"
       - ".github/workflows/eval_tests.yml"
 
 jobs:
@@ -31,11 +35,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Install the tesseract OCR binary
+        # Lets the P1 axis-OCR tests (test_axis_ocr.py / test_plot_calibration.py)
+        # run for real in this cheap no-API job. The tests still self-skip if the
+        # binary is ever missing, so the job stays green either way.
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr
       - name: Install test dependencies
         # numpy/scipy/pytest for the metric tests; anthropic/arxiv/httpx are
         # import-only deps so the transform_guard extractor-wiring tests (no API
-        # calls) can import pipeline.extractor and run here too. The wiring tests
-        # self-skip if these are ever unavailable, so the job stays green.
-        run: pip install numpy scipy pytest anthropic arxiv httpx
+        # calls) can import pipeline.extractor and run here too; opencv/pytesseract
+        # for the P1 axis-OCR tests. All such tests self-skip if a dep is ever
+        # unavailable, so the job stays green.
+        run: pip install numpy scipy pytest anthropic arxiv httpx opencv-python-headless pytesseract pillow
       - name: Run metric unit tests
         run: python -m pytest evaluation/tests/ -v

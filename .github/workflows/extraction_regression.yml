@@ -25,6 +25,8 @@ on:
       - "pipeline/extractor.py"
       - "pipeline/config.py"
       - "pipeline/transform_guard.py"
+      - "pipeline/axis_ocr.py"
+      - "pipeline/plot_calibration.py"
       - "pipeline/reviewer.py"
       - "evaluation/subset_eval.py"
       - "evaluation/subset_compare.py"
@@ -63,6 +65,13 @@ jobs:
           python-version: "3.11"
           cache: "pip"
           cache-dependency-path: requirements_pipeline.txt
+      - name: Install the tesseract OCR binary
+        # Required by pytesseract for the P1 axis-label OCR cross-check. Absent =>
+        # axis_ocr degrades to a no-op (pure-LLM axis path), so this only matters
+        # for actually exercising the OCR-corroborated override during the eval.
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr
       - name: Install pipeline + eval dependencies
         run: |
           pip install -r requirements_pipeline.txt
