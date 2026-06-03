@@ -28,6 +28,7 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from pipeline import transform_guard as tg
 from pipeline.transform_guard import (
+    Candidate,
     ConsistencyScore,
     couplings_y_const,
     guard_transform,
@@ -36,6 +37,20 @@ from pipeline.transform_guard import (
     quality,
     span_dex,
 )
+
+
+def _cand(source, *, in_range=True, corroborated=False, confidence=0.5,
+          n_points=10, recoverable=True, y_const=False, span=4.0):
+    bench = 1.0 if corroborated else None
+    return Candidate(
+        source=source,
+        data_points=tuple((1e-5, 1e-12) for _ in range(max(n_points, 1))),
+        coupling_type="AxionPhoton",
+        extraction_confidence=confidence,
+        score=ConsistencyScore(in_valid_ranges=in_range, n_points=n_points,
+                               y_const=y_const, span_dex=span, benchmark_ratio=bench),
+        recoverable=recoverable,
+    )
 
 AXION_PHOTON = {"mass": (1e-24, 1e9), "coupling": (1e-25, 1e-3)}
 
@@ -149,33 +164,26 @@ def test_r4_accepts_healthy_curve():
 # ---------------------------------------------------------------------------
 
 def test_text_outranks_vision_despite_far_more_points():
-    # The 2102.08764 / 2007.04899 regression: a 300-point CV trace overriding a
-    # correct text point-limit. quality() must keep text on top.
-    text = quality(source="text", in_valid_ranges=True, corroborated=False,
-                   confidence=0.5, n_points=10)
-    vision = quality(source="figure_vision", in_valid_ranges=True, corroborated=True,
-                     confidence=0.95, n_points=300)
+    # The 2102.08764 / 2007.04899 regression: a 300-point figure read overriding a
+    # correct text point-limit. quality() must keep text on top (T3 source tier).
+    text = quality(_cand("text", confidence=0.5, n_points=10))
+    vision = quality(_cand("figure_vision", corroborated=True, confidence=0.95, n_points=300))
     assert text > vision
 
 def test_table_outranks_text():
-    table = quality(source="table", in_valid_ranges=True, corroborated=False,
-                    confidence=0.4, n_points=5)
-    text = quality(source="text", in_valid_ranges=True, corroborated=True,
-                   confidence=0.99, n_points=500)
+    table = quality(_cand("table", confidence=0.4, n_points=5))
+    text = quality(_cand("text", corroborated=True, confidence=0.99, n_points=500))
     assert table > text
 
 def test_in_range_outranks_out_of_range_same_source():
-    good = quality(source="figure_vision", in_valid_ranges=True, corroborated=False,
-                   confidence=0.3, n_points=5)
-    bad = quality(source="figure_vision", in_valid_ranges=False, corroborated=True,
-                  confidence=0.99, n_points=500)
+    good = quality(_cand("figure_vision", in_range=True, confidence=0.3, n_points=5))
+    bad = quality(_cand("figure_vision", in_range=False, corroborated=True,
+                        confidence=0.99, n_points=500, recoverable=False))
     assert good > bad
 
 def test_n_points_is_last_tiebreak():
-    a = quality(source="text", in_valid_ranges=True, corroborated=True,
-                confidence=0.5, n_points=20)
-    b = quality(source="text", in_valid_ranges=True, corroborated=True,
-                confidence=0.5, n_points=10)
+    a = quality(_cand("text", corroborated=True, confidence=0.5, n_points=20))
+    b = quality(_cand("text", corroborated=True, confidence=0.5, n_points=10))
     assert a > b
 
 

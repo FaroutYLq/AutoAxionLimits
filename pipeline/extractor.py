@@ -23,10 +23,15 @@ import arxiv
 import httpx
 
 from .transform_guard import (
+    Candidate,
     ConsistencyScore,
+    couplings_y_const,
     guard_transform,
     in_valid_ranges,
     normalize_convention,
+    select_best,
+    should_consider_vision,
+    span_dex,
     R1_SPOTCHECK_BAND,
     R3_BENCHMARK_BAND,
 )
@@ -1028,6 +1033,67 @@ def _validate_extracted_range(data_points: list, coupling_type: str | None) -> t
     return data_points, " | ".join(notes)
 
 
+def _coupling_recoverable(data_points: list, coupling_type: str | None) -> bool:
+    """True iff the median coupling is in (or a single decade factor from) range.
+
+    Separates "in range" from "recoverable by one decade factor" — a candidate
+    whose coupling sits just outside `VALID_RANGES` but is recovered by a power of
+    ten is preferable to one (e.g. 2204.01454's ``8.6e+13``, 1907.11485's
+    ``3.3e-47``) that no decade factor recovers. Reuses the same
+    `_choose_discrete_factor` search the range validator runs (P2 T2, #571).
+    """
+    if not data_points or not coupling_type:
+        return True
+    from .config import VALID_RANGES
+    valid = VALID_RANGES.get(coupling_type)
+    if not valid:
+        return True
+    couplings = [float(g) for _, g in data_points if float(g) > 0]
+    if not couplings:
+        return True
+    coup_lo, coup_hi = valid["coupling"]
+    median_coup = _sorted_median(couplings)
+    if coup_lo <= median_coup <= coup_hi:
+        return True
+    anchor = _math.sqrt(coup_lo * coup_hi)
+    factor, _label = _choose_discrete_factor(
+        median_coup, anchor, _COUPLING_FACTOR_CANDIDATES,
+        in_range=lambda c: coup_lo <= c <= coup_hi,
+    )
+    return factor != 1.0
+
+
+def _make_candidate(source: str, data_points: list, coupling_type: str | None,
+                    confidence) -> Candidate:
+    """Build a scored :class:`Candidate` for the P2 selector (#571).
+
+    Populates the P0 `ConsistencyScore` signals (in-range validity, shape) from
+    the candidate's own points; `recoverable` (T2) is precomputed here because it
+    needs `VALID_RANGES` + the decade-factor search. Benchmark/spot-check
+    corroboration (T4) is left unset — it is computed by the post-selection
+    calibration pass and, on master, never decides a text-vs-vision tie (different
+    source tiers settle it first).
+    """
+    from .config import VALID_RANGES
+    pts = [(float(m), float(g)) for m, g in data_points]
+    masses = [m for m, _ in pts]
+    couplings = [g for _, g in pts]
+    score = ConsistencyScore(
+        in_valid_ranges=in_valid_ranges(pts, VALID_RANGES.get(coupling_type)),
+        n_points=len(pts),
+        span_dex=span_dex(masses),
+        y_const=couplings_y_const(couplings),
+    )
+    return Candidate(
+        source=source,
+        data_points=tuple(pts),
+        coupling_type=coupling_type,
+        extraction_confidence=float(confidence or 0.0),
+        score=score,
+        recoverable=_coupling_recoverable(pts, coupling_type),
+    )
+
+
 def run_extraction_agent(
     paper: arxiv.Result,
     pdf_path: Path,
@@ -1053,60 +1119,74 @@ def run_extraction_agent(
             "is_new_limit": False, "data_points": [],
             "extraction_confidence": 0.0, "coupling_type": pre_ct,
         }
-        stage1_ok = False
     else:
         stage1_result = _run_stage1(paper, pdf_text, client, coupling_hint=pre_ct)
-        stage1_ok = (
-            stage1_result.get("is_new_limit")
-            and len(stage1_result.get("data_points") or []) >= MIN_DATA_POINTS_TEXT
-            and stage1_result.get("extraction_confidence", 0) >= 0.4
-        )
 
-    stage1_points = len(stage1_result.get("data_points") or [])
-
-    if stage1_ok:
-        data_source = stage1_result.get("data_source", "table")
-        logger.info(
-            "Stage 1 succeeded for %s (%d points, conf=%.2f)",
-            arxiv_id,
-            stage1_points,
-            stage1_result.get("extraction_confidence", 0),
+    # --- P2 best-extraction selector (#571): collect candidates, score, argmax ---
+    # The source decision stops being "whichever read produced more points" (the
+    # stage1_ok short-circuit + `stage2_points > stage1_points` gate) and becomes
+    # "whichever read is most valid, most internally consistent, most confident"
+    # (transform_guard.quality / select_best). Build the text/table candidate from
+    # Stage 1; run vision only when text is NOT clearly dominant and a figure
+    # exists; then take the validity-first argmax.
+    candidates: list[Candidate] = []
+    text_points = [(float(m), float(g)) for m, g in (stage1_result.get("data_points") or [])]
+    text_cand = None
+    if text_points and stage1_result.get("is_new_limit"):
+        text_cand = _make_candidate(
+            stage1_result.get("data_source", "table"),
+            text_points,
+            stage1_result.get("coupling_type") or pre_ct,
+            stage1_result.get("extraction_confidence", 0.0),
         )
-    else:
-        # --- Stage 2: vision fallback ---
-        if stage1_points > 0 and stage1_points < MIN_DATA_POINTS_TEXT:
-            logger.info(
-                "Stage 1 returned too few points (%d < %d) for %s; trying vision",
-                stage1_points, MIN_DATA_POINTS_TEXT, arxiv_id,
-            )
-        else:
-            logger.info("Stage 1 insufficient for %s; trying vision", arxiv_id)
+        candidates.append(text_cand)
+
+    stage2_result: dict = {}
+    figure_paths: list[Path] = []
+    vision_cand = None
+    if should_consider_vision(text_cand):
         figure_paths = extract_figures_from_pdf(pdf_path)
-        # Pass coupling type hint to help vision read axes correctly
-        # Prefer Stage 1's result, fall back to pre-classifier
-        coupling_hint = stage1_result.get("coupling_type") or pre_ct
-        # Stage 2a: identify axes first (cheap, 512 tokens)
-        axis_info = _run_stage2a_axes(paper, figure_paths, client)
-        # Stash the read-back y-axis unit so the convention normalizer (#572) can
-        # detect an eV^-1 ("C/F_a"-style) axis on the vision path.
-        stage1_result["_axis_y_unit"] = (axis_info or {}).get("y_axis_unit", "")
-        stage2_result = _run_stage2(paper, figure_paths, client, coupling_hint=coupling_hint, axis_info=axis_info) if figure_paths else {}
-        if stage2_result.get("found_limit_plot") and stage2_result.get("data_points"):
-            # Use vision data if it has more points than text extraction
-            stage2_points = len(stage2_result["data_points"])
-            if stage2_points > stage1_points:
-                stage1_result["data_points"] = stage2_result["data_points"]
-                stage1_result["data_source"] = "figure_vision"
-                stage1_result["extraction_confidence"] = stage2_result.get(
-                    "extraction_confidence", 0.4
+        if figure_paths:
+            coupling_hint = stage1_result.get("coupling_type") or pre_ct
+            # Stage 2a: identify axes first (cheap, 512 tokens)
+            axis_info = _run_stage2a_axes(paper, figure_paths, client)
+            # Stash the read-back y-axis unit so the convention normalizer (#572)
+            # can detect an eV^-1 ("C/F_a"-style) axis on the vision path.
+            stage1_result["_axis_y_unit"] = (axis_info or {}).get("y_axis_unit", "")
+            stage2_result = _run_stage2(
+                paper, figure_paths, client, coupling_hint=coupling_hint, axis_info=axis_info
+            )
+            if stage2_result.get("found_limit_plot") and stage2_result.get("data_points"):
+                vis_points = [(float(m), float(g)) for m, g in stage2_result["data_points"]]
+                vision_cand = _make_candidate(
+                    "figure_vision",
+                    vis_points,
+                    stage1_result.get("coupling_type") or stage2_result.get("coupling_type") or pre_ct,
+                    stage2_result.get("extraction_confidence", 0.4),
                 )
-            else:
-                logger.info(
-                    "Vision returned fewer points (%d) than text (%d); keeping text",
-                    stage2_points, stage1_points,
-                )
-            stage1_result["is_new_limit"] = True
-            # Only use vision's coupling type if Stage 1 didn't identify one
+                candidates.append(vision_cand)
+        else:
+            logger.info("No figures extracted for %s", arxiv_id)
+    elif text_cand is not None:
+        logger.info(
+            "Strong text read for %s (%d pts, conf=%.2f); skipping vision",
+            arxiv_id, text_cand.score.n_points, text_cand.extraction_confidence,
+        )
+
+    chosen, sel_reason = select_best(candidates)
+    if chosen is None:
+        logger.info("Both stages failed for %s", arxiv_id)
+    else:
+        logger.info("Selector for %s: %s", arxiv_id, sel_reason)
+        stage1_result["is_new_limit"] = True
+        stage1_result["data_points"] = [list(p) for p in chosen.data_points]
+        stage1_result["data_source"] = chosen.source
+        stage1_result["extraction_confidence"] = chosen.extraction_confidence
+        stage1_result["notes"] = stage1_result.get("notes", "") + " | " + sel_reason
+        if chosen is vision_cand and stage2_result:
+            # Vision won: carry its semantic metadata + the figures/benchmark the
+            # downstream calibration pass needs. Coupling type follows the original
+            # precedence (use vision's only if Stage 1 didn't identify one).
             if stage2_result.get("coupling_type") and not stage1_result.get("coupling_type"):
                 stage1_result["coupling_type"] = stage2_result["coupling_type"]
             if stage2_result.get("dm_density_assumed"):
@@ -1115,15 +1195,9 @@ def run_extraction_agent(
                 stage1_result["suggested_experiment_name"] = stage2_result[
                     "suggested_experiment_name"
                 ]
-            stage1_result["notes"] = (
-                stage1_result.get("notes", "")
-                + " | Vision: "
-                + stage2_result.get("notes", "")
-            )
+            stage1_result["notes"] += " | Vision: " + stage2_result.get("notes", "")
             stage1_result["_benchmark_reading"] = stage2_result.get("benchmark_reading")
             stage1_result["_figure_paths"] = figure_paths
-        else:
-            logger.info("Both stages failed for %s", arxiv_id)
 
     data_points = [
         (float(m), float(g)) for m, g in stage1_result.get("data_points", [])
