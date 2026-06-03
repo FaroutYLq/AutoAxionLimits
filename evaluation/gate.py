@@ -13,6 +13,14 @@ No new dependencies: stdlib + the existing `subset_compare` summary functions
 reuses `pipeline.transform_guard.in_valid_ranges` + `pipeline.config.VALID_RANGES`
 — both anthropic-free — so the whole gate runs in the no-API `eval_tests` job.
 
+**Symmetric-set counting:** the rules are evaluated only over papers that
+extracted *without an infrastructure error on either side* (`_symmetric_ids`). An
+arXiv 429/timeout drops a paper to a download-`error` on one side only; comparing
+the asymmetric sets would shrink one side's compared/zero-overlap counts and
+false-fail G2/G7 on flakiness rather than a real regression. Dropping such papers
+from BOTH sides makes infra drops cancel. A real logic error is kept (G6 gates
+it). This is the robustness piece that lets the gate become auto-required.
+
 CLI:
     python -m evaluation.gate --before evaluation/eval_runs/baseline \
         --after evaluation/eval_runs/after --key figure [--soft] [--out report.md]
@@ -157,6 +165,29 @@ def _logic_errors(results: dict[str, dict], ids: list[str]) -> tuple[list, list]
     return logic, infra
 
 
+def _symmetric_ids(b_results: dict[str, dict], a_results: dict[str, dict],
+                   ids: list[str]) -> tuple[list[str], list[str]]:
+    """Keep only papers assessable on BOTH sides; drop ones with an INFRA error
+    on either side.
+
+    arXiv 429s / timeouts drop a paper to a download-`error` on one side only,
+    which would otherwise shrink that side's compared/zero-overlap set and
+    false-fail G2/G7 (and skew the residual aggregates) on infrastructure rather
+    than a real regression. Comparing only the symmetric set makes those drops
+    cancel. A LOGIC error (a real extraction bug) is NOT dropped — it stays in the
+    set so G6 gates it and its lost comparability is visible.
+
+    Returns ``(kept, dropped)``.
+    """
+    kept, dropped = [], []
+    for aid in ids:
+        br, ar = b_results.get(aid), a_results.get(aid)
+        b_infra = bool(br and br.get("error") and _is_infra_error(str(br["error"])))
+        a_infra = bool(ar and ar.get("error") and _is_infra_error(str(ar["error"])))
+        (dropped if (b_infra or a_infra) else kept).append(aid)
+    return kept, dropped
+
+
 def apply_rules(b: dict, a: dict, *, b_logic_n: int, a_logic_n: int,
                 b_floor_n: int, a_floor_n: int) -> list[GateRow]:
     """Pure G1-G7 evaluation over two `_summarize` dicts. No IO — unit-testable
@@ -250,13 +281,18 @@ def evaluate_gate(before_dir: Path, after_dir: Path, ids: list[str]) -> tuple[li
 
     b_results = _load_result_dir(before_dir)
     a_results = _load_result_dir(after_dir)
-    b = _summarize(_records_for(b_results, entries_by_id, ids))
-    a = _summarize(_records_for(a_results, entries_by_id, ids))
 
-    b_logic, _b_infra = _logic_errors(b_results, ids)
-    a_logic, a_infra = _logic_errors(a_results, ids)
-    b_floor = _hard_floor_violations(b_results, ids)
-    a_floor = _hard_floor_violations(a_results, ids)
+    # Symmetric-set counting: compare only papers assessable on BOTH sides, so an
+    # arXiv-throttle drop on one side cancels instead of false-failing the gate.
+    kept, dropped = _symmetric_ids(b_results, a_results, ids)
+
+    b = _summarize(_records_for(b_results, entries_by_id, kept))
+    a = _summarize(_records_for(a_results, entries_by_id, kept))
+
+    b_logic, _b_infra = _logic_errors(b_results, kept)
+    a_logic, a_infra = _logic_errors(a_results, kept)
+    b_floor = _hard_floor_violations(b_results, kept)
+    a_floor = _hard_floor_violations(a_results, kept)
 
     rows = apply_rules(b, a, b_logic_n=len(b_logic), a_logic_n=len(a_logic),
                        b_floor_n=len(b_floor), a_floor_n=len(a_floor))
@@ -264,17 +300,27 @@ def evaluate_gate(before_dir: Path, after_dir: Path, ids: list[str]) -> tuple[li
         "before": b, "after": a,
         "logic_errors": a_logic, "infra_errors": a_infra,
         "floor_violations": a_floor,
+        "dropped_infra": dropped, "n_kept": len(kept),
     }
     return rows, detail
 
 
 def render(rows: list[GateRow], detail: dict, ids: list[str]) -> str:
     passed = all(r.passed for r in rows)
+    n_dropped = len(detail.get("dropped_infra", []))
+    n_kept = detail.get("n_kept", len(ids))
+    sym = (f" ({n_kept} compared symmetrically, {n_dropped} dropped for an "
+           f"infra error on one side)" if n_dropped else f" ({n_kept} compared)")
     L = ["# Extraction-regression gate (P4 / #569)\n",
-         f"Subset: {len(ids)} papers. Overall: **{'PASS' if passed else 'FAIL'}**.\n",
+         f"Subset: {len(ids)} papers{sym}. Overall: "
+         f"**{'PASS' if passed else 'FAIL'}**.\n",
          "| Rule | Result | Before | After | Threshold | Metric |",
          "|---|---|---|---|---|---|"]
     L += [r.fmt() for r in rows]
+    if detail.get("dropped_infra"):
+        L.append(f"\n_Symmetric-set: dropped {n_dropped} paper(s) with an infra "
+                 f"error on one side (not gated): "
+                 f"{', '.join(detail['dropped_infra'])}_")
     if detail["infra_errors"]:
         L.append(f"\n_Note: {len(detail['infra_errors'])} infrastructure error(s) "
                  f"(not gated): {', '.join(detail['infra_errors'])}_")
