@@ -163,18 +163,90 @@ class ExtractionResult:
 # PDF download & parsing
 # ---------------------------------------------------------------------------
 
-def download_pdf(arxiv_id: str, workdir: Path) -> Path:
-    """Download the arXiv PDF and return local path."""
+def _pdf_cache_dir() -> Optional[Path]:
+    """Persistent cross-run PDF cache directory, or None if disabled.
+
+    arXiv aggressively rate-limits (429) and times out under burst access; every
+    caller downloads into a throwaway per-run ``workdir``, so a paper that 429s is
+    re-fetched every run. A persistent cache (default ``~/.cache/aal_pdf_cache``,
+    overridable via ``AAL_PDF_CACHE``; set it empty to disable) means a paper that
+    downloads cleanly once is served from disk thereafter — across daily-pipeline
+    runs and across eval re-extractions. In CI the existing ``~/.cache`` action
+    cache persists it between gate runs.
+    """
+    val = os.environ.get("AAL_PDF_CACHE")
+    if val is None:
+        return Path.home() / ".cache" / "aal_pdf_cache"
+    if not val.strip():
+        return None
+    return Path(val)
+
+
+def download_pdf(
+    arxiv_id: str, workdir: Path, *, max_retries: int = 5, base_delay: float = 5.0
+) -> Path:
+    """Download the arXiv PDF and return its local path in ``workdir``.
+
+    Resilient to arXiv throttling: serves from a persistent cross-run cache when
+    available (:func:`_pdf_cache_dir`), and retries with exponential backoff on
+    429 / timeout / connection / 5xx errors (the transient failures that drop
+    papers to a download-`error` and falsely shrink the eval comparison set).
+    """
     pdf_url = f"https://arxiv.org/pdf/{arxiv_id}.pdf"
     pdf_path = workdir / f"{arxiv_id}.pdf"
-    if pdf_path.exists():
+    if pdf_path.exists() and pdf_path.stat().st_size > 0:
         return pdf_path
+
+    # Cross-run cache hit -> copy into the caller's workdir (preserves the
+    # contract that figure/text extraction writes alongside the workdir PDF).
+    cache_dir = _pdf_cache_dir()
+    cached = (cache_dir / f"{arxiv_id}.pdf") if cache_dir else None
+    if cached and cached.exists() and cached.stat().st_size > 0:
+        import shutil
+        shutil.copyfile(cached, pdf_path)
+        logger.info("Using cached PDF for %s", arxiv_id)
+        return pdf_path
+
     logger.info("Downloading %s", pdf_url)
-    with httpx.Client(follow_redirects=True, timeout=60) as client:
-        resp = client.get(pdf_url)
-        resp.raise_for_status()
-    pdf_path.write_bytes(resp.content)
-    return pdf_path
+    last_exc: Optional[Exception] = None
+    for attempt in range(max_retries):
+        try:
+            with httpx.Client(follow_redirects=True, timeout=60) as client:
+                resp = client.get(pdf_url)
+            # 429 / 5xx are transient under arXiv load -> retry; 4xx (404) -> raise.
+            if resp.status_code == 429 or resp.status_code >= 500:
+                resp.raise_for_status()
+            resp.raise_for_status()
+            data = resp.content
+            if not data:
+                raise ValueError("empty PDF response")
+            pdf_path.write_bytes(data)
+            if cached is not None:  # populate the cache for next time
+                try:
+                    import shutil
+                    cache_dir.mkdir(parents=True, exist_ok=True)
+                    shutil.copyfile(pdf_path, cached)
+                except OSError as e:  # cache is best-effort
+                    logger.debug("PDF cache write failed for %s: %s", arxiv_id, e)
+            return pdf_path
+        except (httpx.TimeoutException, httpx.TransportError, ValueError) as e:
+            last_exc = e
+            retryable = True
+        except httpx.HTTPStatusError as e:
+            last_exc = e
+            code = e.response.status_code
+            retryable = code == 429 or code >= 500
+            if not retryable:
+                raise
+        if attempt < max_retries - 1:
+            delay = base_delay * (2 ** attempt)
+            logger.warning(
+                "download_pdf %s failed (attempt %d/%d), retrying in %.0fs: %s",
+                arxiv_id, attempt + 1, max_retries, delay, str(last_exc)[:80],
+            )
+            time.sleep(delay)
+    assert last_exc is not None
+    raise last_exc
 
 
 def extract_text_from_pdf(pdf_path: Path, max_chars: int = 60_000) -> str:
