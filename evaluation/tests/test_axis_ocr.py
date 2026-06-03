@@ -159,6 +159,29 @@ def test_ocr_axis_labels_guards_short_ticklist():
 
 
 # ---------------------------------------------------------------------------
+# PaddleOCR backend token selection (no real paddle needed)
+# ---------------------------------------------------------------------------
+
+def test_paddle_read_prefers_power_of_ten_token(monkeypatch):
+    # PaddleOCR may return a stray fragment alongside the real label
+    # ("3 10-18"); _paddle_read must pick the power-of-ten token -> 1e-18.
+    class _FakeOCR:
+        def predict(self, path):
+            return [{"rec_texts": ["3", "10-18"], "rec_scores": [0.90, 0.95]}]
+
+    monkeypatch.setattr(axis_ocr, "_get_paddle", lambda: _FakeOCR())
+    txt, conf = axis_ocr._paddle_read("/tmp/whatever.png")
+    assert txt == "10-18"
+    assert axis_ocr.parse_positive_label(txt) == pytest.approx(1e-18)
+    assert conf == pytest.approx(0.925, abs=1e-3)
+
+
+def test_paddle_read_no_op_without_engine(monkeypatch):
+    monkeypatch.setattr(axis_ocr, "_get_paddle", lambda: None)
+    assert axis_ocr._paddle_read("/tmp/x.png") == ("", 0.0)
+
+
+# ---------------------------------------------------------------------------
 # Real-OCR smoke test (tesseract present only)
 # ---------------------------------------------------------------------------
 

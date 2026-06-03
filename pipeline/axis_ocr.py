@@ -35,21 +35,56 @@ from typing import Optional
 
 logger = logging.getLogger(__name__)
 
-# pytesseract + Pillow are optional at import time. Pillow ships as a pytesseract
-# dependency, so they are present or absent together; numpy comes with the CV
-# stack. Any import failure makes this module a no-op.
+# numpy + Pillow (the image stack) and pytesseract are optional at import time.
+# Any import failure makes the OCR layer a no-op.
 try:  # pragma: no cover - exercised implicitly
     import numpy as np
-    import pytesseract
     from PIL import Image
 
-    _OCR_AVAILABLE = True
+    _IMG_AVAILABLE = True
 except Exception as _e:  # pragma: no cover
     np = None  # type: ignore
-    pytesseract = None  # type: ignore
     Image = None  # type: ignore
-    _OCR_AVAILABLE = False
-    logger.warning("pytesseract/Pillow unavailable; axis_ocr is a no-op: %s", _e)
+    _IMG_AVAILABLE = False
+    logger.warning("numpy/Pillow unavailable; axis_ocr is a no-op: %s", _e)
+
+try:  # pragma: no cover
+    import pytesseract
+    _TESS_AVAILABLE = True
+except Exception:  # pragma: no cover
+    pytesseract = None  # type: ignore
+    _TESS_AVAILABLE = False
+
+# PaddleOCR is an OPT-IN backend (env AAL_OCR_BACKEND=paddle). It reads
+# power-of-ten tick labels (10^-15) far better than Tesseract, which drops the
+# superscript minus ("10^-15" -> "10715"), but pulls the heavy PaddlePaddle
+# dependency — so it is NEVER imported unless explicitly enabled. Lazily
+# initialised once via :func:`_get_paddle` with a lightweight config
+# (no doc-orientation / dewarp / textline-orientation; ~1s init, ~0.1s/crop).
+_USE_PADDLE = os.environ.get("AAL_OCR_BACKEND", "").strip().lower() == "paddle"
+_PADDLE = None  # lazy singleton
+
+_OCR_AVAILABLE = _IMG_AVAILABLE and (_TESS_AVAILABLE or _USE_PADDLE)
+
+
+def _get_paddle():
+    """Lazily build the PaddleOCR singleton (lightweight config); None on failure."""
+    global _PADDLE
+    if _PADDLE is not None:
+        return _PADDLE if _PADDLE is not False else None
+    try:
+        from paddleocr import PaddleOCR
+        _PADDLE = PaddleOCR(
+            use_doc_orientation_classify=False,
+            use_doc_unwarping=False,
+            use_textline_orientation=False,
+            lang="en",
+        )
+    except Exception as e:  # pragma: no cover - env dependent
+        logger.warning("PaddleOCR unavailable; falling back to tesseract: %s", e)
+        _PADDLE = False
+        return None
+    return _PADDLE
 
 
 @dataclass(frozen=True)
@@ -216,13 +251,58 @@ def _label_band(bbox, axis: str, tick: float, spacing: float, shape) -> Optional
     return (cx0, cy0, cx1, cy1)
 
 
-def _ocr_crop(arr, upscale: int = 4) -> tuple[str, float]:
-    """OCR a numeric crop (numpy array) -> (joined_text, mean_conf 0..1).
+def _paddle_read(path) -> tuple[str, float]:
+    """PaddleOCR a crop file -> (best-parseable token, conf 0..1).
 
-    The crop is written to a temp PNG and tesseract is invoked on the file path
-    rather than handed a PIL object: some environments mis-handle pytesseract's
-    internal in-memory temp-save (a libpng/leptonica mismatch surfaces as a
-    decode error), and the file-path invocation is robust across them.
+    PaddleOCR returns the tick label correctly (incl. the superscript minus,
+    "10-15") but may also pick up a stray tick/curve fragment as a separate
+    token ("3 10-18"). Pick the token that parses to a positive value, preferring
+    a power-of-ten form, so the genuine label wins over the noise.
+    """
+    ocr = _get_paddle()
+    if ocr is None:
+        return "", 0.0
+    try:
+        res = ocr.predict(path) if hasattr(ocr, "predict") else ocr.ocr(path)
+    except Exception as e:  # pragma: no cover - env dependent
+        logger.debug("_paddle_read failed: %s", e)
+        return "", 0.0
+    texts: list[str] = []
+    scores: list[float] = []
+
+    def _walk(x):
+        if isinstance(x, dict):
+            if "rec_texts" in x:
+                texts.extend(x.get("rec_texts") or [])
+                scores.extend(x.get("rec_scores") or [])
+            else:
+                for v in x.values():
+                    _walk(v)
+        elif isinstance(x, (list, tuple)):
+            for e in x:
+                _walk(e)
+
+    _walk(res)
+    if not texts:
+        return "", 0.0
+    conf = float(sum(scores) / len(scores)) if scores else 0.6
+    # split into whitespace tokens and keep those that parse to a positive value
+    toks = [t for chunk in texts for t in chunk.split()]
+    valid = [t for t in toks if parse_positive_label(t) is not None]
+    if valid:
+        pow10 = [t for t in valid if "10" in _normalize_text(t)]
+        return (pow10 or valid)[0], conf
+    return " ".join(texts), conf
+
+
+def _ocr_crop(arr, upscale: int = 4) -> tuple[str, float]:
+    """OCR a numeric crop (numpy array) -> (text, conf 0..1).
+
+    Uses the PaddleOCR backend when enabled (``AAL_OCR_BACKEND=paddle``), else
+    Tesseract. The crop is written to a temp PNG and the engine is invoked on the
+    file path: some environments mis-handle pytesseract's in-memory temp-save
+    (a libpng/leptonica mismatch surfaces as a decode error), and the file-path
+    invocation is robust across them and is also what PaddleOCR expects.
     """
     try:
         img = Image.fromarray(arr)
@@ -232,15 +312,22 @@ def _ocr_crop(arr, upscale: int = 4) -> tuple[str, float]:
             img = img.resize(
                 (img.width * upscale, img.height * upscale), Image.LANCZOS
             )
-        config = (
-            "--psm 7 -c tessedit_char_whitelist="
-            "0123456789.eExX+-^"
-        )
         tmp = None
         try:
             with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tf:
                 tmp = tf.name
             img.save(tmp)
+            if _USE_PADDLE:
+                txt, conf = _paddle_read(tmp)
+                if txt:
+                    return txt, conf
+                # paddle found nothing -> fall through to tesseract if present
+            if not _TESS_AVAILABLE:
+                return "", 0.0
+            config = (
+                "--psm 7 -c tessedit_char_whitelist="
+                "0123456789.eExX+-^"
+            )
             data = pytesseract.image_to_data(
                 tmp, config=config, output_type=pytesseract.Output.DICT
             )
