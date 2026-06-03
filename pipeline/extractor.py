@@ -81,15 +81,40 @@ def _call_with_retry(fn, max_retries: int = 4, base_delay: float = 5.0):
 # identical inputs can yield run-to-run drift (1403.1290 coupling values 7-25x;
 # 2209.13588 pre-classifier AxionProton<->AxionNeutron flip). Decode greedily at
 # temperature 0 so the read layer is reproducible. Defined once and injected by
-# `_create` so the setting is single-source and the P4 CI gate can assert that no
+# `_create` so the setting is single-source and the wiring test can assert that no
 # `messages.create` is issued without it.
+#
+# Some newer models (e.g. claude-opus-4-8) have DEPRECATED the `temperature`
+# parameter and return a 400 if it is sent — which silently broke EVERY extraction
+# (all stages 400 -> data_source none). `_create` injects temperature=0 by default
+# (preserving the #572 determinism for models that accept it) but, on a
+# temperature-deprecation 400, retries once WITHOUT it and remembers the model so
+# later calls omit it (no repeated wasted 400s). For such models read determinism
+# then rests on the single (N=1) read rather than an explicit temperature=0.
 _READ_TEMPERATURE = 0.0
+_TEMPERATURE_UNSUPPORTED: set[str] = set()
 
 
 def _create(client, **kwargs):
-    """`client.messages.create` with deterministic decoding injected (#572)."""
-    kwargs.setdefault("temperature", _READ_TEMPERATURE)
-    return client.messages.create(**kwargs)
+    """`client.messages.create` with deterministic decoding injected (#572).
+
+    Self-adapts to models that deprecate `temperature` (#580): the parameter is
+    injected by default, but if the API rejects it the call is retried once
+    without it and the model is cached so it is never re-sent.
+    """
+    model = kwargs.get("model")
+    if model in _TEMPERATURE_UNSUPPORTED:
+        kwargs.pop("temperature", None)
+    else:
+        kwargs.setdefault("temperature", _READ_TEMPERATURE)
+    try:
+        return client.messages.create(**kwargs)
+    except Exception as e:
+        if model and "temperature" in kwargs and "temperature" in str(e).lower():
+            _TEMPERATURE_UNSUPPORTED.add(model)
+            kwargs.pop("temperature", None)
+            return _create(client, **kwargs)  # retry once without temperature
+        raise
 
 
 # ---------------------------------------------------------------------------
