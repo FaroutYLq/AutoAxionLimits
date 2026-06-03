@@ -1,0 +1,16 @@
+{
+  "arxiv_id": "1810.04602",
+  "paper_title": "Evidence for light-by-light scattering and searches for axion-like particles in ultraperipheral PbPb collisions at $\\sqrt{s_\\mathrm{NN}} =$ 5.02 TeV",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "CMS_PbPb_LbL_2019",
+  "notes": "CMS sets 95% CL exclusion limits on ALP-photon coupling g_agamma vs ALP mass (5-90 GeV) via gamma-gamma -> a -> gamma-gamma in ultraperipheral PbPb collisions. Coupling type is clearly AxionPhoton (g_agamma = 1/Lambda). However, the numerical g_agamma vs m_a values are only shown in Fig. 7 (and cross-section limits in Fig. 6) which are not available as a readable table in the provided text. No extractable numerical (mass, coupling) pairs are available.",
+  "num_points": 0,
+  "elapsed_s": 27.703171968460083
+}

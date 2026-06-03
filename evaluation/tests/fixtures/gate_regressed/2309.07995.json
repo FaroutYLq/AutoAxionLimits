@@ -1,0 +1,145 @@
+{
+  "arxiv_id": "2309.07995",
+  "paper_title": "HeLIOS: The Superfluid Helium Ultralight Dark Matter Detector",
+  "coupling_type": "VectorBL",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      0.0002418,
+      2.5e-23
+    ],
+    [
+      0.00029016,
+      1.5e-23
+    ],
+    [
+      0.00036270000000000003,
+      8e-24
+    ],
+    [
+      0.0004836,
+      5e-24
+    ],
+    [
+      0.0006045,
+      4e-24
+    ],
+    [
+      0.0007254000000000001,
+      3.5e-24
+    ],
+    [
+      0.0008463,
+      3.3e-24
+    ],
+    [
+      0.0009672,
+      3.2e-24
+    ],
+    [
+      0.0010881,
+      3.3e-24
+    ],
+    [
+      0.001209,
+      3.5e-24
+    ],
+    [
+      0.0013299000000000002,
+      4e-24
+    ],
+    [
+      0.0014508000000000001,
+      5e-24
+    ],
+    [
+      0.0015717,
+      8e-24
+    ],
+    [
+      0.0016926,
+      5e-24
+    ],
+    [
+      0.0018135,
+      4e-24
+    ],
+    [
+      0.0019344,
+      4e-24
+    ],
+    [
+      0.0021762,
+      4.5e-24
+    ],
+    [
+      0.002418,
+      5e-24
+    ],
+    [
+      0.0026598000000000004,
+      6e-24
+    ],
+    [
+      0.0029016000000000003,
+      5e-24
+    ],
+    [
+      0.0033852,
+      5e-24
+    ],
+    [
+      0.0038688,
+      5.5e-24
+    ],
+    [
+      0.0043524,
+      6e-24
+    ],
+    [
+      0.004836,
+      6.5e-24
+    ],
+    [
+      0.0055614,
+      6e-24
+    ],
+    [
+      0.0062868,
+      6.5e-24
+    ],
+    [
+      0.007254,
+      7e-24
+    ],
+    [
+      0.008463,
+      7e-24
+    ],
+    [
+      0.009672,
+      7.5e-24
+    ],
+    [
+      0.010881,
+      7e-24
+    ],
+    [
+      0.01209,
+      8e-24
+    ],
+    [
+      0.013299,
+      9e-24
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "Eot-Wash (existing bound shown in HeLIOS vector UDM plot)",
+  "notes": "Prototype superfluid helium optomechanical detector presenting projected sensitivities (after 1 hour integration) for both scalar UDM (coupling to electron mass d_me, ScalarElectron) and vector UDM (gB-L, VectorBL). These are projections, not measured limits. The paper covers two coupling types; per hint and exclusion plot the vector channel is gB-L (VectorBL). Mass range ~1-10 peV (1e-12 to 1e-11 eV), Compton freq ~0.3-10 kHz. Vector coupling axis spans ~1e-26 to 1e-16. No numerical table of (mass, coupling) exclusion points is provided; only plotted projection curves. Local DM density 0.4 GeV/cm^3 stated. | Vision: Right panel of Fig.1 shows vector UDM g_BL vs mass [peV]. The lower boundary traced corresponds to the lowest existing constraint envelope (Eot-Wash / LIGO-Virgo) bounding the excluded region from below. HeLIOS projected sensitivities (red) lie above. Axis multiplier and log scale read per calibration. Values approximate due to overlapping shaded regions. | CV axis calibration: y-max corrected 1e+07->6.35213e-05; | Calibration: No calibration needed | Auto-corrected masses: 1/(eV\u2192MHz) i.e. MHz\u2192eV inverse (\u00d72.418e+08, rule=argmin|log10(median*f)-log10(anchor=1.0e-03)|)",
+  "num_points": 32,
+  "elapsed_s": 41.9707350730896
+}

@@ -1,0 +1,110 @@
+name: extraction regression gate
+
+# P4 of #566 (issue #569). Required before/after subset-eval gate for any change
+# to the extraction/calibration surface. It re-extracts ONLY the "after" side
+# (the committed baseline snapshot is the "before"), compares with the same
+# harness that caught the #550+#561 regression, and fails the check on a real
+# regression (gate.py G1-G7).
+#
+# Additive and independent of the daily/weekly/backfill science pipelines and of
+# the no-API eval_tests.yml (this one DOES call the API and is much slower).
+
+on:
+  pull_request:
+    paths:
+      - "pipeline/extractor.py"
+      - "pipeline/config.py"
+      - "pipeline/transform_guard.py"
+      - "pipeline/reviewer.py"
+      - "evaluation/subset_eval.py"
+      - "evaluation/subset_compare.py"
+      - "evaluation/gate.py"
+      - "evaluation/eval_runs/baseline/**"
+      - ".github/workflows/extraction_regression.yml"
+  workflow_dispatch:
+    inputs:
+      subset_key:
+        description: "subset key to gate on (figure | union | zero_overlap | unit_offset)"
+        default: "figure"
+      soft:
+        description: "soft mode (comment only, never fail)"
+        type: boolean
+        default: false
+
+# Successive pushes to a PR must not stack 40-min API jobs (mirrors backfill.yml).
+concurrency:
+  group: extraction-gate-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    # Don't burn the API key on fork PRs (no secrets there anyway); same-repo PRs
+    # and manual dispatch run automatically, fork PRs only when a maintainer adds
+    # the `run-eval` label.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository ||
+      contains(github.event.pull_request.labels.*.name, 'run-eval')
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: requirements_pipeline.txt
+      - name: Install pipeline + eval dependencies
+        run: |
+          pip install -r requirements_pipeline.txt
+          pip install scipy   # used by the evaluation metrics
+
+      # Persist the arXiv PDF-metadata cache across runs so we don't re-hammer
+      # arXiv (download_pdf has no cross-run cache; this memoizes the metadata).
+      - name: Restore extraction cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache
+            evaluation/results/metadata_cache.json
+          key: extraction-gate-cache-${{ hashFiles('evaluation/subset/subset.json') }}
+          restore-keys: |
+            extraction-gate-cache-
+
+      - name: Re-extract the AFTER snapshot (figure subset by default)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          KEY="${{ github.event.inputs.subset_key || 'figure' }}"
+          python -m evaluation.subset_eval extract --key "$KEY" \
+            --outdir "$RUNNER_TEMP/after"
+
+      - name: Compare (writes the comparison.md a human reads)
+        run: |
+          KEY="${{ github.event.inputs.subset_key || 'figure' }}"
+          python -m evaluation.subset_compare \
+            --before evaluation/eval_runs/baseline \
+            --after  "$RUNNER_TEMP/after" \
+            --key "$KEY" \
+            --out "$RUNNER_TEMP/comparison.md" || true
+
+      - name: Run the regression gate
+        id: gate
+        env:
+          SOFT: ${{ github.event.inputs.soft || 'false' }}
+        run: |
+          KEY="${{ github.event.inputs.subset_key || 'figure' }}"
+          ARGS=""
+          if [ "$SOFT" = "true" ]; then ARGS="--soft"; fi
+          python -m evaluation.gate \
+            --before evaluation/eval_runs/baseline \
+            --after  "$RUNNER_TEMP/after" \
+            --key "$KEY" \
+            --out "$RUNNER_TEMP/gate.md" $ARGS
+
+      - name: Post the report as a sticky PR comment
+        if: always() && github.event_name == 'pull_request'
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: extraction-regression-gate
+          path: ${{ runner.temp }}/gate.md

@@ -1,0 +1,69 @@
+{
+  "arxiv_id": "1509.00476",
+  "paper_title": "Probing MeV to 90 GeV axion-like particles with LEP and LHC",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.136e-09,
+      0.0004
+    ],
+    [
+      8.272e-09,
+      0.0003
+    ],
+    [
+      2.068e-08,
+      0.0002
+    ],
+    [
+      4.136e-08,
+      0.00015
+    ],
+    [
+      1.2408e-07,
+      0.0001
+    ],
+    [
+      4.136e-07,
+      7e-05
+    ],
+    [
+      1.2408e-06,
+      5e-05
+    ],
+    [
+      4.136e-06,
+      4e-05
+    ],
+    [
+      1.2408e-05,
+      3.5e-05
+    ],
+    [
+      4.1360000000000004e-05,
+      3e-05
+    ],
+    [
+      0.00012408,
+      3e-05
+    ],
+    [
+      0.00024816,
+      3.5e-05
+    ],
+    [
+      0.00037224000000000003,
+      5e-05
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "LEP Z->2gamma,3gamma (Jaeckel-Spannowsky)",
+  "notes": "Paper constrains ALP-photon coupling g_agamma (and g_aBB hypercharge) in MeV-90 GeV range using LEP Z->2gamma/3gamma data, with LHC/FCC-ee projections. Coupling type is clearly AxionPhoton. However, no numerical exclusion table is provided; limits are shown only graphically in Fig. 4 (log10 g vs log10 ma plots) with no readable numbers. Table 1 only gives signal/background cross sections for a fixed assumed coupling (10^-4 GeV^-1), not exclusion limits. Therefore no reliable (mass, coupling) data points can be extracted. | Vision: Figure 4(a) shows the new LEP exclusion (green) from Z->2gamma (dashed) and Z->3gamma (solid) in the MeV-90 GeV ALP mass range (log10 m_a/eV ~ 6 to ~11). The plot is a compilation overlay; the green LEP region's lower boundary is approximate due to overlapping shaded regions (SN1987a, beam dump). Coupling is g_agamma in GeV^-1. The new LEP boundary roughly spans g_agamma ~ 4e-4 at MeV masses down to ~3e-5 near the Z mass. Axes are log10 scale. Confidence reduced due to difficulty isolating the green LEP boundary from overlapping compilation regions. | CV calibration unavailable (no plot region), used LLM axes | Calibration: No calibration needed | Auto-corrected masses: Hz\u2192eV (\u00d74.136e-15, rule=argmin|log10(median*f)-log10(anchor=1.0e-05)|)",
+  "num_points": 13,
+  "elapsed_s": 41.816645860672
+}

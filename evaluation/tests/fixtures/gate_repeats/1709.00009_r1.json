@@ -1,0 +1,141 @@
+{
+  "arxiv_id": "1709.00009",
+  "paper_title": "Revised constraints and Belle II sensitivity for visible and invisible axion-like particles",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      10000.0,
+      2.4e-05
+    ],
+    [
+      20000.0,
+      2.4e-05
+    ],
+    [
+      50000.0,
+      2.4e-05
+    ],
+    [
+      100000.0,
+      2.4e-05
+    ],
+    [
+      200000.0,
+      2.4e-05
+    ],
+    [
+      300000.0,
+      2.2e-05
+    ],
+    [
+      500000.0,
+      6e-08
+    ],
+    [
+      600000.0,
+      2e-08
+    ],
+    [
+      700000.0,
+      1.6e-08
+    ],
+    [
+      900000.0,
+      1.4e-08
+    ],
+    [
+      1200000.0,
+      1.2e-08
+    ],
+    [
+      1500000.0,
+      1.28e-08
+    ],
+    [
+      2000000.0,
+      1.6e-08
+    ],
+    [
+      3000000.0,
+      2.4e-08
+    ],
+    [
+      5000000.0,
+      4.8e-08
+    ],
+    [
+      8000000.0,
+      1e-07
+    ],
+    [
+      10000000.0,
+      1.6e-07
+    ],
+    [
+      15000000.0,
+      3.2e-07
+    ],
+    [
+      20000000.0,
+      6e-07
+    ],
+    [
+      30000000.0,
+      1.4e-06
+    ],
+    [
+      50000000.0,
+      4e-06
+    ],
+    [
+      70000000.0,
+      1e-05
+    ],
+    [
+      100000000.0,
+      2.4e-05
+    ],
+    [
+      150000000.0,
+      8e-05
+    ],
+    [
+      200000000.0,
+      0.0002
+    ],
+    [
+      250000000.0,
+      0.0006
+    ],
+    [
+      300000000.0,
+      0.0016
+    ],
+    [
+      350000000.0,
+      0.004
+    ],
+    [
+      400000000.0,
+      0.012
+    ],
+    [
+      500000000.0,
+      0.04
+    ],
+    [
+      600000000.0,
+      0.08
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "ALP photon coupling combined constraints (Dolan et al.)",
+  "notes": "Paper presents revised constraints and Belle II projected sensitivity for ALP-photon coupling g_agamma vs ALP mass (keV-GeV). Coupling type is clearly AxionPhoton (g_agamma in GeV^-1). However, no numerical tables are provided; all results are shown in figures (Fig 2, 4, 7) without extractable tabulated values. Confidence reduced due to lack of extractable numerical data points. Limits given at 90% CL (collider/beam dump bounds at 95% but stated to be imperceptibly different). | Vision: Left panel of Figure 2 (photon coupling, g_a\u03b3Z=0). Lower boundary of the combined excluded region. At low mass (keV-MeV) the floor is set by HB stars (~6e-6) and SN1987A; below ~0.5 MeV the strong SN1987A (a\u2192\u03b3\u03b3) bound dips to ~3e-9 around a few MeV, then rises steeply toward higher masses. Values read from log-log plot, approximate. Coupling g_agamma in GeV^-1. | Calibration: Spot-check calibration: verify/stage2 ratio=4.0x",
+  "num_points": 31,
+  "elapsed_s": 51.70092701911926
+}

@@ -1,0 +1,16 @@
+{
+  "arxiv_id": "1110.2895",
+  "paper_title": "Cosmological bounds on pseudo Nambu-Goldstone bosons",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "Cadamuro_Redondo_2012_ALP_cosmology",
+  "notes": "Cosmological bounds on ALP two-photon coupling g (GeV^-1) vs mass m_phi (eV) from BBN, CMB, Neff, EBL, etc. The summary exclusion plot (Fig. 1) is in the m_phi-g plane, so coupling type is AxionPhoton. However, no numerical table is provided and the limits are presented only graphically as multiple overlapping exclusion regions (each with characteristic slope g ~ m^-3/2). The text gives only scattered approximate relations (e.g. g/GeV^-1 >~ 10^-3 (eV/m_phi)^3/2 for the Neff low-mass boundary; DM mass bound m_phi=154 eV). Insufficient digitizable data points to reliably tabulate. Confidence lowered due to lack of extractable numerical limit data.",
+  "num_points": 0,
+  "elapsed_s": 18.627710103988647
+}

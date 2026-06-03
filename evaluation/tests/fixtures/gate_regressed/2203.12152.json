@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2203.12152",
+  "paper_title": "Direct Search for Dark Matter Axions Excluding ALP Cogenesis in the 63-67 micro-eV Range, with The ORGAN Experiment",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5.71e-05,
+      3e-12
+    ],
+    [
+      5.79e-05,
+      3e-12
+    ],
+    [
+      5.95e-05,
+      3e-12
+    ],
+    [
+      6.2e-05,
+      3e-12
+    ],
+    [
+      0.0001097,
+      1.2e-12
+    ],
+    [
+      0.0001117,
+      1.2e-12
+    ],
+    [
+      0.0001137,
+      1.2e-12
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "ORGAN Phase 1a/1b",
+  "notes": "ORGAN Phase 1a microwave cavity haloscope. New 95% CL limit g_agamma >= 3e-12 GeV^-1 over 63.2-67.1 ueV (15.28-16.23 GHz). Exact limit curve points along the mass range are in Fig. 4 but only the bounding value 3e-12 is given in text; data points approximate the flat exclusion line. Local DM density assumed 0.45 GeV/cm^3 (all axions). Gaps exist due to mode-mixing regions. | Vision: Plot shows projected limits (red dashed 2a-2g, blue/orange bands) and actual achieved limits as green vertical bands (1a ~14 GHz reaching g~3e-12, 1b ~27 GHz reaching g~1.2e-12). The green bands are the real constraints from this measurement; most other curves are projections. Frequency converted to mass via m[eV]=4.136e-15*f[Hz]. Excluded region is above the green band floors within those narrow mass windows. The dominant exclusion across whole range is CAST at ~6.6e-11. Confidence reduced because the actual exclusion regions are narrow green bands and y-axis values at band bottoms are approximate. | CV axis calibration succeeded (ranges consistent with LLM) | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.00 snapped to identity)",
+  "num_points": 7,
+  "elapsed_s": 29.20598816871643
+}

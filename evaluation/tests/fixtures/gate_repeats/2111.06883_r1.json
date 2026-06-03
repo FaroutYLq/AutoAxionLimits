@@ -1,0 +1,93 @@
+{
+  "arxiv_id": "2111.06883",
+  "paper_title": "Search for oscillations of fundamental constants using molecular spectroscopy",
+  "coupling_type": "ScalarNucleon",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.5e-13,
+      0.2666666666666667
+    ],
+    [
+      6e-13,
+      0.33333333333333337
+    ],
+    [
+      8e-13,
+      0.46666666666666673
+    ],
+    [
+      1e-12,
+      0.6666666666666667
+    ],
+    [
+      1.5e-12,
+      1.3333333333333335
+    ],
+    [
+      2e-12,
+      2.666666666666667
+    ],
+    [
+      2.5e-12,
+      5.333333333333334
+    ],
+    [
+      3e-12,
+      13.333333333333336
+    ],
+    [
+      3.5e-12,
+      33.333333333333336
+    ],
+    [
+      4e-12,
+      100.0
+    ],
+    [
+      4.5e-12,
+      333.33333333333337
+    ],
+    [
+      5e-12,
+      1333.3333333333335
+    ],
+    [
+      6e-12,
+      6666.666666666667
+    ],
+    [
+      7e-12,
+      40000.0
+    ],
+    [
+      8e-12,
+      200000.0
+    ],
+    [
+      1e-11,
+      2000000.0000000002
+    ],
+    [
+      1.5e-11,
+      66666666.66666667
+    ],
+    [
+      2e-11,
+      6666666666.666667
+    ],
+    [
+      3e-11,
+      66666666666666.67
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "Microscope (d_me, only)",
+  "notes": "Paper constrains coupling of oscillating UDM field to quarks/gluons (QCD sector), with main exclusion plot (Fig 3) showing combination Q_N\u00b7d = 0.999 d_gs + 0.092 d_mhat + ... vs f_phi (Compton frequency, 10 Hz - 10^8 Hz, i.e. ~4e-14 to 4e-7 eV). This is a scalar coupling to nucleon mass (ScalarNucleon hint plausible). Also presents constraints on d_alpha (ScalarPhoton) and d_me (ScalarElectron) in Figs 4 and 5. Multiple coupling types present, lowering confidence. No numerical tables of exclusion values are provided in the extractable text \u2014 data only in plots (Figs 2-5) which are not numerically readable here. Galactic halo density 0.3 GeV/cm^3 used (also solar halo 10^5 x and Earth halo scenarios). 95% CL. No extractable (mass, coupling) pairs. | Vision: This plot is the d_me (ScalarElectron) exclusion plot, NOT ScalarNucleon as hinted. The y-axis is d_{m_e}. The lowest boundary at small mass comes from the Be-Al/Be-Ti equivalence-principle solid lines (~1e-3 to ~1), but the steeply rising MICROSCOPE curve (cyan) defines the dominant lower boundary that rapidly increases with mass. I traced the cyan MICROSCOPE 'only d_me != 0' curve which forms the lowest constraint at very low mass and rises sharply. Coupling type identified as ScalarElectron (d_me), which differs from the ScalarNucleon hint; confidence lowered accordingly. | Calibration: Spot-check calibration: verify/stage2 ratio=66.7x",
+  "num_points": 19,
+  "elapsed_s": 28.844422101974487
+}

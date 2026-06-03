@@ -1,0 +1,16 @@
+{
+  "arxiv_id": "2112.03439",
+  "paper_title": "A Model-Independent Radio Telescope Dark Matter Search in the L and S Bands",
+  "coupling_type": null,
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": 0.471,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.15,
+  "suggested_experiment_name": "BL_GBT_LSband_2025",
+  "notes": "This paper sets model-independent limits on the dark matter decay rate (lambda ~ 1e-32 s^-1) and annihilation cross section (<sigma v> ~ 1e-30 cm^3/s) for radiative DM-to-radio-line processes over 1020-2700 MHz. The reported quantities are decay rate and velocity-weighted annihilation cross section, NOT a standard particle-physics coupling (g_agamma, chi, etc.) on the exclusion plot y-axes (Fig 8/9 show lambda [s^-1] and <sigma v> vs frequency). The hint of AxionPhoton does not match: the result is generic and not expressed as g_agamma. No coupling type in the enum applies. The NFW local density used is 0.471 GeV/cm^3 (Burkert 0.487). Could not extract (mass, coupling) pairs because no coupling constant is reported; data are decay rate / cross section limits which fall outside the requested coupling enum.",
+  "num_points": 0,
+  "elapsed_s": 33.46103286743164
+}

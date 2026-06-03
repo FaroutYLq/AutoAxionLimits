@@ -1,0 +1,117 @@
+{
+  "arxiv_id": "2110.13636",
+  "paper_title": "Searching for Axion-Like Particles with the Blazar Observations of MAGIC and Fermi-LAT",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      7e-09,
+      6.6e-11
+    ],
+    [
+      8e-09,
+      5e-11
+    ],
+    [
+      9e-09,
+      3.8e-11
+    ],
+    [
+      1e-08,
+      3e-11
+    ],
+    [
+      1.2e-08,
+      2.6e-11
+    ],
+    [
+      1.4e-08,
+      2.3e-11
+    ],
+    [
+      1.7e-08,
+      2.1e-11
+    ],
+    [
+      2e-08,
+      2e-11
+    ],
+    [
+      2.3e-08,
+      2e-11
+    ],
+    [
+      2.7e-08,
+      2.1e-11
+    ],
+    [
+      3e-08,
+      2.3e-11
+    ],
+    [
+      3.5e-08,
+      2.6e-11
+    ],
+    [
+      4e-08,
+      2.4e-11
+    ],
+    [
+      4.5e-08,
+      2e-11
+    ],
+    [
+      5e-08,
+      2.2e-11
+    ],
+    [
+      6e-08,
+      2.6e-11
+    ],
+    [
+      7e-08,
+      3e-11
+    ],
+    [
+      8e-08,
+      3.4e-11
+    ],
+    [
+      9e-08,
+      3.8e-11
+    ],
+    [
+      1e-07,
+      4e-11
+    ],
+    [
+      1.2e-07,
+      4.3e-11
+    ],
+    [
+      1.4e-07,
+      4.8e-11
+    ],
+    [
+      1.6e-07,
+      5.5e-11
+    ],
+    [
+      1.8e-07,
+      6e-11
+    ],
+    [
+      2e-07,
+      6.6e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "Mrk 421 MAGIC + Fermi-LAT (combined 15 phases)",
+  "notes": "Astrophysical ALP-photon oscillation search using blazar Mrk 421 spectra (MAGIC + Fermi-LAT). Combined 15-phase analysis excludes g_agamma >~ 2e-11 GeV^-1 for ~8e-9 eV <~ m_a <~ 2e-7 eV at 95% CL. Only the approximate corner values from the text are extractable; the full exclusion contour is in Fig. 4 but not given numerically. PG 1553+113 did not set a limit. Not a DM haloscope, so no local DM density assumed. | Vision: Red contour from Fig. 4 = combined Mrk 421 (MAGIC+Fermi-LAT) 95% C.L. upper limit, the paper's main result. The contour is jagged; lower boundary traced approximately. Text states exclusion of g_agamma >~ 2e-11 GeV^-1 for 8e-9 <~ m_a <~ 2e-7 eV. Upper boundary cut off by CAST band at 6.6e-11. Excluded region lies above this boundary (within the contour up to CAST line). | CV axis calibration succeeded (ranges consistent with LLM) | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.83 snapped to identity)",
+  "num_points": 25,
+  "elapsed_s": 41.29063391685486
+}

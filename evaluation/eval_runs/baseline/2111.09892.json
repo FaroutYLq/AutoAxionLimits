@@ -1,0 +1,16 @@
+{
+  "arxiv_id": "2111.09892",
+  "paper_title": "Upper Limit on the QCD Axion Mass from Isolated Neutron Star Cooling",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "IsolatedNS_Cooling_2021",
+  "notes": "Paper constrains QCD axion mass from isolated neutron star cooling. Main result is m_a < 16 meV (KSVZ, 95% CL). For axion-nucleon-only models they quote |g_ann| < 1.3e-9 and |g_app| < 1.5e-9 at 95% CL. These are single bounds, not a coupling-vs-mass curve (mass is the constrained quantity here, set by f_a). The y-axis of the main exclusion plot (Fig. 3) is tan(beta) vs m_a, not a coupling. Could arguably be AxionMass, but the explicit numeric coupling limits are on g_ann/g_app. No tabulated (mass, coupling) curve is provided to extract as data points, hence data_points empty. Note both neutron and proton couplings are constrained.",
+  "num_points": 0,
+  "elapsed_s": 35.29897999763489
+}

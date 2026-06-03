@@ -1,0 +1,16 @@
+{
+  "arxiv_id": "1606.07001",
+  "paper_title": "DARWIN: towards the ultimate dark matter detector",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "DARWIN",
+  "notes": "DARWIN projection paper. Figure 4 shows sensitivity projections for solar axions (g_Ae^solar vs m_A) and galactic ALPs (g_Ae^ALP vs m_A) via the axio-electric effect, constraining the axion-electron coupling. The DARWIN projection improves galactic ALP sensitivity by ~2 orders of magnitude over XENON100 and solar axion sensitivity by ~1 order of magnitude. However, no numerical table or explicit DARWIN sensitivity values are given in the text \u2014 only the figure (not extractable to numbers here). XENON100 reference limits quoted: g_Ae^ALP ~2e-12 (90% CL, 1-40 keV galactic ALPs), g_Ae^solar > 7.7e-12 (90% CL). These are prior XENON100 results, not new DARWIN limits. The local DM density rho_0=0.3 GeV/cm^3 is assumed for the WIMP halo. Coupling type is AxionElectron but no extractable DARWIN data points available.",
+  "num_points": 0,
+  "elapsed_s": 21.548627853393555
+}

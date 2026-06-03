@@ -1,0 +1,149 @@
+{
+  "arxiv_id": "1410.7267",
+  "paper_title": "Stronger limits on hypothetical Yukawa interactions in the 40--8000 nm range",
+  "coupling_type": "ScalarNucleon",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.00493,
+      6000000.0
+    ],
+    [
+      0.0035,
+      2000000.0
+    ],
+    [
+      0.0025,
+      600000.0
+    ],
+    [
+      0.0018,
+      200000.0
+    ],
+    [
+      0.0013,
+      80000.0
+    ],
+    [
+      0.0009,
+      30000.0
+    ],
+    [
+      0.0006,
+      10000.0
+    ],
+    [
+      0.0004,
+      4000.0
+    ],
+    [
+      0.00025,
+      1600.0
+    ],
+    [
+      0.00015,
+      600.0
+    ],
+    [
+      0.0001,
+      240.0
+    ],
+    [
+      6e-05,
+      80.0
+    ],
+    [
+      4e-05,
+      30.0
+    ],
+    [
+      2.5e-05,
+      12.0
+    ],
+    [
+      1.5e-05,
+      5.0
+    ],
+    [
+      1e-05,
+      2.4
+    ],
+    [
+      6e-06,
+      1.0
+    ],
+    [
+      4e-06,
+      0.5
+    ],
+    [
+      2.5e-06,
+      0.24000000000000002
+    ],
+    [
+      1.5e-06,
+      0.1
+    ],
+    [
+      1e-06,
+      0.05
+    ],
+    [
+      6e-07,
+      0.024
+    ],
+    [
+      4e-07,
+      0.012
+    ],
+    [
+      2.5e-07,
+      0.005
+    ],
+    [
+      1.5e-07,
+      0.0018
+    ],
+    [
+      1e-07,
+      0.0007
+    ],
+    [
+      6e-08,
+      0.00024
+    ],
+    [
+      4e-08,
+      8e-05
+    ],
+    [
+      2.5e-08,
+      2.4e-05
+    ],
+    [
+      1.5e-08,
+      8e-06
+    ],
+    [
+      1e-08,
+      2.4e-06
+    ],
+    [
+      6.58e-09,
+      8e-07
+    ],
+    [
+      3.5e-09,
+      2e-07
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "IUPUI (2014) Casimir-less",
+  "notes": "Paper constrains Yukawa-type fifth force (strength alpha relative to gravity vs range lambda in 30-8000 nm), a ScalarNucleon-type fifth force test. Exclusion limits are shown only in Fig. 4 (alpha vs lambda plane) with no numerical table or explicit text values, so no data points could be extracted reliably. The y-axis is alpha (Yukawa strength relative to gravity), not a standard dimensionless coupling, which complicates conversion. Mass conversion: lambda=hbar/mc, so range 30-8000 nm corresponds roughly to m ~ 6.6 eV down to 0.025 eV. | Vision: Figure 4 plots |alpha| (Yukawa strength relative to gravity) vs lambda (meters). Converted lambda to mass via m = hbar*c/lambda = 1.973e-7 eV*m / lambda. Red curve is this work's limit. The y-axis is the Yukawa alpha for nucleon-nucleon (ScalarNucleon-type fifth force) constraint. Note: original x-axis is length not mass; conversion applied. Mass range corresponds to lambda 30-8000 nm. Values approximate from log-log plot reading of the red curve. | Calibration: Spot-check calibration: verify/stage2 ratio=0.0x | Auto-corrected couplings: \u00d71.00e-08 (8 orders too large)",
+  "num_points": 33,
+  "elapsed_s": 40.817912101745605
+}

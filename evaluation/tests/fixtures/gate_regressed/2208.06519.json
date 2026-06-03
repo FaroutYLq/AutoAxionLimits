@@ -1,0 +1,133 @@
+{
+  "arxiv_id": "2208.06519",
+  "paper_title": "One-Electron Quantum Cyclotron as a Milli-eV Dark-Photon Detector",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.00061173,
+      1e-07
+    ],
+    [
+      0.00061175,
+      3e-08
+    ],
+    [
+      0.00061177,
+      1e-08
+    ],
+    [
+      0.00061179,
+      3e-09
+    ],
+    [
+      0.00061181,
+      1e-09
+    ],
+    [
+      0.00061183,
+      4e-10
+    ],
+    [
+      0.00061185,
+      1.8e-10
+    ],
+    [
+      0.00061188,
+      1e-10
+    ],
+    [
+      0.00061191,
+      6e-11
+    ],
+    [
+      0.00061195,
+      4e-11
+    ],
+    [
+      0.000612,
+      3.4e-11
+    ],
+    [
+      0.00061205,
+      3.2e-11
+    ],
+    [
+      0.0006121,
+      3.15e-11
+    ],
+    [
+      0.00061216,
+      3.1e-11
+    ],
+    [
+      0.00061222,
+      3.1e-11
+    ],
+    [
+      0.00061228,
+      3.1e-11
+    ],
+    [
+      0.00061234,
+      3.15e-11
+    ],
+    [
+      0.0006124,
+      3.2e-11
+    ],
+    [
+      0.00061245,
+      3.4e-11
+    ],
+    [
+      0.0006125,
+      4e-11
+    ],
+    [
+      0.00061254,
+      6e-11
+    ],
+    [
+      0.00061257,
+      1e-10
+    ],
+    [
+      0.0006126,
+      1.8e-10
+    ],
+    [
+      0.00061262,
+      4e-10
+    ],
+    [
+      0.00061264,
+      1e-09
+    ],
+    [
+      0.00061266,
+      3e-09
+    ],
+    [
+      0.00061268,
+      1e-08
+    ],
+    [
+      0.0006127,
+      3e-08
+    ],
+    [
+      0.00061272,
+      1e-07
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.78,
+  "suggested_experiment_name": "One-Electron Quantum Cyclotron DPDM (148 GHz)",
+  "notes": "Proof-of-principle measurement at 148.05 GHz (mA' = 0.612276 meV) setting epsilon < 3.2e-11 at 90% CL, ~75x better than previous constraints. Local DM density 0.3 GeV/cm^3. A projected future sensitivity (~8e-11 over 20-200 GHz) is also discussed but is a separate projection, not the measured limit. | Vision: Fig 5a. X-axis is mass offset from central m_A'=0.612276 meV (6.12276e-4 eV), spanning roughly \u00b11e-6 meV (full plot \u00b1~1.2e-6 meV). U-shaped exclusion; minimum coupling epsilon < 3.2e-11 at center (from Eq. 8). Coupling type DarkPhoton (kinetic mixing chi/epsilon). XENON1T limit ~3e-9, Cosmology dashed ~3-4e-9. Mass conversions approximate since x-axis is a narrow band offset, not log scale. | CV calibration unavailable (no plot region), used LLM axes | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.03 snapped to identity)",
+  "num_points": 29,
+  "elapsed_s": 38.02696704864502
+}

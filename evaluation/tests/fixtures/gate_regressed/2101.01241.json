@@ -1,0 +1,141 @@
+{
+  "arxiv_id": "2101.01241",
+  "paper_title": "Search for axion-like dark matter using solid-state nuclear magnetic resonance",
+  "coupling_type": "AxionEDM",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.62e-07,
+      1.05e-18
+    ],
+    [
+      1.621e-07,
+      1.05e-19
+    ],
+    [
+      1.622e-07,
+      1.05e-20
+    ],
+    [
+      1.623e-07,
+      1.5e-21
+    ],
+    [
+      1.6235e-07,
+      1e-21
+    ],
+    [
+      1.624e-07,
+      9.5e-22
+    ],
+    [
+      1.626e-07,
+      9.5e-22
+    ],
+    [
+      1.628e-07,
+      9.5e-22
+    ],
+    [
+      1.63e-07,
+      9.6e-22
+    ],
+    [
+      1.632e-07,
+      9.5e-22
+    ],
+    [
+      1.634e-07,
+      9.5e-22
+    ],
+    [
+      1.636e-07,
+      9.6e-22
+    ],
+    [
+      1.638e-07,
+      9.5e-22
+    ],
+    [
+      1.64e-07,
+      9.5e-22
+    ],
+    [
+      1.642e-07,
+      9.6e-22
+    ],
+    [
+      1.644e-07,
+      9.5e-22
+    ],
+    [
+      1.646e-07,
+      9.5e-22
+    ],
+    [
+      1.648e-07,
+      9.6e-22
+    ],
+    [
+      1.65e-07,
+      9.5e-22
+    ],
+    [
+      1.652e-07,
+      9.5e-22
+    ],
+    [
+      1.654e-07,
+      9.6e-22
+    ],
+    [
+      1.656e-07,
+      9.5e-22
+    ],
+    [
+      1.658e-07,
+      9.5e-22
+    ],
+    [
+      1.66e-07,
+      9.6e-22
+    ],
+    [
+      1.662e-07,
+      9.5e-22
+    ],
+    [
+      1.6635e-07,
+      1e-21
+    ],
+    [
+      1.664e-07,
+      2e-21
+    ],
+    [
+      1.6645e-07,
+      1e-20
+    ],
+    [
+      1.665e-07,
+      1e-19
+    ],
+    [
+      1.666e-07,
+      1e-18
+    ],
+    [
+      1.667e-07,
+      1e-18
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "CASPEr-electric (solid-state 207Pb NMR)",
+  "notes": "CASPEr-electric solid-state NMR search. Reports |gd|<9.5e-4 GeV^-2 corresponding to oscillating neutron EDM amplitude <1.0e-21 e*cm over 39.1-40.2 MHz (mass ~162-166 neV). Also constrains gradient coupling g_aNN<2.8e-1 GeV^-1 (AxionNeutron). Limit given as a single value across band; only band edges shown as data points. DM density (rho_DM ~3.6e-42 GeV^4 ~ standard 0.4 GeV/cm^3 halo model) assumed. | Vision: Figure 3(a) plots nucleon EDM coupling g_d in GeV^-2 (left axis) and gradient coupling g_aNN (right axis). The text gives g_d < 9.5e-4 GeV^-2 corresponding to d_n < 1.0e-21 e\u00b7cm. I converted the plotted g_d boundary to d_n in e\u00b7cm using d_n = g_d \u00d7 (1.0e-21/9.5e-4) \u2248 g_d \u00d7 1.053e-18. The floor of the exclusion well is at d_n \u2248 9.5e-22 to 1.0e-21 e\u00b7cm across 162-166 neV, with steep walls at the edges. X-axis is linear in neV. Confidence reduced because the y-axis is natively g_d (GeV^-2), not d_n directly. | CV calibration unavailable (no plot region), used LLM axes | Calibration: No calibration needed",
+  "num_points": 31,
+  "elapsed_s": 45.62042593955994
+}

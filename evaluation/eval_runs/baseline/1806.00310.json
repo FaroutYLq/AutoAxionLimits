@@ -1,0 +1,21 @@
+{
+  "arxiv_id": "1806.00310",
+  "paper_title": "Operation of a ferromagnetic axion haloscope at $m_a=58\\,\u03bc$eV",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5.8e-05,
+      4.9e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.88,
+  "suggested_experiment_name": "QUAX_2018",
+  "notes": "Ferromagnetic haloscope (QUAX prototype) constraining axion-electron coupling g_aee < 4.9e-10 at 95% C.L. for m_a = 58 ueV (14 GHz). Limit covers a ~3 MHz scan around 14 GHz but the single quoted value is the minimum. DM density assumed 0.45 GeV/cm^3. Exclusion plot in Fig. 8 shows g_aee vs mass; only the central/best value is given numerically in text.",
+  "num_points": 1,
+  "elapsed_s": 15.810824871063232
+}

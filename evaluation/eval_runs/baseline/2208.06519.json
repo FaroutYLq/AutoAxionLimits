@@ -1,0 +1,117 @@
+{
+  "arxiv_id": "2208.06519",
+  "paper_title": "One-Electron Quantum Cyclotron as a Milli-eV Dark-Photon Detector",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.00061173,
+      1e-07
+    ],
+    [
+      0.00061178,
+      3e-08
+    ],
+    [
+      0.00061183,
+      8e-09
+    ],
+    [
+      0.00061188,
+      2e-09
+    ],
+    [
+      0.00061192,
+      5e-10
+    ],
+    [
+      0.00061196,
+      1.5e-10
+    ],
+    [
+      0.000612,
+      7e-11
+    ],
+    [
+      0.00061205,
+      4.5e-11
+    ],
+    [
+      0.0006121,
+      3.6e-11
+    ],
+    [
+      0.00061215,
+      3.3e-11
+    ],
+    [
+      0.0006122,
+      3.2e-11
+    ],
+    [
+      0.00061225,
+      3.2e-11
+    ],
+    [
+      0.00061228,
+      3.2e-11
+    ],
+    [
+      0.00061232,
+      3.2e-11
+    ],
+    [
+      0.00061237,
+      3.3e-11
+    ],
+    [
+      0.00061242,
+      3.5e-11
+    ],
+    [
+      0.00061247,
+      4.2e-11
+    ],
+    [
+      0.00061252,
+      6e-11
+    ],
+    [
+      0.00061256,
+      1.2e-10
+    ],
+    [
+      0.0006126,
+      3e-10
+    ],
+    [
+      0.00061264,
+      9e-10
+    ],
+    [
+      0.00061268,
+      3e-09
+    ],
+    [
+      0.00061273,
+      1e-08
+    ],
+    [
+      0.00061278,
+      4e-08
+    ],
+    [
+      0.00061282,
+      1e-07
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "One-Electron Quantum Cyclotron (Northwestern/Harvard)",
+  "notes": "Single trapped electron quantum cyclotron used as dark photon dark matter detector at 148 GHz (0.612276 meV). Limit epsilon < 3.2e-11 at 90% CL, ~75x better than previous constraints. The measured limit is a single point in a narrow mass band. A projected sensitivity curve (n_e=10, r=25mm spherical trap) is also shown but is a separate future projection. | Vision: Figure 5(a). Narrow exclusion band centered at m_A'=0.612276 meV (148 GHz). X-axis is m_A' - 0.612276 43 meV with \u00d710^-6 multiplier; converted to absolute eV (center=6.1228e-4 eV). Lower boundary of red 'this work' curve traced; minimum epsilon = 3.2e-11 per Eq. (8). Band half-width ~0.55e-6 meV. Coupling is kinetic mixing epsilon (chi). | Calibration: No calibration needed",
+  "num_points": 25,
+  "elapsed_s": 37.989574909210205
+}

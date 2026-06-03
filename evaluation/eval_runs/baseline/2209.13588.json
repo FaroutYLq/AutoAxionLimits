@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "2209.13588",
+  "paper_title": "Constraints on axion-like dark matter from a SERF comagnetometer",
+  "coupling_type": "AxionProton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.4e-12,
+      0.001
+    ],
+    [
+      2e-12,
+      0.0005
+    ],
+    [
+      4e-12,
+      0.0001
+    ],
+    [
+      1e-11,
+      3e-05
+    ],
+    [
+      2e-11,
+      1e-05
+    ],
+    [
+      4e-11,
+      5e-06
+    ],
+    [
+      1e-10,
+      5e-06
+    ],
+    [
+      2e-10,
+      1e-05
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "NASDUCK-SERF",
+  "notes": "NASDUCK-SERF SERF comagnetometer using 3He and 39K. Constrains both ALP-neutron (gaNN) and ALP-proton (gaPP) couplings; the paper's novel highlight is the first reliable terrestrial ALP-proton bound, so coupling_type set to AxionProton. Mass range 1.4 peV to 200 peV. Precise bounds tabulated in external GitHub repo [57]; data_points here are approximate reads from Fig.2 (right panel, mean exclusion) and partially closes regions 5e-6 to 2e-5 GeV^-1 and (1-9)e-3 GeV^-1. A separate AxionNeutron limit (gaNN, ~1e-7 to 1e-3 GeV^-1) is also reported. Standard local DM density assumed but specific value not stated in text.",
+  "num_points": 8,
+  "elapsed_s": 12.213502883911133
+}

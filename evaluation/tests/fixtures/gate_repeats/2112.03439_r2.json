@@ -1,0 +1,16 @@
+{
+  "arxiv_id": "2112.03439",
+  "paper_title": "A Model-Independent Radio Telescope Dark Matter Search in the L and S Bands",
+  "coupling_type": null,
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": 0.471,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.2,
+  "suggested_experiment_name": "BreakthroughListen_GBT_LS_DM",
+  "notes": "Model-independent radio search using Breakthrough Listen/GBT data over 1020-2700 MHz. Limits are reported on the DM decay rate (lambda ~ 1e-32 s^-1) and annihilation cross section (<sigma v> ~ 1e-30 cm^3/s) vs frequency/mass, NOT on a particle coupling constant like g_agamma. None of the enumerated coupling types (which expect a coupling vs mass) apply directly, so coupling_type is set to null and no data points are extracted. Local DM density assumed rho_NFW(rs)=0.471 GeV/cm^3 (Burkert 0.487). Decay photon energy assumed h*nu = m_chi c^2/2. 3-sigma exclusion criterion used. The pre-analysis hint of AxionPhoton is overridden because the exclusion plots use decay rate / cross section on the y-axis.",
+  "num_points": 0,
+  "elapsed_s": 31.60101294517517
+}

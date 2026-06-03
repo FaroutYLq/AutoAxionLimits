@@ -1,0 +1,16 @@
+{
+  "arxiv_id": "2401.17253",
+  "paper_title": "Spectrum of global string networks and the axion dark matter mass",
+  "coupling_type": "AxionMass",
+  "is_new_limit": false,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.2,
+  "suggested_experiment_name": "GlobalStringSim2024",
+  "notes": "This is a theoretical/numerical simulation paper predicting the post-inflationary QCD axion dark matter mass range (m_a ~ 95-450 ueV) from global string network spectrum simulations. It is not an experimental exclusion limit or sensitivity projection on a coupling constant. The main result is a predicted mass range, not a curve in coupling-mass space. No extractable (mass, coupling) data points for a standard exclusion plot are provided.",
+  "num_points": 0,
+  "elapsed_s": 35.204431772232056
+}

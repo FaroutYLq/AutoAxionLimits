@@ -1,0 +1,81 @@
+{
+  "arxiv_id": "2401.17253",
+  "paper_title": "Spectrum of global string networks and the axion dark matter mass",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.0,
+      100000.0
+    ],
+    [
+      3.0,
+      1000.0
+    ],
+    [
+      5.0,
+      100.0
+    ],
+    [
+      8.0,
+      30.0
+    ],
+    [
+      10.0,
+      10.0
+    ],
+    [
+      30.0,
+      5.0
+    ],
+    [
+      100.0,
+      3.0
+    ],
+    [
+      300.0,
+      2.0
+    ],
+    [
+      1000.0,
+      1.5
+    ],
+    [
+      3000.0,
+      1.2
+    ],
+    [
+      10000.0,
+      1.0
+    ],
+    [
+      30000.0,
+      0.8
+    ],
+    [
+      100000.0,
+      0.5
+    ],
+    [
+      300000.0,
+      0.3
+    ],
+    [
+      1000000.0,
+      0.1
+    ],
+    [
+      3000000.0,
+      0.05
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "Axion DM mass prediction (global string networks)",
+  "notes": "This is a theoretical/numerical-simulation paper predicting the post-inflationary QCD axion dark matter mass from global string network simulations. Result is a predicted mass range m_a ~ 95-450 ueV (corresponding to a band on the f_a-m_a plane), not an experimental exclusion limit or sensitivity projection with extractable (mass, coupling) data points. No coupling-constant exclusion curve is presented as the main result; Fig 1 only shows other works' mass estimates overlaid on the C_agamma plane adapted from elsewhere. No tabulated numerical data extractable. | Vision: This is Figure 1, a composite axion-photon coupling (C_a\u03b3, dimensionless) vs m_a plot adapted from a review. It overlays many experimental regions (CAST, Haloscopes, Globular clusters, etc.) and theory lines (KSVZ, DFSZ). The y-axis is C_a\u03b3, NOT f_a, so this is not a clean AxionMass plot despite the text hint. The paper's main RESULT is a predicted DM mass range m_a \u2248 95-450 \u03bceV (post-inflationary), shown as a band but not a coupling exclusion boundary. The traced boundary is approximate, following the dominant lower envelope of the excluded (colored) regions. Confidence is low because of the composite nature and unit ambiguity. | CV axis calibration: y-min corrected 0.01->8.78241e-08; | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.67 snapped to identity) | Auto-corrected masses: MeV\u2192eV (\u00d71.000e+06, rule=argmin|log10(median*f)-log10(anchor=1.0e+03)|)",
+  "num_points": 16,
+  "elapsed_s": 61.90478014945984
+}

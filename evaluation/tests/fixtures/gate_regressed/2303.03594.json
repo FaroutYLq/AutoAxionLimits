@@ -1,0 +1,97 @@
+{
+  "arxiv_id": "2303.03594",
+  "paper_title": "First results of axion dark matter search with DANCE",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      7.254e-07,
+      0.04
+    ],
+    [
+      1.209e-06,
+      0.04
+    ],
+    [
+      1.6926000000000001e-06,
+      0.03
+    ],
+    [
+      2.418e-06,
+      0.02
+    ],
+    [
+      3.6269999999999997e-06,
+      0.012
+    ],
+    [
+      4.836e-06,
+      0.008
+    ],
+    [
+      7.2539999999999995e-06,
+      0.006
+    ],
+    [
+      9.672e-06,
+      0.005
+    ],
+    [
+      1.2090000000000001e-05,
+      0.004
+    ],
+    [
+      1.6926e-05,
+      0.0035
+    ],
+    [
+      2.4180000000000002e-05,
+      0.003
+    ],
+    [
+      3.627e-05,
+      0.0035
+    ],
+    [
+      4.8360000000000005e-05,
+      0.004
+    ],
+    [
+      7.254e-05,
+      0.005
+    ],
+    [
+      9.672000000000001e-05,
+      0.006
+    ],
+    [
+      0.0001209,
+      0.007
+    ],
+    [
+      0.00016926000000000002,
+      0.009
+    ],
+    [
+      0.0002418,
+      0.012
+    ],
+    [
+      0.00031434,
+      0.015
+    ],
+    [
+      0.00038688000000000004,
+      0.02
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "DANCE",
+  "notes": "DANCE Act-1 polarization-based axion DM search (no external magnetic field). 95% CL upper limit g_agamma <~ 8e-4 GeV^-1 in 1e-14 eV < m_a < 1e-13 eV. DM density rho_a = 0.4 GeV/cm^3 stated. Only the quoted summary value is available in text; the full exclusion curve (Fig. 6) is not numerically tabulated, so data points are approximate based on the abstract/conclusion. | Vision: Blue 'This work' exclusion region traced as lower boundary. The boundary is highly spiky due to noise resonances; smooth trend captured. Minimum constraint ~3e-3 GeV^-1 near 1e-13 eV. CAST line shown horizontally at ~6.6e-11 for calibration. | CV axis calibration: x-max corrected 1e-07->19.2439; CV axis calibration: y-max corrected 1->15.8735; | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity) | Auto-corrected masses: 1/(eV\u2192MHz) i.e. MHz\u2192eV inverse (\u00d72.418e+08, rule=argmin|log10(median*f)-log10(anchor=1.0e-05)|)",
+  "num_points": 20,
+  "elapsed_s": 25.864583253860474
+}

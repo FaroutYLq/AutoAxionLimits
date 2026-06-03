@@ -1,0 +1,16 @@
+{
+  "arxiv_id": "2112.12116",
+  "paper_title": "Emission of Single and Few Electrons in XENON1T and Limits on Light Dark Matter",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.25,
+  "suggested_experiment_name": "XENON1T_S2only_SE",
+  "notes": "The paper presents new 90% CL upper limits for dark matter-electron scattering, electric/magnetic dipole and anapole interactions, and bosonic dark matter including dark photons and solar dark photons. The pre-analysis hint of DarkPhoton is consistent with the abstract ('exclude new parameter space for dark photons and solar dark photons'). However, the actual numerical exclusion limit data points are contained in figures not included in the provided content, so no (mass, coupling) pairs could be extracted. DM density of 0.3 GeV/cm^3 is the standard assumption for this type of haloscope/direct detection search but is not explicitly confirmed in the provided text. Coupling type confidence is moderate since the paper covers multiple models (DM-electron scattering, dipoles, anapole, bosonic), though dark photons are emphasized for the 'new parameter space' exclusion.",
+  "num_points": 0,
+  "elapsed_s": 25.63423204421997
+}

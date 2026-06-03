@@ -1,0 +1,41 @@
+{
+  "arxiv_id": "1708.06367",
+  "paper_title": "Search for axion-like dark matter through nuclear spin precession in electric and magnetic fields",
+  "coupling_type": "AxionEDM",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.14e-23,
+      6e-26
+    ],
+    [
+      4.14e-22,
+      4e-26
+    ],
+    [
+      4.14e-21,
+      3e-26
+    ],
+    [
+      4.14e-20,
+      4e-26
+    ],
+    [
+      4.14e-19,
+      4e-26
+    ],
+    [
+      4.14e-18,
+      1e-25
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "nEDM_PSI_ILL_2017",
+  "notes": "Search for oscillating neutron EDM (and axion-wind effect) using ratio of UCN and 199Hg spin-precession frequencies. Fig 2 gives 95% C.L. limits on oscillation amplitude of dn-(mu_n/mu_Hg)dHg in units of 1e-26 e*cm vs frequency, combining long time-base (ILL) and short time-base (PSI) analyses. Mass=4.136e-15*f[Hz]. Data points approximate from Fig 2. The paper's headline plots (Fig 4) recast these as axion-gluon coupling CG/fa and axion-nucleon coupling CN/fa (GeV^-1); coupling type is somewhat ambiguous between AxionEDM (the directly measured oscillating EDM amplitude), the gluon coupling, and AxionNeutron (axion-wind). Assumes axions saturate local DM density 0.4 GeV/cm^3.",
+  "num_points": 6,
+  "elapsed_s": 24.605228900909424
+}

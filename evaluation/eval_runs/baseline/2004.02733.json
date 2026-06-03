@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2004.02733",
+  "paper_title": "Searching for solar axions using data from the Sudbury Neutrino Observatory",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-22,
+      2e-05
+    ],
+    [
+      1e-10,
+      2e-05
+    ],
+    [
+      1000.0,
+      2e-05
+    ],
+    [
+      1000000.0,
+      2e-05
+    ],
+    [
+      5500000.0,
+      2e-05
+    ],
+    [
+      1e-22,
+      0.001
+    ],
+    [
+      5500000.0,
+      0.001
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "SNO_SolarAxion",
+  "notes": "Paper constrains the isovector axion-nucleon coupling |g3_aN|=|gan-gap|/2 via solar axion-induced deuteron dissociation in SNO. Excludes |g3_aN| between 2e-5 and 1e-3 GeV^-1 for axion masses up to ~5.5 MeV at 95% CL. The y-axis of Fig.1 is labeled in GeV^-1 (derivative coupling normalization), which is unusual for the dimensionless g_an enum convention; the primary quoted bound is on g3_aN (isovector), but is interpreted as a limit on gan (and gap) assuming no cancellation. Confidence reduced because coupling is isovector (neither purely neutron nor proton) and units are GeV^-1 rather than the dimensionless convention expected. Data points are exclusion band corners read from the constant lower bound (2e-5 GeV^-1) extending across masses up to ~5.5 MeV with an upper solar-trapping bound ~1e-3 GeV^-1.",
+  "num_points": 7,
+  "elapsed_s": 10.202772855758667
+}

@@ -1,0 +1,41 @@
+{
+  "arxiv_id": "1707.07921",
+  "paper_title": "Limits on Axion Couplings from the first 80-day data of PandaX-II Experiment",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-08,
+      4e-13
+    ],
+    [
+      0.001,
+      4e-13
+    ],
+    [
+      0.001,
+      4.3e-13
+    ],
+    [
+      0.01,
+      4.3e-13
+    ],
+    [
+      0.024999999999999998,
+      4.3e-13
+    ],
+    [
+      0.01,
+      6e-14
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "PandaX-II_2017",
+  "notes": "Paper constrains axion-electron coupling g_Ae. Solar CBRD axion limit ~4e-13 for mA 1e-5 to 1 keV/c2; 57Fe de-excitation best limit 6e-14 at 10 keV/c2; galactic ALP limit ~4.3e-13 (abstract says 4.3e-14 but body text/figures indicate ~4e-13 scale; text contains inconsistent values e.g. 4.35e-11 vs 4.35e-12) for 1-25 keV/c2. Data points are approximate representative values extracted from text since no numerical table is provided; mass converted from keV/c2 to eV. Density 0.3 GeV/cm3 used for galactic ALP flux. | Auto-corrected masses: \u03bceV\u2192eV (\u00d71.000e-06, rule=argmin|log10(median*f)-log10(anchor=1.0e-03)|)",
+  "num_points": 6,
+  "elapsed_s": 12.245174169540405
+}

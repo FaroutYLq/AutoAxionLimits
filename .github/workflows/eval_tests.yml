@@ -8,12 +8,14 @@ on:
     paths:
       - "evaluation/metrics.py"
       - "evaluation/evaluate.py"
+      - "evaluation/gate.py"
       - "evaluation/tests/**"
       - ".github/workflows/eval_tests.yml"
   pull_request:
     paths:
       - "evaluation/metrics.py"
       - "evaluation/evaluate.py"
+      - "evaluation/gate.py"
       - "evaluation/tests/**"
       - ".github/workflows/eval_tests.yml"
 

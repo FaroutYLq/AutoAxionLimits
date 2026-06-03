@@ -1,0 +1,133 @@
+{
+  "arxiv_id": "2204.01454",
+  "paper_title": "New Limit on Axion-Like Dark Matter using Cold Neutrons",
+  "coupling_type": "AxionEDM",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-19,
+      1e-19
+    ],
+    [
+      1e-19,
+      1e-15
+    ],
+    [
+      1e-19,
+      1e-12
+    ],
+    [
+      1e-19,
+      1e-09
+    ],
+    [
+      3e-19,
+      1e-19
+    ],
+    [
+      1e-18,
+      1.5e-19
+    ],
+    [
+      3e-18,
+      2e-19
+    ],
+    [
+      1e-17,
+      4e-19
+    ],
+    [
+      3e-17,
+      8e-19
+    ],
+    [
+      1e-16,
+      1.9999999999999998e-18
+    ],
+    [
+      3e-16,
+      4.9999999999999996e-18
+    ],
+    [
+      1e-15,
+      1.5e-17
+    ],
+    [
+      3e-15,
+      3.9999999999999997e-17
+    ],
+    [
+      1e-14,
+      1e-16
+    ],
+    [
+      3e-14,
+      2e-16
+    ],
+    [
+      1e-13,
+      3e-16
+    ],
+    [
+      2e-13,
+      4e-16
+    ],
+    [
+      3e-13,
+      1e-15
+    ],
+    [
+      4e-13,
+      5e-15
+    ],
+    [
+      5e-13,
+      2e-14
+    ],
+    [
+      6e-13,
+      9.999999999999999e-14
+    ],
+    [
+      7e-13,
+      5e-13
+    ],
+    [
+      8e-13,
+      2e-12
+    ],
+    [
+      1e-12,
+      1.0000000000000001e-11
+    ],
+    [
+      1.2e-12,
+      3e-11
+    ],
+    [
+      1.5e-12,
+      1e-10
+    ],
+    [
+      2e-12,
+      2.9999999999999995e-10
+    ],
+    [
+      2.5e-12,
+      7e-10
+    ],
+    [
+      3e-12,
+      1e-09
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "Beam EDM (Cold Neutron ALP search)",
+  "notes": " | Vision: Traced the 'Beam EDM' exclusion boundary from this work on the C_G/f_a vs mass plane. The y-axis is C_G/f_a in GeV^-1 (mapped to AxionEDM type per hint). The constraint covers mass range ~1e-19 to ~3e-12 eV with the lower boundary rising from ~1e-13 to the top of the plot. Top axis shows oscillation frequency. | Calibration: No calibration needed | Auto-corrected couplings: \u00d71.00e-06 (6 orders too large)",
+  "num_points": 29,
+  "elapsed_s": 45.49970102310181
+}

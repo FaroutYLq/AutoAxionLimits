@@ -1,0 +1,16 @@
+{
+  "arxiv_id": "2006.09721",
+  "paper_title": "Excess Electronic Recoil Events in XENON1T",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "XENON1T_ER_2020",
+  "notes": "The paper reports a 3.4-sigma excess interpreted as solar axions, with a 3D 90% confidence surface for axion couplings to electrons, photons, and nucleons. The cuboid bounds quoted are: gae < 3.8e-12, gae*gan_eff < 4.8e-18, gae*gagamma < 7.7e-22 GeV^-1. These are limits on products rather than a single coupling vs. mass curve. The primary axion-electron limit is gae < 3.8e-12 (DFSZ/solar axion, not mass-dependent since solar axions are massless on these scales). For bosonic dark matter (ALP/dark photon), the paper sets limits on g_ae and kappa as a function of particle mass (1-210 keV), but the actual (mass, coupling) tabulated curve data are not present in the provided text. No extractable (mass_eV, coupling) pairs are available in the given content, hence data_points is empty. Confidence reduced because the paper involves multiple coupling types (AxionElectron, AxionPhoton, AxionNeutron, DarkPhoton) and no numerical curve data could be extracted.",
+  "num_points": 0,
+  "elapsed_s": 28.78407597541809
+}

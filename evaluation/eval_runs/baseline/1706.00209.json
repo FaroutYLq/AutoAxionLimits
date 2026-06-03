@@ -1,0 +1,61 @@
+{
+  "arxiv_id": "1706.00209",
+  "paper_title": "The ORGAN Experiment: An axion haloscope above 15 GHz",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.0001,
+      6e-11
+    ],
+    [
+      0.000102,
+      6e-11
+    ],
+    [
+      0.000104,
+      6e-11
+    ],
+    [
+      0.000106,
+      6e-11
+    ],
+    [
+      0.000108,
+      6e-11
+    ],
+    [
+      0.00011,
+      6e-11
+    ],
+    [
+      0.000112,
+      6e-11
+    ],
+    [
+      0.000114,
+      6e-11
+    ],
+    [
+      0.000116,
+      6e-11
+    ],
+    [
+      0.000118,
+      6e-11
+    ],
+    [
+      0.00012,
+      6e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "ORGAN Pathfinder",
+  "notes": "ORGAN pathfinding run sets a 90% CL limit on g_agamma of 2.02e-12 GeV^-1 at 26.531 GHz (~110 ueV = 1.1e-4 eV) over a narrow 2.5 neV span. The exclusion plot (Fig 3) is the measured limit; Figs 4 and 5 are projections (not extracted). The DM density 0.45 GeV/cm^3 is explicitly stated for the projection but used as the haloscope local density assumption. The single tightest point is reported in text; the limit spans only a narrow Lorentzian-shaped region around this mass. | Vision: Figure 3 (image 7) shows the ORGAN Pathfinder exclusion. The actual experimental limit is a narrow vertical line near 1.10e-4 eV (110 ueV) reaching down to about 2e-12 GeV^-1 (text states g_agamma = 2.02e-12 at 26.531 GHz with 90% confidence). The horizontal orange line at ~6e-11 GeV^-1 is the CAST exclusion limit, which forms the continuous upper exclusion boundary across the mass range. Lower orange/blue lines are KSVZ/DSFZ model bands. The data points traced follow the CAST exclusion boundary (constant ~6e-11) as it is the continuous exclusion boundary; the narrow ORGAN point sits at (1.10e-4 eV, ~2e-12). | Calibration: No calibration needed",
+  "num_points": 11,
+  "elapsed_s": 39.17691898345947
+}

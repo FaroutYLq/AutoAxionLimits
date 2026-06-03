@@ -1,0 +1,109 @@
+{
+  "arxiv_id": "2211.03414",
+  "paper_title": "Constraints on axionlike particles from a combined analysis of three flaring $\\textit{Fermi}$ flat-spectrum radio quasars",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5e-09,
+      8e-12
+    ],
+    [
+      6e-09,
+      7e-12
+    ],
+    [
+      7e-09,
+      6.2e-12
+    ],
+    [
+      8e-09,
+      5.6e-12
+    ],
+    [
+      1e-08,
+      5e-12
+    ],
+    [
+      1.3e-08,
+      4.7e-12
+    ],
+    [
+      1.7e-08,
+      4.6e-12
+    ],
+    [
+      2.2e-08,
+      4.7e-12
+    ],
+    [
+      3e-08,
+      5e-12
+    ],
+    [
+      4e-08,
+      5.5e-12
+    ],
+    [
+      5e-08,
+      6.2e-12
+    ],
+    [
+      7e-08,
+      7.5e-12
+    ],
+    [
+      9e-08,
+      9e-12
+    ],
+    [
+      1.1e-07,
+      1.1e-11
+    ],
+    [
+      1.4e-07,
+      1.4e-11
+    ],
+    [
+      1.7e-07,
+      1.8e-11
+    ],
+    [
+      2e-07,
+      2.3e-11
+    ],
+    [
+      2.2e-07,
+      3e-11
+    ],
+    [
+      2.4e-07,
+      4e-11
+    ],
+    [
+      2.6e-07,
+      5.5e-11
+    ],
+    [
+      2.8e-07,
+      7.5e-11
+    ],
+    [
+      3e-07,
+      1e-10
+    ],
+    [
+      3.5e-07,
+      1e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "Fermi-LAT FSRQ combined ALP analysis",
+  "notes": "ALP-photon coupling constraint from gamma-ray observations of three flaring FSRQs using blazar jets as mixing region. Excludes ma ~5-200 neV with g_agamma >~ 5e-12 GeV^-1 at 95% CL. Numerical exclusion contours are shown in Figs 7-9 but only summary bounds are available in text; data points approximate the rectangular exclusion region. Not a DM haloscope, so no DM density assumed. Best-fit point (not exclusion): ma=100.8 neV, g=4.64e-12 GeV^-1. | Vision: Boundary traced from white contour (95% CL) in image 8 upper panel. Excluded region is above/left of contour. Minimum sensitivity around m_a~15 neV, g~4.6e-12 GeV^-1, rising sharply above ~200 neV. | CV calibration unavailable (fit failed), used LLM axes | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.80 snapped to identity)",
+  "num_points": 23,
+  "elapsed_s": 27.594841957092285
+}

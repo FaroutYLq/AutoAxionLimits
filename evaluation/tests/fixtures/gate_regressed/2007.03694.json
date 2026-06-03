@@ -1,0 +1,16 @@
+{
+  "arxiv_id": "2007.03694",
+  "paper_title": "Axion and neutrino bounds improved with new calibrations of the tip of the red-giant branch using geometric distance determinations",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "TRGB_NGC4258_omegaCen_2020",
+  "notes": "Stellar cooling bound on axion-electron coupling g_ae from TRGB brightness. Best bounds: g_ae < 1.6e-13 (NGC 4258), g_ae < 1.3e-13 (omega Centauri) at 95% CL; 68% CL bounds g_ae < 0.79e-13 (NGC 4258), 0.64e-13 (omega Cen). These are single upper-limit values, not a function of mass (axion is essentially massless/light in this bremsstrahlung process). No mass-dependent exclusion curve provided, so data_points left empty. The relevant numbers: g_ae(95%CL) = 1.6e-13 NGC4258, 1.58e-13 LMC(F20), 1.25e-13 LMC(Y19), 1.29e-13 omega Cen (from Table I, g13 values).",
+  "num_points": 0,
+  "elapsed_s": 26.692034244537354
+}

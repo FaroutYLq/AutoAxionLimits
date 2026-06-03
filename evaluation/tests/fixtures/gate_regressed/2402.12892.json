@@ -1,0 +1,93 @@
+{
+  "arxiv_id": "2402.12892",
+  "paper_title": "Extensive search for axion dark matter over 1\\,GHz with CAPP's Main Axion eXperiment",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.24e-06,
+      7e-16
+    ],
+    [
+      4.26e-06,
+      6.8e-16
+    ],
+    [
+      4.28e-06,
+      3e-15
+    ],
+    [
+      4.3e-06,
+      6.8e-16
+    ],
+    [
+      4.32e-06,
+      5.5e-16
+    ],
+    [
+      4.35e-06,
+      5.6e-16
+    ],
+    [
+      4.4e-06,
+      5.6e-16
+    ],
+    [
+      4.45e-06,
+      5.7e-16
+    ],
+    [
+      4.5e-06,
+      5.8e-16
+    ],
+    [
+      4.55e-06,
+      6e-16
+    ],
+    [
+      4.6e-06,
+      6.1e-16
+    ],
+    [
+      4.64e-06,
+      6.2e-16
+    ],
+    [
+      4.66e-06,
+      1.8e-15
+    ],
+    [
+      4.7e-06,
+      7e-16
+    ],
+    [
+      4.75e-06,
+      6.5e-16
+    ],
+    [
+      4.8e-06,
+      6.4e-16
+    ],
+    [
+      4.85e-06,
+      6.5e-16
+    ],
+    [
+      4.88e-06,
+      6.6e-16
+    ],
+    [
+      4.91e-06,
+      6.8e-16
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "CAPP MAX",
+  "notes": "Paper reports a new axion-photon coupling exclusion limit from CAPP-MAX cavity haloscope over 1.025-1.185 GHz (4.24-4.91 ueV). Local DM density assumed is 0.45 GeV/cm^3 (from Eq. 1). However, the provided paper content is truncated and does not include the actual exclusion limit data table or numerical g_agamma values (the results section V is cut off). No extractable data points available. | Vision: Result is the narrow dark-navy 'This work' (CAPP MAX) region spanning 4.24-4.91 ueV (1.025-1.185 GHz). The zoom inset uses normalized units (g/g_DFSZ); I converted using the DFSZ band position at these masses (~6e-16 GeV^-1 at ~4.5 ueV). Lower boundary reaches near DFSZ (ratio ~0.7-1) with peaks where gaps in coverage occur. Absolute coupling values are approximate, derived from the DFSZ benchmark line on the main plot. | CV axis calibration: x-max corrected 30->124.29; | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.83 snapped to identity)",
+  "num_points": 19,
+  "elapsed_s": 35.80340099334717
+}

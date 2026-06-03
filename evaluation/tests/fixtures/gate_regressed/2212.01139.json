@@ -1,0 +1,145 @@
+{
+  "arxiv_id": "2212.01139",
+  "paper_title": "Millimeter-wave WISP search with coherent Light-Shining-Through-a-Wall towards the STAX project",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      3.2e-06,
+      3.5000000000000003e-10
+    ],
+    [
+      3.5e-06,
+      4.0000000000000007e-10
+    ],
+    [
+      4e-06,
+      5e-10
+    ],
+    [
+      4.5e-06,
+      6e-10
+    ],
+    [
+      5e-06,
+      8.000000000000001e-10
+    ],
+    [
+      5.5e-06,
+      1e-09
+    ],
+    [
+      6e-06,
+      1.2e-09
+    ],
+    [
+      7e-06,
+      1.5e-09
+    ],
+    [
+      8e-06,
+      1.8e-09
+    ],
+    [
+      9e-06,
+      2.2e-09
+    ],
+    [
+      1e-05,
+      2.7e-09
+    ],
+    [
+      1.1e-05,
+      3.5000000000000003e-09
+    ],
+    [
+      1.2e-05,
+      5e-09
+    ],
+    [
+      1.3e-05,
+      6e-09
+    ],
+    [
+      1.5e-05,
+      8e-09
+    ],
+    [
+      1.8e-05,
+      1.2e-08
+    ],
+    [
+      2e-05,
+      1.5e-08
+    ],
+    [
+      2.5e-05,
+      2.2000000000000002e-08
+    ],
+    [
+      3e-05,
+      3e-08
+    ],
+    [
+      3.5e-05,
+      4e-08
+    ],
+    [
+      4e-05,
+      5e-08
+    ],
+    [
+      4.5e-05,
+      6e-08
+    ],
+    [
+      5e-05,
+      1.5000000000000002e-07
+    ],
+    [
+      5.2e-05,
+      5.000000000000001e-07
+    ],
+    [
+      5.5e-05,
+      1.5000000000000002e-07
+    ],
+    [
+      6e-05,
+      6e-08
+    ],
+    [
+      7e-05,
+      5e-08
+    ],
+    [
+      8e-05,
+      4.5e-08
+    ],
+    [
+      9e-05,
+      5e-08
+    ],
+    [
+      0.0001,
+      7e-08
+    ],
+    [
+      0.00015,
+      2e-07
+    ],
+    [
+      0.0002,
+      5.000000000000001e-07
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "STAX LSW projection (existing CROWS/darkSRF limits)",
+  "notes": "Projection (2sigma) for a millimeter-wave LSW dark photon search in mass range 1e-4 to 1e-3 eV. This is an LSW experiment reporting kinetic mixing chi, so DarkPhoton is appropriate (not a DM haloscope, hence no dm_density). The only explicit numerical sensitivity given in text is chi ~ 1e-8 around m_gamma' ~ 1e-4 eV for the low-power Stage A. Other stage limits (B, C) appear only in figures (Fig. 6/7) without tabulated numerical values, so they could not be reliably extracted. Confidence is moderate-low due to scarce numerical data points (figures not machine-readable). | Vision: Image 2 shows projection (Stage A/B/C) curves and existing LSW exclusion limits (CROWS orange, darkSRF magenta, UWA, Yale, ALPS). The lower boundary of the EXISTING excluded region is traced here, dominated by darkSRF at low mass and CROWS rising toward higher mass, with UWA/Yale features around 3-5e-5 eV. The Stage C projected sensitivity reaches ~3e-10. Boundary tracing is approximate due to overlapping colored regions. | CV axis calibration: y-min corrected 1e-10->2.2645e-11; | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.13)",
+  "num_points": 32,
+  "elapsed_s": 33.9474618434906
+}

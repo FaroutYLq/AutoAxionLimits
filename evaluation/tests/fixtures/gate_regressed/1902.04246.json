@@ -1,0 +1,41 @@
+{
+  "arxiv_id": "1902.04246",
+  "paper_title": "Constraints on axionlike dark matter with masses down to $10^{-23}$ eV/c$^2$",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-23,
+      5e-16
+    ],
+    [
+      1e-22,
+      5e-16
+    ],
+    [
+      1e-21,
+      5e-16
+    ],
+    [
+      1e-20,
+      5e-16
+    ],
+    [
+      1e-19,
+      5e-16
+    ],
+    [
+      1e-18,
+      5e-16
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "EotWash_SpinPendulum_2019",
+  "notes": "Paper constrains axionlike DM coupling to polarized electrons via 'wind' effect, reported as F_a/C_e >= 2e15 eV (over much of range), equivalently C_e/F_a <= 5e-16 eV^-1. The y-axis of Fig.5 is C_e/F_a in eV^-1, NOT the conventional dimensionless g_ae. Data points listed are C_e/F_a (eV^-1) at the limit ~5e-16 eV^-1 across mass range; actual exclusion plot has structure near 47 zeV (sidereal bump) and rises at high mass due to attenuation. Numerical values approximate from text limit F_a/C_e ~ 2 PeV = 2e15 eV. Coupling type mapping to standard g_ae is non-trivial; treated as AxionElectron per hint.",
+  "num_points": 6,
+  "elapsed_s": 10.956387996673584
+}

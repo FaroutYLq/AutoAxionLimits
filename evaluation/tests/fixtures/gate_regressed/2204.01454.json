@@ -1,0 +1,33 @@
+{
+  "arxiv_id": "2204.01454",
+  "paper_title": "New Limit on Axion-Like Dark Matter using Cold Neutrons",
+  "coupling_type": "AxionEDM",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-13,
+      86000000000000.0
+    ],
+    [
+      2.0000000000000002e-11,
+      27000000000000.0
+    ],
+    [
+      2e-08,
+      27000000000000.0
+    ],
+    [
+      4e-06,
+      100000000000000.0
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.42,
+  "suggested_experiment_name": "BeamEDM",
+  "notes": "Paper reports oscillating neutron EDM from ALP-gluon coupling. Primary result parametrized as C_G/(f_a*m_a) in GeV^-2 (best limit 2.7e13 GeV^-2, 95% C.L., reached for ma 2e-17 to 2e-14 eV), not directly as d_n in e*cm. Mass range 1e-19 to 4e-12 eV. The plotted y-axis quantity is C_G/(f_a m_a), which does not directly map to any enum unit; AxionEDM is the closest physics match (oscillating nEDM). Data points are approximate values reconstructed from text, not from a table or readable digitized plot \u2014 coupling values shown are C_G/(f_a m_a) in GeV^-2, NOT d_n in e*cm. Confidence lowered due to unit/parametrization mismatch with enum. | Auto-corrected masses: MeV\u2192eV (\u00d71.000e+06, rule=argmin|log10(median*f)-log10(anchor=1.0e-09)|) | WARNING: median coupling 8.6e+13 outside range [1e-40, 1e-15]; no decade factor recovers it",
+  "num_points": 4,
+  "elapsed_s": 12.496045112609863
+}

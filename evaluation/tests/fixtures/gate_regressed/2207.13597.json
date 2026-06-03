@@ -1,0 +1,29 @@
+{
+  "arxiv_id": "2207.13597",
+  "paper_title": "Near-Quantum-Noise Axion Dark Matter Search at CAPP around 9.5 $\u03bc$eV",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      9.39e-06,
+      2e-15
+    ],
+    [
+      9.45e-06,
+      2e-15
+    ],
+    [
+      9.51e-06,
+      2e-15
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "CAPP-PACE_2022",
+  "notes": "Axion haloscope search 9.39-9.51 ueV (2.27-2.30 GHz). Excluded coupling at 2.7x KSVZ level. No explicit numerical g_agamma table given; data_points are rough estimates based on KSVZ at ~9.5 ueV (KSVZ g_agamma ~ 7e-16 GeV^-1, x2.7 ~ 2e-15 GeV^-1). DM density 0.45 GeV/cm^3 assumed (100% axion DM). 90% CL.",
+  "num_points": 3,
+  "elapsed_s": 11.925504922866821
+}

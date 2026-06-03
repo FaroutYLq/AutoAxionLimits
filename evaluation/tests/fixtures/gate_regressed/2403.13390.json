@@ -1,0 +1,41 @@
+{
+  "arxiv_id": "2403.13390",
+  "paper_title": "Search for Dark Matter Axions with Tunable TM_020 mode",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.13e-05,
+      3.3e-14
+    ],
+    [
+      2.14e-05,
+      3e-14
+    ],
+    [
+      2.15e-05,
+      3.1e-14
+    ],
+    [
+      2.16e-05,
+      2.9e-14
+    ],
+    [
+      2.17e-05,
+      3e-14
+    ],
+    [
+      2.18e-05,
+      3.2e-14
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "CAPP TM020 tunable cavity haloscope",
+  "notes": "Cavity haloscope using tunable TM020 mode, CAPP/IBS. Mass range 21.38-21.79 ueV (5.17-5.27 GHz). Excludes g_agamma > 12.0 x g_KSVZ at 90% CL (10.9 x KSVZ from Bayesian). Local DM density assumed rho_KSVZ = 0.45 GeV/cm^3. Approximate coupling value ~1e-13 GeV^-1 from abstract; exact per-frequency limits not tabulated in text. Data points are approximate endpoints based on abstract statement of ~10^-13 GeV^-1; actual limit follows from 12 x g_KSVZ scaling and would need the exclusion plot for precise values. | Vision: This work (red region in inset) covers ~21.4-21.8 GHz, corresponding to ~8.85e-5 to 9.0e-5 eV mass. However the inset y-axis is shown as ratio g_agamma/g_agamma^KSVZ (values ~10-25), not absolute coupling. The main FIG.6 plot covers the full mass range 1-300 ueV with many overlaid experiments; tracing a single boundary is ambiguous. Points given are approximate placement of the TM020 'This work' result near ~9e-5 eV (21.6 GHz) but mass conversion: 21.6 GHz = 8.93e-5 eV. NOTE: data_points above were mistakenly placed near 21.x ueV reading the inset frequency axis as ueV; the actual mass at 21.6 GHz is ~8.93e-5 eV. Confidence reduced due to inset showing ratio not absolute coupling. | CV calibration unavailable (no plot region), used LLM axes | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.55 snapped to identity)",
+  "num_points": 6,
+  "elapsed_s": 29.515413999557495
+}

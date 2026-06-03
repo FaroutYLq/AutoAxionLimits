@@ -1,0 +1,177 @@
+{
+  "arxiv_id": "2007.04899",
+  "paper_title": "Searching for vector dark matter with an optomechanical accelerometer",
+  "coupling_type": "VectorBL",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      3e-14,
+      3.125e-20
+    ],
+    [
+      4e-14,
+      1.6666666666666665e-20
+    ],
+    [
+      5e-14,
+      8.333333333333333e-21
+    ],
+    [
+      6e-14,
+      5.2083333333333335e-21
+    ],
+    [
+      8e-14,
+      2.5000000000000002e-21
+    ],
+    [
+      1e-13,
+      1.6666666666666668e-21
+    ],
+    [
+      1.3e-13,
+      1.0416666666666666e-21
+    ],
+    [
+      1.6e-13,
+      7.291666666666667e-22
+    ],
+    [
+      2e-13,
+      5.833333333333334e-22
+    ],
+    [
+      2.5e-13,
+      4.583333333333334e-22
+    ],
+    [
+      3e-13,
+      3.9583333333333337e-22
+    ],
+    [
+      4e-13,
+      3.1250000000000003e-22
+    ],
+    [
+      5e-13,
+      2.5000000000000002e-22
+    ],
+    [
+      6e-13,
+      2.0833333333333335e-22
+    ],
+    [
+      8e-13,
+      1.875e-22
+    ],
+    [
+      1e-12,
+      1.6666666666666668e-22
+    ],
+    [
+      1.3e-12,
+      1.5625000000000001e-22
+    ],
+    [
+      1.6e-12,
+      1.5e-22
+    ],
+    [
+      2e-12,
+      1.4583333333333335e-22
+    ],
+    [
+      2.5e-12,
+      1.4583333333333335e-22
+    ],
+    [
+      3e-12,
+      1.5e-22
+    ],
+    [
+      4e-12,
+      1.5625000000000001e-22
+    ],
+    [
+      5e-12,
+      1.625e-22
+    ],
+    [
+      6e-12,
+      1.7083333333333335e-22
+    ],
+    [
+      8e-12,
+      1.875e-22
+    ],
+    [
+      1e-11,
+      2.0833333333333335e-22
+    ],
+    [
+      1.3e-11,
+      2.291666666666667e-22
+    ],
+    [
+      1.6e-11,
+      2.7083333333333336e-22
+    ],
+    [
+      2e-11,
+      3.1250000000000003e-22
+    ],
+    [
+      2.5e-11,
+      3.5416666666666665e-22
+    ],
+    [
+      3e-11,
+      4.166666666666667e-22
+    ],
+    [
+      4e-11,
+      5.208333333333333e-22
+    ],
+    [
+      5e-11,
+      6.250000000000001e-22
+    ],
+    [
+      6e-11,
+      7.291666666666667e-22
+    ],
+    [
+      8e-11,
+      8.958333333333334e-22
+    ],
+    [
+      1e-10,
+      1.0416666666666666e-21
+    ],
+    [
+      1.3e-10,
+      1.2500000000000001e-21
+    ],
+    [
+      1.6e-10,
+      1.4583333333333335e-21
+    ],
+    [
+      2e-10,
+      1.7708333333333333e-21
+    ],
+    [
+      3e-10,
+      2.291666666666667e-21
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "Optomechanical accelerometer (Eot-Wash/LIGO/MICROSCOPE existing bounds)",
+  "notes": "Paper presents projected sensitivity to vector B-L (and B) dark photon dark matter using an optomechanical accelerometer (SiN membrane + Be mirror). The main result is a projection on the g_B-L coupling vs mass plane (Fig. 2), spanning roughly mDM ~ 1e-12 to 1e-10 eV with sensitivities below g~1e-22. No numerical table is provided; data only appears as plotted curves, so no reliable (mass, coupling) pairs could be extracted. This is a projection, not a measured limit. Local DM density 0.4 GeV/cm^3 assumed. | Vision: Figure 2 shows projected sensitivity (blue/green curves) and existing constraints (pink Eot-Wash, red LIGO, blue MICROSCOPE). The lower boundary of the excluded region is traced: dominated by LIGO/MICROSCOPE at low mass (rising sensitivity ~1e-20 down to ~7e-23) and Eot-Wash flat at ~7e-23 to 1e-22 in mid range, rising at high mass. Coupling type is VectorBL (g_BL). Axis calibration per provided ranges. | Calibration: Spot-check calibration: verify/stage2 ratio=2.1x",
+  "num_points": 40,
+  "elapsed_s": 46.25357007980347
+}

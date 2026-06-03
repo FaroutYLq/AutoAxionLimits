@@ -1,0 +1,37 @@
+{
+  "arxiv_id": "1707.07921",
+  "paper_title": "Limits on Axion Couplings from the first 80-day data of PandaX-II Experiment",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.01,
+      4e-13
+    ],
+    [
+      1.0,
+      4e-13
+    ],
+    [
+      10.0,
+      4e-13
+    ],
+    [
+      1000.0,
+      4.35e-12
+    ],
+    [
+      10000.0,
+      4.3e-14
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "PandaX-II",
+  "notes": "Paper sets limits on axion-electron coupling g_Ae for both solar axions (CBRD, ~4e-13 over 1e-5 to 1 keV) and galactic ALPs (~4.3e-14 over 1-25 keV). Text is internally inconsistent on exact numbers (abstract states 4.35e-12 solar, body states 4e-13). Data points are approximate, read from text since tables/plots only available as figures. Masses converted keV to eV. The galactic ALP limit appears most stringent at ~4.3e-14 dimensionless g_ae.",
+  "num_points": 5,
+  "elapsed_s": 8.796159029006958
+}

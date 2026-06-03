@@ -1,0 +1,37 @@
+{
+  "arxiv_id": "1804.05750",
+  "paper_title": "A Search for Invisible Axion Dark Matter with the Axion Dark Matter Experiment",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.1e-05,
+      1e-15
+    ],
+    [
+      1.11e-05,
+      1e-15
+    ],
+    [
+      1.13e-05,
+      1e-15
+    ],
+    [
+      1.15e-05,
+      1e-15
+    ],
+    [
+      1.16e-05,
+      1e-15
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "ADMX_2018",
+  "notes": "ADMX haloscope search excluding DFSZ axion-photon coupling for axion masses 2.66-2.81 ueV (645-680 MHz, frequency range 645-676 MHz fully excluded). Limit reported at 90% CL, density 0.45 GeV/cm^3 (isothermal halo) and 0.63 GeV/cc (N-body). The exclusion plot y-axis is |g_agg| in units of 10^-16 GeV^-1 reaching down near DFSZ (~1e-15 GeV^-1). Exact per-mass values are not tabulated in the text; data_points are approximate representative values near the DFSZ level across the excluded mass range and should be verified against Fig. 4. Masses: 2.66-2.81 ueV = 2.66e-6 to 2.81e-6 eV (note: I converted using the stated ueV range).",
+  "num_points": 5,
+  "elapsed_s": 9.592358112335205
+}

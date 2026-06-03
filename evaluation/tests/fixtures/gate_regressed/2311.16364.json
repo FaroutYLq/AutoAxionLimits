@@ -1,0 +1,157 @@
+{
+  "arxiv_id": "2311.16364",
+  "paper_title": "The Fermionic Axion Interferometer",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      9.999999999999999e-06,
+      1e-05
+    ],
+    [
+      1.3000000000000001e-05,
+      9.5e-06
+    ],
+    [
+      1.6e-05,
+      9e-06
+    ],
+    [
+      1.9999999999999998e-05,
+      8.5e-06
+    ],
+    [
+      2.3e-05,
+      6e-06
+    ],
+    [
+      2.6000000000000002e-05,
+      2e-06
+    ],
+    [
+      2.8e-05,
+      1.5e-06
+    ],
+    [
+      3e-05,
+      1.8e-06
+    ],
+    [
+      3.3e-05,
+      3e-06
+    ],
+    [
+      3.6e-05,
+      2e-06
+    ],
+    [
+      3.9999999999999996e-05,
+      1.5e-06
+    ],
+    [
+      4.5e-05,
+      2.5e-06
+    ],
+    [
+      5e-05,
+      1.8e-06
+    ],
+    [
+      5.4999999999999995e-05,
+      1.3e-06
+    ],
+    [
+      6e-05,
+      2e-06
+    ],
+    [
+      6.5e-05,
+      1.5e-06
+    ],
+    [
+      7.000000000000001e-05,
+      2.2e-06
+    ],
+    [
+      7.999999999999999e-05,
+      1.6e-06
+    ],
+    [
+      9e-05,
+      2e-06
+    ],
+    [
+      0.0001,
+      1.4e-06
+    ],
+    [
+      0.00012,
+      1.8e-06
+    ],
+    [
+      0.00014000000000000001,
+      1.3e-06
+    ],
+    [
+      0.00015999999999999999,
+      1.6e-06
+    ],
+    [
+      0.00018,
+      1.2e-06
+    ],
+    [
+      0.0002,
+      1.5e-06
+    ],
+    [
+      0.00021999999999999998,
+      1e-06
+    ],
+    [
+      0.00024,
+      1.4e-06
+    ],
+    [
+      0.00026,
+      9e-07
+    ],
+    [
+      0.00028000000000000003,
+      1.2e-06
+    ],
+    [
+      0.0003,
+      8e-07
+    ],
+    [
+      0.00031999999999999997,
+      1e-06
+    ],
+    [
+      0.00034,
+      7e-07
+    ],
+    [
+      0.00036,
+      1.2e-07
+    ],
+    [
+      0.00037999999999999997,
+      5e-07
+    ],
+    [
+      0.0004,
+      9e-07
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "Fermionic Axion Interferometer (Open-Haloscope)",
+  "notes": "Radiofrequency fermionic interferometer using NiZn ferrimagnet (electron spins), searching for axion-electron interaction. The paper reports limits on the pseudoscalar coupling g_p, with minimum |g_p| = 1.2e-7 at m_a ~ 0.36 neV. Since the sensing material relies on electron spin resonance, this constrains the axion-electron coupling. The exclusion plot (Fig. 5) spans roughly 1e-11 to 1e-8 eV with |g_p| on the y-axis; only the single quoted minimum value is given numerically in text. The y-axis is labeled |g_p| (generic pseudoscalar coupling) rather than specifically g_ae, hence reduced confidence. DM density 0.4 GeV/cm^3 stated explicitly. 90% CL (2 sigma). | Vision: Plot y-axis is labelled |g_p| (pseudoscalar axion-electron coupling); interpreted as AxionElectron g_ae. Exclusion region (green) spans m_a ~1e-11 to ~4e-10 eV, with couplings ~1e-5 down to minimum ~1.2e-7 near 0.36 neV per text. The boundary is the lower edge of the green excluded region. Exact y-values approximate due to log scale and noisy structure. | CV calibration unavailable (no plot region), used LLM axes | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.88 snapped to identity) | Auto-corrected masses: MeV\u2192eV (\u00d71.000e+06, rule=argmin|log10(median*f)-log10(anchor=1.0e-03)|)",
+  "num_points": 35,
+  "elapsed_s": 38.81187891960144
+}

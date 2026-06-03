@@ -1,0 +1,137 @@
+{
+  "arxiv_id": "1207.3275",
+  "paper_title": "A microwave paraphoton and axion detection experiment with 300 dB electromagnetic shielding at 3 GHz",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4e-06,
+      1e-08
+    ],
+    [
+      3.5e-06,
+      3e-08
+    ],
+    [
+      3e-06,
+      1e-07
+    ],
+    [
+      2.5e-06,
+      3e-07
+    ],
+    [
+      2e-06,
+      1e-06
+    ],
+    [
+      1.6e-06,
+      3e-06
+    ],
+    [
+      1.3e-06,
+      1e-05
+    ],
+    [
+      1e-06,
+      3e-05
+    ],
+    [
+      7e-07,
+      0.0001
+    ],
+    [
+      4e-07,
+      0.0005
+    ],
+    [
+      2e-07,
+      0.002
+    ],
+    [
+      1e-07,
+      0.008
+    ],
+    [
+      5e-08,
+      0.03
+    ],
+    [
+      2e-08,
+      0.1
+    ],
+    [
+      8e-09,
+      0.4
+    ],
+    [
+      4e-06,
+      1e-08
+    ],
+    [
+      5e-06,
+      3e-08
+    ],
+    [
+      6e-06,
+      1e-07
+    ],
+    [
+      8e-06,
+      3e-07
+    ],
+    [
+      1e-05,
+      1e-06
+    ],
+    [
+      1.4e-05,
+      3e-06
+    ],
+    [
+      2e-05,
+      1e-05
+    ],
+    [
+      3e-05,
+      3e-05
+    ],
+    [
+      5e-05,
+      0.0001
+    ],
+    [
+      0.0001,
+      0.0003
+    ],
+    [
+      0.0002,
+      0.0008
+    ],
+    [
+      0.0005,
+      0.002
+    ],
+    [
+      0.001,
+      0.005
+    ],
+    [
+      0.003,
+      0.02
+    ],
+    [
+      0.01,
+      0.08
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "CERN Microwave LSW (March 2012)",
+  "notes": "Microwave LSW (light shining through wall) experiment at CERN searching for paraphotons (hidden photons) via kinetic mixing chi. Quoted exclusion point: m_gamma' = 1.1e-5 eV/c^2, chi = 7.6e-9 at fsys=2.9565 GHz. This is the only explicit numerical exclusion point given in text; the full curve is shown only in Fig. 2 (not numerically extractable). Confidence level not explicitly stated; assumed 95%. | Vision: Microwave LSW exclusion at 2.9565 GHz (m_gamma' = 1.1e-5 eV). The exclusion region (cyan triangle) reaches its sensitivity tip near chi=7.6e-9 at the system frequency mass. Boundary traced for the cyan 'Microwave LSW March 2012 CERN' region. Y-axis is log10(chi), x-axis log10(m_gamma'[eV]). Points reflect the V-shaped sensitivity around the resonant frequency. Note provided axis ranges (linear -10 to 0) interpreted as log10 decades. | CV axis calibration succeeded (ranges consistent with LLM) | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.76 snapped to identity)",
+  "num_points": 30,
+  "elapsed_s": 33.49046802520752
+}

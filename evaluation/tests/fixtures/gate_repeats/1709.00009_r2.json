@@ -1,0 +1,5 @@
+{
+  "arxiv_id": "1709.00009",
+  "error": "Extraction failed: float() argument must be a string or a real number, not 'NoneType'",
+  "elapsed_s": 45.03560209274292
+}

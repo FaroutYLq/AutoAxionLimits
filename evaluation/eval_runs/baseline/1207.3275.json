@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "1207.3275",
+  "paper_title": "A microwave paraphoton and axion detection experiment with 300 dB electromagnetic shielding at 3 GHz",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      3.2e-06,
+      7.6e-09
+    ],
+    [
+      4e-06,
+      1e-07
+    ],
+    [
+      5e-06,
+      5e-07
+    ],
+    [
+      6e-06,
+      2e-06
+    ],
+    [
+      8e-06,
+      1e-05
+    ],
+    [
+      9e-06,
+      5e-05
+    ],
+    [
+      1e-05,
+      0.00015
+    ],
+    [
+      1.07e-05,
+      7.6e-09
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "CERN Microwave LSW (March 2012)",
+  "notes": "Microwave light-shining-through-wall experiment at CERN (March 2012) constraining paraphoton/hidden photon kinetic mixing chi. Only a single representative exclusion point is explicitly given in the text/figure: at m_gamma' = 1.1e-5 eV, chi = 7.6e-9. The full exclusion curve appears in Fig. 2 but only this point has numerical values stated. Not a DM haloscope, so no DM density. This is an LSW experiment reporting chi, hence DarkPhoton. | Vision: The CERN microwave LSW exclusion region is a narrow downward-pointing V (triangle) centered near m_gamma' = 1.1e-5 eV (3 GHz). The tip of the sensitivity reaches chi = 7.6e-9 at m = 1.1e-5 eV as labeled in the figure. Because the cavities are tuned to a single resonant frequency, the limit is essentially a vertical narrow band near 1.07e-5 eV; the reported boundary points trace the minimum (lower envelope) of the exclusion triangle. Points are approximate readings from the log-log plot. | Calibration: No calibration needed",
+  "num_points": 8,
+  "elapsed_s": 30.903167009353638
+}

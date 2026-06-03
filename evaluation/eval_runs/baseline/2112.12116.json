@@ -1,0 +1,16 @@
+{
+  "arxiv_id": "2112.12116",
+  "paper_title": "Emission of Single and Few Electrons in XENON1T and Limits on Light Dark Matter",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.25,
+  "suggested_experiment_name": "XENON1T_S2only_SE",
+  "notes": "Paper sets 90% CL upper limits on dark photon dark matter (kinetic mixing) and solar dark photons via single/few-electron S2-only analysis in XENON1T. Abstract confirms exclusion of new parameter space for dark photons. However, the provided paper content is truncated before Section VI (the results/limits section) and contains no numerical exclusion values or tables for the dark photon coupling vs mass. The paper also constrains DM-electron scattering, electric/magnetic dipole, and anapole interactions, but the bosonic dark matter (dark photon) result corresponds to the DarkPhoton coupling type. No extractable data points are available in the given content.",
+  "num_points": 0,
+  "elapsed_s": 30.778160095214844
+}
