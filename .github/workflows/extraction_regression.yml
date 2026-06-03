@@ -1,10 +1,20 @@
 name: extraction regression gate
 
-# P4 of #566 (issue #569). Required before/after subset-eval gate for any change
-# to the extraction/calibration surface. It re-extracts ONLY the "after" side
-# (the committed baseline snapshot is the "before"), compares with the same
-# harness that caught the #550+#561 regression, and fails the check on a real
-# regression (gate.py G1-G7).
+# P4 of #566 (issue #569). Before/after subset-eval gate for any change to the
+# extraction/calibration surface. It re-extracts ONLY the "after" side (the
+# committed baseline snapshot is the "before"), compares with the same harness
+# that caught the #550+#561 regression, and fails the check on a real regression
+# (gate.py G1-G7).
+#
+# OPT-IN for now (workflow_dispatch or the `run-eval` label), NOT auto-required
+# on every PR. Rationale: download_pdf has no 429 retry / cross-run PDF cache, so
+# arXiv throttling in CI can drop papers to download-`error` and reduce
+# n_compared, which would false-fail G2/G7 on infrastructure rather than a real
+# regression. Making it a hard-required auto-gate is a follow-up gated on two
+# robustness pieces: (a) a retry/cache on the arXiv PDF download, and (b)
+# symmetric-set counting in gate.py (compare only papers that extracted cleanly
+# on BOTH sides, so infra drops cancel out). Until then a maintainer runs it via
+# dispatch or by adding `run-eval` to a PR.
 #
 # Additive and independent of the daily/weekly/backfill science pipelines and of
 # the no-API eval_tests.yml (this one DOES call the API and is much slower).
@@ -40,12 +50,11 @@ jobs:
   gate:
     runs-on: ubuntu-latest
     timeout-minutes: 90
-    # Don't burn the API key on fork PRs (no secrets there anyway); same-repo PRs
-    # and manual dispatch run automatically, fork PRs only when a maintainer adds
-    # the `run-eval` label.
+    # Opt-in only: manual dispatch, or a maintainer adds the `run-eval` label to
+    # the PR. This avoids burning the API key (and false-failing on arXiv 429s)
+    # on every extraction PR until the robustness pieces in the header land.
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      github.event.pull_request.head.repo.full_name == github.repository ||
       contains(github.event.pull_request.labels.*.name, 'run-eval')
     steps:
       - uses: actions/checkout@v4
