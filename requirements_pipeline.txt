@@ -8,3 +8,10 @@ ipykernel>=6.29.0
 numpy>=1.24.0
 scipy>=1.11.0
 matplotlib>=3.7.0
+# Figure-axis metrology (roadmap #566 / P1 #570). opencv = tick-pixel / plot-region
+# detection; pytesseract = OCR of the tick LABELS (the independent cross-check).
+# pytesseract also needs the system `tesseract-ocr` binary (apt-get install
+# tesseract-ocr); when EITHER is absent the axis_ocr / plot_calibration modules
+# degrade to a no-op and the pipeline falls back to the pure-LLM axis path.
+opencv-python-headless>=4.8.0
+pytesseract>=0.3.10
