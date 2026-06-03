@@ -9,12 +9,16 @@ on:
       - "evaluation/metrics.py"
       - "evaluation/evaluate.py"
       - "evaluation/tests/**"
+      - "pipeline/transform_guard.py"
+      - "pipeline/extractor.py"
       - ".github/workflows/eval_tests.yml"
   pull_request:
     paths:
       - "evaluation/metrics.py"
       - "evaluation/evaluate.py"
       - "evaluation/tests/**"
+      - "pipeline/transform_guard.py"
+      - "pipeline/extractor.py"
       - ".github/workflows/eval_tests.yml"
 
 jobs:
@@ -26,6 +30,10 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install test dependencies
-        run: pip install numpy scipy pytest
+        # numpy/scipy/pytest for the metric tests; anthropic/arxiv/httpx are
+        # import-only deps so the transform_guard extractor-wiring tests (no API
+        # calls) can import pipeline.extractor and run here too. The wiring tests
+        # self-skip if these are ever unavailable, so the job stays green.
+        run: pip install numpy scipy pytest anthropic arxiv httpx
       - name: Run metric unit tests
         run: python -m pytest evaluation/tests/ -v

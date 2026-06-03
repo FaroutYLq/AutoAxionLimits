@@ -237,11 +237,30 @@ def test_span_dex_and_yconst():
 
 # ---------------------------------------------------------------------------
 # Extractor wiring (pure functions; no API)
+#
+# pipeline.extractor imports anthropic/arxiv/httpx at module scope. The eval CI
+# job installs those import-only deps, but guard the import so test COLLECTION
+# never fails if they are absent — the stdlib-only transform_guard tests above
+# must still run. Extractor-wiring tests are skipped when the import is
+# unavailable.
 # ---------------------------------------------------------------------------
 
-from pipeline import extractor as ex
+try:
+    from pipeline import extractor as ex
+    _HAVE_EXTRACTOR = True
+    _EXTRACTOR_IMPORT_ERR = ""
+except Exception as _e:  # pragma: no cover - exercised only in minimal envs
+    ex = None
+    _HAVE_EXTRACTOR = False
+    _EXTRACTOR_IMPORT_ERR = repr(_e)
+
+requires_extractor = pytest.mark.skipif(
+    not _HAVE_EXTRACTOR,
+    reason=f"pipeline.extractor unavailable: {_EXTRACTOR_IMPORT_ERR}",
+)
 
 
+@requires_extractor
 def test_safe_float_tolerates_none_and_garbage():
     assert ex._safe_float(None) == 0.0
     assert ex._safe_float(None, default=7.0) == 7.0
@@ -249,6 +268,7 @@ def test_safe_float_tolerates_none_and_garbage():
     assert ex._safe_float("nan") != ex._safe_float("nan") or True  # nan is fine
     assert ex._safe_float({"x": 1}) == 0.0
 
+@requires_extractor
 def test_calibrate_vision_data_survives_explicit_null_crash_path():
     # 1607.06083: explicit JSON null in boundary_at_mass / benchmark_line.
     dp = [(1e-5, 1e-12), (2e-5, 1.1e-12), (3e-5, 1.2e-12)]
@@ -258,6 +278,7 @@ def test_calibrate_vision_data_survives_explicit_null_crash_path():
     assert out == dp  # no crash, no spurious correction
     assert "No calibration" in note
 
+@requires_extractor
 def test_calibrate_reverts_full_decade_benchmark():
     # 2008.10141-style: KSVZ benchmark read a full decade off (ratio ~0.16).
     # Old master applied x1e-1; the contract now distrusts the benchmark.
@@ -270,6 +291,7 @@ def test_calibrate_reverts_full_decade_benchmark():
     assert out == dp  # NOT scaled by 1e-1
     assert "No calibration" in note
 
+@requires_extractor
 def test_calibrate_idles_on_consistent_benchmark():
     # Benchmark ratio ~1 -> snaps to identity (validated, no correction).
     dp = [(1e-5, 1e-12), (2e-5, 1.1e-12), (3e-5, 1.2e-12)]
@@ -280,11 +302,13 @@ def test_calibrate_idles_on_consistent_benchmark():
     assert out == dp
     assert "identity" in note or "No calibration" in note
 
+@requires_extractor
 def test_validate_range_leaves_in_range_data_untouched():
     dp = [(1e-5, 1e-12), (1e-4, 5e-13), (1e-3, 3e-13)]
     out, note = ex._validate_extracted_range(dp, "AxionPhoton")
     assert out == dp
 
+@requires_extractor
 def test_validate_range_corrects_gross_mass_unit_blunder_toward_range():
     # Median mass 1e15 eV is far above the AxionPhoton window; a discrete factor
     # must pull it back in and the improve-or-revert guard must commit it.
