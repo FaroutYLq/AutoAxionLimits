@@ -22,6 +22,14 @@ import anthropic
 import arxiv
 import httpx
 
+from .transform_guard import (
+    ConsistencyScore,
+    guard_transform,
+    in_valid_ranges,
+    R1_SPOTCHECK_BAND,
+    R3_BENCHMARK_BAND,
+)
+
 logger = logging.getLogger(__name__)
 
 CLAUDE_MODEL = "claude-opus-4-8"
@@ -615,6 +623,20 @@ def _sorted_median(values: list[float]) -> float:
     return s[len(s) // 2]
 
 
+def _safe_float(x, default: float = 0.0) -> float:
+    """None-tolerant float coercion (issue #568, crash fix for 1607.06083).
+
+    LLM JSON responses can contain an explicit ``null`` for a key, and
+    ``dict.get(key, default)`` returns ``None`` (not ``default``) for such a key,
+    so ``float(spot.get("mass_eV", 0))`` raises ``float(None)`` and kills the
+    whole extraction. Coerce defensively instead.
+    """
+    try:
+        return float(x) if x is not None else default
+    except (TypeError, ValueError):
+        return default
+
+
 def _choose_discrete_factor(
     value: float,
     target: float,
@@ -750,8 +772,15 @@ def _calibrate_vision_data(
     # factor deterministic under small run-to-run jitter in the LLM readings:
     # e.g. a raw ratio of 28x and a raw ratio of 33x both snap to ×1e+1, and a
     # raw ratio of 0.9x and 1.2x both snap to identity (no correction).
+    from .config import VALID_RANGES
+
     raw_ratio: float | None = None
     ratio_source = ""
+    # Which contract field the driving ratio populates (benchmark vs spot-check),
+    # so guard_transform applies R3 to a benchmark-driven correction and R1 to a
+    # spot-driven one.
+    benchmark_ratio_score: float | None = None
+    spotcheck_ratio_score: float | None = None
 
     # --- Method 1: benchmark line calibration (most reliable) ---
     # Try both the Stage 2 benchmark_reading and the Stage 3 verify benchmark
@@ -763,8 +792,10 @@ def _calibrate_vision_data(
         line_name, formula = _BENCHMARK_LINES[coupling_type]
         reported_name = benchmark.get("line_name", benchmark.get("name", ""))
         if line_name.lower() in reported_name.lower() or reported_name.lower() in line_name.lower():
-            bm_mass = float(benchmark.get("mass_eV", benchmark.get("mass", 0)))
-            bm_coupling = float(benchmark.get("coupling", 0))
+            # _safe_float: an explicit JSON null in the benchmark reading must not
+            # raise float(None) and kill the extraction (issue #568, 1607.06083).
+            bm_mass = _safe_float(benchmark.get("mass_eV", benchmark.get("mass", 0)))
+            bm_coupling = _safe_float(benchmark.get("coupling", 0))
             if bm_mass > 0 and bm_coupling > 0:
                 expected = formula(bm_mass)
                 ratio = expected / bm_coupling
@@ -772,15 +803,22 @@ def _calibrate_vision_data(
                     "Benchmark calibration: %s at %.2e eV: expected=%.2e, reported=%.2e, ratio=%.1f",
                     line_name, bm_mass, expected, bm_coupling, ratio,
                 )
-                if 0.01 < ratio < 100:
+                # R3 (transform_guard.R3_BENCHMARK_BAND): a benchmark-driven
+                # correction commits only when the benchmark reading itself is
+                # consistent (ratio in [1/3, 3], <=0.48 dex). A full-decade
+                # disagreement means the curve is mis-scaled, not that a x0.1 fix
+                # is warranted (2008.10141), so we distrust the benchmark and
+                # fall through to the spot-check instead of snapping the curve.
+                if R3_BENCHMARK_BAND[0] <= ratio <= R3_BENCHMARK_BAND[1]:
                     raw_ratio = ratio
                     ratio_source = f"benchmark {line_name}"
+                    benchmark_ratio_score = ratio
 
     # --- Method 2: boundary spot-check from verification ---
     if raw_ratio is None and verify_result.get("boundary_at_mass"):
         spot = verify_result["boundary_at_mass"]
-        spot_mass = float(spot.get("mass_eV", 0))
-        spot_coupling = float(spot.get("coupling", 0))
+        spot_mass = _safe_float(spot.get("mass_eV", 0))
+        spot_coupling = _safe_float(spot.get("coupling", 0))
         if spot_mass > 0 and spot_coupling > 0 and data_points:
             # Find the closest Stage 2 data point. Tie-break on the data point's
             # own (mass, coupling) so ordering of equidistant points can't
@@ -796,9 +834,12 @@ def _calibrate_vision_data(
                     "Spot-check at %.2e eV: verify=%.2e, stage2=%.2e, ratio=%.1f",
                     spot_mass, spot_coupling, closest[1], spot_ratio,
                 )
-                if 0.01 < spot_ratio < 100:
+                # R1 (transform_guard.R1_SPOTCHECK_BAND): catastrophic blow-ups
+                # (1.6e10, 3.3e26) fall outside [1e-2, 1e2] and are rejected.
+                if R1_SPOTCHECK_BAND[0] <= spot_ratio <= R1_SPOTCHECK_BAND[1]:
                     raw_ratio = spot_ratio
                     ratio_source = "spot-check verify/stage2"
+                    spotcheck_ratio_score = spot_ratio
 
     # --- Snap the raw ratio to the discrete coupling-factor set ---
     factor, factor_label = 1.0, "none"
@@ -809,15 +850,40 @@ def _calibrate_vision_data(
         )
 
     if factor != 1.0:
-        logger.info(
-            "Applying vision calibration factor %s (=%.2e) from %s (raw ratio=%.2f) to %d points",
-            factor_label, factor, ratio_source, raw_ratio, len(data_points),
+        # Propose the calibrated points, then commit-or-revert via the contract:
+        # R1/R3 on the driving ratio plus the R5 hard floor (the correction must
+        # not push the median out of VALID_RANGES). This is what stops a layer
+        # from silently emitting physically impossible couplings (issue #568).
+        candidate = [(m, g * factor) for m, g in data_points]
+        score = ConsistencyScore(
+            in_valid_ranges=in_valid_ranges(candidate, VALID_RANGES.get(coupling_type)),
+            benchmark_ratio=benchmark_ratio_score,
+            spotcheck_ratio=spotcheck_ratio_score,
+            n_points=len(candidate),
         )
-        data_points = [(m, g * factor) for m, g in data_points]
-        calibration_notes.append(
-            f"Vision calibration: {factor_label} (factor={factor:.2e}, "
-            f"reason={ratio_source}, raw_ratio={raw_ratio:.2f})"
+        committed, guard_note = guard_transform(
+            data_points, candidate, score_after=score,
+            label=f"vision calibration {factor_label}",
         )
+        if committed is candidate:
+            logger.info(
+                "Applying vision calibration factor %s (=%.2e) from %s (raw ratio=%.2f) to %d points",
+                factor_label, factor, ratio_source, raw_ratio, len(data_points),
+            )
+            data_points = committed
+            calibration_notes.append(
+                f"Vision calibration: {factor_label} (factor={factor:.2e}, "
+                f"reason={ratio_source}, raw_ratio={raw_ratio:.2f})"
+            )
+        else:
+            logger.info(
+                "Vision calibration reverted for factor %s (%s): %s",
+                factor_label, ratio_source, guard_note,
+            )
+            calibration_notes.append(
+                f"Calibration reverted: {factor_label} from {ratio_source} "
+                f"(raw_ratio={raw_ratio:.2f}) failed contract [{guard_note}]"
+            )
     else:
         if raw_ratio is not None:
             calibration_notes.append(
@@ -878,15 +944,27 @@ def _validate_extracted_range(data_points: list, coupling_type: str | None) -> t
             median_mass, mass_anchor, _MASS_FACTOR_CANDIDATES, in_range=in_window
         )
         if factor != 1.0:
-            logger.info(
-                "Auto-correcting masses: %s (factor %.3e), anchor=%.2e eV",
-                label, factor, mass_anchor,
-            )
-            data_points = [(m * factor, g) for m, g in data_points]
-            notes.append(
-                f"Auto-corrected masses: {label} (×{factor:.3e}, "
-                f"rule=argmin|log10(median*f)-log10(anchor={mass_anchor:.1e})|)"
-            )
+            # Improve-or-revert (issue #568): commit the snap only if it moves the
+            # median strictly TOWARD the anchor. _choose_discrete_factor already
+            # only returns an improving non-identity factor, so this is a guarded
+            # invariant — it is what makes P3's future anchor changes safe to land
+            # (a wrong anchor can no longer drag a correct window away from truth).
+            dist0 = abs(_math.log10(median_mass) - _math.log10(mass_anchor))
+            dist1 = abs(_math.log10(median_mass * factor) - _math.log10(mass_anchor))
+            if dist1 < dist0:
+                logger.info(
+                    "Auto-correcting masses: %s (factor %.3e), anchor=%.2e eV",
+                    label, factor, mass_anchor,
+                )
+                data_points = [(m * factor, g) for m, g in data_points]
+                notes.append(
+                    f"Auto-corrected masses: {label} (×{factor:.3e}, "
+                    f"rule=argmin|log10(median*f)-log10(anchor={mass_anchor:.1e})|)"
+                )
+            else:
+                notes.append(
+                    f"Mass snap reverted: {label} did not move median toward anchor"
+                )
         else:
             notes.append(
                 f"WARNING: median mass {median_mass:.1e} outside range "
@@ -905,15 +983,24 @@ def _validate_extracted_range(data_points: list, coupling_type: str | None) -> t
             median_coup, coup_anchor, _COUPLING_FACTOR_CANDIDATES, in_range=in_coup
         )
         if cfactor != 1.0:
-            logger.info(
-                "Auto-correcting couplings: %s (factor %.2e), anchor=%.2e",
-                clabel, cfactor, coup_anchor,
-            )
-            data_points = [(m, g * cfactor) for m, g in data_points]
-            notes.append(
-                f"Auto-corrected couplings: {clabel} (×{cfactor:.2e}, "
-                f"rule=argmin|log10(median*f)-log10(anchor={coup_anchor:.1e})|)"
-            )
+            # Improve-or-revert (issue #568): commit only if the snap moves the
+            # median coupling strictly toward the anchor (guarded invariant).
+            cdist0 = abs(_math.log10(median_coup) - _math.log10(coup_anchor))
+            cdist1 = abs(_math.log10(median_coup * cfactor) - _math.log10(coup_anchor))
+            if cdist1 < cdist0:
+                logger.info(
+                    "Auto-correcting couplings: %s (factor %.2e), anchor=%.2e",
+                    clabel, cfactor, coup_anchor,
+                )
+                data_points = [(m, g * cfactor) for m, g in data_points]
+                notes.append(
+                    f"Auto-corrected couplings: {clabel} (×{cfactor:.2e}, "
+                    f"rule=argmin|log10(median*f)-log10(anchor={coup_anchor:.1e})|)"
+                )
+            else:
+                notes.append(
+                    f"Coupling snap reverted: {clabel} did not move median toward anchor"
+                )
         else:
             notes.append(
                 f"WARNING: median coupling {median_coup:.1e} outside range "
@@ -1044,6 +1131,27 @@ def run_extraction_agent(
     if range_note:
         stage1_result["notes"] = stage1_result.get("notes", "") + " | " + range_note
         logger.warning("Range validation for %s: %s", arxiv_id, range_note)
+
+    # --- Final hard floor (R5, issue #568): no extraction may be emitted with a
+    # median mass/coupling outside strict VALID_RANGES. We cannot revert to a
+    # better state here (every transform already ran), so instead of silently
+    # emitting physically impossible data we flag it [LOW CONFIDENCE] for human
+    # review by capping the extraction confidence below LOW_CONFIDENCE_THRESHOLD.
+    if data_points and final_ct_for_validation:
+        from .config import VALID_RANGES
+        if not in_valid_ranges(data_points, VALID_RANGES.get(final_ct_for_validation)):
+            prior_conf = float(stage1_result.get("extraction_confidence", 0.0) or 0.0)
+            stage1_result["extraction_confidence"] = min(prior_conf, 0.3)
+            stage1_result["notes"] = (
+                stage1_result.get("notes", "")
+                + " | contract: median outside VALID_RANGES after corrections "
+                "(flagged low confidence)"
+            )
+            logger.warning(
+                "Hard-floor violation for %s (%s): median outside VALID_RANGES; "
+                "flagged low confidence",
+                arxiv_id, final_ct_for_validation,
+            )
 
     # --- Coupling type fallback: use pre-classifier if extraction returned None ---
     final_ct = stage1_result.get("coupling_type")
