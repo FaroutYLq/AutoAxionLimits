@@ -560,6 +560,100 @@ _BENCHMARK_LINES: dict[str, tuple[str, callable]] = {
     "AxionNeutron": ("KSVZ_neutron", lambda m: 2e-10 * abs(-0.02) * m),
 }
 
+
+# ---------------------------------------------------------------------------
+# Deterministic scale correction (issue #561)
+# ---------------------------------------------------------------------------
+#
+# The order-of-magnitude / unit correction must be a *pure deterministic
+# function* of (data_points, coupling_type) plus any readings: the same
+# extracted input must always yield the same corrected scale, independent of
+# point ordering and of small run-to-run jitter in LLM-read values.
+#
+# Determinism is guaranteed by three rules:
+#   1. We summarise the point set by the median over SORTED values, so input
+#      ordering can never matter.
+#   2. The correction factor is chosen from a FIXED DISCRETE candidate set
+#      (powers of ten + the known unit constants below) rather than a
+#      continuous multiplier. Any LLM-derived calibration ratio is snapped to
+#      the nearest element of this set BEFORE being applied, so small read
+#      jitter collapses to the same factor.
+#   3. The factor is chosen by a fixed rule (argmin of
+#      |log10(corrected_anchor) - log10(target_anchor)|) with deterministic
+#      tie-breaking: prefer factor == 1, then smallest |log10(factor)|, then
+#      the order the candidate appears in the list.
+
+import math as _math
+
+# Mass unit-conversion candidates. (factor, human-readable label).
+# Includes pure powers of ten (wrong-prefix errors) and the physical unit
+# constants for frequency<->energy conversions.
+_MASS_FACTOR_CANDIDATES: list[tuple[float, str]] = [
+    (1.0, "none"),
+    (1e-9, "GeV→eV (÷1e9)"),
+    (1e-6, "μeV→eV"),
+    (1e-3, "meV→eV"),
+    (1e3, "keV→eV"),
+    (1e6, "MeV→eV"),
+    (1e9, "GeV→eV"),
+    (4.136e-15, "Hz→eV"),       # 1 Hz   = 4.136e-15 eV
+    (4.136e-6, "GHz→eV"),       # 1 GHz  = 4.136e-6  eV
+    (4.136e-9, "MHz→eV"),       # 1 MHz  = 4.136e-9  eV
+    (2.418e8, "1/(eV→MHz) i.e. MHz→eV inverse"),  # 1/2.418e8 ≈ 4.136e-9
+]
+
+# Coupling correction candidates: identity plus integer powers of ten in
+# [1e-20, 1e20]. Coupling unit errors are essentially always a missing or
+# extra power-of-ten prefactor, so a pure log-decade grid is the right set.
+_COUPLING_FACTOR_CANDIDATES: list[tuple[float, str]] = [(1.0, "none")] + [
+    (10.0 ** e, f"×1e{e:+d}") for e in range(-20, 21) if e != 0
+]
+
+def _sorted_median(values: list[float]) -> float:
+    """Median over sorted values (order-independent by construction)."""
+    s = sorted(values)
+    return s[len(s) // 2]
+
+
+def _choose_discrete_factor(
+    value: float,
+    target: float,
+    candidates: list[tuple[float, str]],
+    *,
+    in_range=None,
+) -> tuple[float, str]:
+    """Deterministically pick the factor that maps ``value`` closest to ``target``.
+
+    Pure function of its arguments. The chosen factor minimises
+    ``|log10(value * factor) - log10(target)|``. Ties are broken
+    deterministically: prefer ``factor == 1``, then the smallest
+    ``|log10(factor)|``, then the candidate's position in ``candidates``.
+
+    If ``in_range`` (a callable ``corrected_value -> bool``) is supplied, only
+    candidates whose corrected value satisfies it are considered; if none do,
+    the identity factor (1.0, "none") is returned.
+    """
+    if value <= 0 or target <= 0:
+        return 1.0, "none"
+    log_target = _math.log10(target)
+    best = None  # (distance, prefer_not_one, abs_log_factor, index, factor, label)
+    for idx, (factor, label) in enumerate(candidates):
+        corrected = value * factor
+        if in_range is not None and not in_range(corrected):
+            continue
+        distance = abs(_math.log10(corrected) - log_target)
+        key = (
+            round(distance, 9),          # primary: closeness to anchor
+            0 if factor == 1.0 else 1,   # tie-break 1: prefer identity
+            round(abs(_math.log10(factor)) if factor > 0 else 1e9, 9),  # tie 2: gentle factor
+            idx,                          # tie-break 3: list order
+        )
+        if best is None or key < best[0]:
+            best = (key, factor, label)
+    if best is None:
+        return 1.0, "none"
+    return best[1], best[2]
+
 _STAGE3_VERIFY_SYSTEM = """\
 You are a particle physics expert verifying axis readings from an exclusion limit plot.
 
@@ -648,8 +742,16 @@ def _calibrate_vision_data(
     if not data_points:
         return data_points, ""
 
-    factor = 1.0
     calibration_notes: list[str] = []
+
+    # We derive a *raw* multiplicative ratio from whichever calibration source
+    # is available, then SNAP it to the nearest element of the discrete
+    # coupling-factor set before applying. Snapping is what makes the applied
+    # factor deterministic under small run-to-run jitter in the LLM readings:
+    # e.g. a raw ratio of 28x and a raw ratio of 33x both snap to ×1e+1, and a
+    # raw ratio of 0.9x and 1.2x both snap to identity (no correction).
+    raw_ratio: float | None = None
+    ratio_source = ""
 
     # --- Method 1: benchmark line calibration (most reliable) ---
     # Try both the Stage 2 benchmark_reading and the Stage 3 verify benchmark
@@ -670,48 +772,60 @@ def _calibrate_vision_data(
                     "Benchmark calibration: %s at %.2e eV: expected=%.2e, reported=%.2e, ratio=%.1f",
                     line_name, bm_mass, expected, bm_coupling, ratio,
                 )
-                if abs(ratio - 1.0) < 0.7:  # within ~2x, no correction needed
-                    calibration_notes.append(
-                        f"Benchmark {line_name} consistent (ratio={ratio:.2f})"
-                    )
-                elif 0.01 < ratio < 100:
-                    factor = ratio
-                    calibration_notes.append(
-                        f"Benchmark calibration: {line_name} off by {ratio:.1f}x, "
-                        f"applying correction factor"
-                    )
-                else:
-                    logger.warning(
-                        "Benchmark ratio %.1f is extreme; skipping calibration", ratio
-                    )
+                if 0.01 < ratio < 100:
+                    raw_ratio = ratio
+                    ratio_source = f"benchmark {line_name}"
 
     # --- Method 2: boundary spot-check from verification ---
-    if factor == 1.0 and verify_result.get("boundary_at_mass"):
+    if raw_ratio is None and verify_result.get("boundary_at_mass"):
         spot = verify_result["boundary_at_mass"]
         spot_mass = float(spot.get("mass_eV", 0))
         spot_coupling = float(spot.get("coupling", 0))
         if spot_mass > 0 and spot_coupling > 0 and data_points:
-            # Find the closest Stage 2 data point
-            closest = min(data_points, key=lambda p: abs(p[0] - spot_mass))
+            # Find the closest Stage 2 data point. Tie-break on the data point's
+            # own (mass, coupling) so ordering of equidistant points can't
+            # change which point is selected.
+            closest = min(
+                data_points,
+                key=lambda p: (abs(_math.log10(p[0]) - _math.log10(spot_mass))
+                               if p[0] > 0 else float("inf"), p[0], p[1]),
+            )
             if closest[1] > 0:
                 spot_ratio = spot_coupling / closest[1]
                 logger.info(
                     "Spot-check at %.2e eV: verify=%.2e, stage2=%.2e, ratio=%.1f",
                     spot_mass, spot_coupling, closest[1], spot_ratio,
                 )
-                if abs(spot_ratio - 1.0) >= 0.7 and 0.01 < spot_ratio < 100:
-                    # Only use spot-check if it agrees with y-axis tick analysis
-                    factor = spot_ratio
-                    calibration_notes.append(
-                        f"Spot-check calibration: verify/stage2 ratio={spot_ratio:.1f}x"
-                    )
+                if 0.01 < spot_ratio < 100:
+                    raw_ratio = spot_ratio
+                    ratio_source = "spot-check verify/stage2"
 
-    # Apply calibration
-    if abs(factor - 1.0) > 0.01:
-        logger.info("Applying vision calibration factor %.2f to %d points", factor, len(data_points))
+    # --- Snap the raw ratio to the discrete coupling-factor set ---
+    factor, factor_label = 1.0, "none"
+    if raw_ratio is not None and raw_ratio > 0:
+        # Anchor=raw_ratio, value=1.0: pick the discrete factor closest to it.
+        factor, factor_label = _choose_discrete_factor(
+            1.0, raw_ratio, _COUPLING_FACTOR_CANDIDATES
+        )
+
+    if factor != 1.0:
+        logger.info(
+            "Applying vision calibration factor %s (=%.2e) from %s (raw ratio=%.2f) to %d points",
+            factor_label, factor, ratio_source, raw_ratio, len(data_points),
+        )
         data_points = [(m, g * factor) for m, g in data_points]
+        calibration_notes.append(
+            f"Vision calibration: {factor_label} (factor={factor:.2e}, "
+            f"reason={ratio_source}, raw_ratio={raw_ratio:.2f})"
+        )
     else:
-        calibration_notes.append("No calibration needed")
+        if raw_ratio is not None:
+            calibration_notes.append(
+                f"No calibration needed ({ratio_source} raw_ratio={raw_ratio:.2f} "
+                f"snapped to identity)"
+            )
+        else:
+            calibration_notes.append("No calibration needed")
 
     return data_points, " | ".join(calibration_notes)
 
@@ -731,54 +845,80 @@ def _validate_extracted_range(data_points: list, coupling_type: str | None) -> t
     notes = []
     mass_lo, mass_hi = valid["mass"]
     coup_lo, coup_hi = valid["coupling"]
-    median_mass = sorted(masses)[len(masses) // 2]
-    median_coup = sorted(couplings)[len(couplings) // 2]
+    # Use median over SORTED values so input ordering cannot affect the result.
+    median_mass = _sorted_median(masses)
+    median_coup = _sorted_median(couplings)
 
-    # --- Auto-correct mass unit errors ---
-    # Common conversions: frequency (Hz/GHz) not converted to eV
-    _MASS_CORRECTIONS = [
-        (1e-6, "μeV→eV"),    # reported in μeV
-        (1e-3, "meV→eV"),    # reported in meV
-        (1e3,  "keV→eV"),    # reported in keV
-        (1e6,  "MeV→eV"),    # reported in MeV
-        (1e9,  "GeV→eV"),    # reported in GeV
-        (4.136e-15, "Hz→eV"),  # reported in Hz
-        (4.136e-6, "GHz→eV"),  # reported in GHz (1 GHz = 4.136e-6 eV)
-    ]
+    # --- Auto-correct mass unit errors (deterministic, HARD trigger ONLY) ---
+    # Fire ONLY when the median mass is clearly OUTSIDE the (wide) valid window
+    # [mass_lo*0.1, mass_hi*10] — i.e. a gross unit blunder we must undo. Data
+    # already inside the window is LEFT UNTOUCHED.
+    #
+    # We deliberately do NOT nudge in-range data toward any "expected" mass:
+    # dark-photon / axion / scalar searches span ~1e-22..1e9 eV, so there is no
+    # single physical mass scale to anchor an in-range correction to. Issue #561
+    # originally added a SOFT anchor-distance trigger (fire when the median is
+    # >= 3 dex from a FIXED per-coupling anchor, e.g. 1e-5 eV) — the #550/#561
+    # before/after eval showed this snapped ~20 already-correct mass windows by a
+    # unit constant toward 1e-5 eV (the unit_offset zero-overlap cluster:
+    # 1705.02290 CAST 1e-3..2e-2 eV -> 1e-7..2e-5; 2007.13071 Belle II GeV-scale
+    # -> 1e-5; 2308.06339 a perfect 2e8..4.5e8 eV match -> 8e-7..1.8e-6; ...).
+    # The "improvement" guard compared distance-to-anchor, not distance-to-truth,
+    # so it actively rewarded moving correct data away from the real window.
+    # Removed; the in-range unit_offset cases from #540 are figure-metrology
+    # errors that belong to the vision/CV axis path, not a blind text-data snap.
+    #
+    # Determinism is preserved: sorted-median summary + fixed discrete candidate
+    # set + deterministic argmin/tie-break in _choose_discrete_factor. The argmin
+    # anchor is the geometric centre of the valid window (unbiased).
     if median_mass > mass_hi * 10 or median_mass < mass_lo * 0.1:
-        # Masses are outside valid range — try corrections
-        for factor, label in _MASS_CORRECTIONS:
-            corrected = median_mass * factor
-            if mass_lo * 0.1 <= corrected <= mass_hi * 10:
-                logger.info("Auto-correcting masses: %s (factor %.2e)", label, factor)
-                data_points = [(m * factor, g) for m, g in data_points]
-                notes.append(f"Auto-corrected masses: {label} (×{factor:.2e})")
-                break
+        mass_anchor = _math.sqrt(mass_lo * mass_hi)
+        in_window = lambda c: mass_lo * 0.1 <= c <= mass_hi * 10
+        factor, label = _choose_discrete_factor(
+            median_mass, mass_anchor, _MASS_FACTOR_CANDIDATES, in_range=in_window
+        )
+        if factor != 1.0:
+            logger.info(
+                "Auto-correcting masses: %s (factor %.3e), anchor=%.2e eV",
+                label, factor, mass_anchor,
+            )
+            data_points = [(m * factor, g) for m, g in data_points]
+            notes.append(
+                f"Auto-corrected masses: {label} (×{factor:.3e}, "
+                f"rule=argmin|log10(median*f)-log10(anchor={mass_anchor:.1e})|)"
+            )
         else:
-            notes.append(f"WARNING: median mass {median_mass:.1e} outside range [{mass_lo:.0e}, {mass_hi:.0e}]")
+            notes.append(
+                f"WARNING: median mass {median_mass:.1e} outside range "
+                f"[{mass_lo:.0e}, {mass_hi:.0e}]; no discrete factor recovers it"
+            )
 
-    # --- Auto-correct coupling unit errors ---
-    # Check for missing/extra prefactors (powers of 10)
-    if median_coup > coup_hi * 1e3:
-        # Coupling way too large — likely missing a negative exponent
-        import math
-        log_ratio = math.log10(median_coup) - math.log10(coup_hi)
-        # Round to nearest power of 10
-        correction_exp = -round(log_ratio)
-        correction = 10 ** correction_exp
-        if 1e-20 < correction < 1:  # sanity check
-            logger.info("Auto-correcting couplings: ×%.2e (%.0f orders too large)", correction, -correction_exp)
-            data_points = [(m, g * correction) for m, g in data_points]
-            notes.append(f"Auto-corrected couplings: ×{correction:.2e} ({-correction_exp:.0f} orders too large)")
-    elif median_coup < coup_lo * 1e-3:
-        import math
-        log_ratio = math.log10(coup_lo) - math.log10(median_coup)
-        correction_exp = round(log_ratio)
-        correction = 10 ** correction_exp
-        if 1 < correction < 1e20:
-            logger.info("Auto-correcting couplings: ×%.2e (%.0f orders too small)", correction, correction_exp)
-            data_points = [(m, g * correction) for m, g in data_points]
-            notes.append(f"Auto-corrected couplings: ×{correction:.2e} ({correction_exp:.0f} orders too small)")
+    # --- Auto-correct coupling unit errors (deterministic) ---
+    # Couplings are essentially always off by an integer power of ten. Pick the
+    # decade factor (from the discrete set) that brings the median coupling
+    # closest to the geometric centre of the valid coupling window, restricted
+    # to factors that land inside [coup_lo*0.1, coup_hi*10].
+    if median_coup > coup_hi * 1e3 or median_coup < coup_lo * 1e-3:
+        coup_anchor = _math.sqrt(coup_lo * coup_hi)
+        in_coup = lambda c: coup_lo * 0.1 <= c <= coup_hi * 10
+        cfactor, clabel = _choose_discrete_factor(
+            median_coup, coup_anchor, _COUPLING_FACTOR_CANDIDATES, in_range=in_coup
+        )
+        if cfactor != 1.0:
+            logger.info(
+                "Auto-correcting couplings: %s (factor %.2e), anchor=%.2e",
+                clabel, cfactor, coup_anchor,
+            )
+            data_points = [(m, g * cfactor) for m, g in data_points]
+            notes.append(
+                f"Auto-corrected couplings: {clabel} (×{cfactor:.2e}, "
+                f"rule=argmin|log10(median*f)-log10(anchor={coup_anchor:.1e})|)"
+            )
+        else:
+            notes.append(
+                f"WARNING: median coupling {median_coup:.1e} outside range "
+                f"[{coup_lo:.0e}, {coup_hi:.0e}]; no decade factor recovers it"
+            )
     return data_points, " | ".join(notes)
 
 
