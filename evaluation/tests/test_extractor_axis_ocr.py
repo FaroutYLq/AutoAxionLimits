@@ -59,8 +59,28 @@ def _axis_info():
 
 
 @requires_stack
-def test_corroborated_contradiction_commits(monkeypatch):
-    # 2402.12892 shape: OCR says x-max ~124 (here 1e4), LLM eyeballed 30.
+def test_corroborated_contradiction_within_cap_commits(monkeypatch):
+    # 2402.12892 shape: a small (<= cap) corroborated correction commits.
+    monkeypatch.setattr(pc, "_CV_AVAILABLE", True)
+    monkeypatch.setattr(
+        pc, "calibrate_figure_axes",
+        lambda *a, **k: {"panel": Path("p"),
+                         "x": _cal(corroborated=True, dex=1.0, ocr_min=1.0, ocr_max=300.0),
+                         "y": None},
+    )
+    ai = _axis_info()
+    extractor._attach_cv_calibration(ai, [Path("fig.png")], "AxionPhoton")
+    assert ai["x_axis_max"] == pytest.approx(300.0)
+    assert ai["x_axis_min"] == pytest.approx(1.0)
+    assert "corroborated=Y" in ai["cv_calibration_note"]
+
+
+@requires_stack
+def test_corroborated_but_too_large_rejected(monkeypatch):
+    # 2207.11968 failure mode: a corroborated but multi-decade "correction" is an
+    # OCR scale-misread and must be capped -> keep the LLM axis.
+    from pipeline.extractor import P1_MAX_OVERRIDE_DEX
+    assert P1_MAX_OVERRIDE_DEX < 2.5
     monkeypatch.setattr(pc, "_CV_AVAILABLE", True)
     monkeypatch.setattr(
         pc, "calibrate_figure_axes",
@@ -70,9 +90,8 @@ def test_corroborated_contradiction_commits(monkeypatch):
     )
     ai = _axis_info()
     extractor._attach_cv_calibration(ai, [Path("fig.png")], "AxionPhoton")
-    assert ai["x_axis_max"] == pytest.approx(1e4)
-    assert ai["x_axis_min"] == pytest.approx(1.0)
-    assert "corroborated=Y" in ai["cv_calibration_note"]
+    assert ai["x_axis_max"] == pytest.approx(30.0)   # unchanged (override capped)
+    assert "scale-misread" in ai["cv_calibration_note"]
 
 
 @requires_stack

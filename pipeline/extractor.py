@@ -1441,6 +1441,17 @@ def _run_stage2a_axes(
         return {}
 
 
+# Maximum magnitude (dex) of an OCR axis override that may COMMIT, even when
+# corroborated. Evidence (#570 benchmark): the only genuine LLM-axis correction
+# was 0.62 dex (2402.12892); corroborated "overrides" of 4-33 dex were OCR
+# scale-misreads — a mantissa read without its 10^n scale ("0.01" for "1e-35"),
+# internally self-consistent and in-range, so they passed geom-agree + r2 +
+# phys-ok yet were 30+ dex wrong and broke papers (2207.11968 -> zero-overlap).
+# A real axis the LLM misread is at most ~1 decade off; a multi-decade
+# "correction" is almost certainly a scale-misread, so cap and keep the LLM axis.
+P1_MAX_OVERRIDE_DEX = 1.5
+
+
 def _attach_cv_calibration(
     axis_info: dict,
     figure_paths: list[Path],
@@ -1453,9 +1464,11 @@ def _attach_cv_calibration(
     ``x_axis_min/max`` / ``y_axis_min/max``, which is committed-or-reverted by
     P0's :func:`guard_transform` (R2). An override commits ONLY when the OCR read
     is *corroborated* (OCR labels and the geometric fit agree with each other and
-    are physically plausible) AND it genuinely contradicts the LLM axis
-    (``> R2_AXIS_TRIGGER_DEX`` dex). Everything else keeps the LLM axis, so this
-    can only correct-or-no-op — never regress the LLM-vision path.
+    are physically plausible), genuinely contradicts the LLM axis
+    (``> R2_AXIS_TRIGGER_DEX`` dex), AND the disagreement is a *plausible*
+    magnitude (``<= P1_MAX_OVERRIDE_DEX`` dex — larger "corrections" are rejected
+    as OCR scale-misreads). Everything else keeps the LLM axis, so this can only
+    make a small, well-supported correction or no-op — never a multi-decade swing.
 
     Fully optional: when OpenCV / pytesseract / the ``tesseract`` binary is
     absent (e.g. the daily pipeline runners), ``calibrate_figure_axes`` returns
@@ -1505,9 +1518,11 @@ def _attach_cv_calibration(
                 llm_max = float(axis_info.get(kmax))
             except (TypeError, ValueError):
                 continue
-            # Only a corroborated read that genuinely contradicts the LLM is even
-            # proposed; guard_transform then re-checks R2/R5 and decides.
-            if ac.corroborated and ac.ocr_vs_llm_dex > R2_AXIS_TRIGGER_DEX:
+            # Propose an override ONLY for a corroborated read that genuinely
+            # contradicts the LLM (> R2 trigger) by a PLAUSIBLE magnitude
+            # (<= cap); guard_transform then re-checks R2/R5 and decides.
+            d = ac.ocr_vs_llm_dex
+            if ac.corroborated and R2_AXIS_TRIGGER_DEX < d <= P1_MAX_OVERRIDE_DEX:
                 before = (llm_min, llm_max)
                 after = (ac.ocr_min, ac.ocr_max)
                 score = ConsistencyScore(
@@ -1526,6 +1541,13 @@ def _attach_cv_calibration(
                     )
                 else:
                     notes.append(f"{axis}: kept LLM (guard reverted; {gnote})")
+            elif ac.corroborated and d > P1_MAX_OVERRIDE_DEX:
+                # Corroborated but implausibly large -> almost certainly an OCR
+                # scale-misread; keep the LLM axis (the 2207.11968 failure mode).
+                notes.append(
+                    f"{axis}: kept LLM (override {d:.2f}dex > cap "
+                    f"{P1_MAX_OVERRIDE_DEX}dex; likely OCR scale-misread)"
+                )
             else:
                 notes.append(
                     f"{axis}: kept LLM (corroborated="
