@@ -28,6 +28,7 @@ from .transform_guard import (
     couplings_y_const,
     guard_transform,
     in_valid_ranges,
+    normalize_convention,
     select_best,
     should_consider_vision,
     span_dex,
@@ -71,6 +72,24 @@ def _call_with_retry(fn, max_retries: int = 4, base_delay: float = 5.0):
             else:
                 raise
     raise RuntimeError("Exhausted retries")  # unreachable but satisfies type checkers
+
+
+# ---------------------------------------------------------------------------
+# Deterministic decoding (issue #572, P3)
+# ---------------------------------------------------------------------------
+# Every read draws at the Anthropic default temperature (1.0) and runs once, so
+# identical inputs can yield run-to-run drift (1403.1290 coupling values 7-25x;
+# 2209.13588 pre-classifier AxionProton<->AxionNeutron flip). Decode greedily at
+# temperature 0 so the read layer is reproducible. Defined once and injected by
+# `_create` so the setting is single-source and the P4 CI gate can assert that no
+# `messages.create` is issued without it.
+_READ_TEMPERATURE = 0.0
+
+
+def _create(client, **kwargs):
+    """`client.messages.create` with deterministic decoding injected (#572)."""
+    kwargs.setdefault("temperature", _READ_TEMPERATURE)
+    return client.messages.create(**kwargs)
 
 
 # ---------------------------------------------------------------------------
@@ -539,7 +558,7 @@ def _classify_coupling_type(
     """
     prompt = f"Title: {paper.title}\n\nAbstract: {paper.summary[:2000]}"
     try:
-        resp = _call_with_retry(lambda: client.messages.create(
+        resp = _call_with_retry(lambda: _create(client, 
             model=CLAUDE_MODEL,
             max_tokens=128,
             system=_CLASSIFIER_SYSTEM,
@@ -744,7 +763,7 @@ def _run_vision_verify(
             }
         )
     try:
-        resp = _call_with_retry(lambda: client.messages.create(
+        resp = _call_with_retry(lambda: _create(client, 
             model=CLAUDE_MODEL_VISION,
             max_tokens=1024,
             system=_STAGE3_VERIFY_SYSTEM,
@@ -1131,6 +1150,9 @@ def run_extraction_agent(
             coupling_hint = stage1_result.get("coupling_type") or pre_ct
             # Stage 2a: identify axes first (cheap, 512 tokens)
             axis_info = _run_stage2a_axes(paper, figure_paths, client)
+            # Stash the read-back y-axis unit so the convention normalizer (#572)
+            # can detect an eV^-1 ("C/F_a"-style) axis on the vision path.
+            stage1_result["_axis_y_unit"] = (axis_info or {}).get("y_axis_unit", "")
             stage2_result = _run_stage2(
                 paper, figure_paths, client, coupling_hint=coupling_hint, axis_info=axis_info
             )
@@ -1180,6 +1202,24 @@ def run_extraction_agent(
     data_points = [
         (float(m), float(g)) for m, g in stage1_result.get("data_points", [])
     ]
+
+    # --- Coupling-convention normalizer (#572, P3) ---
+    # A value read correctly but in the wrong convention (e.g. C_e/F_a in eV^-1
+    # instead of the canonical dimensionless g_ae) can be multiple decades off yet
+    # stay inside VALID_RANGES, so neither the #561 snap nor the R5 floor catches
+    # it. Convert deterministically (only on an explicit eV^-1 unit/note) BEFORE
+    # the downstream calibration/validation guards see it. Fixes 1902.04246.
+    if data_points:
+        conv_ct = stage1_result.get("coupling_type") or pre_ct
+        data_points, conv_note = normalize_convention(
+            conv_ct, data_points,
+            axis_unit_label=stage1_result.get("_axis_y_unit", ""),
+            notes=stage1_result.get("notes", ""),
+        )
+        if conv_note:
+            stage1_result["data_points"] = [list(p) for p in data_points]
+            stage1_result["notes"] = stage1_result.get("notes", "") + " | " + conv_note
+            logger.info("Convention normalize for %s: %s", arxiv_id, conv_note)
 
     # --- Vision calibration: benchmark + verification pass ---
     if stage1_result.get("data_source") == "figure_vision" and data_points:
@@ -1277,7 +1317,7 @@ def _run_stage1(
         f"{_PAPER_CONTENT_DELIMITER}\n{clean_text}\n{_PAPER_CONTENT_DELIMITER}\n"
     )
     try:
-        resp = _call_with_retry(lambda: client.messages.create(
+        resp = _call_with_retry(lambda: _create(client, 
             model=CLAUDE_MODEL,
             max_tokens=2048,
             system=_STAGE1_SYSTEM,
@@ -1342,7 +1382,7 @@ def _run_stage2a_axes(
             }
         )
     try:
-        resp = _call_with_retry(lambda: client.messages.create(
+        resp = _call_with_retry(lambda: _create(client, 
             model=CLAUDE_MODEL_VISION,
             max_tokens=512,
             system=_STAGE2A_AXIS_SYSTEM,
@@ -1418,7 +1458,7 @@ def _run_stage2(
             }
         )
     try:
-        resp = _call_with_retry(lambda: client.messages.create(
+        resp = _call_with_retry(lambda: _create(client, 
             model=CLAUDE_MODEL_VISION,
             max_tokens=2048,
             system=_STAGE2_SYSTEM,

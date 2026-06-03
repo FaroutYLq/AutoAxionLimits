@@ -295,6 +295,7 @@ def quality(c: Candidate) -> tuple:
         1 if (not s.y_const and (s.span_dex is None or s.span_dex >= R4_MIN_SPAN_DEX))
         else 0
     )
+
     return (
         1 if s.in_valid_ranges else 0,             # T0
         non_degenerate,                            # T1
@@ -349,3 +350,80 @@ def select_best(candidates: list[Candidate]) -> tuple[Candidate | None, str]:
         return best, f"selector: {best.source} (sole candidate)"
     others = ", ".join(sorted({c.source for c in candidates if c is not best}))
     return best, f"selector: {best.source} over {others} (quality {best_q})"
+
+# ---------------------------------------------------------------------------
+# Coupling-convention normalizer (issue #572, P3) — the 5.6-dex fix
+# ---------------------------------------------------------------------------
+# A value read CORRECTLY but in the wrong convention can swing the result by many
+# decades and neither #561's decade-snap nor P0's R5 floor can catch it (the
+# converted value is "in range", just wrong). Example (1902.04246, AxionElectron):
+# the LLM reported the raw paper number C_e/F_a = 5.00e-16 eV^-1 instead of the
+# canonical dimensionless g_ae; both sit inside VALID_RANGES (1e-20, 1e0), so only
+# a convention conversion recovers it: g_ae = 2 m_e (C_e/F_a) = 1.022e6 * 5e-16
+# = 5.11e-10, landing exactly on the gold curve.
+#
+# Scope: the well-defined "dimensionless = 2 * mass * (C/F_a)[eV^-1]" family
+# (AxionElectron evidenced; AxionProton/Neutron the same physics form). The
+# AxionPhoton eV^-1 <-> GeV^-1 unit rescaling and the AxionEDM convention are
+# deliberately NOT auto-converted here (no eval evidence + sign-ambiguity risk).
+
+_M_E_EV = 511000.0          # electron mass [eV] (CODATA) — g_ae = 2 m_e C_e/F_a
+_M_P_EV = 9.382720813e8     # proton mass [eV]
+_M_N_EV = 9.395654205e8     # neutron mass [eV]
+
+# Inverse-energy unit tokens that mark a "C/F_a"-style (eV^-1) convention.
+_INV_EV_TOKENS = ("ev^-1", "ev⁻¹", "ev-1", "1/ev", "/ev", "ev**-1")
+
+
+def _has_inv_ev(label: str) -> bool:
+    l = (label or "").lower().replace(" ", "")
+    return any(t in l for t in _INV_EV_TOKENS)
+
+
+def normalize_convention(coupling_type, data_points, axis_unit_label="", notes=""):
+    """Map a coupling reported in a paper-native convention to the repo canonical.
+
+    Pure, deterministic, no LLM. Returns ``(data_points', note)``; ``note`` is ""
+    when no conversion applied. Only converts on POSITIVE detection (unit label,
+    then a note regex), so it can never introduce a wrong-direction error; the
+    result still flows through the downstream R5 floor.
+
+    Detection (deterministic, conservative — convert ONLY on explicit evidence):
+      1. the axis unit label contains an eV^-1 token, or
+      2. the notes name the inverse-energy convention (``C_e/F_a`` / ``eV^-1``).
+
+    A range-based fallback was considered and rejected: an ultralight-mass
+    *experimental limit* (e.g. 1902.04246's g_ae ~ 5e-10 at m_a ~ 1e-20 eV) sits
+    many decades ABOVE the DFSZ benchmark line, so a "converted value near the
+    benchmark" test never fires, and a bare "median in the eV^-1 band" test would
+    wrongly convert a legitimately small dimensionless g_ae. Requiring the stated
+    convention keeps the normalizer one-directional and safe (1902.04246's read
+    note literally says "C_e/F_a in eV^-1").
+    """
+    if not data_points or not coupling_type:
+        return data_points, ""
+    couplings = [float(g) for _, g in data_points if float(g) > 0]
+    if not couplings:
+        return data_points, ""
+    note_l = (notes or "").lower()
+    label_inv = _has_inv_ev(axis_unit_label)
+    note_inv = _has_inv_ev(notes) or "c_e/f_a" in note_l or "c_n/f_a" in note_l \
+        or "c_p/f_a" in note_l or "c_e / f_a" in note_l
+
+    if coupling_type == "AxionElectron":
+        if label_inv or note_inv:
+            factor = 2.0 * _M_E_EV  # g_ae = 2 m_e (C_e/F_a)
+            out = [(m, g * factor) for m, g in data_points]
+            return out, (f"convention: AxionElectron C_e/F_a [eV^-1] -> "
+                         f"dimensionless g_ae (x{factor:.3e})")
+
+    elif coupling_type in ("AxionProton", "AxionNeutron"):
+        if label_inv or note_inv:
+            m_n = _M_P_EV if coupling_type == "AxionProton" else _M_N_EV
+            factor = 2.0 * m_n
+            out = [(m, g * factor) for m, g in data_points]
+            return out, (f"convention: {coupling_type} C_N/F_a [eV^-1] -> "
+                         f"dimensionless g_aN (x{factor:.3e})")
+
+    return data_points, ""
+
