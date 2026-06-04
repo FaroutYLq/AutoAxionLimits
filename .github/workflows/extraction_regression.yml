@@ -6,20 +6,20 @@ name: extraction regression gate
 # that caught the #550+#561 regression, and fails the check on a real regression
 # (gate.py G1-G7).
 #
-# AUTO-RUN + hard-fail on every PR that touches the extraction surface (the
-# `paths` filter below). It used to be opt-in because arXiv throttling and
-# run-to-run LLM noise produced false fails; that is now addressed:
+# OPT-IN (workflow_dispatch or the `run-eval` label). The gate is now trustworthy
+# — arXiv infra drops and run-to-run LLM noise no longer false-fail it:
 #   - #582: download_pdf retry + cross-run PDF cache (fewer infra drops).
 #   - #583: gate.py symmetric-set counting (one-sided infra drops cancel).
 #   - #584: N=3 read voting (AAL_READ_SAMPLES=3) damps the run-to-run drift that
 #           #580 reintroduced (Opus 4.8 dropped temperature=0); a no-op N=3 pair
-#           now passes the gate (validated on the union key), while the #550
-#           regression still fails. The baseline is itself an N=3 union snapshot.
-# Cost: the AFTER extraction is N=3, so the figure key is ~168 extraction passes
-# per run; `concurrency: cancel-in-progress` prevents stacking on rapid pushes.
-# To make it a *merge-blocking* required check, add the `gate` job to branch
-# protection's required status checks (guard non-extraction PRs with an always-
-# green skip job first, so they aren't blocked by a check that never runs).
+#           passes the gate (validated on the union key) while the #550 regression
+#           still fails. The committed baseline is itself an N=3 union snapshot, so
+#           a dispatched run MUST also use AAL_READ_SAMPLES=3 (set below) to match.
+# AUTO-REQUIRED is deliberately NOT enabled: at N=3 the figure key needs ~150 min
+# of extraction (56 papers x 3 samples), which OVERRUNS the CI budget — a self-test
+# on the figure key was cancelled at the 120-min timeout BEFORE reaching the gate
+# step. A per-PR auto-required gate would need a small curated fast subset
+# (~12-15 papers) re-pinned at N=3; until then this stays opt-in (dispatch/label).
 #
 # Additive and independent of the daily/weekly/backfill science pipelines and of
 # the no-API eval_tests.yml (this one DOES call the API and is much slower).
@@ -57,8 +57,12 @@ jobs:
   gate:
     runs-on: ubuntu-latest
     timeout-minutes: 120
-    # Auto-runs on every extraction-surface PR (scoped by the `paths` filter) and
-    # on manual dispatch. No longer gated on the `run-eval` label.
+    # Opt-in: manual dispatch, or add the `run-eval` label to the PR. (Auto-run on
+    # every extraction PR is infeasible at N=3 — see header: figure-key extraction
+    # overruns the CI timeout.)
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      contains(github.event.pull_request.labels.*.name, 'run-eval')
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
