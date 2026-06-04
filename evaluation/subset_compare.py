@@ -38,6 +38,7 @@ from evaluation.evaluate import (
     _normalize_predicted_coupling,
     _usable_gt_stats,
 )
+from evaluation.conventions import canonical_convention
 from evaluation.metrics import _filter_boundary, compute_interpolation_metrics
 from evaluation.diagnose_zero_overlap import _classify, _ceil_for, _mass_range
 from evaluation.ground_truth import GroundTruthEntry, load_ground_truth
@@ -87,9 +88,23 @@ def _paper_record(arxiv_id: str, result: dict,
         return rec
     ext_array = np.array(extracted_points, dtype=float, ndmin=2)
 
+    # Convention guard (#536): a GT curve whose coupling_convention differs from
+    # the extraction's expected (canonical) convention is NOT comparable — the
+    # residual would be a units/convention gap (e.g. d_e vs the large-valued
+    # d_e_large scalar files, 2401.18076/2006.07055 at ~18 dex), not extraction
+    # error. We mirror evaluate.py's guard exactly (it had this; the subset
+    # comparator did not, so the gate/eval kept scoring these false negatives).
+    # None on either side = unknown convention, treated as comparable.
+    expected_conv, _ = canonical_convention(predicted_ct)
     candidates = []
+    has_convention_mismatch = False
     for e in paper_entries:
         if _authoritative_coupling(e) != predicted_ct:
+            continue
+        if (expected_conv is not None
+                and e.coupling_convention is not None
+                and e.coupling_convention != expected_conv):
+            has_convention_mismatch = True
             continue
         gt = e.load_data()
         if gt is None:
@@ -100,7 +115,9 @@ def _paper_record(arxiv_id: str, result: dict,
         if n_mass >= 2:
             candidates.append((n_mass, gt))
     if not candidates:
-        rec["status"] = "no_comparable_gt"  # gt_point_reference / gt_unusable
+        # Distinguish a pure convention gap (excluded from residuals, a benchmark
+        # units artifact) from a genuinely missing/unusable GT curve.
+        rec["status"] = "convention_mismatch" if has_convention_mismatch else "no_comparable_gt"
         return rec
     candidates.sort(key=lambda t: -t[0])
     gt_data = candidates[0][1]
