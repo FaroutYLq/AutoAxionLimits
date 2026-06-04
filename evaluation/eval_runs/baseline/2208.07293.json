@@ -10,7 +10,7 @@
   "confidence_level": 0.95,
   "extraction_confidence": 0.3,
   "suggested_experiment_name": "JEDI_COSY_Deuteron",
-  "notes": "Paper reports first storage-ring search for ALPs using polarized deuteron beam at COSY, constraining the oscillating deuteron EDM component (d_AC) and ALP coupling constants over axion mass range 4.95-5.02 neV (spin precession freq ~121 kHz). Coupling type is AxionEDM (oscillating EDM d_AC). However, the provided paper content cuts off before the results section (Section IV) where the actual numerical upper limits on the oscillating EDM and axion coupling g_aNgamma are presented; no extractable (mass, coupling) data points are available in the given text. Feldman-Cousins 95% CL used.",
+  "notes": "First storage-ring ALP search using a polarized deuteron beam at COSY. The paper sets an upper limit on the oscillating EDM component of the deuteron (AxionEDM) and ALP coupling constants in the axion mass range ~4.95-5.02 neV/c^2 (around spin precession frequency 121 kHz). However, the provided paper content cuts off before the Section IV results tables/figures with the numerical EDM and coupling limits, so no specific (mass, coupling) data points could be extracted. The dominant scan range is m_a ~ 4.95e-9 to 5.02e-9 eV. Local DM density would be assumed (~0.4 GeV/cm^3) but the value is not stated in the available text. | read-vote N=3: ct=AxionEDM (3/3); no consensus curve, took most-points",
   "num_points": 0,
-  "elapsed_s": 19.537086009979248
+  "elapsed_s": 52.09140682220459
 }

@@ -6,140 +6,112 @@
   "is_projection": false,
   "data_points": [
     [
-      4e-14,
-      8.333333333333333e-21
-    ],
-    [
-      5e-14,
-      3.3333333333333337e-21
-    ],
-    [
-      6e-14,
-      2.222222222222222e-21
-    ],
-    [
-      7e-14,
-      1.6666666666666668e-21
-    ],
-    [
-      8e-14,
-      1.3888888888888887e-21
-    ],
-    [
-      1e-13,
-      1.111111111111111e-21
-    ],
-    [
-      1.3e-13,
-      9.444444444444443e-22
-    ],
-    [
-      1.7e-13,
-      8.333333333333334e-22
-    ],
-    [
-      2.2e-13,
-      7.777777777777778e-22
-    ],
-    [
       3e-13,
-      7.222222222222222e-22
+      1e-18
+    ],
+    [
+      3.5e-13,
+      5e-19
     ],
     [
       4e-13,
-      7.222222222222222e-22
+      3e-19
     ],
     [
-      5.5e-13,
-      7.222222222222222e-22
+      5e-13,
+      2.0000000000000002e-19
     ],
     [
-      7e-13,
-      7.777777777777778e-22
+      6e-13,
+      1.5e-19
     ],
     [
-      9e-13,
-      8.333333333333334e-22
+      8e-13,
+      1.2e-19
     ],
     [
-      1.2e-12,
-      8.888888888888888e-22
+      1e-12,
+      1.0000000000000001e-19
     ],
     [
-      1.6e-12,
-      9.444444444444443e-22
+      1.5e-12,
+      9e-20
     ],
     [
       2e-12,
-      1e-21
+      8.000000000000001e-20
     ],
     [
-      2.7e-12,
-      1.111111111111111e-21
+      3e-12,
+      7.000000000000001e-20
     ],
     [
-      3.5e-12,
-      1.222222222222222e-21
+      4e-12,
+      6.5e-20
     ],
     [
-      4.5e-12,
-      1.3888888888888887e-21
+      5e-12,
+      6e-20
     ],
     [
-      6e-12,
-      1.5555555555555556e-21
-    ],
-    [
-      8e-12,
-      1.7777777777777777e-21
+      7e-12,
+      5.5e-20
     ],
     [
       1e-11,
-      2e-21
+      5.0000000000000005e-20
     ],
     [
-      1.4e-11,
-      2.222222222222222e-21
+      1.5e-11,
+      5.0000000000000005e-20
     ],
     [
-      1.8e-11,
-      2.5e-21
-    ],
-    [
-      2.3e-11,
-      2.7777777777777774e-21
+      2e-11,
+      5.0000000000000005e-20
     ],
     [
       3e-11,
-      3.0555555555555553e-21
+      5.5e-20
     ],
     [
       4e-11,
-      3.3333333333333337e-21
+      6e-20
     ],
     [
       5e-11,
-      3.611111111111111e-21
+      7.000000000000001e-20
     ],
     [
-      6.5e-11,
-      3.888888888888889e-21
+      6e-11,
+      9e-20
+    ],
+    [
+      7e-11,
+      1.2e-19
     ],
     [
       8e-11,
-      4.166666666666666e-21
+      1.5e-19
     ],
     [
       1e-10,
-      4.166666666666666e-21
+      2.0000000000000002e-19
+    ],
+    [
+      1.3e-10,
+      4.0000000000000004e-19
+    ],
+    [
+      1.6e-10,
+      1e-18
     ]
   ],
   "data_source": "figure_vision",
   "dm_density_assumed": 0.4,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.6,
-  "suggested_experiment_name": "LIGO O3 scalar field DM",
-  "notes": "Paper sets 95% CL upper limits on scalar DM couplings 1/Lambda_gamma (d_e, ScalarPhoton) and 1/Lambda_e (d_me, ScalarElectron) using LIGO O3 data, frequency band 10-180 Hz (~5e-14 to 1e-12 eV), competitive up to 5000 Hz. Local DM density rho_CDM = 0.4 GeV/cm^3 assumed. No numerical tables given; results shown only as smoothed curves in Fig. 3 (de in panel b, dme in panel a), so no reliable data points extractable. Coupling type ambiguous between ScalarPhoton and ScalarElectron since analysis cannot distinguish Lambda_gamma vs Lambda_e. | Vision: Constraint from panel b) showing photon coupling \u039b_\u03b3^-1 / d_e for scalar field DM from LIGO O3. The blue LIGO exclusion region spans roughly 4e-14 to 1e-10 eV. Lower boundary traced; the minimum coupling sensitivity is around d_e ~ 1.3e-20. Note y-axis on left is \u039b_\u03b3^-1 in GeV^-1; d_e values estimated from right axis. | Calibration: Spot-check calibration: verify/stage2 ratio=0.1x",
-  "num_points": 32,
-  "elapsed_s": 27.9899959564209
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "LIGO O3 scalar DM",
+  "notes": "Direct search for scalar field dark matter using LIGO O3 data via the beamsplitter/test-mass expansion effect. The paper sets 95% C.L. upper limits on coupling constants Lambda_gamma (photon coupling, d_e / alpha variation -> ScalarPhoton) AND Lambda_e (electron-mass coupling, d_me -> ScalarElectron), shown in Fig. 3a/3b. Frequency band 10 Hz to 180 Hz corresponds to ~5e-14 eV to 1e-12 eV (competitive up to 5000 Hz). Local DM density rho_CDM = 0.4 GeV/cm^3 assumed. No numerical table is provided; limits appear only in smoothed Fig. 3, so no reliable (mass, coupling) data points could be extracted. Coupling type is ambiguous between ScalarPhoton (Lambda_gamma) and ScalarElectron (Lambda_e) since both are constrained equivalently. | selector: figure_vision (sole candidate) | Vision: Panel b) constrains Lambda_gamma^-1 / d_e (ScalarPhoton coupling to photons / alpha variation). Blue boundary represents the new LIGO O3 limit; traced its lower edge. Right y-axis labeled d_e confirms ScalarPhoton. Values approximate from log-log plot reading. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.18) | read-vote N=3: ct=ScalarPhoton (3/3); medoid 1 of 3 curves (med pairwise 0.906 dex)",
+  "num_points": 25,
+  "elapsed_s": 78.68401980400085
 }

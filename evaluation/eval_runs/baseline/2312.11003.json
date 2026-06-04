@@ -7,155 +7,151 @@
   "data_points": [
     [
       2.1855e-05,
-      1.05e-14
-    ],
-    [
-      2.1858e-05,
-      7.7e-15
+      7.3e-15
     ],
     [
       2.186e-05,
       7e-15
     ],
     [
-      2.1863e-05,
-      7.07e-15
+      2.1865e-05,
+      6.7e-15
     ],
     [
-      2.1868e-05,
-      6.65e-15
+      2.187e-05,
+      6.9e-15
     ],
     [
-      2.1872e-05,
-      6.65e-15
+      2.1875e-05,
+      6.8e-15
     ],
     [
-      2.1878e-05,
-      6.51e-15
+      2.188e-05,
+      6.9e-15
     ],
     [
       2.1885e-05,
-      6.58e-15
+      6.85e-15
     ],
     [
-      2.1892e-05,
-      6.51e-15
+      2.189e-05,
+      6.9e-15
     ],
     [
-      2.1898e-05,
-      6.65e-15
+      2.1895e-05,
+      6.8e-15
+    ],
+    [
+      2.19e-05,
+      6.9e-15
     ],
     [
       2.1903e-05,
-      6.86e-15
+      7.3e-15
     ],
     [
-      2.1905e-05,
-      4.9e-15
+      2.1906e-05,
+      5.5e-15
     ],
     [
-      2.1907e-05,
-      6.86e-15
-    ],
-    [
-      2.191e-05,
-      1.4e-14
-    ],
-    [
-      2.1915e-05,
-      1.4e-14
-    ],
-    [
-      2.192e-05,
-      9e-15
-    ],
-    [
-      2.1922e-05,
-      6.65e-15
-    ],
-    [
-      2.1928e-05,
-      6.51e-15
-    ],
-    [
-      2.1935e-05,
-      6.58e-15
-    ],
-    [
-      2.1942e-05,
-      6.51e-15
-    ],
-    [
-      2.1948e-05,
-      6.65e-15
-    ],
-    [
-      2.1952e-05,
-      6e-15
-    ],
-    [
-      2.1955e-05,
-      6.58e-15
-    ],
-    [
-      2.196e-05,
-      6.51e-15
-    ],
-    [
-      2.1963e-05,
-      5.6e-15
-    ],
-    [
-      2.1966e-05,
-      6.58e-15
-    ],
-    [
-      2.197e-05,
-      6.51e-15
-    ],
-    [
-      2.1975e-05,
-      6.58e-15
-    ],
-    [
-      2.198e-05,
-      6.44e-15
-    ],
-    [
-      2.1985e-05,
-      6.58e-15
-    ],
-    [
-      2.1988e-05,
-      5.95e-15
-    ],
-    [
-      2.1991e-05,
-      6.51e-15
-    ],
-    [
-      2.1995e-05,
-      6.58e-15
-    ],
-    [
-      2.1998e-05,
+      2.1908e-05,
       7e-15
     ],
     [
-      2.2e-05,
-      1.05e-14
+      2.1912e-05,
+      6.9e-15
     ],
     [
-      2.2002e-05,
-      1.4e-14
+      2.1916e-05,
+      6.7e-15
+    ],
+    [
+      2.192e-05,
+      6.8e-15
+    ],
+    [
+      2.1925e-05,
+      6.85e-15
+    ],
+    [
+      2.193e-05,
+      6.9e-15
+    ],
+    [
+      2.1935e-05,
+      6.7e-15
+    ],
+    [
+      2.194e-05,
+      6.8e-15
+    ],
+    [
+      2.1945e-05,
+      6.7e-15
+    ],
+    [
+      2.195e-05,
+      6.85e-15
+    ],
+    [
+      2.1955e-05,
+      6.9e-15
+    ],
+    [
+      2.196e-05,
+      6.5e-15
+    ],
+    [
+      2.1962e-05,
+      6e-15
+    ],
+    [
+      2.1965e-05,
+      6.6e-15
+    ],
+    [
+      2.197e-05,
+      6.8e-15
+    ],
+    [
+      2.1975e-05,
+      6.7e-15
+    ],
+    [
+      2.198e-05,
+      6.85e-15
+    ],
+    [
+      2.1985e-05,
+      6.7e-15
+    ],
+    [
+      2.199e-05,
+      6.8e-15
+    ],
+    [
+      2.1993e-05,
+      6.5e-15
+    ],
+    [
+      2.1996e-05,
+      6.9e-15
+    ],
+    [
+      2.2e-05,
+      7e-15
+    ],
+    [
+      2.2003e-05,
+      7.3e-15
     ]
   ],
   "data_source": "figure_vision",
   "dm_density_assumed": 0.45,
   "confidence_level": 0.9,
-  "extraction_confidence": 0.6,
+  "extraction_confidence": 0.7,
   "suggested_experiment_name": "CAPP-12T",
-  "notes": "Cavity haloscope search for axion-photon coupling between 21.86 and 22.00 ueV. Excluded g_agamma >= 0.93 x g_KSVZ at 90% CL. The KSVZ coupling at ~22 ueV (5.3 GHz) is approximately |g_agamma| ~ 2.1e-13 GeV^-1; 0.93x gives ~1.9e-13 GeV^-1. Exact numerical g_agamma values not tabulated in text; data points estimated from KSVZ relation and mass range endpoints. Local DM density rho_a = 0.45 GeV/cm^3 stated explicitly. | Vision: Y-axis is plotted as ratio g_a\u03b3\u03b3/g_a\u03b3\u03b3^KSVZ (0.75-2.0). Converted to absolute GeV^-1 assuming g_a\u03b3\u03b3^KSVZ \u2248 7.0e-15 GeV^-1 at 22 \u03bceV. Exclusion limit ~0.93\u00d7KSVZ. Sharp spikes near 21.905 and 21.91-21.92 \u03bceV (TE313 mode mixing) and at band edges. Absolute scale is approximate due to ratio-based axis. | Calibration: Benchmark KSVZ consistent (ratio=1.20) | No calibration needed",
-  "num_points": 36,
-  "elapsed_s": 47.51090216636658
+  "notes": " | selector: figure_vision (sole candidate) | Vision: Y-axis is in units of g_a\u03b3\u03b3/g_a\u03b3\u03b3^KSVZ (0.75-2.0 linear). Converted using KSVZ coupling \u22487.3e-15 GeV^-1 at 22 \u03bceV. The exclusion boundary lies around 0.93\u00d7KSVZ with dips at mode crossings near 21.905 and 21.962 \u03bceV. Inset shows broader context with other experiments. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.15 snapped to identity) | read-vote N=3: ct=AxionPhoton (3/3); medoid 1 of 3 curves (med pairwise 0.045 dex)",
+  "num_points": 35,
+  "elapsed_s": 136.86796522140503
 }

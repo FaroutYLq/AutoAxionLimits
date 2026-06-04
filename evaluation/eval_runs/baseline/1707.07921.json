@@ -14,24 +14,32 @@
       4e-13
     ],
     [
-      10.0,
+      1000.0,
       4e-13
     ],
     [
       1000.0,
-      4.35e-12
+      4.3e-13
+    ],
+    [
+      5000.0,
+      1e-12
     ],
     [
       10000.0,
-      4.3e-14
+      4.3e-13
+    ],
+    [
+      25000.0,
+      4.3e-13
     ]
   ],
   "data_source": "text",
   "dm_density_assumed": 0.3,
   "confidence_level": 0.9,
-  "extraction_confidence": 0.55,
-  "suggested_experiment_name": "PandaX-II",
-  "notes": "Paper sets limits on axion-electron coupling g_Ae for both solar axions (CBRD, ~4e-13 over 1e-5 to 1 keV) and galactic ALPs (~4.3e-14 over 1-25 keV). Text is internally inconsistent on exact numbers (abstract states 4.35e-12 solar, body states 4e-13). Data points are approximate, read from text since tables/plots only available as figures. Masses converted keV to eV. The galactic ALP limit appears most stringent at ~4.3e-14 dimensionless g_ae.",
-  "num_points": 5,
-  "elapsed_s": 8.796159029006958
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "PandaX-II_2017",
+  "notes": "Paper constrains axion-electron coupling g_Ae. Solar CBRD axion limit ~4e-13 for mA 1e-5 to 1 keV (abstract states 4.35e-12 but text body states 4e-13; values inconsistent in paper). Galactic ALP limit ~4.3e-13 for 1-25 keV (best 4.3e-14 quoted in summary). 57Fe limit best 6e-14 at 10 keV. Data points are approximate readings from text since plots (Fig 3, 4) not numerically tabulated. DM density 0.3 GeV/cm^3 used for galactic ALP search. | selector: text (sole candidate) | read-vote N=3: ct=AxionElectron (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
+  "num_points": 7,
+  "elapsed_s": 25.1451678276062
 }

@@ -6,76 +6,80 @@
   "is_projection": false,
   "data_points": [
     [
+      100000.0,
+      0.0001
+    ],
+    [
+      300000.0,
+      9e-05
+    ],
+    [
       1000000.0,
-      0.01
+      7e-05
     ],
     [
       3000000.0,
-      0.006
+      5.5e-05
     ],
     [
       10000000.0,
-      0.004
+      4.5e-05
     ],
     [
       30000000.0,
-      0.003
+      4e-05
     ],
     [
       100000000.0,
-      0.0025
+      3.5e-05
     ],
     [
       300000000.0,
-      0.002
-    ],
-    [
-      700000000.0,
-      0.0015
+      3.2e-05
     ],
     [
       1000000000.0,
-      0.0013
+      3e-05
     ],
     [
       3000000000.0,
-      0.001
+      3e-05
     ],
     [
       6000000000.0,
-      0.0007
+      3.2e-05
     ],
     [
       10000000000.0,
-      0.0005
+      3.5e-05
     ],
     [
       20000000000.0,
-      0.0003
+      4e-05
     ],
     [
       40000000000.0,
-      0.0002
+      5e-05
     ],
     [
       60000000000.0,
-      0.00015
+      6e-05
     ],
     [
       80000000000.0,
-      0.00012
+      8e-05
     ],
     [
-      90000000000.0,
+      91000000000.0,
       0.0001
     ]
   ],
   "data_source": "figure_vision",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.55,
-  "suggested_experiment_name": "LEP Z to 2-3 gamma (ALP hypercharge coupling)",
-  "notes": "Paper sets new LEP limits on ALP-photon (g_agamma) and ALP-hypercharge (g_aBB) couplings from Z->2gamma and Z->3gamma decays, plus LHC and FCC-ee projections. The limits are presented only as exclusion plots (Fig. 4) with no numerical tabulated coupling-vs-mass values; Table 1 gives signal/background rates for a fixed g=1e-4 GeV^-1, not exclusion limits. No extractable (mass, coupling) data points are available from the text. Mass range MeV to ~90 GeV. Coupling type is AxionPhoton (g_agamma in GeV^-1), though paper also discusses hypercharge coupling g_aBB. | Vision: Figure 4(a) left panel shows limits on ALP coupling to two hypercharge bosons. The new LEP result (paper's main contribution) is the green region spanning MeV to ~90 GeV (log10 m_a ~ 6 to 10.7 eV). The plot is a compilation with multiple overlapping regions (LSW, CAST, SN1987a, beam dump, etc.); the green LEP region's lower boundary is traced here. Y-axis is log10(g_agamma) [GeV^-1]; the green region's lower edge sits around 10^-2 to 10^-4 GeV^-1. Coordinates are approximate due to the schematic/compilation nature of the plot. The dashed boundary is Z->2gamma, solid is Z->3gamma. | Calibration: No calibration needed",
-  "num_points": 16,
-  "elapsed_s": 44.2378249168396
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "LEP Z\u21922\u03b3,3\u03b3 (Jaeckel-Spannowsky)",
+  "notes": "Paper sets new limits on ALP-photon coupling g_agamma (and g_aBB hypercharge coupling) from LEP Z->2gamma and Z->3gamma data, plus LHC/FCC-ee projections. The coupling type is AxionPhoton. However, numerical limit values are only presented graphically in Fig. 4 (log-log plots, ma in eV, g in GeV^-1) and not in any extractable table of (mass, coupling) pairs. Table 1 contains signal/background cross sections, not exclusion limits. The exclusion is roughly MeV-90 GeV (1e6 to ~9e10 eV) with couplings around 10^-3 to 10^-4 GeV^-1, but precise points cannot be reliably digitized from text. Both observed limits (LEP) and projections (LHC, FCC-ee) are present. | selector: figure_vision (sole candidate) | Vision: Figure 4(a) shows new LEP limits (green region enclosed by dashed Z\u21922\u03b3 and solid Z\u21923\u03b3 lines) on ALP-photon coupling. The y-axis is Log10(g_a\u03b3\u03b3[GeV^-1]) from -12 to 0, x-axis Log10(m_a[eV]) from ~-15 to 13. The new LEP green region covers MeV (~10^5 eV) to ~90 GeV (~9.1e10 eV) at couplings around 3e-5 to 1e-4 GeV^-1. Boundary traced is the lower edge of the new green LEP exclusion island. Note: panel (a) is hypercharge coupling; values approximate due to dense overlapping regions and log-axis reading. The plot also contains many compiled astrophysical/lab limits (LSW, CAST, SN1987a, HB stars, Cosmology) which form a separate large excluded region at lower masses. | Calibration: No calibration needed | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 3.731 dex)",
+  "num_points": 17,
+  "elapsed_s": 4110.315978050232
 }

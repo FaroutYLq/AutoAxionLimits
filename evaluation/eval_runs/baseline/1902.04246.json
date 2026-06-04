@@ -7,35 +7,27 @@
   "data_points": [
     [
       1e-23,
-      5.1e-10
+      0.00052122
     ],
     [
       1e-22,
-      5.1e-10
-    ],
-    [
-      1e-21,
-      5.1e-10
+      0.00052122
     ],
     [
       1e-20,
-      5.1e-10
-    ],
-    [
-      1e-19,
-      5.1e-10
+      0.00052122
     ],
     [
       1e-18,
-      5e-09
+      0.00052122
     ]
   ],
   "data_source": "text",
   "dm_density_assumed": 0.45,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.55,
+  "extraction_confidence": 0.5,
   "suggested_experiment_name": "EotWash_SpinPendulum2019",
-  "notes": "Eot-Wash rotating torsion pendulum with ~1e23 polarized electrons searching for axionlike DM wind over masses 1e-23 to 1e-18 eV. Paper reports limit as Fa/Ce >~ 2e15 eV (i.e. Ce/Fa <~ 5e-16 eV^-1). Data points are approximate conversions to dimensionless g_ae using g_ae = 2*m_e*Ce/Fa (m_e=511 keV); convention uncertain so confidence reduced. Limit roughly flat over most of range, degrading near sidereal bump (~47 zeV) and at highest masses due to finite measurement-duration attenuation. Abstract states 1e15 but body/Fig.5 states 2e15 eV.",
-  "num_points": 6,
-  "elapsed_s": 20.85301184654236
+  "notes": "Paper reports constraint as Fa/Ce >= 2e15 eV (Ce/Fa <= 5e-16 eV^-1) over much of mass range 1e-23 to 1e-18 eV. Limit shown graphically in Fig.5 as Ce/Fa vs ma; no numerical table in main text. Converted headline value to approximate g_ae using g_ae ~ 2*m_e*Ce/Fa, but the paper natively constrains Ce/Fa not g_ae, so coupling normalization is uncertain. Data points are flat approximations at the quoted plateau limit; actual limit degrades near sidereal bump (~47 zeV) and at highest masses. Local DM density 0.45 GeV/cm^3 assumed. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.5, 4)) | convention: AxionElectron C_e/F_a [eV^-1] -> dimensionless g_ae (x1.022e+06) | read-vote N=3: ct=AxionElectron (3/3); medoid 0 of 3 curves (med pairwise 3.004 dex)",
+  "num_points": 4,
+  "elapsed_s": 135.25475192070007
 }

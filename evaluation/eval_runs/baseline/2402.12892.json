@@ -7,103 +7,75 @@
   "data_points": [
     [
       4.24e-06,
-      1.5517241379310344e-14
+      8e-16
     ],
     [
-      4.26e-06,
-      1.0344827586206895e-14
-    ],
-    [
-      4.28e-06,
-      6.896551724137931e-15
+      4.27e-06,
+      9e-16
     ],
     [
       4.3e-06,
-      6.206896551724138e-15
+      9e-16
     ],
     [
       4.32e-06,
-      5.517241379310344e-15
+      1.5e-15
     ],
     [
       4.35e-06,
-      5.1724137931034475e-15
+      7e-16
     ],
     [
       4.4e-06,
-      5e-15
+      6.5e-16
     ],
     [
       4.45e-06,
-      4.827586206896552e-15
+      6.5e-16
     ],
     [
       4.5e-06,
-      4.827586206896552e-15
+      7e-16
     ],
     [
       4.55e-06,
-      4.827586206896552e-15
+      6.5e-16
     ],
     [
       4.6e-06,
-      4.827586206896552e-15
-    ],
-    [
-      4.62e-06,
-      4.827586206896552e-15
+      6.5e-16
     ],
     [
       4.64e-06,
-      5e-15
+      7e-16
     ],
     [
-      4.66e-06,
-      6.896551724137931e-15
-    ],
-    [
-      4.68e-06,
-      1.2068965517241378e-14
+      4.67e-06,
+      1.5e-15
     ],
     [
       4.7e-06,
-      7.586206896551724e-15
-    ],
-    [
-      4.72e-06,
-      6.206896551724138e-15
+      1.5e-15
     ],
     [
       4.75e-06,
-      5.517241379310344e-15
-    ],
-    [
-      4.78e-06,
-      5.1724137931034475e-15
+      9e-16
     ],
     [
       4.8e-06,
-      5.1724137931034475e-15
-    ],
-    [
-      4.82e-06,
-      5.1724137931034475e-15
+      8e-16
     ],
     [
       4.85e-06,
-      5.1724137931034475e-15
+      8e-16
     ],
     [
       4.88e-06,
-      5.1724137931034475e-15
-    ],
-    [
-      4.9e-06,
-      5.517241379310344e-15
+      8e-16
     ],
     [
       4.91e-06,
-      6.206896551724138e-15
+      9e-16
     ]
   ],
   "data_source": "figure_vision",
@@ -111,7 +83,7 @@
   "confidence_level": 0.9,
   "extraction_confidence": 0.72,
   "suggested_experiment_name": "CAPP MAX",
-  "notes": "Paper reports a cavity haloscope search for axion dark matter over 1.025-1.185 GHz (4.24-4.91 ueV), constraining axion-photon coupling at/near DFSZ sensitivity. Coupling type (AxionPhoton) is clear. Local DM density assumed 0.45 GeV/cm^3 (from Eq. 1). However, the provided paper content is truncated before the results section (Sec. V) and contains no numerical exclusion limit values or readable exclusion-plot data, so no (mass, coupling) data points could be extracted. | Vision: Lower boundary traced from the inset 'This work' panel (Fig. 22), where g_agamma is normalized to DFSZ units (DFSZ=1 corresponds to ~1.4e-15 GeV^-1 at ~4.5 ueV). The exclusion reaches close to DFSZ (~1x) across most of the band, with gaps/peaks near 4.26-4.32 and 4.64-4.70 ueV. Frequency range 1.025-1.185 GHz = 4.24-4.91 ueV. Coupling values reconstructed from DFSZ-normalized inset assuming DFSZ band scaling. | Calibration: Spot-check calibration: verify/stage2 ratio=3.4x",
-  "num_points": 25,
-  "elapsed_s": 36.54618811607361
+  "notes": "Paper reports new axion-photon coupling exclusion limits from CAPP-MAX cavity haloscope over 1.025-1.185 GHz (4.24-4.91 ueV). Local DM density assumed 0.45 GeV/cm^3 (from Eq.1). However, the provided paper text is truncated before the results section (Sec V) and no numerical exclusion limit values or tables are present in the available content, so no data points could be extracted. | selector: figure_vision (sole candidate) | Vision: Boundary traced from the zoomed inset (FIG 22) where 'This work' (CAPP, dark blue) exclusion sits near the DFSZ line over 4.24-4.91 ueV. DFSZ line at this mass ~6e-16 GeV^-1, KSVZ ~1.5e-15. The CAPP limit reaches close to DFSZ across most of the band, with gaps. Coupling values approximated from DFSZ/KSVZ benchmark lines in the inset; y-axis ticks given correspond to the main panel. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.54 snapped to identity) | read-vote N=3: ct=AxionPhoton (3/3); medoid 2 of 3 curves (med pairwise 0.065 dex)",
+  "num_points": 18,
+  "elapsed_s": 93.77000379562378
 }

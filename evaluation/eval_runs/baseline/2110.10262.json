@@ -6,16 +6,28 @@
   "is_projection": false,
   "data_points": [
     [
-      1.984e-05,
+      1.9835e-05,
+      1e-13
+    ],
+    [
+      1.9839e-05,
+      1e-13
+    ],
+    [
+      1.9843e-05,
+      1e-13
+    ],
+    [
+      1.9847e-05,
       1e-13
     ]
   ],
   "data_source": "text",
   "dm_density_assumed": 0.45,
   "confidence_level": 0.9,
-  "extraction_confidence": 0.6,
+  "extraction_confidence": 0.7,
   "suggested_experiment_name": "ADMX_Sidecar_JTWPA",
-  "notes": "ADMX sidecar cavity haloscope using JTWPA. Excludes axion-photon coupling above ~1e-13 GeV^-1 over 4796.7-4799.5 MHz (~19.84 ueV). Only an approximate single bound is given in text; the exact exclusion curve in Fig 7 is not numerically tabulated. DM density 0.45 GeV/cc assumed. Mass ~1.984e-5 eV from 4.798 GHz.",
-  "num_points": 1,
-  "elapsed_s": 14.744845628738403
+  "notes": "ADMX sidecar cavity search using a JTWPA. Excludes axion-photon couplings above ~1e-13 GeV^-1 over 4796.7-4799.5 MHz (axion masses ~19.835-19.847 ueV centered at 19.84 ueV). DM density assumed 0.45 GeV/cc. Coupling values are approximate from text/abstract ('above 10^-13 GeV^-1'); exact y-axis limit values vary across the frequency range as shown in Fig. 7. Mass points span the stated frequency range. | selector: text (sole candidate) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 2 curves (med pairwise 0.000 dex)",
+  "num_points": 4,
+  "elapsed_s": 40.09360218048096
 }

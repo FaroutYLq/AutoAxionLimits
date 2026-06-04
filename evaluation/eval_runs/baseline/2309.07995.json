@@ -19,123 +19,123 @@
     ],
     [
       2e-12,
-      3.5e-24
+      3.6e-24
     ],
     [
       2.5e-12,
-      3.2e-24
+      3.3e-24
     ],
     [
       3e-12,
-      3e-24
+      3.1e-24
     ],
     [
       3.5e-12,
-      2.9e-24
-    ],
-    [
-      4e-12,
-      2.8e-24
-    ],
-    [
-      4.5e-12,
-      2.7e-24
-    ],
-    [
-      5e-12,
-      2.6e-24
-    ],
-    [
-      5.5e-12,
-      2.6e-24
-    ],
-    [
-      6e-12,
-      2.6e-24
-    ],
-    [
-      6.5e-12,
-      2.7e-24
-    ],
-    [
-      7e-12,
-      2.8e-24
-    ],
-    [
-      7.5e-12,
       3e-24
     ],
     [
-      8e-12,
+      4e-12,
+      2.9e-24
+    ],
+    [
+      4.5e-12,
+      2.9e-24
+    ],
+    [
+      5e-12,
+      3e-24
+    ],
+    [
+      5.5e-12,
+      3.2e-24
+    ],
+    [
+      6e-12,
       3.5e-24
     ],
     [
-      9e-12,
+      6.5e-12,
+      4e-24
+    ],
+    [
+      7e-12,
       4.5e-24
     ],
     [
+      7.5e-12,
+      5e-24
+    ],
+    [
+      8e-12,
+      5e-24
+    ],
+    [
+      9e-12,
+      5.2e-24
+    ],
+    [
       1e-11,
-      5.5e-24
+      5.3e-24
     ],
     [
       1.1e-11,
-      7e-24
+      5.4e-24
     ],
     [
       1.2e-11,
-      8.5e-24
+      5.5e-24
     ],
     [
       1.4e-11,
-      1e-23
+      5.6e-24
     ],
     [
       1.6e-11,
-      1.2e-23
+      5.7e-24
     ],
     [
       1.8e-11,
-      1.4e-23
+      5.8e-24
     ],
     [
       2e-11,
-      1.5e-23
+      5.9e-24
     ],
     [
       2.5e-11,
-      1.7e-23
+      6e-24
     ],
     [
       3e-11,
-      1.9e-23
+      6e-24
     ],
     [
       3.5e-11,
-      2e-23
+      6.1e-24
     ],
     [
       4e-11,
-      2.2e-23
+      6.2e-24
     ],
     [
       4.5e-11,
-      2.3e-23
+      6.3e-24
     ],
     [
       5e-11,
-      2.4e-23
+      6.5e-24
     ],
     [
       5.5e-11,
-      2.5e-23
+      6.6e-24
     ]
   ],
   "data_source": "figure_vision",
   "dm_density_assumed": 0.4,
   "confidence_level": 0.9,
-  "extraction_confidence": 0.55,
-  "suggested_experiment_name": "HeLIOS (existing bounds: Eot-Wash, LIGO/Virgo)",
-  "notes": "This is a prototype demonstration / projection paper. No actual measured exclusion limit is set (attempts to observe thermally driven motion failed). Fig. 1 shows projected sensitivity regions after 1 hr integration for both scalar UDM (d_me, ScalarElectron coupling to electron mass) and vector UDM (g_B-L, VectorBL). The paper constrains BOTH coupling types simultaneously; the hint VectorBL is one of two. Scalar curve is ScalarElectron (d_me, ~1e-7 to 1e7 over masses ~3-50 peV), vector curve is VectorBL (g_B-L ~1e-26 to 1e-16 over ~1-50 peV). No numerical exclusion table or text values for the projection curves are provided; only plot axes ranges. Hence data_points empty and confidence capped at 0.5 due to dual coupling and unreadable plot values. Mass range roughly 4e-12 to 2.3e-10 eV (Compton freq ~1-55 kHz). | Vision: Right panel of Fig.1 shows vector UDM coupling g_BL vs mass [peV]. The lower boundary traced corresponds to the existing experimental bounds (Eot-Wash and LIGO/Virgo) which form the lowest excluded region in the plot. The red HeLIOS projections (and optimized dashed lines) sit higher. Y-axis ticks read from 1e-26 to 1e-16. The provided y-axis calibration (1e-7 to 1e7) does not match the right panel labels which range 1e-26 to 1e-16; I used the actual plotted g_BL values. Values are approximate readings from the log-log plot. | Calibration: No calibration needed",
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "Eot-Wash + LIGO/Virgo (existing B-L bounds shown in HeLIOS Fig.1)",
+  "notes": "This is a projection/sensitivity paper for a superfluid helium optomechanical detector. It proposes searches for both scalar UDM (coupling to electron mass, d_me, ScalarElectron) and vector UDM (coupling to B-L number, g_B-L, VectorBL). The pre-analysis hint of VectorBL is consistent with the right panel of Fig. 1, but the paper equally constrains ScalarElectron (left panel). No numerical data points are given in tables or text \u2014 projections are shown only as curves in Fig. 1 (g_B-L axis spans ~1e-26 to 1e-16, masses ~1-50 peV). No exclusion limits are actually measured (thermal motion not observed in prototype). Mass range ~1-50 peV (kHz frequency range). Confidence kept low due to dual coupling types and absence of extractable numbers. | selector: figure_vision (sole candidate) | Vision: Right panel of Fig.1 is the vector UDM (g_BL) plot. The lower boundary of the existing exclusion region is set by Eot-Wash (green) and LIGO/Virgo (teal) constraints. X-axis in peV converted to eV (1 peV = 1e-12 eV). Y-axis is g_BL with ticks 1e-26 to 1e-16. The HeLIOS projected sensitivities (red, dashed) lie above these existing bounds and are not the existing exclusion. Values are approximate readings from the log-log plot. | Calibration: No calibration needed | read-vote N=3: ct=VectorBL (3/3); medoid 0 of 3 curves (med pairwise 0.622 dex)",
   "num_points": 31,
-  "elapsed_s": 43.97052001953125
+  "elapsed_s": 117.50112199783325
 }

@@ -6,15 +6,20 @@ name: extraction regression gate
 # that caught the #550+#561 regression, and fails the check on a real regression
 # (gate.py G1-G7).
 #
-# OPT-IN for now (workflow_dispatch or the `run-eval` label), NOT auto-required
-# on every PR. Rationale: download_pdf has no 429 retry / cross-run PDF cache, so
-# arXiv throttling in CI can drop papers to download-`error` and reduce
-# n_compared, which would false-fail G2/G7 on infrastructure rather than a real
-# regression. Making it a hard-required auto-gate is a follow-up gated on two
-# robustness pieces: (a) a retry/cache on the arXiv PDF download, and (b)
-# symmetric-set counting in gate.py (compare only papers that extracted cleanly
-# on BOTH sides, so infra drops cancel out). Until then a maintainer runs it via
-# dispatch or by adding `run-eval` to a PR.
+# OPT-IN (workflow_dispatch or the `run-eval` label). The gate is now trustworthy
+# — arXiv infra drops and run-to-run LLM noise no longer false-fail it:
+#   - #582: download_pdf retry + cross-run PDF cache (fewer infra drops).
+#   - #583: gate.py symmetric-set counting (one-sided infra drops cancel).
+#   - #584: N=3 read voting (AAL_READ_SAMPLES=3) damps the run-to-run drift that
+#           #580 reintroduced (Opus 4.8 dropped temperature=0); a no-op N=3 pair
+#           passes the gate (validated on the union key) while the #550 regression
+#           still fails. The committed baseline is itself an N=3 union snapshot, so
+#           a dispatched run MUST also use AAL_READ_SAMPLES=3 (set below) to match.
+# AUTO-REQUIRED is deliberately NOT enabled: at N=3 the figure key needs ~150 min
+# of extraction (56 papers x 3 samples), which OVERRUNS the CI budget — a self-test
+# on the figure key was cancelled at the 120-min timeout BEFORE reaching the gate
+# step. A per-PR auto-required gate would need a small curated fast subset
+# (~12-15 papers) re-pinned at N=3; until then this stays opt-in (dispatch/label).
 #
 # Additive and independent of the daily/weekly/backfill science pipelines and of
 # the no-API eval_tests.yml (this one DOES call the API and is much slower).
@@ -51,10 +56,10 @@ concurrency:
 jobs:
   gate:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
-    # Opt-in only: manual dispatch, or a maintainer adds the `run-eval` label to
-    # the PR. This avoids burning the API key (and false-failing on arXiv 429s)
-    # on every extraction PR until the robustness pieces in the header land.
+    timeout-minutes: 120
+    # Opt-in: manual dispatch, or add the `run-eval` label to the PR. (Auto-run on
+    # every extraction PR is infeasible at N=3 — see header: figure-key extraction
+    # overruns the CI timeout.)
     if: >-
       github.event_name == 'workflow_dispatch' ||
       contains(github.event.pull_request.labels.*.name, 'run-eval')
@@ -89,9 +94,12 @@ jobs:
           restore-keys: |
             extraction-gate-cache-
 
-      - name: Re-extract the AFTER snapshot (figure subset by default)
+      - name: Re-extract the AFTER snapshot (figure subset by default, N=3 voted)
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # N=3 read voting must match the baseline (also N=3) so a no-op pair
+          # stays within the gate's noise floor (#584).
+          AAL_READ_SAMPLES: "3"
         run: |
           KEY="${{ github.event.inputs.subset_key || 'figure' }}"
           python -m evaluation.subset_eval extract --key "$KEY" \

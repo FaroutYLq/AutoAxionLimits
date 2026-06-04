@@ -13,9 +13,9 @@
   "data_source": "text",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.82,
+  "extraction_confidence": 0.85,
   "suggested_experiment_name": "Fermi-LAT_DSNALPB",
-  "notes": "Upper limit on ALP-photon coupling g_agamma <= 3.76e-11 GeV^-1 at 95% CL for m_a << 10^-11 eV, from 12 years of Fermi-LAT data analyzing diffuse SN ALP background converted via Galactic magnetic field. This is a stellar/astrophysical bound (not a haloscope DM search), so no local DM density assumed. Single mass-independent limit point in the low-mass regime; mass plotted as upper bound m_a < 1e-11 eV.",
+  "notes": "Diffuse supernova ALP background searched via Fermi-LAT. The benchmark 95% CL upper limit is g_agamma <= 3.76e-11 GeV^-1 for m_a << 10^-11 eV. This is a stellar/cosmological bound (not a DM haloscope), so no DM density assumed. Only a single quoted limit value extractable from text; the exclusion is essentially flat for m_a below ~10^-11 eV. | selector: text (sole candidate) | read-vote N=3: ct=AxionPhoton (3/3); no consensus curve, took most-points",
   "num_points": 1,
-  "elapsed_s": 25.6958429813385
+  "elapsed_s": 78.19647598266602
 }

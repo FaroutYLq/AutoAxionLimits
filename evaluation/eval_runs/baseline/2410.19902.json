@@ -6,16 +6,108 @@
   "is_projection": false,
   "data_points": [
     [
+      1e-20,
+      9e-08
+    ],
+    [
+      1e-18,
+      9e-08
+    ],
+    [
+      1e-16,
+      9e-08
+    ],
+    [
+      1e-14,
+      9e-08
+    ],
+    [
+      1e-12,
+      9e-08
+    ],
+    [
+      1e-10,
+      9e-08
+    ],
+    [
+      1e-09,
+      9e-08
+    ],
+    [
+      1e-08,
+      9e-08
+    ],
+    [
+      1e-07,
+      9e-08
+    ],
+    [
+      1e-06,
+      9e-08
+    ],
+    [
+      1e-05,
+      9e-08
+    ],
+    [
+      0.0001,
+      9e-08
+    ],
+    [
+      0.001,
+      9e-08
+    ],
+    [
+      0.01,
+      9e-08
+    ],
+    [
+      0.03,
+      9e-08
+    ],
+    [
+      0.05,
+      9e-08
+    ],
+    [
       0.053,
-      1100.0
+      8e-08
+    ],
+    [
+      0.053,
+      1e-08
+    ],
+    [
+      0.053,
+      1e-09
+    ],
+    [
+      0.053,
+      1e-11
+    ],
+    [
+      0.053,
+      1e-13
+    ],
+    [
+      0.053,
+      1e-15
+    ],
+    [
+      0.053,
+      1e-17
+    ],
+    [
+      0.053,
+      1e-19
     ]
   ],
-  "data_source": "text",
+  "data_source": "figure_vision",
   "dm_density_assumed": null,
   "confidence_level": 0.9,
   "extraction_confidence": 0.6,
-  "suggested_experiment_name": "SN1987A universal QCD axion bound (this work)",
-  "notes": "Model-independent SN1987A bound on QCD axion. Main result: f_a > 1.1e8 GeV (68% C.L.), equivalently m_a < 5.3e-2 eV. Exclusion plot (Fig 5) is on the 1/f_a vs m_a plane (yellow QCD axion line), so AxionMass is appropriate. Bound is a single point/line (excludes m_a above ~0.053 eV). Confidence level quoted in paper is 68% C.L., not the standard 90/95; reported as 0.90 per options. Single bound point given as (m_a in eV, f_a in GeV). Alternative pion-conversion bound f_a > 4e7 GeV mentioned in appendix. | Vision: Figure 5 plots 1/f_a [GeV^-1] vs m_a [eV], not the f_a-m_a plane directly. The 'This work' red exclusion is a horizontal band covering all 1/f_a values down to where the QCD axion line crosses, corresponding to f_a > 1.1e8 GeV, m_a < 5.3e-2 eV (68% C.L.). The exclusion is effectively a single vertical edge at m_a~5.3e-2 eV, so only the bound point is extractable rather than a multi-point boundary. Lower confidence because the plotted axes (y=1/f_a) differ from the requested AxionMass convention (y=m_a). | Auto-corrected couplings: \u00d71.00e-05 (5 orders too large)",
-  "num_points": 1,
-  "elapsed_s": 34.313392162323
+  "suggested_experiment_name": "SN1987A universal QCD axion bound (This work)",
+  "notes": "Paper derives a model-independent SN1987A bound on the QCD axion mass/decay constant: fa > 1.1e8 GeV (ma < 5.3e-2 eV) at 68% C.L. The main exclusion plot (Fig 5) is in the 1/fa vs ma plane (QCD axion line), so AxionMass is appropriate. Single bound point given; data point encodes (ma in eV, fa in GeV). Confidence level is 68% C.L. as stated, not standard 90/95; reported as 0.90 per schema constraint but note discrepancy. | selector: figure_vision over text (quality (1, 1, 1, 1, 0, 0.6, 24)) | Vision: Fig. 5 plots 1/f_a [GeV^-1] (y-axis) vs m_a [eV] (x-axis). The 'This work' red excluded region is bounded below by a horizontal line at 1/f_a ~ 9e-9 GeV^-1 (f_a > 1.1e8 GeV) and a vertical edge near m_a ~ 5.3e-2 eV. Bound: f_a > 1.1e8 GeV, m_a < 5.3e-2 eV (68% C.L.). Note the y-axis is 1/f_a, NOT m_a as the AxionMass convention nominally expects; data points give (m_a in eV, 1/f_a in GeV^-1). | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=11.11) | read-vote N=3: ct=AxionMass (3/3); medoid 0 of 3 curves (med pairwise inf dex)",
+  "num_points": 24,
+  "elapsed_s": 129.6252510547638
 }

@@ -8,9 +8,9 @@
   "data_source": "none",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.55,
+  "extraction_confidence": 0.3,
   "suggested_experiment_name": "Cadamuro_Redondo_2012_ALP_cosmology",
-  "notes": "Cosmological bounds on ALP two-photon coupling g (GeV^-1) vs mass m_phi (eV) from BBN, CMB, Neff, EBL, etc. The summary exclusion plot (Fig. 1) is in the m_phi-g plane, so coupling type is AxionPhoton. However, no numerical table is provided and the limits are presented only graphically as multiple overlapping exclusion regions (each with characteristic slope g ~ m^-3/2). The text gives only scattered approximate relations (e.g. g/GeV^-1 >~ 10^-3 (eV/m_phi)^3/2 for the Neff low-mass boundary; DM mass bound m_phi=154 eV). Insufficient digitizable data points to reliably tabulate. Confidence lowered due to lack of extractable numerical limit data.",
+  "notes": "Cosmological bounds (BBN, CMB, Neff, EBL, X-rays, optical) on ALP two-photon coupling g (GeV^-1) vs mass m_phi (eV). The coupling type is clearly AxionPhoton (g_agamma via L = -g/4 F~F phi). However, the limits are presented only as exclusion regions in Figs 1, 2, 6 with no numerical tables or readable digitized values; the only explicit formula given is the low-mass boundary g/GeV^-1 >~ 1e-3 (eV/m_phi)^(3/2) (Eq 3.11). No tabulated (mass, coupling) pairs are extractable. Confidence levels mix 95% and 99% for different bounds. Not a DM haloscope so no local DM density. | read-vote N=3: ct=AxionPhoton (3/3); no consensus curve, took most-points",
   "num_points": 0,
-  "elapsed_s": 18.627710103988647
+  "elapsed_s": 50.95136094093323
 }

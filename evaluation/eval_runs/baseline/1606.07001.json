@@ -10,7 +10,7 @@
   "confidence_level": 0.9,
   "extraction_confidence": 0.4,
   "suggested_experiment_name": "DARWIN",
-  "notes": "DARWIN projection paper. Figure 4 shows sensitivity projections for solar axions (g_Ae^solar vs m_A) and galactic ALPs (g_Ae^ALP vs m_A) via the axio-electric effect, constraining the axion-electron coupling. The DARWIN projection improves galactic ALP sensitivity by ~2 orders of magnitude over XENON100 and solar axion sensitivity by ~1 order of magnitude. However, no numerical table or explicit DARWIN sensitivity values are given in the text \u2014 only the figure (not extractable to numbers here). XENON100 reference limits quoted: g_Ae^ALP ~2e-12 (90% CL, 1-40 keV galactic ALPs), g_Ae^solar > 7.7e-12 (90% CL). These are prior XENON100 results, not new DARWIN limits. The local DM density rho_0=0.3 GeV/cm^3 is assumed for the WIMP halo. Coupling type is AxionElectron but no extractable DARWIN data points available.",
+  "notes": "DARWIN projection for solar axions and galactic ALPs via axio-electric effect (g_Ae, AxionElectron coupling). Figure 4 shows sensitivity curves but only XENON100 reference values are given numerically in text (g_ALP_Ae ~2e-12 for galactic ALPs 1-40 keV, g_solar_Ae > 7.7e-12). DARWIN projects ~2 orders of magnitude improvement for galactic ALPs (~1e-14) and ~1 order for solar axions, but no explicit numerical DARWIN limit values or tables are provided. Data points cannot be reliably extracted from text alone. DM density 0.3 GeV/cm^3 assumed for galactic ALP search. | read-vote N=3: ct=AxionElectron (3/3); no consensus curve, took most-points",
   "num_points": 0,
-  "elapsed_s": 21.548627853393555
+  "elapsed_s": 51.77383327484131
 }

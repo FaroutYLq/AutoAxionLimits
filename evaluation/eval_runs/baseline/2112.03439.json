@@ -9,8 +9,8 @@
   "dm_density_assumed": 0.471,
   "confidence_level": 0.9,
   "extraction_confidence": 0.15,
-  "suggested_experiment_name": "BreakthroughListen_GBT_LS_2025",
-  "notes": "This is a model-independent radio telescope search for ultralight bosonic dark matter via radiative decay or annihilation to a quasimonochromatic radio line over 1020-2700 MHz. The reported limits are on the decay rate (lambda ~ 1e-32 s^-1) and the velocity-weighted annihilation cross section (<sigma v> ~ 1e-30 cm^3/s), NOT on a standard coupling constant like g_agamma. Although two-photon axion decay is mentioned as one possible channel, the primary results are presented as decay rate and cross-section limits vs frequency (mass), which do not map to any of the listed coupling enum types. Therefore coupling_type is null and no data points are extracted in the required coupling units. Local DM density assumed rho_NFW(rs)=0.471 GeV/cm^3 (Burkert: 0.487). 3-sigma exclusion (~99.7%, no exact 90/95% CL stated; defaulted to 0.90). Mass relates to frequency via m = 2*h*nu for decay assuming hv=m_chi c^2/2.",
+  "suggested_experiment_name": "BreakthroughListen_GBT_LS",
+  "notes": "This paper constrains dark matter decay rate (lambda ~ 1e-32 s^-1) and annihilation cross section (<sigma v> ~ 1e-30 cm^3/s) via a radio line search, NOT a standard axion-photon coupling g_agamma. The y-axis of the exclusion plots is decay rate [s^-1] or cross-section [cm^3 s^-1], which do not map cleanly onto any of the available coupling_type enums. The hint of AxionPhoton is not directly supported since limits are presented model-independently as lambda and <sigma v>, not g_agamma. No coupling-vs-mass data in the required units is extractable. Frequency range 1020-2700 MHz corresponds to photon energies ~8.4e-6 to ~1.1e-5 eV (DM mass twice that for decay). NFW local density 0.471 GeV/cm^3 (Burkert 0.487) noted. | read-vote N=2: ct=None (2/2); no consensus curve, took most-points",
   "num_points": 0,
-  "elapsed_s": 33.225229024887085
+  "elapsed_s": 85.36056303977966
 }

@@ -7,119 +7,103 @@
   "data_points": [
     [
       1e-22,
-      0.001
+      1.879130841e-10
     ],
     [
       6.3e-22,
-      0.001
+      1.879130841e-10
     ],
     [
       1e-21,
-      0.0011
+      1.6912177569e-10
     ],
     [
-      2e-21,
-      0.0013
+      1.6e-21,
+      2.0670439251e-10
     ],
     [
-      3.2e-21,
-      0.0015
+      2.5e-21,
+      2.4428700933e-10
     ],
     [
-      5e-21,
-      0.002
+      4e-21,
+      2.2549570091999997e-10
     ],
     [
-      7e-21,
-      0.003
+      6.3e-21,
+      1.6912177569e-10
     ],
     [
       1e-20,
-      0.005
+      1.1274785045999998e-10
     ],
     [
-      1.5e-20,
-      0.01
+      1.6e-20,
+      8.4560887845e-11
     ],
     [
-      2e-20,
-      0.016
+      2.5e-20,
+      6.5769579435e-11
     ],
     [
-      3e-20,
-      0.025
+      4e-20,
+      5.637392522999999e-11
     ],
     [
-      5e-20,
-      0.035
-    ],
-    [
-      7e-20,
-      0.045
+      6.3e-20,
+      6.013218691200001e-11
     ],
     [
       1e-19,
-      0.05
+      6.5769579435e-11
     ],
     [
-      2e-19,
-      0.055
+      1.6e-19,
+      7.516523364e-11
     ],
     [
-      5e-19,
-      0.055
+      2.5e-19,
+      8.4560887845e-11
+    ],
+    [
+      4e-19,
+      9.0198280368e-11
+    ],
+    [
+      6.3e-19,
+      9.395654205e-11
     ],
     [
       1e-18,
-      0.05
+      9.395654205e-11
     ],
     [
       3e-18,
-      0.045
+      9.395654205e-11
     ],
     [
-      7e-18,
-      0.04
+      6e-18,
+      9.0198280368e-11
+    ],
+    [
+      9e-18,
+      8.4560887845e-11
     ],
     [
       1e-17,
-      0.04
+      3.758261682e-10
     ],
     [
-      2.5e-16,
-      0.5
-    ],
-    [
-      5e-16,
-      0.35
-    ],
-    [
-      1e-15,
-      0.25
-    ],
-    [
-      3e-15,
-      0.18
-    ],
-    [
-      1e-14,
-      0.13
-    ],
-    [
-      5e-14,
-      0.12
-    ],
-    [
-      1e-13,
-      0.13
+      1e-17,
+      1.879130841e-10
     ]
   ],
   "data_source": "figure_vision",
   "dm_density_assumed": 0.4,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.55,
-  "suggested_experiment_name": "VULF axion-nucleon laboratory constraints (CASPEr-ZULF / nEDM / New Force)",
-  "notes": "This is a methodology/theory paper showing that constraints from prior bosonic DM searches (operating in T<<tau_c regime) were overestimated by factors of ~3-10 due to neglecting the stochastic (Rayleigh-distributed) nature of the VULF amplitude. It re-derives correction factors for existing experiments (CASPEr-ZULF, nEDM, dilaton clock searches) rather than presenting a new measured exclusion limit or projection. The modified exclusion plots (axion-nucleon gaNN and dilaton couplings) are corrections of previously published limits, not new data. No new numerical limit table is extractable; coupling types discussed include both axion-nucleon (gaNN) and scalar/dilaton couplings, making a single coupling assignment ambiguous. | Vision: Y-axis is g_aNN in GeV^-1 on log scale (ticks 10^-1 to 10^-9). The black boundary combines CASPEr-ZULF Comagnetometer and nEDM constraints (left region, masses 1e-22 to ~1e-17 eV) and a separate 'New Force / Sidebands' constraint (right region, masses ~1e-16 to 1e-13 eV). Lower boundary traced is the bottom edge of the black exclusion curves. Note units are GeV^-1 (dimension-bearing) though coupling_type AxionNeutron is reported as g_aNN. Values approximate from plot reading. | Calibration: No calibration needed",
-  "num_points": 27,
-  "elapsed_s": 28.644661903381348
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "CASPEr-ZULF Comagnetometer / nEDM",
+  "notes": "This is a methodological/theoretical paper showing that constraints from VULF dark matter searches in the T<<tau_c regime are overestimated by factors ~3-10 due to neglecting stochastic field amplitude fluctuations. It re-derives correction factors and rescales previously published limits (CASPEr-ZULF, nEDM, dilaton clock searches) rather than presenting a new original measurement. The exclusion plots (Figs 3,4) show corrected versions of existing constraints for axion-nucleon coupling g_aNN and dilaton couplings, but these are not new measured limits and no readable numerical data points are provided. No extractable new limit data. | selector: figure_vision (sole candidate) | Vision: g_aNN axion-nucleon coupling exclusion (ZULF/CASPEr comagnetometer + nEDM). The black boundary traced represents the lower edge of the combined comagnetometer/nEDM exclusion. Y-axis ticks read as log10 values (-1 to -9). Boundary dips to ~3e-4 (log~-4.5) around 1e-20 to 1e-18 eV. Could be AxionProton/nucleon; labeled g_aNN (nucleon). | convention: AxionNeutron C_N/F_a [eV^-1] -> dimensionless g_aN (x1.879e+09) | Calibration: No calibration needed | Auto-corrected couplings: \u00d71e-16 (\u00d71.00e-16, rule=argmin|log10(median*f)-log10(anchor=1.0e-10)|) | read-vote N=3: ct=AxionNeutron (3/3); medoid 0 of 3 curves (med pairwise 0.539 dex)",
+  "num_points": 23,
+  "elapsed_s": 84.56378197669983
 }

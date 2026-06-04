@@ -7,119 +7,19 @@
   "data_points": [
     [
       5e-09,
-      8e-12
-    ],
-    [
-      6e-09,
-      7e-12
-    ],
-    [
-      7e-09,
-      6.2e-12
-    ],
-    [
-      8e-09,
-      5.6e-12
-    ],
-    [
-      1e-08,
       5e-12
-    ],
-    [
-      1.3e-08,
-      4.7e-12
-    ],
-    [
-      1.7e-08,
-      4.6e-12
-    ],
-    [
-      2e-08,
-      4.7e-12
-    ],
-    [
-      2.5e-08,
-      4.8e-12
-    ],
-    [
-      3e-08,
-      5e-12
-    ],
-    [
-      4e-08,
-      5.3e-12
-    ],
-    [
-      5e-08,
-      5.7e-12
-    ],
-    [
-      6e-08,
-      6.2e-12
-    ],
-    [
-      7e-08,
-      6.8e-12
-    ],
-    [
-      8e-08,
-      7.5e-12
-    ],
-    [
-      1e-07,
-      9e-12
-    ],
-    [
-      1.2e-07,
-      1.1e-11
-    ],
-    [
-      1.5e-07,
-      1.4e-11
-    ],
-    [
-      1.8e-07,
-      1.9e-11
     ],
     [
       2e-07,
-      2.4e-11
-    ],
-    [
-      2.2e-07,
-      3.2e-11
-    ],
-    [
-      2.5e-07,
-      4.5e-11
-    ],
-    [
-      2.8e-07,
-      6.5e-11
-    ],
-    [
-      3e-07,
-      9e-11
-    ],
-    [
-      3.3e-07,
-      1e-10
-    ],
-    [
-      3.6e-07,
-      1e-10
-    ],
-    [
-      4e-07,
-      1e-10
+      5e-12
     ]
   ],
-  "data_source": "figure_vision",
+  "data_source": "text",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.8,
-  "suggested_experiment_name": "Fermi-LAT combined FSRQ ALP search",
-  "notes": "Astrophysical ALP-photon mixing search in blazar jets. Exclusion stated: 5 neV <~ m_a <~ 200 neV, g_agamma >~ 5e-12 GeV^-1 at 95% CL. Data points are approximate from text only; the actual exclusion contours are in figures not numerically given. Not a DM haloscope, so no local density assumed. | Vision: Boundary traced from the white exclusion contour in the upper panel of image 8 (combined analysis). Region above the contour is excluded. Y-axis from 1e-12 to 1e-10; x-axis mass from 5 neV to ~5000 neV. Minimum coupling ~4.6e-12 around m_a ~ 15-17 neV. | Calibration: No calibration needed",
-  "num_points": 27,
-  "elapsed_s": 27.182327032089233
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "Fermi_FSRQ_combined_2023",
+  "notes": "Combined analysis of three flaring Fermi FSRQs (3C454.3, CTA 102, 3C279) constraining ALP-photon coupling g_agamma. Exclusion stated as 5 neV < m_a < 200 neV and g_agamma > 5e-12 GeV^-1 at 95% CL. Detailed exclusion contours given in Figs 7-9 but only approximate corner values extractable from text. Not a DM haloscope, so no local density assumed. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.55, 2)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
+  "num_points": 2,
+  "elapsed_s": 67.57073903083801
 }

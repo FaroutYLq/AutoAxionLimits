@@ -23,7 +23,7 @@
   "confidence_level": 0.95,
   "extraction_confidence": 0.85,
   "suggested_experiment_name": "CAST2017",
-  "notes": "CAST solar helioscope vacuum phase (2013-2015). World-leading limit g_agamma < 0.66e-10 GeV^-1 (95% C.L.) for m_a <~ 0.02 eV. This is a stellar/solar axion search (Primakoff), not a DM haloscope, so no DM density assumption. Data points represent the flat low-mass limit; the limit degrades above ~0.02 eV due to loss of coherence. Exact mass-dependent values above 0.02 eV are only in Fig. 2 (plot).",
+  "notes": "CAST solar axion helioscope final vacuum phase (2013-2015). World-leading limit g_agamma < 0.66e-10 GeV^-1 (95% C.L.) for m_a < 0.02 eV. This is a stellar/solar production bound, not a DM haloscope, so no DM density. Data points represent the flat low-mass exclusion plateau; precise mass-dependent values above 0.02 eV not tabulated in text. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.85, 3)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
   "num_points": 3,
-  "elapsed_s": 8.348850011825562
+  "elapsed_s": 74.31339693069458
 }

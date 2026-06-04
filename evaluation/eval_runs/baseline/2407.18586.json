@@ -6,176 +6,20 @@
   "is_projection": false,
   "data_points": [
     [
-      2.546e-05,
-      1e-11
-    ],
-    [
-      2.546e-05,
-      1e-12
-    ],
-    [
-      2.547e-05,
-      4.5e-13
-    ],
-    [
-      2.548e-05,
+      2.545e-05,
       2.8e-13
     ],
     [
-      2.55e-05,
-      2.5e-13
-    ],
-    [
-      2.555e-05,
-      2.4e-13
-    ],
-    [
-      2.56e-05,
-      2.5e-13
-    ],
-    [
-      2.565e-05,
-      2.6e-13
-    ],
-    [
-      2.57e-05,
-      4e-13
-    ],
-    [
-      2.572e-05,
-      2.6e-13
-    ],
-    [
-      2.575e-05,
+      2.627e-05,
       2.8e-13
-    ],
-    [
-      2.58e-05,
-      2.7e-13
-    ],
-    [
-      2.585e-05,
-      3e-13
-    ],
-    [
-      2.59e-05,
-      2.8e-13
-    ],
-    [
-      2.595e-05,
-      3e-13
-    ],
-    [
-      2.6e-05,
-      2.9e-13
-    ],
-    [
-      2.605e-05,
-      4e-13
-    ],
-    [
-      2.608e-05,
-      2.9e-13
-    ],
-    [
-      2.61e-05,
-      3e-13
-    ],
-    [
-      2.615e-05,
-      3e-13
-    ],
-    [
-      2.62e-05,
-      4.5e-13
-    ],
-    [
-      2.623e-05,
-      3e-13
-    ],
-    [
-      2.628e-05,
-      3.2e-13
-    ],
-    [
-      2.632e-05,
-      4.5e-13
-    ],
-    [
-      2.635e-05,
-      3.1e-13
-    ],
-    [
-      2.64e-05,
-      3.3e-13
-    ],
-    [
-      2.645e-05,
-      3e-13
-    ],
-    [
-      2.65e-05,
-      3.2e-13
-    ],
-    [
-      2.655e-05,
-      3.3e-13
-    ],
-    [
-      2.66e-05,
-      3.2e-13
-    ],
-    [
-      2.665e-05,
-      3.4e-13
-    ],
-    [
-      2.67e-05,
-      3.5e-13
-    ],
-    [
-      2.675e-05,
-      4e-13
-    ],
-    [
-      2.68e-05,
-      3.5e-13
-    ],
-    [
-      2.685e-05,
-      4e-13
-    ],
-    [
-      2.69e-05,
-      3.8e-13
-    ],
-    [
-      2.695e-05,
-      4e-13
-    ],
-    [
-      2.7e-05,
-      4.5e-13
-    ],
-    [
-      2.703e-05,
-      5e-13
-    ],
-    [
-      2.705e-05,
-      4.5e-13
-    ],
-    [
-      2.707e-05,
-      4.5e-13
     ]
   ],
-  "data_source": "figure_vision",
+  "data_source": "text",
   "dm_density_assumed": 0.45,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.85,
+  "extraction_confidence": 0.6,
   "suggested_experiment_name": "ORGAN-Q",
-  "notes": "ORGAN-Q haloscope excludes |g_agamma| >~ 2.8e-13 GeV^-1 at 95% CL over 25.45-26.27 ueV (6.15-6.35 GHz). Exact limit curve is in Fig. 4 (not numerically tabulated); approximate flat limit of 2.8e-13 used across the mass range from text. Local DM density 0.45 GeV/cm^3 assumed (100% axion). | Vision: Boundary traced from panel (a). Excluded region is light purple above the curve. The limit sits around g_agamma ~ 2.5-5e-13 GeV^-1 across the 25.45-26.27 ueV range with multiple narrow spikes (mode crossings/poor sensitivity bins). Vertical edges at the band boundaries shown as walls rising to 1e-11. | Calibration: No calibration needed",
-  "num_points": 41,
-  "elapsed_s": 27.16407084465027
+  "notes": "ORGAN-Q haloscope excludes axion-photon coupling |g_agamma| >~ 2.8e-13 GeV^-1 at 95% CL over 25.45-26.27 ueV (6.15-6.35 GHz). Only the limiting coupling value is given in text; the bin-by-bin exclusion limit curve is in Fig. 4 but not tabulated. Approximate flat limit assumed across the mass range. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.6, 2)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
+  "num_points": 2,
+  "elapsed_s": 65.98996615409851
 }

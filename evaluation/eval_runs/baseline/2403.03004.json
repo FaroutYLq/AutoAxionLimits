@@ -7,147 +7,95 @@
   "data_points": [
     [
       6.2e-14,
-      9.999999999999999e-19
+      2e-18
     ],
     [
       7e-14,
-      1.2499999999999999e-18
+      1.5e-18
     ],
     [
       8.3e-14,
-      7.499999999999999e-19
+      8e-19
     ],
     [
       1e-13,
-      6.499999999999999e-19
+      7e-19
     ],
     [
       1.24e-13,
-      4.999999999999999e-19
-    ],
-    [
-      1.45e-13,
-      4.499999999999999e-19
+      9e-19
     ],
     [
       1.65e-13,
-      3.999999999999999e-19
-    ],
-    [
-      1.86e-13,
-      3.7499999999999993e-19
+      6.000000000000001e-19
     ],
     [
       2.07e-13,
-      3.499999999999999e-19
-    ],
-    [
-      2.28e-13,
-      3.2499999999999996e-19
+      5e-19
     ],
     [
       2.48e-13,
-      3e-19
+      5e-19
     ],
     [
-      2.69e-13,
-      2.8999999999999995e-19
+      3.31e-13,
+      5e-19
     ],
     [
-      2.9e-13,
-      2.7499999999999993e-19
-    ],
-    [
-      3.3e-13,
-      2.4999999999999997e-19
-    ],
-    [
-      3.7e-13,
-      2.3999999999999993e-19
-    ],
-    [
-      4.1e-13,
-      2.4999999999999997e-19
-    ],
-    [
-      4.6e-13,
-      2.7499999999999993e-19
+      4.14e-13,
+      6.000000000000001e-19
     ],
     [
       5e-13,
-      3e-19
+      7e-19
     ],
     [
-      5.8e-13,
-      3.499999999999999e-19
-    ],
-    [
-      6.6e-13,
-      3.999999999999999e-19
+      6.2e-13,
+      8e-19
     ],
     [
       7.4e-13,
-      4.999999999999999e-19
+      1e-18
     ],
     [
       8.3e-13,
-      6e-19
+      1.2000000000000002e-18
     ],
     [
-      9.5e-13,
-      7.499999999999999e-19
-    ],
-    [
-      1.1e-12,
-      8.999999999999998e-19
+      1e-12,
+      1.5e-18
     ],
     [
       1.24e-12,
-      1.0999999999999997e-18
-    ],
-    [
-      1.45e-12,
-      1.4999999999999997e-18
+      2e-18
     ],
     [
       1.65e-12,
-      1.9999999999999998e-18
-    ],
-    [
-      1.86e-12,
-      2.4999999999999998e-18
+      3e-18
     ],
     [
       2.07e-12,
-      3.2499999999999997e-18
+      4e-18
     ],
     [
       2.48e-12,
-      4.499999999999999e-18
+      5e-18
     ],
     [
-      2.9e-12,
-      6.499999999999999e-18
-    ],
-    [
-      3.3e-12,
-      8.999999999999998e-18
-    ],
-    [
-      3.7e-12,
-      1.2499999999999998e-17
+      3.31e-12,
+      7e-18
     ],
     [
       4.14e-12,
-      1.4999999999999997e-17
+      1e-17
     ]
   ],
   "data_source": "figure_vision",
   "dm_density_assumed": 0.3,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.7,
+  "extraction_confidence": 0.6,
   "suggested_experiment_name": "KAGRA O3GK",
-  "notes": "Paper presents a U(1)_{B-L} gauge boson dark matter search using KAGRA O3GK auxiliary length channel data, clearly a VectorBL coupling (g_BL) constraint vs DM mass (~1e-14 to 1e-11 eV range). However, the provided paper content is truncated before the results section, tables, and figures, so no actual numerical (mass, coupling) data points could be extracted. The confidence level is typically 95% for such GW DM searches but not explicitly confirmed in the available text. | Vision: FIG. 5 shows 95% upper limit on B-L gauge coupling. Two channels (MICH blue, PRCL orange). Boundary traced as the lower envelope of the noisier limit curves. Frequency converted to mass via m=4.136e-15*f. The high-frequency rising tail (blue) follows ~f^2 scaling. Limit floor is around few\u00d71e-20 to 1e-19 near 100-300 Hz. | Calibration: Spot-check calibration: verify/stage2 ratio=5.0x",
-  "num_points": 34,
-  "elapsed_s": 28.21559715270996
+  "notes": "Paper presents a search for U(1)_{B-L} gauge boson dark matter using KAGRA O3GK auxiliary length channel data, yielding upper bounds on the B-L coupling strength g_BL vs mass (target mass range ~1e-14 to 1e-11 eV). Coupling type is clearly VectorBL. However, the provided paper content is truncated and does not include the numerical exclusion limit values or a results table/figure data, so no data points could be extracted. | selector: figure_vision (sole candidate) | Vision: Limit traced from FIG. 5, taking the lower envelope of the noisy PRCL/MICH curves. X-axis frequency converted to mass via m=4.136e-15*f. The plot is very noisy; values represent the floor of the exclusion curves. PRCL gives the stronger (lower) constraint at low frequencies. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=4.29) | read-vote N=3: ct=VectorBL (3/3); medoid 2 of 3 curves (med pairwise 0.625 dex)",
+  "num_points": 21,
+  "elapsed_s": 70.81252002716064
 }
