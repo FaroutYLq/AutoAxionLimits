@@ -76,11 +76,14 @@ R4_MIN_SPAN_DEX: float = 1.0
 # exactly the source that produced the 2102.08764 / 1905.13650 regressions. On the
 # current master there is no CV-trace producer; the tier is reserved for when CV
 # metrology returns (P1+), the same way P0's R2/R4 ship ahead of their wiring.
+#
+# The integers are spaced (not 0..3) to leave a slot BETWEEN cv_trace (0) and
+# figure_vision (2) for a *sparse* point-limit (see `_SPARSE_POINT_LIMIT_TIER`).
 SOURCE_TIER: dict[str, int] = {
-    "table": 3,
-    "text": 2,
-    "figure_vision": 1,
-    "vision": 1,
+    "table": 4,
+    "text": 3,
+    "figure_vision": 2,
+    "vision": 2,
     "cv_trace": 0,
 }
 
@@ -89,6 +92,38 @@ SOURCE_TIER: dict[str, int] = {
 # (a 2-point text limit is legitimately sparse; only a *traced curve* that
 # collapsed to a flat line or a single mass decade is degenerate).
 _POINT_LIMIT_SOURCES = frozenset({"text", "table"})
+
+# P-A1 (#587): a point-limit (text/table) carrying this many points or fewer is a
+# lone headline/benchmark value, NOT a digitized contour. The #1 theme in the
+# full-scale failure digest (family A, ~9 papers: 1207.3275, 1907.11485,
+# 2110.03679, 2211.12699, 2311.16364, …) was the selector preferring such a
+# single — and often physically *correct* — text point over the figure curve the
+# ground truth was built from, so it could never overlap a 15-129-point GT curve.
+# A sparse point-limit is therefore demoted to a tier BELOW figure_vision (2) but
+# still ABOVE an unverified cv_trace (0), which preserves the 2102.08764
+# protection (a raw pixel trace must not override a clean text point) while
+# letting a traceable figure curve win. The demotion changes the outcome ONLY
+# when a *valid, non-degenerate* figure curve is present: T0 (validity) and T1
+# (non-degeneracy) rank above T3, so a degenerate or out-of-range vision read
+# still loses to the point — the curve wins only when it is trustworthy
+# GT-class evidence. A genuine multi-point contour (> _SPARSE_POINT_LIMIT_MAX
+# points, e.g. a digitized table) keeps its full source tier.
+_SPARSE_POINT_LIMIT_MAX: int = 2
+_SPARSE_POINT_LIMIT_TIER: int = 1   # below figure_vision (2), above cv_trace (0)
+
+
+def _source_tier(source: str, n_points: int) -> int:
+    """Effective T3 source tier, demoting a *sparse* point-limit below figure_vision.
+
+    A text/table candidate with ``<= _SPARSE_POINT_LIMIT_MAX`` points is a lone
+    headline/benchmark value, not a digitized contour, so it drops to
+    ``_SPARSE_POINT_LIMIT_TIER`` (below figure_vision, above cv_trace). Every other
+    source keeps its :data:`SOURCE_TIER` rank. See P-A1 (#587).
+    """
+    base = SOURCE_TIER.get(source, SOURCE_TIER["figure_vision"])
+    if source in _POINT_LIMIT_SOURCES and n_points <= _SPARSE_POINT_LIMIT_MAX:
+        return _SPARSE_POINT_LIMIT_TIER
+    return base
 
 
 def _median(values) -> float:
@@ -276,7 +311,11 @@ def quality(c: Candidate) -> tuple:
                                exempt (a 2-point limit is legitimately sparse).
       T2  recoverable        — coupling lands in VALID_RANGES under some decade
                                factor (precomputed by the caller).
-      T3  source tier        — table > text > figure_vision > cv_trace.
+      T3  source tier        — table > text > figure_vision > cv_trace, EXCEPT a
+                               *sparse* (<= _SPARSE_POINT_LIMIT_MAX-pt) text/table
+                               point-limit is demoted below figure_vision (P-A1,
+                               #587), so a lone headline value can no longer
+                               outrank a traceable figure curve.
       T4  corroborated       — benchmark/spot-check ratio in [1/3, 3].
       T5  confidence         — the LLM self-confidence (rounded so float jitter
                                cannot reorder near-ties).
@@ -295,15 +334,16 @@ def quality(c: Candidate) -> tuple:
         1 if (not s.y_const and (s.span_dex is None or s.span_dex >= R4_MIN_SPAN_DEX))
         else 0
     )
+    n_pts = int(s.n_points or len(c.data_points) or 0)
 
     return (
         1 if s.in_valid_ranges else 0,             # T0
         non_degenerate,                            # T1
         1 if c.recoverable else 0,                 # T2
-        SOURCE_TIER.get(c.source, 1),              # T3
+        _source_tier(c.source, n_pts),             # T3
         1 if _corroborated(s) else 0,              # T4
         round(float(c.extraction_confidence or 0.0), 2),  # T5
-        int(s.n_points or len(c.data_points) or 0),       # T6
+        n_pts,                                     # T6
     )
 
 
