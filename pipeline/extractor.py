@@ -266,70 +266,96 @@ def extract_text_from_pdf(pdf_path: Path, max_chars: int = 60_000) -> str:
 
 
 def extract_figures_from_pdf(pdf_path: Path, max_figures: int = 10, dpi: int = 200) -> list[Path]:
-    """Extract figures from PDF — tries individual image extraction first, falls back to page rendering.
+    """Extract figures from a PDF for the vision stage.
 
-    Cropping individual figures gives cleaner input for vision models than full pages.
+    Combines two strategies (P-A2, #587 — fixing the figure-delivery bugs the
+    failure digest's family A/B traced to: a VECTOR exclusion plot the old
+    raster-only path missed, and a plot on a page beyond the first ``max_figures``):
+
+    * **Raster crops** — embedded bitmap images, cropped (good when the plot itself
+      is a bitmap). The old code returned these and SKIPPED page rendering whenever
+      any existed, so a vector plot accompanied by decorative rasters (schematics,
+      artist renditions, logos) was never delivered.
+    * **Limit-figure page renders** — full renders of the pages most likely to
+      CONTAIN an exclusion/limit figure, ranked by caption + limit/coupling
+      keywords (:mod:`pipeline.figure_select`). This catches vector plots and plots
+      late in long papers.
+
+    The page renders are placed FIRST (so the real plot lands inside the vision
+    stage's 8-image budget) and the raster crops are ADDED after — additive, so a
+    paper whose plot genuinely is a bitmap does not regress. A first-N-pages render
+    remains the last-resort fallback when nothing else is found.
     """
     try:
         import fitz
     except ImportError:
         logger.warning("pymupdf not installed; figure extraction unavailable")
         return []
+    from . import figure_select
+
     doc = fitz.open(str(pdf_path))
     out_dir = pdf_path.parent / "figures"
     out_dir.mkdir(exist_ok=True)
-    paths: list[Path] = []
+    mat = fitz.Matrix(dpi / 72, dpi / 72)
 
-    # Strategy 1: Extract embedded images with bounding boxes (cleaner, cropped figures)
+    # --- Raster crops: embedded bitmap images, largest first ------------------
+    raster_crops: list[Path] = []
     figure_regions = []
     for page_num, page in enumerate(doc):
-        images = page.get_images(full=True)
-        for img_idx, img in enumerate(images):
+        for img in page.get_images(full=True):
             try:
                 bbox = page.get_image_bbox(img)
                 if bbox.is_empty or bbox.is_infinite:
                     continue
                 # Filter by size: figures are typically >200x200 pixels at 72dpi
-                width = bbox.width
-                height = bbox.height
-                if width > 150 and height > 150:
-                    figure_regions.append((page_num, bbox, width * height))
+                if bbox.width > 150 and bbox.height > 150:
+                    figure_regions.append((page_num, bbox, bbox.width * bbox.height))
             except Exception:
                 continue
+    figure_regions.sort(key=lambda x: x[2], reverse=True)  # largest first
+    for i, (page_num, bbox, _) in enumerate(figure_regions[:max_figures]):
+        page = doc[page_num]
+        margin = 20  # points — capture axis labels around the figure
+        clip = fitz.Rect(
+            max(0, bbox.x0 - margin), max(0, bbox.y0 - margin),
+            min(page.rect.width, bbox.x1 + margin),
+            min(page.rect.height, bbox.y1 + margin),
+        )
+        img_path = out_dir / f"fig_{page_num:02d}_{i:03d}.png"
+        page.get_pixmap(matrix=mat, clip=clip).save(str(img_path))
+        raster_crops.append(img_path)
 
-    if figure_regions:
-        # Sort by area (largest first — exclusion plots are usually the biggest figures)
-        figure_regions.sort(key=lambda x: x[2], reverse=True)
-        mat = fitz.Matrix(dpi / 72, dpi / 72)
-        for i, (page_num, bbox, _) in enumerate(figure_regions[:max_figures]):
-            page = doc[page_num]
-            # Add small margin around the figure to capture axis labels
-            margin = 20  # points
-            clip = fitz.Rect(
-                max(0, bbox.x0 - margin),
-                max(0, bbox.y0 - margin),
-                min(page.rect.width, bbox.x1 + margin),
-                min(page.rect.height, bbox.y1 + margin),
-            )
-            pix = page.get_pixmap(matrix=mat, clip=clip)
-            img_path = out_dir / f"fig_{page_num:02d}_{i:03d}.png"
-            pix.save(str(img_path))
+    # --- Limit-figure page renders: the pages that likely CONTAIN the plot ----
+    page_texts = [doc[p].get_text() for p in range(len(doc))]
+    limit_pages = figure_select.rank_limit_pages(page_texts, max_pages=6)
+    page_renders: list[Path] = []
+    for p in limit_pages:
+        img_path = out_dir / f"page_{p:03d}.png"
+        doc[p].get_pixmap(matrix=mat).save(str(img_path))
+        page_renders.append(img_path)
+
+    # Page renders first (inside the 8-image budget), then raster crops; dedup, cap.
+    seen: set[Path] = set()
+    paths: list[Path] = []
+    for p in page_renders + raster_crops:
+        if p not in seen:
+            seen.add(p)
+            paths.append(p)
+    paths = paths[:max_figures]
+
+    # --- Last-resort fallback: render the first N pages -----------------------
+    if not paths:
+        for i in range(min(len(doc), max_figures)):
+            img_path = out_dir / f"page_{i:03d}.png"
+            doc[i].get_pixmap(matrix=mat).save(str(img_path))
             paths.append(img_path)
-        if paths:
-            logger.info("Extracted %d individual figures from %s", len(paths), pdf_path.name)
-            doc.close()
-            return paths
 
-    # Strategy 2: Fallback to full-page rendering (for vector graphics PDFs)
-    mat = fitz.Matrix(dpi / 72, dpi / 72)
-    for i, page in enumerate(doc):
-        if i >= max_figures:
-            break
-        pix = page.get_pixmap(matrix=mat)
-        img_path = out_dir / f"page_{i:03d}.png"
-        pix.save(str(img_path))
-        paths.append(img_path)
     doc.close()
+    if paths:
+        logger.info(
+            "Extracted %d figures from %s (%d limit-page renders, %d raster crops)",
+            len(paths), pdf_path.name, len(page_renders), len(raster_crops),
+        )
     return paths
 
 
