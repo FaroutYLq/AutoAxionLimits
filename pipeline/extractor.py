@@ -741,8 +741,19 @@ _BENCHMARK_LINES: dict[str, tuple[str, callable]] = {
 import math as _math
 
 # Mass unit-conversion candidates. (factor, human-readable label).
-# Includes pure powers of ten (wrong-prefix errors) and the physical unit
-# constants for frequency<->energy conversions.
+# Pure powers of ten only — wrong unit-PREFIX errors (μeV/meV/keV/MeV/GeV).
+#
+# Frequency<->energy factors (Hz/GHz/MHz->eV, ~4.136e-15) were DELIBERATELY
+# REMOVED (#587 P-B): the stage1/stage2 prompts already instruct the LLM to
+# convert any frequency axis to eV, so a post-hoc frequency factor in this BLIND
+# auto-corrector is redundant at best. At worst it is catastrophic — for a
+# collider ALP paper whose mass is correctly read in GeV (e.g. 2008.05355 6-100
+# GeV = 6e9-1e11 eV), the ~4.136e-15 factor landed closer to the window's
+# geometric anchor than any power-of-ten and so won the snap, collapsing a CORRECT
+# mass by ~14 dex (1810.04602: 5e9*4.136e-15 = 2.07e-5; 9e10*4.136e-15 = 3.72e-4,
+# an exact match to the corrupted output). The auto-corrector now only ever
+# applies a power-of-ten unit-prefix fix; it can never reinterpret a number as a
+# frequency.
 _MASS_FACTOR_CANDIDATES: list[tuple[float, str]] = [
     (1.0, "none"),
     (1e-9, "GeV→eV (÷1e9)"),
@@ -751,10 +762,6 @@ _MASS_FACTOR_CANDIDATES: list[tuple[float, str]] = [
     (1e3, "keV→eV"),
     (1e6, "MeV→eV"),
     (1e9, "GeV→eV"),
-    (4.136e-15, "Hz→eV"),       # 1 Hz   = 4.136e-15 eV
-    (4.136e-6, "GHz→eV"),       # 1 GHz  = 4.136e-6  eV
-    (4.136e-9, "MHz→eV"),       # 1 MHz  = 4.136e-9  eV
-    (2.418e8, "1/(eV→MHz) i.e. MHz→eV inverse"),  # 1/2.418e8 ≈ 4.136e-9
 ]
 
 # Coupling correction candidates: identity plus integer powers of ten in

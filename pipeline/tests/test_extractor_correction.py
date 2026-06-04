@@ -196,6 +196,48 @@ def test_in_range_data_untouched():
 
 
 # ---------------------------------------------------------------------------
+# P-B.1 (#587): collider ALP masses are valid; the blind auto-corrector must not
+# collapse them (window widened to 1e12 + frequency factors removed).
+# ---------------------------------------------------------------------------
+
+@pytest.mark.parametrize("masses", [
+    [6e9, 5e10, 1e11],       # 2008.05355 ATLAS PbPb ALP 6-100 GeV
+    [5e9, 3e10, 9e10],       # 1810.04602 CMS UPC ALP 5-90 GeV
+    [5e9, 5e10, 1e11],       # 1607.06083 LHC ALP 5-100 GeV
+])
+def test_collider_axionphoton_mass_left_untouched(masses):
+    """Correct collider-scale (GeV) AxionPhoton masses must NOT be rescaled now
+    that the window reaches 1e12 eV. Before P-B.1 these triggered the auto-corrector
+    and were collapsed ~14 dex by a spurious Hz->eV factor."""
+    base = _make_points(masses)
+    pts, note = _validate_extracted_range(list(base), "AxionPhoton")
+    assert "Auto-corrected masses" not in note, f"collider mass spuriously rescaled: {note!r}"
+    assert _median_mass(pts) == _median_mass(base)
+
+
+def test_no_frequency_factor_in_mass_candidates():
+    """The Hz/GHz/MHz->eV factors must stay out of the blind mass auto-corrector;
+    only power-of-ten unit-prefix factors are allowed (#587 P-B)."""
+    for factor, _label in _MASS_FACTOR_CANDIDATES:
+        log = math.log10(factor)
+        assert abs(log - round(log)) < 1e-9, (
+            f"non-power-of-ten mass factor {factor} would let the auto-corrector "
+            f"reinterpret a mass as a frequency"
+        )
+
+
+def test_out_of_range_mass_only_corrected_by_power_of_ten():
+    """A genuinely out-of-range mass is recovered only by a power of ten — never
+    collapsed by a ~4.136e-15 frequency factor."""
+    base = _make_points([1e14, 1e15, 1e16])  # absurd for AxionPhoton (hi=1e12)
+    pts, note = _validate_extracted_range(list(base), "AxionPhoton")
+    assert "Auto-corrected masses" in note
+    ratio = _median_mass(pts) / _median_mass(base)
+    log = math.log10(ratio)
+    assert abs(log - round(log)) < 1e-9, f"mass corrected by non-power-of-ten {ratio}"
+
+
+# ---------------------------------------------------------------------------
 # Idempotence: applying the full correction twice == once
 # ---------------------------------------------------------------------------
 

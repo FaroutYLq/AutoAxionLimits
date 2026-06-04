@@ -319,7 +319,14 @@ PHYSICAL_CORRECTIONS = {
 # Ranges are intentionally generous to avoid false rejections.
 VALID_RANGES = {
     "DarkPhoton":    {"mass": (1e-24, 1e+9), "coupling": (1e-22, 1e0)},
-    "AxionPhoton":   {"mass": (1e-24, 1e+9), "coupling": (1e-25, 1e-3)},
+    # AxionPhoton spans ultralight haloscopes to COLLIDER ALP searches (LHC/CMS/
+    # ATLAS reach ~TeV), so the mass window extends to 1e12 eV. The old 1e9 (1 GeV)
+    # ceiling flagged correct collider masses (e.g. 2008.05355 6-100 GeV,
+    # 1810.04602 5-90 GeV, 1607.06083 5-100 GeV) as out-of-range, which the blind
+    # mass auto-corrector then collapsed by ~14 dex via a spurious Hz->eV factor
+    # (#587 P-B). Other coupling types keep the tighter 1e9 ceiling until a
+    # legitimate collider paper for them appears.
+    "AxionPhoton":   {"mass": (1e-24, 1e+12), "coupling": (1e-25, 1e-3)},
     "AxionElectron": {"mass": (1e-24, 1e+9), "coupling": (1e-20, 1e0)},
     "AxionNeutron":  {"mass": (1e-24, 1e+9), "coupling": (1e-20, 1e0)},
     "AxionProton":   {"mass": (1e-24, 1e+9), "coupling": (1e-20, 1e0)},
