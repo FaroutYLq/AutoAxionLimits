@@ -6,132 +6,96 @@
   "is_projection": true,
   "data_points": [
     [
-      0.0066,
+      0.00658,
       5e-29
     ],
     [
       0.005,
-      1.5e-29
+      4.0000000000000003e-29
     ],
     [
       0.0039,
-      1e-29
+      2.9999999999999997e-29
     ],
     [
       0.003,
-      8e-30
+      2.0000000000000002e-29
     ],
     [
-      0.0025,
-      7e-30
+      0.0023,
+      1.2999999999999998e-29
     ],
     [
       0.00197,
-      6e-30
+      1.0000000000000001e-29
     ],
     [
       0.0015,
-      5.5e-30
+      6.999999999999999e-30
     ],
     [
-      0.0012,
-      5e-30
+      0.0011,
+      4.5000000000000004e-30
     ],
     [
-      0.0009,
-      4.5e-30
+      0.0008,
+      3e-30
     ],
     [
-      0.00066,
-      4e-30
+      0.00056,
+      2e-30
     ],
     [
-      0.00045,
-      5e-30
+      0.00039,
+      1.5e-30
     ],
     [
-      0.00033,
-      6e-30
-    ],
-    [
-      0.00025,
-      8e-30
+      0.00028,
+      1.3e-30
     ],
     [
       0.000197,
-      1e-29
+      1.2000000000000001e-30
     ],
     [
-      0.00015,
-      1.3e-29
+      0.00014,
+      1.5e-30
     ],
     [
-      0.00011,
-      2e-29
+      9.9e-05,
+      2e-30
     ],
     [
-      9e-05,
-      3e-29
+      7e-05,
+      2.5000000000000002e-30
     ],
     [
-      6.6e-05,
-      5e-29
+      4.9e-05,
+      3e-30
     ],
     [
-      4.5e-05,
-      8e-29
+      3.5e-05,
+      3.4999999999999996e-30
     ],
     [
-      3.3e-05,
-      1.2e-28
+      2.8e-05,
+      4e-30
     ],
     [
-      2.5e-05,
-      1.8e-28
+      2.2e-05,
+      4.5000000000000004e-30
     ],
     [
       1.97e-05,
-      2.5e-28
-    ],
-    [
-      1.5e-05,
-      4e-28
-    ],
-    [
-      1.1e-05,
-      6e-28
-    ],
-    [
-      9e-06,
-      9e-28
-    ],
-    [
-      6.6e-06,
-      1.3e-27
-    ],
-    [
-      4.5e-06,
-      2e-27
-    ],
-    [
-      3.3e-06,
-      3e-27
-    ],
-    [
-      2.5e-06,
-      4e-27
-    ],
-    [
-      1.97e-06,
-      5e-27
+      5.0000000000000004e-30
     ]
   ],
   "data_source": "figure_vision",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.55,
-  "suggested_experiment_name": "NMR axion-mediated force search (Arvanitaki-Geraci proposal)",
-  "notes": "Projection paper proposing an NMR-based resonant detection of axion-mediated spin-dependent forces. Fig. 2 shows monopole-dipole reach (|gs^N gp^N| vs force range/fa), which corresponds to MonopoleDipole coupling. Fig. 3 shows dipole-dipole reach (g_pN^2 and g_pN g_pe), corresponding to AxionNeutron/AxionElectron. The primary x-axis is force range (cm) / fa (GeV) and mass range is 1e-6 to 1e-3 eV. No numerical table of (mass, coupling) limit points is provided; only plot curves. Could not extract reliable numerical data points from the figures. | Vision: Figure 2 monopole-dipole plot. X-axis is force range in cm (0.003-10 cm), converted to axion mass via m_a=hbar*c/lambda with hbar*c=1.973e-5 eV*cm. The reported boundary traces the LOWER edge of the existing combined 'Astrophysical and Experimental Bounds' shaded region (the actual exclusion). Y-axis is |g_s^N g_p^N|. The red/blue lines are projected sensitivities (not exclusions). Note larger force range = smaller mass, so points span from ~6e-3 eV (small range) down to ~2e-6 eV (10 cm range). Readings approximate due to log-scale plot extraction. | Calibration: No calibration needed",
-  "num_points": 30,
-  "elapsed_s": 40.73166108131409
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "Astrophysical and Experimental Bounds on g_s g_p (Raffelt 2012 compilation, Fig.2)",
+  "notes": "Projection (proposal) paper for resonant NMR detection of axion-mediated spin-dependent forces. Fig. 2 shows monopole-dipole reach |g_s^N g_p^N| vs force range (0.01-10 cm, i.e. ~2e-5 to ~1.2e-2 eV in mass), reaching down to ~1e-36 to 1e-39. Fig. 3 shows dipole-dipole reach. The y-axes are coupling products, not plotted numerically in text; no readable table of (mass, coupling) pairs is provided. Data points cannot be reliably extracted from the figures. Coupling type clearly MonopoleDipole for the primary monopole-dipole result (g_s*g_p). | selector: figure_vision (sole candidate) | Vision: Figure 2 plots |g_s^N g_p^N| vs force range (cm). X-axis converted to axion mass via m_a[eV]=1.973e-5/lambda[cm]. The lower boundary traced is the lowest edge of the 'Astrophysical and Experimental Bounds' shaded region (existing exclusion). The red and blue lines are projected sensitivities, not exclusions. Mass increases as force range decreases, so the data points span ~6.6e-3 eV (at 0.003 cm) down to ~2e-6 eV (at 10 cm); only the well-constrained region near small force range is traced reliably. Coupling values approximate due to log-scale reading. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=6.67) | read-vote N=3: ct=MonopoleDipole (3/3); medoid 1 of 3 curves (med pairwise 0.250 dex)",
+  "num_points": 21,
+  "elapsed_s": 126.17542004585266
 }

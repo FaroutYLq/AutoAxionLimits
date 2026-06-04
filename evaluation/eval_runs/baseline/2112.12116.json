@@ -8,9 +8,9 @@
   "data_source": "none",
   "dm_density_assumed": 0.3,
   "confidence_level": 0.9,
-  "extraction_confidence": 0.25,
-  "suggested_experiment_name": "XENON1T_S2only_SE",
-  "notes": "Paper sets 90% CL upper limits on dark photon dark matter (kinetic mixing) and solar dark photons via single/few-electron S2-only analysis in XENON1T. Abstract confirms exclusion of new parameter space for dark photons. However, the provided paper content is truncated before Section VI (the results/limits section) and contains no numerical exclusion values or tables for the dark photon coupling vs mass. The paper also constrains DM-electron scattering, electric/magnetic dipole, and anapole interactions, but the bosonic dark matter (dark photon) result corresponds to the DarkPhoton coupling type. No extractable data points are available in the given content.",
+  "extraction_confidence": 0.2,
+  "suggested_experiment_name": "XENON1T_SE",
+  "notes": "Paper sets 90% CL upper limits on dark photon (and solar dark photon) absorption as bosonic DM via S2-only single/few-electron analysis in XENON1T. Coupling type is DarkPhoton (kinetic mixing chi). However, the provided content cuts off before the limit-setting results section (Section VI), so no numerical (mass, chi) data points are available in the extractable text. The paper also discusses DM-electron scattering, electric/magnetic dipole, and anapole interactions, but the new excluded parameter space is for dark photons. DM density assumption (0.3 GeV/cm^3 standard for direct detection) is typical but not explicitly confirmed in the provided text. | read-vote N=3: ct=DarkPhoton (3/3); no consensus curve, took most-points",
   "num_points": 0,
-  "elapsed_s": 30.778160095214844
+  "elapsed_s": 99.27041792869568
 }

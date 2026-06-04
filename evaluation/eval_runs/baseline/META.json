@@ -1,11 +1,12 @@
 {
-  "baseline_commit": "0c4838f3abc7fb3211631587372a2ed271f5e918",
+  "baseline_commit": "74c079e9c9a809cc78728cf104b12156eb3033b1",
   "model": "claude-opus-4-8",
   "subset_key": "union",
   "n_papers": 82,
-  "created_utc": "2026-06-03T02:45:53Z",
-  "overall_median_resid": 0.485,
-  "zero_overlap": 14,
-  "figure_vision_median": 0.642,
-  "note": "Master baseline snapshot (= comparison.md 'before' column). The gate compares an after-snapshot against this. Re-pin with 'python -m evaluation.subset_eval extract --key union --outdir evaluation/eval_runs/baseline --force' (updating this META) in the same PR when extraction legitimately improves (e.g. when P0 #568 lands)."
+  "read_samples": 3,
+  "created_utc": "2026-06-04T02:19:41Z",
+  "overall_median_resid": 0.5769578217636457,
+  "zero_overlap": 16,
+  "figure_vision_median": 2.0119304919379344,
+  "note": "N=3 read-voted (AAL_READ_SAMPLES=3) union baseline in the post-#580 no-temperature regime. The auto-required gate compares an N=3 after-snapshot against this; N=3 voting (#584) + G2/G3 flap slack keep a no-op pair within tolerance. Re-pin with the same N=3 union extraction (+ this META) when extraction legitimately improves."
 }

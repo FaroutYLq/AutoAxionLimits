@@ -6,20 +6,16 @@
   "is_projection": false,
   "data_points": [
     [
-      100000.0,
-      1e-05
+      4000000.0,
+      1.5e-07
     ],
     [
-      300000.0,
-      7e-06
+      5000000.0,
+      8e-08
     ],
     [
-      1000000.0,
-      5e-06
-    ],
-    [
-      3000000.0,
-      4e-06
+      8000000.0,
+      4e-08
     ],
     [
       10000000.0,
@@ -30,8 +26,12 @@
       3e-08
     ],
     [
+      20000000.0,
+      4e-08
+    ],
+    [
       30000000.0,
-      5e-08
+      6e-08
     ],
     [
       50000000.0,
@@ -43,7 +43,7 @@
   "confidence_level": 0.95,
   "extraction_confidence": 0.55,
   "suggested_experiment_name": "MiniBooNE_Dump_ALP",
-  "notes": "Paper sets new constraints on both ALP-photon (g_agamma) and ALP-electron (g_ae) couplings from MiniBooNE dump mode at 2 sigma C.L. Pre-analysis hint and the more novel/competitive result lean toward AxionElectron (Fig. 8, g_ae vs m_a). The paper equally presents an AxionPhoton (g_agamma) limit in Fig. 7. Data points are approximate reads from the exclusion contour in Fig. 8 (only an exclusion plot is given, no table). Mass range ~10 keV to ~50 MeV. The undulating resonant feature near 10 MeV makes precise reading difficult. ArgoNeuT curves are projections; the reported limit is the MiniBooNE observed exclusion. Confidence reduced because two coupling types are presented and data is read from plot.",
+  "notes": "Paper presents new constraints on ALP-electron (gae) and ALP-photon (gagamma) couplings from MiniBooNE dump-mode data, plus ArgoNeuT projections. The pre-analysis hint of AxionElectron is one of two main results (Fig. 8 for gae, Fig. 7 for gaphoton). Limits given at 2 sigma (~95% CL). Data points are approximate readings from the gae exclusion contour (Fig. 8) since no numerical table is provided; values estimated from text descriptions (resonant peak near ma~10-16 MeV reaching gae~3e-8, undulating features 10-30 MeV). The MiniBooNE limit ranges roughly ma=10^4 to 10^8 eV. Note paper also covers AxionPhoton; confidence lowered due to dual coupling and plot-only data. | selector: text (sole candidate) | read-vote N=3: ct=AxionElectron (3/3); medoid 0 of 3 curves (med pairwise 0.178 dex)",
   "num_points": 8,
-  "elapsed_s": 11.525442123413086
+  "elapsed_s": 53.96191382408142
 }

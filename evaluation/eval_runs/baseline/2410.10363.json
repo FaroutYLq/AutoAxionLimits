@@ -7,99 +7,107 @@
   "data_points": [
     [
       60000000.0,
-      7.5e-05
+      7.499999999999999e-06
     ],
     [
       65000000.0,
-      6.5e-05
+      6.8e-06
     ],
     [
       70000000.0,
-      5.8e-05
+      6.200000000000001e-06
     ],
     [
       75000000.0,
-      5.3e-05
+      5.600000000000001e-06
     ],
     [
       80000000.0,
-      4.9e-05
+      5.2e-06
     ],
     [
       90000000.0,
-      4.3e-05
+      4.6e-06
     ],
     [
       100000000.0,
-      3.9e-05
+      4.1000000000000006e-06
     ],
     [
       110000000.0,
-      3.5e-05
+      3.7e-06
     ],
     [
       120000000.0,
-      3.2e-05
+      3.4e-06
     ],
     [
       130000000.0,
-      3e-05
+      3.1000000000000004e-06
     ],
     [
       140000000.0,
-      2.8e-05
+      2.9e-06
     ],
     [
       150000000.0,
-      2.6e-05
+      2.7e-06
+    ],
+    [
+      160000000.0,
+      2.5e-06
     ],
     [
       170000000.0,
-      2.4e-05
+      2.4000000000000003e-06
+    ],
+    [
+      180000000.0,
+      2.3e-06
     ],
     [
       190000000.0,
-      2.2e-05
+      2.2e-06
     ],
     [
       200000000.0,
-      2.1e-05
+      2.1e-06
     ],
     [
       220000000.0,
-      2e-05
+      2.0000000000000003e-06
     ],
     [
       240000000.0,
-      1.9e-05
+      1.9000000000000002e-06
     ],
     [
       260000000.0,
-      1.85e-05
+      1.85e-06
     ],
     [
       280000000.0,
-      1.8e-05
+      1.8000000000000001e-06
     ],
     [
       300000000.0,
-      1.78e-05
+      1.78e-06
     ],
     [
       320000000.0,
-      1.8e-05
+      1.8000000000000001e-06
     ],
     [
       340000000.0,
-      1.9e-05
+      1.85e-06
     ],
     [
       350000000.0,
-      2e-05
+      1.95e-06
     ],
     [
-      360000000.0,
-      2.2e-05
+      355000000.0,
+      2.1e-06
     ]
   ],
   "data_source": "figure_vision",
@@ -107,7 +115,7 @@
   "confidence_level": 0.95,
   "extraction_confidence": 0.8,
   "suggested_experiment_name": "FASER ALP-W (2022-2023)",
-  "notes": "FASER search for light long-lived particles decaying to two photons. Primary target is ALP coupled to W bosons (g_aWW), with reinterpretations including ALP-photon (g_agamma), ALP-gluon, U(1)_B gauge boson, up-philic scalar, and 2HDM. Multiple coupling types are constrained; the hint suggests AxionPhoton but the primary result is g_aWW (no enum value exists for W-boson coupling). No numerical exclusion limit data points (mass vs coupling pairs) are provided in the extractable text \u2014 limits are presented only in figures not reproduced as tables. Cannot reliably extract numerical limit values. | Vision: ALP-W coupling g_aWW (labeled ALP Coupling g_a [1/GeV]) interpreted as AxionPhoton type. The exclusion region is a closed loop; the lower boundary of the lower branch of the observed limit (90% CL, blue) is traced. Excluded region is between upper and lower branches. Points sampled densely near the rightmost turnaround (~300-360 MeV) where slope changes. | Calibration: No calibration needed",
-  "num_points": 24,
-  "elapsed_s": 35.558030128479004
+  "notes": "The paper's primary target is the ALP-W model (g_aWW coupling to weak gauge bosons), but it also reinterprets results for an ALP-photon model (g_agamma). The provided content does not include the actual numerical exclusion limit curves (no result tables or extractable data points in the text given). The paper constrains multiple coupling types (g_aWW, g_agamma, g_agg, U(1)_B, up-philic scalar, 2HDM). Without the figures/tables containing the limit values, no numerical data points can be extracted. Confidence in coupling type is low because the primary result is g_aWW (not in the enum), and AxionPhoton is only a secondary reinterpretation. | selector: figure_vision (sole candidate) | Vision: ALP-W coupling g_aWW. Lower boundary of the observed exclusion limit traced from image 4. The exclusion region is a closed loop; reported here is the lower edge of the loop. X-axis log scale 60-500 MeV, Y-axis log scale 1e-5 to 1e-3 in 1/GeV. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.29) | read-vote N=3: ct=AxionPhoton (3/3); medoid 1 of 3 curves (med pairwise 1.002 dex)",
+  "num_points": 26,
+  "elapsed_s": 81.91313004493713
 }

@@ -6,80 +6,24 @@
   "is_projection": false,
   "data_points": [
     [
-      3.57e-12,
-      2e-05
+      3.5e-12,
+      1e-05
     ],
     [
       3.6e-12,
       1e-05
     ],
     [
-      3.63e-12,
-      6e-06
-    ],
-    [
-      3.66e-12,
-      5e-06
-    ],
-    [
-      3.69e-12,
-      5.5e-06
-    ],
-    [
-      3.72e-12,
-      7e-06
-    ],
-    [
-      3.75e-12,
-      9e-06
-    ],
-    [
-      3.78e-12,
-      1.1e-05
-    ],
-    [
-      3.8e-12,
-      1.3e-05
-    ],
-    [
-      3.82e-12,
-      1.2e-05
-    ],
-    [
-      3.85e-12,
-      9e-06
-    ],
-    [
-      3.87e-12,
-      7e-06
-    ],
-    [
       3.9e-12,
-      5.5e-06
-    ],
-    [
-      3.93e-12,
-      5e-06
-    ],
-    [
-      3.96e-12,
-      7e-06
-    ],
-    [
-      3.99e-12,
-      1.2e-05
-    ],
-    [
-      4.01e-12,
-      2e-05
+      1e-05
     ]
   ],
-  "data_source": "figure_vision",
-  "dm_density_assumed": 0.4,
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.55,
+  "extraction_confidence": 0.5,
   "suggested_experiment_name": "AURIGA",
-  "notes": "AURIGA resonant-mass detector search for scalar moduli DM. The paper constrains both d_e (electromagnetic gauge modulus, ScalarPhoton) and d_me (electron mass modulus, ScalarElectron) with the same limit curve (di = dme = de). Limit d_i <~ 1e-5 in the sensitive band f=850-950 Hz, corresponding to m_phi ~ 3.6e-12 eV (900 Hz). Only one numerical point extractable from text/abstract; the full curve is in Fig. 5 which is not numerically tabulated. Coupling type ambiguous between ScalarPhoton (d_e) and ScalarElectron (d_me) since the limit applies equally to both. | Vision: Auriga limit curve labeled d_i; the hint suggests d_e (ScalarPhoton) but the plot shows multiple couplings (d_me and d_e). The Auriga curve is plotted for the electron-mass coupling d_me context. The curve spans ~850-960 Hz corresponding to ~3.55e-12 to 4.0e-12 eV. Y-axis is dimensionless coupling d_i. Coupling type ambiguous between ScalarElectron (d_me) and ScalarPhoton (d_e). | Calibration: No calibration needed",
-  "num_points": 17,
-  "elapsed_s": 25.387447118759155
+  "notes": "AURIGA resonant-mass detector searches for moduli scalar DM. The paper constrains both de (coupling to photons / fine-structure constant alpha = ScalarPhoton) and dme (coupling to electron mass = ScalarElectron) on the same plot with identical limits. Limit reported is d_i <~ 1e-5 over mass range ~[850,950] Hz (mf = 3.6e-12 eV at 867 Hz). Numerical data only available from text/abstract; exclusion curve in Fig.5 not numerically tabulated. Frequency band 850-950 Hz corresponds to masses ~3.5e-12 to 3.9e-12 eV. Because the paper equally constrains ScalarPhoton (de) and ScalarElectron (dme), coupling-type assignment is ambiguous, hence confidence capped at 0.5. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.5, 3)) | read-vote N=3: ct=ScalarPhoton (3/3); medoid 1 of 2 curves (med pairwise 0.000 dex)",
+  "num_points": 3,
+  "elapsed_s": 65.26158428192139
 }

@@ -6,20 +6,20 @@
   "is_projection": false,
   "data_points": [
     [
-      0.001,
+      1.0,
       1.6e-13
     ],
     [
-      0.001,
+      1.0,
       1.3e-13
     ]
   ],
-  "data_source": "text",
+  "data_source": "table",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.7,
+  "extraction_confidence": 0.85,
   "suggested_experiment_name": "TRGB_CapozziRaffelt2020",
-  "notes": "Stellar (red-giant branch tip) bound on axion-electron coupling g_ae. NGC 4258 gives g_ae < 1.6e-13 (95% CL), omega Centauri gives g_ae < 1.3e-13 (95% CL). These are mass-independent bounds applicable for axions/ALPs with m_a < ~keV; mass placed nominally at 1 meV but actually applies broadly to light axions. Also constrains neutrino magnetic dipole moment mu_nu (not in enum). g13 = gae/1e-13 parameterization used in paper.",
+  "notes": "Stellar (red-giant tip) bound on axion-electron coupling g_ae. Best limits: NGC 4258 g_ae<1.6e-13 and omega Centauri g_ae<1.3e-13 (95% CL). These are mass-independent bounds for light axions (m_a << keV); mass set nominally to 1 eV as placeholder. Table I also gives 68% CL bounds (g13=0.79, 0.81, 0.62, 0.64). Paper also constrains neutrino magnetic dipole moment, but axion-electron is the stated coupling-type result. | selector: table (sole candidate) | read-vote N=3: ct=AxionElectron (3/3); medoid 0 of 3 curves (med pairwise inf dex)",
   "num_points": 2,
-  "elapsed_s": 27.818127155303955
+  "elapsed_s": 72.39960813522339
 }

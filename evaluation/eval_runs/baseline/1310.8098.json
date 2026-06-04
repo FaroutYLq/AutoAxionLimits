@@ -13,9 +13,9 @@
   "data_source": "text",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.7,
-  "suggested_experiment_name": "CROWS",
-  "notes": "Microwave LSW experiment (CROWS) at CERN. Probes both hidden sector photons (HSP/dark photon, kinetic mixing chi) and ALPs (g_agamma). The dark photon result is the novel one probing previously unexplored parameter space: chi=4.1e-9 at m_gamma'=10.8 ueV (Fig.14). It also sets an ALP limit g=4.5e-8 GeV^-1 at m_a=7.2 ueV (Fig.13). Since this is an LSW experiment (not a DM haloscope), no local DM density is assumed. Only the single best-sensitivity point is given numerically in text; full exclusion curves are in figures. Chose DarkPhoton as it's the headline novel result, but the paper also constrains AxionPhoton.",
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "CROWS2013",
+  "notes": "Microwave LSW experiment (CROWS) at CERN. Reports both ALP (g=4.5e-8 GeV^-1 at m_a=7.2 ueV) and hidden sector photon (chi=4.1e-9 at m_gamma'=10.8 ueV) limits at 95% CL. The HSP/dark photon result probes previously unexplored parameter space; this is reported as kinetic mixing chi (DarkPhoton). The ALP result (AxionPhoton g) is also given. Only the single most sensitive point per channel is quoted in text; full exclusion curves are in Figs 13/14 but not tabulated. LSW experiment, not a DM haloscope, so no DM density assumed. If AxionPhoton were preferred, the point would be [7.2e-6, 4.5e-8] GeV^-1. | selector: text (sole candidate) | read-vote N=3: ct=DarkPhoton (3/3); no consensus curve, took most-points",
   "num_points": 1,
-  "elapsed_s": 17.178739309310913
+  "elapsed_s": 52.191988945007324
 }

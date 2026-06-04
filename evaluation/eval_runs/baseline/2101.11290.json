@@ -21,9 +21,9 @@
   "data_source": "text",
   "dm_density_assumed": 0.4,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.85,
+  "extraction_confidence": 0.8,
   "suggested_experiment_name": "BASE_PenningTrap",
-  "notes": "BASE cryogenic Penning trap haloscope using antiproton detection circuit. Constrains g_agamma < 1e-11 GeV^-1 for ALP masses 2.7906-2.7914 neV. Local DM density rho_a = 0.4 GeV/cm^3 assumed. 95% power-constrained limit. Only the quoted upper limit value is available in text; data points approximate the narrow band exclusion.",
+  "notes": "BASE cryogenic Penning trap haloscope using antiproton superconducting detection circuit. Constrains ALP-photon coupling g_agamma < 1e-11 GeV^-1 for ALP masses 2.7906-2.7914 neV. Local DM density 0.4 GeV/cm^3 assumed. Exact limit shape across narrow mass band given in Fig.3 plot; text reports upper value ~1e-11 GeV^-1. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.8, 3)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
   "num_points": 3,
-  "elapsed_s": 7.512631177902222
+  "elapsed_s": 62.06082201004028
 }

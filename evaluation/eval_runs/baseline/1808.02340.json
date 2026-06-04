@@ -6,32 +6,44 @@
   "is_projection": false,
   "data_points": [
     [
-      800.0,
-      1e-12
+      0.01,
+      1.1e-11
+    ],
+    [
+      0.1,
+      1.1e-11
+    ],
+    [
+      1.0,
+      1.1e-11
+    ],
+    [
+      10.0,
+      1.1e-11
+    ],
+    [
+      50.0,
+      1.1e-11
+    ],
+    [
+      100.0,
+      1.1e-11
+    ],
+    [
+      300.0,
+      1.1e-11
     ],
     [
       1000.0,
-      4e-13
-    ],
-    [
-      10000.0,
-      2e-13
-    ],
-    [
-      100000.0,
-      5e-13
-    ],
-    [
-      500000.0,
-      2e-12
+      1.1e-11
     ]
   ],
-  "data_source": "text",
+  "data_source": "figure_vision",
   "dm_density_assumed": 0.3,
   "confidence_level": 0.9,
-  "extraction_confidence": 0.45,
-  "suggested_experiment_name": "EDELWEISS-III",
-  "notes": "Paper sets multiple limits: solar axion g_ae<1.1e-11 (massless limit), g_ae x g_aN^eff<3.5e-17, electron lifetime, and bosonic DM absorption (ALP g_ae and hidden photon kinetic mixing) over 0.8-500 keV. Primary mass-dependent exclusion plot (Fig. 5 left) is ALP DM coupling g_ae => AxionElectron. Data points are approximate reads from described mass range since no numerical table is provided; exact y-axis values not given in text. Local DM density rho_DM=0.3 GeV/cm^3 assumed. Note paper also has DarkPhoton (kinetic mixing) result in Fig 5 right; coupling type ambiguity lowers confidence.",
-  "num_points": 5,
-  "elapsed_s": 12.449713945388794
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "EDELWEISS-III solar axion (g_ae)",
+  "notes": "Paper constrains axion-electron coupling g_ae via solar axion CBRD search (g_ae < 1.1e-11 in massless limit) and ALP dark matter absorption over 0.8-500 keV mass range (Fig. 5 left). Also reports g_ae x g_aN^eff < 3.5e-17, hidden photon kinetic mixing kappa (DarkPhoton), and electron lifetime limit. Primary coupling per hint is AxionElectron. Local DM density rho_DM = 0.3 GeV/cm^3 assumed for halo absorption search, <v> ~ 1e-3 c. No numerical tables of (mass, g_ae) data points are provided; values are only shown in plots (Figs. 3-5), so no reliable point extraction possible. One representative point: in massless limit g_ae < 1.1e-11 from solar CBRD. | selector: figure_vision (sole candidate) | Vision: Figure 3 shows the EDELWEISS-III solar axion g_ae limit as a horizontal line at g_ae=1.1e-11 (90% C.L.), mass-independent in the massless/light ALP regime. X-axis is m_a in keV/c^2 (1e-5 to 1 keV), converted to eV (1e-2 to 1000 eV). The exclusion region is above the red horizontal line. DFSZ and KSVZ diagonal model bands cross around g_ae~1e-12 to 1e-11. | Calibration: No calibration needed | read-vote N=3: ct=AxionElectron (3/3); 1 curve",
+  "num_points": 8,
+  "elapsed_s": 79.45771193504333
 }

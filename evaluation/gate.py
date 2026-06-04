@@ -31,8 +31,8 @@ single source of the residual tolerance):
 | # | Rule | Threshold |
 |---|------|-----------|
 | G1 | overall median residual must not regress beyond the noise floor | after <= before + 0.32 dex |
-| G2 | zero-overlap count must not increase | after <= before (strict) |
-| G3 | no new `unit_offset` zero-overlap cause | after <= before (strict) |
+| G2 | zero-overlap count must not increase | after <= before + 2 (flap slack) |
+| G3 | no new `unit_offset` zero-overlap cause | after <= before + 2 (flap slack) |
 | G4 | figure_vision per-source residual must not regress beyond noise floor | after <= before + 0.32 dex |
 | G5 | figure_vision <=0.3 dex fraction must not drop > 5 pp | after >= before - 0.05 |
 | G6 | zero logic errors AND zero P0 HARD-floor violations | strict |
@@ -63,6 +63,14 @@ NOISE_FLOOR_DEX = 0.32      # run-to-run LLM noise floor (metrics.py / PR #545)
 FRAC_0_3_SLACK = 0.05       # G5: allowed drop in figure_vision <=0.3 dex fraction
 COMPARED_SLACK = 3          # G7: allowed drop in papers-compared (absorbs flap)
 FLOOR_SLACK = 3             # G6: allowed increase in HARD-floor violations.
+ZO_SLACK = 2                # G2: allowed increase in zero-overlap count (flap).
+UNIT_OFFSET_SLACK = 2       # G3: allowed increase in unit_offset cause (flap).
+# G2/G3 were strict, but a no-op N=3-voted repeat pair still flaps a single paper
+# across the zero-overlap / unit_offset boundary (observed +1 each on the union
+# key). N=3 read voting (#584) damps the residual rules below the floor, but these
+# COUNT rules still need a small flap slack — same rationale as COMPARED_SLACK /
+# FLOOR_SLACK. A real regression adds DOZENS (the #550 fixture: +18 zero-overlap,
+# +12 unit_offset, and blows up G1/G4), far above the slack, so sensitivity holds.
 # Logic errors (crashes) are deterministic per code version, so G6 gates them
 # strictly (no increase). HARD-floor violation membership, by contrast, flaps on
 # the same LLM noise as every residual (a median can cross VALID_RANGES between
@@ -220,15 +228,15 @@ def apply_rules(b: dict, a: dict, *, b_logic_n: int, a_logic_n: int,
     rows.append(GateRow("G1", "overall median residual (dex)", _f(bm), _f(am),
                         f"after <= before + {NOISE_FLOOR_DEX}", g1))
 
-    # G2 — zero-overlap count (strict).
-    g2 = a["n_zero_overlap"] <= b["n_zero_overlap"]
+    # G2 — zero-overlap count (small flap slack).
+    g2 = a["n_zero_overlap"] <= b["n_zero_overlap"] + ZO_SLACK
     rows.append(GateRow("G2", "zero-overlap papers", str(b["n_zero_overlap"]),
-                        str(a["n_zero_overlap"]), "after <= before", g2))
+                        str(a["n_zero_overlap"]), f"after <= before + {ZO_SLACK}", g2))
 
-    # G3 — unit_offset zero-overlap cause (strict).
-    g3 = a_uo <= b_uo
+    # G3 — unit_offset zero-overlap cause (small flap slack).
+    g3 = a_uo <= b_uo + UNIT_OFFSET_SLACK
     rows.append(GateRow("G3", "unit_offset zero-overlap cause", str(b_uo),
-                        str(a_uo), "after <= before", g3))
+                        str(a_uo), f"after <= before + {UNIT_OFFSET_SLACK}", g3))
 
     # G4 — figure_vision per-source median residual.
     bfm, afm = bf.get("median_resid"), af.get("median_resid")

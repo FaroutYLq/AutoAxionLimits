@@ -15,7 +15,7 @@
   "confidence_level": 0.95,
   "extraction_confidence": 0.55,
   "suggested_experiment_name": "BESIII_Jpsi_ALP",
-  "notes": "BESIII search for ALP in J/psi radiative decays, a->gamma gamma, mass range 0.165-2.84 GeV. Coupling type is clearly AxionPhoton (g_agamma). Only an approximate single data point is extractable from text: g_agamma > 3e-4 GeV^-1 excluded near m_a ~ 0.25 GeV (=2.5e8 eV). The full exclusion curve is in Fig. 6 but numerical values are not tabulated. Most stringent limit for 0.165-1.468 GeV. Collider bound, not DM haloscope, so no DM density.",
+  "notes": "BESIII search for ALP in radiative J/psi decays, a->gamma gamma. Mass range 0.165-2.84 GeV/c^2 (1.65e8 to 2.84e9 eV). Limits on g_agamma. The only explicit numerical coupling value in text is g_agamma > 3e-4 GeV^-1 excluded at m_a ~ 0.25 GeV (2.5e8 eV). Full exclusion curve is shown in Fig 6 but no table of (mass, coupling) values is provided, so only the single text-quoted point is extracted. The actual exclusion contour spans roughly 1e-4 to 1e-3 GeV^-1 over the mass range. | selector: text (sole candidate) | read-vote N=3: ct=AxionPhoton (3/3); no consensus curve, took most-points",
   "num_points": 1,
-  "elapsed_s": 30.087764978408813
+  "elapsed_s": 78.2136299610138
 }

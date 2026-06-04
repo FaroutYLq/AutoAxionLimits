@@ -7,91 +7,19 @@
   "data_points": [
     [
       1.3e-05,
-      4.1e-14
+      1.16e-13
     ],
     [
-      1.305e-05,
-      4.12e-14
-    ],
-    [
-      1.31e-05,
-      4.15e-14
-    ],
-    [
-      1.315e-05,
-      4.18e-14
-    ],
-    [
-      1.32e-05,
-      4.2e-14
-    ],
-    [
-      1.325e-05,
-      4.22e-14
-    ],
-    [
-      1.33e-05,
-      4.25e-14
-    ],
-    [
-      1.334e-05,
-      4.55e-14
-    ],
-    [
-      1.336e-05,
-      4.55e-14
-    ],
-    [
-      1.34e-05,
-      4.3e-14
-    ],
-    [
-      1.345e-05,
-      4.33e-14
-    ],
-    [
-      1.35e-05,
-      4.35e-14
-    ],
-    [
-      1.355e-05,
-      4.38e-14
-    ],
-    [
-      1.36e-05,
-      4.4e-14
-    ],
-    [
-      1.365e-05,
-      4.42e-14
-    ],
-    [
-      1.37e-05,
-      4.45e-14
-    ],
-    [
-      1.375e-05,
-      4.47e-14
-    ],
-    [
-      1.38e-05,
-      4.5e-14
-    ],
-    [
-      1.385e-05,
-      4.52e-14
-    ],
-    [
-      1.388e-05,
-      4.55e-14
+      1.39e-05,
+      1.16e-13
     ]
   ],
-  "data_source": "figure_vision",
+  "data_source": "text",
   "dm_density_assumed": 0.45,
   "confidence_level": 0.9,
   "extraction_confidence": 0.6,
-  "suggested_experiment_name": "CAPP-9T (multiple-cell haloscope)",
-  "notes": " | Vision: Main plot y-axis is g_a\u03b3\u03b3/g_a\u03b3\u03b3^KSVZ (linear, 10-50), with limit at ~11\u00d7 KSVZ. Converted to absolute g_a\u03b3\u03b3 using KSVZ ~3.8e-15 GeV^-1 at 13.4 \u03bceV. The limit hovers around 11-12\u00d7 KSVZ across the band; gap near 13.35 \u03bceV (mode mixing) and spikes from removed bins. Absolute values approximate due to KSVZ scaling assumption. | Calibration: Benchmark KSVZ consistent (ratio=1.35) | No calibration needed",
-  "num_points": 20,
-  "elapsed_s": 58.3156521320343
+  "suggested_experiment_name": "CAPP-9T",
+  "notes": "Multiple-cell (double-cell) cavity haloscope CAPP-9T. Excludes g_agamma >= 11.1 x g_KSVZ over 13.0-13.9 ueV at 90% CL. Numerical g_agamma values not given explicitly; estimated using KSVZ coupling at ~13.5 ueV (~3.25 GHz). At this mass g_KSVZ ~ 1.04e-14 GeV^-1, so 11.1x ~ 1.16e-13 GeV^-1. These are approximate text-derived endpoints; exact spectrum-by-spectrum limits from Fig. 5 not tabulated. rho_a = 0.45 GeV/cm^3. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.6, 2)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 1 of 3 curves (med pairwise 0.811 dex)",
+  "num_points": 2,
+  "elapsed_s": 115.65573596954346
 }

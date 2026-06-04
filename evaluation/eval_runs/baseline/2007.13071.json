@@ -25,9 +25,9 @@
   "data_source": "text",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.55,
-  "suggested_experiment_name": "BelleII_ALP_3gamma",
-  "notes": "Belle II search for e+e- -> gamma a, a -> gamma gamma sets 95% CL upper limits on g_agamma at the level of 1e-3 GeV^-1 in mass range 0.2 < m_a < 9.7 GeV. Coupling type is clearly AxionPhoton. However, no numerical table of limit vs mass is in the provided text (referred to Supplemental textfile); data points are approximate based on stated ~1e-3 GeV^-1 level. This is a collider production search, not a DM haloscope, so no DM density assumed. Mass converted GeV to eV.",
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "BelleII_ALP_2020",
+  "notes": "Belle II search for e+e->gamma a, a->gamma gamma. Sets 95% CL upper limits on g_agamma at the level of 10^-3 GeV^-1 for ALP masses 0.2 < m_a < 9.7 GeV. Coupling type is clearly AxionPhoton. Exact numerical values are provided in supplemental text file (not in the paper text), so the data points here are approximate, reflecting the stated ~10^-3 GeV^-1 level across the mass range. This is a collider/production search, not a DM haloscope, so no DM density assumed. | selector: text over figure_vision (quality (0, 1, 1, 2, 0, 0.55, 4)) | contract: median outside VALID_RANGES after corrections (flagged low confidence) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
   "num_points": 4,
-  "elapsed_s": 8.310534954071045
+  "elapsed_s": 88.93464493751526
 }

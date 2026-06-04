@@ -6,36 +6,20 @@
   "is_projection": false,
   "data_points": [
     [
-      5.79e-05,
-      7.5e-13
+      6.32e-05,
+      3e-12
     ],
     [
-      5.95e-05,
-      7.5e-13
-    ],
-    [
-      6.2e-05,
-      7.5e-13
-    ],
-    [
-      0.0001075,
-      3e-13
-    ],
-    [
-      0.0001095,
-      3e-13
-    ],
-    [
-      0.0001116,
-      3e-13
+      6.71e-05,
+      3e-12
     ]
   ],
-  "data_source": "figure_vision",
+  "data_source": "text",
   "dm_density_assumed": 0.45,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.55,
-  "suggested_experiment_name": "ORGAN Phase 1a/1b",
-  "notes": "ORGAN Phase 1a microwave cavity haloscope sets 95% CL limit g_agamma >= 3e-12 GeV^-1 over 63.2-67.1 ueV (15.28-16.23 GHz). Only the headline limit value and mass range are available numerically in text; the exclusion curve (Fig. 4) varies across the band but specific point values are not tabulated. Local DM density assumed 0.45 GeV/cm^3. | Vision: The actual achieved exclusion is shown by the two narrow green vertical bands (1a near 14.5 GHz reaching down to ~3e-12, and 1b near 26.5 GHz reaching down to ~1.2e-12). Red dashed lines (2a-2g) are projected/future limits, not achieved. The wide colored regions are CAST and ALP Cogenesis bounds. Only the green-band achieved limits are reported here. X-axis is frequency 14-53 GHz converted to mass via m=4.136e-15*f. | Calibration: Benchmark KSVZ consistent (ratio=1.08) | Spot-check calibration: verify/stage2 ratio=0.2x",
-  "num_points": 6,
-  "elapsed_s": 28.45997190475464
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "ORGAN_Phase1a",
+  "notes": "ORGAN Phase 1a haloscope sets g_agamma >= 3e-12 GeV^-1 over 63.2-67.1 ueV (15.28-16.23 GHz) at 95% CL. Limit value from abstract/text; exclusion shown in Fig 4 but only the bounding coupling and mass range are explicit numerically. Local DM density assumed 0.45 GeV/cm^3. Data points represent endpoints of the excluded mass range at the quoted coupling level (approximately flat limit). | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.85, 2)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
+  "num_points": 2,
+  "elapsed_s": 63.124393939971924
 }

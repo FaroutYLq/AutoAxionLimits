@@ -6,124 +6,20 @@
   "is_projection": false,
   "data_points": [
     [
-      6e-09,
-      6.5e-11
-    ],
-    [
-      7e-09,
-      4.5e-11
-    ],
-    [
       8e-09,
-      3e-11
-    ],
-    [
-      9e-09,
-      2.2e-11
-    ],
-    [
-      1e-08,
-      1.9e-11
-    ],
-    [
-      1.2e-08,
-      1.7e-11
-    ],
-    [
-      1.5e-08,
-      1.6e-11
-    ],
-    [
-      1.8e-08,
-      1.5e-11
-    ],
-    [
-      2e-08,
-      1.5e-11
-    ],
-    [
-      2.5e-08,
-      1.6e-11
-    ],
-    [
-      3e-08,
-      1.8e-11
-    ],
-    [
-      3.5e-08,
-      2.2e-11
-    ],
-    [
-      4e-08,
-      1.6e-11
-    ],
-    [
-      4.5e-08,
-      1.5e-11
-    ],
-    [
-      5e-08,
-      1.6e-11
-    ],
-    [
-      6e-08,
-      1.9e-11
-    ],
-    [
-      7e-08,
-      2.3e-11
-    ],
-    [
-      8e-08,
       2e-11
-    ],
-    [
-      9e-08,
-      1.9e-11
-    ],
-    [
-      1e-07,
-      1.9e-11
-    ],
-    [
-      1.2e-07,
-      2e-11
-    ],
-    [
-      1.5e-07,
-      2.3e-11
-    ],
-    [
-      1.8e-07,
-      2.8e-11
     ],
     [
       2e-07,
-      3.2e-11
-    ],
-    [
-      2.5e-07,
-      4e-11
-    ],
-    [
-      3e-07,
-      5e-11
-    ],
-    [
-      4e-07,
-      6e-11
-    ],
-    [
-      5e-07,
-      6.5e-11
+      2e-11
     ]
   ],
-  "data_source": "figure_vision",
+  "data_source": "text",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.8,
-  "suggested_experiment_name": "Mrk 421 MAGIC + Fermi-LAT (combined)",
-  "notes": "Blazar ALP-photon oscillation search. Combined Mrk 421 (MAGIC+Fermi-LAT) 95% C.L. limit excludes g_agamma >~ 2e-11 GeV^-1 for 8e-9 eV <~ m_a <~ 2e-7 eV. Only the rough boundary values quoted in text are extractable; detailed exclusion contour is in Fig. 3/4 plots not numerically tabulated. Not a DM haloscope so no local density assumed. | Vision: Lower boundary of red exclusion contour (Mrk 421 MAGIC+Fermi-LAT combined, 95% C.L.) from Fig. 4. Excluded region extends to about g_agamma >~ 2e-11 GeV^-1 for 8e-9 to 2e-7 eV, consistent with abstract. The plateau near y~6.5e-11 corresponds to the CAST horizontal cutoff at top of red region. | Calibration: No calibration needed",
-  "num_points": 28,
-  "elapsed_s": 47.86663293838501
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "MAGIC_FermiLAT_Mrk421",
+  "notes": "Astrophysical ALP-photon oscillation bound from Mrk 421 blazar observations by MAGIC+Fermi-LAT. Combined 95% C.L. excludes g_agamma >~ 2e-11 GeV^-1 for 8e-9 eV <~ m_a <~ 2e-7 eV. Only the corner/approximate bounding values are given in text; the full exclusion contour is in Fig. 4 (not numerically tabulated). Data points represent the quoted rectangular exclusion region edges, not a precise contour. Not a DM haloscope, so no local DM density assumed. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.6, 2)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
+  "num_points": 2,
+  "elapsed_s": 93.01174712181091
 }
