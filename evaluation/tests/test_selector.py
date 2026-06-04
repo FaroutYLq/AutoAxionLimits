@@ -115,9 +115,70 @@ def test_n_points_only_breaks_full_ties():
     a = _cand("figure_vision", in_range=True, conf=0.5, n=50)
     b = _cand("figure_vision", in_range=True, conf=0.5, n=10)
     assert quality(a) > quality(b)
-    # but a higher-tier candidate with fewer points still wins
-    text = _cand("text", in_range=True, conf=0.5, n=2)
-    assert quality(text) > quality(a)
+    # but a higher-tier candidate with fewer points still wins (a non-sparse
+    # multi-point table contour beats a 50-pt figure read on T3, not point count)
+    table = _cand("table", in_range=True, conf=0.5, n=3)
+    assert quality(table) > quality(a)
+
+
+# ---------------------------------------------------------------------------
+# P-A1 (#587): a sparse point-limit must NOT outrank a traceable figure curve,
+# but must still beat an unverified cv_trace and lose only to a *good* curve.
+# ---------------------------------------------------------------------------
+
+@pytest.mark.parametrize("n_text", [1, 2])
+def test_sparse_text_point_loses_to_valid_figure_curve(n_text):
+    # The family-A failure (1207.3275, 1907.11485, 2110.03679, ...): a single/
+    # double physically-correct text point cannot overlap the GT curve. The valid,
+    # non-degenerate figure_vision curve must now win at T3.
+    text = _cand("text", in_range=True, conf=0.6, n=n_text)
+    vision = _cand("figure_vision", in_range=True, conf=0.4, n=60)
+    winner, _ = select_best([text, vision])
+    assert winner.source == "figure_vision"
+
+
+def test_sparse_table_point_loses_to_valid_figure_curve():
+    # 1907.11485: a single tabulated benchmark row vs the 80-pt figure curve.
+    table = _cand("table", in_range=True, conf=0.6, n=1)
+    vision = _cand("figure_vision", in_range=True, conf=0.4, n=80)
+    winner, _ = select_best([table, vision])
+    assert winner.source == "figure_vision"
+
+
+def test_sparse_text_point_beats_degenerate_figure_curve():
+    # T1 ranks above T3: a flat/single-decade vision trace is degenerate and must
+    # still lose to the correct sparse point (don't trade a right point for junk).
+    text = _cand("text", in_range=True, conf=0.6, n=2)
+    flat = _cand("figure_vision", in_range=True, conf=0.5, n=200,
+                 y_const=True, span=0.5)
+    winner, _ = select_best([text, flat])
+    assert winner.source == "text"
+
+
+def test_sparse_text_point_beats_out_of_range_figure_curve():
+    # T0 ranks above T3: an out-of-range vision curve loses to the sparse point.
+    text = _cand("text", in_range=True, conf=0.6, n=1)
+    oor = _cand("figure_vision", in_range=False, conf=0.5, n=60, recoverable=False)
+    winner, _ = select_best([text, oor])
+    assert winner.source == "text"
+
+
+def test_sparse_text_point_still_beats_cv_trace():
+    # Preserve the 2102.08764 protection: a raw pixel trace (cv_trace, tier 0) must
+    # NOT override a clean sparse text point even after the P-A1 demotion (tier 1).
+    text = _cand("text", in_range=True, conf=0.6, n=2)
+    cv = _cand("cv_trace", in_range=True, conf=0.9, n=268)
+    winner, _ = select_best([text, cv])
+    assert winner.source == "text"
+
+
+def test_non_sparse_text_still_outranks_figure_curve():
+    # Conservative scope: only n<=2 point-limits are demoted. A substantial
+    # multi-point text read (n>2) keeps its tier above figure_vision.
+    text = _cand("text", in_range=True, conf=0.5, n=10)
+    vision = _cand("figure_vision", in_range=True, conf=0.95, n=300)
+    winner, _ = select_best([text, vision])
+    assert winner.source == "text"
 
 def test_corroboration_breaks_ties_between_two_figure_reads():
     plain = _cand("figure_vision", in_range=True, conf=0.5, n=20)
