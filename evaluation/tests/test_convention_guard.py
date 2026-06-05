@@ -18,6 +18,7 @@ import sys
 from pathlib import Path
 
 import numpy as np
+import pytest
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
@@ -109,3 +110,55 @@ def test_unknown_convention_not_treated_as_mismatch():
                  "limit_data/ScalarElectron/X.txt", _GT_CURVE)
     rec = sc._paper_record("unknown", _RESULT, [gt])
     assert rec["status"] == "compared"
+
+
+# ---------------------------------------------------------------------------
+# Per-file canonicalization registry (#536/#587) — vetted conversions
+# ---------------------------------------------------------------------------
+
+from evaluation.conventions import to_canonical, file_source_convention
+
+
+def test_axion_nucleon_gev_inv_to_dimensionless():
+    # g_aNN = C_N/(2 f_a) [GeV^-1] -> dimensionless g_aN = 2 m_N * value
+    out, note = to_canonical("AxionProton", [(1e-15, 1e-9)], "g_aNN_inv_gev")
+    assert out[0][1] == pytest.approx(1e-9 * 2 * 0.93828)
+    assert "x2 m_N" in note
+    out_n, _ = to_canonical("AxionNeutron", [(1e-15, 1e-9)], "g_aNN_inv_gev")
+    assert out_n[0][1] == pytest.approx(1e-9 * 2 * 0.93957)
+
+
+def test_sno_is_per_file_x_mN_exception():
+    assert file_source_convention("limit_data/AxionNeutron/SNO.txt", "AxionNeutron") == "g_aN_over_mN_inv_gev"
+    out, note = to_canonical("AxionNeutron", [(1e-15, 1e-9)], "g_aN_over_mN_inv_gev")
+    assert out[0][1] == pytest.approx(1e-9 * 0.93957)  # x m_N only, NOT 2 m_N
+    assert "x m_N" in note
+
+
+def test_default_nucleon_file_is_2mN():
+    # a non-SNO nucleon file defaults to the GeV^-1 derivative coupling
+    assert file_source_convention("limit_data/AxionNeutron/NASDUCK-SERF.txt", "AxionNeutron") == "g_aNN_inv_gev"
+
+
+def test_scalar_alpha_to_d_e_and_d_me():
+    # d_e = 500*sqrt(alpha); d_me = 4000*sqrt(alpha)
+    assert to_canonical("ScalarPhoton", [(1e-3, 1e-4)], "alpha")[0][0][1] == pytest.approx(5.0)
+    assert to_canonical("ScalarElectron", [(1e-3, 1e-4)], "alpha")[0][0][1] == pytest.approx(40.0)
+
+
+def test_dark_photon_eps_squared_to_chi():
+    out, _ = to_canonical("DarkPhoton", [(1e-3, 1e-14)], "eps^2")
+    assert out[0][1] == pytest.approx(1e-7)
+
+
+def test_axion_edm_invfa_to_g_angamma():
+    out, _ = to_canonical("AxionEDM", [(1e-15, 1.0)], "1/f_a")
+    assert out[0][1] == pytest.approx(3.7e-3)
+
+
+def test_canonical_or_unknown_is_unchanged():
+    pts = [(1e-3, 1e-12)]
+    assert to_canonical("AxionPhoton", pts, "g_GeV^-1") == (pts, "")
+    assert to_canonical("AxionProton", pts, "g_aN") == (pts, "")  # already canonical
+    assert to_canonical("AxionNeutron", [], "g_aNN_inv_gev") == ([], "")
+    assert to_canonical("AxionNeutron", pts, None) == (pts, "")
