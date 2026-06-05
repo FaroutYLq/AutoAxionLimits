@@ -2969,12 +2969,12 @@
       "tags": [
         "auto_expanded"
       ],
-      "notes": "Auto-selected from limit_data/AxionElectron/PandaX.txt",
+      "notes": "Auto-selected from limit_data/AxionElectron/PandaX.txt | #598: repointed from PandaX.txt (upstream-overwritten with 2024 DM data, arXiv 2408.07641/2409.00773) to PandaX_Solar.txt, the CBRD+57Fe solar-axion channel actually reported in 1707.07921.",
       "ground_truth_data_file": "1707.07921.txt",
-      "reference_repo_file": "limit_data/AxionElectron/PandaX.txt",
+      "reference_repo_file": "limit_data/AxionElectron/PandaX_Solar.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
-      "ground_truth_num_points": 192,
+      "ground_truth_num_points": 30,
       "verified_by": "repo_upstream",
       "verification_date": "2026-06-02"
     },
