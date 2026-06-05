@@ -109,7 +109,14 @@ _POINT_LIMIT_SOURCES = frozenset({"text", "table"})
 # still loses to the point — the curve wins only when it is trustworthy
 # GT-class evidence. A genuine multi-point contour (> _SPARSE_POINT_LIMIT_MAX
 # points, e.g. a digitized table) keeps its full source tier.
-_SPARSE_POINT_LIMIT_MAX: int = 2
+#
+# Lever A (#606): raised 2 -> 3 after the post-roadmap digest found a third cluster
+# of sparse-text wins at exactly 3 points (1406.6053, 1808.02340, 2007.04899,
+# 1712.00483, 0807.2926, 2204.01454). The demotion stays MONOTONE — it only flips
+# a <=3-pt text/table -> figure_vision when a VALID, NON-DEGENERATE figure curve
+# exists (T0/T1 outrank T3), so a real 3-row table still beats a degenerate/
+# out-of-range vision read; only a trustworthy GT-class curve wins.
+_SPARSE_POINT_LIMIT_MAX: int = 3
 _SPARSE_POINT_LIMIT_TIER: int = 1   # below figure_vision (2), above cv_trace (0)
 
 

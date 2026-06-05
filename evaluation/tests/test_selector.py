@@ -116,9 +116,24 @@ def test_n_points_only_breaks_full_ties():
     b = _cand("figure_vision", in_range=True, conf=0.5, n=10)
     assert quality(a) > quality(b)
     # but a higher-tier candidate with fewer points still wins (a non-sparse
-    # multi-point table contour beats a 50-pt figure read on T3, not point count)
-    table = _cand("table", in_range=True, conf=0.5, n=3)
+    # multi-point table contour beats a 50-pt figure read on T3, not point count).
+    # n=4 is above _SPARSE_POINT_LIMIT_MAX (3 after Lever A #606) so it keeps tier 4.
+    table = _cand("table", in_range=True, conf=0.5, n=4)
     assert quality(table) > quality(a)
+
+
+def test_lever_a_three_point_text_demoted_below_figure():
+    # Lever A (#606): a 3-point text limit is now sparse -> demoted below a valid
+    # figure curve (was tier-3 and would have won at threshold 2). Monotone: only
+    # bites when the figure curve is valid+non-degenerate.
+    text3 = _cand("text", in_range=True, conf=0.6, n=3)
+    vision = _cand("figure_vision", in_range=True, conf=0.4, n=60)
+    winner, _ = select_best([text3, vision])
+    assert winner.source == "figure_vision"
+    # a 4-point text limit is NOT sparse -> keeps tier 3 and still wins
+    text4 = _cand("text", in_range=True, conf=0.6, n=4)
+    winner2, _ = select_best([text4, vision])
+    assert winner2.source == "text"
 
 
 # ---------------------------------------------------------------------------
