@@ -5,8 +5,8 @@
   "n_papers": 80,
   "read_samples": 3,
   "created_utc": "2026-06-05T04:20:45Z",
-  "overall_median_resid": 0.391,
-  "zero_overlap": 9,
+  "overall_median_resid": 0.389,
+  "zero_overlap": 8,
   "figure_vision_median": 0.614,
-  "note": "N=3 read-voted (AAL_READ_SAMPLES=3) union(80) baseline, re-pinned after the #596/#597/#598/#600 roadmap batch (post-#594 DECLARED-convention regime; the prior baseline was pre-#594 conv=None and could not exercise the both-sides canonicalizer). Supersedes the 2026-06-04 82-paper pin (median 0.577, ZO 16); #598 pruned 2 invalid GTs (82->80). The opt-in gate compares an N=3 after-snapshot against this. Re-pin with the same N=3 union extraction (+ this META) when extraction legitimately improves."
+  "note": "N=3 read-voted (AAL_READ_SAMPLES=3) union(80) baseline, re-pinned after the #596/#597/#598/#600 roadmap batch (post-#594 DECLARED-convention regime; the prior baseline was pre-#594 conv=None and could not exercise the both-sides canonicalizer). Supersedes the 2026-06-04 82-paper pin (median 0.577, ZO 16); #598 pruned 2 invalid GTs (82->80). The opt-in gate compares an N=3 after-snapshot against this. Re-pin with the same N=3 union extraction (+ this META) when extraction legitimately improves. #604: AxionEDM canonical corrected to g_angamma[GeV^-2]; e*cm/bare-GeV^-1 EDM extractions excluded as convention gaps (median 0.391->0.389, ZO 9->8)."
 }

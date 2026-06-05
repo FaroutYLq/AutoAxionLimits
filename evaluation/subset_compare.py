@@ -39,6 +39,7 @@ from evaluation.evaluate import (
     _usable_gt_stats,
 )
 from evaluation.conventions import (
+    UNCONVERTIBLE,
     canonical_convention,
     classify_reported_convention,
     file_source_convention,
@@ -149,6 +150,14 @@ def _paper_record(arxiv_id: str, result: dict,
     # raw so converting one side alone cannot break a shared-convention match.
     if result.get("coupling_convention"):
         ext_token = classify_reported_convention(predicted_ct, result.get("coupling_convention"))
+        # An extraction declaring a recognized-but-NON-convertible convention
+        # (#604: AxionEDM oscillating-EDM amplitude in e*cm / bare GeV^-1, which
+        # needs the per-point field amplitude to reach canonical g_angamma) is a
+        # convention gap, not extraction error — exclude rather than score the raw
+        # multi-dex units mismatch.
+        if ext_token == UNCONVERTIBLE:
+            rec["status"] = "convention_mismatch"
+            return rec
         gt_token = file_source_convention(gt_entry.reference_repo_file, predicted_ct)
         ext_array = _canonicalize_curve(predicted_ct, ext_array, ext_token)
         gt_data = _canonicalize_curve(predicted_ct, gt_data, gt_token)

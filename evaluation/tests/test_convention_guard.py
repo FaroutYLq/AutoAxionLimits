@@ -200,6 +200,47 @@ def test_axion_edm_invfa_to_g_angamma():
     assert out[0][1] == pytest.approx(3.7e-3)
 
 
+# --- #604: AxionEDM canonical is g_angamma [GeV^-2], not d_n [e cm] -----------
+
+def test_axion_edm_canonical_is_g_angamma():
+    from evaluation.conventions import canonical_convention
+    conv, _ = canonical_convention("AxionEDM")
+    assert conv == "g_angamma"
+
+
+def test_axion_edm_cg_fa_classified_invfa():
+    from evaluation.conventions import classify_reported_convention
+    # 1708.06367 declares the gluon coupling CG/fa [GeV^-1] == 1/f_a (C_G~1)
+    assert classify_reported_convention(
+        "AxionEDM", "CG/fa in GeV^-1 (axion-gluon coupling), NOT d_n in e*cm") == "inv_fa"
+
+
+def test_axion_edm_ecm_and_bare_gev_inv_are_unconvertible():
+    from evaluation.conventions import classify_reported_convention, UNCONVERTIBLE
+    # oscillating-EDM amplitude (needs per-point a_0) and a bare GeV^-1 (the e*cm
+    # amplitude in disguise, 2204.01454) cannot be converted -> exclude sentinel
+    assert classify_reported_convention("AxionEDM", "d_n in e*cm") == UNCONVERTIBLE
+    assert classify_reported_convention("AxionEDM", "d_d (deuteron EDM) in e*cm") == UNCONVERTIBLE
+    assert classify_reported_convention("AxionEDM", "GeV^-1") == UNCONVERTIBLE
+
+
+def test_axion_edm_canonical_gev2_not_excluded():
+    from evaluation.conventions import classify_reported_convention
+    # a correctly-declared canonical g_angamma [GeV^-2] must NOT be flagged
+    assert classify_reported_convention("AxionEDM", "g_angamma [GeV^-2]") is None
+
+
+def test_comparator_excludes_unconvertible_extraction():
+    # an AxionEDM extraction declaring e*cm is a convention gap, not error
+    gt = _StubGT("AxionEDM", "g_angamma",
+                 "limit_data/AxionEDM/nEDM.txt", _GT_CURVE)
+    res = {"coupling_type": "AxionEDM",
+           "data_points": [[1e-5, 1e-26], [1e-3, 1e-26]],
+           "data_source": "figure_vision", "coupling_convention": "d_n in e*cm"}
+    rec = sc._paper_record("2101.01241-like", res, [gt])
+    assert rec["status"] == "convention_mismatch"
+
+
 def test_canonical_or_unknown_is_unchanged():
     pts = [(1e-3, 1e-12)]
     assert to_canonical("AxionPhoton", pts, "g_GeV^-1") == (pts, "")
