@@ -31,6 +31,7 @@ orders of magnitude, not raw values.
 from __future__ import annotations
 
 import math
+import re
 from dataclasses import dataclass
 
 # ---------------------------------------------------------------------------
@@ -411,13 +412,21 @@ _M_E_EV = 511000.0          # electron mass [eV] (CODATA) — g_ae = 2 m_e C_e/F
 _M_P_EV = 9.382720813e8     # proton mass [eV]
 _M_N_EV = 9.395654205e8     # neutron mass [eV]
 
-# Inverse-energy unit tokens that mark a "C/F_a"-style (eV^-1) convention.
-_INV_EV_TOKENS = ("ev^-1", "ev⁻¹", "ev-1", "1/ev", "/ev", "ev**-1")
+# Inverse-energy unit markers for a "C/F_a"-style (eV^-1) convention. The ``eV``
+# must be BARE — not a prefixed unit (GeV/keV/MeV/TeV), which are different energy
+# scales. The old substring test (``"ev^-1" in label``) wrongly fired on
+# ``"GeV^-1"`` (and keV/MeV), making :func:`normalize_convention` apply a spurious
+# 2*m_e / 2*m_N factor (~1e6-1e9) to a GeV^-1 axion-electron/proton/neutron
+# coupling — a real misdetection bug (#587 P-B). The negative lookbehind guards
+# the prefix while still matching a bare eV^-1 / eV-1 / eV⁻¹ / eV**-1 / 1/eV.
+_INV_EV_RE = re.compile(
+    r"(?<![gkmt])ev\s*(?:\^?\s*-\s*1|⁻¹|\*\*\s*-\s*1)"   # eV^-1, eV-1, eV⁻¹, eV**-1
+    r"|/\s*(?<![gkmt])ev"                                  # 1/eV, /eV
+)
 
 
 def _has_inv_ev(label: str) -> bool:
-    l = (label or "").lower().replace(" ", "")
-    return any(t in l for t in _INV_EV_TOKENS)
+    return bool(_INV_EV_RE.search((label or "").lower()))
 
 
 def normalize_convention(coupling_type, data_points, axis_unit_label="", notes=""):

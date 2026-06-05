@@ -93,6 +93,29 @@ def test_empty_and_none_inputs():
     assert normalize_convention("AxionElectron", [(0.0, 0.0)], notes="eV^-1")[1] == ""
 
 
+# --- GeV^-1 must NOT be misread as eV^-1 (substring bug, #587 P-B) ------------
+
+from pipeline.transform_guard import _has_inv_ev
+
+
+@pytest.mark.parametrize("unit", ["GeV^-1", "keV^-1", "MeV^-1", "TeV^-1",
+                                  "GeV$^{-1}$", "GeV-1"])
+def test_prefixed_inverse_energy_not_detected_as_inv_ev(unit):
+    assert _has_inv_ev(unit) is False
+
+@pytest.mark.parametrize("unit", ["eV^-1", "eV-1", "eV⁻¹", "eV**-1", "1/eV",
+                                  "C_e/F_a in eV^-1"])
+def test_bare_inverse_ev_still_detected(unit):
+    assert _has_inv_ev(unit) is True
+
+def test_gev_inverse_does_not_trigger_spurious_conversion():
+    # The bug: a GeV^-1 axion-nucleon coupling was misread as eV^-1 and multiplied
+    # by ~2*m_N (~1e9). It must now pass through untouched.
+    pts = [(1e-15, 9e-12)]
+    out, note = normalize_convention("AxionNeutron", pts, axis_unit_label="GeV^-1")
+    assert out == pts and note == ""
+
+
 # ---------------------------------------------------------------------------
 # Deterministic decoding wrapper (needs anthropic transitively)
 # ---------------------------------------------------------------------------
