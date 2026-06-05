@@ -43,14 +43,13 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 PAPERS_JSON = PROJECT_ROOT / "evaluation" / "ground_truth" / "papers.json"
 
 # arXiv IDs whose correct (sentinel-aware) label is intentionally NOT applied in
-# this re-stamp, with the reason. 2401.18076 (LIGO O3): the GT files
-# (Scalar{Photon,Electron}/LIGO.txt) are genuine d_e (interior 0.16..7.6; the
-# 1e20 row is a fill sentinel), so the correct label is `d_e`. But the extractor
-# emits this paper as g_phi-gamma [GeV^-1] (~5e-20 = d_e/(sqrt2 M_Pl)), so
-# un-excluding it would score an ~18-dex convention gap as error. Recovering it
-# needs the GeV^-1 -> d_e conversion (x sqrt2 M_Pl) on the extraction side, which
-# is the deferred convention-conversion follow-up. Held until then.
-_HOLD: set[str] = {"2401.18076"}
+# this re-stamp, with the reason. (Empty since #600: 2401.18076 (LIGO O3) is now
+# un-held — its GT files (Scalar{Photon,Electron}/LIGO.txt) are genuine d_e
+# (interior 0.16..7.6; the 1e20 row is a fill sentinel), and the extractor's
+# GeV^-1 / inverse-Lambda declaration is now canonicalized to d_e on the
+# extraction side (conventions.to_canonical `gev_inv_scalar`, x sqrt2 M_Pl), so
+# the paper compares like-for-like instead of scoring a units gap.)
+_HOLD: set[str] = set()
 
 
 def main() -> int:

@@ -171,6 +171,30 @@ def test_dark_photon_eps_squared_to_chi():
     assert out[0][1] == pytest.approx(1e-7)
 
 
+def test_scalar_gev_inv_to_de():
+    # g_phi [GeV^-1] -> d = g * sqrt2 * M_Pl (M_Pl = 2.4e18, the notebook value).
+    import math
+    f = math.sqrt(2) * 2.4e18
+    out, note = to_canonical("ScalarPhoton", [(1e-12, 1e-20)], "gev_inv_scalar")
+    assert out[0][1] == pytest.approx(1e-20 * f)
+    assert "sqrt2 M_Pl" in note
+
+
+def test_classify_scalar_gev_inv_fires_on_inverse_gev():
+    from evaluation.conventions import classify_reported_convention
+    # the actual 2401.18076 declared label (hedged) — value-confirmed GeV^-1 form
+    lbl = "Lambda_gamma^-1 in GeV^-1 (or dimensionless d_e); not extracted"
+    assert classify_reported_convention("ScalarPhoton", lbl) == "gev_inv_scalar"
+    assert classify_reported_convention("ScalarElectron", "g_phi e [GeV^-1]") == "gev_inv_scalar"
+
+
+def test_classify_scalar_plain_de_does_not_misfire():
+    from evaluation.conventions import classify_reported_convention
+    # a model that declares canonical d_e/d_me must NOT be converted.
+    assert classify_reported_convention("ScalarPhoton", "dimensionless d_e") is None
+    assert classify_reported_convention("ScalarElectron", "dimensionless d_me") is None
+
+
 def test_axion_edm_invfa_to_g_angamma():
     out, _ = to_canonical("AxionEDM", [(1e-15, 1.0)], "1/f_a")
     assert out[0][1] == pytest.approx(3.7e-3)

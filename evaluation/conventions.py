@@ -196,6 +196,12 @@ import math as _math
 # Nucleon masses [GeV] — exactly the values PlotFuncs.py uses in-code.
 _M_NUCLEON_GEV = {"AxionNeutron": 0.93957, "AxionProton": 0.93828}
 
+# Reduced Planck mass [GeV] — the value the Scalars notebook uses for the
+# d_i <-> g_{phi} [GeV^-1] AlternativeCouplingAxis (`M_pl = 2.4e18`). Use the
+# notebook value (not 2.418e18) so a converted extraction lands on the SAME scale
+# as the d-axis GT the notebook produced.
+_M_PL_GEV = 2.4e18
+
 # Per-FILE source-convention overrides (verified from PlotFuncs.py per-file
 # multipliers). Default for AxionNeutron/Proton files is g_aNN = C_N/(2 f_a)
 # [GeV^-1] (-> x2 m_N); SNO stores g_aN/m_N [GeV^-1] (-> x m_N only).
@@ -261,6 +267,16 @@ def to_canonical(coupling_type: Optional[str], data_points, convention: Optional
                 pref = 4000.0 if coupling_type == "ScalarElectron" else 500.0
                 out = [(m, pref * _math.sqrt(g)) for m, g in data_points if g > 0]
                 return out, f"convention: Scalar Yukawa alpha -> d ({pref:g}*sqrt(alpha))"
+            # GeV^-1 Compton-like coupling g_{phi i} -> dimensionless d_i. The
+            # notebook's AlternativeCouplingAxis is g_{phi gamma} = d_e/(sqrt2 M_Pl)
+            # (and identically d_{m_e} = g_{phi e} sqrt2 M_Pl by the universal
+            # phi_hat = phi/M_Pl normalization). Inverse map: d = g[GeV^-1]*sqrt2*M_Pl.
+            # M_Pl matches the repo notebook value (2.4e18) so converted extractions
+            # land on the same scale as the d-axis GT. Vetted: EXPLAIN doc Sec.1.
+            if conv in ("gev_inv_scalar", "g_phi_gev_inv", "lambda_inv_gev"):
+                f = _math.sqrt(2.0) * _M_PL_GEV
+                return [(m, g * f) for m, g in data_points], (
+                    f"convention: Scalar g_phi [GeV^-1] -> d (x sqrt2 M_Pl = {f:.4g})")
 
         # --- DarkPhoton: epsilon^2 -> kinetic mixing chi ---
         if coupling_type == "DarkPhoton" and conv in ("epsilon_squared", "eps^2", "chi^2"):
@@ -299,6 +315,19 @@ def classify_reported_convention(coupling_type: Optional[str],
         if "1/f_a" in u or "invfa" in u or "1/fa" in u:
             return "inv_fa"
         return None
-    # Scalars deliberately NOT auto-converted here (native-file mapping partly
+    if coupling_type in ("ScalarPhoton", "ScalarElectron"):
+        # The ONLY scalar conversion enabled (#600, vetted EXPLAIN Sec.1): the
+        # GeV^-1 Compton-like coupling g_{phi} -> dimensionless d (x sqrt2 M_Pl).
+        # Fires only when the extractor DECLARES a GeV^-1 / inverse-Lambda form
+        # (the model-declared-convention contract, #594) — a model that declares
+        # plain `d_e`/`d_me` is left canonical. The native large-valued scalar
+        # files stay governed by the #591 d_e_large exclusion guard (their
+        # per-file storage is unverified — do NOT auto-convert those here).
+        lam_inv = ("lambda^-1" in u or "lambda_gamma^-1" in u
+                   or "lambda_gamma" in u or "1/lambda" in u)
+        if inv_gev or lam_inv:
+            return "gev_inv_scalar"
+        return None
+    # Other scalars (Nucleon/Baryon) NOT auto-converted (native-file mapping
     # unverified — #536); they keep the #591 exclusion guard.
     return None
