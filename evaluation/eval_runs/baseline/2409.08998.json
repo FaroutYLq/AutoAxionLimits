@@ -7,27 +7,84 @@
   "data_points": [
     [
       1.728e-05,
-      9.5e-15
+      1.06e-14
+    ],
+    [
+      1.74e-05,
+      1.07e-14
+    ],
+    [
+      1.76e-05,
+      1.08e-14
+    ],
+    [
+      1.78e-05,
+      1.09e-14
+    ],
+    [
+      1.8e-05,
+      1.1e-14
+    ],
+    [
+      1.82e-05,
+      1.11e-14
     ],
     [
       1.844e-05,
-      1.01e-14
+      1.13e-14
     ],
     [
       1.871e-05,
-      1.03e-14
+      1.18e-14
+    ],
+    [
+      1.89e-05,
+      1.19e-14
+    ],
+    [
+      1.91e-05,
+      1.2e-14
+    ],
+    [
+      1.93e-05,
+      1.22e-14
     ],
     [
       1.946e-05,
-      1.07e-14
+      1.23e-14
+    ],
+    [
+      2.3e-05,
+      1.45e-14
+    ],
+    [
+      2.32e-05,
+      1.46e-14
+    ],
+    [
+      2.34e-05,
+      1.47e-14
+    ],
+    [
+      2.36e-05,
+      1.48e-14
+    ],
+    [
+      2.38e-05,
+      1.49e-14
+    ],
+    [
+      2.4e-05,
+      1.51e-14
     ]
   ],
-  "data_source": "text",
+  "data_source": "figure_vision",
   "dm_density_assumed": 0.45,
   "confidence_level": 0.9,
-  "extraction_confidence": 0.55,
-  "suggested_experiment_name": "HAYSTAC_PhaseII",
-  "notes": "HAYSTAC Phase II squeezed-state receiver axion search. Results reported as |g_gamma| relative to KSVZ: 2.75x KSVZ over 17.28-18.44 ueV (Phase IId), 2.96x KSVZ over 18.71-19.46 ueV (Phase IIc), and 2.86x KSVZ combined over 16.96-19.46 ueV at 90% CL. Local DM density rho_a = 0.45 GeV/cm^3. The data_points are approximate absolute g_agamma values in GeV^-1, computed from the KSVZ coupling scaling (g_KSVZ ~ 2e-16 * m_a[ueV]) multiplied by the quoted KSVZ factors; the paper itself plots |g_gamma/g_KSVZ| vs mass, so absolute values carry conversion uncertainty. Mode-crossing regions 17.89-18.08 and 18.13-18.18 ueV excluded. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.55, 4)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.040 dex)",
-  "num_points": 4,
-  "elapsed_s": 95.64317417144775
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "HAYSTAC Phase II",
+  "coupling_convention": "dimensionless",
+  "notes": " | selector: figure_vision (sole candidate) | Vision: Y-axis is relative coupling |g_\u03b3/g_\u03b3^KSVZ|; exclusion at ~2.86\u00d7KSVZ (red dashed). Converted to absolute g_agamma using g_agamma^KSVZ \u2248 2.0e-16\u00d7(m_a/\u03bceV) GeV^-1 scaling. Excluded region above boundary. Mode crossings and RFI gaps omitted. Conversion to GeV^-1 is approximate. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.82 snapped to identity) | read-vote N=3: ct=AxionPhoton (3/3); medoid 1 of 3 curves (med pairwise 0.137 dex)",
+  "num_points": 18,
+  "elapsed_s": 192.0624029636383
 }

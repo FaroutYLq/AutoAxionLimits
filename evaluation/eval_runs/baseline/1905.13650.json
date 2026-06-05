@@ -7,103 +7,148 @@
   "data_points": [
     [
       1e-22,
-      1.879130841e-10
+      0.001
     ],
     [
       6.3e-22,
-      1.879130841e-10
+      0.0013
     ],
     [
       1e-21,
-      1.6912177569e-10
-    ],
-    [
-      1.6e-21,
-      2.0670439251e-10
+      0.0016
     ],
     [
       2.5e-21,
-      2.4428700933e-10
-    ],
-    [
-      4e-21,
-      2.2549570091999997e-10
+      0.002
     ],
     [
       6.3e-21,
-      1.6912177569e-10
+      0.003
     ],
     [
       1e-20,
-      1.1274785045999998e-10
+      0.005
     ],
     [
       1.6e-20,
-      8.4560887845e-11
+      0.008
     ],
     [
       2.5e-20,
-      6.5769579435e-11
+      0.013
     ],
     [
       4e-20,
-      5.637392522999999e-11
+      0.02
     ],
     [
       6.3e-20,
-      6.013218691200001e-11
+      0.025
     ],
     [
       1e-19,
-      6.5769579435e-11
+      0.025
     ],
     [
       1.6e-19,
-      7.516523364e-11
+      0.022
     ],
     [
       2.5e-19,
-      8.4560887845e-11
+      0.018
     ],
     [
       4e-19,
-      9.0198280368e-11
+      0.017
     ],
     [
       6.3e-19,
-      9.395654205e-11
+      0.017
     ],
     [
       1e-18,
-      9.395654205e-11
+      0.017
     ],
     [
-      3e-18,
-      9.395654205e-11
+      2.5e-18,
+      0.017
     ],
     [
-      6e-18,
-      9.0198280368e-11
-    ],
-    [
-      9e-18,
-      8.4560887845e-11
+      6.3e-18,
+      0.018
     ],
     [
       1e-17,
-      3.758261682e-10
+      0.02
     ],
     [
-      1e-17,
-      1.879130841e-10
+      2e-17,
+      0.025
+    ],
+    [
+      4e-17,
+      7.94e-05
+    ],
+    [
+      6.3e-17,
+      0.0001
+    ],
+    [
+      1e-16,
+      0.00016
+    ],
+    [
+      1.6e-16,
+      0.00025
+    ],
+    [
+      2.5e-16,
+      0.0004
+    ],
+    [
+      4e-16,
+      0.00063
+    ],
+    [
+      6.3e-16,
+      0.001
+    ],
+    [
+      1e-15,
+      0.0016
+    ],
+    [
+      2.5e-15,
+      0.004
+    ],
+    [
+      6.3e-15,
+      0.01
+    ],
+    [
+      1e-14,
+      0.02
+    ],
+    [
+      2.5e-14,
+      0.05
+    ],
+    [
+      6.3e-14,
+      0.13
+    ],
+    [
+      1e-13,
+      0.2
     ]
   ],
   "data_source": "figure_vision",
   "dm_density_assumed": 0.4,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.6,
-  "suggested_experiment_name": "CASPEr-ZULF Comagnetometer / nEDM",
-  "notes": "This is a methodological/theoretical paper showing that constraints from VULF dark matter searches in the T<<tau_c regime are overestimated by factors ~3-10 due to neglecting stochastic field amplitude fluctuations. It re-derives correction factors and rescales previously published limits (CASPEr-ZULF, nEDM, dilaton clock searches) rather than presenting a new original measurement. The exclusion plots (Figs 3,4) show corrected versions of existing constraints for axion-nucleon coupling g_aNN and dilaton couplings, but these are not new measured limits and no readable numerical data points are provided. No extractable new limit data. | selector: figure_vision (sole candidate) | Vision: g_aNN axion-nucleon coupling exclusion (ZULF/CASPEr comagnetometer + nEDM). The black boundary traced represents the lower edge of the combined comagnetometer/nEDM exclusion. Y-axis ticks read as log10 values (-1 to -9). Boundary dips to ~3e-4 (log~-4.5) around 1e-20 to 1e-18 eV. Could be AxionProton/nucleon; labeled g_aNN (nucleon). | convention: AxionNeutron C_N/F_a [eV^-1] -> dimensionless g_aN (x1.879e+09) | Calibration: No calibration needed | Auto-corrected couplings: \u00d71e-16 (\u00d71.00e-16, rule=argmin|log10(median*f)-log10(anchor=1.0e-10)|) | read-vote N=3: ct=AxionNeutron (3/3); medoid 0 of 3 curves (med pairwise 0.539 dex)",
-  "num_points": 23,
-  "elapsed_s": 84.56378197669983
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "CASPEr-ZULF Comagnetometer (stochastic-corrected)",
+  "coupling_convention": "GeV^-1 (gaNN as gradient coupling, paper's convention)",
+  "notes": "This is a methodology/reinterpretation paper showing that stochastic VULF amplitude fluctuations relax previously published constraints by factors of ~3-10. It does not present a new measured limit; it rescales existing constraints (CASPEr-ZULF, nEDM, dilaton clock experiments). The exclusion plots (Fig 3, Fig 4) show corrected constraints for axion-nucleon coupling gaNN and dilaton couplings, but no numerical (mass, coupling) tables are provided in the text. Multiple coupling types are discussed (axion-nucleon and scalar/dilaton), and the figures are not numerically extractable here, so no reliable data points can be given. | selector: figure_vision (sole candidate) | Vision: Fig. 3 shows g_aNN (axion-nucleon coupling) vs m_phi. Green line is the stochastic-corrected constraint (lower boundary of excluded region traced here). The left part (1e-22 to ~2e-17 eV) is from CASPEr-ZULF Comagnetometer; a gap exists between ~2e-17 and 4e-17 eV; the right rising part (4e-17 to 1e-13 eV) is from sidebands. Y-axis is log10 g_aNN [GeV^-1]; values converted from log scale. Note coupling has units GeV^-1 in paper though reported here numerically. | Calibration: No calibration needed | read-vote N=3: ct=AxionNeutron (3/3); medoid 1 of 3 curves (med pairwise 0.123 dex)",
+  "num_points": 34,
+  "elapsed_s": 126.73015403747559
 }

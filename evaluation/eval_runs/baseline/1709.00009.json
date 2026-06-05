@@ -7,131 +7,120 @@
   "data_points": [
     [
       10000.0,
-      5e-10
+      6e-08
     ],
     [
       20000.0,
-      6e-10
+      6e-08
     ],
     [
       50000.0,
-      8e-10
+      6e-08
     ],
     [
       100000.0,
-      1e-09
+      6.5e-08
     ],
     [
       200000.0,
-      1.5e-09
+      8e-08
     ],
     [
       500000.0,
-      3e-09
-    ],
-    [
-      1000000.0,
-      5e-09
-    ],
-    [
-      2000000.0,
-      1e-08
-    ],
-    [
-      3000000.0,
-      2e-08
-    ],
-    [
-      5000000.0,
-      4e-08
-    ],
-    [
-      7000000.0,
-      7e-08
-    ],
-    [
-      10000000.0,
       1.2e-07
     ],
     [
-      15000000.0,
-      2e-07
+      1000000.0,
+      2.0000000000000002e-07
+    ],
+    [
+      2000000.0,
+      4.0000000000000003e-07
+    ],
+    [
+      5000000.0,
+      1e-06
+    ],
+    [
+      10000000.0,
+      2e-06
     ],
     [
       20000000.0,
-      3e-07
-    ],
-    [
-      30000000.0,
-      5e-07
-    ],
-    [
-      40000000.0,
-      8e-07
-    ],
-    [
-      60000000.0,
-      1.5e-06
-    ],
-    [
-      80000000.0,
-      2.5e-06
-    ],
-    [
-      100000000.0,
       4e-06
     ],
     [
+      50000000.0,
+      1.1999999999999999e-05
+    ],
+    [
+      100000000.0,
+      2.9999999999999997e-05
+    ],
+    [
       150000000.0,
-      8e-06
+      5.9999999999999995e-05
     ],
     [
       200000000.0,
-      2e-05
+      0.00011999999999999999
     ],
     [
       250000000.0,
-      5e-05
+      0.00030000000000000003
     ],
     [
       300000000.0,
-      0.00015
+      0.0007999999999999999
     ],
     [
       350000000.0,
-      0.0003
-    ],
-    [
-      400000000.0,
-      0.0005
-    ],
-    [
-      500000000.0,
-      0.0005
-    ],
-    [
-      1000000000.0,
-      0.0005
-    ],
-    [
-      2000000000.0,
-      0.0008
-    ],
-    [
-      5000000000.0,
       0.002
     ],
     [
-      10000000000.0,
+      400000000.0,
       0.005
+    ],
+    [
+      450000000.0,
+      0.01
+    ],
+    [
+      500000000.0,
+      0.015
+    ],
+    [
+      600000000.0,
+      0.01
+    ],
+    [
+      800000000.0,
+      0.006999999999999999
+    ],
+    [
+      1000000000.0,
+      0.006
+    ],
+    [
+      2000000000.0,
+      0.005
+    ],
+    [
+      5000000000.0,
+      0.0045000000000000005
+    ],
+    [
+      10000000000.0,
+      0.0045000000000000005
     ]
   ],
   "data_source": "figure_vision",
   "dm_density_assumed": null,
   "confidence_level": 0.9,
-  "extraction_confidence": 0.55,
-  "suggested_experiment_name": "ALP photon coupling combined constraints (Dolan et al. 2017)",
-  "notes": "Paper presents revised constraints and Belle II projected sensitivity for ALPs coupling to photons (g_agamma in GeV^-1) vs ALP mass in keV-GeV range. Coupling type is clearly AxionPhoton. However, data is only available in plots (figures 2, 4, 7) with no numerical tables provided in the text, so no reliable (mass, coupling) data points could be extracted. Belle II projections are at 90% CL; collider/beam dump bounds at 95% CL. Includes both photon coupling and hypercharge coupling scenarios. | selector: figure_vision (sole candidate) | Vision: Figure 2 left panel (photon coupling, g_aZ=0). Lower boundary traced is dominated by SN 1987A and SN 1987A (a->gamma gamma) constraints at low mass, then electron/proton beam dumps and e+e->gamma gamma at higher mass. The plot overlays multiple constraint regions; this traces the lower envelope of the combined excluded region. X-axis in GeV converted to eV. Some confidence reduction due to overlapping filled regions making the precise lower boundary hard to read. | Calibration: No calibration needed | read-vote N=3: ct=AxionPhoton (3/3); medoid 2 of 3 curves (med pairwise 2.056 dex)",
-  "num_points": 30,
-  "elapsed_s": 158.6798131465912
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "Combined ALP-photon constraints (SN1987A + beam dumps + colliders)",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Paper presents revised constraints and Belle II projected sensitivities for ALPs coupled to photons/hypercharge (g_agamma vs m_a, keV-GeV range). Coupling type is clearly AxionPhoton. However, all results are presented in figures (Fig 2, 4, 7) without tabulated numerical data points. No explicit (mass, coupling) table is available in the text, so no reliable data points could be extracted. Approximate values mentioned in text: SN1987A g_agamma < 6e-9 GeV^-1 for small masses; Belle II reaches ~1e-4 GeV^-1 over wide mass range; resonant freeze-out target ~1e-4 to 1e-5 GeV^-1. These are not a digestible curve. Both observed constraints (review) and projections (Belle II) are presented; flagged as projection since Belle II sensitivity is the central new result. 95% CL for most collider/beam dump, but Belle II projections quoted at 90% CL. | selector: figure_vision (sole candidate) | Vision: Figure 2 left panel (g_aZ=0). The lower boundary of the combined excluded region is traced. At low masses (keV-MeV) the boundary is set by SN 1987A (a->gamma gamma), rising through SN1987A and electron beam dumps. A gap/peak appears near m_a ~ 0.3-0.5 GeV where the beam dump sensitivity ends, then collider constraints (e+e-->gamma gamma, proton beam dumps) take over at higher masses around g~5e-5. Multiple overlapping constraints make precise lower-envelope tracing approximate. Mass axis in GeV converted to eV (1e-5 GeV = 1e4 eV). | Calibration: Vision calibration: \u00d71e+2 (factor=1.00e+02, reason=spot-check verify/stage2, raw_ratio=83.33) | read-vote N=3: ct=AxionPhoton (3/3); medoid 1 of 3 curves (med pairwise 1.845 dex)",
+  "num_points": 27,
+  "elapsed_s": 107.59115695953369
 }

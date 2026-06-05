@@ -6,16 +6,137 @@
   "is_projection": false,
   "data_points": [
     [
-      1.49e-09,
-      1.2e-07
+      1e-11,
+      0.00015000000000000001
+    ],
+    [
+      1.3e-11,
+      0.00015000000000000001
+    ],
+    [
+      1.6e-11,
+      0.00015000000000000001
+    ],
+    [
+      2e-11,
+      0.00014000000000000001
+    ],
+    [
+      2.3e-11,
+      8e-05
+    ],
+    [
+      2.5e-11,
+      2.9999999999999997e-05
+    ],
+    [
+      2.6e-11,
+      1e-05
+    ],
+    [
+      2.8e-11,
+      2.9999999999999997e-05
+    ],
+    [
+      3e-11,
+      8e-05
+    ],
+    [
+      3.3e-11,
+      4e-05
+    ],
+    [
+      3.6e-11,
+      0.0001
+    ],
+    [
+      4e-11,
+      5e-05
+    ],
+    [
+      4.5e-11,
+      0.0001
+    ],
+    [
+      5e-11,
+      4e-05
+    ],
+    [
+      5.5e-11,
+      9e-05
+    ],
+    [
+      6e-11,
+      4e-05
+    ],
+    [
+      6.5e-11,
+      8e-05
+    ],
+    [
+      7e-11,
+      5e-05
+    ],
+    [
+      8e-11,
+      9e-05
+    ],
+    [
+      9e-11,
+      4e-05
+    ],
+    [
+      1e-10,
+      8e-05
+    ],
+    [
+      1.2e-10,
+      5e-05
+    ],
+    [
+      1.4e-10,
+      9e-05
+    ],
+    [
+      1.6e-10,
+      4e-05
+    ],
+    [
+      1.8e-10,
+      8e-05
+    ],
+    [
+      2e-10,
+      5e-05
+    ],
+    [
+      2.3e-10,
+      9e-05
+    ],
+    [
+      2.6e-10,
+      4e-05
+    ],
+    [
+      3e-10,
+      8e-05
+    ],
+    [
+      3.3e-10,
+      5e-05
+    ],
+    [
+      3.6e-10,
+      1.4999999999999999e-05
     ]
   ],
-  "data_source": "text",
+  "data_source": "figure_vision",
   "dm_density_assumed": 0.4,
   "confidence_level": 0.9,
   "extraction_confidence": 0.55,
-  "suggested_experiment_name": "FermionicAxionInterferometer2023",
-  "notes": "Paper searches for axion-electron interaction (uses ferrimagnet NiZn electron spin resonance). The constraint is on pseudoscalar coupling g_p to electrons, so coupling_type is AxionElectron despite the pre-analysis hint of AxionNeutron. Minimum measured |gp| = 1.2e-7 at ma ~ 0.36 neV (3.6e-10 eV); however note the abstract/text mentions resonance near 5 MHz which corresponds to ~2e-8 eV. The exclusion plot (Fig 5) spans roughly 1e-11 to 1e-8 eV with |gp| limits, but only a single explicit numerical point is given in the text (1.2e-7 at 0.36 neV = 3.6e-10 eV). DM density 0.4 GeV/cm^3, 90% CL (2 sigma). The single point uses the stated 0.36 neV = 3.6e-10 eV; I used 1.49e-9 eV inadvertently in array, corrected understanding: value should be 3.6e-10 eV. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.55, 1)) | read-vote N=3: ct=AxionElectron (3/3); no consensus curve, took most-points",
-  "num_points": 1,
-  "elapsed_s": 94.8604199886322
+  "suggested_experiment_name": "Fermionic Axion Interferometer (FAI)",
+  "coupling_convention": "dimensionless g_p (axion-electron pseudoscalar coupling)",
+  "notes": "Radiofrequency fermionic interferometer using NiZn ferrimagnet, sensitive to the axion-electron interaction (electron spin resonance, gyromagnetic ratio of electron used). Minimum |gp| = 1.2e-7 at ma ~ 0.36 neV (90% CL). The exclusion plot (Fig. 5) spans roughly 10^-11 to ~10^-9 eV with |gp| down to ~1.2e-7; only the single best-limit point is explicitly given numerically in text. Although the pre-analysis hint suggested AxionNeutron, the paper explicitly uses electron spin resonance and the electron gyromagnetic ratio, so AxionElectron is appropriate. DM density 0.4 GeV/cm^3 assumed. | selector: figure_vision over text (quality (1, 1, 1, 2, 0, 0.55, 31)) | Vision: Plot y-axis is |g_p| (pseudoscalar coupling); paper text states axion-electron interaction (electron spin resonance, NiZn ferrimagnet). Minimum measured value 1.2e-7 at 0.36 neV, but plot exclusion boundary appears near ~1e-3 to 1e-4 over the shown range. The green excluded region spans roughly 1e-11 to ~3.6e-10 eV. Coupling type mapped to AxionElectron per hint and text. Points are approximate due to noisy boundary. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.25) | read-vote N=3: ct=AxionElectron (3/3); medoid 0 of 3 curves (med pairwise 0.967 dex)",
+  "num_points": 31,
+  "elapsed_s": 125.91959810256958
 }

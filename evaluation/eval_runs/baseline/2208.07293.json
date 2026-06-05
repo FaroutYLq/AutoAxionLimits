@@ -4,13 +4,23 @@
   "coupling_type": "AxionEDM",
   "is_new_limit": true,
   "is_projection": false,
-  "data_points": [],
-  "data_source": "none",
-  "dm_density_assumed": null,
-  "confidence_level": 0.95,
-  "extraction_confidence": 0.3,
-  "suggested_experiment_name": "JEDI_COSY_Deuteron",
-  "notes": "First storage-ring ALP search using a polarized deuteron beam at COSY. The paper sets an upper limit on the oscillating EDM component of the deuteron (AxionEDM) and ALP coupling constants in the axion mass range ~4.95-5.02 neV/c^2 (around spin precession frequency 121 kHz). However, the provided paper content cuts off before the Section IV results tables/figures with the numerical EDM and coupling limits, so no specific (mass, coupling) data points could be extracted. The dominant scan range is m_a ~ 4.95e-9 to 5.02e-9 eV. Local DM density would be assumed (~0.4 GeV/cm^3) but the value is not stated in the available text. | read-vote N=3: ct=AxionEDM (3/3); no consensus curve, took most-points",
-  "num_points": 0,
-  "elapsed_s": 52.09140682220459
+  "data_points": [
+    [
+      4.95e-10,
+      1e-22
+    ],
+    [
+      5.02e-10,
+      1e-22
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "JEDI_COSY_deuteron2023",
+  "coupling_convention": "d_d (oscillating deuteron EDM) in e*cm",
+  "notes": "First storage-ring ALP search (JEDI at COSY) using polarized deuteron beam. Primary result is an upper limit on the oscillating deuteron EDM d_d ~ 1e-22 e*cm (90% CL) in the ALP mass range 4.95-5.02 neV (spin precession ~121 kHz, m_a ~ 5e-10 eV). Paper also derives axion-photon-like coupling g_adgamma and axion-wind coupling C_d/f_a, but the directly quoted new measured result is the EDM limit, hence AxionEDM. Only approximate (~1e-22 e*cm) values extractable from text; detailed Fig. 17 frequency-dependent curve not numerically available. DM density assumed standard ~0.4 GeV/cm^3 (ALP dark matter assumption); exact value not stated in excerpt. | selector: text over figure_vision (quality (1, 1, 1, 1, 0, 0.6, 2)) | [CONVENTION REVIEW] declared coupling convention 'd_d (oscillating deuteron EDM) in e*cm' is not canonical and has no vetted auto-conversion; needs human review | read-vote N=3: ct=AxionEDM (3/3); medoid 0 of 2 curves (med pairwise 0.000 dex)",
+  "num_points": 2,
+  "elapsed_s": 139.52005982398987
 }

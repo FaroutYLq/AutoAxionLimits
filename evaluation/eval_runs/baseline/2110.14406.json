@@ -6,16 +6,113 @@
   "is_projection": false,
   "data_points": [
     [
+      1.9e-06,
+      1e-13
+    ],
+    [
+      2e-06,
+      1e-13
+    ],
+    [
+      2e-06,
+      3e-15
+    ],
+    [
+      3.5e-06,
+      3e-15
+    ],
+    [
+      3.5e-06,
+      7e-14
+    ],
+    [
+      4.5e-06,
+      7e-14
+    ],
+    [
+      4.5e-06,
+      1e-13
+    ],
+    [
+      5.5e-06,
+      1e-13
+    ],
+    [
+      6.5e-06,
+      2e-14
+    ],
+    [
+      7e-06,
+      3e-14
+    ],
+    [
+      7e-06,
+      1e-13
+    ],
+    [
+      8e-06,
+      1e-13
+    ],
+    [
+      9e-06,
+      1.5e-13
+    ],
+    [
+      1e-05,
+      2e-13
+    ],
+    [
+      1.2e-05,
+      2e-13
+    ],
+    [
+      1.5e-05,
+      2e-13
+    ],
+    [
+      2e-05,
+      1.5e-13
+    ],
+    [
+      2.5e-05,
+      8e-14
+    ],
+    [
       2.637e-05,
       2.2e-13
+    ],
+    [
+      2.8e-05,
+      8e-14
+    ],
+    [
+      3e-05,
+      5e-14
+    ],
+    [
+      4e-05,
+      5e-14
+    ],
+    [
+      6e-05,
+      5e-14
+    ],
+    [
+      9e-05,
+      6e-14
+    ],
+    [
+      0.0001,
+      7e-14
     ]
   ],
-  "data_source": "text",
-  "dm_density_assumed": null,
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.8,
-  "suggested_experiment_name": "GrAHal_Pathfinder2021",
-  "notes": "Single exclusion point from pathfinding run: g_agamma <= 2.2e-13 GeV^-1 at m_a = 26.37 ueV (6.375 GHz), 95% CL, assuming axions constitute all local DM. Detailed per-tuning-step limits are only shown in Figure 4 (not numerically tabulated). DM density assumed to be full local halo but exact GeV/cm^3 value not stated in text. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.8, 1)) | read-vote N=3: ct=AxionPhoton (3/3); no consensus curve, took most-points",
-  "num_points": 1,
-  "elapsed_s": 57.53020095825195
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "GrAHal (existing haloscope limits compilation)",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "First pathfinding run sets g_agamma <= 2.2e-13 GeV^-1 (22x KSVZ) at 6.375 GHz (m_a = 26.37 ueV) at 95% CL, assuming axions constitute all local DM. Only a single combined limit value is given in text; the actual exclusion plot (Fig. 4) shows a narrow frequency range around this mass but no tabulated values are provided. Local DM density assumed but not numerically stated. | selector: figure_vision over text (quality (1, 1, 1, 2, 0, 0.55, 25)) | Vision: Figure 2 is a compilation of various haloscope exclusion limits (ADMX, RBF, UF, CAPP-8TB, HAYSTAC, QUAX, ORGAN) plus the GrAHal first result vertical line near 26.37 ueV (g~2.2e-13). The traced lower boundary is approximate, combining the different overlapping experimental regions. The CAST ceiling sits near 3e-11. KSVZ/DFSZ QCD axion band shown as black lines. Data points are rough as the plot shows many distinct experiments rather than a single continuous limit. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.38 snapped to identity) | read-vote N=3: ct=AxionPhoton (3/3); medoid 1 of 3 curves (med pairwise 1.394 dex)",
+  "num_points": 25,
+  "elapsed_s": 99.61319088935852
 }

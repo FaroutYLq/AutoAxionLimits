@@ -19,7 +19,8 @@
   "confidence_level": 0.95,
   "extraction_confidence": 0.6,
   "suggested_experiment_name": "DANCE_Act-1",
-  "notes": "DANCE Act-1 polarization-based optical cavity axion DM search. The paper reports a 95% CL upper limit g_agamma <~ 8e-4 GeV^-1 over the mass range 1e-14 eV < m_a < 1e-13 eV. Only the quoted text-level limit is available; the full spectrum is shown in Fig. 6 but no numerical table is provided, so data points are approximate from the stated bound. DM density rho_a = 0.4 GeV/cm^3 assumed. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.6, 2)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "DANCE Act-1 optical bow-tie cavity, polarization-based axion DM search without magnetic field. Reports 95% CL upper limit g_agamma <= 8e-4 GeV^-1 in mass range 1e-14 to 1e-13 eV. Numerical limit only stated in text/abstract; the detailed exclusion curve is in Fig. 6 but values are not tabulated. The two data points represent the quoted flat bound across the stated mass range. DM density rho_a = 0.4 GeV/cm^3 assumed. | selector: text over figure_vision (quality (1, 1, 1, 1, 0, 0.6, 2)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
   "num_points": 2,
-  "elapsed_s": 62.12127900123596
+  "elapsed_s": 124.0990960597992
 }

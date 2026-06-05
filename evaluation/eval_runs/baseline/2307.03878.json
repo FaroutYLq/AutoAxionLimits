@@ -6,32 +6,32 @@
   "is_projection": false,
   "data_points": [
     [
-      4000000.0,
-      1.5e-07
+      100000.0,
+      1e-05
+    ],
+    [
+      1000000.0,
+      8e-06
+    ],
+    [
+      2000000.0,
+      5e-06
     ],
     [
       5000000.0,
-      8e-08
-    ],
-    [
-      8000000.0,
-      4e-08
+      1e-07
     ],
     [
       10000000.0,
-      3e-08
+      4e-08
     ],
     [
       16000000.0,
       3e-08
     ],
     [
-      20000000.0,
-      4e-08
-    ],
-    [
       30000000.0,
-      6e-08
+      5e-08
     ],
     [
       50000000.0,
@@ -43,7 +43,8 @@
   "confidence_level": 0.95,
   "extraction_confidence": 0.55,
   "suggested_experiment_name": "MiniBooNE_Dump_ALP",
-  "notes": "Paper presents new constraints on ALP-electron (gae) and ALP-photon (gagamma) couplings from MiniBooNE dump-mode data, plus ArgoNeuT projections. The pre-analysis hint of AxionElectron is one of two main results (Fig. 8 for gae, Fig. 7 for gaphoton). Limits given at 2 sigma (~95% CL). Data points are approximate readings from the gae exclusion contour (Fig. 8) since no numerical table is provided; values estimated from text descriptions (resonant peak near ma~10-16 MeV reaching gae~3e-8, undulating features 10-30 MeV). The MiniBooNE limit ranges roughly ma=10^4 to 10^8 eV. Note paper also covers AxionPhoton; confidence lowered due to dual coupling and plot-only data. | selector: text (sole candidate) | read-vote N=3: ct=AxionElectron (3/3); medoid 0 of 3 curves (med pairwise 0.178 dex)",
+  "coupling_convention": "dimensionless g_ae",
+  "notes": "Paper constrains both ALP-photon (ga\u03b3) and ALP-electron (gae) couplings from MiniBooNE dump-mode data and ArgoNeuT projections. Pre-analysis hint of AxionElectron is plausible since both are presented; I report the gae limit (Fig. 8) as the chosen coupling. Data points are approximate readings of the MiniBooNE 2\u03c3 exclusion contour from Fig. 8 (no numerical table provided); values are rough estimates from the described contour features (e.g. resonant peak near ma~10-16 MeV reaching gae~3e-8). The ga\u03b3 result (Fig. 7) would be AxionPhoton at GeV^-1. Beam dump production, not a haloscope, so no DM density. 2\u03c3 C.L. used. | selector: text over figure_vision (quality (1, 1, 1, 3, 0, 0.55, 8)) | read-vote N=3: ct=AxionElectron (3/3); medoid 2 of 3 curves (med pairwise 0.978 dex)",
   "num_points": 8,
-  "elapsed_s": 53.96191382408142
+  "elapsed_s": 113.02811002731323
 }

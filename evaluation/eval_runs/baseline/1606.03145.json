@@ -2,15 +2,16 @@
   "arxiv_id": "1606.03145",
   "paper_title": "The topological susceptibility in finite temperature QCD and axion cosmology",
   "coupling_type": "AxionMass",
-  "is_new_limit": true,
+  "is_new_limit": false,
   "is_projection": false,
   "data_points": [],
   "data_source": "none",
   "dm_density_assumed": null,
   "confidence_level": 0.9,
-  "extraction_confidence": 0.3,
-  "suggested_experiment_name": "Petreczky2016_LatticeChiT",
-  "notes": "Lattice QCD study of topological susceptibility, constraining the axion decay constant f_a vs oscillation temperature (Fig. 6) for QCD axion dark matter. Main quoted bound: f_a <= 1.2e12 GeV. However, the result is presented as f_a vs T_osc (not m_a), and no tabulated (mass, coupling) data points are available; the constraint is a band in the f_a-T_osc plane. No extractable numerical data points for a coupling-vs-mass plane. | read-vote N=3: ct=AxionMass (3/3); no consensus curve, took most-points",
+  "extraction_confidence": 0.2,
+  "suggested_experiment_name": "HISQ_lattice_chi_t_2016",
+  "coupling_convention": "f_a in GeV vs m_a in eV",
+  "notes": "Lattice QCD study of topological susceptibility used to bound the axion decay constant (f_a <= 1.2e12 GeV). While this concerns f_a-m_a, the paper does not provide tabulated (m_a, f_a) exclusion data points; results are presented as a Tosc-fa band in a figure. No numerical exclusion curve extractable from the text. | [CONVENTION REVIEW] declared coupling convention 'f_a in GeV vs m_a in eV' is not canonical and has no vetted auto-conversion; needs human review | read-vote N=3: ct=AxionMass (3/3); no consensus curve, took most-points",
   "num_points": 0,
-  "elapsed_s": 108.53036117553711
+  "elapsed_s": 81.26297998428345
 }

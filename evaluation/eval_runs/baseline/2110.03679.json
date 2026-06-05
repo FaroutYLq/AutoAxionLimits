@@ -6,16 +6,109 @@
   "is_projection": false,
   "data_points": [
     [
+      1e-12,
+      3.4e-11
+    ],
+    [
+      2e-12,
+      3.4e-11
+    ],
+    [
+      5e-12,
+      3.35e-11
+    ],
+    [
       1e-11,
-      3.76e-11
+      3.3e-11
+    ],
+    [
+      2e-11,
+      3.3e-11
+    ],
+    [
+      5e-11,
+      3.3e-11
+    ],
+    [
+      1e-10,
+      3.3e-11
+    ],
+    [
+      2e-10,
+      3.35e-11
+    ],
+    [
+      3e-10,
+      3.4e-11
+    ],
+    [
+      5e-10,
+      3.7e-11
+    ],
+    [
+      7e-10,
+      4.2e-11
+    ],
+    [
+      1e-09,
+      5.2e-11
+    ],
+    [
+      1.5e-09,
+      7e-11
+    ],
+    [
+      2e-09,
+      9e-11
+    ],
+    [
+      3e-09,
+      1.4e-10
+    ],
+    [
+      4e-09,
+      1.9e-10
+    ],
+    [
+      5e-09,
+      2.5e-10
+    ],
+    [
+      6e-09,
+      3.2e-10
+    ],
+    [
+      7e-09,
+      4e-10
+    ],
+    [
+      8e-09,
+      5e-10
+    ],
+    [
+      9e-09,
+      6e-10
+    ],
+    [
+      1e-08,
+      7e-10
+    ],
+    [
+      1.2e-08,
+      8.5e-10
+    ],
+    [
+      1e-07,
+      8.5e-10
     ]
   ],
-  "data_source": "text",
+  "data_source": "figure_vision",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.85,
-  "suggested_experiment_name": "Fermi-LAT_DSNALPB",
-  "notes": "Diffuse supernova ALP background searched via Fermi-LAT. The benchmark 95% CL upper limit is g_agamma <= 3.76e-11 GeV^-1 for m_a << 10^-11 eV. This is a stellar/cosmological bound (not a DM haloscope), so no DM density assumed. Only a single quoted limit value extractable from text; the exclusion is essentially flat for m_a below ~10^-11 eV. | selector: text (sole candidate) | read-vote N=3: ct=AxionPhoton (3/3); no consensus curve, took most-points",
-  "num_points": 1,
-  "elapsed_s": 78.19647598266602
+  "extraction_confidence": 0.82,
+  "suggested_experiment_name": "Fermi-LAT DSNALPB (3D template)",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Diffuse SN ALP background converted to gamma rays via Primakoff in Galactic magnetic field. Benchmark 95% CL upper limit g_agamma < 3.76e-11 GeV^-1 for m_a << 1e-11 eV. Systematic range [2.38, 7.04]e-11 GeV^-1. This is a stellar/cosmological bound, not a haloscope, so no DM density assumed. Limit is flat below ~1e-11 eV; only a single representative point extractable from text (mass placed at 1e-12 eV representing m_a << 1e-11 eV regime). | selector: figure_vision over text (quality (1, 1, 1, 2, 0, 0.82, 24)) | Vision: Boundary traced from red observed 95% CL upper limit in Fig. 10. Flat at ~3.3e-11 GeV^-1 for m_a < ~3e-10 eV, rising for larger masses. Quoted in text g_agamma < 3.76e-11 GeV^-1 for m_a << 1e-11 eV. Plot reading for the flat region is slightly lower (~3.3e-11) than the quoted benchmark; the green/yellow bands surround the observed line. f_fail-CC = 20%. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.57 snapped to identity) | read-vote N=3: ct=AxionPhoton (3/3); medoid 1 of 3 curves (med pairwise 0.018 dex)",
+  "num_points": 24,
+  "elapsed_s": 119.84883379936218
 }

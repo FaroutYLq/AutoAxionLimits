@@ -240,7 +240,10 @@ def test_no_flap_across_master_repeats(tmp_path):
 
 def test_fixtures_present():
     # Guard against an incomplete checkout silently skipping the integration body.
-    assert len([f for f in BASELINE.glob("*.json") if f.stem != "META"]) == 82
+    # Baseline re-pinned to the post-roadmap union(80) (#598 pruned 2 invalid GTs
+    # from the 82-paper pin). The REGRESSED fixture is a frozen 82-paper artifact
+    # (the 2 pruned papers are simply not in SUBSET["union"], so never scored).
+    assert len([f for f in BASELINE.glob("*.json") if f.stem != "META"]) == 80
     assert (BASELINE / "META.json").exists()
     assert len(list(REGRESSED.glob("*.json"))) == 82
     assert len(list(REPEATS.glob("*.json"))) == 33

@@ -7,31 +7,32 @@
   "data_points": [
     [
       1e-22,
-      3.7582616820000005e-11
+      2e-05
     ],
     [
-      1e-10,
-      3.7582616820000005e-11
+      0.001,
+      2e-05
     ],
     [
       1000.0,
-      3.7582616820000005e-11
+      2e-05
     ],
     [
       300000.0,
-      3.7582616820000005e-11
+      2e-05
     ],
     [
       5500000.0,
-      1.879130841e-09
+      2e-05
     ]
   ],
   "data_source": "text",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.55,
-  "suggested_experiment_name": "SNO_SolarAxion2021",
-  "notes": "Paper constrains the isovector axion-nucleon coupling |g3_aN| = |gan-gap|/2 > 2e-5 GeV^-1 at 95% CL for sub-MeV axion masses (exclusion band between 2e-5 and 1e-3 GeV^-1 up to ~5.5 MeV). Note this coupling is in GeV^-1 (derivative coupling), unlike the dimensionless g_an convention in the rubric. Under the assumption of no cancellation between gan and gap, the limit applies to gan/gap individually; hence AxionNeutron is the closest enum match but the primary quantity is isovector g3_aN. Confidence reduced because the primary observable is g3_aN (isovector) rather than g_an specifically, and units differ from the dimensionless convention. Data points are approximate representations of the flat exclusion band reported in text; no exclusion table provided. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.55, 5)) | convention: AxionNeutron C_N/F_a [eV^-1] -> dimensionless g_aN (x1.879e+09) | Auto-corrected couplings: \u00d71e-15 (\u00d71.00e-15, rule=argmin|log10(median*f)-log10(anchor=1.0e-10)|) | read-vote N=3: ct=AxionNeutron (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "SNO_solar_axion",
+  "coupling_convention": "GeV^-1 (isovector g^3_aN = (gan-gap)/2, applied to gan assuming no cancellation)",
+  "notes": "Solar axion search via deuteron dissociation at SNO. Constrains isovector axion-nucleon coupling g^3_aN = (gan-gap)/2 > 2e-5 GeV^-1 (95% CL) for axion masses up to ~5.5 MeV, with upper bound from solar trapping at ~1e-3 GeV^-1. Note this coupling is in GeV^-1 (derivative coupling normalization), NOT dimensionless. Lower edge of exclusion band is flat at 2e-5 GeV^-1 across the full mass range; upper edge at ~1e-3 GeV^-1. Data points given here are the lower (most sensitive) boundary. Equivalent to gan limit assuming no cancellation between gan and gap. Not dark matter dependent. | selector: text over figure_vision (quality (1, 1, 1, 3, 0, 0.7, 5)) | read-vote N=3: ct=AxionNeutron (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
   "num_points": 5,
-  "elapsed_s": 66.84359002113342
+  "elapsed_s": 74.82626986503601
 }

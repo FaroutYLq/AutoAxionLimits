@@ -13,9 +13,10 @@
   "data_source": "text",
   "dm_density_assumed": 0.45,
   "confidence_level": 0.9,
-  "extraction_confidence": 0.8,
+  "extraction_confidence": 0.82,
   "suggested_experiment_name": "ORGAN_Pathfinder",
-  "notes": "ORGAN pathfinding run sets a limit on g_agamma of 2.02e-12 GeV^-1 at 26.531 GHz (110 ueV, ~1.10e-4 eV) at 90% confidence over a narrow 2.5 neV span. The exclusion plot (Fig. 3) spans ~1.0e-4 to 1.2e-4 eV but only the single best limit value is given numerically in the text. DM density of 0.45 GeV/cm^3 mentioned for projections; the measured pathfinder limit assumes standard local halo density. Note paper writes 'eV-1' but means GeV^-1 for g_agamma. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.8, 1)) | read-vote N=3: ct=AxionPhoton (3/3); no consensus curve, took most-points",
+  "coupling_convention": "GeV^-1 (abstract states eV^-1 but figures and KSVZ comparison indicate GeV^-1)",
+  "notes": "ORGAN pathfinding run sets a narrow limit g_agamma = 2.02e-12 GeV^-1 at 26.531 GHz (110 ueV) over ~2.5 neV span at 90% CL. Abstract lists 'eV^-1' but this is inconsistent with figures (GeV^-1) and the '~50x KSVZ' statement, so value treated as GeV^-1. Local DM density 0.45 GeV/cm^3 (used for Stage I projections; pathfinder limit derived from same haloscope power eq.). Stage I/II projections (figs 4,5) not included as those are forecasts. | selector: text over figure_vision (quality (1, 1, 1, 1, 0, 0.82, 1)) | read-vote N=3: ct=AxionPhoton (3/3); no consensus curve, took most-points",
   "num_points": 1,
-  "elapsed_s": 68.21224808692932
+  "elapsed_s": 92.53627800941467
 }

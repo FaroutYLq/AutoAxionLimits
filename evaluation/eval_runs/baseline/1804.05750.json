@@ -6,28 +6,33 @@
   "is_projection": false,
   "data_points": [
     [
-      2.66e-06,
+      1.1e-05,
       5e-16
     ],
     [
-      2.7e-06,
+      1.105e-05,
       5e-16
     ],
     [
-      2.75e-06,
+      1.11e-05,
       5e-16
     ],
     [
-      2.8e-06,
+      1.115e-05,
+      5e-16
+    ],
+    [
+      1.118e-05,
       5e-16
     ]
   ],
   "data_source": "text",
   "dm_density_assumed": 0.45,
   "confidence_level": 0.9,
-  "extraction_confidence": 0.6,
-  "suggested_experiment_name": "ADMX2018",
-  "notes": "ADMX haloscope search 645-680 MHz (2.66-2.81 ueV) reaching DFSZ sensitivity. The exclusion plot (Fig 4) shows |g_agg| in units of 10^-16 GeV^-1 vs axion mass; DFSZ coupling at ~2.8 ueV corresponds roughly to ~2e-16 GeV^-1 and KSVZ to ~5.4e-16 GeV^-1. The limit reaches just below DFSZ across the band. Exact per-mass numerical values are not tabulated; data points are approximate from the plot (~5e-16 GeV^-1 limit level, between DFSZ and KSVZ). Density 0.45 GeV/cm^3 for Maxwellian, 0.63 for N-body. CL=90%. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.6, 4)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.085 dex)",
-  "num_points": 4,
-  "elapsed_s": 93.35584998130798
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "ADMX_2018",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "ADMX haloscope excludes DFSZ axion-photon coupling over 645-680 MHz (2.66-2.81 ueV). The 90% CL exclusion reaches DFSZ coupling (g_agamma ~ 5e-16 GeV^-1 in this mass range). Exact numerical limit values vs mass are only available from Fig. 4 which is not machine-readable; data_points are approximate estimates at DFSZ level. Density assumed 0.45 GeV/cm^3 for Maxwellian model (0.63 for N-body). Mass range 2.66-2.81 ueV converted to eV. | selector: text over figure_vision (quality (1, 1, 1, 3, 0, 0.5, 5)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 1 of 3 curves (med pairwise 0.155 dex)",
+  "num_points": 5,
+  "elapsed_s": 383.7504770755768
 }

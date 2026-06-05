@@ -6,40 +6,161 @@
   "is_projection": false,
   "data_points": [
     [
-      4.14e-23,
-      4e-25
+      1e-24,
+      6e-19
     ],
     [
-      4.14e-22,
-      4e-25
+      3e-24,
+      1e-18
     ],
     [
-      4.14e-21,
-      4e-25
+      6e-24,
+      1.5e-18
     ],
     [
-      4.14e-20,
-      3e-25
+      1e-23,
+      1.5e-18
     ],
     [
-      4.14e-19,
-      3e-25
+      2e-23,
+      1.2e-18
     ],
     [
-      4.14e-18,
-      3e-25
+      4e-23,
+      1e-18
     ],
     [
-      4.14e-17,
-      3e-25
+      8e-23,
+      9e-19
+    ],
+    [
+      1.5e-22,
+      8e-19
+    ],
+    [
+      3e-22,
+      7e-19
+    ],
+    [
+      6e-22,
+      8e-19
+    ],
+    [
+      1e-21,
+      1e-18
+    ],
+    [
+      2e-21,
+      1.5e-18
+    ],
+    [
+      4e-21,
+      3e-18
+    ],
+    [
+      8e-21,
+      8e-18
+    ],
+    [
+      1.5e-20,
+      2e-17
+    ],
+    [
+      3e-20,
+      6e-17
+    ],
+    [
+      6e-20,
+      1.5e-16
+    ],
+    [
+      1e-19,
+      3e-16
+    ],
+    [
+      2e-19,
+      6e-16
+    ],
+    [
+      4e-19,
+      1.2e-15
+    ],
+    [
+      8e-19,
+      2e-15
+    ],
+    [
+      1.5e-18,
+      3e-15
+    ],
+    [
+      3e-18,
+      5e-15
+    ],
+    [
+      6e-18,
+      8e-15
+    ],
+    [
+      1e-17,
+      1e-14
+    ],
+    [
+      3e-17,
+      5e-15
+    ],
+    [
+      1e-16,
+      1e-15
+    ],
+    [
+      3e-16,
+      1e-15
+    ],
+    [
+      1e-15,
+      9e-16
+    ],
+    [
+      3e-15,
+      9e-16
+    ],
+    [
+      1e-14,
+      9e-16
+    ],
+    [
+      3e-14,
+      9e-16
+    ],
+    [
+      1e-13,
+      9e-16
+    ],
+    [
+      3e-13,
+      1e-15
+    ],
+    [
+      1e-12,
+      1e-15
+    ],
+    [
+      3e-12,
+      1e-15
+    ],
+    [
+      1e-11,
+      1.5e-15
     ]
   ],
-  "data_source": "text",
+  "data_source": "figure_vision",
   "dm_density_assumed": 0.4,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.45,
-  "suggested_experiment_name": "nEDM_PSI_ILL_2017",
-  "notes": "Paper presents limits on oscillating neutron EDM (dn ~ few x10^-25 e.cm amplitude from Fig.2), interpreted as axion-gluon coupling CG/fa (Fig.4 top) and axion-nucleon coupling CN/fa (Fig.4 bottom). The primary exclusion plot y-axes are CG/fa and CN/fa (GeV^-1), not d_n directly, which complicates coupling-type assignment. The oscillating EDM (AxionEDM) values are approximate estimates from Fig.2 (~3-4 x10^-25 e.cm). Mass range 1e-24 to 1e-17 eV (freq converted via m=4.136e-15*f). Note: the paper could equally be classified under AxionNeutron (axion-wind) or as f_a-plane constraints; ambiguity lowers confidence. DM density 0.4 GeV/cm^3 assumed (axions saturate local DM). | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.45, 7)) | read-vote N=3: ct=AxionEDM (3/3); medoid 0 of 3 curves (med pairwise 3.123 dex)",
-  "num_points": 7,
-  "elapsed_s": 111.0062141418457
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "nEDM (PSI/ILL) ultracold neutron-Hg comagnetometer",
+  "coupling_convention": "CG/fa in GeV^-1 (axion-gluon coupling), NOT d_n in e*cm",
+  "notes": "Paper (nEDM, Abel et al. 2017) reports two limits from Fig. 4: axion-gluon coupling CG/fa (GeV^-1) via oscillating neutron EDM, and axion-nucleon coupling CN/fa (GeV^-1) via axion-wind effect. The pre-analysis hint of AxionEDM is approximately right in spirit (oscillating EDM search), but the actual plotted y-axis is CG/fa in GeV^-1, NOT d_n in e*cm \u2014 so the convention differs from standard AxionEDM (e*cm). Peak sensitivity CG/fa ~ 1e21 GeV (i.e. CG/fa ~ 1e-21 GeV^-1) for ma<1e-23 eV. The axion-nucleon part (AxionNeutron) reaches fa/CN ~ 4e5 GeV for 1e-19 to 1e-17 eV. Data points estimated from Fig. 4 (plots only, no table); values are rough order-of-magnitude reads of the exclusion contour. Low confidence due to dual coupling types and plot-only data with non-standard convention. dm_density = 0.4 GeV/cm^3 assumed. | selector: figure_vision over plot (quality (1, 1, 1, 2, 0, 0.4, 37)) | Vision: Figure 4 top panel y-axis is C_G/f_a in GeV^-1, not literally d_n in e\u00b7cm; the hint requested AxionEDM/d_n. Traced the combined nEDM exclusion boundary (short + long time-base, blue/red). Values reported on the C_G/f_a axis (1e-24 to 1e-3) per calibration. Coupling type assignment uncertain since plot axis is C_G/f_a; confidence lowered accordingly. | Calibration: No calibration needed | [CONVENTION REVIEW] declared coupling convention 'CG/fa in GeV^-1 (axion-gluon coupling), NOT d_n in e*cm' is not canonical and has no vetted auto-conversion; needs human review | read-vote N=3: ct=AxionEDM (2/3); medoid 0 of 2 curves (med pairwise 7.896 dex)",
+  "num_points": 37,
+  "elapsed_s": 132.8654317855835
 }

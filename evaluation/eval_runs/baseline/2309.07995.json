@@ -10,132 +10,189 @@
       5e-24
     ],
     [
-      1.2e-12,
-      4.5e-24
-    ],
-    [
-      1.5e-12,
+      1.3e-12,
       4e-24
     ],
     [
+      1.6e-12,
+      3.5e-24
+    ],
+    [
       2e-12,
-      3.6e-24
+      3e-24
     ],
     [
       2.5e-12,
-      3.3e-24
+      3e-24
     ],
     [
       3e-12,
-      3.1e-24
+      3e-24
     ],
     [
       3.5e-12,
-      3e-24
+      3.2e-24
     ],
     [
       4e-12,
-      2.9e-24
+      3.5e-24
+    ],
+    [
+      4.3e-12,
+      1e-23
     ],
     [
       4.5e-12,
-      2.9e-24
+      1e-22
+    ],
+    [
+      4.6e-12,
+      1e-21
+    ],
+    [
+      4.7e-12,
+      1e-20
     ],
     [
       5e-12,
-      3e-24
+      1e-19
+    ],
+    [
+      5.3e-12,
+      1e-22
     ],
     [
       5.5e-12,
-      3.2e-24
+      1e-23
+    ],
+    [
+      5.8e-12,
+      4e-24
     ],
     [
       6e-12,
       3.5e-24
     ],
     [
-      6.5e-12,
-      4e-24
-    ],
-    [
       7e-12,
-      4.5e-24
-    ],
-    [
-      7.5e-12,
-      5e-24
+      3.5e-24
     ],
     [
       8e-12,
-      5e-24
+      4e-24
     ],
     [
       9e-12,
-      5.2e-24
+      1e-23
     ],
     [
       1e-11,
-      5.3e-24
+      1e-22
+    ],
+    [
+      1.05e-11,
+      1e-21
     ],
     [
       1.1e-11,
-      5.4e-24
+      1e-20
     ],
     [
       1.2e-11,
-      5.5e-24
+      1e-21
+    ],
+    [
+      1.3e-11,
+      1e-22
     ],
     [
       1.4e-11,
-      5.6e-24
+      4e-23
     ],
     [
-      1.6e-11,
-      5.7e-24
+      1.5e-11,
+      4e-23
     ],
     [
-      1.8e-11,
-      5.8e-24
+      1.7e-11,
+      5e-23
+    ],
+    [
+      1.9e-11,
+      8e-23
     ],
     [
       2e-11,
-      5.9e-24
+      1e-22
     ],
     [
-      2.5e-11,
-      6e-24
+      2.1e-11,
+      1e-21
+    ],
+    [
+      2.2e-11,
+      5e-22
+    ],
+    [
+      2.4e-11,
+      1e-22
+    ],
+    [
+      2.6e-11,
+      8e-23
+    ],
+    [
+      2.8e-11,
+      8e-23
     ],
     [
       3e-11,
-      6e-24
+      9e-23
     ],
     [
-      3.5e-11,
-      6.1e-24
+      3.3e-11,
+      1e-22
     ],
     [
-      4e-11,
-      6.2e-24
+      3.6e-11,
+      2e-22
     ],
     [
-      4.5e-11,
-      6.3e-24
+      3.9e-11,
+      5e-22
+    ],
+    [
+      4.1e-11,
+      1e-22
+    ],
+    [
+      4.4e-11,
+      9e-23
+    ],
+    [
+      4.7e-11,
+      1e-22
     ],
     [
       5e-11,
-      6.5e-24
+      1.5e-22
+    ],
+    [
+      5.3e-11,
+      4e-22
     ],
     [
       5.5e-11,
-      6.6e-24
+      1e-21
     ]
   ],
   "data_source": "figure_vision",
   "dm_density_assumed": 0.4,
-  "confidence_level": 0.9,
-  "extraction_confidence": 0.6,
-  "suggested_experiment_name": "Eot-Wash + LIGO/Virgo (existing B-L bounds shown in HeLIOS Fig.1)",
-  "notes": "This is a projection/sensitivity paper for a superfluid helium optomechanical detector. It proposes searches for both scalar UDM (coupling to electron mass, d_me, ScalarElectron) and vector UDM (coupling to B-L number, g_B-L, VectorBL). The pre-analysis hint of VectorBL is consistent with the right panel of Fig. 1, but the paper equally constrains ScalarElectron (left panel). No numerical data points are given in tables or text \u2014 projections are shown only as curves in Fig. 1 (g_B-L axis spans ~1e-26 to 1e-16, masses ~1-50 peV). No exclusion limits are actually measured (thermal motion not observed in prototype). Mass range ~1-50 peV (kHz frequency range). Confidence kept low due to dual coupling types and absence of extractable numbers. | selector: figure_vision (sole candidate) | Vision: Right panel of Fig.1 is the vector UDM (g_BL) plot. The lower boundary of the existing exclusion region is set by Eot-Wash (green) and LIGO/Virgo (teal) constraints. X-axis in peV converted to eV (1 peV = 1e-12 eV). Y-axis is g_BL with ticks 1e-26 to 1e-16. The HeLIOS projected sensitivities (red, dashed) lie above these existing bounds and are not the existing exclusion. Values are approximate readings from the log-log plot. | Calibration: No calibration needed | read-vote N=3: ct=VectorBL (3/3); medoid 0 of 3 curves (med pairwise 0.622 dex)",
-  "num_points": 31,
-  "elapsed_s": 117.50112199783325
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "HeLIOS",
+  "coupling_convention": "dimensionless g_B-L",
+  "notes": "Prototype superfluid helium optomechanical UDM detector. Paper presents projected sensitivities (1-hour integration) for both scalar UDM (d_me coupling to electron mass, ScalarElectron) and vector UDM (g_B-L, VectorBL). It is a projection, not an observed limit (no thermal-noise-limited readout achieved yet). The vector plot covers ~3-50 kHz Compton frequency (m ~ 1e-11 to 2e-10 eV) with g_B-L from ~1e-26 to 1e-16. No numerical table of exclusion curve points is given; values must be read from Fig. 1 which is not reproducible from the text, so data_points is empty. Both ScalarElectron and VectorBL are constrained; VectorBL chosen per hint and B-L explicit in text. | selector: figure_vision (sole candidate) | Vision: Right panel: vector B-L coupling g_BL vs vector boson mass [peV]. The shaded green/red region represents projected/achievable HeLIOS limits plus existing bounds (Eot-Wash, LIGO/Virgo). The boundary traced is the lower envelope of the LIGO/Virgo + HeLIOS pressurize bounds, with sharp peaked resonant structures at the mechanical mode frequencies. Mass converted from peV to eV. X-axis calibration per instructions (1-50 peV range). | Calibration: No calibration needed | read-vote N=3: ct=VectorBL (3/3); medoid 0 of 3 curves (med pairwise 0.677 dex)",
+  "num_points": 45,
+  "elapsed_s": 126.61230206489563
 }

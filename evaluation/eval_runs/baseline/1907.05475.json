@@ -6,20 +6,137 @@
   "is_projection": false,
   "data_points": [
     [
-      1e-13,
+      1e-20,
       6.3e-13
     ],
     [
-      1e-12,
+      1e-19,
       6.3e-13
+    ],
+    [
+      1e-18,
+      6.3e-13
+    ],
+    [
+      1e-17,
+      6.3e-13
+    ],
+    [
+      3e-17,
+      6.3e-13
+    ],
+    [
+      5e-17,
+      7e-13
+    ],
+    [
+      1e-16,
+      7e-13
+    ],
+    [
+      1e-15,
+      7e-13
+    ],
+    [
+      1e-14,
+      7e-13
+    ],
+    [
+      1e-13,
+      7e-13
+    ],
+    [
+      3e-13,
+      7e-13
+    ],
+    [
+      5e-13,
+      6.3e-13
+    ],
+    [
+      7e-13,
+      6.3e-13
+    ],
+    [
+      9e-13,
+      6.5e-13
+    ],
+    [
+      1e-12,
+      7.2e-13
+    ],
+    [
+      1.2e-12,
+      6.3e-13
+    ],
+    [
+      1.5e-12,
+      6.5e-13
+    ],
+    [
+      2e-12,
+      6.3e-13
+    ],
+    [
+      3e-12,
+      6.3e-13
+    ],
+    [
+      4e-12,
+      6.5e-13
+    ],
+    [
+      5e-12,
+      7e-13
+    ],
+    [
+      6e-12,
+      6.5e-13
+    ],
+    [
+      8e-12,
+      5e-13
+    ],
+    [
+      1e-11,
+      3.5e-13
+    ],
+    [
+      1.5e-11,
+      2e-13
+    ],
+    [
+      2e-11,
+      1.6e-13
+    ],
+    [
+      2.5e-11,
+      2.5e-13
+    ],
+    [
+      3e-11,
+      5e-13
+    ],
+    [
+      4e-11,
+      1.5e-12
+    ],
+    [
+      5e-11,
+      3e-12
+    ],
+    [
+      6e-11,
+      4e-12
     ]
   ],
-  "data_source": "text",
+  "data_source": "figure_vision",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
   "extraction_confidence": 0.8,
-  "suggested_experiment_name": "Chandra_NGC1275_HETG",
-  "notes": "ALP-photon conversion limit from X-ray transparency of Perseus cluster ICM. 99.7% credible limit g_agamma < 6.3e-13 GeV^-1 (Model-A) and < 7.9e-13 GeV^-1 (Model-B) for m_a < 1e-12 eV. This is an astrophysical (non-DM) bound, so no DM density assumed. Limit applies as a flat upper bound across masses below ~1e-12 eV; only representative endpoints given since no detailed exclusion table provided. Confidence level for the quoted strongest limit is 99.7% (=3 sigma); I set 0.95 as nearest enum option but note the headline limit is 99.7%. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.8, 2)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
-  "num_points": 2,
-  "elapsed_s": 63.657979249954224
+  "suggested_experiment_name": "Chandra HETG NGC 1275 (Model-A, 99.7% excl.)",
+  "coupling_convention": "GeV^-1 g_agamma",
+  "notes": "Astrophysical bound (X-ray transparency of ICM, not a DM haloscope so no DM density). 99.7% credible region: g_agamma < 6.3e-13 GeV^-1 (Model-A) and < 7.9e-13 GeV^-1 (Model-B) for m_a < 1e-12 eV. The conservative limit (Model-B, 7.9e-13) is used as a flat upper limit across the constrained mass range below 1e-12 eV. Note limits quoted at 99.7% (3-sigma) credible level, not 95%; reported confidence_level field set to closest enum value 0.95 but actual is 99.7%. | selector: figure_vision over text (quality (1, 1, 1, 2, 0, 0.8, 31)) | Vision: Traced lower boundary of HETG (99.7% excl.) excluded region for Model-A (top panel). Plateau at ~6.3-7e-13 GeV^-1 for m_a < ~1e-12 eV, with a sharp dip down to ~1.6e-13 near 2e-11 eV before rising. The paper quotes g_agamma < 6.3e-13 GeV^-1 (Model-A) at 99.7%. Confidence level marked as 99.7% in paper (~3 sigma); reported here as 0.95 per schema options. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity) | read-vote N=3: ct=AxionPhoton (3/3); medoid 1 of 3 curves (med pairwise 0.015 dex)",
+  "num_points": 31,
+  "elapsed_s": 117.86023592948914
 }

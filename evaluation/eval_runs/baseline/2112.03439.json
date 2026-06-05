@@ -8,9 +8,10 @@
   "data_source": "none",
   "dm_density_assumed": 0.471,
   "confidence_level": 0.9,
-  "extraction_confidence": 0.15,
-  "suggested_experiment_name": "BreakthroughListen_GBT_LS",
-  "notes": "This paper constrains dark matter decay rate (lambda ~ 1e-32 s^-1) and annihilation cross section (<sigma v> ~ 1e-30 cm^3/s) via a radio line search, NOT a standard axion-photon coupling g_agamma. The y-axis of the exclusion plots is decay rate [s^-1] or cross-section [cm^3 s^-1], which do not map cleanly onto any of the available coupling_type enums. The hint of AxionPhoton is not directly supported since limits are presented model-independently as lambda and <sigma v>, not g_agamma. No coupling-vs-mass data in the required units is extractable. Frequency range 1020-2700 MHz corresponds to photon energies ~8.4e-6 to ~1.1e-5 eV (DM mass twice that for decay). NFW local density 0.471 GeV/cm^3 (Burkert 0.487) noted. | read-vote N=2: ct=None (2/2); no consensus curve, took most-points",
+  "extraction_confidence": 0.2,
+  "suggested_experiment_name": "BreakthroughListen_GBT_LS_2025",
+  "coupling_convention": "s^-1",
+  "notes": "This is a model-independent radio telescope search for ultralight bosonic dark matter decay/annihilation to a quasimonochromatic radio line over 1020-2700 MHz. Limits are reported on the decay constant lambda (~1e-32 s^-1) and velocity-weighted annihilation cross section <sigma v> (~1e-30 cm^3 s^-1), NOT on a standard coupling like g_agamma. The paper explicitly assumes two-photon final states for simplicity but does not convert to g_agamma. The pre-analysis hint of AxionPhoton does not match: the y-axis quantities are decay rate [s^-1] and cross section [cm^3 s^-1], which do not map to any enum coupling type. Local DM density (NFW) ~0.471 GeV/cm^3 (Burkert ~0.487). No extractable (mass_eV, coupling) data points in the required convention. The 3-sigma limits are shown in Figures 8 and 9 but in lifetime/cross-section units. Confidence level is 3-sigma (treated as ~0.99 but recorded 0.90 as closest enum). | read-vote N=3: ct=None (3/3); no consensus curve, took most-points",
   "num_points": 0,
-  "elapsed_s": 85.36056303977966
+  "elapsed_s": 89.69535613059998
 }

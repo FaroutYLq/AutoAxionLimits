@@ -2,15 +2,93 @@
   "arxiv_id": "1711.08999",
   "paper_title": "Overview of the Cosmic Axion Spin Precession Experiment (CASPEr)",
   "coupling_type": "AxionNeutron",
-  "is_new_limit": false,
+  "is_new_limit": true,
   "is_projection": true,
-  "data_points": [],
-  "data_source": "none",
+  "data_points": [
+    [
+      1e-14,
+      2e-16
+    ],
+    [
+      3e-14,
+      4e-16
+    ],
+    [
+      1e-13,
+      8e-16
+    ],
+    [
+      3e-13,
+      1.5e-15
+    ],
+    [
+      1e-12,
+      3e-15
+    ],
+    [
+      3e-12,
+      6e-15
+    ],
+    [
+      1e-11,
+      1e-14
+    ],
+    [
+      3e-11,
+      1.1e-14
+    ],
+    [
+      1e-10,
+      1.1e-14
+    ],
+    [
+      3e-10,
+      1.2e-14
+    ],
+    [
+      1e-09,
+      1.5e-14
+    ],
+    [
+      3e-09,
+      2e-14
+    ],
+    [
+      1e-08,
+      3e-14
+    ],
+    [
+      3e-08,
+      4.5e-14
+    ],
+    [
+      1e-07,
+      7e-14
+    ],
+    [
+      3e-07,
+      1e-13
+    ],
+    [
+      1e-06,
+      1.5e-13
+    ],
+    [
+      3e-06,
+      2.5e-13
+    ],
+    [
+      1e-05,
+      4e-13
+    ]
+  ],
+  "data_source": "figure_vision",
   "dm_density_assumed": 0.4,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.3,
-  "suggested_experiment_name": "CASPEr",
-  "notes": "This is an overview/proposal paper presenting sensitivity projections (not measured limits) for CASPEr Electric (axion-gluon EDM coupling g_d) and CASPEr Wind (ALP-nucleon coupling g_aNN). Figs. 3 and 4 show projected reach but no numerical values are tabulated in the text \u2014 only a schematic plot. The paper covers two distinct couplings (AxionEDM/g_d for Electric and AxionNeutron/g_aNN for Wind via 129Xe which is neutron-rich), so coupling type is ambiguous and no extractable data points are available. Local DM density assumed ~0.4 GeV/cm^3. | read-vote N=3: ct=AxionNeutron (2/3); no consensus curve, took most-points",
-  "num_points": 0,
-  "elapsed_s": 62.32738399505615
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "CASPEr Wind (projected)",
+  "coupling_convention": "dimensionless g_an (note: paper plots g_aNN in GeV^-1 which is non-standard)",
+  "notes": "Overview paper presenting projected sensitivities for CASPEr Electric (axion-gluon EDM coupling g_d, Fig.3) and CASPEr Wind (axion-nucleon coupling g_aNN, Fig.4). These are sensitivity projections, not measured limits. Numerical data only available as shaded regions in figures (Fig.3, Fig.4) that cannot be reliably digitized from the text. Fig.4 plots g_aNN in GeV^-1 (a non-standard convention; the dimensionless g_an would require multiplying by a nucleon mass scale). The paper covers both AxionEDM (CASPEr Electric) and AxionNeutron (CASPEr Wind) \u2014 coupling type is ambiguous between the two branches, hence reduced confidence. No tabulated data points are provided. | selector: figure_vision (sole candidate) | Vision: Figure 4 (CASPEr Wind) shows projected sensitivity for g_aNN (ALP nucleon coupling) vs ALP mass, not actual exclusions. Lower boundary traced along the 'spin noise' dashed line which forms the lower envelope of the sensitivity regions. y-axis ticks: 1e-8,1e-10,1e-12,1e-14,1e-16 GeV^-1. These are projections. The calibration provided (y 1e-22 to 1e-7) does not match Fig 4 exactly; used Fig 4 readings. | Calibration: No calibration needed | read-vote N=3: ct=AxionNeutron (2/3); medoid 0 of 2 curves (med pairwise 0.176 dex)",
+  "num_points": 19,
+  "elapsed_s": 481.5209279060364
 }

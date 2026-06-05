@@ -6,116 +6,97 @@
   "is_projection": false,
   "data_points": [
     [
-      60000000.0,
-      7.499999999999999e-06
-    ],
-    [
       65000000.0,
-      6.8e-06
+      8e-05
     ],
     [
       70000000.0,
-      6.200000000000001e-06
+      6.8e-05
     ],
     [
       75000000.0,
-      5.600000000000001e-06
+      6e-05
     ],
     [
       80000000.0,
-      5.2e-06
+      5.4e-05
     ],
     [
       90000000.0,
-      4.6e-06
+      4.6e-05
     ],
     [
       100000000.0,
-      4.1000000000000006e-06
+      4e-05
     ],
     [
       110000000.0,
-      3.7e-06
+      3.6e-05
     ],
     [
       120000000.0,
-      3.4e-06
+      3.3e-05
     ],
     [
       130000000.0,
-      3.1000000000000004e-06
-    ],
-    [
-      140000000.0,
-      2.9e-06
+      3e-05
     ],
     [
       150000000.0,
-      2.7e-06
-    ],
-    [
-      160000000.0,
-      2.5e-06
+      2.6e-05
     ],
     [
       170000000.0,
-      2.4000000000000003e-06
-    ],
-    [
-      180000000.0,
-      2.3e-06
+      2.4e-05
     ],
     [
       190000000.0,
-      2.2e-06
+      2.25e-05
     ],
     [
-      200000000.0,
-      2.1e-06
+      210000000.0,
+      2.15e-05
     ],
     [
-      220000000.0,
-      2.0000000000000003e-06
+      230000000.0,
+      2.08e-05
     ],
     [
-      240000000.0,
-      1.9000000000000002e-06
+      250000000.0,
+      2.02e-05
     ],
     [
-      260000000.0,
-      1.85e-06
+      270000000.0,
+      1.98e-05
     ],
     [
-      280000000.0,
-      1.8000000000000001e-06
+      290000000.0,
+      1.95e-05
     ],
     [
-      300000000.0,
-      1.78e-06
+      310000000.0,
+      1.95e-05
     ],
     [
-      320000000.0,
-      1.8000000000000001e-06
+      330000000.0,
+      2e-05
     ],
     [
-      340000000.0,
-      1.85e-06
-    ],
-    [
-      350000000.0,
-      1.95e-06
+      345000000.0,
+      2.15e-05
     ],
     [
       355000000.0,
-      2.1e-06
+      2.5e-05
     ]
   ],
   "data_source": "figure_vision",
   "dm_density_assumed": null,
-  "confidence_level": 0.95,
-  "extraction_confidence": 0.8,
-  "suggested_experiment_name": "FASER ALP-W (2022-2023)",
-  "notes": "The paper's primary target is the ALP-W model (g_aWW coupling to weak gauge bosons), but it also reinterprets results for an ALP-photon model (g_agamma). The provided content does not include the actual numerical exclusion limit curves (no result tables or extractable data points in the text given). The paper constrains multiple coupling types (g_aWW, g_agamma, g_agg, U(1)_B, up-philic scalar, 2HDM). Without the figures/tables containing the limit values, no numerical data points can be extracted. Confidence in coupling type is low because the primary result is g_aWW (not in the enum), and AxionPhoton is only a secondary reinterpretation. | selector: figure_vision (sole candidate) | Vision: ALP-W coupling g_aWW. Lower boundary of the observed exclusion limit traced from image 4. The exclusion region is a closed loop; reported here is the lower edge of the loop. X-axis log scale 60-500 MeV, Y-axis log scale 1e-5 to 1e-3 in 1/GeV. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.29) | read-vote N=3: ct=AxionPhoton (3/3); medoid 1 of 3 curves (med pairwise 1.002 dex)",
-  "num_points": 26,
-  "elapsed_s": 81.91313004493713
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.82,
+  "suggested_experiment_name": "FASER (ALP-W, photonic final states)",
+  "coupling_convention": "g_agamma in GeV^-1 (ALP-photon interpretation, Fig. 11 left); note primary result is g_aWW in GeV^-1",
+  "notes": "FASER search for long-lived particles decaying to two photons using 57.7 fb^-1 of 13.6 TeV pp data. The PRIMARY target is an ALP coupled to weak gauge bosons (g_aWW in GeV^-1), which has no exact match in the enum. The paper also provides reinterpretations for ALP-photon (g_agamma, GeV^-1, Fig. 11 left), ALP-gluon, U(1)_B gauge boson, up-philic scalar, 2HDM, and dark photon. Exclusion limits are at 90% C.L. (CLs). Text gives ALP-W numbers: masses 100-250 MeV excluded for g_aWW = 3e-5 to 5e-4 GeV^-1; mass up to 300 MeV (3e8 eV) excluded at g_aWW = 2e-5 GeV^-1. No precise numerical (mass,coupling) pairs are available for the ALP-photon interpretation in the provided text\u2014limits are presented only as contour plots (Fig. 11). This is a collider/beam-dump-style production search, not a DM haloscope, so no DM density applies. Confidence kept low because the dominant coupling (g_aWW) is not the standard AxionPhoton g_agamma and no extractable numerical data points exist. | selector: figure_vision (sole candidate) | Vision: Fig. 10 ALP-W exclusion. Lower boundary of observed limit (blue solid) traced. X-axis is m_a in MeV converted to eV; y-axis g_aWW in 1/GeV. Excluded region is between lower and upper branches (closed contour); lower branch traced here as the principal lower boundary. Turnaround near 340-350 MeV at the right edge of exclusion. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.25 snapped to identity) | read-vote N=3: ct=AxionPhoton (3/3); medoid 2 of 3 curves (med pairwise 0.025 dex)",
+  "num_points": 21,
+  "elapsed_s": 145.17032408714294
 }

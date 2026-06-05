@@ -1,12 +1,12 @@
 {
-  "baseline_commit": "74c079e9c9a809cc78728cf104b12156eb3033b1",
+  "baseline_commit": "a4c4768c9a6bf38cbbcce669b878729657a8bcce",
   "model": "claude-opus-4-8",
   "subset_key": "union",
-  "n_papers": 82,
+  "n_papers": 80,
   "read_samples": 3,
-  "created_utc": "2026-06-04T02:19:41Z",
-  "overall_median_resid": 0.5769578217636457,
-  "zero_overlap": 16,
-  "figure_vision_median": 2.0119304919379344,
-  "note": "N=3 read-voted (AAL_READ_SAMPLES=3) union baseline in the post-#580 no-temperature regime. The auto-required gate compares an N=3 after-snapshot against this; N=3 voting (#584) + G2/G3 flap slack keep a no-op pair within tolerance. Re-pin with the same N=3 union extraction (+ this META) when extraction legitimately improves."
+  "created_utc": "2026-06-05T04:20:45Z",
+  "overall_median_resid": 0.391,
+  "zero_overlap": 9,
+  "figure_vision_median": 0.614,
+  "note": "N=3 read-voted (AAL_READ_SAMPLES=3) union(80) baseline, re-pinned after the #596/#597/#598/#600 roadmap batch (post-#594 DECLARED-convention regime; the prior baseline was pre-#594 conv=None and could not exercise the both-sides canonicalizer). Supersedes the 2026-06-04 82-paper pin (median 0.577, ZO 16); #598 pruned 2 invalid GTs (82->80). The opt-in gate compares an N=3 after-snapshot against this. Re-pin with the same N=3 union extraction (+ this META) when extraction legitimately improves."
 }
