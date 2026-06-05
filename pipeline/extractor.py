@@ -25,6 +25,7 @@ import httpx
 from .transform_guard import (
     Candidate,
     ConsistencyScore,
+    convention_review_needed,
     couplings_y_const,
     guard_transform,
     in_valid_ranges,
@@ -1419,6 +1420,27 @@ def run_extraction_agent(
         logger.info(
             "Using pre-classifier coupling %s (conf=%.2f) for %s",
             pre_ct, pre_conf, arxiv_id,
+        )
+
+    # --- Convention review flag (#536/#587 runtime hybrid: escalate-on-unknown) ---
+    # If the model declared an output convention that is neither canonical nor a
+    # registry-convertible alternate, we cannot canonicalize it deterministically;
+    # flag the PR [CONVENTION REVIEW] (cap confidence below LOW_CONFIDENCE_THRESHOLD)
+    # so a human resolves it rather than emitting a possibly-mis-converted limit.
+    # Eval-neutral: only confidence + notes change (data_points/coupling_type intact).
+    declared_conv = stage1_result.get("coupling_convention")
+    if declared_conv and declared_conv != "canonical" \
+            and convention_review_needed(final_ct, declared_conv):
+        prior_conf = float(stage1_result.get("extraction_confidence", 0.0) or 0.0)
+        stage1_result["extraction_confidence"] = min(prior_conf, 0.5)
+        stage1_result["notes"] = (
+            stage1_result.get("notes", "")
+            + f" | [CONVENTION REVIEW] declared coupling convention '{declared_conv}' "
+            "is not canonical and has no vetted auto-conversion; needs human review"
+        )
+        logger.warning(
+            "Convention review for %s (%s): unknown declared convention %r; flagged",
+            arxiv_id, final_ct, declared_conv,
         )
 
     return ExtractionResult(
