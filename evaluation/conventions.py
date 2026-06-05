@@ -125,6 +125,17 @@ def infer_convention(
             return "d_e_large", "large-valued scalar coupling variable (non-d_e convention)"
         return "d_e", "d_e (dimensionless)"
 
+    if coupling_type in ("ScalarNucleon", "ScalarBaryon"):
+        # Same trap as ScalarPhoton/Electron: the canonical dimensionless
+        # coupling is <= O(1), but several repo files store a large-valued
+        # variable (e.g. ScalarNucleon/IUPUI.txt ~7.5e3..2.2e17, the Yukawa
+        # |alpha|-relative-to-gravity or 1/Lambda convention — #536 / #587 P-B,
+        # 1410.7267). Mark those so the comparator refuses the cross-convention
+        # residual instead of scoring a ~9-16 dex units gap as extraction error.
+        if ymax > 1e3:
+            return "coupling_large", "large-valued scalar coupling variable (non-dimensionless convention)"
+        return "coupling", "coupling (dimensionless)"
+
     if coupling_type == "DarkPhoton":
         # epsilon (kinetic mixing) vs epsilon^2. Both span wide ranges and the
         # repo canonical form is epsilon, so we keep the canonical default
