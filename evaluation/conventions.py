@@ -50,7 +50,7 @@ _CANONICAL: dict[str, tuple[str, str]] = {
     "AxionElectron":  ("g_ae",        "g_ae (dimensionless)"),
     "AxionNeutron":   ("g_an",        "g_an (dimensionless)"),
     "AxionProton":    ("g_ap",        "g_ap (dimensionless)"),
-    "AxionEDM":       ("d_n",         "d_n [e cm]"),
+    "AxionEDM":       ("g_angamma",   "g_angamma [GeV^-2]"),
     "AxionCPV":       ("coupling",    "coupling (dimensionless)"),
     "AxionMass":      ("f_a_norm",    "normalized axion coupling (dimensionless)"),
     "MonopoleDipole": ("coupling",    "coupling (dimensionless)"),
@@ -210,6 +210,13 @@ _FILE_CONVENTION: dict[str, str] = {
     "limit_data/AxionProton/SNO.txt":  "g_aN_over_mN_inv_gev",
 }
 
+# Sentinel returned by `classify_reported_convention` for an extraction whose
+# DECLARED convention is recognized but has NO vetted closed-form conversion to
+# canonical (e.g. an AxionEDM oscillating-EDM amplitude in e*cm, which maps to
+# g_angamma only through the per-point field amplitude a_0 = sqrt(2 rho)/m_a).
+# The comparator treats this as a convention gap (exclude), NOT extraction error.
+UNCONVERTIBLE = "__unconvertible__"
+
 # Recognized source-convention tokens per coupling family (canonical first).
 _CANONICAL_TOKEN = {
     "AxionNeutron": "g_aN", "AxionProton": "g_aN",
@@ -312,8 +319,25 @@ def classify_reported_convention(coupling_type: Optional[str],
             return "epsilon_squared"
         return None
     if coupling_type == "AxionEDM":
-        if "1/f_a" in u or "invfa" in u or "1/fa" in u:
+        # Canonical AxionEDM = g_angamma [GeV^-2] (#604: every repo AxionEDM file
+        # is g_{a gamma n}/g_d/g_EDM [GeV^-2], NOT d_n [e cm]). Two cases:
+        #  (a) the gluon coupling C_G/f_a (== 1/f_a with C_G~1) [GeV^-1] -> convert
+        #      x3.7e-3 to canonical (1708.06367 declares 'CG/fa in GeV^-1').
+        #  (b) the oscillating EDM AMPLITUDE d_n/d_d [e cm], or a bare 'GeV^-1'
+        #      (the magnitude is the e*cm amplitude, e.g. 2204.01454/2101.01241/
+        #      2208.07293): NOT convertible to g_angamma without the mass-dependent
+        #      field amplitude a_0 = sqrt(2 rho)/m_a (a per-point response factor,
+        #      not a constant — see EXPLAIN Sec.3b). Flag UNCONVERTIBLE so the
+        #      comparator EXCLUDES it (convention gap) instead of scoring a ~14-dex
+        #      raw units mismatch as extraction error.
+        if "gev^-2" in u or "gev-2" in u or "g_angamma" in u or "g_{a" in u:
+            return None  # already canonical g_angamma [GeV^-2]
+        if any(t in u for t in ("1/f_a", "invfa", "1/fa", "cg/fa", "c_g/f_a",
+                                "c_g/(f_a", "gluon")):
             return "inv_fa"
+        if any(t in u for t in ("e*cm", "ecm", "e cm", "e·cm",
+                                "d_n", "d_d", "edm")) or inv_gev:
+            return UNCONVERTIBLE
         return None
     if coupling_type in ("ScalarPhoton", "ScalarElectron"):
         # The ONLY scalar conversion enabled (#600, vetted EXPLAIN Sec.1): the
