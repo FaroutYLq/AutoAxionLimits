@@ -161,3 +161,104 @@ def infer_convention_for_repo_file(
         if len(parts) >= 2 and parts[0] == "limit_data":
             coupling = _DIR_TO_COUPLING.get(parts[1], coupling_type_fallback)
     return infer_convention(coupling, data_file)
+
+
+# ---------------------------------------------------------------------------
+# Per-convention CANONICALIZATION (#536 / #587) — vetted closed-form conversions
+# ---------------------------------------------------------------------------
+# Source: GPD/explanations/coupling-convention-conversions-EXPLAIN.md, every
+# factor below verified directly against PlotFuncs.py / PlotFuncs_ScalarVector.py
+# / the notebooks (not guessed). The canonical variable per coupling type is the
+# DIMENSIONLESS quantity the repo PLOTS. `to_canonical` maps a curve in a named
+# source convention TO canonical so the comparator can score like-for-like.
+#
+# NOTE (wiring): this is the deterministic core. Converting only ONE side breaks
+# pairs that already agree in a shared non-canonical convention, so the caller
+# MUST canonicalize BOTH the GT curve (its file convention, resolvable here) AND
+# the extraction (its reported convention) before computing residuals. Applying
+# the same factor to both sides preserves an existing match and fixes a mismatch.
+
+import math as _math
+
+# Nucleon masses [GeV] — exactly the values PlotFuncs.py uses in-code.
+_M_NUCLEON_GEV = {"AxionNeutron": 0.93957, "AxionProton": 0.93828}
+
+# Per-FILE source-convention overrides (verified from PlotFuncs.py per-file
+# multipliers). Default for AxionNeutron/Proton files is g_aNN = C_N/(2 f_a)
+# [GeV^-1] (-> x2 m_N); SNO stores g_aN/m_N [GeV^-1] (-> x m_N only).
+_FILE_CONVENTION: dict[str, str] = {
+    "limit_data/AxionNeutron/SNO.txt": "g_aN_over_mN_inv_gev",
+    "limit_data/AxionProton/SNO.txt":  "g_aN_over_mN_inv_gev",
+}
+
+# Recognized source-convention tokens per coupling family (canonical first).
+_CANONICAL_TOKEN = {
+    "AxionNeutron": "g_aN", "AxionProton": "g_aN",
+    "ScalarPhoton": "d_e",  "ScalarElectron": "d_me",
+    "ScalarNucleon": "d_e", "ScalarBaryon": "d_e",
+    "DarkPhoton": "chi", "AxionMass": "inv_fa", "AxionEDM": "g_angamma",
+}
+
+
+def file_source_convention(reference_repo_file: Optional[str],
+                           coupling_type: Optional[str]) -> Optional[str]:
+    """Source convention token for a GT data file (per-file override, else the
+    family default for files known to store a non-canonical variable). Returns
+    None when the file is taken to already be canonical / is unknown."""
+    if reference_repo_file and reference_repo_file in _FILE_CONVENTION:
+        return _FILE_CONVENTION[reference_repo_file]
+    # Family defaults for the stored variable (verified): nucleon files store the
+    # GeV^-1 derivative coupling; the repo multiplies by 2 m_N to plot.
+    if coupling_type in ("AxionNeutron", "AxionProton"):
+        return "g_aNN_inv_gev"
+    return None
+
+
+def to_canonical(coupling_type: Optional[str], data_points, convention: Optional[str]):
+    """Convert ``data_points`` from ``convention`` to the canonical variable for
+    ``coupling_type``. Pure, closed-form. Returns ``(points, note)``; points are
+    returned UNCHANGED with note="" when the convention is already canonical,
+    empty, or not a recognized/convertible alternate (the caller then decides to
+    compare, flag, or exclude). Never raises.
+    """
+    if not data_points or not coupling_type or not convention:
+        return data_points, ""
+    conv = convention.strip().lower()
+    canon = _CANONICAL_TOKEN.get(coupling_type)
+    if canon and conv == canon.lower():
+        return data_points, ""
+    try:
+        # --- Axion-nucleon: GeV^-1 derivative coupling -> dimensionless g_aN ---
+        if coupling_type in ("AxionNeutron", "AxionProton"):
+            m_n = _M_NUCLEON_GEV[coupling_type]
+            if conv in ("g_ann_inv_gev", "g_ann", "gev^-1", "inv_gev"):
+                f = 2.0 * m_n           # g_aN = 2 m_N * (C_N/2 f_a)
+                return [(m, g * f) for m, g in data_points], (
+                    f"convention: {coupling_type} g_aNN [GeV^-1] -> dimensionless "
+                    f"(x2 m_N = {f:.4g})")
+            if conv in ("g_an_over_mn_inv_gev", "g_an/m_n"):
+                f = m_n                 # SNO file: g_aN = m_N * (g_aN/m_N)
+                return [(m, g * f) for m, g in data_points], (
+                    f"convention: {coupling_type} g_aN/m_N [GeV^-1] -> dimensionless "
+                    f"(x m_N = {f:.4g})")
+
+        # --- Scalar / dilaton: fifth-force alpha -> dimensionless d_e / d_me ---
+        if coupling_type in ("ScalarPhoton", "ScalarElectron", "ScalarNucleon", "ScalarBaryon"):
+            if conv in ("alpha_fifthforce", "alpha", "yukawa_alpha"):
+                pref = 4000.0 if coupling_type == "ScalarElectron" else 500.0
+                out = [(m, pref * _math.sqrt(g)) for m, g in data_points if g > 0]
+                return out, f"convention: Scalar Yukawa alpha -> d ({pref:g}*sqrt(alpha))"
+
+        # --- DarkPhoton: epsilon^2 -> kinetic mixing chi ---
+        if coupling_type == "DarkPhoton" and conv in ("epsilon_squared", "eps^2", "chi^2"):
+            return [(m, _math.sqrt(g)) for m, g in data_points if g > 0], (
+                "convention: DarkPhoton eps^2 -> chi (sqrt)")
+
+        # --- AxionMass / AxionEDM linear links ---
+        if coupling_type == "AxionEDM" and conv in ("inv_fa", "1/f_a"):
+            f = 3.7e-3              # g_angamma [GeV^-2] = 3.7e-3 * (1/f_a) [GeV^-1]
+            return [(m, g * f) for m, g in data_points], (
+                "convention: 1/f_a [GeV^-1] -> g_angamma [GeV^-2] (x3.7e-3)")
+    except Exception:
+        return data_points, ""   # never break the comparator on a bad point
+    return data_points, ""
