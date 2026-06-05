@@ -157,6 +157,7 @@ class ExtractionResult:
     extraction_confidence: float           # 0.0 – 1.0
     abstract: str = ""
     notes: str = ""                        # Free-form notes from Claude
+    coupling_convention: Optional[str] = None  # model-declared convention/units of the EMITTED data_points (#536/#587)
 
 
 # ---------------------------------------------------------------------------
@@ -387,6 +388,7 @@ Respond ONLY with a JSON object with these keys:
     "ScalarElectron", "ScalarBaryon", "ScalarNucleon", "VectorBL"] or null,
   "data_points": [[mass_eV, coupling], ...],
   "data_source": "table" | "text" | "none",
+  "coupling_convention": str,
   "dm_density_assumed": float | null,
   "polarization_assumption": str | null,
   "confidence_level": 0.90 or 0.95,
@@ -394,6 +396,12 @@ Respond ONLY with a JSON object with these keys:
   "extraction_confidence": float,
   "notes": str
 }}
+
+"coupling_convention": the units/variable that YOUR emitted ``data_points`` coupling \
+values are in (after any conversion you applied) — e.g. "dimensionless g_an", \
+"GeV^-1", "eV^-1", "d_e", "e cm", "eps^2". This records the convention of YOUR \
+OUTPUT so downstream code can canonicalize. If your values are already the standard \
+dimensionless/GeV^-1 form for the coupling type, say so. If unsure, "".
 
 Coupling type disambiguation (use EXACTLY one of the enum values above):
 - VectorBL = U(1)_{{B-L}} gauge boson (g_BL), NOT a generic dark photon
@@ -1350,6 +1358,9 @@ def run_extraction_agent(
             stage1_result["data_points"] = [list(p) for p in data_points]
             stage1_result["notes"] = stage1_result.get("notes", "") + " | " + conv_note
             logger.info("Convention normalize for %s: %s", arxiv_id, conv_note)
+            # normalize_convention canonicalized the emitted data -> declare it
+            # canonical so the comparator does not double-convert (#536/#587).
+            stage1_result["coupling_convention"] = "canonical"
 
     # --- Vision calibration: benchmark + verification pass ---
     if stage1_result.get("data_source") == "figure_vision" and data_points:
@@ -1426,6 +1437,11 @@ def run_extraction_agent(
         extraction_confidence=float(stage1_result.get("extraction_confidence", 0.0)),
         abstract=paper.summary[:1000],
         notes=stage1_result.get("notes", ""),
+        # Model-declared convention of the emitted data (#536/#587). "canonical"
+        # when normalize_convention already canonicalized it; else the model's
+        # reported output units, falling back to the vision-read y-axis unit.
+        coupling_convention=(stage1_result.get("coupling_convention")
+                             or stage1_result.get("_axis_y_unit") or None),
     )
 
 

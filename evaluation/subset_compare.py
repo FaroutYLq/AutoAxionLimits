@@ -38,7 +38,12 @@ from evaluation.evaluate import (
     _normalize_predicted_coupling,
     _usable_gt_stats,
 )
-from evaluation.conventions import canonical_convention
+from evaluation.conventions import (
+    canonical_convention,
+    classify_reported_convention,
+    file_source_convention,
+    to_canonical,
+)
 from evaluation.metrics import _filter_boundary, compute_interpolation_metrics
 from evaluation.diagnose_zero_overlap import _classify, _ceil_for, _mass_range
 from evaluation.ground_truth import GroundTruthEntry, load_ground_truth
@@ -56,6 +61,18 @@ def _load_result_dir(d: Path) -> dict[str, dict]:
         except Exception:
             continue
     return out
+
+
+def _canonicalize_curve(coupling_type, arr: np.ndarray, token) -> np.ndarray:
+    """Apply a vetted `to_canonical` conversion to an Nx2 curve (no-op if token is
+    None / unknown). Returns the (possibly converted) array."""
+    if token is None or arr is None or len(arr) == 0:
+        return arr
+    pts = [(float(m), float(g)) for m, g in arr]
+    out, _note = to_canonical(coupling_type, pts, token)
+    if not out:
+        return arr
+    return np.array(out, dtype=float, ndmin=2)
 
 
 def _paper_record(arxiv_id: str, result: dict,
@@ -113,14 +130,28 @@ def _paper_record(arxiv_id: str, result: dict,
             continue
         _, n_mass = _usable_gt_stats(gt, predicted_ct)
         if n_mass >= 2:
-            candidates.append((n_mass, gt))
+            candidates.append((n_mass, e, gt))
     if not candidates:
         # Distinguish a pure convention gap (excluded from residuals, a benchmark
         # units artifact) from a genuinely missing/unusable GT curve.
         rec["status"] = "convention_mismatch" if has_convention_mismatch else "no_comparable_gt"
         return rec
     candidates.sort(key=lambda t: -t[0])
-    gt_data = candidates[0][1]
+    _, gt_entry, gt_data = candidates[0]
+
+    # --- Both-sides convention canonicalization (#536/#587 registry) ----------
+    # Convert BOTH the extraction and the GT curve to the canonical variable
+    # before scoring, for the VETTED families (axion-nucleon x2 m_N / SNO x m_N,
+    # DarkPhoton eps^2->chi, AxionEDM). Scalars are NOT converted here (native-file
+    # mapping unverified) — they remain governed by the convention_mismatch guard
+    # above. Back-compat: only canonicalize when the extraction DECLARES its
+    # convention (new `coupling_convention` field); field-less snapshots are left
+    # raw so converting one side alone cannot break a shared-convention match.
+    if result.get("coupling_convention"):
+        ext_token = classify_reported_convention(predicted_ct, result.get("coupling_convention"))
+        gt_token = file_source_convention(gt_entry.reference_repo_file, predicted_ct)
+        ext_array = _canonicalize_curve(predicted_ct, ext_array, ext_token)
+        gt_data = _canonicalize_curve(predicted_ct, gt_data, gt_token)
 
     im = compute_interpolation_metrics(arxiv_id, ext_array, gt_data,
                                        coupling_type=predicted_ct)
