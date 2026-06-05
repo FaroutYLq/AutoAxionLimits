@@ -262,3 +262,30 @@ def to_canonical(coupling_type: Optional[str], data_points, convention: Optional
     except Exception:
         return data_points, ""   # never break the comparator on a bad point
     return data_points, ""
+
+
+# Map a model-DECLARED output-convention/units string (the convention the
+# extractor says its emitted data_points are in) to a `to_canonical` token.
+# Conservative: returns a non-canonical alternate ONLY on a clear unit signal,
+# else None (treated as canonical / no conversion). Used to canonicalize the
+# EXTRACTION side (the GT side uses `file_source_convention`).
+def classify_reported_convention(coupling_type: Optional[str],
+                                 units_label: Optional[str]) -> Optional[str]:
+    if not coupling_type or not units_label:
+        return None
+    u = units_label.lower().replace(" ", "")
+    # Inverse-GeV (prefix-aware: must be 'gev', not bare 'ev' which is eV^-1).
+    inv_gev = any(t in u for t in ("gev^-1", "gev-1", "gev^{-1}", "gev$^{-1}$", "1/gev"))
+    if coupling_type in ("AxionNeutron", "AxionProton"):
+        return "g_aNN_inv_gev" if inv_gev else None
+    if coupling_type == "DarkPhoton":
+        if "eps^2" in u or "epsilon^2" in u or "chi^2" in u or "squared" in u:
+            return "epsilon_squared"
+        return None
+    if coupling_type == "AxionEDM":
+        if "1/f_a" in u or "invfa" in u or "1/fa" in u:
+            return "inv_fa"
+        return None
+    # Scalars deliberately NOT auto-converted here (native-file mapping partly
+    # unverified — #536); they keep the #591 exclusion guard.
+    return None

@@ -162,3 +162,41 @@ def test_canonical_or_unknown_is_unchanged():
     assert to_canonical("AxionProton", pts, "g_aN") == (pts, "")  # already canonical
     assert to_canonical("AxionNeutron", [], "g_aNN_inv_gev") == ([], "")
     assert to_canonical("AxionNeutron", pts, None) == (pts, "")
+
+
+# ---------------------------------------------------------------------------
+# Comparator both-sides canonicalization (#536/#587 wiring)
+# ---------------------------------------------------------------------------
+
+def _gt_entry(coupling_type, convention, repo_file, data):
+    return _StubGT(coupling_type, convention, repo_file, data)
+
+
+def test_comparator_canonicalizes_both_axion_nucleon():
+    # GT file is raw GeV^-1 g_aNN; extraction declares GeV^-1. Both get x2 m_N,
+    # so a shared-GeV^-1 match is PRESERVED (equal factor both sides).
+    gt = _gt_entry("AxionProton", "g_ap", "limit_data/AxionProton/NASDUCK-SERF.txt",
+                   [[1e-13, 1e-9], [1e-12, 2e-9], [1e-11, 3e-9]])
+    res = {"coupling_type": "AxionProton",
+           "data_points": [[1e-13, 1.05e-9], [1e-11, 2.9e-9]],
+           "data_source": "text", "coupling_convention": "GeV^-1"}
+    rec = sc._paper_record("2209.13588-like", res, [gt])
+    assert rec["status"] == "compared"
+    assert rec["median_resid"] < 0.5   # near-match preserved, not a ~0.3 dex 2m_N gap
+
+
+def test_comparator_no_field_is_backcompat_noop():
+    # Field-less snapshot (old): no canonicalization -> raw comparison (unchanged).
+    gt = _gt_entry("AxionProton", "g_ap", "limit_data/AxionProton/NASDUCK-SERF.txt",
+                   [[1e-13, 1e-9], [1e-11, 3e-9]])
+    res = {"coupling_type": "AxionProton",
+           "data_points": [[1e-13, 1e-9], [1e-11, 3e-9]], "data_source": "text"}
+    rec = sc._paper_record("nofield", res, [gt])
+    assert rec["status"] == "compared"  # still compared, no crash, raw
+
+
+def test_comparator_canonicalize_helper_noop_on_unknown():
+    import numpy as np
+    arr = np.array([[1e-5, 1e-12]])
+    out = sc._canonicalize_curve("AxionPhoton", arr, None)
+    assert np.array_equal(out, arr)
