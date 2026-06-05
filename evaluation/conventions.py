@@ -67,11 +67,24 @@ def canonical_convention(coupling_type: str) -> tuple[Optional[str], Optional[st
     return _CANONICAL.get(coupling_type, (None, None))
 
 
-def _coupling_value_range(data_file: Path) -> Optional[tuple[float, float]]:
-    """(min, max) of strictly-positive y-values in a 2-column data file.
+# Polygon-closing `fill_between` vertices (`1e20`, `1e30`, `1e99`, and other
+# huge "fill walls") are sentinels, NOT coupling values. They must be stripped
+# BEFORE range-based convention discrimination, else a genuine-`d_e` file (e.g.
+# ScalarElectron/HSi.txt interior 1e-5..1e-2 with a trailing `1e30` row) is
+# misread as the large-valued non-`d_e` convention. The vetted rule
+# (GPD/explanations/coupling-convention-conversions-EXPLAIN.md, "Sentinel rule"):
+# discard rows with y >= 1e19 before classifying. No genuine coupling — including
+# the largest decay scale f_a ~ 1e18 GeV — reaches 1e19.
+_SENTINEL_FLOOR = 1e19
 
-    Tolerant of comment lines and comma-separated rows. Returns None if the
-    file is missing, single-column, or has no positive y-values.
+
+def _coupling_value_range(data_file: Path) -> Optional[tuple[float, float]]:
+    """(min, max) of strictly-positive, non-sentinel y-values in a 2-column file.
+
+    Tolerant of comment lines and comma-separated rows. Strips `fill_between`
+    sentinel rows (y >= ``_SENTINEL_FLOOR``) so the range reflects real interior
+    couplings. Returns None if the file is missing, single-column, or has no
+    positive non-sentinel y-values.
     """
     if not data_file.exists():
         return None
@@ -85,7 +98,7 @@ def _coupling_value_range(data_file: Path) -> Optional[tuple[float, float]]:
     if arr is None or arr.ndim != 2 or arr.shape[1] < 2:
         return None
     y = arr[:, 1]
-    y = y[np.isfinite(y) & (y > 0)]
+    y = y[np.isfinite(y) & (y > 0) & (y < _SENTINEL_FLOOR)]
     if y.size == 0:
         return None
     return float(np.min(y)), float(np.max(y))

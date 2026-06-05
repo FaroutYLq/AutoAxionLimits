@@ -61,6 +61,26 @@ def test_scalar_baryon_small_is_canonical(tmp_path):
     assert conv == "coupling"
 
 
+def test_sentinel_row_does_not_inflate_genuine_de(tmp_path):
+    # ScalarElectron/HSi.txt shape: genuine d_e interior (1e-5..1e-2) with a
+    # trailing 1e30 fill-wall sentinel. Sentinel-aware range discrimination
+    # (#596) must classify it as d_e, NOT d_e_large (the sentinel-unaware
+    # classifier mislabeled it, which would wrongly exclude the paper).
+    f = tmp_path / "HSi.txt"
+    f.write_text("1e-5 1.2e-5\n1e-4 1e-3\n1e-3 1e-2\n1e-2 1e30\n")
+    conv, _ = infer_convention("ScalarElectron", f)
+    assert conv == "d_e"
+
+
+def test_sentinel_does_not_hide_large_interior(tmp_path):
+    # A genuinely large-valued (fifth-force) file with a sentinel row must still
+    # be tagged large — stripping the sentinel leaves the >1e3 interior.
+    f = tmp_path / "IUPUI.txt"
+    f.write_text("1e-5 7.5e3\n1e-4 1e10\n1e-3 2.2e17\n1e-2 1e30\n")
+    conv, _ = infer_convention("ScalarNucleon", f)
+    assert conv == "coupling_large"
+
+
 # ---------------------------------------------------------------------------
 # subset_compare convention guard
 # ---------------------------------------------------------------------------
