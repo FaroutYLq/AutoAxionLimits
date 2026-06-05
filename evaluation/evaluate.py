@@ -296,6 +296,7 @@ def run_extraction(entry: GroundTruthEntry) -> dict:
         "confidence_level": result.confidence_level,
         "extraction_confidence": result.extraction_confidence,
         "suggested_experiment_name": result.suggested_experiment_name,
+        "coupling_convention": result.coupling_convention,  # #536/#587 — needed by the comparator canonicalizer
         "notes": result.notes,
         "num_points": len(result.data_points),
         "elapsed_s": elapsed,
