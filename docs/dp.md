@@ -231,3 +231,4 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+- **NuSTAR_StrayLight_DPDM**: [Shedding Stray Light on Decaying Light Dark Matter: Constraints from NuSTAR X-ray Observations](https://arxiv.org/abs/2606.03396)
