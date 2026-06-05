@@ -64,6 +64,42 @@ def _load_result_dir(d: Path) -> dict[str, dict]:
     return out
 
 
+# Canonical wide mass window for mass-independent (flat) bounds (Lever E, #587).
+# A bound the extractor reports as mass-independent records no usable mass (every
+# row has mass <= 0, its sentinel). Encoded that way it survives no boundary
+# filter (`_filter_boundary` drops mass <= 0), so it can never overlap a GT curve
+# and is spuriously scored zero_overlap even when its coupling matches GT
+# (e.g. 2007.03694 RedGiants: g_ae ~ 1.3e-13, matches GT to ~0.04 dex but mass=0).
+_FLAT_BOUND_MASS_LO = 1e-30
+_FLAT_BOUND_MASS_HI = 1e4
+
+
+def _expand_mass_independent(arr: np.ndarray) -> np.ndarray:
+    """Expand a mass-independent extraction to a horizontal segment.
+
+    If every row has mass <= 0 (the extractor's mass-independent sentinel) but at
+    least one coupling is positive, return a 2-row segment at the median positive
+    coupling spanning ``[_FLAT_BOUND_MASS_LO, _FLAT_BOUND_MASS_HI]`` so the
+    comparator can score the coupling against the GT at the GT's own masses.
+    Otherwise return ``arr`` unchanged.
+
+    A flat bound is physically valid at every mass, so this is faithful, not a GT
+    edit: only the *extraction* is reshaped, the GT curve is untouched. A flat
+    extraction vs a mass-dependent GT still scores its true per-mass coupling gap
+    (the median residual is then large) — no masking of a real extraction miss.
+    """
+    if arr is None or len(arr) == 0:
+        return arr
+    masses = arr[:, 0]
+    if np.any(masses > 0):
+        return arr  # usable mass info present; not a flat-bound sentinel
+    valid = arr[:, 1][arr[:, 1] > 0]
+    if valid.size == 0:
+        return arr
+    g = float(np.median(valid))
+    return np.array([[_FLAT_BOUND_MASS_LO, g], [_FLAT_BOUND_MASS_HI, g]], dtype=float)
+
+
 def _canonicalize_curve(coupling_type, arr: np.ndarray, token) -> np.ndarray:
     """Apply a vetted `to_canonical` conversion to an Nx2 curve (no-op if token is
     None / unknown). Returns the (possibly converted) array."""
@@ -105,6 +141,10 @@ def _paper_record(arxiv_id: str, result: dict,
         rec["status"] = "no_extracted_points"
         return rec
     ext_array = np.array(extracted_points, dtype=float, ndmin=2)
+    # Lever E (#587): a mass-independent (flat) extraction is recorded with no
+    # usable mass (all masses <= 0) and would be dropped by boundary filtering —
+    # expand it to a horizontal segment so its coupling can be scored vs GT.
+    ext_array = _expand_mass_independent(ext_array)
 
     # Convention guard (#536): a GT curve whose coupling_convention differs from
     # the extraction's expected (canonical) convention is NOT comparable — the
