@@ -7,35 +7,36 @@
   "data_points": [
     [
       200000000.0,
-      0.003
+      0.007
     ],
     [
       250000000.0,
-      0.0025
+      0.005
     ],
     [
       300000000.0,
-      0.002
+      0.004
     ],
     [
       360000000.0,
-      0.001
+      0.0015
     ],
     [
       400000000.0,
-      0.0025
+      0.004
     ],
     [
       450000000.0,
-      0.003
+      0.005
     ]
   ],
   "data_source": "text",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
   "extraction_confidence": 0.3,
-  "suggested_experiment_name": "GlueX_Primakoff_ALP",
-  "notes": "ALP-photon coupling search via nuclear Primakoff production at GlueX. The exclusion is on 1/Lambda (GeV^-1) from the interaction L = (1/4Lambda) a F F~, equivalent to g_agamma. Mass range 200-450 MeV (2e8-4.5e8 eV). Limits at O(1 TeV) scale, i.e. 1/Lambda ~ 1e-3 GeV^-1, with most stringent apparent limit ~1e-3 at 360 MeV. Data points are approximate, read from Fig. 7/8 (observed 95% CL). Fixed-target/collider-style bound, so no DM density. Projections for Pb target also presented but not included here as they are projections. | selector: text over figure_vision (quality (0, 1, 1, 2, 0, 0.6, 6)) | contract: median outside VALID_RANGES after corrections (flagged low confidence) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.153 dex)",
+  "suggested_experiment_name": "GlueX_Primakoff_ALP_2023",
+  "coupling_convention": "1/Lambda in GeV^-1 (equivalent to g_agamma)",
+  "notes": "ALP-photon coupling 1/Lambda limit from Primakoff production on 12C, mass range 200-450 MeV. The y-axis is 1/Lambda in GeV^-1, where the effective coupling is g_agamma=1/Lambda. Limits are at the O(1 TeV) scale, i.e. 1/Lambda ~ 1e-3 GeV^-1. Data points are approximate readings from Fig. 7/8 (no numerical table provided); the most stringent point is ~1.5e-3 GeV^-1 near 360 MeV. Values are eyeball estimates from plots, hence moderate confidence. | selector: text over figure_vision (quality (0, 1, 1, 3, 0, 0.55, 6)) | contract: median outside VALID_RANGES after corrections (flagged low confidence) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.062 dex)",
   "num_points": 6,
-  "elapsed_s": 98.55879020690918
+  "elapsed_s": 115.577317237854
 }

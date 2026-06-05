@@ -6,152 +6,21 @@
   "is_projection": false,
   "data_points": [
     [
-      2.1855e-05,
-      7.3e-15
-    ],
-    [
       2.186e-05,
-      7e-15
-    ],
-    [
-      2.1865e-05,
-      6.7e-15
-    ],
-    [
-      2.187e-05,
-      6.9e-15
-    ],
-    [
-      2.1875e-05,
-      6.8e-15
-    ],
-    [
-      2.188e-05,
-      6.9e-15
-    ],
-    [
-      2.1885e-05,
-      6.85e-15
-    ],
-    [
-      2.189e-05,
-      6.9e-15
-    ],
-    [
-      2.1895e-05,
-      6.8e-15
-    ],
-    [
-      2.19e-05,
-      6.9e-15
-    ],
-    [
-      2.1903e-05,
-      7.3e-15
-    ],
-    [
-      2.1906e-05,
-      5.5e-15
-    ],
-    [
-      2.1908e-05,
-      7e-15
-    ],
-    [
-      2.1912e-05,
-      6.9e-15
-    ],
-    [
-      2.1916e-05,
-      6.7e-15
-    ],
-    [
-      2.192e-05,
-      6.8e-15
-    ],
-    [
-      2.1925e-05,
-      6.85e-15
-    ],
-    [
-      2.193e-05,
-      6.9e-15
-    ],
-    [
-      2.1935e-05,
-      6.7e-15
-    ],
-    [
-      2.194e-05,
-      6.8e-15
-    ],
-    [
-      2.1945e-05,
-      6.7e-15
-    ],
-    [
-      2.195e-05,
-      6.85e-15
-    ],
-    [
-      2.1955e-05,
-      6.9e-15
-    ],
-    [
-      2.196e-05,
-      6.5e-15
-    ],
-    [
-      2.1962e-05,
-      6e-15
-    ],
-    [
-      2.1965e-05,
-      6.6e-15
-    ],
-    [
-      2.197e-05,
-      6.8e-15
-    ],
-    [
-      2.1975e-05,
-      6.7e-15
-    ],
-    [
-      2.198e-05,
-      6.85e-15
-    ],
-    [
-      2.1985e-05,
-      6.7e-15
-    ],
-    [
-      2.199e-05,
-      6.8e-15
-    ],
-    [
-      2.1993e-05,
-      6.5e-15
-    ],
-    [
-      2.1996e-05,
-      6.9e-15
+      1.91e-14
     ],
     [
       2.2e-05,
-      7e-15
-    ],
-    [
-      2.2003e-05,
-      7.3e-15
+      1.91e-14
     ]
   ],
-  "data_source": "figure_vision",
+  "data_source": "text",
   "dm_density_assumed": 0.45,
   "confidence_level": 0.9,
   "extraction_confidence": 0.7,
   "suggested_experiment_name": "CAPP-12T",
-  "notes": " | selector: figure_vision (sole candidate) | Vision: Y-axis is in units of g_a\u03b3\u03b3/g_a\u03b3\u03b3^KSVZ (0.75-2.0 linear). Converted using KSVZ coupling \u22487.3e-15 GeV^-1 at 22 \u03bceV. The exclusion boundary lies around 0.93\u00d7KSVZ with dips at mode crossings near 21.905 and 21.962 \u03bceV. Inset shows broader context with other experiments. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.15 snapped to identity) | read-vote N=3: ct=AxionPhoton (3/3); medoid 1 of 3 curves (med pairwise 0.045 dex)",
-  "num_points": 35,
-  "elapsed_s": 136.86796522140503
+  "coupling_convention": "GeV^-1; derived from ga\u03b3\u03b3 \u2248 0.93 \u00d7 gKSVZ, KSVZ |ga\u03b3\u03b3| \u2248 2.05e-14 GeV^-1 at 22 \u00b5eV",
+  "notes": "Cavity haloscope search 21.86-22.00 \u00b5eV (5.20-5.35 GHz). Excluded ga\u03b3\u03b3 \u2273 0.93 \u00d7 gKSVZ at 90% CL. Mass range corresponds to ~21.86-22.00 \u00b5eV. Coupling values estimated from KSVZ coupling scaling (gKSVZ ~2e-14 GeV^-1 at this mass \u00d7 0.93 ~1.9e-14 GeV^-1). Only endpoints of flat exclusion band given; actual limit varies slightly with frequency. \u03c1a = 0.45 GeV/cm^3 assumed. | selector: text over figure_vision (quality (1, 1, 1, 1, 0, 0.7, 2)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.419 dex)",
+  "num_points": 2,
+  "elapsed_s": 109.84767818450928
 }

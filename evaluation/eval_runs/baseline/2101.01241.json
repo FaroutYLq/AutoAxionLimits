@@ -15,11 +15,12 @@
     ]
   ],
   "data_source": "text",
-  "dm_density_assumed": 0.4,
+  "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.7,
-  "suggested_experiment_name": "CASPEr-electric",
-  "notes": "CASPEr solid-state NMR search for axion-like dark matter via EDM coupling g_d (and gradient coupling g_aNN). The g_d limit corresponds to oscillating neutron EDM amplitude < 1.0e-21 e*cm over mass range 162-166 neV (39.1-40.2 MHz). Limit reported as |g_d|<9.5e-4 GeV^-2, equivalently d_n < 1.0e-21 e*cm. Only flat representative endpoints from text given; full curve in Fig 3(a) not numerically available. DM density rho_DM = 3.6e-42 GeV^4 ~ 0.4 GeV/cm^3 standard halo assumed. Could alternatively be classified AxionNeutron (g_aNN) but primary result is EDM/d_n. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.7, 2)) | read-vote N=3: ct=AxionEDM (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "CASPEr-e_2021",
+  "coupling_convention": "d_n in e*cm (oscillating neutron EDM amplitude)",
+  "notes": "CASPEr-electric solid-state NMR search, 162-166 neV. Main limit: |g_d|<9.5e-4 GeV^-2, corresponding to oscillating neutron EDM amplitude <1.0e-21 e*cm. Paper also reports gradient coupling g_aNN<2.8e-1 GeV^-1 (would be AxionNeutron). Reported as flat upper bound over the ~162-166 neV mass band. Mass range derived from 39.1-40.2 MHz Compton frequency (m=4.136e-15*f); using stated 162-166 neV. Data points given as band endpoints from text since no table extracted. Standard DM density rho_DM=3.6e-42 GeV^4 assumed but not in GeV/cm^3 explicitly. | selector: text over figure_vision (quality (1, 1, 1, 1, 0, 0.6, 2)) | [CONVENTION REVIEW] declared coupling convention 'd_n in e*cm (oscillating neutron EDM amplitude)' is not canonical and has no vetted auto-conversion; needs human review | read-vote N=3: ct=AxionEDM (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
   "num_points": 2,
-  "elapsed_s": 105.44765901565552
+  "elapsed_s": 102.06193780899048
 }

@@ -4,13 +4,147 @@
   "coupling_type": "AxionElectron",
   "is_new_limit": true,
   "is_projection": true,
-  "data_points": [],
-  "data_source": "none",
+  "data_points": [
+    [
+      1000.0,
+      2.9999999999999997e-12
+    ],
+    [
+      1200.0,
+      2.9999999999999997e-12
+    ],
+    [
+      1500.0,
+      2.8999999999999998e-12
+    ],
+    [
+      2000.0,
+      2.8e-12
+    ],
+    [
+      2500.0,
+      2.7000000000000002e-12
+    ],
+    [
+      3000.0,
+      2.7000000000000002e-12
+    ],
+    [
+      3500.0,
+      2.8e-12
+    ],
+    [
+      4000.0,
+      2.8999999999999998e-12
+    ],
+    [
+      4500.0,
+      2.9999999999999997e-12
+    ],
+    [
+      4800.0,
+      3.3e-12
+    ],
+    [
+      5000.0,
+      2.5e-12
+    ],
+    [
+      5200.0,
+      2e-12
+    ],
+    [
+      5500.0,
+      1.9e-12
+    ],
+    [
+      6000.0,
+      1.8e-12
+    ],
+    [
+      6500.0,
+      1.9e-12
+    ],
+    [
+      7000.0,
+      2.2e-12
+    ],
+    [
+      7500.0,
+      2.6000000000000002e-12
+    ],
+    [
+      8000.0,
+      2.9999999999999997e-12
+    ],
+    [
+      8500.0,
+      3.4e-12
+    ],
+    [
+      9000.0,
+      4e-12
+    ],
+    [
+      9300.0,
+      5e-12
+    ],
+    [
+      9500.0,
+      4.5e-12
+    ],
+    [
+      10000.0,
+      4.5e-12
+    ],
+    [
+      12000.0,
+      5e-12
+    ],
+    [
+      15000.0,
+      5.4999999999999996e-12
+    ],
+    [
+      18000.0,
+      5.9999999999999995e-12
+    ],
+    [
+      20000.0,
+      6.499999999999999e-12
+    ],
+    [
+      25000.0,
+      7.5e-12
+    ],
+    [
+      30000.0,
+      8.5e-12
+    ],
+    [
+      33000.0,
+      1e-11
+    ],
+    [
+      36000.0,
+      1.0999999999999999e-11
+    ],
+    [
+      38000.0,
+      9e-12
+    ],
+    [
+      40000.0,
+      8.5e-12
+    ]
+  ],
+  "data_source": "figure_vision",
   "dm_density_assumed": 0.3,
   "confidence_level": 0.9,
-  "extraction_confidence": 0.4,
-  "suggested_experiment_name": "DARWIN",
-  "notes": "DARWIN projection for solar axions and galactic ALPs via axio-electric effect (g_Ae, AxionElectron coupling). Figure 4 shows sensitivity curves but only XENON100 reference values are given numerically in text (g_ALP_Ae ~2e-12 for galactic ALPs 1-40 keV, g_solar_Ae > 7.7e-12). DARWIN projects ~2 orders of magnitude improvement for galactic ALPs (~1e-14) and ~1 order for solar axions, but no explicit numerical DARWIN limit values or tables are provided. Data points cannot be reliably extracted from text alone. DM density 0.3 GeV/cm^3 assumed for galactic ALP search. | read-vote N=3: ct=AxionElectron (3/3); no consensus curve, took most-points",
-  "num_points": 0,
-  "elapsed_s": 51.77383327484131
+  "extraction_confidence": 0.78,
+  "suggested_experiment_name": "DARWIN (galactic ALPs, 200 t\u00d7y)",
+  "coupling_convention": "dimensionless g_ae",
+  "notes": "DARWIN projection paper. Constrains axion-electron coupling g_Ae via axio-electric effect for solar axions and galactic ALPs (Figure 4). Only XENON100 reference values quoted in text (g_ALP_Ae >~2e-12, g_solar_Ae >7.7e-12); DARWIN projections are described qualitatively ('almost two orders of magnitude' improvement for galactic ALPs, ~one order for solar axions) but no explicit numerical DARWIN limit values are given in the text, only shown in plots. Cannot extract reliable numerical data points. Local DM density rho0=0.3 GeV/cm^3 assumed for galactic ALP search. | selector: figure_vision (sole candidate) | Vision: Figure 4 right panel: DARWIN sensitivity (blue dashed) to galactic ALPs in g_ae vs m_A. X-axis is m_A in keV/c^2 (1-40), converted to eV (1000-40000 eV). Y-axis is g_ae (axion-electron coupling), dimensionless, ranging 1e-14 to 1e-9. The DARWIN curve is the lowest (most sensitive) projection. Note: the calibration hint provided (5-1000 GeV, 1e-49 to 1e-41) corresponds to the WIMP cross-section plots, not the axion-electron g_ae plot; I traced the actual AxionElectron exclusion from Figure 4 right which matches the requested coupling type. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=3.85) | read-vote N=3: ct=AxionElectron (3/3); medoid 0 of 2 curves (med pairwise 0.974 dex)",
+  "num_points": 33,
+  "elapsed_s": 116.39030814170837
 }

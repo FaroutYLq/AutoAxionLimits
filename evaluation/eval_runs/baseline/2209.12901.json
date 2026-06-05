@@ -7,22 +7,30 @@
   "data_points": [
     [
       1e-07,
-      8e-09
+      3e-07
     ],
     [
       1.5e-07,
-      5e-08
+      3e-07
     ],
     [
-      2.5e-07,
-      2.5e-07
+      2e-07,
+      3e-07
+    ],
+    [
+      3e-07,
+      3e-07
     ],
     [
       4e-07,
-      7e-07
+      3e-07
     ],
     [
-      6e-07,
+      5e-07,
+      1e-06
+    ],
+    [
+      7e-07,
       1e-06
     ],
     [
@@ -58,8 +66,9 @@
   "dm_density_assumed": 0.4,
   "confidence_level": 0.9,
   "extraction_confidence": 0.3,
-  "suggested_experiment_name": "Polarization Haloscope (Berlin & Zhou) - existing Sun/SN1987A constraints",
-  "notes": "This is a projection/proposal paper for a 'polarization haloscope' targeting the QCD axion-gluon coupling. The main exclusion plot (Fig. 2) has 1/f_a (GeV^-1) on the y-axis vs m_a (eV) on the x-axis, NOT a standard photon, electron, or EDM coupling. This corresponds most closely to AxionMass-type (f_a vs m_a) parameterization, but the y-axis is the inverse decay constant 1/f_a rather than a conventional coupling constant. The axion-gluon coupling probed relates to oscillating nuclear/atomic EDMs (axion-EDM physics), so the pre-analysis hint of AxionEDM is conceptually related, but the actual plotted quantity is 1/f_a, not d_n in e*cm. No numerical table of (mass, 1/f_a) limit points is given; sensitivity is shown only as shaded curves in Fig. 2. Therefore no reliable data points can be extracted. Coupling type is ambiguous between AxionMass (f_a-m_a plane) and AxionEDM; confidence kept low. | selector: figure_vision (sole candidate) | Vision: Figure 2 y-axis is 1/f_a (GeV^-1), NOT axion-photon coupling g_agamma. The constraints shown (SN 1987A, Sun, Storage Ring, CASPEr) are gluon/EDM-coupling bounds. The lower boundary traced corresponds to the 'Sun' constraint band (~1e-6 GeV^-1) plus the 'Storage Ring' rising line at low mass. Coupling type mapping to AxionPhoton is questionable; this paper constrains the axion-gluon coupling via 1/f_a, so values are not g_agamma. Confidence is low due to axis mismatch. | Calibration: No calibration needed | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 2 curves (med pairwise 0.347 dex)",
-  "num_points": 12,
-  "elapsed_s": 122.35693287849426
+  "suggested_experiment_name": "Polarization Haloscope (Berlin & Zhou) - existing Sun/SN1987A bounds",
+  "coupling_convention": "1/f_a in GeV^-1 (gluon coupling, NOT g_agamma)",
+  "notes": "This is a proposal/projection paper for a 'polarization haloscope' probing the QCD axion-gluon coupling (theta_a = a/f_a), with sensitivity plotted as 1/f_a (GeV^-1) vs axion mass (eV) in Fig. 2. This is the axion-gluon coupling, which manifests as oscillating EDMs \u2014 closest enum match is arguably AxionEDM (oscillating neutron/atomic EDM) but the plotted observable is 1/f_a, not d_n directly. Note: this is NOT the axion-photon coupling g_agamma despite my coupling_type choice; the enum lacks a clean 'axion-gluon' option. Mass range ~1e-7 to 1e-4 eV. No numerical table of the projected curve is provided in the text \u2014 only a figure, so no extractable (mass, coupling) data points. The pre-analysis hint of AxionEDM is reasonable since the underlying effect is the oscillating EDM, but the y-axis is 1/f_a. Confidence kept low due to coupling-type ambiguity and absence of tabulated data. | selector: figure_vision (sole candidate) | Vision: The y-axis of Fig. 2 is 1/f_a (GeV^-1), NOT g_agamma directly. The plot constrains the axion-gluon coupling (decay constant) versus mass. The shaded existing constraints are SN 1987A and Sun (upper region excluded). I traced the lower boundary of the existing 'Sun' exclusion region. Coupling type is ambiguous: this is fundamentally an f_a-m_a plot (AxionMass), with g_agamma ~ 0.87e-3/f_a per text. Values reported are 1/f_a in GeV^-1. Confidence is low because the y-axis quantity is 1/f_a, not the standard g_agamma, and most plotted curves are projections, not constraints. | Calibration: No calibration needed | read-vote N=3: ct=AxionPhoton (3/3); medoid 1 of 2 curves (med pairwise 5.324 dex)",
+  "num_points": 14,
+  "elapsed_s": 105.71931433677673
 }

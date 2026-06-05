@@ -6,20 +6,24 @@
   "is_projection": false,
   "data_points": [
     [
+      1.7e-09,
+      1e-10
+    ],
+    [
       2.99e-09,
       3.2e-11
     ],
     [
-      1.7e-09,
+      4e-09,
       5e-11
     ],
     [
-      8.27e-09,
+      8e-09,
       1e-10
     ],
     [
-      4.1e-10,
-      2e-09
+      5e-10,
+      2e-10
     ]
   ],
   "data_source": "text",
@@ -27,7 +31,8 @@
   "confidence_level": 0.95,
   "extraction_confidence": 0.6,
   "suggested_experiment_name": "ABRACADABRA-10cm_Run3",
-  "notes": "Broadband axion DM search constraining g_agamma over 0.41-8.27 neV (100 kHz - 2 MHz). Strongest limit g_agamma < 3.2e-11 GeV^-1 at ma ~ 2.99 neV. Local DM density 0.4 GeV/cm^3 assumed (Standard Halo Model, v0=220 km/s). Limit curve only available in Fig. 4; numerical data points approximate except the quoted best limit. Source data publicly available on GitHub. | selector: text (sole candidate) | read-vote N=3: ct=AxionPhoton (3/3); medoid 1 of 3 curves (med pairwise 0.187 dex)",
-  "num_points": 4,
-  "elapsed_s": 36.90771126747131
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "ABRACADABRA-10cm broadband search, 0.41-8.27 neV mass range. Strongest limit g_agamma < 3.2e-11 GeV^-1 at ma~2.99 neV. Other data points are approximate readings from the exclusion curve (Fig 4); precise per-mass values would require the digitized data file referenced in the paper. DM density 0.4 GeV/cm^3 assumed. | selector: text (sole candidate) | read-vote N=3: ct=AxionPhoton (3/3); medoid 2 of 3 curves (med pairwise 0.151 dex)",
+  "num_points": 5,
+  "elapsed_s": 47.062294006347656
 }

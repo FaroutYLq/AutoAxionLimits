@@ -6,20 +6,173 @@
   "is_projection": true,
   "data_points": [
     [
-      0.0001,
-      1e-08
+      3.2e-06,
+      7.000000000000001e-07
     ],
     [
-      0.001,
-      1e-08
+      4e-06,
+      4.5e-07
+    ],
+    [
+      5e-06,
+      3e-07
+    ],
+    [
+      6e-06,
+      2.1999999999999998e-07
+    ],
+    [
+      8e-06,
+      1.3999999999999998e-07
+    ],
+    [
+      1e-05,
+      1e-07
+    ],
+    [
+      1.3e-05,
+      6.999999999999999e-08
+    ],
+    [
+      1.6e-05,
+      4.8e-08
+    ],
+    [
+      2e-05,
+      3.2e-08
+    ],
+    [
+      2.5e-05,
+      2.2e-08
+    ],
+    [
+      3e-05,
+      1.6e-08
+    ],
+    [
+      3.6e-05,
+      1.2e-08
+    ],
+    [
+      3.9e-05,
+      9e-09
+    ],
+    [
+      4e-05,
+      1.5e-08
+    ],
+    [
+      4.2e-05,
+      8e-09
+    ],
+    [
+      4.6e-05,
+      7e-09
+    ],
+    [
+      5e-05,
+      6e-09
+    ],
+    [
+      5.5e-05,
+      5.5e-09
+    ],
+    [
+      6e-05,
+      5e-09
+    ],
+    [
+      7e-05,
+      4.5e-09
+    ],
+    [
+      8e-05,
+      4e-09
+    ],
+    [
+      9e-05,
+      7.5e-09
+    ],
+    [
+      9.5e-05,
+      4e-09
+    ],
+    [
+      0.0001,
+      4e-09
+    ],
+    [
+      0.00012,
+      3.7e-09
+    ],
+    [
+      0.00013,
+      6e-09
+    ],
+    [
+      0.00014,
+      3.5e-09
+    ],
+    [
+      0.00016,
+      3.4000000000000003e-09
+    ],
+    [
+      0.00018,
+      3.2999999999999998e-09
+    ],
+    [
+      0.0002,
+      3.1999999999999997e-09
+    ],
+    [
+      0.00025,
+      3.1e-09
+    ],
+    [
+      0.0003,
+      1.2e-08
+    ],
+    [
+      0.00032,
+      3e-09
+    ],
+    [
+      0.00036,
+      3e-09
+    ],
+    [
+      0.0004,
+      2e-08
+    ],
+    [
+      0.00042,
+      3e-09
+    ],
+    [
+      0.00046,
+      1.5e-08
+    ],
+    [
+      0.0005,
+      8e-09
+    ],
+    [
+      0.00055,
+      3e-09
+    ],
+    [
+      0.0006,
+      3e-09
     ]
   ],
-  "data_source": "text",
+  "data_source": "figure_vision",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.4,
-  "suggested_experiment_name": "STAX_LSW_mmWave",
-  "notes": "This is an LSW (light-shining-through-wall) proposal for dark photons (kinetic mixing chi) in the 1e-4 to 1e-3 eV mass range. The paper presents projected (2-sigma) sensitivity curves (Stages A, B, C) in Figs 6-7, not measured limits. As an LSW experiment, no DM density assumption applies. Only a rough sensitivity value (chi~1e-8 around 1e-4 eV from the low-power Stage A text in Eq. 16 region) is given numerically in text; detailed curves are only in figures, not extractable as a table. Data points are approximate estimates. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.4, 2)) | read-vote N=3: ct=DarkPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
-  "num_points": 2,
-  "elapsed_s": 68.41201305389404
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "STAX proto (millimeter-wave LSW) Stage C projection",
+  "coupling_convention": "dimensionless kinetic mixing chi",
+  "notes": "LSW (light-shining-through-wall) projection for dark photon kinetic mixing in mass range 1e-4 to 1e-3 eV at 30 GHz. This is a projection/sensitivity (2sigma), not a measured limit; not a haloscope so no DM density. The text only gives an approximate Stage A reach of chi~1e-8 around m~1e-4 eV (Eq 16). Detailed exclusion curves are in Figs 6-7 but no tabulated numerical values are provided, so only the single text-derived point is extractable with low reliability. | selector: figure_vision over text (quality (1, 1, 1, 2, 0, 0.7, 40)) | Vision: Figure 7 enlarged view. Lower boundary traced is Stage C (red curve), the most sensitive projection in this work. Plot is 2-sigma projected exclusion (not yet measured limits). Spikes correspond to resonator zero crossings. x-axis 1e-5 to 1e-3 eV, y-axis kinetic mixing chi 1e-10 to 1e-5. Stages A (green) and B (blue) lie above Stage C. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=8.75) | read-vote N=3: ct=DarkPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.517 dex)",
+  "num_points": 40,
+  "elapsed_s": 122.84601616859436
 }

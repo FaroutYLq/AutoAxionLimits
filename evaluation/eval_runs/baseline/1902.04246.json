@@ -6,28 +6,149 @@
   "is_projection": false,
   "data_points": [
     [
-      1e-23,
-      0.00052122
+      3e-21,
+      8.686999999999999e-11
     ],
     [
-      1e-22,
-      0.00052122
+      5e-21,
+      7.153999999999999e-11
     ],
     [
-      1e-20,
-      0.00052122
+      8e-21,
+      6.132e-11
     ],
     [
-      1e-18,
-      0.00052122
+      1.2e-20,
+      5.621e-11
+    ],
+    [
+      2e-20,
+      5.1099999999999997e-11
+    ],
+    [
+      3e-20,
+      4.9056e-11
+    ],
+    [
+      5e-20,
+      4.7012e-11
+    ],
+    [
+      8e-20,
+      4.599e-11
+    ],
+    [
+      1.2e-19,
+      4.4967999999999997e-11
+    ],
+    [
+      2e-19,
+      4.599e-11
+    ],
+    [
+      3e-19,
+      4.7012e-11
+    ],
+    [
+      5e-19,
+      4.599e-11
+    ],
+    [
+      8e-19,
+      4.4967999999999997e-11
+    ],
+    [
+      1.2e-18,
+      4.4967999999999997e-11
+    ],
+    [
+      2e-18,
+      4.4967999999999997e-11
+    ],
+    [
+      3e-18,
+      4.599e-11
+    ],
+    [
+      5e-18,
+      4.599e-11
+    ],
+    [
+      8e-18,
+      4.599e-11
+    ],
+    [
+      1.2e-17,
+      4.7012e-11
+    ],
+    [
+      2e-17,
+      4.7012e-11
+    ],
+    [
+      3e-17,
+      4.8033999999999997e-11
+    ],
+    [
+      4.7e-17,
+      5.621e-11
+    ],
+    [
+      4.7e-17,
+      7.153999999999999e-11
+    ],
+    [
+      5e-17,
+      5.621e-11
+    ],
+    [
+      6e-17,
+      4.9056e-11
+    ],
+    [
+      8e-17,
+      4.7012e-11
+    ],
+    [
+      1.2e-16,
+      4.7012e-11
+    ],
+    [
+      2e-16,
+      4.7012e-11
+    ],
+    [
+      3e-16,
+      4.8033999999999997e-11
+    ],
+    [
+      5e-16,
+      4.9056e-11
+    ],
+    [
+      7e-16,
+      5.621e-11
+    ],
+    [
+      9e-16,
+      7.153999999999999e-11
+    ],
+    [
+      1e-15,
+      9.198e-11
+    ],
+    [
+      1.1e-15,
+      1.2264e-10
     ]
   ],
-  "data_source": "text",
+  "data_source": "figure_vision",
   "dm_density_assumed": 0.45,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.5,
-  "suggested_experiment_name": "EotWash_SpinPendulum2019",
-  "notes": "Paper reports constraint as Fa/Ce >= 2e15 eV (Ce/Fa <= 5e-16 eV^-1) over much of mass range 1e-23 to 1e-18 eV. Limit shown graphically in Fig.5 as Ce/Fa vs ma; no numerical table in main text. Converted headline value to approximate g_ae using g_ae ~ 2*m_e*Ce/Fa, but the paper natively constrains Ce/Fa not g_ae, so coupling normalization is uncertain. Data points are flat approximations at the quoted plateau limit; actual limit degrades near sidereal bump (~47 zeV) and at highest masses. Local DM density 0.45 GeV/cm^3 assumed. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.5, 4)) | convention: AxionElectron C_e/F_a [eV^-1] -> dimensionless g_ae (x1.022e+06) | read-vote N=3: ct=AxionElectron (3/3); medoid 0 of 3 curves (med pairwise 3.004 dex)",
-  "num_points": 4,
-  "elapsed_s": 135.25475192070007
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "Eot-Wash rotating torsion-pendulum axion-wind (electron)",
+  "coupling_convention": "canonical",
+  "notes": "Torsion-pendulum search for axion-wind coupling to electrons over masses 1e-23 to 1e-18 eV. The main result is a limit on Ce/Fa (axionlike decay constant scale), reported as Fa/Ce > 2 PeV = 2e15 eV over much of the range. The exclusion plot (Fig. 5) shows Ce/Fa vs ma but no numerical table is provided in the text; unaveraged limits are in Supplemental Material (not included). No extractable (mass, coupling) pairs given numerically. Coupling type is AxionElectron, but note the paper uses Ce/Fa convention rather than dimensionless g_ae; conversion would require g_ae ~ 2*m_e*Ce/Fa. The flat limit value Fa/Ce >= 2e15 eV corresponds to Ce/Fa <= 5e-16 eV^-1. | selector: figure_vision (sole candidate) | Vision: Y-axis is C_e/F_a in PeV^-1, not literally g_ae; the plotted constraint is on the axion-electron coupling/decay constant ratio. Bottom panel of Fig.5 (C_e/F_a^A) was used since it shows the black exclusion line over the full mass range; the structure near 47 zeV (~4.7e-17 eV) is the sidereal bump. Mass converted from zeV (1 zeV=1e-21 eV). Coupling units are PeV^-1, mapped here as the reported coupling value. Confidence reduced because y-axis units differ from standard dimensionless g_ae. | convention: AxionElectron C_e/F_a [eV^-1] -> dimensionless g_ae (x1.022e+06) | Calibration: No calibration needed | Auto-corrected couplings: \u00d71e-16 (\u00d71.00e-16, rule=argmin|log10(median*f)-log10(anchor=1.0e-10)|) | read-vote N=3: ct=AxionElectron (3/3); medoid 1 of 3 curves (med pairwise 0.556 dex)",
+  "num_points": 34,
+  "elapsed_s": 122.19637417793274
 }

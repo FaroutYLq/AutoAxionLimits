@@ -6,112 +6,101 @@
   "is_projection": false,
   "data_points": [
     [
+      2.2e-13,
+      5.0000000000000005e-20
+    ],
+    [
+      2.5e-13,
+      1.0000000000000001e-20
+    ],
+    [
       3e-13,
-      1e-18
+      4e-21
     ],
     [
       3.5e-13,
-      5e-19
+      2e-21
     ],
     [
       4e-13,
-      3e-19
+      1.5000000000000001e-21
     ],
     [
       5e-13,
-      2.0000000000000002e-19
+      1.2e-21
     ],
     [
-      6e-13,
-      1.5e-19
-    ],
-    [
-      8e-13,
-      1.2e-19
+      7e-13,
+      1e-21
     ],
     [
       1e-12,
-      1.0000000000000001e-19
+      9e-22
     ],
     [
       1.5e-12,
-      9e-20
+      7.999999999999999e-22
     ],
     [
       2e-12,
-      8.000000000000001e-20
+      7.999999999999999e-22
     ],
     [
       3e-12,
-      7.000000000000001e-20
-    ],
-    [
-      4e-12,
-      6.5e-20
+      9e-22
     ],
     [
       5e-12,
-      6e-20
+      1e-21
     ],
     [
       7e-12,
-      5.5e-20
+      1.2e-21
     ],
     [
       1e-11,
-      5.0000000000000005e-20
+      1.4000000000000002e-21
     ],
     [
       1.5e-11,
-      5.0000000000000005e-20
+      1.5999999999999999e-21
     ],
     [
       2e-11,
-      5.0000000000000005e-20
+      1.8e-21
     ],
     [
       3e-11,
-      5.5e-20
+      2.2e-21
     ],
     [
       4e-11,
-      6e-20
+      2.6e-21
     ],
     [
       5e-11,
-      7.000000000000001e-20
+      3.0000000000000003e-21
     ],
     [
       6e-11,
-      9e-20
+      3.5e-21
     ],
     [
       7e-11,
-      1.2e-19
+      4e-21
     ],
     [
       8e-11,
-      1.5e-19
-    ],
-    [
-      1e-10,
-      2.0000000000000002e-19
-    ],
-    [
-      1.3e-10,
-      4.0000000000000004e-19
-    ],
-    [
-      1.6e-10,
-      1e-18
+      5.0000000000000005e-21
     ]
   ],
   "data_source": "figure_vision",
   "dm_density_assumed": 0.4,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.75,
-  "suggested_experiment_name": "LIGO O3 scalar DM",
-  "notes": "Direct search for scalar field dark matter using LIGO O3 data via the beamsplitter/test-mass expansion effect. The paper sets 95% C.L. upper limits on coupling constants Lambda_gamma (photon coupling, d_e / alpha variation -> ScalarPhoton) AND Lambda_e (electron-mass coupling, d_me -> ScalarElectron), shown in Fig. 3a/3b. Frequency band 10 Hz to 180 Hz corresponds to ~5e-14 eV to 1e-12 eV (competitive up to 5000 Hz). Local DM density rho_CDM = 0.4 GeV/cm^3 assumed. No numerical table is provided; limits appear only in smoothed Fig. 3, so no reliable (mass, coupling) data points could be extracted. Coupling type is ambiguous between ScalarPhoton (Lambda_gamma) and ScalarElectron (Lambda_e) since both are constrained equivalently. | selector: figure_vision (sole candidate) | Vision: Panel b) constrains Lambda_gamma^-1 / d_e (ScalarPhoton coupling to photons / alpha variation). Blue boundary represents the new LIGO O3 limit; traced its lower edge. Right y-axis labeled d_e confirms ScalarPhoton. Values approximate from log-log plot reading. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.18) | read-vote N=3: ct=ScalarPhoton (3/3); medoid 1 of 3 curves (med pairwise 0.906 dex)",
-  "num_points": 25,
-  "elapsed_s": 78.68401980400085
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "LIGO O3 scalar DM (d_e)",
+  "coupling_convention": "dimensionless d_e (or equivalently Lambda_gamma^-1 in GeV^-1)",
+  "notes": "Paper constrains scalar field DM couplings to photon (Lambda_gamma, equivalently d_e) and to electron mass (Lambda_e, equivalently d_me) from LIGO O3 data over 10-5000 Hz (~5e-14 to ~2e-11 eV). The hint of ScalarPhoton matches the photon coupling result (panel b of Fig 3); a separate ScalarElectron limit is also presented (panel a). No numerical tables of the exclusion limits are provided in the text; only a plotted curve (Fig 3) that was smoothed for visual purposes, so no reliable (mass, coupling) data points can be extracted. Limit is 95% C.L., assumes rho_local = 0.4 GeV/cm^3. | selector: figure_vision (sole candidate) | Vision: Panel b) of Fig. 3 constrains \u039b_\u03b3^-1 / d_e (scalar coupling to photons, fine-structure constant variation). The blue thick line marks the LIGO O3 95% C.L. upper limit. Mass range roughly corresponds to 10 Hz - 180 Hz (5e-14 to 1e-12 eV per text) but the blue exclusion region in the plot extends across ~2e-13 to ~8e-11 eV. Right axis (d_e) ticks at 1e-5, 1e0, 1e5, 1e10 correspond to left \u039b_\u03b3^-1 ticks; mapping used d_e = M_Pl/(sqrt(4\u03c0)\u039b_\u03b3). Values approximate; readings calibrated to provided axis ranges. Assumed rho_CDM = 0.4 GeV/cm^3. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.10) | read-vote N=3: ct=ScalarPhoton (3/3); medoid 0 of 2 curves (med pairwise 0.301 dex)",
+  "num_points": 22,
+  "elapsed_s": 99.49260687828064
 }

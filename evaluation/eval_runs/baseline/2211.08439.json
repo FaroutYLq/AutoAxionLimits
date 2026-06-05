@@ -7,107 +7,156 @@
   "data_points": [
     [
       1e-19,
-      20.44
+      3e-06
     ],
     [
       3e-19,
-      6.132000000000001
+      3e-06
+    ],
+    [
+      6e-19,
+      3e-06
     ],
     [
       1e-18,
-      5.11
+      3e-06
+    ],
+    [
+      3e-18,
+      3e-06
+    ],
+    [
+      6e-18,
+      3e-06
     ],
     [
       1e-17,
-      4.088
+      3e-06
+    ],
+    [
+      3e-17,
+      3e-06
+    ],
+    [
+      6e-17,
+      2.5e-06
     ],
     [
       1e-16,
-      4.088
+      2.5e-06
     ],
     [
-      5e-16,
-      5.11
+      3e-16,
+      2.5e-06
+    ],
+    [
+      6e-16,
+      2.5e-06
     ],
     [
       1e-15,
-      6.132000000000001
+      2.5e-06
     ],
     [
       2e-15,
-      4.088
+      3e-06
     ],
     [
-      5e-15,
-      6.132000000000001
+      4e-15,
+      4e-06
+    ],
+    [
+      6e-15,
+      5e-06
     ],
     [
       1e-14,
-      5.11
+      5e-06
     ],
     [
-      3e-14,
-      3.0660000000000003
+      2e-14,
+      4e-06
+    ],
+    [
+      4e-14,
+      3e-06
     ],
     [
       6e-14,
-      6.132000000000001
+      2e-06
     ],
     [
       1e-13,
-      4.088
+      2e-06
     ],
     [
       2e-13,
-      5.11
+      3e-06
     ],
     [
       4e-13,
-      4.088
+      5e-06
     ],
     [
-      7e-13,
-      5.11
+      6e-13,
+      4e-06
     ],
     [
       1e-12,
-      5.11
+      3e-06
+    ],
+    [
+      2e-12,
+      5e-06
     ],
     [
       3e-12,
-      5.11
+      1e-05
+    ],
+    [
+      5e-12,
+      1e-05
+    ],
+    [
+      7e-12,
+      1e-05
     ],
     [
       1e-11,
-      5.11
+      1e-05
     ],
     [
       3e-11,
-      6.132000000000001
+      1e-05
+    ],
+    [
+      6e-11,
+      1e-05
     ],
     [
       1e-10,
-      8.176
+      1e-05
     ],
     [
       3e-10,
-      15.33
+      1e-05
+    ],
+    [
+      6e-10,
+      1e-05
     ],
     [
       1e-09,
-      30.66
-    ],
-    [
-      3e-09,
-      61.32
+      1e-05
     ]
   ],
   "data_source": "figure_vision",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.3,
-  "suggested_experiment_name": "Electrostatic storage ring (existing bounds: comagnetometer/torsion/long-range)",
-  "notes": "Projection paper for a table-top electrostatic storage ring. Fig.4 shows projected axion-electron coupling (left) and axion-nucleon coupling (right) sensitivities over mass range 1e-19 to 1e-9 eV. No numerical data tables or readable digitized values provided in the text. Pre-analysis hint was AxionEDM, but the dark matter exclusion plots are for axion-electron and axion-nucleon couplings; the primary first-stage DM search is axion-electron. Could not extract numerical (mass, coupling) pairs. | selector: figure_vision (sole candidate) | Vision: Left panel of Fig 4 shows g_aee vs m_a. The existing experimental bounds (comagnetometer, torsion, long-range) form a jagged lower exclusion boundary around g_aee ~ 5e-6 GeV^-1 across most of the mass range. The colored lines (blue 1s, red 5h) are projected sensitivities, not exclusions. Data points trace the gray existing-bound boundary which is the actual exclusion. Coupling is g_aee in GeV^-1, a dimensionful axion-electron coupling, not the dimensionless g_ae; values reported as plotted. | convention: AxionElectron C_e/F_a [eV^-1] -> dimensionless g_ae (x1.022e+06) | Calibration: No calibration needed | contract: median outside VALID_RANGES after corrections (flagged low confidence) | read-vote N=3: ct=AxionElectron (3/3); medoid 0 of 3 curves (med pairwise 0.897 dex)",
-  "num_points": 24,
-  "elapsed_s": 80.79243922233582
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "Electrostatic storage ring (existing g_aee bounds: torsion/comagnetometer/long-range)",
+  "coupling_convention": "dimensionless g_ae",
+  "notes": "Conference-proceedings-style paper proposing a table-top electrostatic storage ring. It presents PROJECTED sensitivities (Fig. 4) for axion-electron coupling (left panel) and axion-nucleon coupling (right panel), plus dark photon DM. No numerical data points are tabulated; only an exclusion plot with axis ranges (mass 1e-19 to 1e-9 eV; coupling 1e-11 to ~1e6). Pre-analysis hint of AxionEDM is not the primary DM result \u2014 the DM exclusion plot shows axion-electron and axion-nucleon couplings. No extractable numeric values available. | selector: figure_vision (sole candidate) | Vision: Left panel shows axion-electron coupling g_aee in GeV^-1 (dimensionful, not dimensionless g_ae). The traced lower boundary corresponds to the envelope of existing experimental bounds (torsion pendulum, comagnetometer, long-range). Y-axis units are GeV^-1, which is unusual for AxionElectron; values reported as read. Confidence reduced because of unit convention mismatch with requested dimensionless g_ae. | Calibration: No calibration needed | read-vote N=3: ct=AxionElectron (3/3); medoid 2 of 3 curves (med pairwise 0.447 dex)",
+  "num_points": 36,
+  "elapsed_s": 91.8705186843872
 }

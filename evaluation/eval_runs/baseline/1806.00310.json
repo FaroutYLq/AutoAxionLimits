@@ -6,16 +6,17 @@
   "is_projection": false,
   "data_points": [
     [
-      5.8e-05,
+      5.85e-05,
       4.9e-10
     ]
   ],
   "data_source": "text",
   "dm_density_assumed": 0.45,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.82,
+  "extraction_confidence": 0.85,
   "suggested_experiment_name": "QUAX",
-  "notes": "Ferromagnetic axion haloscope (QUAX prototype) sets upper limit on axion-electron coupling g_aee < 4.9e-10 at 95% C.L. for m_a=58 ueV (14 GHz). Limit extends over a ~3 MHz range around 14 GHz; only the central best value is explicitly given in text. DM density 0.45 GeV/cm^3 assumed. The exclusion plot (Fig. 8) is not numerically tabulated, so only the quoted minimum value is extracted. | selector: text (sole candidate) | read-vote N=3: ct=AxionElectron (3/3); no consensus curve, took most-points",
+  "coupling_convention": "dimensionless g_aee",
+  "notes": "Ferromagnetic haloscope (QUAX) prototype. Sets upper limit g_aee < 4.9e-10 at 95% C.L. for axion mass 58 ueV (14 GHz). The exclusion is over a ~3 MHz scan range around 14 GHz, but only the central minimum value is reported numerically in text. Fig. 8 shows the excluded band but no tabulated values are given. DM density assumed 0.45 GeV/cm^3. | selector: text over figure_vision (quality (1, 1, 1, 1, 0, 0.85, 1)) | read-vote N=3: ct=AxionElectron (3/3); no consensus curve, took most-points",
   "num_points": 1,
-  "elapsed_s": 41.994795083999634
+  "elapsed_s": 75.93713521957397
 }

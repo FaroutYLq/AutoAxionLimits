@@ -7,11 +7,11 @@
   "data_points": [
     [
       0.001,
-      3e-13
+      5e-13
     ],
     [
       0.01,
-      1.5e-13
+      2e-13
     ],
     [
       0.1,
@@ -19,15 +19,16 @@
     ],
     [
       1.0,
-      2e-13
+      1e-13
     ]
   ],
   "data_source": "text",
   "dm_density_assumed": 0.3,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.45,
-  "suggested_experiment_name": "Al_Superconductor_Absorption_HLZ2016",
-  "notes": "Projection paper (Hochberg, Lin, Zurek 2016) proposing aluminum superconductor for ultralight bosonic DM absorption. Presents three coupling projections: hidden photon kinetic mixing (DarkPhoton, Fig 3), pseudoscalar-electron g_aee (AxionElectron, Fig 4), and scalar-electron d_phiee (ScalarElectron, Fig 5). Per hint, AxionElectron selected, but multiple couplings present so confidence is reduced. Data points are rough estimates read from Fig 4 (1 kg-year reach curve, g_aee vs m_a). Local DM density 0.3 GeV/cm^3 stated. 95% CL (3.6 events). No tabulated numerical values are provided in the text, so curve points are approximate. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.45, 4)) | read-vote N=3: ct=AxionElectron (3/3); medoid 1 of 3 curves (med pairwise 0.703 dex)",
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "Al_Superconductor_Absorption_kgyr",
+  "coupling_convention": "dimensionless g_aee",
+  "notes": "Projection paper for ultralight bosonic DM absorption in superconducting aluminum. Constrains three couplings: dark photon kinetic mixing (Fig.3), pseudoscalar g_aee (Fig.4, AxionElectron), and scalar d_phiee (Fig.5). Selected AxionElectron per hint and Eq.(21) electron coupling g_aee. Data points are rough estimates read from Fig.4 1-kg-year reach curve; no numerical table provided. Mass range 1 meV to 10 eV. Local DM density rho_X=0.3 GeV/cm^3 (Eq.3). 95% CL (3.6 events). Confidence low due to multiple coupling types and plot-only data. | selector: text over figure_vision (quality (1, 1, 1, 3, 0, 0.4, 4)) | read-vote N=3: ct=AxionElectron (2/3); medoid 0 of 2 curves (med pairwise 0.452 dex)",
   "num_points": 4,
-  "elapsed_s": 100.46404576301575
+  "elapsed_s": 139.73697519302368
 }

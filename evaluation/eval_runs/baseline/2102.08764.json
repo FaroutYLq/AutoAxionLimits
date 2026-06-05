@@ -10,10 +10,6 @@
       2.6e-06
     ],
     [
-      3.3123e-05,
-      2.6e-06
-    ],
-    [
       3.313e-05,
       2.6e-06
     ]
@@ -22,8 +18,9 @@
   "dm_density_assumed": 0.45,
   "confidence_level": 0.95,
   "extraction_confidence": 0.85,
-  "suggested_experiment_name": "QND_Magnon_2022",
-  "notes": "Axion-electron coupling g_aee < 2.6e-6 at 95% CL for 33.117 ueV < m_a < 33.130 ueV (m_a ~ 3.31e-5 eV). DM density 0.45 GeV/cm^3 and vtot=220 km/s assumed. A more conservative value g_aee < 1.6e-7 is given in Appendix A using vtot sin theta averaging, but the main quoted limit is 2.6e-6. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.85, 3)) | read-vote N=3: ct=AxionElectron (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
-  "num_points": 3,
-  "elapsed_s": 84.74300503730774
+  "suggested_experiment_name": "QND_Magnon_2021",
+  "coupling_convention": "dimensionless g_aee",
+  "notes": "Axion-electron coupling search via QND magnon detection. Upper limit g_aee < 2.6e-6 at 95% CL for mass range 33.117-33.130 ueV, assuming local DM density 0.45 GeV/cm^3 and vtot=220 km/s. A more conservative angle-averaged result gives g_aee < 1.6e-7 (Appendix A), but the headline result quoted in abstract/conclusion is 2.6e-6. Data extracted from text as the limit is flat across the narrow mass window. | selector: text over figure_vision (quality (1, 1, 1, 1, 0, 0.85, 2)) | read-vote N=3: ct=AxionElectron (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
+  "num_points": 2,
+  "elapsed_s": 84.59861898422241
 }

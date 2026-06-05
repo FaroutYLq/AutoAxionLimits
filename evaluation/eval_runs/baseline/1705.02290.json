@@ -6,6 +6,10 @@
   "is_projection": false,
   "data_points": [
     [
+      0.0001,
+      6.6e-11
+    ],
+    [
       0.001,
       6.6e-11
     ],
@@ -23,7 +27,8 @@
   "confidence_level": 0.95,
   "extraction_confidence": 0.85,
   "suggested_experiment_name": "CAST2017",
-  "notes": "CAST solar axion helioscope final vacuum phase (2013-2015). World-leading limit g_agamma < 0.66e-10 GeV^-1 (95% C.L.) for m_a < 0.02 eV. This is a stellar/solar production bound, not a DM haloscope, so no DM density. Data points represent the flat low-mass exclusion plateau; precise mass-dependent values above 0.02 eV not tabulated in text. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.85, 3)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
-  "num_points": 3,
-  "elapsed_s": 74.31339693069458
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "CAST solar helioscope final vacuum phase (2013-2015). Main result g_agamma < 0.66e-10 GeV^-1 (95% C.L.) for m_a <= 0.02 eV. This is a stellar/solar axion search (not a DM haloscope), so no local DM density assumed. The limit is mass-independent below ~0.02 eV; data points reflect the flat exclusion region. Exact mass-dependent curve above 0.02 eV is only available from Fig. 2 (not numerically tabulated in text). | selector: text over figure_vision (quality (1, 1, 1, 3, 0, 0.85, 4)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
+  "num_points": 4,
+  "elapsed_s": 88.34229803085327
 }

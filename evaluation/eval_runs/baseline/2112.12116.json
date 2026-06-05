@@ -4,13 +4,131 @@
   "coupling_type": "DarkPhoton",
   "is_new_limit": true,
   "is_projection": false,
-  "data_points": [],
-  "data_source": "none",
+  "data_points": [
+    [
+      10.0,
+      1.5e-13
+    ],
+    [
+      12.0,
+      5e-14
+    ],
+    [
+      14.0,
+      1.5e-14
+    ],
+    [
+      16.0,
+      5e-15
+    ],
+    [
+      18.0,
+      3.5e-15
+    ],
+    [
+      20.0,
+      2.7e-15
+    ],
+    [
+      25.0,
+      2.3e-15
+    ],
+    [
+      30.0,
+      2.2e-15
+    ],
+    [
+      35.0,
+      3e-15
+    ],
+    [
+      40.0,
+      5e-15
+    ],
+    [
+      42.0,
+      7e-15
+    ],
+    [
+      40.0,
+      3.5e-15
+    ],
+    [
+      50.0,
+      2.7e-15
+    ],
+    [
+      60.0,
+      2.3e-15
+    ],
+    [
+      70.0,
+      2e-15
+    ],
+    [
+      80.0,
+      1.9e-15
+    ],
+    [
+      90.0,
+      2e-15
+    ],
+    [
+      100.0,
+      2.5e-15
+    ],
+    [
+      120.0,
+      3.5e-15
+    ],
+    [
+      150.0,
+      5e-15
+    ],
+    [
+      180.0,
+      7e-15
+    ],
+    [
+      200.0,
+      8e-15
+    ],
+    [
+      220.0,
+      9e-15
+    ],
+    [
+      250.0,
+      9e-15
+    ],
+    [
+      280.0,
+      7e-15
+    ],
+    [
+      300.0,
+      5e-15
+    ],
+    [
+      320.0,
+      4e-15
+    ],
+    [
+      350.0,
+      5e-15
+    ],
+    [
+      380.0,
+      6e-15
+    ]
+  ],
+  "data_source": "figure_vision",
   "dm_density_assumed": 0.3,
   "confidence_level": 0.9,
-  "extraction_confidence": 0.2,
-  "suggested_experiment_name": "XENON1T_SE",
-  "notes": "Paper sets 90% CL upper limits on dark photon (and solar dark photon) absorption as bosonic DM via S2-only single/few-electron analysis in XENON1T. Coupling type is DarkPhoton (kinetic mixing chi). However, the provided content cuts off before the limit-setting results section (Section VI), so no numerical (mass, chi) data points are available in the extractable text. The paper also discusses DM-electron scattering, electric/magnetic dipole, and anapole interactions, but the new excluded parameter space is for dark photons. DM density assumption (0.3 GeV/cm^3 standard for direct detection) is typical but not explicitly confirmed in the provided text. | read-vote N=3: ct=DarkPhoton (3/3); no consensus curve, took most-points",
-  "num_points": 0,
-  "elapsed_s": 99.27041792869568
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "XENON1T SE (This Work)",
+  "coupling_convention": "dimensionless kinetic mixing chi",
+  "notes": "Paper sets 90% CL limits on multiple light DM models including DM-electron scattering, electric/magnetic dipole, anapole, dark photons (absorption), ALPs, and solar dark photons. The hint suggests DarkPhoton and the paper explicitly highlights excluding new parameter space for dark photons and solar dark photons. However, no numerical limit values for the kinetic mixing chi are present in the provided text (figures 15 and 16 referenced but data tables not included). Could not extract any (mass, coupling) data points. Note the paper also constrains ALPs (g_ae) so coupling type is somewhat ambiguous, but dark photon is the headline bosonic result. Default DM density 0.3 GeV/cm^3 assumed for halo dark photons; solar dark photon limit uses solar flux not local density. | selector: figure_vision (sole candidate) | Vision: Dark photon kinetic mixing limit from Figure 15 (top panel). X-axis in keV/c^2 converted to eV (10 keV = 1e4 eV). The XENON1T SE (This Work) dark blue curve traced. The shaded band represents systematic uncertainty from differential ionization rate. Boundary shows characteristic structure with a peak/cusp near 40 keV (xenon shell binding energy edge) and minimum around 70-90 keV. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.50 snapped to identity) | read-vote N=3: ct=DarkPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.272 dex)",
+  "num_points": 29,
+  "elapsed_s": 120.32054615020752
 }

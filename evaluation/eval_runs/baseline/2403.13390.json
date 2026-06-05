@@ -19,7 +19,8 @@
   "confidence_level": 0.9,
   "extraction_confidence": 0.6,
   "suggested_experiment_name": "CAPP_TM020",
-  "notes": "Cavity haloscope search using tunable TM020 mode over mass range 21.38-21.79 ueV (5.17-5.27 GHz). Excludes g_agamma > 12.0 x g_KSVZ at 90% CL. KSVZ coupling at this mass is approximately 1e-13 GeV^-1, so the limit is roughly 12x that (~1.2e-12 GeV^-1). Exact numerical coupling values not tabulated; abstract states ~10^-13 GeV^-1. Data points are approximate endpoints; precise coupling vs mass curve not given in text. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.6, 2)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
+  "coupling_convention": "GeV^-1",
+  "notes": "Cavity haloscope using tunable TM020 mode, mass range 21.38-21.79 ueV (5.17-5.27 GHz). Excludes g_agamma > 12.0 x KSVZ at 90% CL. Approximate limit ~1e-13 GeV^-1 stated in abstract; precise per-frequency values not tabulated. Data points are approximate from text (only the ~10^-13 GeV^-1 magnitude and mass endpoints given). rho_a = 0.45 GeV/cm^3 assumed. | selector: text over figure_vision (quality (1, 1, 1, 1, 0, 0.6, 2)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
   "num_points": 2,
-  "elapsed_s": 60.46753406524658
+  "elapsed_s": 91.52504181861877
 }

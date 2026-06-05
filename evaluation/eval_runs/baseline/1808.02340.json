@@ -6,44 +6,17 @@
   "is_projection": false,
   "data_points": [
     [
-      0.01,
-      1.1e-11
-    ],
-    [
-      0.1,
-      1.1e-11
-    ],
-    [
-      1.0,
-      1.1e-11
-    ],
-    [
-      10.0,
-      1.1e-11
-    ],
-    [
-      50.0,
-      1.1e-11
-    ],
-    [
-      100.0,
-      1.1e-11
-    ],
-    [
-      300.0,
-      1.1e-11
-    ],
-    [
-      1000.0,
+      0.0,
       1.1e-11
     ]
   ],
-  "data_source": "figure_vision",
+  "data_source": "text",
   "dm_density_assumed": 0.3,
   "confidence_level": 0.9,
-  "extraction_confidence": 0.85,
-  "suggested_experiment_name": "EDELWEISS-III solar axion (g_ae)",
-  "notes": "Paper constrains axion-electron coupling g_ae via solar axion CBRD search (g_ae < 1.1e-11 in massless limit) and ALP dark matter absorption over 0.8-500 keV mass range (Fig. 5 left). Also reports g_ae x g_aN^eff < 3.5e-17, hidden photon kinetic mixing kappa (DarkPhoton), and electron lifetime limit. Primary coupling per hint is AxionElectron. Local DM density rho_DM = 0.3 GeV/cm^3 assumed for halo absorption search, <v> ~ 1e-3 c. No numerical tables of (mass, g_ae) data points are provided; values are only shown in plots (Figs. 3-5), so no reliable point extraction possible. One representative point: in massless limit g_ae < 1.1e-11 from solar CBRD. | selector: figure_vision (sole candidate) | Vision: Figure 3 shows the EDELWEISS-III solar axion g_ae limit as a horizontal line at g_ae=1.1e-11 (90% C.L.), mass-independent in the massless/light ALP regime. X-axis is m_a in keV/c^2 (1e-5 to 1 keV), converted to eV (1e-2 to 1000 eV). The exclusion region is above the red horizontal line. DFSZ and KSVZ diagonal model bands cross around g_ae~1e-12 to 1e-11. | Calibration: No calibration needed | read-vote N=3: ct=AxionElectron (3/3); 1 curve",
-  "num_points": 8,
-  "elapsed_s": 79.45771193504333
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "EDELWEISS-III",
+  "coupling_convention": "dimensionless g_ae",
+  "notes": "Paper reports multiple limits: solar axion CBRD g_ae < 1.1e-11 (massless limit), g_ae x g_aN^eff < 3.5e-17 at 14.4 keV, electron decay lifetime, and ALP/hidden-photon DM absorption over 0.8-500 keV (Fig.5). The DM absorption g_ae vs mass curve and hidden-photon kappa curve are only in figures with no numerical tables/text values extractable. Only the solar-axion massless-limit value g_ae<1.1e-11 is given explicitly in text (here placed at m=0). DM density 0.3 GeV/cm^3 applies to the absorption searches; the quoted point is solar (not DM-density-dependent). Could alternatively be classified DarkPhoton for the hidden-photon kappa limits. | selector: text over figure_vision (quality (1, 1, 1, 1, 0, 0.5, 1)) | read-vote N=3: ct=AxionElectron (3/3); no consensus curve, took most-points",
+  "num_points": 1,
+  "elapsed_s": 106.16813707351685
 }

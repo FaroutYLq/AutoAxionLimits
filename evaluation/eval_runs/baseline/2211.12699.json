@@ -6,16 +6,141 @@
   "is_projection": false,
   "data_points": [
     [
+      165000000.0,
+      0.00035
+    ],
+    [
+      180000000.0,
+      0.0003
+    ],
+    [
+      200000000.0,
+      0.00028
+    ],
+    [
+      220000000.0,
+      0.00032
+    ],
+    [
       250000000.0,
       0.0003
+    ],
+    [
+      280000000.0,
+      0.00035
+    ],
+    [
+      320000000.0,
+      0.0004
+    ],
+    [
+      350000000.0,
+      0.00045
+    ],
+    [
+      400000000.0,
+      0.00042
+    ],
+    [
+      450000000.0,
+      0.0005
+    ],
+    [
+      500000000.0,
+      0.00048
+    ],
+    [
+      550000000.0,
+      0.00055
+    ],
+    [
+      600000000.0,
+      0.0005
+    ],
+    [
+      650000000.0,
+      0.0006
+    ],
+    [
+      700000000.0,
+      0.00055
+    ],
+    [
+      750000000.0,
+      0.00065
+    ],
+    [
+      800000000.0,
+      0.0006
+    ],
+    [
+      850000000.0,
+      0.0007
+    ],
+    [
+      900000000.0,
+      0.00065
+    ],
+    [
+      1000000000.0,
+      0.0007
+    ],
+    [
+      1100000000.0,
+      0.00068
+    ],
+    [
+      1200000000.0,
+      0.00075
+    ],
+    [
+      1300000000.0,
+      0.0007
+    ],
+    [
+      1400000000.0,
+      0.0008
+    ],
+    [
+      1500000000.0,
+      0.00075
+    ],
+    [
+      1600000000.0,
+      0.00085
+    ],
+    [
+      1800000000.0,
+      0.0008
+    ],
+    [
+      2000000000.0,
+      0.0009
+    ],
+    [
+      2200000000.0,
+      0.00085
+    ],
+    [
+      2400000000.0,
+      0.001
+    ],
+    [
+      2600000000.0,
+      0.00095
+    ],
+    [
+      2840000000.0,
+      0.0011
     ]
   ],
-  "data_source": "text",
+  "data_source": "figure_vision",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.55,
-  "suggested_experiment_name": "BESIII_Jpsi_ALP",
-  "notes": "BESIII search for ALP in radiative J/psi decays, a->gamma gamma. Mass range 0.165-2.84 GeV/c^2 (1.65e8 to 2.84e9 eV). Limits on g_agamma. The only explicit numerical coupling value in text is g_agamma > 3e-4 GeV^-1 excluded at m_a ~ 0.25 GeV (2.5e8 eV). Full exclusion curve is shown in Fig 6 but no table of (mass, coupling) values is provided, so only the single text-quoted point is extracted. The actual exclusion contour spans roughly 1e-4 to 1e-3 GeV^-1 over the mass range. | selector: text (sole candidate) | read-vote N=3: ct=AxionPhoton (3/3); no consensus curve, took most-points",
-  "num_points": 1,
-  "elapsed_s": 78.2136299610138
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "BESIII J/psi -> gamma a",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "BESIII search for ALP a->gamma gamma in J/psi radiative decays, mass range 0.165-2.84 GeV. Limits on g_agamma reported in GeV^-1. Only a couple of approximate points extractable from text (e.g. g_agamma > 3e-4 GeV^-1 excluded near m_a ~ 0.25 GeV). Full exclusion curve only available in Fig. 6, not in tabular form, so data points are approximate and incomplete. Branching fraction limits (8.3e-8 to 1.8e-6) given but converted coupling values not tabulated. | selector: figure_vision over text (quality (1, 1, 1, 2, 0, 0.7, 32)) | Vision: Exclusion region (red, BESIII) in Fig.6. Lower boundary traced from m_a ~0.165 to 2.84 GeV. Coupling lower edge around 3e-4 GeV^-1 at low mass, rising to ~1e-3 GeV^-1 at high mass, with oscillatory peaks. Text states excludes g>3e-4 near m_a=0.25 GeV. Boundary highly jagged due to peaking-background regions; values approximate. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.50 snapped to identity) | read-vote N=3: ct=AxionPhoton (3/3); medoid 1 of 3 curves (med pairwise 0.037 dex)",
+  "num_points": 32,
+  "elapsed_s": 117.19143080711365
 }

@@ -8,22 +8,15 @@
     [
       1.0,
       6.6e-11
-    ],
-    [
-      1000.0,
-      6.6e-11
-    ],
-    [
-      10000.0,
-      6.6e-11
     ]
   ],
   "data_source": "text",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.85,
-  "suggested_experiment_name": "GlobularClusters_R_parameter_2014",
-  "notes": "Stellar bound from R parameter of 39 Galactic Globular Clusters. Main result: g_agamma < 0.66e-10 GeV^-1 at 95% CL, valid for axion mass below a few keV (Primakoff production). The bound is mass-independent over a wide range (up to ~10 keV). Data points represent the flat exclusion across the mass range; only the upper bound value is given (no g-vs-mass table). Not a DM haloscope, so no DM density assumed. | selector: text (sole candidate) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 2 curves (med pairwise 0.000 dex)",
-  "num_points": 3,
-  "elapsed_s": 53.564554929733276
+  "extraction_confidence": 0.9,
+  "suggested_experiment_name": "GlobularClusters_R_2014",
+  "coupling_convention": "GeV^-1",
+  "notes": "Globular cluster R-parameter bound on axion-photon coupling: g_agamma < 0.66e-10 GeV^-1 at 95% CL (benchmark from low-Z HII regions, Y=0.254). Limit applies in a wide mass range for axions/ALPs with mass below a few keV. Mass placeholder of 1 eV used since the bound is roughly mass-independent up to ~keV scale; the limit is a single horizontal exclusion value. Alternative bounds: 0.50e-10 (SBBN), 0.76e-10 (solar Y). Stellar bound, so no DM density assumed. | selector: text (sole candidate) | read-vote N=3: ct=AxionPhoton (3/3); no consensus curve, took most-points",
+  "num_points": 1,
+  "elapsed_s": 70.7107982635498
 }

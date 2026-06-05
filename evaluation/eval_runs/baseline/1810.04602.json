@@ -4,13 +4,123 @@
   "coupling_type": "AxionPhoton",
   "is_new_limit": true,
   "is_projection": false,
-  "data_points": [],
-  "data_source": "none",
+  "data_points": [
+    [
+      5000000000.0,
+      0.0002
+    ],
+    [
+      6000000000.0,
+      0.00012
+    ],
+    [
+      7000000000.0,
+      8e-05
+    ],
+    [
+      8000000000.0,
+      6.5e-05
+    ],
+    [
+      9000000000.0,
+      5.8e-05
+    ],
+    [
+      10000000000.0,
+      5.3e-05
+    ],
+    [
+      12000000000.0,
+      5e-05
+    ],
+    [
+      14000000000.0,
+      5.2e-05
+    ],
+    [
+      16000000000.0,
+      5.5e-05
+    ],
+    [
+      18000000000.0,
+      6e-05
+    ],
+    [
+      20000000000.0,
+      6.8e-05
+    ],
+    [
+      25000000000.0,
+      8.5e-05
+    ],
+    [
+      30000000000.0,
+      0.000105
+    ],
+    [
+      35000000000.0,
+      0.000125
+    ],
+    [
+      40000000000.0,
+      0.000145
+    ],
+    [
+      45000000000.0,
+      0.000165
+    ],
+    [
+      50000000000.0,
+      0.00019
+    ],
+    [
+      55000000000.0,
+      0.000215
+    ],
+    [
+      60000000000.0,
+      0.00024
+    ],
+    [
+      65000000000.0,
+      0.00027
+    ],
+    [
+      70000000000.0,
+      0.0003
+    ],
+    [
+      75000000000.0,
+      0.00034
+    ],
+    [
+      80000000000.0,
+      0.00038
+    ],
+    [
+      85000000000.0,
+      0.00043
+    ],
+    [
+      90000000000.0,
+      0.00048
+    ],
+    [
+      95000000000.0,
+      0.00055
+    ],
+    [
+      100000000000.0,
+      0.00062
+    ]
+  ],
+  "data_source": "figure_vision",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.3,
-  "suggested_experiment_name": "CMS_PbPb_LbL_ALP",
-  "notes": "CMS sets 95% CL exclusion limits on ALP coupling g_agamma vs ALP mass (5-90 GeV) via gamma-gamma -> a -> gamma-gamma in ultraperipheral PbPb collisions. Coupling type is clearly AxionPhoton (g_agamma = 1/Lambda). However, the numerical limit values for the g_agamma vs m_a plane are only shown in Fig. 7, with no extractable tabulated values in the provided text. The cross-section limits are described qualitatively (1500-20 nb over 5-90 GeV) but not as digitized (mass, coupling) pairs. This is a collider bound, so no DM density applies. | read-vote N=3: ct=AxionPhoton (3/3); no consensus curve, took most-points",
-  "num_points": 0,
-  "elapsed_s": 70.8715078830719
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "CMS PbPb LbL ALP (5.02 TeV)",
+  "coupling_convention": "GeV^-1 (g_agamma = 1/Lambda)",
+  "notes": "CMS sets 95% CL exclusion limits on ALP-photon coupling g_agamma=1/Lambda vs ALP mass (5-90 GeV) from gamma gamma -> a -> gamma gamma in ultraperipheral PbPb collisions. This is a collider/UPC bound, not a DM haloscope, so no DM density. The coupling type is AxionPhoton. However, the numerical g_agamma vs m_a exclusion contour is only shown in Fig. 7 (not as a table), and no explicit numerical values are extractable from the provided text. Cross section limits in 1500-20 nb range over 5-90 GeV are mentioned but g_agamma values are not tabulated. Data points cannot be reliably extracted. | selector: figure_vision (sole candidate) | Vision: Figure 7 left panel (aFF/4Lambda, photon-only coupling). The PbPb observed/expected green curve dips to a minimum near m_a ~ 10-15 GeV at g_agamma ~ 5e-5 GeV^-1 and rises toward higher masses. X-axis is mixed log/linear (log below ~5 GeV, linear above), but the exclusion region traced is the ALP search range 5-90 GeV which lies in the linear portion. Y-axis log scale 1e-4 to 1e-3 ticks visible. Coupling type AxionPhoton (g_agamma = 1/Lambda). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=2.40 snapped to identity) | read-vote N=3: ct=AxionPhoton (3/3); medoid 1 of 3 curves (med pairwise 0.075 dex)",
+  "num_points": 27,
+  "elapsed_s": 117.04496932029724
 }

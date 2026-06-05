@@ -7,19 +7,44 @@
   "data_points": [
     [
       200000000.0,
+      5e-11
+    ],
+    [
+      300000000.0,
+      3e-11
+    ],
+    [
+      400000000.0,
+      2.5e-11
+    ],
+    [
+      500000000.0,
+      2e-11
+    ],
+    [
+      100000000.0,
+      1e-12
+    ],
+    [
+      200000000.0,
       1.41e-12
     ],
     [
-      398000000.0,
-      5.01e-11
+      300000000.0,
+      8e-12
+    ],
+    [
+      600000000.0,
+      1e-10
     ]
   ],
   "data_source": "text",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.55,
+  "extraction_confidence": 0.5,
   "suggested_experiment_name": "GW170817_FermiLAT_ALP",
-  "notes": "Paper constrains ALP-photon coupling g_agamma from GW170817 neutron star merger multimessenger observations (Fermi-LAT). The 95% CL exclusion in (m_a, g_agamma) plane is shown in Fig. 4 but no numerical table is provided. Only two benchmark points (within the excluded/probed region) are given explicitly in text: Benchmark 1 (m_a=398 MeV, g=5.01e-11 GeV^-1) and Benchmark 2 (m_a=200 MeV, g=1.41e-12 GeV^-1). These benchmarks are described as currently unconstrained by other methods, so they may not lie on the exclusion boundary; data points are approximate representatives only. This is an astrophysical/stellar-type bound, so no DM density applies. | selector: text (sole candidate) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
-  "num_points": 2,
-  "elapsed_s": 43.26088500022888
+  "coupling_convention": "GeV^-1 (g_agamma)",
+  "notes": "Paper derives first ALP-photon coupling constraints from GW170817 NS merger using Fermi-LAT. Coupling type (AxionPhoton, g_agamma in GeV^-1) is unambiguous. However, exact exclusion contour points are not given in tables; only two benchmark points are explicitly stated (Benchmark 1: ma=398 MeV=3.98e8 eV, g=5.01e-11 GeV^-1; Benchmark 2: ma=200 MeV=2e8 eV, g=1.41e-12 GeV^-1) which are INSIDE the excluded region. The exclusion region spans roughly ma ~ 100 MeV to ~1 GeV down to g~1e-12 GeV^-1. Data points listed are approximate reconstructions of the exclusion boundary from text/figure and should be treated as rough. This is an astrophysical (stellar/merger) bound, not a DM haloscope, so no DM density assumed. | selector: text over figure_vision (quality (1, 1, 1, 3, 0, 0.5, 8)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 1 of 3 curves (med pairwise 0.394 dex)",
+  "num_points": 8,
+  "elapsed_s": 151.6082570552826
 }

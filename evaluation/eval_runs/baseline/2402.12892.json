@@ -10,28 +10,20 @@
       8e-16
     ],
     [
-      4.27e-06,
-      9e-16
-    ],
-    [
       4.3e-06,
-      9e-16
-    ],
-    [
-      4.32e-06,
-      1.5e-15
-    ],
-    [
-      4.35e-06,
-      7e-16
+      8e-16
     ],
     [
       4.4e-06,
-      6.5e-16
+      7.5e-16
+    ],
+    [
+      4.43e-06,
+      5.5e-16
     ],
     [
       4.45e-06,
-      6.5e-16
+      6e-16
     ],
     [
       4.5e-06,
@@ -39,51 +31,44 @@
     ],
     [
       4.55e-06,
-      6.5e-16
-    ],
-    [
-      4.6e-06,
-      6.5e-16
-    ],
-    [
-      4.64e-06,
       7e-16
     ],
     [
-      4.67e-06,
-      1.5e-15
+      4.6e-06,
+      7e-16
+    ],
+    [
+      4.65e-06,
+      7e-16
     ],
     [
       4.7e-06,
-      1.5e-15
+      7e-16
     ],
     [
       4.75e-06,
-      9e-16
+      7e-16
     ],
     [
       4.8e-06,
-      8e-16
+      7e-16
     ],
     [
       4.85e-06,
-      8e-16
-    ],
-    [
-      4.88e-06,
-      8e-16
+      7e-16
     ],
     [
       4.91e-06,
-      9e-16
+      7e-16
     ]
   ],
   "data_source": "figure_vision",
   "dm_density_assumed": 0.45,
   "confidence_level": 0.9,
-  "extraction_confidence": 0.72,
-  "suggested_experiment_name": "CAPP MAX",
-  "notes": "Paper reports new axion-photon coupling exclusion limits from CAPP-MAX cavity haloscope over 1.025-1.185 GHz (4.24-4.91 ueV). Local DM density assumed 0.45 GeV/cm^3 (from Eq.1). However, the provided paper text is truncated before the results section (Sec V) and no numerical exclusion limit values or tables are present in the available content, so no data points could be extracted. | selector: figure_vision (sole candidate) | Vision: Boundary traced from the zoomed inset (FIG 22) where 'This work' (CAPP, dark blue) exclusion sits near the DFSZ line over 4.24-4.91 ueV. DFSZ line at this mass ~6e-16 GeV^-1, KSVZ ~1.5e-15. The CAPP limit reaches close to DFSZ across most of the band, with gaps. Coupling values approximated from DFSZ/KSVZ benchmark lines in the inset; y-axis ticks given correspond to the main panel. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.54 snapped to identity) | read-vote N=3: ct=AxionPhoton (3/3); medoid 2 of 3 curves (med pairwise 0.065 dex)",
-  "num_points": 18,
-  "elapsed_s": 93.77000379562378
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "CAPP-MAX (CAPP-12TB)",
+  "coupling_convention": "GeV^-1 (g_agamma); paper reports model coupling g_gamma but numeric values not extractable from text",
+  "notes": "CAPP-MAX cavity haloscope search for axion dark matter, 1.025-1.185 GHz (4.24-4.91 \u00b5eV). Sets exclusion limits on axion-photon coupling at ~90% CL assuming axions are 100% of local DM density (0.45 GeV/cm^3). The exclusion limit is presented in Fig. 22 but no numerical table of (mass, coupling) values is available in the provided text, so data_points cannot be reliably extracted. Mass range maps to 4.24e-6 to 4.91e-6 eV. Coupling type unambiguous (AxionPhoton). | selector: figure_vision (sole candidate) | Vision: The main exclusion limit from this work (dark blue 'This work' region) spans 4.24-4.91 ueV (1.025-1.185 GHz) and reaches down to approximately DFSZ sensitivity (~4-7e-16 GeV^-1). The inset shows the limit in units of DFSZ; the DFSZ line at this mass is ~4e-16 GeV^-1. Values estimated from main plot where the dark blue region dips down to near the DFSZ line. The narrow spikes correspond to mode crossings/gaps. Boundary points reflect the lower edge of the new exclusion region. Some other CAPP regions extend over the broader range but the new work is concentrated near 1 GHz. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.43 snapped to identity) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.271 dex)",
+  "num_points": 14,
+  "elapsed_s": 118.85090208053589
 }

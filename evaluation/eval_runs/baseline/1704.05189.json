@@ -6,68 +6,97 @@
   "is_projection": false,
   "data_points": [
     [
+      3.5e-10,
+      9e-11
+    ],
+    [
+      4e-10,
+      5e-11
+    ],
+    [
+      4.5e-10,
+      3e-11
+    ],
+    [
+      5e-10,
+      2.2e-11
+    ],
+    [
+      6e-10,
+      1.9e-11
+    ],
+    [
       8e-10,
-      1.5e-11
+      1.8e-11
     ],
     [
       1e-09,
-      1.4e-11
+      1.75e-11
     ],
     [
       1.5e-09,
-      1.4e-11
+      1.7e-11
     ],
     [
       2e-09,
-      1.5e-11
+      1.7e-11
     ],
     [
       3e-09,
-      1.5e-11
-    ],
-    [
-      4e-09,
-      1.6e-11
+      1.7e-11
     ],
     [
       5e-09,
-      1.6e-11
-    ],
-    [
-      7e-09,
       1.7e-11
     ],
     [
-      1e-08,
+      8e-09,
       1.7e-11
     ],
     [
-      1.5e-08,
+      1.2e-08,
       1.7e-11
     ],
     [
       2e-08,
-      1.8e-11
+      1.72e-11
     ],
     [
       3e-08,
-      1.9e-11
-    ],
-    [
-      4e-08,
-      2e-11
+      1.75e-11
     ],
     [
       5e-08,
-      8.8e-10
+      1.8e-11
+    ],
+    [
+      8e-08,
+      1.85e-11
+    ],
+    [
+      1.2e-07,
+      1.9e-11
+    ],
+    [
+      1.8e-07,
+      2e-11
+    ],
+    [
+      2.2e-07,
+      2.2e-11
+    ],
+    [
+      2.5e-07,
+      2.5e-11
     ]
   ],
   "data_source": "figure_vision",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.45,
-  "suggested_experiment_name": "CIBER ALP allowed region (Kohri & Kodama)",
-  "notes": "This paper identifies a favored/allowed region in the (m_a, g_agamma) plane (m_a ~ 7e-10 to 5e-8 eV, g_agamma ~ 1.5e-11 to 8.8e-10 GeV^-1) that resolves the tension between CIBER CIB data and TeV gamma-ray observations via photon-axion mixing. This is an allowed/preferred region, not an exclusion limit or sensitivity projection. The numerical contour data is only available as plots (Fig. 5); no tabulated values are given, so no reliable (mass, coupling) pairs can be extracted. | selector: figure_vision (sole candidate) | Vision: This plot (Fig. 5) shows an ALLOWED region (closed contour) rather than a standard exclusion boundary. The lower edge of the allowed contour for CIBER-only is traced here, roughly horizontal near g~1.5-2e-11 GeV^-1, rising steeply at the right edge near m_a~5e-8 eV. The CAST horizontal exclusion line sits at g~8.8e-11 GeV^-1. Confidence reduced because this is an allowed region, not an exclusion lower boundary in the usual sense. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.88 snapped to identity) | read-vote N=3: ct=AxionPhoton (3/3); medoid 1 of 2 curves (med pairwise 0.022 dex)",
-  "num_points": 14,
-  "elapsed_s": 90.00208520889282
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "CIBER CIB axion-photon allowed region",
+  "coupling_convention": "GeV^-1",
+  "notes": "This paper identifies an ALLOWED parameter region (not an exclusion limit) in the (m_a, g_agamma) plane that solves the TeV gamma-ray transparency tension with CIBER CIB data. Region: m_a ~ 7e-10 to 5e-8 eV, g_agamma ~ 1.5e-11 to 8.8e-10 GeV^-1 at 95% C.L. The data points given are corner bounds of the allowed contour, not a continuous exclusion curve. The detailed contour shape is in Fig. 5 (not numerically tabulated). Confidence reduced because this is a favored region rather than a standard exclusion limit, and only rough boundary values are extractable from text. | selector: figure_vision over text (quality (1, 1, 1, 2, 0, 0.4, 21)) | Vision: Fig.5 shows closed contours of ALLOWED (tension-solving) regions, NOT a conventional exclusion boundary. The excluded region is NOT simply above the boundary. Data points trace the lower edge of the blue CIBER-only closed contour. The CAST upper bound (horizontal line) is at g_agamma ~ 8.8e-11 GeV^-1. Interpretation as a standard exclusion plot is inappropriate; confidence reduced accordingly. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.88 snapped to identity) | read-vote N=3: ct=AxionPhoton (3/3); medoid 1 of 3 curves (med pairwise 0.046 dex)",
+  "num_points": 21,
+  "elapsed_s": 98.37441730499268
 }

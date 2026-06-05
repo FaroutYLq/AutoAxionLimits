@@ -6,80 +6,77 @@
   "is_projection": false,
   "data_points": [
     [
-      100000.0,
-      0.0001
-    ],
-    [
-      300000.0,
-      9e-05
-    ],
-    [
-      1000000.0,
-      7e-05
-    ],
-    [
       3000000.0,
-      5.5e-05
+      0.003
+    ],
+    [
+      5000000.0,
+      0.001
     ],
     [
       10000000.0,
-      4.5e-05
+      0.0005
     ],
     [
       30000000.0,
-      4e-05
+      0.0002
     ],
     [
       100000000.0,
-      3.5e-05
+      0.00012
     ],
     [
       300000000.0,
-      3.2e-05
+      9e-05
+    ],
+    [
+      600000000.0,
+      7e-05
     ],
     [
       1000000000.0,
-      3e-05
-    ],
-    [
-      3000000000.0,
-      3e-05
-    ],
-    [
-      6000000000.0,
-      3.2e-05
-    ],
-    [
-      10000000000.0,
-      3.5e-05
-    ],
-    [
-      20000000000.0,
-      4e-05
-    ],
-    [
-      40000000000.0,
       5e-05
     ],
     [
-      60000000000.0,
-      6e-05
+      2000000000.0,
+      4e-05
     ],
     [
-      80000000000.0,
-      8e-05
+      4000000000.0,
+      3.5e-05
     ],
     [
-      91000000000.0,
-      0.0001
+      8000000000.0,
+      3e-05
+    ],
+    [
+      15000000000.0,
+      2.8e-05
+    ],
+    [
+      30000000000.0,
+      2.5e-05
+    ],
+    [
+      50000000000.0,
+      2.3e-05
+    ],
+    [
+      70000000000.0,
+      2.2e-05
+    ],
+    [
+      90000000000.0,
+      2.1e-05
     ]
   ],
   "data_source": "figure_vision",
   "dm_density_assumed": null,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.5,
-  "suggested_experiment_name": "LEP Z\u21922\u03b3,3\u03b3 (Jaeckel-Spannowsky)",
-  "notes": "Paper sets new limits on ALP-photon coupling g_agamma (and g_aBB hypercharge coupling) from LEP Z->2gamma and Z->3gamma data, plus LHC/FCC-ee projections. The coupling type is AxionPhoton. However, numerical limit values are only presented graphically in Fig. 4 (log-log plots, ma in eV, g in GeV^-1) and not in any extractable table of (mass, coupling) pairs. Table 1 contains signal/background cross sections, not exclusion limits. The exclusion is roughly MeV-90 GeV (1e6 to ~9e10 eV) with couplings around 10^-3 to 10^-4 GeV^-1, but precise points cannot be reliably digitized from text. Both observed limits (LEP) and projections (LHC, FCC-ee) are present. | selector: figure_vision (sole candidate) | Vision: Figure 4(a) shows new LEP limits (green region enclosed by dashed Z\u21922\u03b3 and solid Z\u21923\u03b3 lines) on ALP-photon coupling. The y-axis is Log10(g_a\u03b3\u03b3[GeV^-1]) from -12 to 0, x-axis Log10(m_a[eV]) from ~-15 to 13. The new LEP green region covers MeV (~10^5 eV) to ~90 GeV (~9.1e10 eV) at couplings around 3e-5 to 1e-4 GeV^-1. Boundary traced is the lower edge of the new green LEP exclusion island. Note: panel (a) is hypercharge coupling; values approximate due to dense overlapping regions and log-axis reading. The plot also contains many compiled astrophysical/lab limits (LSW, CAST, SN1987a, HB stars, Cosmology) which form a separate large excluded region at lower masses. | Calibration: No calibration needed | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 3.731 dex)",
-  "num_points": 17,
-  "elapsed_s": 4110.315978050232
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "LEP Z to 2\u03b3/3\u03b3 ALP search",
+  "coupling_convention": "GeV^-1 g_agamma",
+  "notes": "Paper sets new LEP limits on ALP-photon coupling g_agamma (and g_aBB) in the MeV-90 GeV range from Z->2gamma and Z->3gamma decays, plus LHC/FCC-ee projections. The exclusion limits are presented only in log-log plots (Fig. 4) with no numerical table of (mass, coupling) limit points; Table 1 gives signal/background cross sections at a fixed coupling g=1e-4 GeV^-1, not exclusion contours. Therefore no reliable (mass_eV, coupling) limit pairs can be extracted. Coupling type is AxionPhoton (g_agamma), though paper also discusses hypercharge coupling g_aBB. | selector: figure_vision (sole candidate) | Vision: Figure 4(a) shows ALP-photon (hypercharge) coupling limits in log10(g) vs log10(m_a) plane. The new LEP result (green region, dashed/solid black outline) lies at high mass ~MeV-90GeV (log10 m_a ~6.5-11). The lower boundary of the green LEP region is traced here, but the overlapping experimental regions (orange beam dump, blue LHC projection, red FCC-ee) make exact reading of the LEP lower edge difficult. Values are approximate. The plot uses g_a\u03b3\u03b3 in GeV^-1. Coupling type is unambiguously AxionPhoton, but the data point extraction from the densely overlapping right-side region has significant uncertainty. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=2.50 snapped to identity) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 1.217 dex)",
+  "num_points": 16,
+  "elapsed_s": 114.24958491325378
 }

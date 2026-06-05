@@ -19,7 +19,8 @@
   "confidence_level": 0.95,
   "extraction_confidence": 0.85,
   "suggested_experiment_name": "ORGAN_Phase1a",
-  "notes": "ORGAN Phase 1a haloscope sets g_agamma >= 3e-12 GeV^-1 over 63.2-67.1 ueV (15.28-16.23 GHz) at 95% CL. Limit value from abstract/text; exclusion shown in Fig 4 but only the bounding coupling and mass range are explicit numerically. Local DM density assumed 0.45 GeV/cm^3. Data points represent endpoints of the excluded mass range at the quoted coupling level (approximately flat limit). | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.85, 2)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "ORGAN Phase 1a microwave cavity haloscope. Sets new limit g_agamma >= 3e-12 GeV^-1 over 63.2-67.1 ueV (15.28-16.23 GHz). Local DM density rho_a ~ 0.45 GeV/cm^3 assumed. Only approximate endpoint values extracted from text; the actual exclusion curve (Fig 4) has bin-by-bin variation around 3e-12 with gaps at mode-mixing regions. 95% confidence level. | selector: text over figure_vision (quality (1, 1, 1, 1, 0, 0.85, 2)) | read-vote N=3: ct=AxionPhoton (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
   "num_points": 2,
-  "elapsed_s": 63.124393939971924
+  "elapsed_s": 92.88089489936829
 }

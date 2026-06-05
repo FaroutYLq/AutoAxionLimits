@@ -6,6 +6,10 @@
   "is_projection": false,
   "data_points": [
     [
+      1e-14,
+      1e-11
+    ],
+    [
       1e-13,
       1e-11
     ],
@@ -19,7 +23,8 @@
   "confidence_level": 0.95,
   "extraction_confidence": 0.45,
   "suggested_experiment_name": "MICROSCOPE2018",
-  "notes": "MICROSCOPE WEP test constrains Yukawa fifth-force coupling alpha for scalar coupled to baryon number B (|alpha|<1e-11) and B-L (|alpha|<1e-12) for masses < 1e-12 eV. Paper primarily reports results as exclusion regions in (alpha, lambda) plane (Figs 1,2) and dilaton coupling (De, Dmtilde). Only text-quoted summary values available; full curves are in figures not extractable numerically. Could be classified as ScalarBaryon (B coupling) or VectorBL (B-L coupling) - this is a fifth-force/WEP test. de constraint (~1e-4) for EM-coupled dilaton relates to ScalarPhoton. Confidence reduced due to multiple coupling types presented. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.45, 2)) | read-vote N=3: ct=ScalarBaryon (3/3); medoid 0 of 3 curves (med pairwise 0.000 dex)",
-  "num_points": 2,
-  "elapsed_s": 75.10556888580322
+  "coupling_convention": "dimensionless alpha (Yukawa strength relative to gravity), q=B coupling",
+  "notes": "Paper constrains composition-dependent scalar fifth force via WEP test (Eotvos parameter). Two main cases: q=B (baryon number, ScalarBaryon, |alpha|<1e-11) and q=B-L (VectorBL-like, |alpha|<1e-12). Reported limit is for B coupling per hint. Constraints given as exclusion contours in (alpha, lambda) plane (Figs 1-2), not numerical tables; values extracted from text plateau at |alpha|<1e-11 for m_phi<1e-12 eV. Mass-range relation: lambda=hbar/(m_phi c). 2-sigma (95% CL). Could also be classified as ScalarNucleon (Yukawa fifth force) or VectorBL (B-L case); ambiguity lowers confidence. The dilaton de result (Fig 5) would be ScalarPhoton but is secondary. | selector: text over figure_vision (quality (1, 1, 1, 3, 0, 0.45, 3)) | read-vote N=3: ct=ScalarBaryon (3/3); medoid 0 of 3 curves (med pairwise 3.651 dex)",
+  "num_points": 3,
+  "elapsed_s": 363.95875310897827
 }

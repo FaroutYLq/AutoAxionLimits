@@ -7,95 +7,144 @@
   "data_points": [
     [
       6.2e-14,
-      2e-18
+      4e-19
     ],
     [
       7e-14,
-      1.5e-18
+      2.5e-19
     ],
     [
       8.3e-14,
-      8e-19
+      1.5e-19
     ],
     [
-      1e-13,
-      7e-19
+      9.5e-14,
+      1e-19
+    ],
+    [
+      1.1e-13,
+      8e-20
     ],
     [
       1.24e-13,
-      9e-19
+      6e-20
     ],
     [
-      1.65e-13,
-      6.000000000000001e-19
+      1.5e-13,
+      6e-20
     ],
     [
-      2.07e-13,
-      5e-19
+      1.8e-13,
+      7e-20
     ],
     [
-      2.48e-13,
-      5e-19
+      2e-13,
+      6e-20
     ],
     [
-      3.31e-13,
-      5e-19
+      2.3e-13,
+      5e-20
     ],
     [
-      4.14e-13,
-      6.000000000000001e-19
+      2.7e-13,
+      6e-20
+    ],
+    [
+      3e-13,
+      5e-20
+    ],
+    [
+      3.3e-13,
+      4.5e-20
+    ],
+    [
+      3.7e-13,
+      5e-20
+    ],
+    [
+      4e-13,
+      4e-20
+    ],
+    [
+      4.5e-13,
+      5e-20
     ],
     [
       5e-13,
-      7e-19
+      6e-20
+    ],
+    [
+      5.5e-13,
+      7e-20
     ],
     [
       6.2e-13,
-      8e-19
+      8e-20
     ],
     [
-      7.4e-13,
-      1e-18
+      7e-13,
+      9e-20
     ],
     [
-      8.3e-13,
-      1.2000000000000002e-18
+      8e-13,
+      1e-19
     ],
     [
-      1e-12,
-      1.5e-18
+      9e-13,
+      1.2e-19
     ],
     [
-      1.24e-12,
-      2e-18
+      1.03e-12,
+      1.4e-19
+    ],
+    [
+      1.2e-12,
+      1.6e-19
+    ],
+    [
+      1.4e-12,
+      1.8e-19
     ],
     [
       1.65e-12,
-      3e-18
+      2e-19
     ],
     [
-      2.07e-12,
-      4e-18
+      1.9e-12,
+      2.5e-19
     ],
     [
-      2.48e-12,
-      5e-18
+      2.1e-12,
+      3e-19
     ],
     [
-      3.31e-12,
-      7e-18
+      2.5e-12,
+      4e-19
+    ],
+    [
+      2.9e-12,
+      5e-19
+    ],
+    [
+      3.3e-12,
+      7e-19
+    ],
+    [
+      3.7e-12,
+      9e-19
     ],
     [
       4.14e-12,
-      1e-17
+      1.2e-18
     ]
   ],
   "data_source": "figure_vision",
-  "dm_density_assumed": 0.3,
+  "dm_density_assumed": 0.4,
   "confidence_level": 0.95,
-  "extraction_confidence": 0.6,
-  "suggested_experiment_name": "KAGRA O3GK",
-  "notes": "Paper presents a search for U(1)_{B-L} gauge boson dark matter using KAGRA O3GK auxiliary length channel data, yielding upper bounds on the B-L coupling strength g_BL vs mass (target mass range ~1e-14 to 1e-11 eV). Coupling type is clearly VectorBL. However, the provided paper content is truncated and does not include the numerical exclusion limit values or a results table/figure data, so no data points could be extracted. | selector: figure_vision (sole candidate) | Vision: Limit traced from FIG. 5, taking the lower envelope of the noisy PRCL/MICH curves. X-axis frequency converted to mass via m=4.136e-15*f. The plot is very noisy; values represent the floor of the exclusion curves. PRCL gives the stronger (lower) constraint at low frequencies. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=4.29) | read-vote N=3: ct=VectorBL (3/3); medoid 2 of 3 curves (med pairwise 0.625 dex)",
-  "num_points": 21,
-  "elapsed_s": 70.81252002716064
+  "extraction_confidence": 0.78,
+  "suggested_experiment_name": "KAGRA O3GK auxiliary channel U(1)_{B-L} DM search",
+  "coupling_convention": "dimensionless g_BL (epsilon_BL)",
+  "notes": "Paper presents a 95% CL upper limit on the U(1)_{B-L} gauge coupling epsilon_{B-L} from KAGRA O3GK auxiliary-channel data (MICH and PRCL), in the mass range ~1e-14 to 1e-11 eV. The text estimates the limit is at best O(1e-20), weaker than previous bounds. The actual exclusion curve is in Fig. 5, but no numerical (mass, coupling) data points are provided in the extractable text or any table, so data_points is empty. Coupling type VectorBL is clear from title and abstract. | selector: figure_vision (sole candidate) | Vision: Figure 5 shows 95% upper limit on epsilon_{B-L} from MICH (blue) and PRCL (orange) channels. The lower envelope of the combined exclusion is traced. Frequency converted to mass via m=4.136e-15*f. Below ~100 Hz PRCL/MICH reach ~5e-20; the boundary rises at high frequency where MICH degrades. Many narrow peaks (line artifacts) excluded from the traced smooth lower envelope. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.67 snapped to identity) | read-vote N=3: ct=VectorBL (3/3); medoid 2 of 3 curves (med pairwise 1.114 dex)",
+  "num_points": 33,
+  "elapsed_s": 113.01414895057678
 }

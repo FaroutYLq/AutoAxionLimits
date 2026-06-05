@@ -13,9 +13,10 @@
   "data_source": "text",
   "dm_density_assumed": 0.3,
   "confidence_level": 0.9,
-  "extraction_confidence": 0.9,
-  "suggested_experiment_name": "QuantumCyclotron2022",
-  "notes": "One-electron quantum cyclotron in Penning trap as dark photon dark matter detector. Single limit point at m_A' = 0.612276 meV (148 GHz): epsilon < 3.2e-11 at 90% CL, ~75x better than previous constraints. Projections also shown in Fig 5(b) but not extracted as numerical values. | selector: text over figure_vision (quality (1, 1, 1, 2, 0, 0.9, 1)) | read-vote N=3: ct=DarkPhoton (3/3); no consensus curve, took most-points",
+  "extraction_confidence": 0.95,
+  "suggested_experiment_name": "OneElectronQuantumCyclotron",
+  "coupling_convention": "dimensionless kinetic mixing epsilon",
+  "notes": "Proof-of-principle measurement sets limit epsilon < 3.2e-11 at mA' = 0.61227643 meV (148 GHz) at 90% CL. Single data point from text/abstract. The flat blue projection in Fig 5(b) (~8e-11 over 0.1-1 meV) is a future-apparatus projection, not the measured limit. | selector: text over figure_vision (quality (1, 1, 1, 1, 0, 0.95, 1)) | read-vote N=3: ct=DarkPhoton (3/3); no consensus curve, took most-points",
   "num_points": 1,
-  "elapsed_s": 108.3929398059845
+  "elapsed_s": 102.98765587806702
 }
