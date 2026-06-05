@@ -2701,6 +2701,28 @@
       "verification_date": "2026-04-13"
     },
     {
+      "arxiv_id": "2309.07995",
+      "paper_title": "HELIOS",
+      "coupling_type": "VectorBL",
+      "coupling_convention": "g_BL",
+      "coupling_units": "g_BL (dimensionless)",
+      "is_new_limit": true,
+      "is_projection": true,
+      "data_source_expected": "figure_vision",
+      "confidence_level": 0.95,
+      "dm_density_assumed": null,
+      "difficulty": "hard",
+      "tags": [],
+      "notes": "#606 Lever B: HELIOS projected B-L gauge-boson sensitivity (the paper's primary coupling; the extractor reads VectorBL). ground_truth_data_file=null -> loads reference_repo_file directly.",
+      "ground_truth_data_file": null,
+      "reference_repo_file": "limit_data/VectorB-L/Projections/HELIOS.txt",
+      "ground_truth_mass_range_eV": null,
+      "ground_truth_coupling_range": null,
+      "ground_truth_num_points": 58,
+      "verified_by": "llm_verified:2309.07995-leverB",
+      "verification_date": "2026-06-05"
+    },
+    {
       "arxiv_id": "2006.07055",
       "paper_title": "DAMNED",
       "coupling_type": "ScalarElectron",
