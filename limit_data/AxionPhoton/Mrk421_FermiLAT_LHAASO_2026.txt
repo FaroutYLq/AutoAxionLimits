@@ -1,0 +1,11 @@
+# Joint Multi-Period Fermi-LAT and LHAASO Constraints on Axion-Like Particles from Mrk 421 Using Profile Likelihood with Gaussian Copula Correlation
+# arXiv: https://arxiv.org/abs/2606.05738
+# Coupling type: AxionPhoton
+# Extracted from: text
+# Confidence level: 0.95
+# Extraction confidence: 0.60
+# mass [eV]    g_agamma [GeV^-1]
+4.000000e-10   8.330000e-14
+1.000000e-09   8.330000e-14
+1.000000e-09   1.000000e-13
+1.000000e-07   7.780000e-12
