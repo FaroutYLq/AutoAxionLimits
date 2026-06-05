@@ -2537,14 +2537,14 @@
       "dm_density_assumed": null,
       "difficulty": "hard",
       "tags": [],
-      "notes": "DarkSide-50 axion-electron coupling limit",
-      "ground_truth_data_file": "2207.11968.txt",
+      "notes": "DarkSide-50 axion-electron coupling limit. ground_truth_data_file nulled (#612): the shared local data/2207.11968.txt is the DarkPhoton/DarkSide curve (155 pts), not the AxionElectron one; null -> the comparator loads the correct O'Hare AxionElectron/DarkSide.txt (130 pts) via reference fallback.",
+      "ground_truth_data_file": null,
       "reference_repo_file": "limit_data/AxionElectron/DarkSide.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 130,
       "verified_by": "repo_upstream",
-      "verification_date": "2026-04-13"
+      "verification_date": "2026-06-05"
     },
     {
       "arxiv_id": "2102.11740",
