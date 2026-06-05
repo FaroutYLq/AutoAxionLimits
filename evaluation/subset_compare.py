@@ -29,6 +29,7 @@ from pathlib import Path
 from typing import Optional
 
 import numpy as np
+from scipy.interpolate import interp1d
 
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -45,7 +46,11 @@ from evaluation.conventions import (
     file_source_convention,
     to_canonical,
 )
-from evaluation.metrics import _filter_boundary, compute_interpolation_metrics
+from evaluation.metrics import (
+    _deduplicate_mass,
+    _filter_boundary,
+    compute_interpolation_metrics,
+)
 from evaluation.diagnose_zero_overlap import _classify, _ceil_for, _mass_range
 from evaluation.ground_truth import GroundTruthEntry, load_ground_truth
 
@@ -74,6 +79,97 @@ def _canonicalize_curve(coupling_type, arr: np.ndarray, token) -> np.ndarray:
     if not out:
         return arr
     return np.array(out, dtype=float, ndmin=2)
+
+
+# Single-point-GT comparison (#612). Many results are a SINGLE limit value at one
+# operating mass (e.g. 1706.00209 ORGAN: g_ag<2.02e-12 @ 110 ueV; 2208.06519
+# QuantumCyclotron; the 2020 QUAX point in 1806.00310). The O'Hare file then has
+# one distinct mass (a point reference, not a curve), so curve interpolation
+# cannot run and the paper is discarded as no_comparable_gt / zero_overlap even
+# when the extracted coupling matches. We score it as a single point: pair each
+# extracted point with the nearest-in-log-mass GT point and, if they sit at the
+# same operating mass (within tolerance), take |Δ log10 coupling|.
+_SINGLE_POINT_MASS_TOL_DEX = 0.3   # ~factor 2 in mass = the same experimental point
+_SINGLE_POINT_MAX_EXT_MASSES = 3   # fallback only for sparse single-value extractions
+
+
+def _maybe_canonicalize(result: dict, predicted_ct: str, ext_array: np.ndarray,
+                        gt_entry, gt_data: np.ndarray):
+    """Apply both-sides convention canonicalization (#536/#587 registry).
+
+    Returns ``(ext_array, gt_data, unconvertible)``. ``unconvertible`` is True
+    when the extraction declares a recognized but non-convertible convention
+    (#604) — caller should treat as convention_mismatch. No-op (and never
+    unconvertible) when the extraction does not declare a convention, so
+    field-less old snapshots stay raw.
+    """
+    if not result.get("coupling_convention"):
+        return ext_array, gt_data, False
+    ext_token = classify_reported_convention(predicted_ct, result.get("coupling_convention"))
+    if ext_token == UNCONVERTIBLE:
+        return ext_array, gt_data, True
+    gt_token = file_source_convention(gt_entry.reference_repo_file, predicted_ct)
+    return (_canonicalize_curve(predicted_ct, ext_array, ext_token),
+            _canonicalize_curve(predicted_ct, gt_data, gt_token), False)
+
+
+def _residuals_at(curve: np.ndarray, reference: np.ndarray,
+                  tol_dex: float) -> np.ndarray | None:
+    """|Δ log10 coupling| of ``curve`` evaluated at each ``reference`` point.
+
+    Both Nx2 (mass, coupling), already boundary-filtered & positive. The curve is
+    interpolated in log-log when it has >= 2 distinct masses; for reference
+    masses outside the curve's range (or a single-point curve) the nearest curve
+    point is used, but only if it is within ``tol_dex`` of the reference mass
+    (the same operating mass). Returns the residuals at the matched reference
+    points, or ``None`` if none match.
+    """
+    cm, cc = _deduplicate_mass(np.log10(curve[:, 0]), np.log10(curve[:, 1]))
+    # Dedup the reference to one (strongest) point per operating mass: duplicate
+    # rows at the same mass are the same point, not extra coverage.
+    rm, rc = _deduplicate_mass(np.log10(reference[:, 0]), np.log10(reference[:, 1]))
+    interp = None
+    if len(cm) >= 2:
+        interp = interp1d(cm, cc, kind="linear", bounds_error=False,
+                          fill_value=np.nan)
+    out = []
+    for k in range(len(rm)):
+        val = float(interp(rm[k])) if interp is not None else float("nan")
+        if not np.isfinite(val):
+            j = int(np.argmin(np.abs(cm - rm[k])))
+            if abs(cm[j] - rm[k]) <= tol_dex:
+                val = cc[j]
+        if np.isfinite(val):
+            out.append(abs(val - rc[k]))
+    return np.array(out) if out else None
+
+
+def _single_point_compare(curve: np.ndarray, reference: np.ndarray,
+                          predicted_ct: str, require_sparse_ref: bool = False):
+    """Single-point residual: evaluate ``curve`` at the ``reference`` masses.
+
+    ``reference`` is the side with the trustworthy operating mass(es) — the
+    single GT point (single-mass GT), or the sparse single-value extraction (the
+    fallback when a GT curve cannot be interpolated against a 1-point read).
+    Returns ``(median_resid, n_matched, coverage)`` over the reference points, or
+    ``None`` if nothing matches.
+
+    ``require_sparse_ref`` refuses to score a rich multi-point reference this way
+    — used in the curve fallback so a genuine wrong-window curve failure is not
+    masked by one lucky near-mass extracted point.
+    """
+    ceil = _ceil_for(predicted_ct)
+    c = _filter_boundary(curve, ceil)
+    r = _filter_boundary(reference, ceil)
+    if len(c) == 0 or len(r) == 0:
+        return None
+    n_ref_masses = int(np.unique(r[:, 0]).size)
+    if require_sparse_ref and n_ref_masses > _SINGLE_POINT_MAX_EXT_MASSES:
+        return None
+    res = _residuals_at(c, r, _SINGLE_POINT_MASS_TOL_DEX)
+    if res is None:
+        return None
+    return float(np.median(res)), len(res), len(res) / n_ref_masses
 
 
 def _paper_record(arxiv_id: str, result: dict,
@@ -113,8 +209,15 @@ def _paper_record(arxiv_id: str, result: dict,
     # error. We mirror evaluate.py's guard exactly (it had this; the subset
     # comparator did not, so the gate/eval kept scoring these false negatives).
     # None on either side = unknown convention, treated as comparable.
+    # Convention canonicalization (#536/#587) is vetted only for select families
+    # (axion-nucleon x2 m_N / SNO x m_N, DarkPhoton eps^2->chi, AxionEDM). Scalars
+    # are NOT converted here — they remain governed by the convention_mismatch
+    # guard. Back-compat: only canonicalize when the extraction DECLARES its
+    # convention; field-less snapshots are left raw so converting one side alone
+    # cannot break a shared-convention match.
     expected_conv, _ = canonical_convention(predicted_ct)
-    candidates = []
+    multi_candidates = []   # n_mass >= 2 : a comparable curve
+    single_candidates = []  # n_mass == 1 : a single-point (operating-mass) reference
     has_convention_mismatch = False
     for e in paper_entries:
         if _authoritative_coupling(e) != predicted_ct:
@@ -131,54 +234,78 @@ def _paper_record(arxiv_id: str, result: dict,
             continue
         _, n_mass = _usable_gt_stats(gt, predicted_ct)
         if n_mass >= 2:
-            candidates.append((n_mass, e, gt))
-    if not candidates:
-        # Distinguish a pure convention gap (excluded from residuals, a benchmark
-        # units artifact) from a genuinely missing/unusable GT curve.
-        rec["status"] = "convention_mismatch" if has_convention_mismatch else "no_comparable_gt"
-        return rec
-    candidates.sort(key=lambda t: -t[0])
-    _, gt_entry, gt_data = candidates[0]
+            multi_candidates.append((n_mass, e, gt))
+        elif n_mass == 1:
+            single_candidates.append((1, e, gt))
 
-    # --- Both-sides convention canonicalization (#536/#587 registry) ----------
-    # Convert BOTH the extraction and the GT curve to the canonical variable
-    # before scoring, for the VETTED families (axion-nucleon x2 m_N / SNO x m_N,
-    # DarkPhoton eps^2->chi, AxionEDM). Scalars are NOT converted here (native-file
-    # mapping unverified) — they remain governed by the convention_mismatch guard
-    # above. Back-compat: only canonicalize when the extraction DECLARES its
-    # convention (new `coupling_convention` field); field-less snapshots are left
-    # raw so converting one side alone cannot break a shared-convention match.
-    if result.get("coupling_convention"):
-        ext_token = classify_reported_convention(predicted_ct, result.get("coupling_convention"))
-        # An extraction declaring a recognized-but-NON-convertible convention
-        # (#604: AxionEDM oscillating-EDM amplitude in e*cm / bare GeV^-1, which
-        # needs the per-point field amplitude to reach canonical g_angamma) is a
-        # convention gap, not extraction error — exclude rather than score the raw
-        # multi-dex units mismatch.
-        if ext_token == UNCONVERTIBLE:
+    if multi_candidates:
+        multi_candidates.sort(key=lambda t: -t[0])
+        _, gt_entry, gt_data = multi_candidates[0]
+        ext_c, gt_c, unconvertible = _maybe_canonicalize(
+            result, predicted_ct, ext_array, gt_entry, gt_data)
+        if unconvertible:
             rec["status"] = "convention_mismatch"
             return rec
-        gt_token = file_source_convention(gt_entry.reference_repo_file, predicted_ct)
-        ext_array = _canonicalize_curve(predicted_ct, ext_array, ext_token)
-        gt_data = _canonicalize_curve(predicted_ct, gt_data, gt_token)
-
-    im = compute_interpolation_metrics(arxiv_id, ext_array, gt_data,
-                                       coupling_type=predicted_ct)
-    rec["coverage"] = im.interpolation_coverage
-    rec["frac_0_3"] = im.frac_within_0_3dex
-    rec["n_ext"] = im.num_extracted
-    if im.num_interpolatable > 0:
-        rec["status"] = "compared"
-        rec["median_resid"] = im.median_residual_dex
-    else:
+        im = compute_interpolation_metrics(arxiv_id, ext_c, gt_c,
+                                           coupling_type=predicted_ct)
+        rec["coverage"] = im.interpolation_coverage
+        rec["frac_0_3"] = im.frac_within_0_3dex
+        rec["n_ext"] = im.num_extracted
+        if im.num_interpolatable > 0:
+            rec["status"] = "compared"
+            rec["median_resid"] = im.median_residual_dex
+            return rec
+        # Curve interpolation found no overlap. A single-value-limit extraction
+        # (sparse) that sits at one of the GT curve's operating masses is scored
+        # as a single point rather than discarded as zero_overlap (#612). Guarded
+        # to sparse extractions so a genuine wrong-window curve failure is not
+        # masked by one lucky near-mass point.
+        # reference = the sparse single-value extraction; evaluate the GT CURVE at
+        # those operating mass(es). Guarded to a sparse reference so a wrong-window
+        # multi-point curve failure is not masked by one lucky near-mass point.
+        sp = _single_point_compare(gt_c, ext_c, predicted_ct, require_sparse_ref=True)
+        if sp is not None:
+            rec["status"] = "compared"
+            rec["median_resid"], _n, rec["coverage"] = sp
+            rec["single_point"] = True
+            return rec
         rec["status"] = "zero_overlap"
         rec["median_resid"] = float("inf")
         ceil = _ceil_for(predicted_ct)
-        ext_f = _filter_boundary(ext_array, ceil)
-        gt_f = _filter_boundary(gt_data, ceil)
+        ext_f = _filter_boundary(ext_c, ceil)
+        gt_f = _filter_boundary(gt_c, ceil)
         case = _classify(predicted_ct, _mass_range(ext_f), _mass_range(gt_f),
                          len(ext_f), len(gt_f))
         rec["zo_cause"] = case.classification
+        return rec
+
+    # No multi-point GT curve. A single-mass GT is a point reference: compare the
+    # extracted coupling at that operating mass (single-point mode, #612).
+    if single_candidates:
+        _, gt_entry, gt_data = single_candidates[0]
+        ext_c, gt_c, unconvertible = _maybe_canonicalize(
+            result, predicted_ct, ext_array, gt_entry, gt_data)
+        if unconvertible:
+            rec["status"] = "convention_mismatch"
+            return rec
+        ext_f = _filter_boundary(ext_c, _ceil_for(predicted_ct))
+        rec["n_ext"] = int(np.unique(ext_f[:, 0]).size) if len(ext_f) else 0
+        # reference = the single GT operating point; evaluate the EXTRACTION at it
+        # (interpolating a curve, or matching a single read).
+        sp = _single_point_compare(ext_c, gt_c, predicted_ct)
+        if sp is not None:
+            rec["status"] = "compared"
+            rec["median_resid"], _n, rec["coverage"] = sp
+            rec["single_point"] = True
+            return rec
+        rec["status"] = "zero_overlap"
+        rec["median_resid"] = float("inf")
+        rec["zo_cause"] = "single_point_no_match"
+        return rec
+
+    # Distinguish a pure convention gap (excluded from residuals, a benchmark
+    # units artifact) from a genuinely missing/unusable GT curve.
+    rec["status"] = "convention_mismatch" if has_convention_mismatch else "no_comparable_gt"
     return rec
 
 
