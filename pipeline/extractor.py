@@ -251,8 +251,51 @@ def download_pdf(
     raise last_exc
 
 
-def extract_text_from_pdf(pdf_path: Path, max_chars: int = 60_000) -> str:
-    """Extract text from PDF using PyMuPDF (fitz)."""
+# Lines naming a limit RESULT — the prose number the extractor needs. Used to
+# rescue result statements that fall past the head budget in long papers (#597:
+# 2007.04990 / 2208.07293 quote the bound in a late Results/Discussion section
+# past char 60k, so naive head-truncation dropped it and the paper extracted
+# data_source=none). Matched case-insensitively on the raw line text.
+_RESULT_LINE_KEYWORDS = (
+    "exclud", "upper limit", "lower limit", "we find", "we obtain", "we set",
+    "we place", "we report", "we derive", "we constrain", "we exclude",
+    "constraint on", "limit on", "bound on", "best limit", "new limit",
+    "95%", "90% c", "c.l.", "confidence level", "sensitivity",
+)
+
+
+def _result_excerpts(text: str, budget: int) -> str:
+    """Pull the result-bearing lines (plus one line of context each side) out of
+    ``text``, in original order, up to ``budget`` chars. Deterministic, no API."""
+    if budget <= 0 or not text:
+        return ""
+    lines = text.split("\n")
+    keep: set[int] = set()
+    for i, ln in enumerate(lines):
+        low = ln.lower()
+        if any(k in low for k in _RESULT_LINE_KEYWORDS):
+            keep.update((i - 1, i, i + 1))
+    keep = {i for i in keep if 0 <= i < len(lines)}
+    out, used = [], 0
+    for i in sorted(keep):
+        ln = lines[i]
+        if used + len(ln) + 1 > budget:
+            break
+        out.append(ln)
+        used += len(ln) + 1
+    return "\n".join(out)
+
+
+def extract_text_from_pdf(pdf_path: Path, max_chars: int = 60_000,
+                          tail_excerpt_chars: int = 30_000) -> str:
+    """Extract text from PDF using PyMuPDF (fitz).
+
+    Returns the first ``max_chars`` of text. For papers LONGER than that, also
+    appends up to ``tail_excerpt_chars`` of result-bearing excerpts mined from
+    beyond the head (#597) — the head is unchanged (no regression for papers whose
+    results sit early), and long prose-bound papers no longer lose a late limit
+    statement to truncation.
+    """
     try:
         import fitz  # pymupdf
     except ImportError:
@@ -264,7 +307,14 @@ def extract_text_from_pdf(pdf_path: Path, max_chars: int = 60_000) -> str:
         parts.append(page.get_text())
     doc.close()
     text = "\n".join(parts)
-    return text[:max_chars]
+    if len(text) <= max_chars:
+        return text
+    head = text[:max_chars]
+    excerpt = _result_excerpts(text[max_chars:], tail_excerpt_chars)
+    if not excerpt:
+        return head
+    return (head + f"\n\n===RESULTS_EXCERPT (limit statements beyond the first "
+            f"{max_chars} chars)===\n" + excerpt)
 
 
 def extract_figures_from_pdf(pdf_path: Path, max_figures: int = 10, dpi: int = 200) -> list[Path]:
