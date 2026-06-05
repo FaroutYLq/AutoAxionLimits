@@ -476,3 +476,68 @@ def normalize_convention(coupling_type, data_points, axis_unit_label="", notes="
 
     return data_points, ""
 
+
+
+# ---------------------------------------------------------------------------
+# Convention review flag (#536 / #587 runtime hybrid) — escalate-on-UNKNOWN
+# ---------------------------------------------------------------------------
+# The registry canonicalizes KNOWN conventions deterministically; for an UNKNOWN
+# convention we do not silently emit a limit — we flag the PR for human review
+# (the cheap escalation half of the hybrid). This is the production safety net.
+#
+# Canonical / repo-standard convention phrasings per coupling type (a declared
+# output convention matching one of these needs no review). Lowercased substring
+# match. Kept deliberately conservative: a non-empty declaration is flagged ONLY
+# when it is NEITHER canonical NOR a registry-convertible alternate, so the common
+# cases (canonical, or a vetted alternate) are never flagged.
+_CANONICAL_DECL: dict[str, tuple[str, ...]] = {
+    "AxionPhoton":    ("gev^-1", "gev-1", "g_agamma", "g_a\\gamma", "g_agg", "gev$^{-1}$"),
+    "AxionElectron":  ("dimensionless", "g_ae"),
+    "AxionNeutron":   ("dimensionless", "g_an"),
+    "AxionProton":    ("dimensionless", "g_ap"),
+    "DarkPhoton":     ("dimensionless", "chi", "kinetic mixing", "epsilon", "eps"),
+    "AxionEDM":       ("e cm", "e.cm", "ecm", "g_d", "gev^-2", "gev-2"),
+    "AxionCPV":       ("dimensionless", "coupling"),
+    "AxionMass":      ("gev^-1", "1/f_a", "f_a_norm", "dimensionless", "normalized"),
+    "MonopoleDipole": ("dimensionless", "coupling"),
+    "ScalarPhoton":   ("d_e", "dimensionless"),
+    "ScalarElectron": ("d_me", "d_{m_e}", "dimensionless"),
+    "ScalarNucleon":  ("d_e", "coupling", "dimensionless"),
+    "ScalarBaryon":   ("d_e", "coupling", "dimensionless"),
+    "VectorBL":       ("dimensionless", "g_bl", "g_b-l"),
+}
+
+
+def _declared_convertible(coupling_type: str, decl_lower: str) -> bool:
+    """True iff the eval registry has a vetted conversion for this declared output
+    convention. MIRRORS ``evaluation.conventions.classify_reported_convention`` —
+    keep the two in sync (a convertible alternate must not be flagged for review).
+    """
+    if coupling_type in ("AxionNeutron", "AxionProton"):
+        return any(t in decl_lower for t in ("gev^-1", "gev-1", "gev^{-1}", "1/gev", "gev$^{-1}$"))
+    if coupling_type == "DarkPhoton":
+        return any(t in decl_lower for t in ("eps^2", "epsilon^2", "chi^2", "squared"))
+    if coupling_type == "AxionEDM":
+        return any(t in decl_lower for t in ("1/f_a", "invfa", "1/fa"))
+    return False
+
+
+def convention_review_needed(coupling_type, declared_convention) -> bool:
+    """Whether an extraction's model-declared output convention should be flagged
+    for human review (escalate-on-UNKNOWN, #536/#587).
+
+    Conservative by design: returns True ONLY for a non-empty declaration that is
+    neither a canonical/repo-standard phrasing nor a registry-convertible
+    alternate. An empty/absent declaration is treated as canonical (no flag), so
+    this never flags the common case where the model did not populate the field.
+    """
+    if not coupling_type or not declared_convention:
+        return False
+    d = str(declared_convention).strip().lower()
+    if d in ("", "canonical", "standard", "none", "n/a"):
+        return False
+    if any(t in d for t in _CANONICAL_DECL.get(coupling_type, ())):
+        return False
+    if _declared_convertible(coupling_type, d):
+        return False
+    return True

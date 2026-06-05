@@ -325,3 +325,48 @@ def test_validate_range_corrects_gross_mass_unit_blunder_toward_range():
     med = sorted(m for m, _ in out)[len(out) // 2]
     assert med < 1e10  # pulled back toward / into the valid window
     assert "Auto-corrected masses" in note
+
+
+# ---------------------------------------------------------------------------
+# convention_review_needed — escalate-on-unknown flag (#536/#587)
+# ---------------------------------------------------------------------------
+
+from pipeline.transform_guard import convention_review_needed as _crn
+
+
+@pytest.mark.parametrize("ct,decl", [
+    ("AxionPhoton", "GeV^-1"),                 # canonical for photon
+    ("AxionNeutron", "dimensionless g_an"),    # canonical
+    ("DarkPhoton", "kinetic mixing chi"),      # canonical
+    ("AxionEDM", "e cm"),                       # canonical
+    ("ScalarPhoton", "d_e"),                    # canonical
+])
+def test_canonical_declarations_not_flagged(ct, decl):
+    assert _crn(ct, decl) is False
+
+
+@pytest.mark.parametrize("ct,decl", [
+    ("AxionNeutron", "GeV^-1"),                # convertible (x2 m_N)
+    ("AxionProton", "g_aNN [GeV^-1]"),         # convertible
+    ("DarkPhoton", "epsilon^2"),               # convertible (sqrt)
+    ("AxionEDM", "1/f_a [GeV^-1]"),            # convertible (x3.7e-3)
+])
+def test_convertible_alternates_not_flagged(ct, decl):
+    assert _crn(ct, decl) is False
+
+
+@pytest.mark.parametrize("ct,decl", [
+    ("ScalarElectron", "|delta alpha/alpha| amplitude"),
+    ("AxionElectron", "Lambda [GeV] scale"),
+    ("ScalarPhoton", "1/Lambda [GeV^-1]"),
+    ("AxionProton", "some bespoke normalized coupling"),
+])
+def test_unknown_conventions_flagged(ct, decl):
+    assert _crn(ct, decl) is True
+
+
+def test_empty_or_marker_declarations_not_flagged():
+    assert _crn("AxionPhoton", "") is False
+    assert _crn("AxionPhoton", None) is False
+    assert _crn("AxionPhoton", "canonical") is False
+    assert _crn(None, "anything") is False
