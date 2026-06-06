@@ -192,20 +192,20 @@ A curve is scored only against a same-coupling GT curve, so non-comparable cases
 Coupling type is scored against the repository's directory structure. The property labels (\emph{is new limit}, \emph{is projection}, \emph{data source}) are scored against an \emph{independent} LLM labeler (a different model and prompt from the extractor it grades), making this a cross-model check rather than self-agreement; a 15-paper human audit found labeler--human agreement of 15/15, 15/15, and 14/15 on the three fields.
 
 \begin{table}[t]
-\caption{Benchmark performance on 346 papers. Residual statistics are over the 271 comparable papers (243 with mass-range overlap); $0.3$~dex $\approx$ a factor of two.}
+\caption{Benchmark performance on 346 papers. Residual statistics are over the 271 comparable papers (243 with mass-range overlap); $0.3$~dex $\approx$ a factor of two. The right block reports the median residual broken out by the winning extraction source (text vs.\ figure-vision) and by how per-paper residuals are pooled: the \emph{micro}-average weights every paper equally, the \emph{macro}-average weights every coupling type equally (two example types shown).}
 \label{tab:results}
 \centering
 \small
-\begin{tabular}{@{}lc@{\hskip 2em}lcc@{}}
+\begin{tabular}{@{}lc@{\hskip 2em}lc@{}}
 \toprule
-\textbf{Aggregate metric} & \textbf{Value} & \textbf{By source / pooling} & \textbf{Med.\ resid.} & \textbf{$\leq$0.3 dex} \\
+\textbf{Aggregate metric} & \textbf{Value} & \textbf{By source / pooling} & \textbf{Med.\ resid.} \\
 \midrule
-Coupling-type accuracy & 90.5\% & Text ($N{=}148$)        & 0.326 dex & 49.7\% \\
-Median residual         & 0.331 dex & Figure-vision ($N{=}119$) & 0.338 dex & 46.8\% \\
-Within factor 2         & 48.4\% & Micro-avg (per paper)   & 0.331 dex & 48.4\% \\
-Within factor 3         & 61.7\% & Macro-avg (per type)    & 1.115 dex & --- \\
-Mean interp.\ coverage  & 76.2\% & \quad AxionPhoton ($N{=}127$) & 0.207 dex & --- \\
-Zero-overlap papers     & 10.3\% & \quad AxionEDM ($N{=}3$) & 4.649 dex & --- \\
+Coupling-type accuracy & 90.5\% & Text ($N{=}148$)        & 0.326 dex \\
+Median residual         & 0.331 dex & Figure-vision ($N{=}119$) & 0.338 dex \\
+Within factor 2         & 48.4\% & Micro-avg (per paper)   & 0.331 dex \\
+Within factor 3         & 61.7\% & Macro-avg (per type)    & 1.115 dex \\
+Mean interp.\ coverage  & 76.2\% & \quad AxionPhoton ($N{=}127$) & 0.207 dex \\
+Zero-overlap papers     & 10.3\% & \quad AxionEDM ($N{=}3$) & 4.649 dex \\
 \bottomrule
 \end{tabular}
 \end{table}
