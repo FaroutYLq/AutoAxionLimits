@@ -169,11 +169,11 @@ We evaluate on 346 papers spanning 14 coupling types, selected as all curated da
 We compare in $\log_{10}$--$\log_{10}$ space: a log--log interpolation of the extracted points is evaluated at the ground-truth masses, giving a per-point residual $|\log_{10} g_\text{ext} - \log_{10} g_\text{truth}|$ (0.3~dex $\approx$ factor of 2). We report median residual and \emph{interpolation coverage} (fraction of GT masses the curve spans) separately, since a curve can be accurate where it overlaps yet cover the wrong mass window. A curve is scored only against a same-coupling GT curve; non-comparable cases (wrong coupling, incompatible convention, single-point or unusable GT, no extracted points) are tracked separately rather than polluting the residuals.
 
 \begin{table}[t]
-\caption{Benchmark performance on 346 papers (271 comparable, 243 with mass-range overlap; $0.3$~dex $\approx$ a factor of two). Table~(b) recomputes the \emph{same} median residual over different subsets: by winning source, by pooling (micro = mean over papers; macro = mean over the 14 coupling types), and for the best/worst types.}
+\caption{Benchmark performance on 346 papers (271 comparable, 243 with mass-range overlap; $0.3$~dex $\approx$ a factor of two). Table~(b) recomputes the \emph{same} median residual (and the within-factor-2 rate) over different subsets: by winning source, and by pooling --- \emph{micro} averages over all papers (so abundant types dominate), \emph{macro} averages the per-type medians (every coupling type counts once, so rare types weigh as much as common ones) --- plus the best and worst individual types.}
 \label{tab:results}
 \centering
 \small
-\begin{minipage}[t]{0.44\linewidth}
+\begin{minipage}[t]{0.40\linewidth}
 \centering
 \textbf{(a) Aggregate metrics}\\[3pt]
 \begin{tabular}{@{}lc@{}}
@@ -189,19 +189,19 @@ Zero-overlap papers    & 10.3\% \\
 \bottomrule
 \end{tabular}
 \end{minipage}\hfill
-\begin{minipage}[t]{0.52\linewidth}
+\begin{minipage}[t]{0.57\linewidth}
 \centering
-\textbf{(b) Median residual by subset}\\[3pt]
-\begin{tabular}{@{}lc@{}}
+\textbf{(b) Residual by subset}\\[3pt]
+\begin{tabular}{@{}lcc@{}}
 \toprule
-\textbf{Subset} & \textbf{Med.\ resid.} \\
+\textbf{Subset} & \textbf{Med.\ resid.} & \textbf{$\leq$0.3 dex} \\
 \midrule
-Text ($N{=}148$)          & 0.326 dex \\
-Figure-vision ($N{=}119$) & 0.338 dex \\
-Micro-avg (per paper)     & 0.331 dex \\
-Macro-avg (per type)      & 1.115 dex \\
-\quad AxionPhoton ($N{=}127$) & 0.207 dex \\
-\quad AxionEDM ($N{=}3$)      & 4.649 dex \\
+Text ($N{=}148$)          & 0.326 dex & 49.7\% \\
+Figure-vision ($N{=}119$) & 0.338 dex & 46.8\% \\
+Micro-avg (per paper)     & 0.331 dex & 48.4\% \\
+Macro-avg (per type)      & 1.115 dex & --- \\
+\quad AxionPhoton ($N{=}127$) & 0.207 dex & --- \\
+\quad AxionEDM ($N{=}3$)      & 4.649 dex & --- \\
 \bottomrule
 \end{tabular}
 \end{minipage}
