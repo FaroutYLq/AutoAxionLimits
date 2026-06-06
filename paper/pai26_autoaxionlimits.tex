@@ -64,11 +64,8 @@ With multiple relevant papers appearing weekly, this concentrates critical commu
 We present a pipeline that partially automates this workflow: (1)~\textbf{Discovery} via daily arXiv monitoring with keyword filtering and LLM relevance classification; (2)~\textbf{Extraction} using a two-stage approach (text/tables first, vision fallback for plot-only papers) with multi-read consensus voting and a physics convention-canonicalization layer; (3)~\textbf{Integration} through automated code generation with Abstract Syntax Tree (AST)-based insertion, notebook updates, and plot regeneration; and (4)~\textbf{Review} via PRs with highlighted constraint plots.
 The system also includes a weekly preprint version checker and a historical backfill workflow using INSPIRE-HEP~\cite{inspirehep}.\footnote{Code, evaluation benchmark, and prompts: \url{https://github.com/FaroutYLq/AutoAxionLimits}}
 
-\textbf{Related work.}
-Chart understanding benchmarks (ChartQA~\cite{chartqa}, PlotQA~\cite{plotqa}) address visual QA but not numerical extraction from dense log--log exclusion plots; document parsers like GROBID~\cite{grobid} handle metadata, not figure digitisation. To our knowledge, no existing system automates the full loop from discovery through extraction, code integration, and human review for a live scientific repository.
-
 \textbf{Contributions.}
-(i)~An end-to-end pipeline that turns an arXiv paper into a reviewable code change for a real constraint repository. (ii)~An extraction stack that treats LLM reads as noisy samples and reconciles them by consensus with source-quality tiering, and pairs them with a physics convention-canonicalization layer whose conversions were established by a guided physics-derivation assistant rather than by prompting. (iii)~A 346-paper benchmark and scoring methodology that grounds truth in the upstream repository and separates extraction error from non-comparability. (iv)~The empirical finding that, with these in place, log--log plot reading is no longer the dominant error source --- the frontier shifts to deterministic, convention-bound rare coupling types.
+To our knowledge, no existing system automates the full loop from discovery through extraction, code integration, and human review for a live scientific repository. (i)~An end-to-end pipeline that turns an arXiv paper into a reviewable code change for a real constraint repository. (ii)~An extraction stack that treats LLM reads as noisy samples and reconciles them by consensus with source-quality tiering, and pairs them with a physics convention-canonicalization layer whose conversions were established by a guided physics-derivation assistant rather than by prompting. (iii)~A 346-paper benchmark and scoring methodology that grounds truth in the upstream repository and separates extraction error from non-comparability. (iv)~The empirical finding that, with these in place, log--log plot reading is no longer the dominant error source --- the frontier shifts to deterministic, convention-bound rare coupling types.
 
 %----------------------------------------------------------------------
 \section{System Architecture}
@@ -285,21 +282,6 @@ INSPIRE Collaboration,
 Anthropic,
 ``The Claude model family,''
 \url{https://www.anthropic.com}, 2024.
-
-\bibitem{chartqa}
-A.~Masry, D.~X. Long, J.~Q. Tan, S.~Joty, and E.~Hoque,
-``ChartQA: A Benchmark for Question Answering about Charts with Visual and Logical Reasoning,''
-\textit{Findings of ACL}, 2022.
-
-\bibitem{plotqa}
-N.~Methani, P.~Ganguly, M.~M.~Khapra, and P.~Kumar,
-``PlotQA: Reasoning over Scientific Plots,''
-\textit{WACV}, 2020.
-
-\bibitem{grobid}
-P.~Lopez,
-``GROBID: GeneRation Of BIbliographic Data,''
-\url{https://github.com/kermitt2/grobid}, 2008--2024.
 
 \bibitem{pymupdf}
 Artifex Software,
