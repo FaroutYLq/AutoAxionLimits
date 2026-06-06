@@ -37,11 +37,6 @@
 
 \maketitle
 
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}
-\footnotetext[1]{This paper was drafted with the assistance of large language models (Claude) under human supervision and editorial control.}
-\renewcommand{\thefootnote}{\arabic{footnote}}
-\setcounter{footnote}{0}
-
 \begin{abstract}
 Dark matter constraint repositories are critical community infrastructure, giving experimentalists and theorists a shared landscape of existing bounds. Yet the most widely-used repositories are maintained by individual volunteers, creating a sustainability risk as the pace of new results accelerates.
 We present a large language model (LLM) pipeline that monitors arXiv, extracts limit curves from papers, integrates them as code, and opens pull requests (PRs) for human review.
