@@ -37,6 +37,11 @@
 
 \maketitle
 
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\footnotetext[1]{This paper was drafted with the assistance of large language models (Claude) under human supervision and editorial control.}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
+
 \begin{abstract}
 Dark matter constraint repositories are critical community infrastructure, giving experimentalists and theorists a shared landscape of existing bounds. Yet the most widely-used repositories are maintained by individual volunteers, creating a sustainability risk as the pace of new results accelerates.
 We present a large language model (LLM) pipeline that monitors arXiv, extracts limit curves from papers, integrates them as code, and opens pull requests (PRs) for human review.
@@ -148,7 +153,7 @@ The LLM generates a \texttt{@staticmethod} for the relevant plotting class (a po
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.5\textwidth]{figures/DarkPhoton_highlighted.png}
+\includegraphics[width=0.44\textwidth]{figures/DarkPhoton_highlighted.png}
 \caption{Highlighted dark photon constraint projection plot from a production pull request for a phonon-sensor proposal~\cite{phonon_sensor}. Existing limits in grey; new proposal in red. This format lets reviewers verify the proposal visually.}
 \label{fig:highlighted}
 \end{figure}
@@ -169,7 +174,7 @@ We evaluate on 346 papers spanning 14 coupling types, selected as all curated da
 We compare in $\log_{10}$--$\log_{10}$ space: a log--log interpolation of the extracted points is evaluated at the ground-truth masses, giving a per-point residual $|\log_{10} g_\text{ext} - \log_{10} g_\text{truth}|$ (0.3~dex $\approx$ factor of 2). We report median residual and \emph{interpolation coverage} (fraction of GT masses the curve spans) separately, since a curve can be accurate where it overlaps yet cover the wrong mass window. A curve is scored only against a same-coupling GT curve; non-comparable cases (wrong coupling, incompatible convention, single-point or unusable GT, no extracted points) are tracked separately rather than polluting the residuals.
 
 \begin{table}[t]
-\caption{Benchmark performance on 346 papers (271 comparable, 243 with mass-range overlap; $0.3$~dex $\approx$ a factor of two). Table~(b) recomputes the \emph{same} median residual (and the within-factor-2 rate) over different subsets: by winning source, and by pooling --- \emph{micro} averages over all papers (so abundant types dominate), \emph{macro} averages the per-type medians (every coupling type counts once, so rare types weigh as much as common ones) --- plus the best and worst individual types.}
+\caption{Benchmark performance on 346 papers (271 comparable, 243 with mass-range overlap; $0.3$~dex $\approx$ a factor of two). (b) gives the same median residual and within-factor-2 rate over subsets: by winning source; by pooling (\emph{micro} = over papers, so abundant types dominate; \emph{macro} = over the per-type medians, weighting every coupling type equally); and for the best/worst types.}
 \label{tab:results}
 \centering
 \small
@@ -214,10 +219,10 @@ Coupling-type classification (against the repository's directory structure) is r
 The frontier has shifted to \emph{rare coupling types}: the per-paper micro-average (0.33~dex) is dominated by AxionPhoton ($N{=}127$, 0.21~dex), but the per-type macro-average is 1.1~dex, as small-sample, convention-heavy types lag (AxionNeutron 0.77, VectorBL 0.91, AxionEDM 4.6~dex). AxionEDM is the clearest case --- its operator coupling is flat in mass while the reported \emph{response} $\propto 1/m_a$ folds in the field amplitude, a convention our registry flags but does not yet auto-convert --- and these types also concentrate the misclassifications, so a wrong type is scored against the wrong reference.
 
 \textbf{The worst errors are deterministic physics, not perception.}
-The largest residuals were never about pixels but unit/convention mismatches --- the axion--nucleon $2m_N$ factor, the scalar $d_e$ vs.\ $\sqrt{\alpha}$ $10$--$15$~dex gap, dark-photon $\varepsilon$ vs.\ $\varepsilon^2$, sentinel values mistaken for data --- that are fixed, not stochastic, and depend on per-file repository conventions absent from the paper. No prompt fixes them; the high-leverage fix was a separate, auditable physics layer. We used GPD to produce a \emph{code-verified, citation-audited} per-file convention registry, with a \texttt{[CONVENTION REVIEW]} flag for anything outside the verified set. The general lesson: automated scientific extraction couples a \emph{stochastic} perception problem (reading plots, best handled by sampling and voting) with a \emph{deterministic} domain-knowledge problem (conventions, best handled by verified derivation), and the two demand different tools.
+The largest residuals were never about pixels but unit/convention mismatches --- the axion--nucleon $2m_N$ factor, the scalar $d_e$ vs.\ $\sqrt{\alpha}$ $10$--$15$~dex gap, dark-photon $\varepsilon$ vs.\ $\varepsilon^2$, sentinel values mistaken for data --- that are fixed, not stochastic, and depend on per-file repository conventions absent from the paper. No prompt fixes them; the high-leverage fix was a separate, auditable physics layer. We used GPD to produce a \emph{code-verified, citation-audited} per-file convention registry, with a \texttt{[CONVENTION REVIEW]} flag for anything outside the verified set. The general lesson: automated scientific extraction couples a \emph{stochastic} perception problem (best handled by sampling and voting) with a \emph{deterministic} domain-knowledge problem (best handled by verified derivation), and the two demand different tools.
 
 \textbf{Open problems and governance.}
-Rare coupling types remain hard, and at 90\% coupling accuracy one proposal in ten targets the wrong plot, so human review is essential, not optional. The pipeline is deployed with limit proposals generated but none merged, because no review process for AI-generated scientific data exists: we recommend a community editorial board analogous to PDG reviewers~\cite{pdg}, while publishing machine-readable limit data alongside papers would bypass the extraction bottleneck altogether --- the highest-leverage change the field could make.
+Rare coupling types remain hard, and at 90\% coupling accuracy one proposal in ten targets the wrong plot, so human review stays essential. The pipeline is deployed but no proposal has merged, as no review process for AI-generated scientific data exists: we recommend a community editorial board akin to PDG reviewers~\cite{pdg}, and publishing machine-readable limit data alongside papers would bypass the extraction bottleneck entirely.
 
 %----------------------------------------------------------------------
 % References
