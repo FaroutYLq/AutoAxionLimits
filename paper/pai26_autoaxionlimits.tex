@@ -47,7 +47,7 @@ Dark matter constraint repositories are critical community infrastructure, givin
 We present a large language model (LLM) pipeline that monitors arXiv, extracts limit curves from papers, integrates them as code, and opens pull requests (PRs) for human review.
 On a 346-paper benchmark whose ground truth is the upstream-curated repository itself, the pipeline classifies the coupling type correctly for 90.5\% of papers and reaches a median coupling residual of 0.33~dex (a factor of two for 48\% of curves), with 76\% mean mass-range coverage.
 Three design choices drive this: (i)~treating each extraction as a noisy sample and reconciling several reads by a consensus vote with source-quality tiering; (ii)~a convention-canonicalization layer whose per-file conversion factors were derived with a guided physics-derivation assistant (GPD), code-verified and citation-audited; and (iii)~a scoring methodology that separates genuine extraction error from non-comparability.
-Strikingly, figure-vision extraction (0.34~dex) now matches text extraction (0.33~dex): reading log--log plots is no longer the bottleneck. The remaining difficulty is concentrated in rare coupling types with idiosyncratic conventions (macro-averaged residual 1.1~dex). The pipeline is deployed and has generated limit proposals; none have merged --- governance of AI-generated scientific data is itself an unsolved problem.
+The remaining difficulty is concentrated in rare coupling types with idiosyncratic conventions (macro-averaged residual 1.1~dex). The pipeline is deployed and has generated limit proposals; none have merged --- governance of AI-generated scientific data is itself an unsolved problem.
 \end{abstract}
 
 %----------------------------------------------------------------------
