@@ -78,53 +78,50 @@ Figure~\ref{fig:architecture} shows the end-to-end pipeline.
 
 \begin{figure}[t]
 \centering
-\resizebox{0.86\textwidth}{!}{%
+\resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[
-    node distance=0.9cm and 0.6cm,
-    block/.style={rectangle, draw, rounded corners, minimum height=0.7cm, minimum width=1.5cm, align=center, font=\footnotesize},
-    decision/.style={diamond, draw, aspect=2, minimum width=1.0cm, align=center, font=\footnotesize},
+    node distance=1.0cm and 0.5cm,
+    block/.style={rectangle, draw, rounded corners, minimum height=0.7cm, minimum width=1.45cm, align=center, font=\footnotesize},
+    decision/.style={diamond, draw, aspect=2.2, minimum width=1.0cm, align=center, font=\footnotesize},
     arrow/.style={-{Stealth[length=2mm]}, thick},
     label/.style={font=\scriptsize, text=gray},
 ]
 
-% Row 1 (L->R): Discovery + Stage 1
+% Row 1 (L->R): Discovery + two-stage extraction + consensus
 \node[block, fill=blue!10] (arxiv) {arXiv\\RSS};
 \node[block, fill=blue!10, right=of arxiv] (kw) {Keyword\\Filter};
 \node[block, fill=blue!10, right=of kw] (llm1) {LLM\\Relevance};
 \node[block, fill=orange!10, right=of llm1] (pdf) {PDF\\Download};
 \node[block, fill=orange!10, right=of pdf] (text) {Stage 1:\\Text/Table};
+\node[decision, fill=yellow!10, right=of text] (check) {Text\\dominant?};
+\node[block, fill=red!10, right=of check] (vision) {Stage 2:\\Vision};
+\node[block, fill=orange!10, right=of vision] (vote) {Consensus\\Vote ($N{=}3$)};
 
-% Row 2 (R->L): Extraction -> consensus -> convention -> codegen
-\node[decision, fill=yellow!10, below=of text] (check) {Text\\dominant?};
-\node[block, fill=red!10, left=of check] (vision) {Stage 2:\\Vision};
-\node[block, fill=orange!10, left=of vision] (vote) {Consensus\\Vote ($N{=}3$)};
-\node[block, fill=cyan!12, left=of vote] (conv) {Convention\\Canon.};
+% Row 2 (R->L): convention -> integration -> review
+\node[block, fill=cyan!12, below=of vote] (conv) {Convention\\Canon.};
 \node[block, fill=green!10, left=of conv] (codegen) {Code\\Generation};
-
-% Row 3 (L->R): Integration + Review
-\node[block, fill=green!10, below=of codegen] (ast) {AST\\Insertion};
-\node[block, fill=green!10, right=of ast] (notebook) {Notebook\\Update};
-\node[block, fill=green!10, right=of notebook] (plot) {Plot\\Regen};
-\node[block, fill=purple!10, right=of plot] (pr) {Pull\\Request};
-\node[block, fill=purple!10, right=of pr] (highlight) {Highlighted\\Plot};
-\node[block, fill=purple!10, right=of highlight] (human) {Human\\Review};
+\node[block, fill=green!10, left=of codegen] (ast) {AST\\Insertion};
+\node[block, fill=green!10, left=of ast] (notebook) {Notebook\\Update};
+\node[block, fill=green!10, left=of notebook] (plot) {Plot\\Regen};
+\node[block, fill=purple!10, left=of plot] (pr) {Pull\\Request};
+\node[block, fill=purple!10, left=of pr] (highlight) {Highlighted\\Plot};
+\node[block, fill=purple!10, left=of highlight] (human) {Human\\Review};
 
 % Row 1
 \draw[arrow] (arxiv) -- (kw);
 \draw[arrow] (kw) -- (llm1);
 \draw[arrow] (llm1) -- (pdf);
 \draw[arrow] (pdf) -- (text);
-% Row 1 -> Row 2
 \draw[arrow] (text) -- (check);
-% Row 2
 \draw[arrow] (check) -- node[above, label] {no} (vision);
-\draw[arrow] (check.south) -- node[right, label] {yes} ++(0,-0.45) -| (vote.south);
 \draw[arrow] (vision) -- (vote);
+% "yes" bypass: short arc over the Vision box only (top margin, crosses nothing)
+\draw[arrow] (check.north) to[out=90,in=90,looseness=0.55] node[above, label, pos=0.5] {yes} (vote.north);
+% Row 1 -> Row 2 (drop down on the right)
 \draw[arrow] (vote) -- (conv);
+% Row 2 (R->L)
 \draw[arrow] (conv) -- (codegen);
-% Row 2 -> Row 3
 \draw[arrow] (codegen) -- (ast);
-% Row 3
 \draw[arrow] (ast) -- (notebook);
 \draw[arrow] (notebook) -- (plot);
 \draw[arrow] (plot) -- (pr);
