@@ -165,7 +165,7 @@ The \textbf{daily arXiv digest} queries, filters, classifies relevance, and proc
 The pipeline runs on a frontier model (Claude Opus~\cite{anthropic_claude}), at a per-paper cost ranging from a few cents for text-only papers to a few dollars for those requiring the vision fallback, depending on the number of model calls and image tokens.
 
 %----------------------------------------------------------------------
-\section{Evaluation}
+\section{Evaluation and Discussion}
 \label{sec:eval}
 %----------------------------------------------------------------------
 
@@ -199,10 +199,6 @@ Coupling-type classification (against the repository's directory structure) is r
 
 \textbf{Where the difficulty now lives.}
 The frontier has shifted to \emph{rare coupling types}: the per-paper micro-average (0.33~dex) is dominated by AxionPhoton ($N{=}127$, 0.21~dex), but the per-type macro-average is 1.1~dex, as small-sample, convention-heavy types lag (AxionNeutron 0.77, VectorBL 0.91, AxionEDM 4.6~dex). AxionEDM is the clearest case --- its operator coupling is flat in mass while the reported \emph{response} $\propto 1/m_a$ folds in the field amplitude, a convention our registry flags but does not yet auto-convert --- and these types also concentrate the misclassifications, so a wrong type is scored against the wrong reference.
-
-%----------------------------------------------------------------------
-\section{Lessons Learned}
-%----------------------------------------------------------------------
 
 \textbf{The worst errors are deterministic physics, not perception.}
 The largest residuals were never about pixels but unit/convention mismatches --- the axion--nucleon $2m_N$ factor, the scalar $d_e$ vs.\ $\sqrt{\alpha}$ $10$--$15$~dex gap, dark-photon $\varepsilon$ vs.\ $\varepsilon^2$, sentinel values mistaken for data --- that are fixed, not stochastic, and depend on per-file repository conventions absent from the paper. No prompt fixes them; the high-leverage fix was a separate, auditable physics layer. We used a guided physics-derivation assistant (GPD) to produce a \emph{code-verified, citation-audited} per-file convention registry, with a \texttt{[CONVENTION REVIEW]} flag for anything outside the verified set. The general lesson: automated scientific extraction couples a \emph{stochastic} perception problem (reading plots, best handled by sampling and voting) with a \emph{deterministic} domain-knowledge problem (conventions, best handled by verified derivation), and the two demand different tools.
