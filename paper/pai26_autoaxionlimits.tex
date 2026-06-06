@@ -62,7 +62,7 @@ The AxionLimits repository~\cite{axionlimits} tracks over 600 limits and 160 pro
 With multiple relevant papers appearing weekly, this concentrates critical community infrastructure on a single point of failure.
 
 We present a pipeline that partially automates this workflow: (1)~\textbf{Discovery} via daily arXiv monitoring with keyword filtering and LLM relevance classification; (2)~\textbf{Extraction} using a two-stage approach (text/tables first, vision fallback for plot-only papers) with multi-read consensus voting and a physics convention-canonicalization layer; (3)~\textbf{Integration} through automated code generation with Abstract Syntax Tree (AST)-based insertion, notebook updates, and plot regeneration; and (4)~\textbf{Review} via PRs with highlighted constraint plots.
-The system also includes a weekly preprint version checker and a historical backfill workflow using INSPIRE-HEP~\cite{inspirehep}.\footnote{Code, evaluation benchmark, and prompts: \url{https://anonymous.4open.science/r/AutoAxionLimits-358C}}
+The system also includes a weekly preprint version checker and a historical backfill workflow using INSPIRE-HEP~\cite{inspirehep}.\footnote{Code, evaluation benchmark, and prompts: \url{https://github.com/FaroutYLq/AutoAxionLimits}}
 
 \textbf{Related work.}
 Chart understanding benchmarks (ChartQA~\cite{chartqa}, PlotQA~\cite{plotqa}) address visual QA but not numerical extraction from dense log--log exclusion plots; document parsers like GROBID~\cite{grobid} handle metadata, not figure digitisation. To our knowledge, no existing system automates the full loop from discovery through extraction, code integration, and human review for a live scientific repository.
