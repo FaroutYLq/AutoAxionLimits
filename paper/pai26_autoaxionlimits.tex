@@ -169,22 +169,42 @@ We evaluate on 346 papers spanning 14 coupling types, selected as all curated da
 We compare in $\log_{10}$--$\log_{10}$ space: a log--log interpolation of the extracted points is evaluated at the ground-truth masses, giving a per-point residual $|\log_{10} g_\text{ext} - \log_{10} g_\text{truth}|$ (0.3~dex $\approx$ factor of 2). We report median residual and \emph{interpolation coverage} (fraction of GT masses the curve spans) separately, since a curve can be accurate where it overlaps yet cover the wrong mass window. A curve is scored only against a same-coupling GT curve; non-comparable cases (wrong coupling, incompatible convention, single-point or unusable GT, no extracted points) are tracked separately rather than polluting the residuals.
 
 \begin{table}[t]
-\caption{Benchmark performance on 346 papers. Residual statistics are over the 271 comparable papers (243 with mass-range overlap); $0.3$~dex $\approx$ a factor of two. The right block reports the median residual broken out by the winning extraction source (text vs.\ figure-vision) and by how per-paper residuals are pooled: the \emph{micro}-average weights every paper equally, the \emph{macro}-average weights every coupling type equally (two example types shown).}
+\caption{Benchmark performance on 346 papers (271 comparable, 243 with mass-range overlap; $0.3$~dex $\approx$ a factor of two). Table~(b) recomputes the \emph{same} median residual over different subsets: by winning source, by pooling (micro = mean over papers; macro = mean over the 14 coupling types), and for the best/worst types.}
 \label{tab:results}
 \centering
 \small
-\begin{tabular}{@{}lc@{\hskip 2em}lc@{}}
+\begin{minipage}[t]{0.44\linewidth}
+\centering
+\textbf{(a) Aggregate metrics}\\[3pt]
+\begin{tabular}{@{}lc@{}}
 \toprule
-\textbf{Aggregate metric} & \textbf{Value} & \textbf{By source / pooling} & \textbf{Med.\ resid.} \\
+\textbf{Metric} & \textbf{Value} \\
 \midrule
-Coupling-type accuracy & 90.5\% & Text ($N{=}148$)        & 0.326 dex \\
-Median residual         & 0.331 dex & Figure-vision ($N{=}119$) & 0.338 dex \\
-Within factor 2         & 48.4\% & Micro-avg (per paper)   & 0.331 dex \\
-Within factor 3         & 61.7\% & Macro-avg (per type)    & 1.115 dex \\
-Mean interp.\ coverage  & 76.2\% & \quad AxionPhoton ($N{=}127$) & 0.207 dex \\
-Zero-overlap papers     & 10.3\% & \quad AxionEDM ($N{=}3$) & 4.649 dex \\
+Coupling-type accuracy & 90.5\% \\
+Median residual        & 0.331 dex \\
+Within factor 2        & 48.4\% \\
+Within factor 3        & 61.7\% \\
+Mean interp.\ coverage & 76.2\% \\
+Zero-overlap papers    & 10.3\% \\
 \bottomrule
 \end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.52\linewidth}
+\centering
+\textbf{(b) Median residual by subset}\\[3pt]
+\begin{tabular}{@{}lc@{}}
+\toprule
+\textbf{Subset} & \textbf{Med.\ resid.} \\
+\midrule
+Text ($N{=}148$)          & 0.326 dex \\
+Figure-vision ($N{=}119$) & 0.338 dex \\
+Micro-avg (per paper)     & 0.331 dex \\
+Macro-avg (per type)      & 1.115 dex \\
+\quad AxionPhoton ($N{=}127$) & 0.207 dex \\
+\quad AxionEDM ($N{=}3$)      & 4.649 dex \\
+\bottomrule
+\end{tabular}
+\end{minipage}
 \end{table}
 
 \textbf{Results.}
