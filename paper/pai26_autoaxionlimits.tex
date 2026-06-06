@@ -66,8 +66,6 @@ To our knowledge, no existing system automates the full loop from discovery thro
 \section{System Architecture}
 %----------------------------------------------------------------------
 
-Figure~\ref{fig:architecture} shows the end-to-end pipeline.
-
 \begin{figure}[t]
 \centering
 \resizebox{\textwidth}{!}{%
@@ -128,7 +126,7 @@ Figure~\ref{fig:architecture} shows the end-to-end pipeline.
 
 \subsection{Two-Stage Extraction with Consensus Voting}
 
-The extraction pipeline prioritises text and table data (Stage~1) over vision-based figure reading (Stage~2), motivated by both cost and accuracy.
+Figure~\ref{fig:architecture} shows the end-to-end pipeline. The extraction pipeline prioritises text and table data (Stage~1) over vision-based figure reading (Stage~2), motivated by both cost and accuracy.
 
 \textbf{Stage~1: Text and tables.}
 The PDF is parsed with PyMuPDF~\cite{pymupdf} and the full text sent to an LLM~\cite{anthropic_claude} with a structured prompt requesting JSON output: coupling type, mass--coupling data points, the model's declared units/convention, and metadata. Prompt-injection defences strip control characters and wrap content in sentinel delimiters.
