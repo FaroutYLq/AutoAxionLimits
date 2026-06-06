@@ -157,9 +157,7 @@ The LLM generates a \texttt{@staticmethod} for the relevant plotting class (a po
 
 \subsection{Workflows and Cost}
 
-The \textbf{daily arXiv digest} queries, filters, classifies relevance, and processes matching papers. The \textbf{weekly preprint checker} scans existing data files for arXiv IDs and re-extracts on version updates to catch changed results; one PR detected that a JWST dark photon search~\cite{jwst_dp} had changed a limit to a projection upon publication. The \textbf{historical backfill} searches INSPIRE-HEP~\cite{inspirehep} for older papers by citation count, splitting large jobs across daily runs.
-
-The pipeline runs on a frontier model (Claude Opus~\cite{anthropic_claude}), at a per-paper cost ranging from a few cents for text-only papers to a few dollars for those requiring the vision fallback, depending on the number of model calls and image tokens.
+The \textbf{daily arXiv digest} queries, filters, classifies relevance, and processes matching papers. The \textbf{weekly preprint checker} scans existing data files for arXiv IDs and re-extracts on version updates to catch changed results; one PR detected that a JWST dark photon search~\cite{jwst_dp} had changed a limit to a projection upon publication. The \textbf{historical backfill} searches INSPIRE-HEP~\cite{inspirehep} for older papers by citation count, splitting large jobs across daily runs. The pipeline runs on a frontier model (Claude Opus~\cite{anthropic_claude}), at a per-paper cost ranging from a few cents for text-only papers to a few dollars for those requiring the vision fallback, depending on the number of model calls and image tokens.
 
 %----------------------------------------------------------------------
 \section{Evaluation and Discussion}
