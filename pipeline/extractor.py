@@ -195,14 +195,18 @@ def download_pdf(
     papers to a download-`error` and falsely shrink the eval comparison set).
     """
     pdf_url = f"https://arxiv.org/pdf/{arxiv_id}.pdf"
-    pdf_path = workdir / f"{arxiv_id}.pdf"
+    # Old-style IDs carry a category prefix ("hep-ph/0611223"); the slash is
+    # valid in the URL but would make a non-existent subdirectory in a local
+    # path, so sanitize it for filenames only.
+    safe_id = arxiv_id.replace("/", "_")
+    pdf_path = workdir / f"{safe_id}.pdf"
     if pdf_path.exists() and pdf_path.stat().st_size > 0:
         return pdf_path
 
     # Cross-run cache hit -> copy into the caller's workdir (preserves the
     # contract that figure/text extraction writes alongside the workdir PDF).
     cache_dir = _pdf_cache_dir()
-    cached = (cache_dir / f"{arxiv_id}.pdf") if cache_dir else None
+    cached = (cache_dir / f"{safe_id}.pdf") if cache_dir else None
     if cached and cached.exists() and cached.stat().st_size > 0:
         import shutil
         shutil.copyfile(cached, pdf_path)
