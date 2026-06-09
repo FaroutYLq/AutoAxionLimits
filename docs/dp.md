@@ -231,3 +231,4 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+- **LHC_ATLAS_CMS_13_TeV_dilepton_recast_dark_Z_kappa_5e_3** *(projection)*: [Dark Z' at a Muon Collider: Radiative Return versus Vector Boson Fusion](https://arxiv.org/abs/2606.07746)
