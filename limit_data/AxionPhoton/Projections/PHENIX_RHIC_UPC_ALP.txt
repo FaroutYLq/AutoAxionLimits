@@ -1,0 +1,15 @@
+# Searches for GeV-Scale ALPs at RHIC
+# arXiv: https://arxiv.org/abs/2606.07739
+# Coupling type: AxionPhoton
+# Extracted from: text
+# Confidence level: 0.95
+# Extraction confidence: 0.60
+# mass [eV]    g_agamma [GeV^-1]
+2.000000e+09   1.000000e+00
+2.000000e+09   4.000000e-04
+3.000000e+09   3.000000e-04
+4.000000e+09   3.500000e-04
+5.000000e+09   4.500000e-04
+6.000000e+09   7.000000e-04
+7.000000e+09   1.000000e-03
+7.000000e+09   1.000000e+00
