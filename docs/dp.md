@@ -231,3 +231,4 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+- **COBE_FIRAS_spectrum_Planck_T_E_photon_to_dark_photon_conversion**: [Spectral distortion anisotropies from photon to dark photon conversions](https://arxiv.org/abs/2606.09491)
