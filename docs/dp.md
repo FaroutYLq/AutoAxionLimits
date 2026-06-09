@@ -231,3 +231,4 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+- **TEXONO_ReactorDeexcitation**: [Probing Dark Photons from Nuclear De-excitation in Reactor Neutrino Experiment](https://arxiv.org/abs/2606.08487)
