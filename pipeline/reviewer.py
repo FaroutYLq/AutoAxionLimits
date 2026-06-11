@@ -468,6 +468,43 @@ def generate_docs_entry(result: ExtractionResult, experiment_name: str) -> str:
 # PlotFuncs.py insertion via AST
 # ---------------------------------------------------------------------------
 
+def _normalize_method_indentation(method_code: str) -> str:
+    """
+    Re-anchor a method block to column 0 so it can be re-indented to class level.
+
+    ``textwrap.dedent`` keys off the *common* minimum indentation, so a single
+    column-0 line (e.g. a ``@staticmethod`` decorator prepended ahead of an
+    already-indented ``def``) defeats it and leaves the decorator and ``def`` at
+    mismatched columns — which is an ``IndentationError``. This normalizes
+    structurally instead: decorator and ``def`` lines are anchored to column 0,
+    and body lines are dedented by the ``def`` line's original indentation
+    (clamped so they never go negative), preserving their relative nesting.
+    """
+    lines = method_code.rstrip().split("\n")
+
+    def_indent = 0
+    for ln in lines:
+        m = re.match(r"(\s*)def\s", ln)
+        if m:
+            def_indent = len(m.group(1))
+            break
+
+    out: list[str] = []
+    for ln in lines:
+        if not ln.strip():
+            out.append("")
+            continue
+        stripped = ln.lstrip()
+        if stripped.startswith("@") or re.match(r"def\s", stripped):
+            # Decorator or def header → class-body level (column 0 here).
+            out.append(stripped)
+        else:
+            # Body (and any deeper blocks) → drop one def-level of indent.
+            cur = len(ln) - len(stripped)
+            out.append(ln[min(cur, def_indent):])
+    return "\n".join(out)
+
+
 def insert_method_into_plotfuncs(
     plotfuncs_path: Path,
     class_name: str,
@@ -479,6 +516,8 @@ def insert_method_into_plotfuncs(
 
     Insertion is INSIDE the class (before its closing line), correctly indented,
     regardless of whether there is trailing whitespace after the last method.
+    The result is validated with ast.parse() and the write is aborted (fail
+    closed) if insertion would produce syntactically invalid Python.
     """
     source = plotfuncs_path.read_text()
     tree = ast.parse(source)
@@ -504,17 +543,31 @@ def insert_method_into_plotfuncs(
 
     lines = source.splitlines(keepends=True)
 
-    # Indent: 4 spaces for class body
+    # Indent: 4 spaces for class body. Normalize structurally first — the
+    # decorator may arrive at column 0 ahead of an indented def, which a plain
+    # textwrap.dedent cannot fix (it would leave them at mismatched columns).
     indent = "    "
-    # Dedent first (LLM may return pre-indented code), then re-indent to class level
-    indented_method = textwrap.indent(textwrap.dedent(method_code.rstrip()), indent) + "\n"
+    indented_method = textwrap.indent(_normalize_method_indentation(method_code), indent) + "\n"
 
     # Insert after last_method_end (lines list is 0-indexed; line N is index N-1).
     # Inserting at index `last_method_end` places content after line last_method_end.
     insert_pos = last_method_end
     lines.insert(insert_pos, "\n" + indented_method + "\n")
 
-    plotfuncs_path.write_text("".join(lines))
+    new_source = "".join(lines)
+    # Fail closed: never write syntactically invalid Python — a corrupt
+    # PlotFuncs.py breaks every notebook import, so the daily/highlighted plots
+    # silently fall back to stale images instead of showing the new limit.
+    try:
+        ast.parse(new_source)
+    except SyntaxError as exc:
+        raise ValueError(
+            f"Inserting method into {class_name} produced invalid Python "
+            f"({exc.msg} at line {exc.lineno}); aborting to avoid corrupting "
+            f"{plotfuncs_path.name}."
+        ) from exc
+
+    plotfuncs_path.write_text(new_source)
     logger.info(
         "Inserted method into %s::%s after line %d", plotfuncs_path.name, class_name, insert_pos
     )
