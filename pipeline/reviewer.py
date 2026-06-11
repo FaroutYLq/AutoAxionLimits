@@ -577,10 +577,132 @@ def insert_method_into_plotfuncs(
 # Notebook insertion via nbformat
 # ---------------------------------------------------------------------------
 
-def insert_notebook_call(notebook_path: Path, notebook_call: str) -> None:
+def _figsetup_defaults(plotfuncs_path: Path, class_name: str) -> tuple[float | None, float | None]:
+    """Return the (m_min, m_max) default arguments of <class_name>.FigSetup, or (None, None)."""
+    try:
+        tree = ast.parse(plotfuncs_path.read_text())
+    except (OSError, SyntaxError):
+        return None, None
+    for node in ast.walk(tree):
+        if not (isinstance(node, ast.ClassDef) and node.name == class_name):
+            continue
+        for item in node.body:
+            if not (isinstance(item, ast.FunctionDef) and item.name == "FigSetup"):
+                continue
+            found: dict[str, float] = {}
+            a = item.args
+            # Defaults align to the tail of positional args.
+            posargs = a.args
+            for arg, dflt in zip(posargs[len(posargs) - len(a.defaults):], a.defaults):
+                if arg.arg in ("m_min", "m_max") and isinstance(dflt, ast.Constant):
+                    found[arg.arg] = float(dflt.value)
+            for arg, dflt in zip(a.kwonlyargs, a.kw_defaults):
+                if dflt is not None and arg.arg in ("m_min", "m_max") and isinstance(dflt, ast.Constant):
+                    found[arg.arg] = float(dflt.value)
+            return found.get("m_min"), found.get("m_max")
+    return None, None
+
+
+def _decade_literal(value: float) -> str:
+    """Format a power-of-ten bound as a clean source literal, e.g. 1e7, 1e-18."""
+    return f"1e{round(math.log10(value))}"
+
+
+def _extend_figsetup_range(
+    cell_source: str,
+    data_min: float,
+    data_max: float,
+    default_min: float | None,
+    default_max: float | None,
+) -> tuple[str, tuple[float, float] | None]:
+    """
+    Widen the FigSetup(...) call in *cell_source* so the new limit's mass range
+    is on-axis, even if it lies outside the conventional plot window.
+
+    Only ever *extends* (never shrinks) the axis, and only the side that the data
+    actually exceeds, so the conventional appearance is preserved for in-range
+    limits. Bounds are rounded out to the enclosing decade ("ugly but visible").
+    Returns (possibly-modified source, (new_min, new_max) | None).
+    """
+    m = re.search(r"FigSetup\s*\(", cell_source)
+    if not m:
+        return cell_source, None
+    open_paren = m.end() - 1
+
+    # Find the matching close paren (handles nested parens, quotes, line continuations).
+    depth, i, n, in_str = 0, open_paren, len(cell_source), None
+    close_paren = -1
+    while i < n:
+        c = cell_source[i]
+        if in_str:
+            if c == in_str and cell_source[i - 1] != "\\":
+                in_str = None
+        elif c in "\"'":
+            in_str = c
+        elif c == "(":
+            depth += 1
+        elif c == ")":
+            depth -= 1
+            if depth == 0:
+                close_paren = i
+                break
+        i += 1
+    if close_paren < 0:
+        return cell_source, None
+
+    args = cell_source[open_paren + 1:close_paren]
+
+    def _arg(name: str, fallback: float | None) -> float | None:
+        mm = re.search(rf"\b{name}\s*=\s*([0-9eE.+\-]+)", args)
+        return float(mm.group(1)) if mm else fallback
+
+    cur_min = _arg("m_min", default_min)
+    cur_max = _arg("m_max", default_max)
+
+    new_min = 10.0 ** math.floor(math.log10(data_min)) if data_min > 0 else None
+    new_max = 10.0 ** math.ceil(math.log10(data_max)) if data_max > 0 else None
+
+    # Only extend a side when its current bound is known AND the data exceeds it
+    # — never clip (which would hide the conventional limits).
+    set_min = new_min is not None and cur_min is not None and new_min < cur_min
+    set_max = new_max is not None and cur_max is not None and new_max > cur_max
+    if not set_min and not set_max:
+        return cell_source, None
+
+    def _set_kwarg(arg_str: str, name: str, literal: str) -> str:
+        pat = re.compile(rf"(\b{name}\s*=\s*)[0-9eE.+\-]+")
+        if pat.search(arg_str):
+            return pat.sub(rf"\g<1>{literal}", arg_str, count=1)
+        if not arg_str.strip():
+            return f"{name}={literal}"
+        sep = "" if arg_str.lstrip().startswith(",") else ","
+        return f"{name}={literal}{sep}" + arg_str
+
+    if set_min:
+        args = _set_kwarg(args, "m_min", _decade_literal(new_min))
+    if set_max:
+        args = _set_kwarg(args, "m_max", _decade_literal(new_max))
+
+    new_source = cell_source[:open_paren + 1] + args + cell_source[close_paren:]
+    final_min = new_min if set_min else cur_min
+    final_max = new_max if set_max else cur_max
+    return new_source, (final_min, final_max)
+
+
+def insert_notebook_call(
+    notebook_path: Path,
+    notebook_call: str,
+    mass_range: tuple[float, float] | None = None,
+    plotfuncs_path: Path | None = None,
+) -> None:
     """
     Find the first code cell that calls the coupling class and append the new call.
     Uses nbformat — never raw string manipulation.
+
+    If *mass_range* (and *plotfuncs_path*, for FigSetup defaults) is provided and
+    the new limit falls outside the figure's conventional mass axis, the target
+    cell's FigSetup(...) call is widened so the limit is visible — accepting an
+    uglier plot rather than silently dropping an out-of-range limit.
     """
     import nbformat
 
@@ -605,6 +727,23 @@ def insert_notebook_call(notebook_path: Path, notebook_call: str) -> None:
         nb.cells.append(new_cell)
     else:
         source = nb.cells[target_cell_idx].source
+
+        # Widen the figure axis if the new limit falls outside the conventional
+        # mass window, so an out-of-range limit is shown (ugly) rather than
+        # silently dropped off the plot edge.
+        if mass_range is not None:
+            data_min, data_max = mass_range
+            dflt_min, dflt_max = (
+                _figsetup_defaults(plotfuncs_path, coupling_class)
+                if plotfuncs_path is not None else (None, None)
+            )
+            source, widened = _extend_figsetup_range(source, data_min, data_max, dflt_min, dflt_max)
+            if widened:
+                logger.info(
+                    "Extended %s FigSetup mass axis to [%.1e, %.1e] for out-of-range limit",
+                    coupling_class, widened[0], widened[1],
+                )
+
         # Insert before MySaveFig if present, so the new limit appears in the saved figure
         save_match = re.search(r"\nMySaveFig\(", source)
         if save_match:
@@ -613,7 +752,7 @@ def insert_notebook_call(notebook_path: Path, notebook_call: str) -> None:
                 source[:insert_at] + f"\n{notebook_call.rstrip()}" + source[insert_at:]
             )
         else:
-            nb.cells[target_cell_idx].source += f"\n{notebook_call}"
+            nb.cells[target_cell_idx].source = source + f"\n{notebook_call}"
 
     nbformat.write(nb, str(notebook_path))
     logger.info("Updated notebook %s", notebook_path.name)
@@ -708,7 +847,17 @@ def write_repo_files(review: ReviewResult, repo_root: Path = REPO_ROOT) -> None:
     # 3. Notebook
     nb_path = repo_root / review.notebook_path
     if nb_path.exists():
-        insert_notebook_call(nb_path, review.notebook_call)
+        masses = [
+            float(line.split()[0])
+            for line in review.data_file_content.splitlines()
+            if line.strip() and not line.lstrip().startswith("#")
+        ]
+        mass_range = (min(masses), max(masses)) if masses else None
+        insert_notebook_call(
+            nb_path, review.notebook_call,
+            mass_range=mass_range,
+            plotfuncs_path=pf_path,
+        )
     else:
         logger.warning("Notebook not found: %s", nb_path)
 
