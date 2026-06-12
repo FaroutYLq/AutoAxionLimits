@@ -45,6 +45,28 @@ jobs:
       - name: Install pipeline dependencies
         run: pip install -r requirements_pipeline.txt
 
+      # FIX #547: carry the processed-papers baseline forward without merging.
+      # State PRs are never auto-merged (human-in-the-loop), so master's
+      # processed.json stays frozen and the same papers get re-proposed every
+      # run until they age out of the arXiv window. Before running, restore
+      # processed.json from the open state branch (force-updated each run with
+      # the freshest cumulative snapshot) so filter_new_papers() already knows
+      # about everything handled by previous runs. No merge to master needed.
+      - name: Restore processed-papers baseline from state branch
+        run: |
+          BRANCH="chore/update-pipeline-state"
+          if git ls-remote --exit-code origin "refs/heads/$BRANCH" >/dev/null 2>&1; then
+            git fetch origin "$BRANCH"
+            if git cat-file -e "FETCH_HEAD:pipeline/state/processed.json" 2>/dev/null; then
+              git checkout FETCH_HEAD -- pipeline/state/processed.json
+              echo "Restored pipeline/state/processed.json from origin/$BRANCH"
+            else
+              echo "Branch $BRANCH has no processed.json — using master baseline"
+            fi
+          else
+            echo "No state branch $BRANCH yet — using master baseline"
+          fi
+
       # FIX: pass inputs via env vars, never interpolate directly into shell (prevents injection)
       - name: Run daily arXiv digest
         env:

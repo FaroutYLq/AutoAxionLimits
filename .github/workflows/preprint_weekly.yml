@@ -45,6 +45,28 @@ jobs:
       - name: Install pipeline dependencies
         run: pip install -r requirements_pipeline.txt
 
+      # FIX #547: carry the tracked-versions baseline forward without merging.
+      # State PRs are never auto-merged (human-in-the-loop), so master's
+      # preprint_versions.json stays frozen and the same preprint version gets
+      # re-flagged every run. Before running, restore preprint_versions.json
+      # from the open state branch (force-updated each run with the freshest
+      # cumulative snapshot) so the checker already knows the versions handled
+      # by previous runs. No merge to master needed.
+      - name: Restore tracked-versions baseline from state branch
+        run: |
+          BRANCH="chore/update-preprint-state"
+          if git ls-remote --exit-code origin "refs/heads/$BRANCH" >/dev/null 2>&1; then
+            git fetch origin "$BRANCH"
+            if git cat-file -e "FETCH_HEAD:pipeline/state/preprint_versions.json" 2>/dev/null; then
+              git checkout FETCH_HEAD -- pipeline/state/preprint_versions.json
+              echo "Restored pipeline/state/preprint_versions.json from origin/$BRANCH"
+            else
+              echo "Branch $BRANCH has no preprint_versions.json — using master baseline"
+            fi
+          else
+            echo "No state branch $BRANCH yet — using master baseline"
+          fi
+
       # FIX: pass inputs via env vars, never interpolate directly into shell (prevents injection)
       - name: Run preprint update checker
         env:
