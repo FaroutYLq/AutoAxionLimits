@@ -5,6 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Critical Rules
 
 - **NEVER push directly to master.** Always create a branch and open a PR. Wait for the user to review and merge. No exceptions.
+- **NEVER merge a PR produced by the daily/weekly/backfill pipeline on your own** (the new-limit / science PRs, `[NEEDS REVIEW]`, `[LOW CONFIDENCE]`, `[BACKFILL]`, etc.). These contain scientific content that only the user may accept. If the user explicitly asks you to merge one, double-check with them before doing so. (Merging your *own* infrastructure/fix PRs when the user asks is fine.)
 - **NEVER close or delete branches for PRs created by the daily/weekly pipelines** (#17, #19, #80, and similar). Only clean up PRs clearly from backfill cascades (`[BACKFILL]` prefix or `chore: update backfill state`).
 
 ## Project Overview
