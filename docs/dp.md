@@ -232,3 +232,5 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
 - **TEXONO_CsI_Tl_reactor_dark_photon_de_excitation_Compton_like**: [Probing Dark Photons from Nuclear De-excitation in Reactor Neutrino Experiment](https://arxiv.org/abs/2606.08487)
+
+- **NuSTAR_StrayLight_DarkPhoton**: [Shedding Stray Light on Decaying Light Dark Matter: Constraints from NuSTAR X-ray Observations](https://arxiv.org/abs/2606.03396)

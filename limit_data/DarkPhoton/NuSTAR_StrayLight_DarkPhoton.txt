@@ -1,0 +1,13 @@
+# Shedding Stray Light on Decaying Light Dark Matter: Constraints from NuSTAR X-ray Observations
+# arXiv: https://arxiv.org/abs/2606.03396
+# Coupling type: DarkPhoton
+# Extracted from: text
+# Confidence level: 0.95
+# Extraction confidence: 0.50
+# mass [eV]    kinetic mixing chi
+3.600000e+04   1.000000e+00
+3.600000e+04   1.000000e-11
+4.000000e+04   8.000000e-12
+5.000000e+04   4.000000e-12
+6.000000e+04   2.000000e-12
+6.000000e+04   1.000000e+00
