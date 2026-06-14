@@ -1,0 +1,8 @@
+# Isochrone Fitting of Galactic Globular Clusters -- VIII. Homogeneous estimates of parameters for 27 clusters
+# arXiv: https://arxiv.org/abs/2605.28505
+# Coupling type: AxionPhoton
+# Extracted from: text
+# Confidence level: 0.95
+# Extraction confidence: 0.40
+# mass [eV]    g_agamma [GeV^-1]
+1.000000e+00   6.600000e-11
