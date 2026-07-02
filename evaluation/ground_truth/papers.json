@@ -18,7 +18,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/AxionEDM/JEDI.txt",
-      "ground_truth_data_file": "2208.07293.txt",
+      "ground_truth_data_file": "2208.07293__AxionEDM_JEDI.txt",
       "reference_repo_file": "limit_data/AxionEDM/JEDI.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -42,7 +42,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/AxionEDM/RbQuartz.txt",
-      "ground_truth_data_file": "2212.04413.txt",
+      "ground_truth_data_file": "2212.04413__AxionEDM_RbQuartz.txt",
       "reference_repo_file": "limit_data/AxionEDM/RbQuartz.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -66,7 +66,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/AxionEDM/SN1987A.txt",
-      "ground_truth_data_file": "2410.19902.txt",
+      "ground_truth_data_file": "2410.19902__AxionEDM_SN1987A.txt",
       "reference_repo_file": "limit_data/AxionEDM/SN1987A.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -90,7 +90,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/AxionEDM/Projections/PolarisationHaloscope_discover.txt",
-      "ground_truth_data_file": "2209.12901.txt",
+      "ground_truth_data_file": "2209.12901__AxionEDM_Projections_PolarisationHaloscope_discover.txt",
       "reference_repo_file": "limit_data/AxionEDM/Projections/PolarisationHaloscope_discover.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -114,7 +114,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/AxionElectron/OldComagnetometers.txt",
-      "ground_truth_data_file": "1907.03767.txt",
+      "ground_truth_data_file": "1907.03767__AxionElectron_OldComagnetometers.txt",
       "reference_repo_file": "limit_data/AxionElectron/OldComagnetometers.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -138,7 +138,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/AxionElectron/IrreducibleFreezeIn.txt",
-      "ground_truth_data_file": "2209.06216.txt",
+      "ground_truth_data_file": "2209.06216__AxionElectron_IrreducibleFreezeIn.txt",
       "reference_repo_file": "limit_data/AxionElectron/IrreducibleFreezeIn.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -186,7 +186,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/AxionElectron/Projections/Semiconductors.txt",
-      "ground_truth_data_file": "1608.01994.txt",
+      "ground_truth_data_file": "1608.01994__AxionElectron_Projections_Semiconductors.txt",
       "reference_repo_file": "limit_data/AxionElectron/Projections/Semiconductors.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -239,8 +239,11 @@
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 1,
-      "verified_by": "llm_labeler:claude-opus-4-5-20251101",
-      "verification_date": "2026-04-13"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02",
+      "excluded": true,
+      "exclusion_reason": "AxionMass prediction-band file: both columns are masses (m_lo, m_hi) \u2014 there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers.",
+      "exclusion_evidence": "evaluation/eval_runs/failure_analysis_full346_detail.md \u00a7 1608.05414"
     },
     {
       "arxiv_id": "2006.04809",
@@ -280,7 +283,7 @@
       "difficulty": "medium",
       "tags": [],
       "notes": "Auto-selected from limit_data/fa/Projections/CASPEr-electric-PhaseIII.txt",
-      "ground_truth_data_file": "1711.08999.txt",
+      "ground_truth_data_file": "1711.08999__fa_Projections_CASPEr-electric-PhaseIII.txt",
       "reference_repo_file": "limit_data/fa/Projections/CASPEr-electric-PhaseIII.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -304,7 +307,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/AxionNeutron/Mainz_Krakow.txt",
-      "ground_truth_data_file": "2408.02668.txt",
+      "ground_truth_data_file": "2408.02668__AxionNeutron_Mainz_Krakow.txt",
       "reference_repo_file": "limit_data/AxionNeutron/Mainz_Krakow.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -352,7 +355,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/AxionNeutron/JEDI.txt",
-      "ground_truth_data_file": "2208.07293.txt",
+      "ground_truth_data_file": "2208.07293__AxionNeutron_JEDI.txt",
       "reference_repo_file": "limit_data/AxionNeutron/JEDI.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -374,7 +377,7 @@
       "difficulty": "medium",
       "tags": [],
       "notes": "Auto-selected from limit_data/AxionNeutron/Projections/ElectrostaticStorageRing.txt",
-      "ground_truth_data_file": "2211.08439.txt",
+      "ground_truth_data_file": "2211.08439__AxionNeutron_Projections_ElectrostaticStorageRing.txt",
       "reference_repo_file": "limit_data/AxionNeutron/Projections/ElectrostaticStorageRing.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -446,7 +449,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/IrreducibleFreezeIn.txt",
-      "ground_truth_data_file": "2209.06216.txt",
+      "ground_truth_data_file": "2209.06216__AxionPhoton_IrreducibleFreezeIn.txt",
       "reference_repo_file": "limit_data/AxionPhoton/IrreducibleFreezeIn.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -492,7 +495,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/AxionProton/Mainz_Krakow.txt",
-      "ground_truth_data_file": "2408.02668.txt",
+      "ground_truth_data_file": "2408.02668__AxionProton_Mainz_Krakow.txt",
       "reference_repo_file": "limit_data/AxionProton/Mainz_Krakow.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -516,7 +519,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/AxionProton/ChangE-NMR.txt",
-      "ground_truth_data_file": "2309.16600.txt",
+      "ground_truth_data_file": "2309.16600__AxionProton_ChangE-NMR.txt",
       "reference_repo_file": "limit_data/AxionProton/ChangE-NMR.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -610,7 +613,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/CROWS.txt",
-      "ground_truth_data_file": "1310.8098.txt",
+      "ground_truth_data_file": "1310.8098__DarkPhoton_CROWS.txt",
       "reference_repo_file": "limit_data/DarkPhoton/CROWS.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -752,7 +755,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/ScalarBaryon/IUPUI.txt",
-      "ground_truth_data_file": "1410.7267.txt",
+      "ground_truth_data_file": "1410.7267__ScalarBaryon_IUPUI.txt",
       "reference_repo_file": "limit_data/ScalarBaryon/IUPUI.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -776,7 +779,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/ScalarBaryon/MICROSCOPE.txt",
-      "ground_truth_data_file": "1712.00483.txt",
+      "ground_truth_data_file": "1712.00483__ScalarBaryon_MICROSCOPE.txt",
       "reference_repo_file": "limit_data/ScalarBaryon/MICROSCOPE.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -800,7 +803,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/ScalarElectron/AURIGA.txt",
-      "ground_truth_data_file": "1607.07327.txt",
+      "ground_truth_data_file": "1607.07327__ScalarElectron_AURIGA.txt",
       "reference_repo_file": "limit_data/ScalarElectron/AURIGA.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -824,7 +827,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/ScalarElectron/RedGiants.txt",
-      "ground_truth_data_file": "1611.05852.txt",
+      "ground_truth_data_file": "1611.05852__ScalarElectron_RedGiants.txt",
       "reference_repo_file": "limit_data/ScalarElectron/RedGiants.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -848,7 +851,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/ScalarElectron/I2.txt",
-      "ground_truth_data_file": "2111.06883.txt",
+      "ground_truth_data_file": "2111.06883__ScalarElectron_I2.txt",
       "reference_repo_file": "limit_data/ScalarElectron/I2.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -870,7 +873,7 @@
       "difficulty": "easy",
       "tags": [],
       "notes": "Auto-selected from limit_data/ScalarElectron/Projections/QSNET.txt",
-      "ground_truth_data_file": "2112.10618.txt",
+      "ground_truth_data_file": "2112.10618__ScalarElectron_Projections_QSNET.txt",
       "reference_repo_file": "limit_data/ScalarElectron/Projections/QSNET.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -894,7 +897,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/ScalarNucleon/RedGiant.txt",
-      "ground_truth_data_file": "1611.05852.txt",
+      "ground_truth_data_file": "1611.05852__ScalarNucleon_RedGiant.txt",
       "reference_repo_file": "limit_data/ScalarNucleon/RedGiant.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -966,7 +969,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/ScalarPhoton/HQuartzSapphire.txt",
-      "ground_truth_data_file": "2010.08107.txt",
+      "ground_truth_data_file": "2010.08107__ScalarPhoton_HQuartzSapphire.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/HQuartzSapphire.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -990,7 +993,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/ScalarPhoton/CsCav.txt",
-      "ground_truth_data_file": "2201.02042.txt",
+      "ground_truth_data_file": "2201.02042__ScalarPhoton_CsCav.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/CsCav.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -1014,7 +1017,7 @@
         "llm_labeled"
       ],
       "notes": "Auto-selected from limit_data/ScalarPhoton/DyQuartz.txt",
-      "ground_truth_data_file": "2212.04413.txt",
+      "ground_truth_data_file": "2212.04413__ScalarPhoton_DyQuartz.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/DyQuartz.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -1036,7 +1039,7 @@
       "difficulty": "easy",
       "tags": [],
       "notes": "Auto-selected from limit_data/ScalarPhoton/Projections/QSNET.txt",
-      "ground_truth_data_file": "2112.10618.txt",
+      "ground_truth_data_file": "2112.10618__ScalarPhoton_Projections_QSNET.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/Projections/QSNET.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -1196,7 +1199,7 @@
       "difficulty": "easy",
       "tags": [],
       "notes": "Auto-selected from limit_data/ScalarPhoton/GlobularClusters.txt",
-      "ground_truth_data_file": "2207.03102.txt",
+      "ground_truth_data_file": "2207.03102__ScalarPhoton_GlobularClusters.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/GlobularClusters.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -1223,8 +1226,11 @@
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 1,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-04-13"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02",
+      "excluded": true,
+      "exclusion_reason": "AxionMass prediction-band file: both columns are masses (m_lo, m_hi) \u2014 there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers.",
+      "exclusion_evidence": "evaluation/eval_runs/failure_analysis_full346_detail.md \u00a7 1505.07455"
     },
     {
       "arxiv_id": "2105.04603",
@@ -1240,7 +1246,7 @@
       "difficulty": "hard",
       "tags": [],
       "notes": "Auto-selected from limit_data/AxionNeutron/NASDUCK.txt",
-      "ground_truth_data_file": "2105.04603.txt",
+      "ground_truth_data_file": "2105.04603__AxionNeutron_NASDUCK.txt",
       "reference_repo_file": "limit_data/AxionNeutron/NASDUCK.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -1284,7 +1290,7 @@
       "difficulty": "hard",
       "tags": [],
       "notes": "Auto-selected from limit_data/ScalarNucleon/MICROSCOPE.txt",
-      "ground_truth_data_file": "1712.00483.txt",
+      "ground_truth_data_file": "1712.00483__ScalarNucleon_MICROSCOPE.txt",
       "reference_repo_file": "limit_data/ScalarNucleon/MICROSCOPE.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -1306,7 +1312,7 @@
       "difficulty": "easy",
       "tags": [],
       "notes": "Auto-selected from limit_data/AxionPhoton/OPAL.txt",
-      "ground_truth_data_file": "1607.06083.txt",
+      "ground_truth_data_file": "1607.06083__AxionPhoton_OPAL.txt",
       "reference_repo_file": "limit_data/AxionPhoton/OPAL.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -1328,7 +1334,7 @@
       "difficulty": "hard",
       "tags": [],
       "notes": "Auto-selected from limit_data/ScalarElectron/Holometer.txt",
-      "ground_truth_data_file": "2108.04746.txt",
+      "ground_truth_data_file": "2108.04746__ScalarElectron_Holometer.txt",
       "reference_repo_file": "limit_data/ScalarElectron/Holometer.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -1592,7 +1598,7 @@
       "difficulty": "easy",
       "tags": [],
       "notes": "Auto-selected from limit_data/DarkPhoton/GasClouds.txt",
-      "ground_truth_data_file": "1903.12190.txt",
+      "ground_truth_data_file": "1903.12190__DarkPhoton_GasClouds.txt",
       "reference_repo_file": "limit_data/DarkPhoton/GasClouds.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -1636,7 +1642,7 @@
       "difficulty": "medium",
       "tags": [],
       "notes": "Auto-selected from limit_data/AxionEDM/nEDM.txt",
-      "ground_truth_data_file": "1708.06367.txt",
+      "ground_truth_data_file": "1708.06367__AxionEDM_nEDM.txt",
       "reference_repo_file": "limit_data/AxionEDM/nEDM.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -1707,8 +1713,11 @@
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 1,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-04-13"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02",
+      "excluded": true,
+      "exclusion_reason": "AxionMass prediction-band file: both columns are masses (m_lo, m_hi) \u2014 there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers.",
+      "exclusion_evidence": "evaluation/eval_runs/failure_analysis_full346_detail.md \u00a7 1202.5851"
     },
     {
       "arxiv_id": "2208.06519",
@@ -1768,7 +1777,7 @@
       "difficulty": "medium",
       "tags": [],
       "notes": "Auto-selected from limit_data/ScalarPhoton/LIGO.txt",
-      "ground_truth_data_file": "2401.18076.txt",
+      "ground_truth_data_file": "2401.18076__ScalarPhoton_LIGO.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/LIGO.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -1790,7 +1799,7 @@
       "difficulty": "hard",
       "tags": [],
       "notes": "Auto-selected from limit_data/ScalarPhoton/Holometer.txt",
-      "ground_truth_data_file": "2108.04746.txt",
+      "ground_truth_data_file": "2108.04746__ScalarPhoton_Holometer.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/Holometer.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -1966,7 +1975,7 @@
       "difficulty": "easy",
       "tags": [],
       "notes": "Auto-selected from limit_data/fa/JEDI.txt",
-      "ground_truth_data_file": "2208.07293.txt",
+      "ground_truth_data_file": "2208.07293__fa_JEDI.txt",
       "reference_repo_file": "limit_data/fa/JEDI.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2010,7 +2019,7 @@
       "difficulty": "medium",
       "tags": [],
       "notes": "Auto-selected from limit_data/VectorB-L/EotwashEP.txt",
-      "ground_truth_data_file": "1207.2442.txt",
+      "ground_truth_data_file": "1207.2442__VectorB-L_EotwashEP.txt",
       "reference_repo_file": "limit_data/VectorB-L/EotwashEP.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2032,7 +2041,7 @@
       "difficulty": "hard",
       "tags": [],
       "notes": "Auto-selected from limit_data/fa/RbQuartz.txt",
-      "ground_truth_data_file": "2212.04413.txt",
+      "ground_truth_data_file": "2212.04413__fa_RbQuartz.txt",
       "reference_repo_file": "limit_data/fa/RbQuartz.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2054,7 +2063,7 @@
       "difficulty": "hard",
       "tags": [],
       "notes": "Auto-selected from limit_data/ScalarNucleon/IUPUI.txt",
-      "ground_truth_data_file": "1410.7267.txt",
+      "ground_truth_data_file": "1410.7267__ScalarNucleon_IUPUI.txt",
       "reference_repo_file": "limit_data/ScalarNucleon/IUPUI.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2186,7 +2195,7 @@
       "difficulty": "medium",
       "tags": [],
       "notes": "Auto-selected from limit_data/fa/nEDM.txt",
-      "ground_truth_data_file": "1708.06367.txt",
+      "ground_truth_data_file": "1708.06367__fa_nEDM.txt",
       "reference_repo_file": "limit_data/fa/nEDM.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2208,7 +2217,7 @@
       "difficulty": "medium",
       "tags": [],
       "notes": "Auto-selected from limit_data/AxionProton/SN1987A.txt",
-      "ground_truth_data_file": "2306.01048.txt",
+      "ground_truth_data_file": "2306.01048__AxionProton_SN1987A.txt",
       "reference_repo_file": "limit_data/AxionProton/SN1987A.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2230,7 +2239,7 @@
       "difficulty": "medium",
       "tags": [],
       "notes": "Auto-selected from limit_data/ScalarPhoton/AURIGA.txt",
-      "ground_truth_data_file": "1607.07327.txt",
+      "ground_truth_data_file": "1607.07327__ScalarPhoton_AURIGA.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/AURIGA.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2252,7 +2261,7 @@
       "difficulty": "hard",
       "tags": [],
       "notes": "Auto-selected from limit_data/ScalarPhoton/SrSi.txt",
-      "ground_truth_data_file": "2008.08773.txt",
+      "ground_truth_data_file": "2008.08773__ScalarPhoton_SrSi.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/SrSi.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2274,13 +2283,16 @@
       "difficulty": "easy",
       "tags": [],
       "notes": "Auto-selected from limit_data/AxionMass/Gorghetto20.txt",
-      "ground_truth_data_file": "2007.04990.txt",
+      "ground_truth_data_file": "2007.04990__AxionMass_Gorghetto20.txt",
       "reference_repo_file": "limit_data/AxionMass/Gorghetto20.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 1,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-04-13"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02",
+      "excluded": true,
+      "exclusion_reason": "AxionMass prediction-band file: both columns are masses (m_lo, m_hi) \u2014 there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers.",
+      "exclusion_evidence": "evaluation/eval_runs/failure_analysis_full346_detail.md \u00a7 2007.04990"
     },
     {
       "arxiv_id": "2410.19902",
@@ -2296,7 +2308,7 @@
       "difficulty": "easy",
       "tags": [],
       "notes": "Multi-coupling: also constrains f_a-m_a plane from SN1987A bounds",
-      "ground_truth_data_file": "2410.19902.txt",
+      "ground_truth_data_file": "2410.19902__AxionEDM_SN1987A.txt",
       "reference_repo_file": "limit_data/AxionEDM/SN1987A.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2318,7 +2330,7 @@
       "difficulty": "hard",
       "tags": [],
       "notes": "Multi-coupling: also discusses f_a plane for haloscope projections",
-      "ground_truth_data_file": "2209.12901.txt",
+      "ground_truth_data_file": "2209.12901__AxionEDM_Projections_PolarisationHaloscope_discover.txt",
       "reference_repo_file": "limit_data/AxionEDM/Projections/PolarisationHaloscope_discover.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2340,7 +2352,7 @@
       "difficulty": "hard",
       "tags": [],
       "notes": "Multi-coupling: also constrains g_aN (neutron coupling)",
-      "ground_truth_data_file": "1907.03767.txt",
+      "ground_truth_data_file": "1907.03767__AxionElectron_OldComagnetometers.txt",
       "reference_repo_file": "limit_data/AxionElectron/OldComagnetometers.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2362,7 +2374,7 @@
       "difficulty": "hard",
       "tags": [],
       "notes": "Multi-coupling: also discusses dark photon absorption in semiconductors",
-      "ground_truth_data_file": "1608.01994.txt",
+      "ground_truth_data_file": "1608.01994__AxionElectron_Projections_Semiconductors.txt",
       "reference_repo_file": "limit_data/AxionElectron/Projections/Semiconductors.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2384,7 +2396,7 @@
       "difficulty": "hard",
       "tags": [],
       "notes": "Multi-coupling: also constrains g_ann (neutron coupling)",
-      "ground_truth_data_file": "2309.16600.txt",
+      "ground_truth_data_file": "2309.16600__AxionProton_ChangE-NMR.txt",
       "reference_repo_file": "limit_data/AxionProton/ChangE-NMR.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2406,7 +2418,7 @@
       "difficulty": "medium",
       "tags": [],
       "notes": "Multi-coupling: SN1987A constrains both nucleon flavors",
-      "ground_truth_data_file": "2306.01048.txt",
+      "ground_truth_data_file": "2306.01048__AxionProton_SN1987A.txt",
       "reference_repo_file": "limit_data/AxionProton/SN1987A.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2428,7 +2440,7 @@
       "difficulty": "medium",
       "tags": [],
       "notes": "Multi-coupling: proposal also covers axion-electron coupling",
-      "ground_truth_data_file": "2211.08439.txt",
+      "ground_truth_data_file": "2211.08439__AxionNeutron_Projections_ElectrostaticStorageRing.txt",
       "reference_repo_file": "limit_data/AxionNeutron/Projections/ElectrostaticStorageRing.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2450,7 +2462,7 @@
       "difficulty": "hard",
       "tags": [],
       "notes": "Multi-coupling: also constrains alpha variation (ScalarPhoton)",
-      "ground_truth_data_file": "2111.06883.txt",
+      "ground_truth_data_file": "2111.06883__ScalarElectron_I2.txt",
       "reference_repo_file": "limit_data/ScalarElectron/I2.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2472,7 +2484,7 @@
       "difficulty": "medium",
       "tags": [],
       "notes": "Multi-coupling: also discusses g_an sensitivity for CASPEr-Electric",
-      "ground_truth_data_file": "1711.08999.txt",
+      "ground_truth_data_file": "1711.08999__fa_Projections_CASPEr-electric-PhaseIII.txt",
       "reference_repo_file": "limit_data/fa/Projections/CASPEr-electric-PhaseIII.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2494,7 +2506,7 @@
       "difficulty": "easy",
       "tags": [],
       "notes": "Multi-coupling: paper constrains g_agamma via Primakoff in globular clusters",
-      "ground_truth_data_file": "2207.03102.txt",
+      "ground_truth_data_file": "2207.03102__ScalarPhoton_GlobularClusters.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/GlobularClusters.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2516,7 +2528,7 @@
       "difficulty": "medium",
       "tags": [],
       "notes": "Multi-coupling: Eotwash EP test also constrains scalar-nucleon Yukawa fifth force",
-      "ground_truth_data_file": "1207.2442.txt",
+      "ground_truth_data_file": "1207.2442__VectorB-L_EotwashEP.txt",
       "reference_repo_file": "limit_data/VectorB-L/EotwashEP.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2538,7 +2550,7 @@
       "difficulty": "hard",
       "tags": [],
       "notes": "DarkSide-50 axion-electron coupling limit. ground_truth_data_file nulled (#612): the shared local data/2207.11968.txt is the DarkPhoton/DarkSide curve (155 pts), not the AxionElectron one; null -> the comparator loads the correct O'Hare AxionElectron/DarkSide.txt (130 pts) via reference fallback.",
-      "ground_truth_data_file": null,
+      "ground_truth_data_file": "2207.11968__AxionElectron_DarkSide.txt",
       "reference_repo_file": "limit_data/AxionElectron/DarkSide.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2692,7 +2704,7 @@
       "difficulty": "hard",
       "tags": [],
       "notes": "HELIOS projected scalar-electron sensitivity",
-      "ground_truth_data_file": "2309.07995.txt",
+      "ground_truth_data_file": "2309.07995__ScalarElectron_Projections_HELIOS.txt",
       "reference_repo_file": "limit_data/ScalarElectron/Projections/HELIOS.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2714,7 +2726,7 @@
       "difficulty": "hard",
       "tags": [],
       "notes": "#606 Lever B: HELIOS projected B-L gauge-boson sensitivity (the paper's primary coupling; the extractor reads VectorBL). ground_truth_data_file=null -> loads reference_repo_file directly.",
-      "ground_truth_data_file": null,
+      "ground_truth_data_file": "2309.07995__VectorB-L_Projections_HELIOS.txt",
       "reference_repo_file": "limit_data/VectorB-L/Projections/HELIOS.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2736,7 +2748,7 @@
       "difficulty": "hard",
       "tags": [],
       "notes": "DAMNED scalar-electron coupling limit",
-      "ground_truth_data_file": "2006.07055.txt",
+      "ground_truth_data_file": "2006.07055__ScalarElectron_DAMNED.txt",
       "reference_repo_file": "limit_data/ScalarElectron/DAMNED.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2802,7 +2814,7 @@
       "difficulty": "medium",
       "tags": [],
       "notes": "SNO solar axion constraint on axion-proton coupling",
-      "ground_truth_data_file": "2004.02733.txt",
+      "ground_truth_data_file": "2004.02733__AxionProton_SNO.txt",
       "reference_repo_file": "limit_data/AxionProton/SNO.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2824,7 +2836,7 @@
       "difficulty": "easy",
       "tags": [],
       "notes": "Neutron star cooling constraint on axion-proton coupling",
-      "ground_truth_data_file": "2111.09892.txt",
+      "ground_truth_data_file": "2111.09892__AxionProton_NeutronStars.txt",
       "reference_repo_file": "limit_data/AxionProton/NeutronStars.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2848,7 +2860,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionEDM/BBN.txt",
-      "ground_truth_data_file": "1401.6460.txt",
+      "ground_truth_data_file": "1401.6460__AxionEDM_BBN.txt",
       "reference_repo_file": "limit_data/AxionEDM/BBN.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2872,7 +2884,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionEDM/BeamEDM.txt",
-      "ground_truth_data_file": "2204.01454.txt",
+      "ground_truth_data_file": "2204.01454__AxionEDM_BeamEDM.txt",
       "reference_repo_file": "limit_data/AxionEDM/BeamEDM.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -2896,7 +2908,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionEDM/ONIX.txt",
-      "ground_truth_data_file": "2410.02218.txt",
+      "ground_truth_data_file": "2410.02218__AxionEDM_ONIX.txt",
       "reference_repo_file": "limit_data/AxionEDM/ONIX.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -3064,7 +3076,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionElectron/SuperCDMS.txt",
-      "ground_truth_data_file": "1911.11905.txt",
+      "ground_truth_data_file": "1911.11905__AxionElectron_SuperCDMS.txt",
       "reference_repo_file": "limit_data/AxionElectron/SuperCDMS.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -3136,7 +3148,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionElectron/XENON1T_DM_S1S2.txt",
-      "ground_truth_data_file": "2006.09721.txt",
+      "ground_truth_data_file": "2006.09721__AxionElectron_XENON1T_DM_S1S2.txt",
       "reference_repo_file": "limit_data/AxionElectron/XENON1T_DM_S1S2.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -3160,7 +3172,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionElectron/XENON1T_DM_S2.txt",
-      "ground_truth_data_file": "1907.11485.txt",
+      "ground_truth_data_file": "1907.11485__AxionElectron_XENON1T_DM_S2.txt",
       "reference_repo_file": "limit_data/AxionElectron/XENON1T_DM_S2.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -3184,7 +3196,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionElectron/XENON1T_DM_SE.txt",
-      "ground_truth_data_file": "2112.12116.txt",
+      "ground_truth_data_file": "2112.12116__AxionElectron_XENON1T_DM_SE.txt",
       "reference_repo_file": "limit_data/AxionElectron/XENON1T_DM_SE.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -3232,7 +3244,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionElectron/XENONnT.txt",
-      "ground_truth_data_file": "2207.11330.txt",
+      "ground_truth_data_file": "2207.11330__AxionElectron_XENONnT.txt",
       "reference_repo_file": "limit_data/AxionElectron/XENONnT.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -3256,7 +3268,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionElectron/XENONnT_Solar.txt",
-      "ground_truth_data_file": "2207.11330.txt",
+      "ground_truth_data_file": "2207.11330__AxionElectron_XENONnT_Solar.txt",
       "reference_repo_file": "limit_data/AxionElectron/XENONnT_Solar.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -3280,13 +3292,16 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionMass/Benabou24.txt",
-      "ground_truth_data_file": "2412.08699.txt",
+      "ground_truth_data_file": "2412.08699__AxionMass_Benabou24.txt",
       "reference_repo_file": "limit_data/AxionMass/Benabou24.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 1,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02",
+      "excluded": true,
+      "exclusion_reason": "AxionMass prediction-band file: both columns are masses (m_lo, m_hi) \u2014 there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers.",
+      "exclusion_evidence": "evaluation/eval_runs/failure_analysis_full346_detail.md \u00a7 2412.08699"
     },
     {
       "arxiv_id": "2412.08699",
@@ -3304,13 +3319,16 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionMass/Benabou24_DW.txt",
-      "ground_truth_data_file": "2412.08699.txt",
+      "ground_truth_data_file": "2412.08699__AxionMass_Benabou24_DW.txt",
       "reference_repo_file": "limit_data/AxionMass/Benabou24_DW.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 1,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02",
+      "excluded": true,
+      "exclusion_reason": "AxionMass prediction-band file: both columns are masses (m_lo, m_hi) \u2014 there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers.",
+      "exclusion_evidence": "evaluation/eval_runs/failure_analysis_full346_detail.md \u00a7 2412.08699"
     },
     {
       "arxiv_id": "1512.06746",
@@ -3381,8 +3399,11 @@
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 1,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02",
+      "excluded": true,
+      "exclusion_reason": "AxionMass prediction-band file: both columns are masses (m_lo, m_hi) \u2014 there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers.",
+      "exclusion_evidence": "evaluation/eval_runs/failure_analysis_full346_detail.md \u00a7 1906.00967"
     },
     {
       "arxiv_id": "2108.05368",
@@ -3405,8 +3426,11 @@
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 1,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02",
+      "excluded": true,
+      "exclusion_reason": "AxionMass prediction-band file: both columns are masses (m_lo, m_hi) \u2014 there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers.",
+      "exclusion_evidence": "evaluation/eval_runs/failure_analysis_full346_detail.md \u00a7 2108.05368"
     },
     {
       "arxiv_id": "1705.00676",
@@ -3429,8 +3453,11 @@
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 1,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02",
+      "excluded": true,
+      "exclusion_reason": "AxionMass prediction-band file: both columns are masses (m_lo, m_hi) \u2014 there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers.",
+      "exclusion_evidence": "evaluation/eval_runs/failure_analysis_full346_detail.md \u00a7 1705.00676"
     },
     {
       "arxiv_id": "1509.00026",
@@ -3453,8 +3480,11 @@
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 1,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02",
+      "excluded": true,
+      "exclusion_reason": "AxionMass prediction-band file: both columns are masses (m_lo, m_hi) \u2014 there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers.",
+      "exclusion_evidence": "evaluation/eval_runs/failure_analysis_full346_detail.md \u00a7 1509.00026"
     },
     {
       "arxiv_id": "2007.04990",
@@ -3472,13 +3502,16 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionMass/GorghettoDW_6.txt",
-      "ground_truth_data_file": "2007.04990.txt",
+      "ground_truth_data_file": "2007.04990__AxionMass_GorghettoDW_6.txt",
       "reference_repo_file": "limit_data/AxionMass/GorghettoDW_6.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 1,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02",
+      "excluded": true,
+      "exclusion_reason": "AxionMass prediction-band file: both columns are masses (m_lo, m_hi) \u2014 there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers.",
+      "exclusion_evidence": "evaluation/eval_runs/failure_analysis_full346_detail.md \u00a7 2007.04990"
     },
     {
       "arxiv_id": "2402.00741",
@@ -3549,8 +3582,11 @@
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 1,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02",
+      "excluded": true,
+      "exclusion_reason": "AxionMass prediction-band file: both columns are masses (m_lo, m_hi) \u2014 there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers.",
+      "exclusion_evidence": "evaluation/eval_runs/failure_analysis_full346_detail.md \u00a7 1606.03145"
     },
     {
       "arxiv_id": "2401.17253",
@@ -3621,8 +3657,11 @@
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 1,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02",
+      "excluded": true,
+      "exclusion_reason": "AxionMass prediction-band file: both columns are masses (m_lo, m_hi) \u2014 there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers.",
+      "exclusion_evidence": "evaluation/eval_runs/failure_analysis_full346_detail.md \u00a7 2206.11598"
     },
     {
       "arxiv_id": "1902.04644",
@@ -3664,7 +3703,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionNeutron/ChangE-NMR.txt",
-      "ground_truth_data_file": "2309.16600.txt",
+      "ground_truth_data_file": "2309.16600__AxionNeutron_ChangE-NMR.txt",
       "reference_repo_file": "limit_data/AxionNeutron/ChangE-NMR.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -3688,7 +3727,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionNeutron/ChangE.txt",
-      "ground_truth_data_file": "2306.08039.txt",
+      "ground_truth_data_file": "2306.08039__AxionNeutron_ChangE.txt",
       "reference_repo_file": "limit_data/AxionNeutron/ChangE.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -3760,7 +3799,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionNeutron/NASDUCK-SERF.txt",
-      "ground_truth_data_file": "2209.13588.txt",
+      "ground_truth_data_file": "2209.13588__AxionNeutron_NASDUCK-SERF.txt",
       "reference_repo_file": "limit_data/AxionNeutron/NASDUCK-SERF.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -3784,7 +3823,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionNeutron/NeutronStars.txt",
-      "ground_truth_data_file": "2111.09892.txt",
+      "ground_truth_data_file": "2111.09892__AxionNeutron_NeutronStars.txt",
       "reference_repo_file": "limit_data/AxionNeutron/NeutronStars.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -3808,7 +3847,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionNeutron/OldComagnetometers.txt",
-      "ground_truth_data_file": "1907.03767.txt",
+      "ground_truth_data_file": "1907.03767__AxionNeutron_OldComagnetometers.txt",
       "reference_repo_file": "limit_data/AxionNeutron/OldComagnetometers.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -3856,7 +3895,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionNeutron/SNO.txt",
-      "ground_truth_data_file": "2004.02733.txt",
+      "ground_truth_data_file": "2004.02733__AxionNeutron_SNO.txt",
       "reference_repo_file": "limit_data/AxionNeutron/SNO.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -3880,7 +3919,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionNeutron/TorsionBalance.txt",
-      "ground_truth_data_file": "hep-ph_0611223.txt",
+      "ground_truth_data_file": "hep-ph_0611223__AxionNeutron_TorsionBalance.txt",
       "reference_repo_file": "limit_data/AxionNeutron/TorsionBalance.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -3904,7 +3943,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionNeutron/nEDM.txt",
-      "ground_truth_data_file": "1708.06367.txt",
+      "ground_truth_data_file": "1708.06367__AxionNeutron_nEDM.txt",
       "reference_repo_file": "limit_data/AxionNeutron/nEDM.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -4048,7 +4087,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/ADMX2019_1.txt",
-      "ground_truth_data_file": "1910.08638.txt",
+      "ground_truth_data_file": "1910.08638__AxionPhoton_ADMX2019_1.txt",
       "reference_repo_file": "limit_data/AxionPhoton/ADMX2019_1.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -4072,7 +4111,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/ADMX2019_2.txt",
-      "ground_truth_data_file": "1910.08638.txt",
+      "ground_truth_data_file": "1910.08638__AxionPhoton_ADMX2019_2.txt",
       "reference_repo_file": "limit_data/AxionPhoton/ADMX2019_2.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -4168,7 +4207,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/ALPS.txt",
-      "ground_truth_data_file": "1004.1313.txt",
+      "ground_truth_data_file": "1004.1313__AxionPhoton_ALPS.txt",
       "reference_repo_file": "limit_data/AxionPhoton/ALPS.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -4216,7 +4255,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/AxionStarExplosions-1.txt",
-      "ground_truth_data_file": "2302.10206.txt",
+      "ground_truth_data_file": "2302.10206__AxionPhoton_AxionStarExplosions-1.txt",
       "reference_repo_file": "limit_data/AxionPhoton/AxionStarExplosions-1.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -4240,7 +4279,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/AxionStarExplosions-2.txt",
-      "ground_truth_data_file": "2302.10206.txt",
+      "ground_truth_data_file": "2302.10206__AxionPhoton_AxionStarExplosions-2.txt",
       "reference_repo_file": "limit_data/AxionPhoton/AxionStarExplosions-2.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -4437,8 +4476,11 @@
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 2,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02",
+      "excluded": true,
+      "exclusion_reason": "Paper reports decay-rate/annihilation limits only (lambda [s^-1], <sigma v>); the GT g_agamma value is the repo maintainer's derived physics conversion and never appears in the paper, so it is not extractable.",
+      "exclusion_evidence": "evaluation/eval_runs/failure_analysis_full346_detail.md \u00a7 2112.03439"
     },
     {
       "arxiv_id": "2001.05102",
@@ -4767,14 +4809,14 @@
       "tags": [
         "auto_expanded"
       ],
-      "notes": "Auto-selected from limit_data/AxionPhoton/COBEFIRAS_Cyr.txt",
+      "notes": "GT data ingested with the file-header conversion g_agamma [GeV^-1] = epsilon * 1e-11 (B0 = 1 nG normalization); see evaluation/ground_truth.py _FILE_Y_SCALE (post-full346 1b).",
       "ground_truth_data_file": "2411.13701.txt",
       "reference_repo_file": "limit_data/AxionPhoton/COBEFIRAS_Cyr.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 170,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02"
     },
     {
       "arxiv_id": "1310.8098",
@@ -4792,7 +4834,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/CROWS.txt",
-      "ground_truth_data_file": "1310.8098.txt",
+      "ground_truth_data_file": "1310.8098__AxionPhoton_CROWS.txt",
       "reference_repo_file": "limit_data/AxionPhoton/CROWS.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -4912,7 +4954,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/Chandra_WhiteDwarfs_Wphobic.txt",
-      "ground_truth_data_file": "2104.12772.txt",
+      "ground_truth_data_file": "2104.12772__AxionPhoton_Chandra_WhiteDwarfs_Wphobic.txt",
       "reference_repo_file": "limit_data/AxionPhoton/Chandra_WhiteDwarfs_Wphobic.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -4936,7 +4978,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/Chandra_WhiteDwarfs_electron_equals_photon.txt",
-      "ground_truth_data_file": "2104.12772.txt",
+      "ground_truth_data_file": "2104.12772__AxionPhoton_Chandra_WhiteDwarfs_electron_equals_photon.txt",
       "reference_repo_file": "limit_data/AxionPhoton/Chandra_WhiteDwarfs_electron_equals_photon.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -5032,7 +5074,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/DiffuseGammaRays.txt",
-      "ground_truth_data_file": "2201.09890.txt",
+      "ground_truth_data_file": "2201.09890__AxionPhoton_DiffuseGammaRays.txt",
       "reference_repo_file": "limit_data/AxionPhoton/DiffuseGammaRays.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -5056,7 +5098,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/EBL.txt",
-      "ground_truth_data_file": "1110.2895.txt",
+      "ground_truth_data_file": "1110.2895__AxionPhoton_EBL.txt",
       "reference_repo_file": "limit_data/AxionPhoton/EBL.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -5200,7 +5242,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/Fermi_bound.txt",
-      "ground_truth_data_file": "1603.06978.txt",
+      "ground_truth_data_file": "1603.06978__AxionPhoton_Fermi_bound.txt",
       "reference_repo_file": "limit_data/AxionPhoton/Fermi_bound.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -5224,7 +5266,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/Fermi_hole.txt",
-      "ground_truth_data_file": "1603.06978.txt",
+      "ground_truth_data_file": "1603.06978__AxionPhoton_Fermi_hole.txt",
       "reference_repo_file": "limit_data/AxionPhoton/Fermi_hole.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -5311,7 +5353,7 @@
       "coupling_convention": "g_GeV^-1",
       "coupling_units": "g_agamma [GeV^-1]",
       "is_new_limit": true,
-      "is_projection": false,
+      "is_projection": true,
       "data_source_expected": "table",
       "confidence_level": 0.9,
       "dm_density_assumed": null,
@@ -5319,14 +5361,14 @@
       "tags": [
         "auto_expanded"
       ],
-      "notes": "Auto-selected from limit_data/AxionPhoton/GammaRayDecayCompilation.txt",
-      "ground_truth_data_file": "2312.11608.txt",
-      "reference_repo_file": "limit_data/AxionPhoton/GammaRayDecayCompilation.txt",
+      "notes": "Repointed (post-full346 1b) from GammaRayDecayCompilation.txt to the paper's own headline HERA 21-cm projection curve.",
+      "ground_truth_data_file": "2312.11608__AxionPhoton_Projections_21cm.txt",
+      "reference_repo_file": "limit_data/AxionPhoton/Projections/21cm.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
-      "ground_truth_num_points": 127,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "ground_truth_num_points": 22,
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02"
     },
     {
       "arxiv_id": "2501.17119",
@@ -5392,7 +5434,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/GlobularClusters-R2.txt",
-      "ground_truth_data_file": "2207.03102.txt",
+      "ground_truth_data_file": "2207.03102__AxionPhoton_GlobularClusters-R2.txt",
       "reference_repo_file": "limit_data/AxionPhoton/GlobularClusters-R2.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -5704,7 +5746,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/LHC_pp.txt",
-      "ground_truth_data_file": "1607.06083.txt",
+      "ground_truth_data_file": "1607.06083__AxionPhoton_LHC_pp.txt",
       "reference_repo_file": "limit_data/AxionPhoton/LHC_pp.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -6448,7 +6490,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/SN1987A_HeavyALP_nu.txt",
-      "ground_truth_data_file": "2201.09890.txt",
+      "ground_truth_data_file": "2201.09890__AxionPhoton_SN1987A_HeavyALP_nu.txt",
       "reference_repo_file": "limit_data/AxionPhoton/SN1987A_HeavyALP_nu.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -6568,7 +6610,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/SNIPE.txt",
-      "ground_truth_data_file": "2306.11575.txt",
+      "ground_truth_data_file": "2306.11575__AxionPhoton_SNIPE.txt",
       "reference_repo_file": "limit_data/AxionPhoton/SNIPE.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -6592,7 +6634,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/SNe-decay.txt",
-      "ground_truth_data_file": "2201.09890.txt",
+      "ground_truth_data_file": "2201.09890__AxionPhoton_SNe-decay.txt",
       "reference_repo_file": "limit_data/AxionPhoton/SNe-decay.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -6736,7 +6778,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/SolarNu.txt",
-      "ground_truth_data_file": "1501.01639.txt",
+      "ground_truth_data_file": "1501.01639__AxionPhoton_SolarNu.txt",
       "reference_repo_file": "limit_data/AxionPhoton/SolarNu.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -6808,7 +6850,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/SuperMAG2.txt",
-      "ground_truth_data_file": "2408.16045.txt",
+      "ground_truth_data_file": "2408.16045__AxionPhoton_SuperMAG2.txt",
       "reference_repo_file": "limit_data/AxionPhoton/SuperMAG2.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -7024,7 +7066,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/XRAY.txt",
-      "ground_truth_data_file": "1110.2895.txt",
+      "ground_truth_data_file": "1110.2895__AxionPhoton_XRAY.txt",
       "reference_repo_file": "limit_data/AxionPhoton/XRAY.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -7096,7 +7138,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionPhoton/x_ion.txt",
-      "ground_truth_data_file": "1110.2895.txt",
+      "ground_truth_data_file": "1110.2895__AxionPhoton_x_ion.txt",
       "reference_repo_file": "limit_data/AxionPhoton/x_ion.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -7120,7 +7162,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionProton/ChangE.txt",
-      "ground_truth_data_file": "2306.08039.txt",
+      "ground_truth_data_file": "2306.08039__AxionProton_ChangE.txt",
       "reference_repo_file": "limit_data/AxionProton/ChangE.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -7144,7 +7186,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionProton/NASDUCK-SERF.txt",
-      "ground_truth_data_file": "2209.13588.txt",
+      "ground_truth_data_file": "2209.13588__AxionProton_NASDUCK-SERF.txt",
       "reference_repo_file": "limit_data/AxionProton/NASDUCK-SERF.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -7168,7 +7210,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionProton/NASDUCK.txt",
-      "ground_truth_data_file": "2105.04603.txt",
+      "ground_truth_data_file": "2105.04603__AxionProton_NASDUCK.txt",
       "reference_repo_file": "limit_data/AxionProton/NASDUCK.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -7216,7 +7258,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/AxionProton/TorsionBalance.txt",
-      "ground_truth_data_file": "hep-ph_0611223.txt",
+      "ground_truth_data_file": "hep-ph_0611223__AxionProton_TorsionBalance.txt",
       "reference_repo_file": "limit_data/AxionProton/TorsionBalance.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -7240,7 +7282,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/AFM.txt",
-      "ground_truth_data_file": "2008.02209.txt",
+      "ground_truth_data_file": "2008.02209__DarkPhoton_AFM.txt",
       "reference_repo_file": "limit_data/DarkPhoton/AFM.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -7264,7 +7306,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/ALPS.txt",
-      "ground_truth_data_file": "1004.1313.txt",
+      "ground_truth_data_file": "1004.1313__DarkPhoton_ALPS.txt",
       "reference_repo_file": "limit_data/DarkPhoton/ALPS.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -7336,7 +7378,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/COBEFIRAS.txt",
-      "ground_truth_data_file": "2002.05165.txt",
+      "ground_truth_data_file": "2002.05165__DarkPhoton_COBEFIRAS.txt",
       "reference_repo_file": "limit_data/DarkPhoton/COBEFIRAS.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -7432,7 +7474,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/Cosmology_Caputo_HeII.txt",
-      "ground_truth_data_file": "2002.05165.txt",
+      "ground_truth_data_file": "2002.05165__DarkPhoton_Cosmology_Caputo_HeII.txt",
       "reference_repo_file": "limit_data/DarkPhoton/Cosmology_Caputo_HeII.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -7504,7 +7546,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/Coulomb.txt",
-      "ground_truth_data_file": "2008.02209.txt",
+      "ground_truth_data_file": "2008.02209__DarkPhoton_Coulomb.txt",
       "reference_repo_file": "limit_data/DarkPhoton/Coulomb.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -7696,7 +7738,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/DarkSide.txt",
-      "ground_truth_data_file": "2207.11968.txt",
+      "ground_truth_data_file": "2207.11968__DarkPhoton_DarkSide.txt",
       "reference_repo_file": "limit_data/DarkPhoton/DarkSide.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -7768,7 +7810,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/GigaBREAD.txt",
-      "ground_truth_data_file": "2310.13891.txt",
+      "ground_truth_data_file": "2310.13891__DarkPhoton_GigaBREAD.txt",
       "reference_repo_file": "limit_data/DarkPhoton/GigaBREAD.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -7792,7 +7834,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/HB.txt",
-      "ground_truth_data_file": "2304.12907.txt",
+      "ground_truth_data_file": "2304.12907__DarkPhoton_HB.txt",
       "reference_repo_file": "limit_data/DarkPhoton/HB.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -7840,7 +7882,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/Hefei.txt",
-      "ground_truth_data_file": "2310.13891.txt",
+      "ground_truth_data_file": "2310.13891__DarkPhoton_Hefei.txt",
       "reference_repo_file": "limit_data/DarkPhoton/Hefei.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -7945,7 +7987,7 @@
       "verification_date": "2026-06-02"
     },
     {
-      "arxiv_id": "1410.5244",
+      "arxiv_id": "1007.3766",
       "paper_title": "LSW_ADMX",
       "coupling_type": "DarkPhoton",
       "coupling_convention": "epsilon",
@@ -7959,17 +8001,17 @@
       "tags": [
         "auto_expanded"
       ],
-      "notes": "Auto-selected from limit_data/DarkPhoton/LSW_ADMX.txt",
-      "ground_truth_data_file": "1410.5244.txt",
+      "notes": "Re-keyed from 1410.5244 (post-full346 1b): LSW_ADMX.txt's own header cites arXiv:1007.3766.",
+      "ground_truth_data_file": "1007.3766.txt",
       "reference_repo_file": "limit_data/DarkPhoton/LSW_ADMX.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 104,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02"
     },
     {
-      "arxiv_id": "1003.0964",
+      "arxiv_id": "1410.5244",
       "paper_title": "LSW_UWA",
       "coupling_type": "DarkPhoton",
       "coupling_convention": "epsilon",
@@ -7983,14 +8025,14 @@
       "tags": [
         "auto_expanded"
       ],
-      "notes": "Auto-selected from limit_data/DarkPhoton/LSW_UWA.txt",
-      "ground_truth_data_file": "1003.0964.txt",
+      "notes": "Re-keyed from 1003.0964 (post-full346 1b): LSW_UWA.txt's own header cites arXiv:1410.5244; docs/dp.md LSW-ADMX/LSW-UWA reference links are swapped upstream.",
+      "ground_truth_data_file": "1410.5244.txt",
       "reference_repo_file": "limit_data/DarkPhoton/LSW_UWA.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 23,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02"
     },
     {
       "arxiv_id": "1903.12190",
@@ -8008,7 +8050,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/LeoT.txt",
-      "ground_truth_data_file": "1903.12190.txt",
+      "ground_truth_data_file": "1903.12190__DarkPhoton_LeoT.txt",
       "reference_repo_file": "limit_data/DarkPhoton/LeoT.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -8176,7 +8218,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/PlimptonLawton.txt",
-      "ground_truth_data_file": "2008.02209.txt",
+      "ground_truth_data_file": "2008.02209__DarkPhoton_PlimptonLawton.txt",
       "reference_repo_file": "limit_data/DarkPhoton/PlimptonLawton.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -8224,7 +8266,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/RG.txt",
-      "ground_truth_data_file": "2304.12907.txt",
+      "ground_truth_data_file": "2304.12907__DarkPhoton_RG.txt",
       "reference_repo_file": "limit_data/DarkPhoton/RG.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -8344,7 +8386,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/SNIPE.txt",
-      "ground_truth_data_file": "2306.11575.txt",
+      "ground_truth_data_file": "2306.11575__DarkPhoton_SNIPE.txt",
       "reference_repo_file": "limit_data/DarkPhoton/SNIPE.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -8464,7 +8506,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/Solar-Global.txt",
-      "ground_truth_data_file": "1501.01639.txt",
+      "ground_truth_data_file": "1501.01639__DarkPhoton_Solar-Global.txt",
       "reference_repo_file": "limit_data/DarkPhoton/Solar-Global.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -8488,7 +8530,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/Solar.txt",
-      "ground_truth_data_file": "2304.12907.txt",
+      "ground_truth_data_file": "2304.12907__DarkPhoton_Solar.txt",
       "reference_repo_file": "limit_data/DarkPhoton/Solar.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -8536,7 +8578,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/SuperCDMS.txt",
-      "ground_truth_data_file": "1911.11905.txt",
+      "ground_truth_data_file": "1911.11905__DarkPhoton_SuperCDMS.txt",
       "reference_repo_file": "limit_data/DarkPhoton/SuperCDMS.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -8584,7 +8626,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/SuperMAG2.txt",
-      "ground_truth_data_file": "2408.16045.txt",
+      "ground_truth_data_file": "2408.16045__DarkPhoton_SuperMAG2.txt",
       "reference_repo_file": "limit_data/DarkPhoton/SuperMAG2.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -8728,7 +8770,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/XENON1T_SE.txt",
-      "ground_truth_data_file": "2112.12116.txt",
+      "ground_truth_data_file": "2112.12116__DarkPhoton_XENON1T_SE.txt",
       "reference_repo_file": "limit_data/DarkPhoton/XENON1T_SE.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -8776,7 +8818,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/XENON1T_Solar_SE.txt",
-      "ground_truth_data_file": "2112.12116.txt",
+      "ground_truth_data_file": "2112.12116__DarkPhoton_XENON1T_Solar_SE.txt",
       "reference_repo_file": "limit_data/DarkPhoton/XENON1T_Solar_SE.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -8800,7 +8842,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/Xenon1T.txt",
-      "ground_truth_data_file": "1907.11485.txt",
+      "ground_truth_data_file": "1907.11485__DarkPhoton_Xenon1T.txt",
       "reference_repo_file": "limit_data/DarkPhoton/Xenon1T.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -8824,7 +8866,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/DarkPhoton/Xenon1T_S1S2.txt",
-      "ground_truth_data_file": "2006.09721.txt",
+      "ground_truth_data_file": "2006.09721__DarkPhoton_Xenon1T_S1S2.txt",
       "reference_repo_file": "limit_data/DarkPhoton/Xenon1T_S1S2.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -8848,7 +8890,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/ScalarElectron/CsCav.txt",
-      "ground_truth_data_file": "2201.02042.txt",
+      "ground_truth_data_file": "2201.02042__ScalarElectron_CsCav.txt",
       "reference_repo_file": "limit_data/ScalarElectron/CsCav.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -8872,7 +8914,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/ScalarElectron/EotWashEP.txt",
-      "ground_truth_data_file": "1807.04512.txt",
+      "ground_truth_data_file": "1807.04512__ScalarElectron_EotWashEP.txt",
       "reference_repo_file": "limit_data/ScalarElectron/EotWashEP.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -8896,7 +8938,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/ScalarElectron/FifthForce.txt",
-      "ground_truth_data_file": "hep-ph_0307284.txt",
+      "ground_truth_data_file": "hep-ph_0307284__ScalarElectron_FifthForce.txt",
       "reference_repo_file": "limit_data/ScalarElectron/FifthForce.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -8920,7 +8962,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/ScalarElectron/GEO600.txt",
-      "ground_truth_data_file": "2103.03783.txt",
+      "ground_truth_data_file": "2103.03783__ScalarElectron_GEO600.txt",
       "reference_repo_file": "limit_data/ScalarElectron/GEO600.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -8944,7 +8986,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/ScalarElectron/HQuartzSapphire.txt",
-      "ground_truth_data_file": "2010.08107.txt",
+      "ground_truth_data_file": "2010.08107__ScalarElectron_HQuartzSapphire.txt",
       "reference_repo_file": "limit_data/ScalarElectron/HQuartzSapphire.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -8968,7 +9010,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/ScalarElectron/HSi.txt",
-      "ground_truth_data_file": "2008.08773.txt",
+      "ground_truth_data_file": "2008.08773__ScalarElectron_HSi.txt",
       "reference_repo_file": "limit_data/ScalarElectron/HSi.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -9016,7 +9058,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/ScalarElectron/LIGO.txt",
-      "ground_truth_data_file": "2401.18076.txt",
+      "ground_truth_data_file": "2401.18076__ScalarElectron_LIGO.txt",
       "reference_repo_file": "limit_data/ScalarElectron/LIGO.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -9040,7 +9082,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/ScalarElectron/MICROSCOPE.txt",
-      "ground_truth_data_file": "1712.00483.txt",
+      "ground_truth_data_file": "1712.00483__ScalarElectron_MICROSCOPE.txt",
       "reference_repo_file": "limit_data/ScalarElectron/MICROSCOPE.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -9088,7 +9130,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/ScalarElectron/RbQuartz.txt",
-      "ground_truth_data_file": "2212.04413.txt",
+      "ground_truth_data_file": "2212.04413__ScalarElectron_RbQuartz.txt",
       "reference_repo_file": "limit_data/ScalarElectron/RbQuartz.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -9165,8 +9207,11 @@
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 477,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02",
+      "excluded": true,
+      "exclusion_reason": "Published-version-only content: the d_e ultralight-DM limit (repo BACON.txt) exists only in the published Nature 591, 564 (2021) figure; no arXiv version of the paper contains it, so it is unreachable from the benchmark's input PDF.",
+      "exclusion_evidence": "evaluation/eval_runs/failure_analysis_full346_detail.md \u00a7 2005.14694"
     },
     {
       "arxiv_id": "2006.07055",
@@ -9184,7 +9229,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/ScalarPhoton/DAMNED.txt",
-      "ground_truth_data_file": "2006.07055.txt",
+      "ground_truth_data_file": "2006.07055__ScalarPhoton_DAMNED.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/DAMNED.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -9256,7 +9301,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/ScalarPhoton/EotWashEP.txt",
-      "ground_truth_data_file": "1807.04512.txt",
+      "ground_truth_data_file": "1807.04512__ScalarPhoton_EotWashEP.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/EotWashEP.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -9280,7 +9325,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/ScalarPhoton/FifthForce.txt",
-      "ground_truth_data_file": "hep-ph_0307284.txt",
+      "ground_truth_data_file": "hep-ph_0307284__ScalarPhoton_FifthForce.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/FifthForce.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -9304,7 +9349,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/ScalarPhoton/GEO600.txt",
-      "ground_truth_data_file": "2103.03783.txt",
+      "ground_truth_data_file": "2103.03783__ScalarPhoton_GEO600.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/GEO600.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -9328,7 +9373,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/ScalarPhoton/I2.txt",
-      "ground_truth_data_file": "2111.06883.txt",
+      "ground_truth_data_file": "2111.06883__ScalarPhoton_I2.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/I2.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -9352,7 +9397,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/ScalarPhoton/MICROSCOPE.txt",
-      "ground_truth_data_file": "1712.00483.txt",
+      "ground_truth_data_file": "1712.00483__ScalarPhoton_MICROSCOPE.txt",
       "reference_repo_file": "limit_data/ScalarPhoton/MICROSCOPE.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -9496,7 +9541,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/VectorB-L/HorizontalBranch.txt",
-      "ground_truth_data_file": "2304.12907.txt",
+      "ground_truth_data_file": "2304.12907__VectorB-L_HorizontalBranch.txt",
       "reference_repo_file": "limit_data/VectorB-L/HorizontalBranch.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -9520,7 +9565,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/VectorB-L/LIGO-O1.txt",
-      "ground_truth_data_file": "2105.13085.txt",
+      "ground_truth_data_file": "2105.13085__VectorB-L_LIGO-O1.txt",
       "reference_repo_file": "limit_data/VectorB-L/LIGO-O1.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -9544,7 +9589,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/VectorB-L/LIGOVirgo.txt",
-      "ground_truth_data_file": "2105.13085.txt",
+      "ground_truth_data_file": "2105.13085__VectorB-L_LIGOVirgo.txt",
       "reference_repo_file": "limit_data/VectorB-L/LIGOVirgo.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -9664,7 +9709,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/VectorB-L/RedGiant.txt",
-      "ground_truth_data_file": "2304.12907.txt",
+      "ground_truth_data_file": "2304.12907__VectorB-L_RedGiant.txt",
       "reference_repo_file": "limit_data/VectorB-L/RedGiant.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -9688,7 +9733,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/VectorB-L/Sun.txt",
-      "ground_truth_data_file": "2304.12907.txt",
+      "ground_truth_data_file": "2304.12907__VectorB-L_Sun.txt",
       "reference_repo_file": "limit_data/VectorB-L/Sun.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -9736,7 +9781,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/fa/BBN.txt",
-      "ground_truth_data_file": "1401.6460.txt",
+      "ground_truth_data_file": "1401.6460__fa_BBN.txt",
       "reference_repo_file": "limit_data/fa/BBN.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -9760,7 +9805,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/fa/BeamEDM.txt",
-      "ground_truth_data_file": "2204.01454.txt",
+      "ground_truth_data_file": "2204.01454__fa_BeamEDM.txt",
       "reference_repo_file": "limit_data/fa/BeamEDM.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -9837,8 +9882,11 @@
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 178,
-      "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02",
+      "excluded": true,
+      "exclusion_reason": "GT digitizes private-communication data: BlackHoleSpins_Mehta.txt's own header says the 178-point BHSR compilation came via 'private communication'; it is not published in the paper PDF.",
+      "exclusion_evidence": "evaluation/eval_runs/failure_analysis_full346_detail.md \u00a7 2011.08693"
     },
     {
       "arxiv_id": "2012.12790",
@@ -10024,7 +10072,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/fa/ONIX.txt",
-      "ground_truth_data_file": "2410.02218.txt",
+      "ground_truth_data_file": "2410.02218__fa_ONIX.txt",
       "reference_repo_file": "limit_data/fa/ONIX.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -10072,7 +10120,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/fa/Pulsar.txt",
-      "ground_truth_data_file": "1708.08464.txt",
+      "ground_truth_data_file": "1708.08464__fa_Pulsar.txt",
       "reference_repo_file": "limit_data/fa/Pulsar.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -10096,7 +10144,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/fa/SN1987A.txt",
-      "ground_truth_data_file": "2410.19902.txt",
+      "ground_truth_data_file": "2410.19902__fa_SN1987A.txt",
       "reference_repo_file": "limit_data/fa/SN1987A.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -10120,7 +10168,7 @@
         "auto_expanded"
       ],
       "notes": "Auto-selected from limit_data/fa/SolarCore.txt",
-      "ground_truth_data_file": "1708.08464.txt",
+      "ground_truth_data_file": "1708.08464__fa_SolarCore.txt",
       "reference_repo_file": "limit_data/fa/SolarCore.txt",
       "ground_truth_mass_range_eV": null,
       "ground_truth_coupling_range": null,
@@ -10199,6 +10247,60 @@
       "ground_truth_num_points": 109,
       "verified_by": "repo_upstream",
       "verification_date": "2026-06-02"
+    },
+    {
+      "arxiv_id": "1003.0964",
+      "paper_title": "UWA microwave-cavity LSW (first run)",
+      "coupling_type": "DarkPhoton",
+      "coupling_convention": "epsilon",
+      "coupling_units": "kinetic mixing chi (dimensionless)",
+      "is_new_limit": true,
+      "is_projection": false,
+      "data_source_expected": "text",
+      "confidence_level": 0.9,
+      "dm_density_assumed": null,
+      "difficulty": "medium",
+      "tags": [
+        "excluded"
+      ],
+      "notes": "Former GT mapping (LSW_UWA.txt) re-keyed to 1410.5244.",
+      "ground_truth_data_file": null,
+      "reference_repo_file": null,
+      "ground_truth_mass_range_eV": null,
+      "ground_truth_coupling_range": null,
+      "ground_truth_num_points": null,
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02",
+      "excluded": true,
+      "exclusion_reason": "Wrong GT mapping: LSW_UWA.txt is arXiv:1410.5244's limit (per the file header). This paper's own limit (chi = 2.9e-5 at 37.9 ueV, stated to lie 'within already established limits') has no repo data file, so there is nothing valid to grade against.",
+      "exclusion_evidence": "evaluation/eval_runs/failure_analysis_full346_detail.md \u00a7 1003.0964"
+    },
+    {
+      "arxiv_id": "2312.11608",
+      "paper_title": "GammaRayDecayCompilation",
+      "coupling_type": "AxionPhoton",
+      "coupling_convention": "g_GeV^-1",
+      "coupling_units": "g_agamma [GeV^-1]",
+      "is_new_limit": true,
+      "is_projection": false,
+      "data_source_expected": "table",
+      "confidence_level": 0.9,
+      "dm_density_assumed": null,
+      "difficulty": "medium",
+      "tags": [
+        "excluded"
+      ],
+      "notes": "Tombstone; active 2312.11608 entry now points at Projections/21cm.txt.",
+      "ground_truth_data_file": "2312.11608__AxionPhoton_GammaRayDecayCompilation.txt",
+      "reference_repo_file": "limit_data/AxionPhoton/GammaRayDecayCompilation.txt",
+      "ground_truth_mass_range_eV": null,
+      "ground_truth_coupling_range": null,
+      "ground_truth_num_points": 127,
+      "verified_by": "failure_analysis_full346",
+      "verification_date": "2026-07-02",
+      "excluded": true,
+      "exclusion_reason": "GammaRayDecayCompilation.txt is a compilation of PRE-EXISTING gamma-ray decay limits (HEAO-1/COMPTEL/EGRET/Fermi) shown as background in this paper's figure \u2014 not the paper's own result. The paper's headline (HERA 21-cm projection) is keyed separately.",
+      "exclusion_evidence": "evaluation/eval_runs/failure_analysis_full346_detail.md \u00a7 2312.11608"
     }
   ]
 }
