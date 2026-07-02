@@ -8,6 +8,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{hyperref}
+\usepackage{orcidlink}
 \usepackage{url}
 \usepackage{booktabs}
 \usepackage{amsmath}
@@ -22,12 +23,12 @@
 \title{Towards LLM-Powered Automation of a Dark Matter Constraint Repository}
 
 \author{%
-  Lanqing Yuan \\
+  Lanqing Yuan\,\orcidlink{0000-0003-0024-8017} \\
   Department of Physics \\
   Washington University in St.\ Louis \\
   \texttt{yuan.l@wustl.edu} \\
   \And
-  Karthik Ramanathan \\
+  Karthik Ramanathan\,\orcidlink{0000-0003-4215-7834} \\
   Department of Physics \\
   Washington University in St.\ Louis \\
   \texttt{karthikr@wustl.edu} \\
@@ -225,6 +226,12 @@ The largest residuals were never about pixels but unit/convention mismatches ---
 
 \textbf{Open problems and governance.}
 Rare coupling types remain hard, and at 90\% coupling accuracy one proposal in ten targets the wrong plot, so human review stays essential. The pipeline is deployed but no proposal has merged, as no review process for AI-generated scientific data exists: we recommend a community editorial board akin to PDG reviewers~\cite{pdg}, and publishing machine-readable limit data alongside papers would bypass the extraction bottleneck entirely.
+
+%----------------------------------------------------------------------
+\section*{Acknowledgments}
+%----------------------------------------------------------------------
+
+We acknowledge funding support from Dianzhuo Wang and TwentyTwo.
 
 %----------------------------------------------------------------------
 % References
