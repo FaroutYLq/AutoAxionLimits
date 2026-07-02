@@ -51,10 +51,46 @@ MIN_DATA_POINTS_TEXT = 3
 # API retry helper
 # ---------------------------------------------------------------------------
 
+class FatalAPIError(RuntimeError):
+    """API-availability failure (billing / auth) — the whole RUN must abort.
+
+    Issue #648: the credit balance ran out and every Claude call failed with a
+    400 "credit balance is too low", but the per-stage ``except Exception``
+    handlers logged a warning and failed closed to ``is_new_limit=False`` — so
+    18 daily runs stayed green while 85 papers were falsely marked processed.
+
+    This class marks the errors that are a property of the ENVIRONMENT, not of
+    the paper being processed: no retry, no other paper, and no stage fallback
+    can succeed while it holds. Stage handlers must re-raise it (never swallow
+    it into an empty-result fallback), and the run entrypoints abort non-zero
+    WITHOUT marking the current paper processed/failed.
+    """
+
+
+# Message fragments that identify a billing 400 (anthropic returns HTTP 400
+# invalid_request_error for an exhausted credit balance, not a 402).
+_BILLING_400_TOKENS = ("credit balance", "billing")
+
+
+def _fatal_api_reason(e: Exception) -> str | None:
+    """Why ``e`` is an API-availability (fatal) error, or None if it is not."""
+    if isinstance(e, anthropic.AuthenticationError):
+        return "authentication failed (401 — bad/revoked API key)"
+    if isinstance(e, anthropic.PermissionDeniedError):
+        return "permission denied (403)"
+    if isinstance(e, anthropic.BadRequestError):
+        msg = str(e).lower()
+        if any(t in msg for t in _BILLING_400_TOKENS):
+            return "credit balance exhausted (billing 400)"
+    return None
+
+
 def _call_with_retry(fn, max_retries: int = 4, base_delay: float = 5.0):
     """
     Call fn() with exponential backoff on Anthropic rate-limit / overload errors.
-    Raises on permanent errors or after max_retries exhausted.
+    Raises on permanent errors or after max_retries exhausted. Billing/auth
+    failures are converted to :class:`FatalAPIError` so they can never be
+    mistaken for a paper-specific error (#648).
     """
     for attempt in range(max_retries):
         try:
@@ -66,6 +102,9 @@ def _call_with_retry(fn, max_retries: int = 4, base_delay: float = 5.0):
             logger.warning("Rate limit hit; retrying in %.0fs (attempt %d/%d)", delay, attempt + 1, max_retries)
             time.sleep(delay)
         except anthropic.APIStatusError as e:
+            reason = _fatal_api_reason(e)
+            if reason is not None:
+                raise FatalAPIError(f"API availability error — {reason}: {e}") from e
             if e.status_code == 529 and attempt < max_retries - 1:  # overloaded
                 delay = base_delay * (2 ** attempt)
                 logger.warning("API overloaded; retrying in %.0fs", delay)
@@ -269,8 +308,13 @@ _RESULT_LINE_KEYWORDS = (
 
 
 def _result_excerpts(text: str, budget: int) -> str:
-    """Pull the result-bearing lines (plus one line of context each side) out of
-    ``text``, in original order, up to ``budget`` chars. Deterministic, no API."""
+    """Pull the result-bearing lines (plus context) out of ``text``, in original
+    order, up to ``budget`` chars. Deterministic, no API.
+
+    Context window is one line BEFORE and six AFTER each keyword line: PDF text
+    extraction routinely splits a limit statement across lines, with the
+    equation/value several lines after the keyword lead-in (2402.00741 lost its
+    d_e equation to the old +/-1-line window — post-full346 Lever 6)."""
     if budget <= 0 or not text:
         return ""
     lines = text.split("\n")
@@ -278,7 +322,7 @@ def _result_excerpts(text: str, budget: int) -> str:
     for i, ln in enumerate(lines):
         low = ln.lower()
         if any(k in low for k in _RESULT_LINE_KEYWORDS):
-            keep.update((i - 1, i, i + 1))
+            keep.update(range(i - 1, i + 7))
     keep = {i for i in keep if 0 <= i < len(lines)}
     out, used = [], 0
     for i in sorted(keep):
@@ -452,6 +496,14 @@ Respond ONLY with a JSON object with these keys:
   "notes": str
 }}
 
+MASS-INDEPENDENT (flat) bounds: many astrophysical/stellar/SN limits are a single \
+coupling value valid over a wide mass range (e.g. "g_ae < 1.3e-13 for m_a well below \
+the core temperature"). Encode such a bound as a TWO-POINT horizontal line spanning \
+the paper's stated validity range, e.g. [[1e-10, 1.3e-13], [1e4, 1.3e-13]]. If the \
+paper states no explicit range, use mass 0 for both rows ([[0, g], [0, g]]) — the \
+sentinel marks it mass-independent downstream. NEVER invent a single "nominal" mass, \
+and NEVER return zero points just because the bound has no mass dependence.
+
 "coupling_convention": the units/variable that YOUR emitted ``data_points`` coupling \
 values are in (after any conversion you applied) — e.g. "dimensionless g_an", \
 "GeV^-1", "eV^-1", "d_e", "e cm", "eps^2". This records the convention of YOUR \
@@ -502,7 +554,8 @@ Use scientific notation in data_points (Python float literals accepted).
 All masses must be in eV. Common mass unit conversions:
 - 1 μeV = 1e-6 eV, 1 neV = 1e-9 eV, 1 peV = 1e-12 eV
 - 1 meV = 1e-3 eV, 1 keV = 1e3 eV, 1 MeV = 1e6 eV, 1 GeV = 1e9 eV
-- Frequency to mass: m[eV] = 4.136e-15 * f[Hz] (e.g., 1 GHz = 4.136e-6 eV)
+- Frequency to mass: m[eV] = 4.136e-15 * f[Hz] (e.g., 1 GHz = 4.136e-6 eV). This factor applies ONLY to values the paper gives as frequencies (Hz/kHz/MHz/GHz); NEVER apply it to values already quoted as masses/energies (eV, ueV, meV, keV...) - those are used as-is
+- EDM unit constant: 1 e*cm = 1.5346e13 GeV^-1 (electron charge absorbed). If a conversion from e*cm is ever required, use EXACTLY this constant - never derive it yourself. If you are not certain a conversion is right, emit the raw e*cm values and declare the convention as 'd_n in e*cm'
 - Wavelength to mass: m[eV] = 1.240e-6 / λ[m]
 All coupling values must be in absolute units — do NOT drop prefactors like 10^-14.
 
@@ -612,7 +665,8 @@ Coupling units by type (return values in these units):
 Common mass unit conversions:
 - 1 μeV = 1e-6 eV, 1 neV = 1e-9 eV, 1 peV = 1e-12 eV
 - 1 meV = 1e-3 eV, 1 keV = 1e3 eV, 1 MeV = 1e6 eV, 1 GeV = 1e9 eV
-- Frequency to mass: m[eV] = 4.136e-15 * f[Hz] (e.g., 1 GHz = 4.136e-6 eV)
+- Frequency to mass: m[eV] = 4.136e-15 * f[Hz] (e.g., 1 GHz = 4.136e-6 eV). This factor applies ONLY to values the paper gives as frequencies (Hz/kHz/MHz/GHz); NEVER apply it to values already quoted as masses/energies (eV, ueV, meV, keV...) - those are used as-is
+- EDM unit constant: 1 e*cm = 1.5346e13 GeV^-1 (electron charge absorbed). If a conversion from e*cm is ever required, use EXACTLY this constant - never derive it yourself. If you are not certain a conversion is right, emit the raw e*cm values and declare the convention as 'd_n in e*cm'
 - Wavelength to mass: m[eV] = 1.240e-6 / λ[m]
 
 If the plot shows a well-known theoretical model line (e.g. KSVZ or DFSZ for axion-photon \
@@ -759,6 +813,8 @@ def _classify_coupling_type(
             conf = 0.0
         logger.info("Pre-classifier: %s (conf=%.2f) for %s", ct, conf, paper.title[:60])
         return ct, conf
+    except FatalAPIError:
+        raise  # #648: availability errors must abort the run, never fall back
     except Exception as e:
         logger.warning("Pre-classifier failed: %s", e)
         return None, 0.0
@@ -963,6 +1019,8 @@ def _run_vision_verify(
             messages=[{"role": "user", "content": content}],
         ))
         return _parse_json_response(resp.content[0].text)
+    except FatalAPIError:
+        raise  # #648
     except Exception as e:
         logger.warning("Stage 3 verification failed: %s", e)
         return {}
@@ -1113,8 +1171,28 @@ def _calibrate_vision_data(
     return data_points, " | ".join(calibration_notes)
 
 
-def _validate_extracted_range(data_points: list, coupling_type: str | None) -> tuple[list, str]:
-    """Check if extracted values fall within expected ranges. Auto-correct systematic unit errors."""
+# Explicit per-type mass anchors for the auto-corrector (post-full346 Lever 4).
+# Default is the geometric centre of the VALID_RANGES window; AxionMass's
+# widened window (1e-24..1e18 eV) centres at ~1e-3 eV, far above the fa-plane
+# data domain (limit_data/fa spans ~1e-22..1 eV, geometric centre ~1e-11), so a
+# genuine unit blunder in an fa-plane paper would be snapped 8 decades too high.
+_EXPECTED_MASS_ANCHOR_EV: dict[str, float] = {
+    "AxionMass": 1e-11,
+}
+
+
+def _validate_extracted_range(data_points: list, coupling_type: str | None,
+                              suppress_snaps: bool = False) -> tuple[list, str]:
+    """Check if extracted values fall within expected ranges. Auto-correct systematic unit errors.
+
+    ``suppress_snaps=True`` disables BOTH decade auto-corrections (range
+    warnings still emitted). Used when convention review flagged the declared
+    output convention as non-canonical (post-full346 Lever 3 guard): a
+    multiplicative snap can never emulate a reciprocal / square-root /
+    mass-dependent conversion, and in full346 it actively corrupted such
+    curves (2105.13963 x1e-20, 2211.02661 x1e-15) while masking the true
+    units gap.
+    """
     if not data_points or not coupling_type:
         return data_points, ""
     from .config import VALID_RANGES
@@ -1131,6 +1209,18 @@ def _validate_extracted_range(data_points: list, coupling_type: str | None) -> t
     # Use median over SORTED values so input ordering cannot affect the result.
     median_mass = _sorted_median(masses)
     median_coup = _sorted_median(couplings)
+
+    if suppress_snaps:
+        out_m = not (mass_lo * 0.1 <= median_mass <= mass_hi * 10)
+        out_c = not (coup_lo * 1e-3 <= median_coup <= coup_hi * 1e3)
+        if out_m or out_c:
+            return data_points, (
+                "Range snap SUPPRESSED (declared convention non-canonical; a "
+                "decade snap cannot fix a convention mismatch): median mass "
+                f"{median_mass:.1e} / coupling {median_coup:.1e} vs windows "
+                f"[{mass_lo:.0e},{mass_hi:.0e}] / [{coup_lo:.0e},{coup_hi:.0e}]"
+            )
+        return data_points, ""
 
     # --- Auto-correct mass unit errors (deterministic, HARD trigger ONLY) ---
     # Fire ONLY when the median mass is clearly OUTSIDE the (wide) valid window
@@ -1155,7 +1245,8 @@ def _validate_extracted_range(data_points: list, coupling_type: str | None) -> t
     # set + deterministic argmin/tie-break in _choose_discrete_factor. The argmin
     # anchor is the geometric centre of the valid window (unbiased).
     if median_mass > mass_hi * 10 or median_mass < mass_lo * 0.1:
-        mass_anchor = _math.sqrt(mass_lo * mass_hi)
+        mass_anchor = _EXPECTED_MASS_ANCHOR_EV.get(
+            coupling_type, _math.sqrt(mass_lo * mass_hi))
         in_window = lambda c: mass_lo * 0.1 <= c <= mass_hi * 10
         factor, label = _choose_discrete_factor(
             median_mass, mass_anchor, _MASS_FACTOR_CANDIDATES, in_range=in_window
@@ -1168,7 +1259,12 @@ def _validate_extracted_range(data_points: list, coupling_type: str | None) -> t
             # (a wrong anchor can no longer drag a correct window away from truth).
             dist0 = abs(_math.log10(median_mass) - _math.log10(mass_anchor))
             dist1 = abs(_math.log10(median_mass * factor) - _math.log10(mass_anchor))
-            if dist1 < dist0:
+            # Revert-if-still-invalid (post-full346 Lever 4): a snap that does
+            # not land the median inside the STRICT window has not restored
+            # validity — committing it would just replace one corruption with
+            # another.
+            restores = mass_lo <= median_mass * factor <= mass_hi
+            if dist1 < dist0 and restores:
                 logger.info(
                     "Auto-correcting masses: %s (factor %.3e), anchor=%.2e eV",
                     label, factor, mass_anchor,
@@ -1180,7 +1276,8 @@ def _validate_extracted_range(data_points: list, coupling_type: str | None) -> t
                 )
             else:
                 notes.append(
-                    f"Mass snap reverted: {label} did not move median toward anchor"
+                    f"Mass snap reverted: {label} did not move the median "
+                    f"toward the anchor AND into the strict window"
                 )
         else:
             notes.append(
@@ -1204,7 +1301,8 @@ def _validate_extracted_range(data_points: list, coupling_type: str | None) -> t
             # median coupling strictly toward the anchor (guarded invariant).
             cdist0 = abs(_math.log10(median_coup) - _math.log10(coup_anchor))
             cdist1 = abs(_math.log10(median_coup * cfactor) - _math.log10(coup_anchor))
-            if cdist1 < cdist0:
+            c_restores = coup_lo <= median_coup * cfactor <= coup_hi
+            if cdist1 < cdist0 and c_restores:
                 logger.info(
                     "Auto-correcting couplings: %s (factor %.2e), anchor=%.2e",
                     clabel, cfactor, coup_anchor,
@@ -1256,8 +1354,38 @@ def _coupling_recoverable(data_points: list, coupling_type: str | None) -> bool:
     return factor != 1.0
 
 
+# Note markers admitting the text values were NOT read off the paper but
+# analytically reconstructed / approximately read from a figure (post-full346
+# Lever 6: 1401.6460's LLM-arithmetic curve, 2407.10618's "approximate figure
+# read"). Such a candidate is demoted below a real vision trace in the vote.
+_ANALYTIC_NOTE_MARKERS = (
+    "reconstruct", "analytic", "approximate read", "approximately read",
+    "derived from equation", "derived analytically", "computed from the formula",
+)
+
+
+def _notes_admit_reconstruction(notes: str | None) -> bool:
+    low = (notes or "").lower()
+    return any(t in low for t in _ANALYTIC_NOTE_MARKERS)
+
+
+def _axis_extent_dex(axis_info: dict | None) -> float | None:
+    """Log10 extent of the figure's x-axis from stage-2a, or None."""
+    if not axis_info:
+        return None
+    try:
+        lo = float(axis_info.get("x_axis_min"))
+        hi = float(axis_info.get("x_axis_max"))
+    except (TypeError, ValueError):
+        return None
+    if lo <= 0 or hi <= 0 or hi <= lo:
+        return None
+    return _math.log10(hi) - _math.log10(lo)
+
+
 def _make_candidate(source: str, data_points: list, coupling_type: str | None,
-                    confidence) -> Candidate:
+                    confidence, *, axis_extent_dex: float | None = None,
+                    demote_to_reconstruction: bool = False) -> Candidate:
     """Build a scored :class:`Candidate` for the P2 selector (#571).
 
     Populates the P0 `ConsistencyScore` signals (in-range validity, shape) from
@@ -1276,6 +1404,7 @@ def _make_candidate(source: str, data_points: list, coupling_type: str | None,
         n_points=len(pts),
         span_dex=span_dex(masses),
         y_const=couplings_y_const(couplings),
+        axis_extent_dex=axis_extent_dex,
     )
     return Candidate(
         source=source,
@@ -1284,6 +1413,7 @@ def _make_candidate(source: str, data_points: list, coupling_type: str | None,
         extraction_confidence=float(confidence or 0.0),
         score=score,
         recoverable=_coupling_recoverable(pts, coupling_type),
+        reconstruction=demote_to_reconstruction,
     )
 
 
@@ -1331,6 +1461,8 @@ def run_extraction_agent(
             text_points,
             stage1_result.get("coupling_type") or pre_ct,
             stage1_result.get("extraction_confidence", 0.0),
+            demote_to_reconstruction=_notes_admit_reconstruction(
+                stage1_result.get("notes")),
         )
         candidates.append(text_cand)
 
@@ -1356,6 +1488,7 @@ def run_extraction_agent(
                     vis_points,
                     stage1_result.get("coupling_type") or stage2_result.get("coupling_type") or pre_ct,
                     stage2_result.get("extraction_confidence", 0.4),
+                    axis_extent_dex=_axis_extent_dex(axis_info),
                 )
                 candidates.append(vision_cand)
         else:
@@ -1437,7 +1570,16 @@ def run_extraction_agent(
 
     # --- Range validation ---
     final_ct_for_validation = stage1_result.get("coupling_type") or pre_ct
-    data_points, range_note = _validate_extracted_range(data_points, final_ct_for_validation)
+    # Post-full346 Lever 3 guard: when the model DECLARED a non-canonical
+    # output convention (flagged by convention review below), the out-of-range
+    # medians are a units gap, not a decade blunder — suppress the snaps so
+    # they cannot corrupt the curve (a x10^n factor cannot emulate a
+    # reciprocal/sqrt/mass-dependent conversion).
+    _declared_conv = stage1_result.get("coupling_convention")
+    _suppress = bool(final_ct_for_validation and _declared_conv
+                     and convention_review_needed(final_ct_for_validation, _declared_conv))
+    data_points, range_note = _validate_extracted_range(
+        data_points, final_ct_for_validation, suppress_snaps=_suppress)
     if range_note:
         stage1_result["notes"] = stage1_result.get("notes", "") + " | " + range_note
         logger.warning("Range validation for %s: %s", arxiv_id, range_note)
@@ -1555,6 +1697,8 @@ def run_extraction_agent_voted(
     for i in range(n):
         try:
             results.append(run_extraction_agent(paper, pdf_path, client))
+        except FatalAPIError:
+            raise  # #648: no other sample can succeed either
         except Exception as e:
             logger.warning("read-vote sample %d/%d failed: %s", i + 1, n, e)
     if not results:
@@ -1596,6 +1740,8 @@ def _run_stage1(
         ))
         result = _parse_json_response(resp.content[0].text)
         return _validate_coupling_type(result)
+    except FatalAPIError:
+        raise  # #648: never fail closed to is_new_limit=False on availability
     except Exception as e:
         logger.warning("Stage 1 failed: %s", e)
         return {"is_new_limit": False, "data_points": [], "extraction_confidence": 0.0}
@@ -1668,6 +1814,8 @@ def _run_stage2a_axes(
             result.get("y_axis_unit", "?"), result.get("y_axis_scale", "?"),
         )
         return result
+    except FatalAPIError:
+        raise  # #648
     except Exception as e:
         logger.warning("Stage 2a axis identification failed: %s", e)
         return {}
@@ -1737,6 +1885,8 @@ def _run_stage2(
         ))
         result = _parse_json_response(resp.content[0].text)
         return _validate_coupling_type(result)
+    except FatalAPIError:
+        raise  # #648
     except Exception as e:
         logger.warning("Stage 2 failed: %s", e)
         return {"found_limit_plot": False, "data_points": [], "extraction_confidence": 0.0}
