@@ -36,6 +36,7 @@ from .transform_guard import (
     R1_SPOTCHECK_BAND,
     R3_BENCHMARK_BAND,
 )
+from .vision_gates import check_vision_gates
 
 logger = logging.getLogger(__name__)
 
@@ -1496,6 +1497,64 @@ def _make_candidate(source: str, data_points: list, coupling_type: str | None,
     )
 
 
+def _gate_candidates(
+    candidates: list[Candidate],
+    text_cand: Candidate | None,
+    vision_cand: Candidate | None,
+    *,
+    is_projection: bool,
+    vision_notes: str,
+    suggested_experiment_name: str | None,
+    paper_title: str | None,
+    abstract: str | None,
+) -> tuple[list[Candidate], Candidate | None, Candidate | None, list[str]]:
+    """Apply the WS3 wrong-curve gates (#663) to the selector's candidate pool.
+
+    Pure (no API) and testable in isolation. Reject (gates A/B/C) removes the
+    candidate so :func:`transform_guard.select_best` falls back to the next
+    one; demote (gate D) re-ranks the vision candidate below ``figure_vision``
+    via the same ``reconstruction`` flag Lever 6 uses. Gate C (mass regime vs
+    abstract) also runs on the text candidate — a lone nominal-mass text point
+    is the same wrong-regime failure (1808.02340). Returns the updated pool,
+    the (possibly replaced/removed) candidates, and the ``[VISION GATE]``
+    notes of every fired gate — rejection is never silent.
+    """
+    from dataclasses import replace
+
+    gate_notes: list[str] = []
+
+    def _fired(cand: Candidate, own_notes: str, name: str | None):
+        fired = check_vision_gates(
+            source=cand.source,
+            is_projection=is_projection,
+            coupling_type=cand.coupling_type,
+            vision_notes=own_notes,
+            data_points=cand.data_points,
+            abstract=abstract,
+            suggested_experiment_name=name,
+            paper_title=paper_title,
+        )
+        gate_notes.extend(r.note for r in fired)
+        return (any(r.action == "reject" for r in fired),
+                any(r.action == "demote" for r in fired))
+
+    if text_cand is not None and text_cand in candidates:
+        reject, _ = _fired(text_cand, "", None)  # only gate C can fire on text
+        if reject:
+            candidates = [c for c in candidates if c is not text_cand]
+            text_cand = None
+    if vision_cand is not None and vision_cand in candidates:
+        reject, demote = _fired(vision_cand, vision_notes, suggested_experiment_name)
+        if reject:
+            candidates = [c for c in candidates if c is not vision_cand]
+            vision_cand = None
+        elif demote and not vision_cand.reconstruction:
+            demoted = replace(vision_cand, reconstruction=True)
+            candidates = [demoted if c is vision_cand else c for c in candidates]
+            vision_cand = demoted
+    return candidates, text_cand, vision_cand, gate_notes
+
+
 def run_extraction_agent(
     paper: arxiv.Result,
     pdf_path: Path,
@@ -1588,9 +1647,35 @@ def run_extraction_agent(
             arxiv_id, text_cand.score.n_points, text_cand.extraction_confidence,
         )
 
+    # --- WS3 wrong-curve gates (#663): deterministic post-hoc checks on each
+    # candidate's own outputs/notes BEFORE selection, so a gate-rejected trace
+    # falls back to the next candidate instead of being emitted.
+    candidates, text_cand, vision_cand, gate_notes = _gate_candidates(
+        candidates, text_cand, vision_cand,
+        is_projection=bool(stage1_result.get("is_projection")),
+        vision_notes=(stage2_result.get("notes", "") if stage2_result else ""),
+        suggested_experiment_name=(stage2_result.get("suggested_experiment_name")
+                                   if stage2_result else None),
+        paper_title=paper.title,
+        abstract=(paper.summary or "")[:4000],
+    )
+    if gate_notes:
+        stage1_result["notes"] = (stage1_result.get("notes", "")
+                                  + " | " + " ; ".join(gate_notes))
+        logger.warning("Wrong-curve gates fired for %s: %s",
+                       arxiv_id, " ; ".join(gate_notes)[:300])
+
     chosen, sel_reason = select_best(candidates)
     if chosen is None:
         logger.info("Both stages failed for %s", arxiv_id)
+        if gate_notes and stage1_result.get("data_points"):
+            # Every candidate was gate-rejected: emitting the stage-1 points
+            # anyway would ship the exact wrong curve the gates caught. Zero
+            # points + confidence cap (mirror [CONVENTION REVIEW]) so the PR
+            # is flagged for a human instead.
+            stage1_result["data_points"] = []
+            stage1_result["extraction_confidence"] = min(
+                float(stage1_result.get("extraction_confidence", 0.0) or 0.0), 0.5)
     else:
         logger.info("Selector for %s: %s", arxiv_id, sel_reason)
         stage1_result["is_new_limit"] = True
