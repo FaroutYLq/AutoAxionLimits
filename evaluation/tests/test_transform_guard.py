@@ -338,7 +338,7 @@ from pipeline.transform_guard import convention_review_needed as _crn
     ("AxionPhoton", "GeV^-1"),                 # canonical for photon
     ("AxionNeutron", "dimensionless g_an"),    # canonical
     ("DarkPhoton", "kinetic mixing chi"),      # canonical
-    ("AxionEDM", "e cm"),                       # canonical
+    ("AxionEDM", "g_d [GeV^-2]"),               # canonical (#604)
     ("ScalarPhoton", "d_e"),                    # canonical
 ])
 def test_canonical_declarations_not_flagged(ct, decl):
@@ -350,6 +350,12 @@ def test_canonical_declarations_not_flagged(ct, decl):
     ("AxionProton", "g_aNN [GeV^-1]"),         # convertible
     ("DarkPhoton", "epsilon^2"),               # convertible (sqrt)
     ("AxionEDM", "1/f_a [GeV^-1]"),            # convertible (x3.7e-3)
+    # Round-2 registry families (#653) — the mirror must not over-flag them:
+    ("AxionPhoton", "decay rate Gamma in s^-1"),   # convertible (sqrt(64pi...))
+    ("AxionPhoton", "lifetime tau in s"),          # convertible
+    ("AxionMass", "f_a in GeV"),                   # convertible (reciprocal)
+    ("AxionElectron", "(g_p^e)^2/(hbar c), squared"),  # convertible (sqrt)
+    ("ScalarPhoton", "1/Lambda [GeV^-1]"),         # convertible (x sqrt2 M_Pl, #600)
 ])
 def test_convertible_alternates_not_flagged(ct, decl):
     assert _crn(ct, decl) is False
@@ -358,8 +364,11 @@ def test_convertible_alternates_not_flagged(ct, decl):
 @pytest.mark.parametrize("ct,decl", [
     ("ScalarElectron", "|delta alpha/alpha| amplitude"),
     ("AxionElectron", "Lambda [GeV] scale"),
-    ("ScalarPhoton", "1/Lambda [GeV^-1]"),
     ("AxionProton", "some bespoke normalized coupling"),
+    # e*cm oscillating-EDM amplitude is UNCONVERTIBLE (#604) — it used to slip
+    # through as "canonical" when spelled without the asterisk:
+    ("AxionEDM", "d_n in e cm"),
+    ("AxionEDM", "oscillating neutron EDM amplitude d_n in e*cm"),
 ])
 def test_unknown_conventions_flagged(ct, decl):
     assert _crn(ct, decl) is True
