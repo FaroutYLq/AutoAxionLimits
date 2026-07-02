@@ -332,8 +332,19 @@ VALID_RANGES = {
     "AxionProton":   {"mass": (1e-24, 1e+9), "coupling": (1e-20, 1e0)},
     "AxionEDM":      {"mass": (1e-24, 1e+9), "coupling": (1e-40, 1e-15)},
     "AxionCPV":      {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},
-    "AxionMass":     {"mass": (1e-12, 1e+18), "coupling": (1e-12, 1e+3)},
-    "MonopoleDipole": {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},
+    # AxionMass (the m_a vs f_a plane) includes ultralight/fuzzy-DM and black-
+    # hole-superradiance f_a bounds down to ~1e-22 eV (limit_data/fa: GW170817,
+    # BlackHoleSpins, WhiteDwarfs). The old 1e-12 floor flagged those correct
+    # ultralight windows as out-of-range and the mass auto-corrector then
+    # snapped them into the window, corrupting 5 superradiance papers in
+    # full346 (2012.12790, 2302.00685, 2303.09865, 2406.10337, 2412.20932 —
+    # post-full346 Lever 4). Floor widened to match the fa-plane data domain.
+    "AxionMass":     {"mass": (1e-24, 1e+18), "coupling": (1e-12, 1e+3)},
+    # MonopoleDipole g_s*g_p products reach ~7e-40 in the repo's own data
+    # (Sun/Moon fifth-force limits); the old 1e-30 floor hard-floor-flagged
+    # CORRECT extractions (2011.07100 median ~1e-31, 2302.09096 ~1e-34) and
+    # demoted their confidence (post-full346 follow-up to Lever 4).
+    "MonopoleDipole": {"mass": (1e-24, 1e+9), "coupling": (1e-42, 1e0)},
     "ScalarPhoton":  {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},
     "ScalarElectron": {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},
     "ScalarBaryon":  {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},

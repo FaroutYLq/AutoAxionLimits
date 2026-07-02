@@ -18,7 +18,13 @@ from pathlib import Path
 import anthropic
 
 from .config import MAX_PAPERS_PER_RUN
-from .extractor import download_pdf, run_extraction_agent
+from .extractor import (
+    CLAUDE_MODEL,
+    FatalAPIError,
+    _call_with_retry,
+    download_pdf,
+    run_extraction_agent,
+)
 from .monitor import (
     fetch_paper_by_id,
     fetch_recent_papers,
@@ -37,6 +43,31 @@ from .reviewer import ReviewResult, run_reviewer_agent, write_repo_files
 logger = logging.getLogger(__name__)
 
 REPO_ROOT = Path(__file__).parent.parent
+
+# Exit code for API-availability aborts (#648): distinct from generic 1 so the
+# workflow log makes the cause obvious.
+EXIT_FATAL_API = 2
+
+
+def preflight_api_check(client: anthropic.Anthropic) -> None:
+    """1-token ping so billing/auth outages fail the run at the START (#648).
+
+    Raises :class:`FatalAPIError` on billing 400 / 401 / 403 (via
+    ``_call_with_retry``). Any OTHER failure (transient network, overload
+    after retries) is logged and tolerated — the preflight must not add a new
+    way for a healthy run to die.
+    """
+    try:
+        _call_with_retry(lambda: client.messages.create(
+            model=CLAUDE_MODEL,
+            max_tokens=1,
+            messages=[{"role": "user", "content": "ping"}],
+        ))
+        logger.info("API preflight OK")
+    except FatalAPIError:
+        raise
+    except Exception as e:
+        logger.warning("API preflight inconclusive (continuing): %s", e)
 
 
 def main(
@@ -57,6 +88,16 @@ def main(
         sys.exit(1)
 
     client = anthropic.Anthropic(api_key=api_key)
+
+    # Fail fast on billing/auth outages BEFORE touching any state (#648): 18
+    # runs once stayed green while every call failed on an exhausted credit
+    # balance, falsely marking 85 papers processed.
+    try:
+        preflight_api_check(client)
+    except FatalAPIError as e:
+        logger.error("API unavailable — aborting run, no paper state touched: %s", e)
+        sys.exit(EXIT_FATAL_API)
+
     state = load_state()
 
     # Determine papers to process
@@ -78,6 +119,19 @@ def main(
             _process_paper(paper, paper_id, client, state, dry_run)
             mark_processed(state, paper_id)
             processed_count += 1
+        except FatalAPIError as e:
+            # #648: an availability error is a property of the RUN, not the
+            # paper. Do NOT mark this paper processed/failed (it must be
+            # retried once the API is back); persist the papers legitimately
+            # handled so far, then abort the workflow red.
+            logger.error(
+                "API availability error while processing %s — aborting run "
+                "WITHOUT marking it processed (%d papers completed before "
+                "the outage): %s", paper_id, processed_count, e,
+            )
+            state["last_run"] = datetime.now(timezone.utc).isoformat()
+            save_state(state)
+            sys.exit(EXIT_FATAL_API)
         except Exception as e:
             logger.exception("Failed to process %s: %s", paper_id, e)
             mark_failed(state, paper_id, str(e))

@@ -29,7 +29,7 @@ from .config import (
     BACKFILL_MAX_PAPERS_PER_RUN,
     INSPIRE_SEARCH_QUERIES,
 )
-from .extractor import download_pdf, run_extraction_agent
+from .extractor import FatalAPIError, download_pdf, run_extraction_agent
 from .monitor import (
     classify_coupling_type,
     fetch_paper_by_id,
@@ -380,6 +380,8 @@ def batch_relevance_check(
             if not isinstance(indices, list):
                 indices = []
             indices = [idx for idx in indices if isinstance(idx, int) and 0 <= idx < len(batch)]
+        except FatalAPIError:
+            raise  # #648: abort discovery rather than mis-filtering the queue
         except Exception as e:
             logger.warning("LLM relevance check failed for batch %d: %s; keeping all", i, e)
             indices = list(range(len(batch)))
@@ -435,6 +437,8 @@ def _process_candidate(
         try:
             pdf_path = download_pdf(arxiv_id, Path(tmpdir))
             extraction = run_extraction_agent(paper, pdf_path, client)
+        except FatalAPIError:
+            raise  # #648: never burn a candidate on an availability outage
         except Exception as e:
             logger.warning("Extraction failed for %s: %s", arxiv_id, e)
             backfill_state.setdefault("skipped_ids", {})[arxiv_id] = f"extraction_error: {e}"
@@ -463,6 +467,8 @@ def _process_candidate(
 
     try:
         review = run_reviewer_agent(extraction, client)
+    except FatalAPIError:
+        raise  # #648
     except Exception as e:
         logger.warning("Review failed for %s: %s", arxiv_id, e)
         backfill_state.setdefault("skipped_ids", {})[arxiv_id] = f"review_error: {e}"
@@ -723,7 +729,20 @@ def main(
             logger.info("Skip %s: already handled in backfill state", arxiv_id)
             continue
 
-        created = _process_candidate(candidate, client, state, processed_state, dry_run)
+        try:
+            created = _process_candidate(candidate, client, state, processed_state, dry_run)
+        except FatalAPIError as e:
+            # #648: availability outage — put the candidate back at the head
+            # of the queue, persist, and abort the workflow red so nothing is
+            # silently burned.
+            queue.insert(0, candidate)
+            state["queue"] = queue
+            save_backfill_state(state)
+            logger.error(
+                "API availability error on %s — candidate re-queued, "
+                "aborting run: %s", arxiv_id, e,
+            )
+            sys.exit(2)
         if created:
             prs_created += 1
         papers_processed += 1
