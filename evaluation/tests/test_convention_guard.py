@@ -283,5 +283,6 @@ def test_comparator_no_field_is_backcompat_noop():
 def test_comparator_canonicalize_helper_noop_on_unknown():
     import numpy as np
     arr = np.array([[1e-5, 1e-12]])
-    out = sc._canonicalize_curve("AxionPhoton", arr, None)
+    out, guard_refused = sc._canonicalize_curve("AxionPhoton", arr, None)
     assert np.array_equal(out, arr)
+    assert guard_refused is False

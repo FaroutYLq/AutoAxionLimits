@@ -205,9 +205,27 @@ _M_PL_GEV = 2.4e18
 # Per-FILE source-convention overrides (verified from PlotFuncs.py per-file
 # multipliers). Default for AxionNeutron/Proton files is g_aNN = C_N/(2 f_a)
 # [GeV^-1] (-> x2 m_N); SNO stores g_aN/m_N [GeV^-1] (-> x m_N only).
-_FILE_CONVENTION: dict[str, str] = {
+#
+# ROUND-2 BUG FIX (coupling-convention-conversions-round2-EXPLAIN.md, "registry
+# bug"): the family default is WRONG for the spin-force/astrophysics subset —
+# these files already store the DIMENSIONLESS g_aN (headers `g_an`/`g_ap`,
+# plotted RAW in PlotFuncs.py with no multiplier), so the blanket x2 m_N
+# default inflated their GT side by +0.27 dex. `None` = already canonical.
+_FILE_CONVENTION: dict[str, Optional[str]] = {
     "limit_data/AxionNeutron/SNO.txt": "g_aN_over_mN_inv_gev",
     "limit_data/AxionProton/SNO.txt":  "g_aN_over_mN_inv_gev",
+    # Already-dimensionless files (round-2 audit, verified vs PlotFuncs.py):
+    "limit_data/AxionNeutron/K-3He_Comagnetometer.txt": None,
+    "limit_data/AxionNeutron/TorsionBalance.txt": None,
+    "limit_data/AxionNeutron/129Xe.txt": None,
+    "limit_data/AxionNeutron/Casimir.txt": None,
+    "limit_data/AxionNeutron/SN1987A.txt": None,
+    "limit_data/AxionNeutron/NeutronStars.txt": None,
+    "limit_data/AxionProton/TorsionBalance.txt": None,
+    "limit_data/AxionProton/Casimir.txt": None,
+    "limit_data/AxionProton/SN1987A.txt": None,
+    "limit_data/AxionProton/NeutronStars.txt": None,
+    "limit_data/AxionProton/Projections/MnCO3.txt": None,
 }
 
 # Sentinel returned by `classify_reported_convention` for an extraction whose
@@ -216,6 +234,27 @@ _FILE_CONVENTION: dict[str, str] = {
 # g_angamma only through the per-point field amplitude a_0 = sqrt(2 rho)/m_a).
 # The comparator treats this as a convention gap (exclude), NOT extraction error.
 UNCONVERTIBLE = "__unconvertible__"
+
+# Note prefix returned by `to_canonical` when a recognized token REFUSES to
+# convert because the input values violate the token's magnitude guard (round-2
+# rule: every token carries a plausible-range guard; converting values that
+# cannot be the declared quantity — e.g. anchor-snap-corrupted f_a values, or a
+# Lambda-in-GeV curve fed to the multiply branch — is worse than excluding).
+# Callers treat a note starting with this prefix like UNCONVERTIBLE.
+GUARD_REFUSED = "__convention_guard_refused__"
+
+# --- Round-2 constants (coupling-convention-conversions-round2-EXPLAIN.md,
+# citation-audited; every factor numerically spot-checked against its paper/GT
+# pair) --------------------------------------------------------------------
+_HBAR_GEV_S = 6.582119569e-25   # hbar [GeV s]
+_64PI = 64.0 * _math.pi         # two-photon decay prefactor (Gamma = g^2 m^3/64pi)
+_SQRT_4PI = _math.sqrt(4.0 * _math.pi)
+_K_XI = 1.395e-10               # g[GeV^-1] = K_XI * xi * m[eV] (thermal QCD axion)
+
+
+def _median_positive(vals) -> Optional[float]:
+    v = sorted(x for x in vals if x and x > 0)
+    return v[len(v) // 2] if v else None
 
 # Recognized source-convention tokens per coupling family (canonical first).
 _CANONICAL_TOKEN = {
@@ -253,7 +292,85 @@ def to_canonical(coupling_type: Optional[str], data_points, convention: Optional
     canon = _CANONICAL_TOKEN.get(coupling_type)
     if canon and conv == canon.lower():
         return data_points, ""
+    med_y = _median_positive(g for _m, g in data_points)
     try:
+        # ------------------- Round-2 vetted families -------------------
+        # (coupling-convention-conversions-round2-EXPLAIN.md; each branch
+        # carries the doc's magnitude guard and refuses out-of-range input.)
+
+        # Family 1: f_a [GeV] -> 1/f_a [GeV^-1] (AxionMass, pure reciprocal).
+        # Three magnitude regimes (they never overlap physically): a genuine
+        # decay constant is >~1e5 GeV -> invert; canonical 1/f_a-normalized
+        # values are <~4e-4 -> the declaration is a provable mislabel and the
+        # emitted values are ALREADY canonical (observed repeatedly in the
+        # full346 snapshots: vision traces the 1/f_a axis but declares the
+        # paper's f_a convention) -> compare raw; anything between (e.g.
+        # anchor-snap-corrupted f_a, 2105.13963's x1e-20 residue at ~1e-2) is
+        # neither -> refuse.
+        if coupling_type == "AxionMass" and conv == "f_a_gev":
+            if med_y is None:
+                return data_points, ""
+            if med_y > 1e3:
+                return [(m, 1.0 / g) for m, g in data_points if g > 0], (
+                    "convention: f_a [GeV] -> 1/f_a [GeV^-1] (reciprocal)")
+            if med_y < 1e-3:
+                return data_points, (
+                    "convention: declared f_a [GeV] but values are already "
+                    f"canonical-1/f_a scale (median {med_y:g}) — mislabeled "
+                    "declaration, compared raw (#594)")
+            return data_points, (
+                f"{GUARD_REFUSED}: f_a_gev values neither decay-constant "
+                f"(>1e3 GeV) nor canonical 1/f_a (<1e-3) scale (median "
+                f"{med_y:g}) — likely snapped/corrupted")
+
+        # Family 2: decay-rate / lifetime plane -> g_agamma [GeV^-1].
+        # Gamma = g^2 m^3 / 64pi  =>  g = sqrt(64pi * hbar * Gamma / m^3),
+        # m in GeV (= 1e-9 * mass[eV]); lifetime: Gamma = 1/tau.
+        if coupling_type == "AxionPhoton" and conv == "decay_rate_s_inv":
+            if med_y is None or med_y > 1e-10:
+                return data_points, (
+                    f"{GUARD_REFUSED}: decay_rate_s_inv expects Gamma << "
+                    f"1e-10 s^-1 (median {med_y!r})")
+            out = [(m, _math.sqrt(_64PI * _HBAR_GEV_S * g / (1e-9 * m) ** 3))
+                   for m, g in data_points if g > 0 and m > 0]
+            return out, ("convention: Gamma [s^-1] -> g_agamma [GeV^-1] "
+                         "(sqrt(64pi*hbar*Gamma/m^3), per point)")
+        if coupling_type == "AxionPhoton" and conv == "lifetime_s":
+            if med_y is None or med_y < 1e10:
+                return data_points, (
+                    f"{GUARD_REFUSED}: lifetime_s expects tau >> 1e10 s "
+                    f"(median {med_y!r})")
+            out = [(m, _math.sqrt(_64PI * _HBAR_GEV_S / (g * (1e-9 * m) ** 3)))
+                   for m, g in data_points if g > 0 and m > 0]
+            return out, ("convention: tau [s] -> g_agamma [GeV^-1] "
+                         "(sqrt(64pi*hbar/(tau*m^3)), per point)")
+
+        # Family 3: squared-coupling axes. TWO distinct tokens 0.55 dex apart:
+        # g^2/(4pi) (alpha-like, 0809.4700) vs plain g^2 (/hbar c, 1508.02463).
+        if coupling_type in ("AxionNeutron", "AxionProton", "AxionElectron"):
+            if conv == "g_squared_over_4pi":
+                return [(m, _math.sqrt(4.0 * _math.pi * g))
+                        for m, g in data_points if g > 0], (
+                    "convention: g^2/(4pi) -> g (sqrt(4pi*y))")
+            if conv == "g_squared":
+                return [(m, _math.sqrt(g)) for m, g in data_points if g > 0], (
+                    "convention: g^2 -> g (sqrt)")
+
+        # Family 4: thermal-axion xi -> g_agamma (model-locked: thermal QCD
+        # axion, Grin et al. tau = 6.8e24 xi^-2 m^-5 s + Gamma = g^2 m^3/64pi).
+        # Medium confidence: documented +0.12-0.25 dex conversion floor.
+        if coupling_type == "AxionPhoton" and conv == "xi_thermal":
+            masses = [m for m, _g in data_points if m and m > 0]
+            m_lo, m_hi = (min(masses), max(masses)) if masses else (0, 0)
+            if (med_y is None or not (1e-4 <= med_y <= 1.0)
+                    or not (0.5 <= m_lo and m_hi <= 30.0)):
+                return data_points, (
+                    f"{GUARD_REFUSED}: xi_thermal expects xi in [1e-4,1] and "
+                    f"optical-window masses ~1-30 eV (median {med_y!r}, "
+                    f"masses [{m_lo:g},{m_hi:g}])")
+            return [(m, _K_XI * g * m) for m, g in data_points if g > 0], (
+                "convention: thermal-axion xi -> g_agamma "
+                f"({_K_XI:g}*xi*m_eV; model-locked to thermal QCD axion)")
         # --- Axion-nucleon: GeV^-1 derivative coupling -> dimensionless g_aN ---
         if coupling_type in ("AxionNeutron", "AxionProton"):
             m_n = _M_NUCLEON_GEV[coupling_type]
@@ -280,10 +397,30 @@ def to_canonical(coupling_type: Optional[str], data_points, convention: Optional
             # phi_hat = phi/M_Pl normalization). Inverse map: d = g[GeV^-1]*sqrt2*M_Pl.
             # M_Pl matches the repo notebook value (2.4e18) so converted extractions
             # land on the same scale as the d-axis GT. Vetted: EXPLAIN doc Sec.1.
-            if conv in ("gev_inv_scalar", "g_phi_gev_inv", "lambda_inv_gev"):
+            #
+            # Round-2 (Family 6): the SAME sqrt2*M_Pl factor also covers a
+            # published new-physics SCALE Lambda [GeV] (QSNET Eq. 15,
+            # 1/Lambda = kappa*d_e with kappa = sqrt(4 pi G_N)), but in the
+            # RECIPROCAL direction: d = sqrt2*M_Pl / Lambda. Direction is
+            # decided by magnitude — the two regimes are cleanly separated
+            # (1/Lambda values << 1; a valid clock-network scale Lambda >> 1e3
+            # GeV) — and in-between values are refused rather than guessed.
+            # This guard also stops the `lambda_gamma` substring from
+            # multiplying a Lambda-in-GeV curve into d ~ 1e48.
+            if conv in ("gev_inv_scalar", "g_phi_gev_inv", "lambda_inv_gev",
+                        "lambda_scale_gev"):
                 f = _math.sqrt(2.0) * _M_PL_GEV
-                return [(m, g * f) for m, g in data_points], (
-                    f"convention: Scalar g_phi [GeV^-1] -> d (x sqrt2 M_Pl = {f:.4g})")
+                med = _median_positive(g for _m, g in data_points)
+                if med is not None and med < 1.0:
+                    return [(m, g * f) for m, g in data_points], (
+                        f"convention: Scalar g_phi [GeV^-1] -> d (x sqrt2 M_Pl = {f:.4g})")
+                if med is not None and med > 1e3:
+                    return [(m, f / g) for m, g in data_points if g > 0], (
+                        f"convention: Scalar Lambda [GeV] -> d (sqrt2 M_Pl / y, "
+                        f"sqrt2 M_Pl = {f:.4g})")
+                return data_points, (
+                    f"{GUARD_REFUSED}: scalar GeV^-1/Lambda values must be "
+                    f"<1 (1/Lambda) or >1e3 (Lambda in GeV); median {med!r}")
 
         # --- DarkPhoton: epsilon^2 -> kinetic mixing chi ---
         if coupling_type == "DarkPhoton" and conv in ("epsilon_squared", "eps^2", "chi^2"):
@@ -309,11 +446,51 @@ def classify_reported_convention(coupling_type: Optional[str],
                                  units_label: Optional[str]) -> Optional[str]:
     if not coupling_type or not units_label:
         return None
-    u = units_label.lower().replace(" ", "")
+    raw = units_label.lower()
+    u = raw.replace(" ", "")
+    # Declaration contract (round-2, #594): a string claiming the values were
+    # ALREADY converted ("converted from ...") must be treated as canonical-
+    # claimed — the token describes the EMITTED values, and re-converting a
+    # genuinely converted output would corrupt it (0809.4700 declared
+    # converted-but-emitted-raw; that mislabel is the extractor contract's
+    # problem, not a registry guess).
+    already_converted = "converted" in u
     # Inverse-GeV (prefix-aware: must be 'gev', not bare 'ev' which is eV^-1).
     inv_gev = any(t in u for t in ("gev^-1", "gev-1", "gev^{-1}", "gev$^{-1}$", "1/gev"))
+    # Squared-coupling axes (round-2 Family 3): two DISTINCT tokens 0.55 dex
+    # apart — g^2/(4pi) vs plain g^2 (e.g. "/hbar c"). Never fired on
+    # "converted from" declarations.
+    squared = ("^2" in u or "squared" in u) and not already_converted
+    if coupling_type in ("AxionNeutron", "AxionProton", "AxionElectron"):
+        if squared:
+            return ("g_squared_over_4pi"
+                    if ("4pi" in u or "4π" in u) else "g_squared")
     if coupling_type in ("AxionNeutron", "AxionProton"):
         return "g_aNN_inv_gev" if inv_gev else None
+    if coupling_type == "AxionMass":
+        # Canonical is 1/f_a [GeV^-1]; a declared plain f_a [GeV] needs the
+        # per-point reciprocal (round-2 Family 1). Inverse markers win first.
+        if inv_gev or "1/f" in u:
+            return None  # already the inverse-scale convention
+        if any(t in u for t in ("f_aingev", "faingev", "f_a[gev]", "fa[gev]",
+                                "f[gev]", "fingev")):
+            return "f_a_gev"
+        return None
+    if coupling_type == "AxionPhoton":
+        # Round-2 Families 2 & 4. Word-boundary xi check runs on the RAW
+        # label ("axion" contains "xi" after space-stripping); it precedes the
+        # canonical check because the observed declaration is
+        # 'dimensionless xi (...), NOT g_agamma in GeV^-1'.
+        import re as _re
+        if _re.search(r"\bxi\b", raw):
+            return "xi_thermal"
+        if "g_agamma" in u or inv_gev:
+            return None  # already canonical g_agamma [GeV^-1]
+        if "s^-1" in u or "s-1" in u or "decayrate" in u or "1/s" in u:
+            return "decay_rate_s_inv"
+        if u in ("s", "sec", "seconds") or "lifetime" in u or "tau" in u:
+            return "lifetime_s"
+        return None
     if coupling_type == "DarkPhoton":
         if "eps^2" in u or "epsilon^2" in u or "chi^2" in u or "squared" in u:
             return "epsilon_squared"

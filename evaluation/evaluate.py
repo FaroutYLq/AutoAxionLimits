@@ -40,6 +40,7 @@ PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from evaluation.conventions import (
+    GUARD_REFUSED,
     UNCONVERTIBLE,
     canonical_convention,
     classify_reported_convention,
@@ -389,16 +390,21 @@ SMALL_SAMPLE_THRESHOLD = 5
 # curve (its file's source convention) are canonicalized.
 # ---------------------------------------------------------------------------
 
-def _canonicalize_curve(coupling_type, arr: np.ndarray, token) -> np.ndarray:
+def _canonicalize_curve(coupling_type, arr: np.ndarray, token):
     """Apply a vetted ``to_canonical`` conversion to an Nx2 curve (no-op if
-    token is None / unknown). Returns the (possibly converted) array."""
+    token is None / unknown). Returns ``(array, guard_refused)``:
+    ``guard_refused`` is True when the token's magnitude guard rejected the
+    values (round-2 rule — converting implausible values is worse than
+    excluding the pair)."""
     if token is None or arr is None or len(arr) == 0:
-        return arr
+        return arr, False
     pts = [(float(m), float(g)) for m, g in arr]
-    out, _note = to_canonical(coupling_type, pts, token)
+    out, note = to_canonical(coupling_type, pts, token)
+    if note.startswith(GUARD_REFUSED):
+        return arr, True
     if not out:
-        return arr
-    return np.array(out, dtype=float, ndmin=2)
+        return arr, False
+    return np.array(out, dtype=float, ndmin=2), False
 
 
 def _maybe_canonicalize(result: dict, predicted_ct: str, ext_array: np.ndarray,
@@ -407,9 +413,10 @@ def _maybe_canonicalize(result: dict, predicted_ct: str, ext_array: np.ndarray,
 
     Returns ``(ext_array, gt_data, unconvertible)``. ``unconvertible`` is True
     when the extraction declares a recognized but non-convertible convention
-    (#604) — caller should treat as convention_mismatch. No-op (and never
-    unconvertible) when the extraction does not declare a convention, so
-    field-less old snapshots stay raw.
+    (#604), or a recognized token whose magnitude guard refused the values —
+    caller should treat as convention_mismatch. No-op (and never unconvertible)
+    when the extraction does not declare a convention, so field-less old
+    snapshots stay raw.
     """
     if not result.get("coupling_convention"):
         return ext_array, gt_data, False
@@ -418,8 +425,11 @@ def _maybe_canonicalize(result: dict, predicted_ct: str, ext_array: np.ndarray,
     if ext_token == UNCONVERTIBLE:
         return ext_array, gt_data, True
     gt_token = file_source_convention(gt_entry.reference_repo_file, predicted_ct)
-    return (_canonicalize_curve(predicted_ct, ext_array, ext_token),
-            _canonicalize_curve(predicted_ct, gt_data, gt_token), False)
+    ext_c, ext_refused = _canonicalize_curve(predicted_ct, ext_array, ext_token)
+    gt_c, gt_refused = _canonicalize_curve(predicted_ct, gt_data, gt_token)
+    if ext_refused or gt_refused:
+        return ext_array, gt_data, True
+    return ext_c, gt_c, False
 
 
 def _frac_within(res: np.ndarray, tau: float) -> float:
