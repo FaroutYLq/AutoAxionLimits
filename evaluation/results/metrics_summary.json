@@ -5,8 +5,8 @@
     "n_papers_fully_excluded": 15
   },
   "status_counts": {
-    "convention_mismatch": 14,
-    "compared": 279,
+    "convention_mismatch": 16,
+    "compared": 277,
     "no_comparable_gt": 30,
     "excluded_gt": 15,
     "gt_unusable": 1,
@@ -20,29 +20,29 @@
     "data_source": 0.6285714285714286
   },
   "interpolation": {
-    "n_finite": 268,
-    "n_zero_overlap": 11,
-    "median_median_residual_dex": 0.2555275760512563,
-    "mean_frac_within_0_3dex": 0.5417184875115584,
-    "median_median_residual_dex_reverse": 0.26367234219223246
+    "n_finite": 267,
+    "n_zero_overlap": 10,
+    "median_median_residual_dex": 0.24542155672548205,
+    "mean_frac_within_0_3dex": 0.5506451680693336,
+    "median_median_residual_dex_reverse": 0.25243011589985453
   },
   "symmetric": {
-    "median_area_between_log": 0.34629882090568165,
-    "median_mass_jaccard": 0.8089390669556762
+    "median_area_between_log": 0.33252197864259603,
+    "median_mass_jaccard": 0.8126415638604974
   },
   "per_type_aggregate": {
     "n_types": 12,
-    "n_papers_compared": 268,
-    "micro_median_residual_dex": 0.2555275760512563,
-    "macro_median_residual_dex": 1.6179398268763823,
-    "macro_minus_micro_dex": 1.362412250825126,
+    "n_papers_compared": 267,
+    "micro_median_residual_dex": 0.24542155672548205,
+    "macro_median_residual_dex": 1.5817405936118831,
+    "macro_minus_micro_dex": 1.336319036886401,
     "per_type_n": {
-      "AxionPhoton": 135,
+      "AxionPhoton": 136,
       "DarkPhoton": 60,
       "AxionElectron": 19,
       "AxionNeutron": 14,
       "VectorBL": 11,
-      "AxionMass": 10,
+      "AxionMass": 8,
       "ScalarPhoton": 8,
       "AxionProton": 3,
       "MonopoleDipole": 3,
