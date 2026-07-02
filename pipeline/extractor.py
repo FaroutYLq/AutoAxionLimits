@@ -510,6 +510,14 @@ values are in (after any conversion you applied) — e.g. "dimensionless g_an", 
 OUTPUT so downstream code can canonicalize. If your values are already the standard \
 dimensionless/GeV^-1 form for the coupling type, say so. If unsure, "".
 
+DECLARATION CONTRACT (critical — downstream unit conversion is keyed on this string):
+- The declaration must describe the NUMBERS YOU EMIT, never the paper's preferred \
+variable. If you copied values off an axis or table without converting, declare \
+that raw variable exactly (e.g. "Gamma in s^-1", "(g_p^n)^2/(4pi)", "f_a in GeV").
+- NEVER write "converted from X" (or claim the canonical form) unless the numbers \
+you output ARE the converted values. A false "converted" claim corrupts downstream \
+processing far more than an honest non-canonical declaration, which is handled fine.
+
 Coupling type disambiguation (use EXACTLY one of the enum values above):
 - VectorBL = U(1)_{{B-L}} gauge boson (g_BL), NOT a generic dark photon
 - MonopoleDipole = spin-mass CP-odd force (g_s*g_p product)
@@ -1383,9 +1391,79 @@ def _axis_extent_dex(axis_info: dict | None) -> float | None:
     return _math.log10(hi) - _math.log10(lo)
 
 
+# ---------------------------------------------------------------------------
+# Truthful-declaration reconciliation (#594 follow-up, post-full346)
+# ---------------------------------------------------------------------------
+# The stage-2a axis read-back is a MEASUREMENT of the figure; the model's
+# coupling_convention is a self-description. When vision wins and the axis
+# clearly identifies a non-canonical plotted quantity while the declaration
+# claims (or implies) the canonical one, the axis wins: full346's 2301.06560
+# emitted Gamma [s^-1] values declared as 'GeV^-1 g_agamma', so no string-keyed
+# converter could ever fire. Each hint below is high-precision by construction:
+# it fires only on unit tokens that cannot belong to the canonical variable.
+
+def _axis_conv_hint(coupling_type: str | None, axis_unit_label: str | None
+                    ) -> tuple[str, str] | None:
+    """(declaration, trigger_token) implied by a stage-2a y-axis unit, or None."""
+    if not coupling_type or not axis_unit_label:
+        return None
+    u = axis_unit_label.strip().lower()
+    if not u:
+        return None
+    if coupling_type == "AxionPhoton":
+        if "gev^-1" in u or "gev-1" in u or "g_agamma" in u:
+            return None  # canonical axis
+        if "s^-1" in u or "s^{-1}" in u or "1/s" in u or "decay" in u:
+            return ("decay rate Gamma in s^-1 (axis read-back)", "s^-1")
+        if u in ("s", "sec", "seconds") or "lifetime" in u or "tau" in u:
+            return ("lifetime tau in s (axis read-back)", "tau")
+    if any(t in u for t in ("e cm", "e*cm", "e.cm", "ecm", "e·cm")):
+        return ("oscillating EDM amplitude d_n in e*cm (axis read-back)", "e*cm")
+    if coupling_type in ("AxionNeutron", "AxionProton", "AxionElectron"):
+        if "^2" in u or "²" in u or "squared" in u:
+            if "4pi" in u or "4π" in u:
+                return ("coupling squared over 4pi, (g)^2/(4pi) (axis read-back)", "4pi")
+            return ("coupling squared, g^2 (axis read-back)", "^2")
+    if coupling_type == "AxionMass":
+        if ("f_a" in u or "fa" in u.replace("_", "")) and "gev" in u \
+                and "^-1" not in u and "1/" not in u:
+            return ("f_a in GeV (axis read-back)", "f_a in gev")
+    if coupling_type in ("ScalarPhoton", "ScalarElectron"):
+        if ("lambda" in u or "λ" in u) and "gev" in u and "^-1" not in u and "1/" not in u:
+            return ("energy scale Lambda in GeV (axis read-back)", "lambda")
+    return None
+
+
+def _reconcile_declared_convention(stage1_result: dict) -> None:
+    """Override a canonical-claiming declaration with the axis read-back.
+
+    Fires only when (a) the chosen source is figure_vision, (b) the axis unit
+    identifies a non-canonical quantity, and (c) the current declaration does
+    NOT already admit that quantity (it is empty, claims canonical, or is the
+    text-stage leftover describing different values). Appends an audit note.
+    """
+    if stage1_result.get("data_source") != "figure_vision":
+        return
+    ct = stage1_result.get("coupling_type")
+    hint = _axis_conv_hint(ct, stage1_result.get("_axis_y_unit"))
+    if hint is None:
+        return
+    declaration, token = hint
+    declared = (stage1_result.get("coupling_convention") or "").strip().lower()
+    if token in declared:
+        return  # the declaration already admits the axis quantity
+    if declared and convention_review_needed(ct, declared):
+        return  # already flagged unknown — reconciliation adds nothing
+    stage1_result["coupling_convention"] = declaration
+    stage1_result["notes"] = (stage1_result.get("notes", "")
+        + f" | declaration reconciled to axis read-back: '{declaration}' "
+          f"(model declared '{declared or '(empty)'}' — axis unit wins, #594 contract)")
+
+
 def _make_candidate(source: str, data_points: list, coupling_type: str | None,
                     confidence, *, axis_extent_dex: float | None = None,
-                    demote_to_reconstruction: bool = False) -> Candidate:
+                    demote_to_reconstruction: bool = False,
+                    convention_flagged: bool = False) -> Candidate:
     """Build a scored :class:`Candidate` for the P2 selector (#571).
 
     Populates the P0 `ConsistencyScore` signals (in-range validity, shape) from
@@ -1414,6 +1492,7 @@ def _make_candidate(source: str, data_points: list, coupling_type: str | None,
         score=score,
         recoverable=_coupling_recoverable(pts, coupling_type),
         reconstruction=demote_to_reconstruction,
+        convention_flagged=convention_flagged,
     )
 
 
@@ -1456,13 +1535,16 @@ def run_extraction_agent(
     text_points = [(float(m), float(g)) for m, g in (stage1_result.get("data_points") or [])]
     text_cand = None
     if text_points and stage1_result.get("is_new_limit"):
+        _text_ct = stage1_result.get("coupling_type") or pre_ct
         text_cand = _make_candidate(
             stage1_result.get("data_source", "table"),
             text_points,
-            stage1_result.get("coupling_type") or pre_ct,
+            _text_ct,
             stage1_result.get("extraction_confidence", 0.0),
             demote_to_reconstruction=_notes_admit_reconstruction(
                 stage1_result.get("notes")),
+            convention_flagged=convention_review_needed(
+                _text_ct, stage1_result.get("coupling_convention")),
         )
         candidates.append(text_cand)
 
@@ -1483,12 +1565,19 @@ def run_extraction_agent(
             )
             if stage2_result.get("found_limit_plot") and stage2_result.get("data_points"):
                 vis_points = [(float(m), float(g)) for m, g in stage2_result["data_points"]]
+                _vis_ct = (stage1_result.get("coupling_type")
+                           or stage2_result.get("coupling_type") or pre_ct)
+                _vis_hint = _axis_conv_hint(_vis_ct, (axis_info or {}).get("y_axis_unit"))
                 vision_cand = _make_candidate(
                     "figure_vision",
                     vis_points,
-                    stage1_result.get("coupling_type") or stage2_result.get("coupling_type") or pre_ct,
+                    _vis_ct,
                     stage2_result.get("extraction_confidence", 0.4),
                     axis_extent_dex=_axis_extent_dex(axis_info),
+                    # The vision candidate's effective declaration is the axis
+                    # read-back (a measurement), not the text-stage claim.
+                    convention_flagged=convention_review_needed(
+                        _vis_ct, _vis_hint[0] if _vis_hint else None),
                 )
                 candidates.append(vision_cand)
         else:
@@ -1509,6 +1598,9 @@ def run_extraction_agent(
         stage1_result["data_source"] = chosen.source
         stage1_result["extraction_confidence"] = chosen.extraction_confidence
         stage1_result["notes"] = stage1_result.get("notes", "") + " | " + sel_reason
+        # #594 contract: on a vision win, the axis read-back overrides a
+        # canonical-claiming (or stale text-stage) declaration.
+        _reconcile_declared_convention(stage1_result)
         if chosen is vision_cand and stage2_result:
             # Vision won: carry its semantic metadata + the figures/benchmark the
             # downstream calibration pass needs. Coupling type follows the original

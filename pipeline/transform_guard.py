@@ -243,6 +243,12 @@ class Candidate:
     # arithmetic must not outrank a real trace — without renaming ``source``
     # (which flows into the emitted data_source enum).
     reconstruction: bool = False
+    # The candidate's effective declared convention failed convention review
+    # (unknown / unconvertible). #594 follow-up: values in an unknown
+    # convention cannot be used canonically, so a candidate in a known
+    # convention outranks them regardless of source (1708.06367: the flagged
+    # e*cm text read beat the vision trace of the figure already in g_d).
+    convention_flagged: bool = False
 
 
 def _in_band(value: float, band: tuple[float, float]) -> bool:
@@ -345,6 +351,9 @@ def quality(c: Candidate) -> tuple:
                                exempt (a 2-point limit is legitimately sparse).
       T2  recoverable        — coupling lands in VALID_RANGES under some decade
                                factor (precomputed by the caller).
+      T2b convention known   — a candidate whose effective declared convention
+                               failed convention review (unknown/unconvertible)
+                               ranks below one in a known convention (#594).
       T3  source tier        — table > text > figure_vision > cv_trace, EXCEPT a
                                *sparse* (<= _SPARSE_POINT_LIMIT_MAX-pt) text/table
                                point-limit is demoted below figure_vision (P-A1,
@@ -374,6 +383,7 @@ def quality(c: Candidate) -> tuple:
         1 if s.in_valid_ranges else 0,             # T0
         non_degenerate,                            # T1
         1 if c.recoverable else 0,                 # T2
+        0 if c.convention_flagged else 1,          # T2b (#594)
         (_SPARSE_POINT_LIMIT_TIER if c.reconstruction
          else _source_tier(c.source, n_pts)),      # T3 (Lever 6: reconstructions rank with sparse points, below figure_vision)
         1 if _corroborated(s) else 0,              # T4
@@ -530,7 +540,12 @@ _CANONICAL_DECL: dict[str, tuple[str, ...]] = {
     "AxionNeutron":   ("dimensionless", "g_an"),
     "AxionProton":    ("dimensionless", "g_ap"),
     "DarkPhoton":     ("dimensionless", "chi", "kinetic mixing", "epsilon", "eps"),
-    "AxionEDM":       ("e cm", "e.cm", "ecm", "g_d", "gev^-2", "gev-2"),
+    # NOTE: e*cm deliberately NOT listed — the repo AxionEDM files are all
+    # g_angamma/g_d [GeV^-2] (#604); an oscillating-EDM amplitude in e*cm is
+    # UNCONVERTIBLE and must be review-flagged, not silently accepted. (It
+    # previously escaped flagging only when spelled "e*cm"; "e cm" slipped
+    # through as "canonical" — post-full346 #594 follow-up.)
+    "AxionEDM":       ("g_d", "g_angamma", "gev^-2", "gev-2"),
     "AxionCPV":       ("dimensionless", "coupling"),
     "AxionMass":      ("gev^-1", "1/f_a", "f_a_norm", "dimensionless", "normalized"),
     "MonopoleDipole": ("dimensionless", "coupling"),
@@ -546,13 +561,38 @@ def _declared_convertible(coupling_type: str, decl_lower: str) -> bool:
     """True iff the eval registry has a vetted conversion for this declared output
     convention. MIRRORS ``evaluation.conventions.classify_reported_convention`` —
     keep the two in sync (a convertible alternate must not be flagged for review).
+
+    Updated for the round-2 registry (post-full346 Phase 1d, #653): decay-rate/
+    lifetime planes, squared axes, thermal xi, f_a-in-GeV, and the round-1
+    scalar GeV^-1 branch (#600) that this mirror had never picked up.
     """
+    inv_gev = any(t in decl_lower for t in
+                  ("gev^-1", "gev-1", "gev^{-1}", "1/gev", "gev$^{-1}$"))
+    squared = ("^2" in decl_lower or "squared" in decl_lower) \
+        and "converted" not in decl_lower
     if coupling_type in ("AxionNeutron", "AxionProton"):
-        return any(t in decl_lower for t in ("gev^-1", "gev-1", "gev^{-1}", "1/gev", "gev$^{-1}$"))
+        return inv_gev or squared
+    if coupling_type == "AxionElectron":
+        return squared
     if coupling_type == "DarkPhoton":
         return any(t in decl_lower for t in ("eps^2", "epsilon^2", "chi^2", "squared"))
     if coupling_type == "AxionEDM":
-        return any(t in decl_lower for t in ("1/f_a", "invfa", "1/fa"))
+        return any(t in decl_lower for t in ("1/f_a", "invfa", "1/fa", "cg/fa", "gluon"))
+    if coupling_type == "AxionPhoton":
+        if any(t in decl_lower for t in ("s^-1", "s-1", "decay rate", "1/s")):
+            return True
+        if decl_lower in ("s", "sec", "seconds") or "lifetime" in decl_lower \
+                or "tau" in decl_lower:
+            return True
+        import re as _re
+        if _re.search(r"\bxi\b", decl_lower):
+            return True
+        return False
+    if coupling_type == "AxionMass":
+        return any(t in decl_lower for t in
+                   ("f_a in gev", "fa in gev", "f_a [gev", "fa [gev", "f [gev"))
+    if coupling_type in ("ScalarPhoton", "ScalarElectron"):
+        return inv_gev or "lambda" in decl_lower or "λ" in decl_lower
     return False
 
 
