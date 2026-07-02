@@ -249,6 +249,10 @@ class InterpolationMetrics:
     mean_residual_dex_reverse: float = float("inf")
     p90_residual_dex_reverse: float = float("inf")
     max_residual_dex_reverse: float = float("inf")
+    # Raw reverse residual array (not serialized) — lets the caller promote the
+    # reverse pass to the paper's effective score when the forward pass has no
+    # interpolatable GT vertex (vertex-sparse GT / single-point extractions).
+    residuals_dex_reverse: np.ndarray = field(default_factory=lambda: np.array([]))
 
 
 # Coupling ceilings per type: points with coupling >= ceiling are treated as
@@ -277,12 +281,186 @@ _COUPLING_CEILINGS = {
 _DEFAULT_COUPLING_CEIL = 1e-2
 
 
+def _ceil_for(coupling_type: str | None) -> float:
+    """Boundary-closure ceiling for a coupling type (shared lookup)."""
+    return _COUPLING_CEILINGS.get(coupling_type, _DEFAULT_COUPLING_CEIL)
+
+
 def _filter_boundary(data: np.ndarray, coupling_ceil: float = 1e-2) -> np.ndarray:
     """Remove boundary-closure sentinel points (coupling >= ceil) and
     non-positive values.  Returns data sorted by mass."""
     mask = (data[:, 0] > 0) & (data[:, 1] > 0) & (data[:, 1] < coupling_ceil)
     filtered = data[mask]
     return filtered[np.argsort(filtered[:, 0])]
+
+
+def _filter_boundary_keep_order(data: np.ndarray, coupling_ceil: float) -> np.ndarray:
+    """Like ``_filter_boundary`` but preserves file order — needed to detect
+    closed-contour (multi-branch) curves, which sorting would scramble."""
+    mask = (data[:, 0] > 0) & (data[:, 1] > 0) & (data[:, 1] < coupling_ceil)
+    return data[mask]
+
+
+# Canonical wide mass window for mass-independent (flat) bounds (Lever E, #587).
+# A bound the extractor reports as mass-independent records no usable mass
+# (every row has mass <= 0, its sentinel). Encoded that way it survives no
+# boundary filter (``_filter_boundary`` drops mass <= 0), so it can never
+# overlap a GT curve and is spuriously scored zero_overlap even when its
+# coupling matches GT (e.g. 2007.03694 RedGiants: g_ae ~ 1.3e-13, matches GT
+# to ~0.04 dex but mass=0). Moved here from subset_compare.py (post-full346
+# Phase 1c) so the full-pool scorer applies it too.
+_FLAT_BOUND_MASS_LO = 1e-30
+_FLAT_BOUND_MASS_HI = 1e4
+
+
+def _expand_mass_independent(arr: np.ndarray) -> np.ndarray:
+    """Expand a mass-independent extraction to a horizontal segment.
+
+    If every row has mass <= 0 (the extractor's mass-independent sentinel) but
+    at least one coupling is positive, return a 2-row segment at the median
+    positive coupling spanning ``[_FLAT_BOUND_MASS_LO, _FLAT_BOUND_MASS_HI]``
+    so the comparator can score the coupling against the GT at the GT's own
+    masses. Otherwise return ``arr`` unchanged.
+
+    A flat bound is physically valid at every mass, so this is faithful, not a
+    GT edit: only the *extraction* is reshaped, the GT curve is untouched.
+    """
+    if arr is None or len(arr) == 0:
+        return arr
+    masses = arr[:, 0]
+    if np.any(masses > 0):
+        return arr  # usable mass info present; not a flat-bound sentinel
+    valid = arr[:, 1][arr[:, 1] > 0]
+    if valid.size == 0:
+        return arr
+    g = float(np.median(valid))
+    return np.array([[_FLAT_BOUND_MASS_LO, g], [_FLAT_BOUND_MASS_HI, g]], dtype=float)
+
+
+def _lower_envelope_if_contour(data: np.ndarray) -> np.ndarray:
+    """Reduce a closed-contour / multivalued curve to its lower envelope.
+
+    Some GT curves are closed exclusion BANDS (e.g. AxionProton/SN1987A.txt:
+    a free-streaming lower edge AND a trapping upper edge traced as one
+    polygon). Interpolating such a polygon as a single-valued curve mixes the
+    branches and produces multi-dex phantom residuals (2306.01048: 3.51 dex
+    raw vs 0.02 dex against the lower branch). Detection: after dropping
+    zero-length steps, the log-mass sequence reverses direction (a monotonic
+    curve, however jittery in y, never does). The input must be in FILE ORDER
+    (use ``_filter_boundary_keep_order``); the output is sorted by mass with
+    one (strongest) coupling per distinct mass.
+
+    For monotonic input this is equivalent to a plain sort, so applying it
+    unconditionally to already-single-valued curves is a no-op.
+    """
+    if data is None or len(data) < 3:
+        return data[np.argsort(data[:, 0])] if data is not None and len(data) else data
+    lm = np.log10(data[:, 0])
+    lc = np.log10(data[:, 1])
+    # Split into monotonic-in-mass branches at direction reversals.
+    cuts = [0]
+    cur = 0
+    for i in range(1, len(lm)):
+        dd = lm[i] - lm[i - 1]
+        s = 1 if dd > 1e-12 else (-1 if dd < -1e-12 else 0)
+        if s == 0:
+            continue
+        if cur == 0:
+            cur = s
+        elif s != cur:
+            cuts.append(i - 1)  # the pivot vertex belongs to both branches
+            cur = s
+    cuts.append(len(lm) - 1)
+    if len(cuts) <= 2:
+        return data[np.argsort(data[:, 0])]  # monotonic: not a contour
+
+    grid = np.unique(lm)
+    env = np.full(grid.shape, np.inf)
+    for k in range(len(cuts) - 1):
+        a, b = cuts[k], cuts[k + 1] + 1
+        bm, bc = _deduplicate_mass(lm[a:b], lc[a:b])
+        if len(bm) >= 2:
+            fn = interp1d(bm, bc, kind="linear", bounds_error=False,
+                          fill_value=np.nan)
+            vals = fn(grid)
+        else:
+            vals = np.full(grid.shape, np.nan)
+            j = int(np.argmin(np.abs(grid - bm[0])))
+            vals[j] = bc[0]
+        env = np.fmin(env, vals)  # fmin ignores NaN
+    ok = np.isfinite(env)
+    return np.column_stack([10.0 ** grid[ok], 10.0 ** env[ok]])
+
+
+# ---------------------------------------------------------------------------
+# Single-point comparison (#612, moved from subset_compare.py in Phase 1c).
+# Many results are a SINGLE limit value at one operating mass (e.g. 1806.00310
+# QUAX 2018 notch; the DM-Radio Pathfinder point). Curve interpolation cannot
+# run on them, so without this they are discarded as zero_overlap even when
+# the extracted coupling is correct.
+# ---------------------------------------------------------------------------
+_SINGLE_POINT_MASS_TOL_DEX = 0.3   # ~factor 2 in mass = the same experimental point
+_SINGLE_POINT_MAX_EXT_MASSES = 3   # fallback only for sparse single-value extractions
+
+
+def _residuals_at(curve: np.ndarray, reference: np.ndarray,
+                  tol_dex: float) -> np.ndarray | None:
+    """|Δ log10 coupling| of ``curve`` evaluated at each ``reference`` point.
+
+    Both Nx2 (mass, coupling), already boundary-filtered & positive. The curve
+    is interpolated in log-log when it has >= 2 distinct masses; for reference
+    masses outside the curve's range (or a single-point curve) the nearest
+    curve point is used, but only if it is within ``tol_dex`` of the reference
+    mass (the same operating mass). Returns the residuals at the matched
+    reference points, or ``None`` if none match.
+    """
+    cm, cc = _deduplicate_mass(np.log10(curve[:, 0]), np.log10(curve[:, 1]))
+    # Dedup the reference to one (strongest) point per operating mass:
+    # duplicate rows at the same mass are the same point, not extra coverage.
+    rm, rc = _deduplicate_mass(np.log10(reference[:, 0]), np.log10(reference[:, 1]))
+    interp = None
+    if len(cm) >= 2:
+        interp = interp1d(cm, cc, kind="linear", bounds_error=False,
+                          fill_value=np.nan)
+    out = []
+    for k in range(len(rm)):
+        val = float(interp(rm[k])) if interp is not None else float("nan")
+        if not np.isfinite(val):
+            j = int(np.argmin(np.abs(cm - rm[k])))
+            if abs(cm[j] - rm[k]) <= tol_dex:
+                val = cc[j]
+        if np.isfinite(val):
+            out.append(abs(val - rc[k]))
+    return np.array(out) if out else None
+
+
+def single_point_compare(curve: np.ndarray, reference: np.ndarray,
+                         coupling_type: str | None = None,
+                         require_sparse_ref: bool = False):
+    """Single-point residual: evaluate ``curve`` at the ``reference`` masses.
+
+    ``reference`` is the side with the trustworthy operating mass(es) — the
+    single GT point (single-mass GT), or the sparse single-value extraction
+    (the fallback when a GT curve cannot be interpolated against a 1-point
+    read). Returns ``(median_resid, n_matched, coverage, residuals)`` over the
+    reference points, or ``None`` if nothing matches.
+
+    ``require_sparse_ref`` refuses to score a rich multi-point reference this
+    way — used in the curve fallback so a genuine wrong-window curve failure
+    is not masked by one lucky near-mass extracted point.
+    """
+    ceil = _ceil_for(coupling_type)
+    c = _filter_boundary(curve, ceil)
+    r = _filter_boundary(reference, ceil)
+    if len(c) == 0 or len(r) == 0:
+        return None
+    n_ref_masses = int(np.unique(r[:, 0]).size)
+    if require_sparse_ref and n_ref_masses > _SINGLE_POINT_MAX_EXT_MASSES:
+        return None
+    res = _residuals_at(c, r, _SINGLE_POINT_MASS_TOL_DEX)
+    if res is None:
+        return None
+    return float(np.median(res)), len(res), len(res) / n_ref_masses, res
 
 
 def _deduplicate_mass(log_mass: np.ndarray, log_coupling: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
@@ -344,8 +522,17 @@ def compute_interpolation_metrics(
     if coupling_type and coupling_type in _COUPLING_CEILINGS:
         coupling_ceil = _COUPLING_CEILINGS[coupling_type]
 
-    ext = _filter_boundary(extracted, coupling_ceil)
-    gt = _filter_boundary(ground_truth, coupling_ceil)
+    # Flat mass-independent bounds are expanded to a horizontal segment before
+    # filtering (their mass<=0 sentinel rows would otherwise all be dropped).
+    extracted = _expand_mass_independent(extracted)
+
+    # Filter sentinels in FILE ORDER, then reduce closed-contour (multivalued)
+    # curves to their lower envelope; monotonic curves come back sorted,
+    # unchanged. See _lower_envelope_if_contour (2306.01048).
+    ext = _lower_envelope_if_contour(
+        _filter_boundary_keep_order(extracted, coupling_ceil))
+    gt = _lower_envelope_if_contour(
+        _filter_boundary_keep_order(ground_truth, coupling_ceil))
 
     n_ext = len(ext)
     n_gt = len(gt)
@@ -360,7 +547,7 @@ def compute_interpolation_metrics(
         frac_within_0_1dex=0.0, frac_within_0_3dex=0.0,
         frac_within_0_5dex=0.0, frac_within_1_0dex=0.0,
     )
-    if n_ext < 2 or n_gt == 0:
+    if n_ext == 0 or n_gt == 0:
         return _empty
 
     # Log-space
@@ -372,34 +559,33 @@ def compute_interpolation_metrics(
     # Deduplicate extracted masses (keep strongest constraint)
     log_ext_m, log_ext_c = _deduplicate_mass(log_ext_m, log_ext_c)
 
-    if len(log_ext_m) < 2:
-        return _empty
-
-    # Build interpolation (linear in log-log = power-law in linear)
-    interp_fn = interp1d(
-        log_ext_m, log_ext_c,
-        kind="linear",
-        bounds_error=False,
-        fill_value=np.nan,
-    )
-
-    # Evaluate at GT masses
-    interp_c = interp_fn(log_gt_m)
-
-    # Only keep points inside the extracted mass range (not extrapolated)
-    valid = ~np.isnan(interp_c)
-    n_interpolatable = int(np.sum(valid))
-
-    if n_interpolatable == 0:
-        return _empty
-
-    residuals = np.abs(interp_c[valid] - log_gt_c[valid])
+    # --- Forward pass: interp from extraction, evaluate at GT masses. ---
+    # Needs >= 2 distinct extracted masses; a single-point extraction is
+    # scored by the reverse pass below instead of being auto-failed (#612 /
+    # post-full346 Phase 1c — n_ext==1 used to early-return _empty here).
+    residuals = None
+    if len(log_ext_m) >= 2:
+        interp_fn = interp1d(
+            log_ext_m, log_ext_c,
+            kind="linear",
+            bounds_error=False,
+            fill_value=np.nan,
+        )
+        interp_c = interp_fn(log_gt_m)
+        # Only keep points inside the extracted mass range (no extrapolation)
+        valid = ~np.isnan(interp_c)
+        if np.any(valid):
+            residuals = np.abs(interp_c[valid] - log_gt_c[valid])
+    n_interpolatable = int(len(residuals)) if residuals is not None else 0
 
     # --- Reverse pass: build interp from GT, evaluate at extracted masses. ---
-    # log_ext_m/log_ext_c are already deduplicated above; the GT side is
-    # deduplicated inside _interp_residuals.
+    # Computed even when the forward pass is empty (vertex-sparse GT, e.g. a
+    # 2-vertex flat segment, or a 1-point extraction inside the GT range) so
+    # the caller can promote it to the effective score instead of reporting a
+    # spurious zero_overlap (1406.6053, 0910.5914, 1906.08814, 2102.08764).
     residuals_rev = _interp_residuals(log_gt_m, log_gt_c, log_ext_m, log_ext_c)
     if residuals_rev is None or len(residuals_rev) == 0:
+        residuals_rev = np.array([])
         n_interp_rev = 0
         cov_rev = 0.0
         med_rev = mean_rev = p90_rev = max_rev = float("inf")
@@ -410,6 +596,24 @@ def compute_interpolation_metrics(
         mean_rev = float(np.mean(residuals_rev))
         p90_rev = float(np.percentile(residuals_rev, 90))
         max_rev = float(np.max(residuals_rev))
+
+    if n_interpolatable == 0:
+        return InterpolationMetrics(
+            arxiv_id=arxiv_id, num_extracted=n_ext, num_ground_truth=n_gt,
+            num_interpolatable=0, interpolation_coverage=0.0,
+            residuals_dex=np.array([]),
+            median_residual_dex=float("inf"), mean_residual_dex=float("inf"),
+            p90_residual_dex=float("inf"), max_residual_dex=float("inf"),
+            frac_within_0_1dex=0.0, frac_within_0_3dex=0.0,
+            frac_within_0_5dex=0.0, frac_within_1_0dex=0.0,
+            num_interpolatable_reverse=n_interp_rev,
+            interpolation_coverage_reverse=cov_rev,
+            median_residual_dex_reverse=med_rev,
+            mean_residual_dex_reverse=mean_rev,
+            p90_residual_dex_reverse=p90_rev,
+            max_residual_dex_reverse=max_rev,
+            residuals_dex_reverse=residuals_rev,
+        )
 
     return InterpolationMetrics(
         arxiv_id=arxiv_id,
@@ -432,6 +636,7 @@ def compute_interpolation_metrics(
         mean_residual_dex_reverse=mean_rev,
         p90_residual_dex_reverse=p90_rev,
         max_residual_dex_reverse=max_rev,
+        residuals_dex_reverse=residuals_rev,
     )
 
 

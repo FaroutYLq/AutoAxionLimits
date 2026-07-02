@@ -85,7 +85,7 @@ def test_compare_dedups_reference_rows_coverage_le_one():
     ref = np.array([[1.1e-4, 2.02e-12], [1.1e-4, 2.02e-12], [1.1e-4, 1e0]])
     out = _single_point_compare(curve, ref, "AxionPhoton")
     assert out is not None
-    resid, n_match, cov = out
+    resid, n_match, cov, _res = out
     assert resid == pytest.approx(0.0, abs=1e-9)
     assert cov == pytest.approx(1.0)
 

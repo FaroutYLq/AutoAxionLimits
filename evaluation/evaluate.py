@@ -39,7 +39,13 @@ import numpy as np
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from evaluation.conventions import canonical_convention
+from evaluation.conventions import (
+    UNCONVERTIBLE,
+    canonical_convention,
+    classify_reported_convention,
+    file_source_convention,
+    to_canonical,
+)
 from evaluation.ground_truth import (
     GroundTruthEntry,
     load_ground_truth,
@@ -51,10 +57,12 @@ from evaluation.metrics import (
     CurveMetrics,
     InterpolationMetrics,
     SymmetricCurveMetrics,
+    _expand_mass_independent,
     compute_confidence_calibration,
     compute_curve_metrics,
     compute_interpolation_metrics,
     compute_symmetric_curve_metrics,
+    single_point_compare,
 )
 from evaluation.report import generate_report
 
@@ -372,6 +380,99 @@ def _is_placeholder_entry(entry: GroundTruthEntry) -> bool:
 SMALL_SAMPLE_THRESHOLD = 5
 
 
+# ---------------------------------------------------------------------------
+# Convention canonicalization (#536/#587), ported from subset_compare.py in
+# post-full346 Phase 1c so the full-pool scorer applies the SAME vetted
+# conversions the subset comparator has used since #587. Converting only one
+# side would break pairs that already agree in a shared non-canonical
+# convention, so BOTH the extraction (its declared convention) and the GT
+# curve (its file's source convention) are canonicalized.
+# ---------------------------------------------------------------------------
+
+def _canonicalize_curve(coupling_type, arr: np.ndarray, token) -> np.ndarray:
+    """Apply a vetted ``to_canonical`` conversion to an Nx2 curve (no-op if
+    token is None / unknown). Returns the (possibly converted) array."""
+    if token is None or arr is None or len(arr) == 0:
+        return arr
+    pts = [(float(m), float(g)) for m, g in arr]
+    out, _note = to_canonical(coupling_type, pts, token)
+    if not out:
+        return arr
+    return np.array(out, dtype=float, ndmin=2)
+
+
+def _maybe_canonicalize(result: dict, predicted_ct: str, ext_array: np.ndarray,
+                        gt_entry, gt_data: np.ndarray):
+    """Apply both-sides convention canonicalization.
+
+    Returns ``(ext_array, gt_data, unconvertible)``. ``unconvertible`` is True
+    when the extraction declares a recognized but non-convertible convention
+    (#604) — caller should treat as convention_mismatch. No-op (and never
+    unconvertible) when the extraction does not declare a convention, so
+    field-less old snapshots stay raw.
+    """
+    if not result.get("coupling_convention"):
+        return ext_array, gt_data, False
+    ext_token = classify_reported_convention(
+        predicted_ct, result.get("coupling_convention"))
+    if ext_token == UNCONVERTIBLE:
+        return ext_array, gt_data, True
+    gt_token = file_source_convention(gt_entry.reference_repo_file, predicted_ct)
+    return (_canonicalize_curve(predicted_ct, ext_array, ext_token),
+            _canonicalize_curve(predicted_ct, gt_data, gt_token), False)
+
+
+def _frac_within(res: np.ndarray, tau: float) -> float:
+    return float(np.mean(res <= tau)) if len(res) else 0.0
+
+
+def _reverse_as_effective(im: InterpolationMetrics) -> InterpolationMetrics:
+    """Promote the reverse pass to the paper's effective score.
+
+    Used when the forward pass has no interpolatable GT vertex but the
+    extracted masses DO lie inside the GT range (vertex-sparse GT such as a
+    2-vertex flat segment, or a single-point extraction). This cannot mask a
+    wrong-mass-window failure: an extraction outside the GT range has no
+    reverse residuals either.
+    """
+    import dataclasses
+    res = im.residuals_dex_reverse
+    return dataclasses.replace(
+        im,
+        num_interpolatable=im.num_interpolatable_reverse,
+        interpolation_coverage=im.interpolation_coverage_reverse,
+        residuals_dex=res,
+        median_residual_dex=im.median_residual_dex_reverse,
+        mean_residual_dex=im.mean_residual_dex_reverse,
+        p90_residual_dex=im.p90_residual_dex_reverse,
+        max_residual_dex=im.max_residual_dex_reverse,
+        frac_within_0_1dex=_frac_within(res, 0.1),
+        frac_within_0_3dex=_frac_within(res, 0.3),
+        frac_within_0_5dex=_frac_within(res, 0.5),
+        frac_within_1_0dex=_frac_within(res, 1.0),
+    )
+
+
+def _single_point_as_metrics(arxiv_id: str, sp, n_ext: int,
+                             n_gt: int) -> InterpolationMetrics:
+    """Wrap a ``single_point_compare`` result as InterpolationMetrics so
+    single-point comparisons feed the same aggregates as curve comparisons."""
+    med, n_matched, cov, res = sp
+    return InterpolationMetrics(
+        arxiv_id=arxiv_id, num_extracted=n_ext, num_ground_truth=n_gt,
+        num_interpolatable=n_matched, interpolation_coverage=cov,
+        residuals_dex=res,
+        median_residual_dex=med,
+        mean_residual_dex=float(np.mean(res)),
+        p90_residual_dex=float(np.percentile(res, 90)),
+        max_residual_dex=float(np.max(res)),
+        frac_within_0_1dex=_frac_within(res, 0.1),
+        frac_within_0_3dex=_frac_within(res, 0.3),
+        frac_within_0_5dex=_frac_within(res, 0.5),
+        frac_within_1_0dex=_frac_within(res, 1.0),
+    )
+
+
 def _bootstrap_median_ci(
     values: list[float],
     n_resamples: int = 1000,
@@ -526,6 +627,18 @@ def compute_all_metrics(
         extracted_points = result.get("data_points", [])
         ext_array = (np.array(extracted_points, dtype=float, ndmin=2)
                      if extracted_points else None)
+        # Lever E (#587): a mass-independent (flat) extraction is recorded with
+        # no usable mass (all masses <= 0) and would be dropped by boundary
+        # filtering — expand it to a horizontal segment so its coupling can be
+        # scored against the GT at the GT's own masses.
+        if ext_array is not None:
+            ext_array = _expand_mass_independent(ext_array)
+
+        # Populated by the scoring below when comparison succeeds.
+        im = None
+        chosen = None
+        gt_c = ext_c = None
+        scored_via = None  # "forward" | "reverse" | "single_point" | "single_point_gt"
 
         if predicted_ct is None:
             comparison_status = "no_prediction"
@@ -535,16 +648,16 @@ def compute_all_metrics(
         elif ext_array is None:
             comparison_status = "no_extracted_points"
         else:
-            # The extraction has no convention field; its expected convention is
-            # the canonical convention for its predicted coupling type. A GT
-            # curve in a DIFFERENT convention (e.g. f_a [GeV] vs normalized, or
-            # a large-valued scalar variable vs d_e) is NOT comparable: the
-            # residual would be a units gap, not extraction error.
+            # Convention guard (#536): a GT curve whose entry-level convention
+            # label differs from the canonical one for this coupling type is
+            # NOT comparable raw — the residual would be a units gap, not
+            # extraction error. (The vetted per-token canonicalization below is
+            # a separate, additive mechanism, mirroring subset_compare.py.)
             expected_conv, _ = canonical_convention(predicted_ct)
 
             # Candidate GT entries: same authoritative coupling AND usable data.
-            candidates = []
-            has_point_ref = False  # matched GT exists but is a single-mass point
+            multi_candidates = []   # n_mass >= 2 : a comparable curve
+            single_candidates = []  # n_mass == 1 : a single-point (operating-mass) reference
             has_convention_mismatch = False  # same coupling, different convention
             for e in paper_entries:
                 if _authoritative_coupling(e) != predicted_ct:
@@ -564,16 +677,73 @@ def compute_all_metrics(
                     continue
                 n_pts, n_mass = _usable_gt_stats(gt, predicted_ct)
                 if n_mass >= 2:
-                    candidates.append((n_mass, e, gt))
+                    multi_candidates.append((n_mass, e, gt))
                 elif n_pts >= 1:
-                    has_point_ref = True
-            if candidates:
-                comparison_status = "compared"
-                candidates.sort(key=lambda t: -t[0])  # richest GT curve wins
-                _, chosen, gt_data = candidates[0]
-            elif has_point_ref:
-                # GT is a single-mass prediction/projection — not a curve.
-                comparison_status = "gt_point_reference"
+                    single_candidates.append((1, e, gt))
+
+            if multi_candidates:
+                multi_candidates.sort(key=lambda t: -t[0])  # richest GT curve wins
+                _, chosen, gt_data = multi_candidates[0]
+                # Canonicalize BOTH sides (vetted conversions only; no-op for
+                # snapshots that declare no convention).
+                ext_c, gt_c, unconvertible = _maybe_canonicalize(
+                    result, predicted_ct, ext_array, chosen, gt_data)
+                if unconvertible:
+                    # Declared convention is recognized but has NO vetted
+                    # conversion (#604, e.g. oscillating-EDM e*cm amplitude):
+                    # a convention gap, not a 15-dex "residual".
+                    comparison_status = "convention_mismatch"
+                    chosen = None
+                else:
+                    comparison_status = "compared"
+                    scored_via = "forward"
+                    im = compute_interpolation_metrics(
+                        arxiv_id, ext_c, gt_c, coupling_type=predicted_ct,
+                    )
+                    if im.num_interpolatable == 0:
+                        if im.num_interpolatable_reverse > 0:
+                            # Vertex-sparse GT or 1-point extraction inside the
+                            # GT range: promote the reverse pass (GT evaluated
+                            # at the extracted masses) to the effective score.
+                            scored_via = "reverse"
+                            im = _reverse_as_effective(im)
+                        else:
+                            # Sparse single-value extraction at one of the GT
+                            # curve's operating masses (nearest-mass tolerance;
+                            # guarded to <= 3 distinct extracted masses so a
+                            # genuine wrong-window curve failure is not masked
+                            # by one lucky near-mass point).
+                            sp = single_point_compare(
+                                gt_c, ext_c, predicted_ct, require_sparse_ref=True)
+                            if sp is not None:
+                                scored_via = "single_point"
+                                ext_n = im.num_extracted
+                                gt_n = im.num_ground_truth
+                                im = _single_point_as_metrics(arxiv_id, sp, ext_n, gt_n)
+                            # else: stays "forward" with an infinite residual —
+                            # a genuine zero_overlap.
+            elif single_candidates:
+                # No multi-point GT curve. A single-mass GT is a point
+                # reference: compare the extracted value at that operating
+                # mass (single-point mode, #612).
+                _, chosen, gt_data = single_candidates[0]
+                ext_c, gt_c, unconvertible = _maybe_canonicalize(
+                    result, predicted_ct, ext_array, chosen, gt_data)
+                if unconvertible:
+                    comparison_status = "convention_mismatch"
+                    chosen = None
+                else:
+                    sp = single_point_compare(ext_c, gt_c, predicted_ct)
+                    if sp is not None:
+                        comparison_status = "compared"
+                        scored_via = "single_point_gt"
+                        n_ext_u = int(np.unique(ext_c[:, 0]).size)
+                        im = _single_point_as_metrics(arxiv_id, sp, n_ext_u, 1)
+                    else:
+                        # GT is a single-mass point the extraction never
+                        # reaches — not a comparable curve.
+                        comparison_status = "gt_point_reference"
+                        chosen = None
             elif has_convention_mismatch:
                 # The only same-coupling GT curve(s) use a different convention.
                 # Excluded from residuals — this is a units gap, not error.
@@ -591,10 +761,8 @@ def compute_all_metrics(
             # paper this is exactly the predicted coupling (which is guaranteed
             # to be one of the authoritative GT couplings).
             paper_report["comparison_coupling"] = predicted_ct
+            paper_report["scored_via"] = scored_via
 
-            im = compute_interpolation_metrics(
-                arxiv_id, ext_array, gt_data, coupling_type=predicted_ct,
-            )
             interp_metrics_list.append(im)
             confidences.append(result.get("extraction_confidence", 0.0))
             curve_arxiv_ids.append(arxiv_id)
@@ -622,32 +790,40 @@ def compute_all_metrics(
             }
 
             # Symmetric / 2-D shape metrics: area-between-curves + mass Jaccard.
-            sm = compute_symmetric_curve_metrics(
-                arxiv_id, ext_array, gt_data, coupling_type=predicted_ct,
-            )
-            symmetric_metrics_list.append(sm)
-            paper_report["symmetric_metrics"] = {
-                "area_between_log": sm.area_between_log,
-                "overlap_log_mass_width": sm.overlap_log_mass_width,
-                "mass_jaccard": sm.mass_jaccard,
-                "ext_log_mass_lo": sm.ext_log_mass_lo,
-                "ext_log_mass_hi": sm.ext_log_mass_hi,
-                "gt_log_mass_lo": sm.gt_log_mass_lo,
-                "gt_log_mass_hi": sm.gt_log_mass_hi,
-            }
+            # Computed on the CANONICALIZED curves so they see the same units
+            # the interpolation metric scored. Skipped for single-mass-GT
+            # comparisons (no curve shape exists to score; a degenerate
+            # jaccard=0 entry would pollute the aggregates).
+            if scored_via != "single_point_gt":
+                sm = compute_symmetric_curve_metrics(
+                    arxiv_id, ext_c, gt_c, coupling_type=predicted_ct,
+                )
+                symmetric_metrics_list.append(sm)
+                paper_report["symmetric_metrics"] = {
+                    "area_between_log": sm.area_between_log,
+                    "overlap_log_mass_width": sm.overlap_log_mass_width,
+                    "mass_jaccard": sm.mass_jaccard,
+                    "ext_log_mass_lo": sm.ext_log_mass_lo,
+                    "ext_log_mass_hi": sm.ext_log_mass_hi,
+                    "gt_log_mass_lo": sm.gt_log_mass_lo,
+                    "gt_log_mass_hi": sm.gt_log_mass_hi,
+                }
 
-            cm = compute_curve_metrics(arxiv_id, ext_array, gt_data)
-            curve_metrics_list.append(cm)
-            paper_report["curve_metrics"] = {
-                "hausdorff_log": cm.hausdorff_log,
-                "coverage_at_0_5dex": cm.coverage_at_0_5dex,
-                "coverage_at_1_0dex": cm.coverage_at_1_0dex,
-                "mass_range_overlap": cm.mass_range_overlap,
-                "median_coupling_log_error": cm.median_coupling_log_error,
-                "p90_coupling_log_error": cm.p90_coupling_log_error,
-                "num_extracted": cm.num_extracted,
-                "num_ground_truth": cm.num_ground_truth,
-            }
+                cm = compute_curve_metrics(arxiv_id, ext_c, gt_c)
+                curve_metrics_list.append(cm)
+                paper_report["curve_metrics"] = {
+                    "hausdorff_log": cm.hausdorff_log,
+                    "coverage_at_0_5dex": cm.coverage_at_0_5dex,
+                    "coverage_at_1_0dex": cm.coverage_at_1_0dex,
+                    "mass_range_overlap": cm.mass_range_overlap,
+                    "median_coupling_log_error": cm.median_coupling_log_error,
+                    "p90_coupling_log_error": cm.p90_coupling_log_error,
+                    "num_extracted": cm.num_extracted,
+                    "num_ground_truth": cm.num_ground_truth,
+                }
+            else:
+                paper_report["symmetric_metrics"] = None
+                paper_report["curve_metrics"] = None
         else:
             paper_report["interp_metrics"] = None
             paper_report["curve_metrics"] = None

@@ -5,13 +5,13 @@
     "n_papers_fully_excluded": 15
   },
   "status_counts": {
-    "compared": 271,
-    "convention_mismatch": 10,
+    "convention_mismatch": 14,
+    "compared": 279,
     "no_comparable_gt": 30,
     "excluded_gt": 15,
     "gt_unusable": 1,
     "no_extracted_points": 5,
-    "gt_point_reference": 14
+    "gt_point_reference": 2
   },
   "classification_accuracy": {
     "coupling_type": 0.9093655589123867,
@@ -20,41 +20,41 @@
     "data_source": 0.6285714285714286
   },
   "interpolation": {
-    "n_finite": 245,
-    "n_zero_overlap": 26,
-    "median_median_residual_dex": 0.3106037718681449,
-    "mean_frac_within_0_3dex": 0.49090522886259075,
-    "median_median_residual_dex_reverse": 0.3339999829064495
+    "n_finite": 268,
+    "n_zero_overlap": 11,
+    "median_median_residual_dex": 0.2555275760512563,
+    "mean_frac_within_0_3dex": 0.5417184875115584,
+    "median_median_residual_dex_reverse": 0.26367234219223246
   },
   "symmetric": {
-    "median_area_between_log": 0.3599306897071823,
-    "median_mass_jaccard": 0.8069545222291419
+    "median_area_between_log": 0.34629882090568165,
+    "median_mass_jaccard": 0.8089390669556762
   },
   "per_type_aggregate": {
     "n_types": 12,
-    "n_papers_compared": 245,
-    "micro_median_residual_dex": 0.3106037718681449,
-    "macro_median_residual_dex": 1.5296309024831658,
-    "macro_minus_micro_dex": 1.2190271306150209,
+    "n_papers_compared": 268,
+    "micro_median_residual_dex": 0.2555275760512563,
+    "macro_median_residual_dex": 1.6179398268763823,
+    "macro_minus_micro_dex": 1.362412250825126,
     "per_type_n": {
-      "AxionPhoton": 127,
-      "DarkPhoton": 52,
-      "AxionElectron": 15,
-      "AxionNeutron": 13,
+      "AxionPhoton": 135,
+      "DarkPhoton": 60,
+      "AxionElectron": 19,
+      "AxionNeutron": 14,
       "VectorBL": 11,
+      "AxionMass": 10,
       "ScalarPhoton": 8,
-      "AxionMass": 6,
       "AxionProton": 3,
       "MonopoleDipole": 3,
-      "AxionEDM": 3,
       "ScalarElectron": 3,
-      "ScalarBaryon": 1
+      "ScalarBaryon": 1,
+      "AxionEDM": 1
     }
   },
   "calibration": {
     "noise_floor_residual_dex": 0.32,
-    "top_bin_mean_confidence": 0.8278873239436618,
-    "top_bin_actual_accuracy": 0.704225352112676,
-    "overconfidence_gap": 0.12366197183098582
+    "top_bin_mean_confidence": 0.8315584415584414,
+    "top_bin_actual_accuracy": 0.8311688311688312,
+    "overconfidence_gap": 0.00038961038961016214
   }
 }
