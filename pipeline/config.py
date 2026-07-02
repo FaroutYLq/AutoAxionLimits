@@ -332,7 +332,14 @@ VALID_RANGES = {
     "AxionProton":   {"mass": (1e-24, 1e+9), "coupling": (1e-20, 1e0)},
     "AxionEDM":      {"mass": (1e-24, 1e+9), "coupling": (1e-40, 1e-15)},
     "AxionCPV":      {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},
-    "AxionMass":     {"mass": (1e-12, 1e+18), "coupling": (1e-12, 1e+3)},
+    # AxionMass (the m_a vs f_a plane) includes ultralight/fuzzy-DM and black-
+    # hole-superradiance f_a bounds down to ~1e-22 eV (limit_data/fa: GW170817,
+    # BlackHoleSpins, WhiteDwarfs). The old 1e-12 floor flagged those correct
+    # ultralight windows as out-of-range and the mass auto-corrector then
+    # snapped them into the window, corrupting 5 superradiance papers in
+    # full346 (2012.12790, 2302.00685, 2303.09865, 2406.10337, 2412.20932 —
+    # post-full346 Lever 4). Floor widened to match the fa-plane data domain.
+    "AxionMass":     {"mass": (1e-24, 1e+18), "coupling": (1e-12, 1e+3)},
     "MonopoleDipole": {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},
     "ScalarPhoton":  {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},
     "ScalarElectron": {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},
