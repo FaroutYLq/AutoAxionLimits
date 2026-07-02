@@ -555,6 +555,7 @@ All masses must be in eV. Common mass unit conversions:
 - 1 μeV = 1e-6 eV, 1 neV = 1e-9 eV, 1 peV = 1e-12 eV
 - 1 meV = 1e-3 eV, 1 keV = 1e3 eV, 1 MeV = 1e6 eV, 1 GeV = 1e9 eV
 - Frequency to mass: m[eV] = 4.136e-15 * f[Hz] (e.g., 1 GHz = 4.136e-6 eV). This factor applies ONLY to values the paper gives as frequencies (Hz/kHz/MHz/GHz); NEVER apply it to values already quoted as masses/energies (eV, ueV, meV, keV...) - those are used as-is
+- EDM unit constant: 1 e*cm = 1.5346e13 GeV^-1 (electron charge absorbed). If a conversion from e*cm is ever required, use EXACTLY this constant - never derive it yourself. If you are not certain a conversion is right, emit the raw e*cm values and declare the convention as 'd_n in e*cm'
 - Wavelength to mass: m[eV] = 1.240e-6 / λ[m]
 All coupling values must be in absolute units — do NOT drop prefactors like 10^-14.
 
@@ -665,6 +666,7 @@ Common mass unit conversions:
 - 1 μeV = 1e-6 eV, 1 neV = 1e-9 eV, 1 peV = 1e-12 eV
 - 1 meV = 1e-3 eV, 1 keV = 1e3 eV, 1 MeV = 1e6 eV, 1 GeV = 1e9 eV
 - Frequency to mass: m[eV] = 4.136e-15 * f[Hz] (e.g., 1 GHz = 4.136e-6 eV). This factor applies ONLY to values the paper gives as frequencies (Hz/kHz/MHz/GHz); NEVER apply it to values already quoted as masses/energies (eV, ueV, meV, keV...) - those are used as-is
+- EDM unit constant: 1 e*cm = 1.5346e13 GeV^-1 (electron charge absorbed). If a conversion from e*cm is ever required, use EXACTLY this constant - never derive it yourself. If you are not certain a conversion is right, emit the raw e*cm values and declare the convention as 'd_n in e*cm'
 - Wavelength to mass: m[eV] = 1.240e-6 / λ[m]
 
 If the plot shows a well-known theoretical model line (e.g. KSVZ or DFSZ for axion-photon \

@@ -340,7 +340,11 @@ VALID_RANGES = {
     # full346 (2012.12790, 2302.00685, 2303.09865, 2406.10337, 2412.20932 —
     # post-full346 Lever 4). Floor widened to match the fa-plane data domain.
     "AxionMass":     {"mass": (1e-24, 1e+18), "coupling": (1e-12, 1e+3)},
-    "MonopoleDipole": {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},
+    # MonopoleDipole g_s*g_p products reach ~7e-40 in the repo's own data
+    # (Sun/Moon fifth-force limits); the old 1e-30 floor hard-floor-flagged
+    # CORRECT extractions (2011.07100 median ~1e-31, 2302.09096 ~1e-34) and
+    # demoted their confidence (post-full346 follow-up to Lever 4).
+    "MonopoleDipole": {"mass": (1e-24, 1e+9), "coupling": (1e-42, 1e0)},
     "ScalarPhoton":  {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},
     "ScalarElectron": {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},
     "ScalarBaryon":  {"mass": (1e-24, 1e+9), "coupling": (1e-30, 1e0)},

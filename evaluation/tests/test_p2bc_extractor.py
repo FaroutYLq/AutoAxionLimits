@@ -63,6 +63,20 @@ def test_ultralight_axionmass_window_not_snapped():
     assert "Auto-correct" not in note
 
 
+def test_monopoledipole_coupling_floor_covers_repo_data():
+    # 2011.07100 (median ~1e-31) and 2302.09096 (~1e-34) are CORRECT reads;
+    # the repo's own MonopoleDipole data reaches ~7e-40. The floor must sit
+    # below the real data so correct traces are not hard-floor-flagged.
+    lo, hi = VALID_RANGES["MonopoleDipole"]["coupling"]
+    assert lo <= 1e-40
+    assert hi == 1e0
+
+
+def test_ecm_constant_in_prompts():
+    src = Path(PROJECT_ROOT / "pipeline/extractor.py").read_text()
+    assert src.count("1 e*cm = 1.5346e13 GeV^-1") == 2
+
+
 def test_axionmass_has_explicit_anchor():
     assert _EXPECTED_MASS_ANCHOR_EV["AxionMass"] == pytest.approx(1e-11)
 
