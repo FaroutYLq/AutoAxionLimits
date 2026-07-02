@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import logging
 import re
+import sys
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
@@ -21,6 +22,7 @@ import arxiv
 from .extractor import (
     ExtractionResult,
     download_pdf,
+    FatalAPIError,
     run_extraction_agent,
 )
 from .pr_creator import create_feature_branch, stage_and_commit_files
@@ -437,6 +439,8 @@ def summarise_changes(
             messages=[{"role": "user", "content": prompt}],
         )
         return resp.content[0].text.strip()
+    except FatalAPIError:
+        raise  # #648
     except Exception as e:
         return f"(Could not generate summary: {e})"
 
@@ -579,6 +583,12 @@ def run_weekly_check(
             try:
                 pdf_path = download_pdf(arxiv_id, Path(tmpdir))
                 new_extraction = run_extraction_agent(new_paper, pdf_path, client)
+            except FatalAPIError as e:
+                # #648: availability outage — abort the whole check red;
+                # nothing has been recorded for this paper yet, so it is
+                # re-examined by the next run.
+                logger.error("API availability error — aborting weekly check: %s", e)
+                sys.exit(2)
             except Exception as e:
                 logger.warning("Extraction failed for %s v%d: %s", arxiv_id, latest_version, e)
                 continue
