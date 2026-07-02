@@ -249,16 +249,25 @@ def apply_rules(b: dict, a: dict, *, b_logic_n: int, a_logic_n: int,
     rows.append(GateRow("G4", "figure_vision median residual (dex)", _f(bfm),
                         _f(afm), f"after <= before + {NOISE_FLOOR_DEX}", g4))
 
-    # G5 — figure_vision <=0.3 dex fraction.
+    # G5 — figure_vision <=0.3 dex fraction. The metric is a MEAN of per-paper
+    # fractions, so with N compared figure_vision papers a single paper
+    # crossing the 0.3-dex line on pure LLM sample noise moves it by up to
+    # ~1/N. The slack therefore never demands resolution finer than one
+    # paper's weight: slack = max(FRAC_0_3_SLACK, 1/min(N_before, N_after)).
+    # At the subset's typical N (>= 20) this reduces to the flat 5 pp slack;
+    # it only widens for small per-source pools, where the flat slack was
+    # provably flappy across same-code master repeats (post-full346 1c).
     bff, aff = bf.get("frac_0_3"), af.get("frac_0_3")
+    n_min = min(bf.get("compared") or 0, af.get("compared") or 0)
+    g5_slack = max(FRAC_0_3_SLACK, 1.0 / n_min) if n_min > 0 else FRAC_0_3_SLACK
     if bff is None:
         g5 = True
     elif aff is None:
         g5 = False
     else:
-        g5 = aff >= bff - FRAC_0_3_SLACK - 1e-9
+        g5 = aff >= bff - g5_slack - 1e-9
     rows.append(GateRow("G5", "figure_vision <=0.3 dex fraction", _f(bff),
-                        _f(aff), f"after >= before - {FRAC_0_3_SLACK}", g5))
+                        _f(aff), f"after >= before - {_f(g5_slack, 2)}", g5))
 
     # G6 — no NEW logic errors (strict) and no run-away HARD-floor violations
     # (slacked, since membership flaps on LLM noise).

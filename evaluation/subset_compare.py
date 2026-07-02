@@ -29,27 +29,32 @@ from pathlib import Path
 from typing import Optional
 
 import numpy as np
-from scipy.interpolate import interp1d
 
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from evaluation.evaluate import (
     _authoritative_coupling,
+    _canonicalize_curve,  # noqa: F401 - shared canonicalization (Phase 1c), re-exported
+    _maybe_canonicalize,
     _normalize_predicted_coupling,
     _usable_gt_stats,
 )
 from evaluation.conventions import (
-    UNCONVERTIBLE,
+    UNCONVERTIBLE,  # noqa: F401 - re-exported for tests/back-compat
     canonical_convention,
-    classify_reported_convention,
-    file_source_convention,
-    to_canonical,
 )
 from evaluation.metrics import (
+    _FLAT_BOUND_MASS_HI,  # noqa: F401 - re-exported for tests/back-compat
+    _FLAT_BOUND_MASS_LO,  # noqa: F401
+    _SINGLE_POINT_MASS_TOL_DEX,  # noqa: F401
+    _SINGLE_POINT_MAX_EXT_MASSES,  # noqa: F401
     _deduplicate_mass,
+    _expand_mass_independent,
     _filter_boundary,
+    _residuals_at,  # noqa: F401 - re-exported for tests/back-compat
     compute_interpolation_metrics,
+    single_point_compare as _single_point_compare,
 )
 from evaluation.diagnose_zero_overlap import _classify, _ceil_for, _mass_range
 from evaluation.ground_truth import GroundTruthEntry, load_ground_truth
@@ -69,143 +74,13 @@ def _load_result_dir(d: Path) -> dict[str, dict]:
     return out
 
 
-# Canonical wide mass window for mass-independent (flat) bounds (Lever E, #587).
-# A bound the extractor reports as mass-independent records no usable mass (every
-# row has mass <= 0, its sentinel). Encoded that way it survives no boundary
-# filter (`_filter_boundary` drops mass <= 0), so it can never overlap a GT curve
-# and is spuriously scored zero_overlap even when its coupling matches GT
-# (e.g. 2007.03694 RedGiants: g_ae ~ 1.3e-13, matches GT to ~0.04 dex but mass=0).
-_FLAT_BOUND_MASS_LO = 1e-30
-_FLAT_BOUND_MASS_HI = 1e4
-
-
-def _expand_mass_independent(arr: np.ndarray) -> np.ndarray:
-    """Expand a mass-independent extraction to a horizontal segment.
-
-    If every row has mass <= 0 (the extractor's mass-independent sentinel) but at
-    least one coupling is positive, return a 2-row segment at the median positive
-    coupling spanning ``[_FLAT_BOUND_MASS_LO, _FLAT_BOUND_MASS_HI]`` so the
-    comparator can score the coupling against the GT at the GT's own masses.
-    Otherwise return ``arr`` unchanged.
-
-    A flat bound is physically valid at every mass, so this is faithful, not a GT
-    edit: only the *extraction* is reshaped, the GT curve is untouched. A flat
-    extraction vs a mass-dependent GT still scores its true per-mass coupling gap
-    (the median residual is then large) — no masking of a real extraction miss.
-    """
-    if arr is None or len(arr) == 0:
-        return arr
-    masses = arr[:, 0]
-    if np.any(masses > 0):
-        return arr  # usable mass info present; not a flat-bound sentinel
-    valid = arr[:, 1][arr[:, 1] > 0]
-    if valid.size == 0:
-        return arr
-    g = float(np.median(valid))
-    return np.array([[_FLAT_BOUND_MASS_LO, g], [_FLAT_BOUND_MASS_HI, g]], dtype=float)
-
-
-def _canonicalize_curve(coupling_type, arr: np.ndarray, token) -> np.ndarray:
-    """Apply a vetted `to_canonical` conversion to an Nx2 curve (no-op if token is
-    None / unknown). Returns the (possibly converted) array."""
-    if token is None or arr is None or len(arr) == 0:
-        return arr
-    pts = [(float(m), float(g)) for m, g in arr]
-    out, _note = to_canonical(coupling_type, pts, token)
-    if not out:
-        return arr
-    return np.array(out, dtype=float, ndmin=2)
-
-
-# Single-point-GT comparison (#612). Many results are a SINGLE limit value at one
-# operating mass (e.g. 1706.00209 ORGAN: g_ag<2.02e-12 @ 110 ueV; 2208.06519
-# QuantumCyclotron; the 2020 QUAX point in 1806.00310). The O'Hare file then has
-# one distinct mass (a point reference, not a curve), so curve interpolation
-# cannot run and the paper is discarded as no_comparable_gt / zero_overlap even
-# when the extracted coupling matches. We score it as a single point: pair each
-# extracted point with the nearest-in-log-mass GT point and, if they sit at the
-# same operating mass (within tolerance), take |Δ log10 coupling|.
-_SINGLE_POINT_MASS_TOL_DEX = 0.3   # ~factor 2 in mass = the same experimental point
-_SINGLE_POINT_MAX_EXT_MASSES = 3   # fallback only for sparse single-value extractions
-
-
-def _maybe_canonicalize(result: dict, predicted_ct: str, ext_array: np.ndarray,
-                        gt_entry, gt_data: np.ndarray):
-    """Apply both-sides convention canonicalization (#536/#587 registry).
-
-    Returns ``(ext_array, gt_data, unconvertible)``. ``unconvertible`` is True
-    when the extraction declares a recognized but non-convertible convention
-    (#604) — caller should treat as convention_mismatch. No-op (and never
-    unconvertible) when the extraction does not declare a convention, so
-    field-less old snapshots stay raw.
-    """
-    if not result.get("coupling_convention"):
-        return ext_array, gt_data, False
-    ext_token = classify_reported_convention(predicted_ct, result.get("coupling_convention"))
-    if ext_token == UNCONVERTIBLE:
-        return ext_array, gt_data, True
-    gt_token = file_source_convention(gt_entry.reference_repo_file, predicted_ct)
-    return (_canonicalize_curve(predicted_ct, ext_array, ext_token),
-            _canonicalize_curve(predicted_ct, gt_data, gt_token), False)
-
-
-def _residuals_at(curve: np.ndarray, reference: np.ndarray,
-                  tol_dex: float) -> np.ndarray | None:
-    """|Δ log10 coupling| of ``curve`` evaluated at each ``reference`` point.
-
-    Both Nx2 (mass, coupling), already boundary-filtered & positive. The curve is
-    interpolated in log-log when it has >= 2 distinct masses; for reference
-    masses outside the curve's range (or a single-point curve) the nearest curve
-    point is used, but only if it is within ``tol_dex`` of the reference mass
-    (the same operating mass). Returns the residuals at the matched reference
-    points, or ``None`` if none match.
-    """
-    cm, cc = _deduplicate_mass(np.log10(curve[:, 0]), np.log10(curve[:, 1]))
-    # Dedup the reference to one (strongest) point per operating mass: duplicate
-    # rows at the same mass are the same point, not extra coverage.
-    rm, rc = _deduplicate_mass(np.log10(reference[:, 0]), np.log10(reference[:, 1]))
-    interp = None
-    if len(cm) >= 2:
-        interp = interp1d(cm, cc, kind="linear", bounds_error=False,
-                          fill_value=np.nan)
-    out = []
-    for k in range(len(rm)):
-        val = float(interp(rm[k])) if interp is not None else float("nan")
-        if not np.isfinite(val):
-            j = int(np.argmin(np.abs(cm - rm[k])))
-            if abs(cm[j] - rm[k]) <= tol_dex:
-                val = cc[j]
-        if np.isfinite(val):
-            out.append(abs(val - rc[k]))
-    return np.array(out) if out else None
-
-
-def _single_point_compare(curve: np.ndarray, reference: np.ndarray,
-                          predicted_ct: str, require_sparse_ref: bool = False):
-    """Single-point residual: evaluate ``curve`` at the ``reference`` masses.
-
-    ``reference`` is the side with the trustworthy operating mass(es) — the
-    single GT point (single-mass GT), or the sparse single-value extraction (the
-    fallback when a GT curve cannot be interpolated against a 1-point read).
-    Returns ``(median_resid, n_matched, coverage)`` over the reference points, or
-    ``None`` if nothing matches.
-
-    ``require_sparse_ref`` refuses to score a rich multi-point reference this way
-    — used in the curve fallback so a genuine wrong-window curve failure is not
-    masked by one lucky near-mass extracted point.
-    """
-    ceil = _ceil_for(predicted_ct)
-    c = _filter_boundary(curve, ceil)
-    r = _filter_boundary(reference, ceil)
-    if len(c) == 0 or len(r) == 0:
-        return None
-    n_ref_masses = int(np.unique(r[:, 0]).size)
-    if require_sparse_ref and n_ref_masses > _SINGLE_POINT_MAX_EXT_MASSES:
-        return None
-    res = _residuals_at(c, r, _SINGLE_POINT_MASS_TOL_DEX)
-    if res is None:
-        return None
-    return float(np.median(res)), len(res), len(res) / n_ref_masses
+# The scoring helpers this module used to define locally — flat-bound
+# expansion (Lever E #587), both-sides convention canonicalization (#536/#587),
+# and single-point comparison (#612) — were promoted into the shared scoring
+# path (evaluation.metrics / evaluation.evaluate) in post-full346 Phase 1c so
+# the full-pool report applies the exact same logic. They are imported (and
+# re-exported under their old names) above. NOTE: ``_single_point_compare`` now
+# returns a 4-tuple ``(median, n_matched, coverage, residuals)``.
 
 
 def _paper_record(arxiv_id: str, result: dict,
@@ -306,7 +181,7 @@ def _paper_record(arxiv_id: str, result: dict,
         sp = _single_point_compare(gt_c, ext_c, predicted_ct, require_sparse_ref=True)
         if sp is not None:
             rec["status"] = "compared"
-            rec["median_resid"], _n, rec["coverage"] = sp
+            rec["median_resid"], _n, rec["coverage"], _res = sp
             rec["single_point"] = True
             return rec
         rec["status"] = "zero_overlap"
@@ -335,7 +210,7 @@ def _paper_record(arxiv_id: str, result: dict,
         sp = _single_point_compare(ext_c, gt_c, predicted_ct)
         if sp is not None:
             rec["status"] = "compared"
-            rec["median_resid"], _n, rec["coverage"] = sp
+            rec["median_resid"], _n, rec["coverage"], _res = sp
             rec["single_point"] = True
             return rec
         rec["status"] = "zero_overlap"
