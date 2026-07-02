@@ -51,10 +51,46 @@ MIN_DATA_POINTS_TEXT = 3
 # API retry helper
 # ---------------------------------------------------------------------------
 
+class FatalAPIError(RuntimeError):
+    """API-availability failure (billing / auth) — the whole RUN must abort.
+
+    Issue #648: the credit balance ran out and every Claude call failed with a
+    400 "credit balance is too low", but the per-stage ``except Exception``
+    handlers logged a warning and failed closed to ``is_new_limit=False`` — so
+    18 daily runs stayed green while 85 papers were falsely marked processed.
+
+    This class marks the errors that are a property of the ENVIRONMENT, not of
+    the paper being processed: no retry, no other paper, and no stage fallback
+    can succeed while it holds. Stage handlers must re-raise it (never swallow
+    it into an empty-result fallback), and the run entrypoints abort non-zero
+    WITHOUT marking the current paper processed/failed.
+    """
+
+
+# Message fragments that identify a billing 400 (anthropic returns HTTP 400
+# invalid_request_error for an exhausted credit balance, not a 402).
+_BILLING_400_TOKENS = ("credit balance", "billing")
+
+
+def _fatal_api_reason(e: Exception) -> str | None:
+    """Why ``e`` is an API-availability (fatal) error, or None if it is not."""
+    if isinstance(e, anthropic.AuthenticationError):
+        return "authentication failed (401 — bad/revoked API key)"
+    if isinstance(e, anthropic.PermissionDeniedError):
+        return "permission denied (403)"
+    if isinstance(e, anthropic.BadRequestError):
+        msg = str(e).lower()
+        if any(t in msg for t in _BILLING_400_TOKENS):
+            return "credit balance exhausted (billing 400)"
+    return None
+
+
 def _call_with_retry(fn, max_retries: int = 4, base_delay: float = 5.0):
     """
     Call fn() with exponential backoff on Anthropic rate-limit / overload errors.
-    Raises on permanent errors or after max_retries exhausted.
+    Raises on permanent errors or after max_retries exhausted. Billing/auth
+    failures are converted to :class:`FatalAPIError` so they can never be
+    mistaken for a paper-specific error (#648).
     """
     for attempt in range(max_retries):
         try:
@@ -66,6 +102,9 @@ def _call_with_retry(fn, max_retries: int = 4, base_delay: float = 5.0):
             logger.warning("Rate limit hit; retrying in %.0fs (attempt %d/%d)", delay, attempt + 1, max_retries)
             time.sleep(delay)
         except anthropic.APIStatusError as e:
+            reason = _fatal_api_reason(e)
+            if reason is not None:
+                raise FatalAPIError(f"API availability error — {reason}: {e}") from e
             if e.status_code == 529 and attempt < max_retries - 1:  # overloaded
                 delay = base_delay * (2 ** attempt)
                 logger.warning("API overloaded; retrying in %.0fs", delay)
@@ -759,6 +798,8 @@ def _classify_coupling_type(
             conf = 0.0
         logger.info("Pre-classifier: %s (conf=%.2f) for %s", ct, conf, paper.title[:60])
         return ct, conf
+    except FatalAPIError:
+        raise  # #648: availability errors must abort the run, never fall back
     except Exception as e:
         logger.warning("Pre-classifier failed: %s", e)
         return None, 0.0
@@ -963,6 +1004,8 @@ def _run_vision_verify(
             messages=[{"role": "user", "content": content}],
         ))
         return _parse_json_response(resp.content[0].text)
+    except FatalAPIError:
+        raise  # #648
     except Exception as e:
         logger.warning("Stage 3 verification failed: %s", e)
         return {}
@@ -1555,6 +1598,8 @@ def run_extraction_agent_voted(
     for i in range(n):
         try:
             results.append(run_extraction_agent(paper, pdf_path, client))
+        except FatalAPIError:
+            raise  # #648: no other sample can succeed either
         except Exception as e:
             logger.warning("read-vote sample %d/%d failed: %s", i + 1, n, e)
     if not results:
@@ -1596,6 +1641,8 @@ def _run_stage1(
         ))
         result = _parse_json_response(resp.content[0].text)
         return _validate_coupling_type(result)
+    except FatalAPIError:
+        raise  # #648: never fail closed to is_new_limit=False on availability
     except Exception as e:
         logger.warning("Stage 1 failed: %s", e)
         return {"is_new_limit": False, "data_points": [], "extraction_confidence": 0.0}
@@ -1668,6 +1715,8 @@ def _run_stage2a_axes(
             result.get("y_axis_unit", "?"), result.get("y_axis_scale", "?"),
         )
         return result
+    except FatalAPIError:
+        raise  # #648
     except Exception as e:
         logger.warning("Stage 2a axis identification failed: %s", e)
         return {}
@@ -1737,6 +1786,8 @@ def _run_stage2(
         ))
         result = _parse_json_response(resp.content[0].text)
         return _validate_coupling_type(result)
+    except FatalAPIError:
+        raise  # #648
     except Exception as e:
         logger.warning("Stage 2 failed: %s", e)
         return {"found_limit_plot": False, "data_points": [], "extraction_confidence": 0.0}
