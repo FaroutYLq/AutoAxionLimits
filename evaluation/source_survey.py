@@ -253,6 +253,21 @@ def main(argv: list[str] | None = None) -> int:
     w(f"- papers currently > 1 dex (or unscored) with a < 0.3 dex source candidate: "
       f"**{len(rescued)}**")
     w("")
+    w("## Reading the result")
+    w("")
+    w(f"- The channel is a **tail rescue, not a vision replacement**: only "
+      f"{100*n_cand/n:.0f}% of the pool has numeric source data (most papers ship "
+      f"figures as pre-rendered PDF/PNG graphics — the WS2 population), but where "
+      f"data exists it is near-exact, and the best candidates are overwhelmingly "
+      f"arXiv **ancillary files (`anc/`)** — curves the authors deliberately "
+      f"published.")
+    w("- Several best candidates match GT to ~0.00 dex because the O'Hare repo "
+      "file was built from the same published data. That is the point of the "
+      "channel, not a scoring artifact: the source file IS the paper's own curve.")
+    w("- WS2 note: the pre-rendered figures are mostly **vector** PDFs; a "
+      "vector-path extraction pass (pymupdf `get_drawings()`) could recover exact "
+      "coordinates for that population without raster CV.")
+    w("")
     w("## Source availability")
     w("")
     w("| status | papers |")
