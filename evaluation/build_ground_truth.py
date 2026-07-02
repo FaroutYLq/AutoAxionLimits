@@ -87,6 +87,22 @@ def count_points(repo_file: str) -> int | None:
     return n
 
 
+def data_file_name(arxiv_id: str, repo_file: str) -> str:
+    """Per-ENTRY ground-truth data filename.
+
+    Multi-limit papers produce several repo files under one arXiv id; the old
+    ``<id>.txt`` naming collapsed them onto whichever entry populated first,
+    structurally breaking the 2nd/3rd entries (e.g. 1110.2895 XRAY/x_ion,
+    2112.12116 DarkPhoton — post-full346 Phase 1b). Including the repo path in
+    the name keeps one data file per entry.
+    """
+    safe = arxiv_id.replace("/", "_")
+    slug = "_".join(Path(repo_file).parts[1:])
+    if slug.endswith(".txt"):
+        slug = slug[:-4]
+    return f"{safe}__{slug}.txt"
+
+
 def make_entry(repo_file: str, arxiv_id: str) -> dict:
     coupling = coupling_for(repo_file)
     npts = count_points(repo_file)
@@ -103,7 +119,7 @@ def make_entry(repo_file: str, arxiv_id: str) -> dict:
         "difficulty": "medium",
         "tags": ["auto_expanded"],
         "notes": f"Auto-selected from {repo_file}",
-        "ground_truth_data_file": f"{arxiv_id.replace('/', '_')}.txt",
+        "ground_truth_data_file": data_file_name(arxiv_id, repo_file),
         "reference_repo_file": repo_file,
         "ground_truth_mass_range_eV": None,
         "ground_truth_coupling_range": None,

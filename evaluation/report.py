@@ -97,6 +97,7 @@ def generate_report(metrics: dict, output_path: str):
         lines.append("|--------|--------|---------|")
         _meaning = {
             "compared": "scored against a same-coupling GT curve",
+            "excluded_gt": "every GT entry for this paper is excluded with a documented reason (see Excluded GT Entries below) — not scored",
             "no_comparable_gt": "extracted coupling has no GT curve in the pool (usually a coupling misclassification)",
             "convention_mismatch": "same coupling but the GT curve uses a different convention/units (e.g. f_a [GeV] vs normalized, or d_e vs a large-valued variable) — excluded as a units gap, not extraction error",
             "gt_point_reference": "GT is a single-mass prediction/projection, not a curve (not comparable)",
@@ -107,10 +108,27 @@ def generate_report(metrics: dict, output_path: str):
         }
         for status in ["compared", "no_comparable_gt", "convention_mismatch",
                        "gt_point_reference", "gt_unusable",
-                       "no_extracted_points", "no_prediction", "extraction_failed"]:
+                       "no_extracted_points", "no_prediction",
+                       "extraction_failed", "excluded_gt"]:
             if status not in status_counts:
                 continue
             lines.append(f"| {status} | {status_counts[status]} | {_meaning.get(status, '')} |")
+        lines.append("")
+
+    # --- Excluded GT entries (post-full346 Phase 1a) ---
+    exclusions = metrics.get("gt_exclusions", {})
+    excl_entries = exclusions.get("entries", []) or []
+    if excl_entries:
+        lines.append(f"## Excluded GT Entries ({len(excl_entries)})\n")
+        lines.append("These ground-truth entries cannot grade any extraction (documented, "
+                     "reversible — see `evaluation/ground_truth/EXCLUSIONS.md`). They are "
+                     "skipped by all scoring but listed here so exclusions stay visible.\n")
+        lines.append("| arXiv ID | Repo file | Coupling | Reason |")
+        lines.append("|----------|-----------|----------|--------|")
+        for e in excl_entries:
+            ref = e.get("reference_repo_file") or "—"
+            lines.append(f"| {e['arxiv_id']} | {ref} | {e.get('coupling_type', '—')} | "
+                         f"{e.get('exclusion_reason', '')} |")
         lines.append("")
 
     # --- Classification ---
@@ -264,6 +282,9 @@ def generate_report(metrics: dict, output_path: str):
         lines.append("| arXiv ID | Coupling | Conf. | Interp. Cov. | Med. Resid. | Rev. Resid. | Area (dex) | Mass Jaccard | ≤0.3 dex | Points |")
         lines.append("|----------|----------|-------|--------------|-------------|-------------|------------|--------------|----------|--------|")
         for p in per_paper:
+            if p.get("status") == "excluded_gt":
+                lines.append(f"| {p['arxiv_id']} | — | — | EXCLUDED | — | — | — | — | — | — |")
+                continue
             if p.get("status") != "extracted":
                 lines.append(f"| {p['arxiv_id']} | — | — | FAILED | — | — | — | — | — | — |")
                 continue
