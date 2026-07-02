@@ -212,6 +212,11 @@ class ConsistencyScore:
     n_points: int = 0
     span_dex: float | None = None
     y_const: bool = False
+    # Log10 extent of the source FIGURE's x-axis, when stage 2a read it. Lets
+    # the R4 span floor scale to the plot: a narrow-band resonance search whose
+    # whole figure spans <1 decade cannot be asked for a 1-decade trace
+    # (2110.10497 — post-full346 Lever 7). None = unknown -> flat floor.
+    axis_extent_dex: float | None = None
 
 
 @dataclass(frozen=True)
@@ -232,6 +237,12 @@ class Candidate:
     extraction_confidence: float
     score: ConsistencyScore
     recoverable: bool = False
+    # The candidate's own notes admit its values were analytically
+    # reconstructed / approximately read rather than taken from the paper
+    # (post-full346 Lever 6). Demoted below figure_vision in T3 — LLM
+    # arithmetic must not outrank a real trace — without renaming ``source``
+    # (which flows into the emitted data_source enum).
+    reconstruction: bool = False
 
 
 def _in_band(value: float, band: tuple[float, float]) -> bool:
@@ -283,8 +294,9 @@ def passes_contract(score: ConsistencyScore, *, corroborated: bool = False) -> t
     # R4 — degenerate trace.
     if score.y_const:
         return False, f"R4 degenerate trace: couplings constant within {R4_YCONST_DEX} dex"
-    if score.span_dex is not None and score.span_dex < R4_MIN_SPAN_DEX:
-        return False, f"R4 degenerate trace: x-span {score.span_dex:.3f} dex < {R4_MIN_SPAN_DEX}"
+    floor = _r4_span_floor(score)
+    if score.span_dex is not None and score.span_dex < floor:
+        return False, f"R4 degenerate trace: x-span {score.span_dex:.3f} dex < {floor:.3g}"
 
     return True, "ok"
 
@@ -304,6 +316,20 @@ def guard_transform(before, after, *, score_after: ConsistencyScore,
     if accept:
         return after, f"{label}: committed"
     return before, f"{label}: reverted ({reason})"
+
+
+def _r4_span_floor(score: ConsistencyScore) -> float:
+    """Effective R4 minimum x-span, scaled to the figure's own axis extent.
+
+    A faithful full-width trace of a narrow-band haloscope figure spans exactly
+    the figure's extent; demanding a fixed 1-dex span rejects it (2110.10497,
+    post-full346 Lever 7). When stage 2a read the axis extent, the floor is
+    half that extent, capped by the flat R4_MIN_SPAN_DEX; unknown extent keeps
+    the flat floor.
+    """
+    if score.axis_extent_dex is not None and score.axis_extent_dex > 0:
+        return min(R4_MIN_SPAN_DEX, 0.5 * score.axis_extent_dex)
+    return R4_MIN_SPAN_DEX
 
 
 def quality(c: Candidate) -> tuple:
@@ -339,7 +365,7 @@ def quality(c: Candidate) -> tuple:
     s = c.score
     point_limit = c.source in _POINT_LIMIT_SOURCES
     non_degenerate = 1 if point_limit else (
-        1 if (not s.y_const and (s.span_dex is None or s.span_dex >= R4_MIN_SPAN_DEX))
+        1 if (not s.y_const and (s.span_dex is None or s.span_dex >= _r4_span_floor(s)))
         else 0
     )
     n_pts = int(s.n_points or len(c.data_points) or 0)
@@ -348,7 +374,8 @@ def quality(c: Candidate) -> tuple:
         1 if s.in_valid_ranges else 0,             # T0
         non_degenerate,                            # T1
         1 if c.recoverable else 0,                 # T2
-        _source_tier(c.source, n_pts),             # T3
+        (_SPARSE_POINT_LIMIT_TIER if c.reconstruction
+         else _source_tier(c.source, n_pts)),      # T3 (Lever 6: reconstructions rank with sparse points, below figure_vision)
         1 if _corroborated(s) else 0,              # T4
         round(float(c.extraction_confidence or 0.0), 2),  # T5
         n_pts,                                     # T6
