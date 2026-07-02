@@ -3,7 +3,7 @@
 ## Summary
 
 - **Papers evaluated**: 346
-- **Papers with curve comparison**: 271
+- **Papers with curve comparison**: 277
 
 ## Curve-Comparison Coverage
 
@@ -11,22 +11,47 @@ A curve is scored only against a ground-truth curve of the **same coupling**. Pa
 
 | Status | Papers | Meaning |
 |--------|--------|---------|
-| compared | 271 | scored against a same-coupling GT curve |
+| compared | 277 | scored against a same-coupling GT curve |
 | no_comparable_gt | 30 | extracted coupling has no GT curve in the pool (usually a coupling misclassification) |
-| convention_mismatch | 10 | same coupling but the GT curve uses a different convention/units (e.g. f_a [GeV] vs normalized, or d_e vs a large-valued variable) — excluded as a units gap, not extraction error |
-| gt_point_reference | 14 | GT is a single-mass prediction/projection, not a curve (not comparable) |
-| gt_unusable | 2 | GT curve has <2 usable points after boundary filtering |
-| no_extracted_points | 16 | pipeline returned no data points |
-| no_prediction | 3 | pipeline returned no coupling type |
+| convention_mismatch | 16 | same coupling but the GT curve uses a different convention/units (e.g. f_a [GeV] vs normalized, or d_e vs a large-valued variable) — excluded as a units gap, not extraction error |
+| gt_point_reference | 2 | GT is a single-mass prediction/projection, not a curve (not comparable) |
+| gt_unusable | 1 | GT curve has <2 usable points after boundary filtering |
+| no_extracted_points | 5 | pipeline returned no data points |
+| excluded_gt | 15 | every GT entry for this paper is excluded with a documented reason (see Excluded GT Entries below) — not scored |
+
+## Excluded GT Entries (18)
+
+These ground-truth entries cannot grade any extraction (documented, reversible — see `evaluation/ground_truth/EXCLUSIONS.md`). They are skipped by all scoring but listed here so exclusions stay visible.
+
+| arXiv ID | Repo file | Coupling | Reason |
+|----------|-----------|----------|--------|
+| 1608.05414 | limit_data/AxionMass/Ballesteros16.txt | AxionMass | AxionMass prediction-band file: both columns are masses (m_lo, m_hi) — there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers. |
+| 1505.07455 | limit_data/AxionMass/Berkowitz15.txt | AxionMass | AxionMass prediction-band file: both columns are masses (m_lo, m_hi) — there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers. |
+| 1202.5851 | limit_data/AxionMass/Kawasaki12.txt | AxionMass | AxionMass prediction-band file: both columns are masses (m_lo, m_hi) — there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers. |
+| 2007.04990 | limit_data/AxionMass/Gorghetto20.txt | AxionMass | AxionMass prediction-band file: both columns are masses (m_lo, m_hi) — there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers. |
+| 2007.04990 | limit_data/AxionMass/GorghettoDW_6.txt | AxionMass | AxionMass prediction-band file: both columns are masses (m_lo, m_hi) — there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers. |
+| 2412.08699 | limit_data/AxionMass/Benabou24.txt | AxionMass | AxionMass prediction-band file: both columns are masses (m_lo, m_hi) — there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers. |
+| 2412.08699 | limit_data/AxionMass/Benabou24_DW.txt | AxionMass | AxionMass prediction-band file: both columns are masses (m_lo, m_hi) — there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers. |
+| 1906.00967 | limit_data/AxionMass/Buschmann20.txt | AxionMass | AxionMass prediction-band file: both columns are masses (m_lo, m_hi) — there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers. |
+| 2108.05368 | limit_data/AxionMass/Buschmann21.txt | AxionMass | AxionMass prediction-band file: both columns are masses (m_lo, m_hi) — there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers. |
+| 1705.00676 | limit_data/AxionMass/Dine17.txt | AxionMass | AxionMass prediction-band file: both columns are masses (m_lo, m_hi) — there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers. |
+| 1509.00026 | limit_data/AxionMass/Fleury15.txt | AxionMass | AxionMass prediction-band file: both columns are masses (m_lo, m_hi) — there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers. |
+| 1606.03145 | limit_data/AxionMass/Petreczky16.txt | AxionMass | AxionMass prediction-band file: both columns are masses (m_lo, m_hi) — there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers. |
+| 2206.11598 | limit_data/AxionMass/VISHnu.txt | AxionMass | AxionMass prediction-band file: both columns are masses (m_lo, m_hi) — there is no coupling column, so no extraction can match it; the extractor's refusal (0 points) is correct behavior for these papers. |
+| 2112.03439 | limit_data/AxionPhoton/BreakthroughListen.txt | AxionPhoton | Paper reports decay-rate/annihilation limits only (lambda [s^-1], <sigma v>); the GT g_agamma value is the repo maintainer's derived physics conversion and never appears in the paper, so it is not extractable. |
+| 2312.11608 | limit_data/AxionPhoton/GammaRayDecayCompilation.txt | AxionPhoton | GammaRayDecayCompilation.txt is a compilation of PRE-EXISTING gamma-ray decay limits (HEAO-1/COMPTEL/EGRET/Fermi) shown as background in this paper's figure — not the paper's own result. The paper's headline (HERA 21-cm projection) is keyed separately. |
+| 2005.14694 | limit_data/ScalarPhoton/BACON.txt | ScalarPhoton | Published-version-only content: the d_e ultralight-DM limit (repo BACON.txt) exists only in the published Nature 591, 564 (2021) figure; no arXiv version of the paper contains it, so it is unreachable from the benchmark's input PDF. |
+| 2011.08693 | limit_data/fa/BlackHoleSpins_Mehta.txt | AxionMass | GT digitizes private-communication data: BlackHoleSpins_Mehta.txt's own header says the 178-point BHSR compilation came via 'private communication'; it is not published in the paper PDF. |
+| 1003.0964 | — | DarkPhoton | Wrong GT mapping: LSW_UWA.txt is arXiv:1410.5244's limit (per the file header). This paper's own limit (chi = 2.9e-5 at 37.9 ueV, stated to lie 'within already established limits') has no repo data file, so there is nothing valid to grade against. |
 
 ## Classification Accuracy
 
 | Field | Accuracy | N |
 |-------|----------|---|
-| coupling_type | 90.5% | 346 |
-| is_new_limit | 88.9% | 36 |
-| is_projection | 94.4% | 36 |
-| data_source | 61.1% | 36 |
+| coupling_type | 90.9% | 331 |
+| is_new_limit | 88.6% | 35 |
+| is_projection | 97.1% | 35 |
+| data_source | 62.9% | 35 |
 
 > **Label provenance**: `is_new_limit`, `is_projection`, and `data_source` are scored against an **independent LLM labeler** (`evaluation/label_ground_truth.py`, model `claude-opus-4-5`) whose sole task is to classify paper properties — a distinct model and prompt from the extractor it grades, so this is a fair cross-model test, not self-agreement. These are **not human gold labels**. A human audit of 15 labeled papers found per-field labeler↔human agreement: is_new_limit 15/15, is_projection 15/15, data_source 14/15 (difficulty is derived mechanically from data_source + point count, not labeled).
 
@@ -50,7 +75,6 @@ A curve is scored only against a ground-truth curve of the **same coupling**. Pa
 | 0807.2926 | AxionPhoton | ['AxionElectron'] |
 | 2410.02218 | AxionCPV | ['AxionEDM', 'AxionMass'] |
 | hep-ph/0611223 | ScalarNucleon | ['AxionNeutron', 'AxionProton'] |
-| 2112.03439 | None | ['AxionPhoton'] |
 | 2307.03878 | AxionElectron | ['AxionPhoton'] |
 | 2102.02207 | AxionMass | ['AxionPhoton'] |
 | 1201.5902 | AxionPhoton | ['DarkPhoton'] |
@@ -59,10 +83,8 @@ A curve is scored only against a ground-truth curve of the **same coupling**. Pa
 | 1807.04512 | ScalarBaryon | ['ScalarElectron', 'ScalarPhoton'] |
 | hep-ph/0307284 | ScalarNucleon | ['ScalarElectron', 'ScalarPhoton'] |
 | 2205.06817 | ScalarPhoton | ['ScalarElectron'] |
-| 2005.14694 | None | ['ScalarPhoton'] |
 | quant-ph/0106045 | ScalarNucleon | ['VectorBL'] |
 | 2105.13085 | ScalarBaryon | ['VectorBL'] |
-| 2011.08693 | None | ['AxionMass'] |
 | 2404.00616 | ScalarNucleon | ['AxionMass'] |
 | 2205.01637 | AxionPhoton | ['AxionMass'] |
 | 1708.08464 | AxionCPV | ['AxionMass'] |
@@ -72,89 +94,90 @@ A curve is scored only against a ground-truth curve of the **same coupling**. Pa
 
 Build log-log interpolation from extracted points, evaluate at ground-truth masses.
 
-- **Papers compared**: 271 (243 with mass-range overlap, 28 with zero overlap)
+- **Papers compared**: 277 (267 with mass-range overlap, 10 with zero overlap)
 
 **Coupling-value accuracy** (papers with mass-range overlap):
-- **Median residual across papers**: 0.331 dex (IQR 0.125–0.821)
-- **Mean residual across papers** (outlier-sensitive): 1.131 dex
-- **Mean fraction within 0.3 dex (factor 2)**: 48.4%
-- **Mean fraction within 0.5 dex (factor 3)**: 61.7%
+- **Median residual across papers**: 0.245 dex (IQR 0.094–0.562)
+- **Mean residual across papers** (outlier-sensitive): 0.723 dex
+- **Mean fraction within 0.3 dex (factor 2)**: 55.1%
+- **Mean fraction within 0.5 dex (factor 3)**: 69.4%
 
 **Mass-range coverage** (a separate failure mode):
-- **Mean interpolation coverage**: 76.2%
-- **Zero-overlap papers**: 28/271 (10.3%) — extracted masses miss the GT range entirely (usually 1–2 extracted points or the wrong mass window)
+- **Mean interpolation coverage**: 83.7%
+- **Zero-overlap papers**: 10/277 (3.6%) — extracted masses miss the GT range entirely (usually 1–2 extracted points or the wrong mass window)
 
 **Reverse pass** (GT interpolated onto the *extracted* masses):
 - Mirrors the forward pass. A large forward-vs-reverse gap, or a reverse coverage well below the forward coverage, flags an extraction whose mass *extent* or shape disagrees with the GT (e.g. running past the GT range).
-- **Median reverse residual across papers**: 0.343 dex (forward: 0.331 dex)
-- **Mean reverse interpolation coverage**: 69.8% (forward: 76.2%)
+- **Median reverse residual across papers**: 0.252 dex (forward: 0.245 dex)
+- **Mean reverse interpolation coverage**: 73.9% (forward: 83.7%)
 
 ## Residual by Coupling Type — Micro vs Macro Average (issue #543)
 
 The compared-paper pool is dominated by one coupling type (AxionPhoton), so the per-paper **micro-average** headline is largely that one type's number. The **macro-average** weights each coupling type equally (mean of the per-type medians), exposing how the pipeline does across the *range* of couplings rather than on the most common one.
 
-- **Micro-average median residual** (per paper, 243 papers): 0.331 dex
-- **Macro-average median residual** (equal weight per type, 11 types): 1.115 dex
-- **Macro − micro gap**: +0.784 dex (macro is worse; a positive gap means the rarer couplings are harder than the AxionPhoton-dominated micro-average implies)
+- **Micro-average median residual** (per paper, 267 papers): 0.245 dex
+- **Macro-average median residual** (equal weight per type, 12 types): 1.582 dex
+- **Macro − micro gap**: +1.336 dex (macro is worse; a positive gap means the rarer couplings are harder than the AxionPhoton-dominated micro-average implies)
 
 Per-type medians carry a bootstrap 95% CI (1000 resamples). Rows with **N < 5** are flagged small-sample — their median and CI are unstable and should not be read as a reliable per-type score.
 
 | Coupling Type | N | Median Resid. (dex) | 95% CI (dex) | Flag |
 |---------------|---|---------------------|--------------|------|
-| AxionPhoton | 127 | 0.207 | [0.151, 0.272] |  |
-| DarkPhoton | 53 | 0.406 | [0.282, 0.792] |  |
-| AxionElectron | 15 | 0.376 | [0.152, 1.270] |  |
-| AxionNeutron | 13 | 0.773 | [0.510, 1.634] |  |
+| AxionPhoton | 136 | 0.175 | [0.123, 0.218] |  |
+| DarkPhoton | 60 | 0.338 | [0.192, 0.406] |  |
+| AxionElectron | 19 | 0.235 | [0.090, 0.567] |  |
+| AxionNeutron | 14 | 0.467 | [0.220, 1.096] |  |
 | VectorBL | 11 | 0.905 | [0.551, 2.940] |  |
-| ScalarPhoton | 8 | 0.486 | [0.274, 17.883] |  |
-| AxionMass | 6 | 0.937 | [0.647, 13.734] |  |
-| AxionProton | 3 | 0.421 | [0.045, 3.513] | ⚠ small-sample (N<5) |
-| AxionEDM | 3 | 4.649 | [1.906, 6.311] | ⚠ small-sample (N<5) |
+| AxionMass | 8 | 0.555 | [0.200, 0.897] |  |
+| ScalarPhoton | 8 | 0.486 | [0.274, 1.082] |  |
+| AxionProton | 3 | 0.045 | [0.015, 0.151] | ⚠ small-sample (N<5) |
+| MonopoleDipole | 3 | 3.805 | [0.331, 4.905] | ⚠ small-sample (N<5) |
 | ScalarElectron | 3 | 0.176 | [0.127, 3.745] | ⚠ small-sample (N<5) |
-| MonopoleDipole | 1 | 2.924 | [2.924, 2.924] | ⚠ small-sample (N<5) |
+| ScalarBaryon | 1 | 5.482 | [5.482, 5.482] | ⚠ small-sample (N<5) |
+| AxionEDM | 1 | 6.311 | [6.311, 6.311] | ⚠ small-sample (N<5) |
 
 ## Shape & Mass-Range Agreement — Symmetric Metrics (complementary)
 
 These are symmetric, 2-D complements to the (asymmetric, vertical-only) interpolation residual. **Area-between-curves** integrates |Δ log10 coupling| over the overlapping log-mass range and normalises by the overlap width (a single shape+offset number, in dex; a pure mass shift inflates it even when the vertical residual looks fine). **Mass-range Jaccard** is the Jaccard index of the extracted vs GT log-mass intervals (1.0 = identical extent; small = over-/under-claimed mass range), reported separately from interpolation coverage.
 
-- **Papers scored**: 271 (249 with mass overlap for area)
-- **Median area-between-curves**: 0.370 dex (mean 1.171 dex)
-- **Median mass-range Jaccard**: 0.803 (mean 0.649)
+- **Papers scored**: 267 (250 with mass overlap for area)
+- **Median area-between-curves**: 0.333 dex (mean 0.777 dex)
+- **Median mass-range Jaccard**: 0.813 (mean 0.672)
 
 ## Per-Paper Results
 
 | arXiv ID | Coupling | Conf. | Interp. Cov. | Med. Resid. | Rev. Resid. | Area (dex) | Mass Jaccard | ≤0.3 dex | Points |
 |----------|----------|-------|--------------|-------------|-------------|------------|--------------|----------|--------|
-| 2208.07293 | ✓ | 0.50 | 0.0% | ∞ | ∞ | 15.167 | 0.052 | 0.0% | 2/2 |
+| 2208.07293 | ✓ | 0.50 | convention_mismatch | — | — | — | — | — | — |
 | 2212.04413 | ✓ | 0.30 | convention_mismatch | — | — | — | — | — | — |
-| 2410.19902 | ✓ | 0.50 | 0.0% | ∞ | ∞ | 2.085 | 0.636 | 0.0% | 15/2 |
+| 2410.19902 | ✓ | 0.50 | 100.0% | 0.347 | 0.347 | 0.347 | 0.636 | 0.0% | 15/2 |
 | 2209.12901 | ✗ (AxionMass) | 0.40 | no_comparable_gt | — | — | — | — | — | — |
-| 1907.03767 | ✓ | 0.70 | 100.0% | 0.510 | 0.420 | 0.455 | 0.871 | 34.8% | 36/164 |
-| 2209.06216 | ✓ | 0.60 | 100.0% | 1.491 | 0.565 | 1.502 | 0.569 | 10.9% | 31/2597 |
+| 1907.03767 | ✓ | 0.70 | 94.5% | 0.377 | 0.401 | 0.441 | 0.895 | 45.3% | 36/182 |
+| 2209.06216 | ✓ | 0.60 | 94.7% | 0.751 | 0.728 | 0.766 | 0.734 | 4.2% | 31/2771 |
 | 2005.14184 | ✓ | 0.70 | 99.7% | 0.152 | 0.149 | 0.150 | 0.998 | 93.8% | 31/891 |
 | 1608.01994 | ✗ (DarkPhoton) | 0.70 | no_comparable_gt | — | — | — | — | — | — |
 | 2504.00720 | ✗ (AxionCPV) | 0.72 | no_comparable_gt | — | — | — | — | — | — |
-| 1608.05414 | ✓ | 0.15 | no_extracted_points | — | — | — | — | — | — |
+| 1608.05414 | — | — | EXCLUDED | — | — | — | — | — | — |
 | 2006.04809 | ✗ (AxionPhoton) | 0.82 | no_comparable_gt | — | — | — | — | — | — |
 | 1711.08999 | ✗ (AxionNeutron) | 0.55 | no_comparable_gt | — | — | — | — | — | — |
 | 2408.02668 | ✓ | 0.55 | 98.1% | 0.804 | 0.692 | 0.676 | 0.991 | 16.3% | 7/413 |
-| 1905.13650 | ✓ | 0.70 | 100.0% | 0.223 | 0.610 | 0.477 | 0.652 | 60.9% | 15/243 |
+| 1905.13650 | ✓ | 0.70 | 100.0% | 0.194 | 0.522 | 0.367 | 0.681 | 71.2% | 12/243 |
 | 2211.08439 | ✗ (AxionElectron) | 0.40 | no_comparable_gt | — | — | — | — | — | — |
 | 2110.03679 | ✓ | 0.85 | 99.2% | 0.090 | 0.084 | 0.112 | 0.250 | 89.8% | 32/129 |
 | 2303.07370 | ✓ | 0.50 | 56.1% | 0.363 | 0.475 | 0.385 | 0.560 | 41.7% | 6/107 |
 | 1912.05733 | ✗ (AxionElectron) | 0.40 | no_comparable_gt | — | — | — | — | — | — |
-| 2309.16600 | ✓ | 0.82 | 99.0% | 1.198 | 1.201 | 1.195 | 0.987 | 0.0% | 42/196 |
+| 2309.16600 | ✓ | 0.82 | 96.8% | 0.094 | 0.095 | 0.112 | 0.987 | 96.2% | 42/188 |
 | 2504.16044 | ✓ | 0.80 | gt_unusable | — | — | — | — | — | — |
 | 2307.08577 | ✓ | 0.60 | 100.0% | 0.045 | 0.108 | 0.085 | 0.039 | 85.7% | 14/7 |
-| 2312.06746 | ✓ | 0.85 | 98.8% | 0.170 | 0.103 | 0.172 | 0.975 | 71.6% | 30/171 |
+| 2312.06746 | ✓ | 0.85 | 98.8% | 0.157 | 0.103 | 0.172 | 0.975 | 73.4% | 30/171 |
 | 1310.8098 | ✓ | 0.70 | 97.7% | 0.498 | 0.863 | 0.848 | 0.413 | 30.2% | 23/44 |
 | 2408.02368 | ✓ | 0.90 | 100.0% | 0.176 | 0.007 | 0.175 | 0.999 | 87.8% | 3/647 |
 | 2212.01139 | ✓ | 0.70 | 98.5% | 1.125 | 1.100 | 1.091 | 0.976 | 0.0% | 36/134 |
-| 2011.07100 | ✓ | 0.30 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 29/79 |
-| 1403.1290 | ✓ | 0.55 | 65.8% | 2.924 | 3.012 | 2.739 | 0.146 | 4.0% | 34/38 |
-| 2302.09096 | ✓ | 0.30 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 24/41 |
+| 2011.07100 | ✓ | 0.30 | 98.7% | 0.331 | 0.443 | 0.440 | 0.328 | 47.4% | 29/79 |
+| 1403.1290 | ✓ | 0.55 | 97.4% | 3.805 | 3.934 | 3.291 | 0.239 | 0.0% | 34/38 |
+| 2302.09096 | ✓ | 0.30 | 63.4% | 4.905 | 3.696 | 4.055 | 0.158 | 0.0% | 24/41 |
 | 1410.7267 | ✓ | 0.50 | convention_mismatch | — | — | — | — | — | — |
-| 1712.00483 | ✓ | 0.70 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 25/119 |
+| 1712.00483 | ✓ | 0.70 | 100.0% | 5.482 | 6.112 | 6.554 | 0.406 | 0.0% | 25/119 |
 | 1607.07327 | ✓ | 0.50 | 94.3% | 0.210 | 0.244 | 0.246 | 0.933 | 63.6% | 3/35 |
 | 1611.05852 | ✗ (DarkPhoton) | 0.60 | no_comparable_gt | — | — | — | — | — | — |
 | 2111.06883 | ✗ (ScalarNucleon) | 0.30 | no_comparable_gt | — | — | — | — | — | — |
@@ -167,55 +190,55 @@ These are symmetric, 2-D complements to the (asymmetric, vertical-only) interpol
 | 2205.03617 | ✗ (DarkPhoton) | 0.40 | no_comparable_gt | — | — | — | — | — | — |
 | 2310.06017 | ✓ | 0.50 | 46.9% | 0.551 | 0.795 | 0.682 | 0.461 | 26.4% | 5/113 |
 | 2007.04899 | ✓ | 0.60 | 57.3% | 2.940 | 1.271 | 1.545 | 0.672 | 0.7% | 27/24406 |
-| 2102.08764 | ✓ | 0.90 | 0.0% | ∞ | ∞ | 0.000 | 0.892 | 0.0% | 3/2 |
+| 2102.08764 | ✓ | 0.90 | 100.0% | 0.000 | 0.000 | 0.000 | 0.892 | 100.0% | 3/2 |
 | 2308.14656 | ✓ | 0.60 | 100.0% | 0.214 | ∞ | 0.184 | 0.993 | 84.0% | 2/75 |
-| 2207.03102 | ✓ | 0.80 | gt_unusable | — | — | — | — | — | — |
-| 1505.07455 | ✓ | 0.50 | no_extracted_points | — | — | — | — | — | — |
+| 2207.03102 | ✓ | 0.80 | 100.0% | 0.000 | 0.000 | 0.000 | 0.320 | 100.0% | 4/2 |
+| 1505.07455 | — | — | EXCLUDED | — | — | — | — | — | — |
 | 2105.04603 | ✓ | 0.45 | 98.3% | 1.949 | 1.259 | 1.694 | 0.984 | 1.7% | 5/707 |
 | 2303.11792 | ✓ | 0.85 | 90.0% | 0.141 | 0.128 | 0.144 | 0.748 | 100.0% | 2/20 |
-| 1607.06083 | ✓ | 0.60 | 50.0% | 1.373 | 1.331 | 1.335 | 0.022 | 0.0% | 25/2 |
+| 1607.06083 | ✓ | 0.60 | 37.2% | 0.520 | 0.362 | 0.483 | 0.365 | 23.8% | 25/113 |
 | 2108.04746 | ✓ | 0.60 | convention_mismatch | — | — | — | — | — | — |
-| 2208.12670 | ✓ | 0.80 | gt_point_reference | — | — | — | — | — | — |
+| 2208.12670 | ✓ | 0.80 | 100.0% | 0.000 | ∞ | — | — | 100.0% | 4/1 |
 | 1806.05120 | ✓ | 0.70 | 97.9% | 0.192 | 0.211 | 0.215 | 0.973 | 81.5% | 4/94 |
-| 2101.01241 | ✓ | 0.50 | gt_point_reference | — | — | — | — | — | — |
+| 2101.01241 | ✓ | 0.50 | convention_mismatch | — | — | — | — | — | — |
 | 2404.14476 | ✓ | 0.85 | 51.0% | 0.071 | 0.006 | 0.045 | 0.143 | 88.5% | 4/51 |
 | 2504.12377 | ✓ | 0.85 | 100.0% | 0.065 | 0.003 | 0.013 | 0.570 | 100.0% | 29/15 |
 | 2408.15227 | ✓ | 0.60 | 100.0% | 0.074 | 0.096 | 0.087 | 0.905 | 100.0% | 3/230 |
 | 2209.09917 | ✓ | 0.82 | 100.0% | 0.012 | 0.023 | 0.039 | 1.000 | 100.0% | 19/5 |
-| 2406.00387 | ✓ | 0.82 | 63.9% | 0.618 | 0.553 | 0.594 | 0.531 | 14.5% | 20/108 |
+| 2406.00387 | ✓ | 0.82 | 63.9% | 0.083 | 0.055 | 0.594 | 0.531 | 63.8% | 20/108 |
 | 1207.3275 | ✓ | 0.60 | 100.0% | 3.848 | 3.695 | 2.519 | 0.446 | 0.0% | 26/10 |
 | 2205.01079 | ✓ | 0.50 | 78.6% | 0.122 | 0.144 | 0.108 | 0.898 | 100.0% | 5/14 |
 | 2212.02403 | ✓ | 0.75 | 83.3% | 0.557 | 0.597 | 0.624 | 0.956 | 0.0% | 29/42 |
-| 1903.12190 | ✓ | 0.55 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 29/3 |
+| 1903.12190 | ✓ | 0.55 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 28/3 |
 | 2305.00890 | ✓ | 0.55 | 100.0% | 0.619 | 1.306 | 2.084 | 0.996 | 28.0% | 4/4991 |
-| 1708.06367 | ✓ | 0.50 | 61.1% | 4.649 | 5.230 | 5.154 | 0.706 | 0.0% | 6/36 |
+| 1708.06367 | ✓ | 0.50 | convention_mismatch | — | — | — | — | — | — |
 | 2312.13723 | ✓ | 0.30 | convention_mismatch | — | — | — | — | — | — |
-| 2410.10363 | ✓ | 0.82 | 8.2% | 0.407 | 0.463 | 0.391 | 0.029 | 23.3% | 25/367 |
-| 1202.5851 | ✓ | 0.40 | no_extracted_points | — | — | — | — | — | — |
-| 2208.06519 | ✓ | 0.90 | gt_point_reference | — | — | — | — | — | — |
+| 2410.10363 | ✓ | 0.82 | 8.7% | 0.260 | 0.227 | 0.391 | 0.029 | 72.0% | 25/288 |
+| 1202.5851 | — | — | EXCLUDED | — | — | — | — | — | — |
+| 2208.06519 | ✓ | 0.90 | 100.0% | 0.097 | ∞ | — | — | 100.0% | 1/1 |
 | 2401.16747 | ✓ | 0.55 | 92.4% | 0.272 | 0.274 | 0.307 | 0.953 | 54.1% | 12/66 |
-| 2401.18076 | ✓ | 0.70 | 75.9% | 20.841 | 20.675 | 20.738 | 0.625 | 0.0% | 26/29 |
-| 2503.13653 | ✓ | 0.40 | 74.1% | 1.435 | 2.540 | 1.807 | 0.333 | 20.0% | 8/54 |
+| 2401.18076 | ✓ | 0.70 | 75.9% | 2.311 | 2.144 | 2.207 | 0.625 | 0.0% | 26/29 |
+| 2503.13653 | ✓ | 0.40 | 73.6% | 0.367 | 0.331 | 1.807 | 0.333 | 43.6% | 8/53 |
 | 2308.06339 | ✓ | 0.30 | 96.1% | 0.121 | 0.043 | 0.134 | 0.997 | 91.8% | 6/76 |
 | 2109.11734 | ✓ | 0.85 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 6/12 |
 | 2308.09077 | ✓ | 0.55 | 83.3% | 0.224 | 0.302 | 0.236 | 0.923 | 95.6% | 2/54 |
 | 2110.06096 | ✓ | 0.55 | 97.5% | 0.245 | 0.330 | 0.201 | 0.970 | 67.8% | 6/242 |
 | 2205.03679 | ✓ | 0.60 | 100.0% | 0.227 | 0.444 | 0.215 | 0.976 | 68.1% | 3/1525 |
 | 2202.08858 | ✓ | 0.60 | 100.0% | 0.376 | 0.416 | 0.376 | 0.914 | 41.9% | 42/203 |
-| 2503.14582 | ✓ | 0.55 | 100.0% | 0.157 | 0.091 | 0.165 | 0.997 | 85.1% | 6/224122 |
+| 2503.14582 | ✓ | 0.55 | 100.0% | 0.167 | 0.091 | 0.165 | 0.997 | 82.7% | 6/196912 |
 | 1207.2442 | ✗ (ScalarBaryon) | 0.50 | no_comparable_gt | — | — | — | — | — | — |
 | 1609.00667 | ✗ (AxionNeutron) | 0.40 | no_comparable_gt | — | — | — | — | — | — |
 | 2407.03828 | ✓ | 0.85 | 99.1% | 0.022 | 0.119 | 0.134 | 0.296 | 81.7% | 32/116 |
 | 1810.04602 | ✓ | 0.70 | 96.4% | 0.297 | 0.231 | 0.244 | 0.880 | 50.9% | 30/55 |
 | 2110.10262 | ✓ | 0.60 | 94.3% | 0.530 | 1.123 | 0.572 | 0.809 | 20.5% | 2/88 |
 | 2306.05934 | ✓ | 0.60 | 100.0% | 0.333 | 0.117 | 0.231 | 0.999 | 44.5% | 4/2636 |
-| 2306.01048 | ✓ | 0.55 | 57.9% | 3.513 | 3.352 | 3.632 | 0.208 | 18.2% | 6/38 |
+| 2306.01048 | ✓ | 0.55 | 57.9% | 0.015 | 0.015 | 3.632 | 0.208 | 100.0% | 3/38 |
 | 2008.08773 | ✓ | 0.60 | 93.9% | 0.594 | 0.693 | 0.637 | 0.595 | 6.1% | 5/543 |
-| 2007.04990 | ✓ | 0.20 | no_extracted_points | — | — | — | — | — | — |
+| 2007.04990 | — | — | EXCLUDED | — | — | — | — | — | — |
 | 2207.11968 | ✓ | 0.60 | 97.7% | 1.270 | 1.190 | 1.215 | 0.986 | 0.0% | 35/128 |
-| 2102.11740 | ✓ | 0.80 | 100.0% | 0.079 | 0.074 | 0.091 | 0.993 | 100.0% | 37/77 |
+| 2102.11740 | ✓ | 0.80 | 100.0% | 0.090 | 0.082 | 0.091 | 0.993 | 100.0% | 37/77 |
 | 0807.2926 | ✗ (AxionPhoton) | 0.50 | no_comparable_gt | — | — | — | — | — | — |
-| 1508.02463 | ✓ | 0.70 | 97.7% | 8.346 | 8.132 | 8.241 | 0.177 | 0.0% | 20/43 |
+| 1508.02463 | ✓ | 0.70 | 97.7% | 0.304 | 0.018 | 0.172 | 0.177 | 50.0% | 20/43 |
 | 1604.06800 | ✓ | 0.50 | 72.9% | 1.743 | 1.823 | 1.935 | 0.762 | 0.0% | 7/155 |
 | 1606.07001 | ✓ | 0.55 | 97.4% | 0.071 | 0.067 | 0.071 | 0.109 | 97.4% | 31/39 |
 | 0809.4700 | ✓ | 0.40 | 97.1% | 5.155 | 5.184 | 5.179 | 0.159 | 0.0% | 35/35 |
@@ -223,49 +246,49 @@ These are symmetric, 2-D complements to the (asymmetric, vertical-only) interpol
 | 2006.07055 | ✓ | 0.60 | convention_mismatch | — | — | — | — | — | — |
 | 1508.01798 | ✓ | 0.55 | 100.0% | 3.745 | 3.618 | 3.726 | 0.056 | 0.0% | 32/50 |
 | 1512.06165 | ✓ | 0.78 | 100.0% | 7.526 | 5.446 | 6.248 | 0.750 | 2.6% | 37/39 |
-| 2004.02733 | ✓ | 0.60 | 94.1% | 0.547 | 0.365 | 0.341 | 0.966 | 0.0% | 5/34 |
-| 2111.09892 | ✓ | 0.50 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 1/4 |
+| 2004.02733 | ✓ | 0.60 | 97.0% | 0.246 | 0.064 | 0.040 | 0.966 | 65.6% | 5/33 |
+| 2111.09892 | ✓ | 0.50 | 100.0% | 0.000 | 0.000 | ∞ | 0.000 | 100.0% | 1/2 |
 | 1401.6460 | ✓ | 0.45 | 75.0% | 6.311 | 6.311 | 6.310 | 0.762 | 0.0% | 5/4 |
-| 2204.01454 | ✓ | 0.30 | 88.6% | 1.906 | 1.919 | 1.584 | 0.909 | 5.1% | 23/44 |
+| 2204.01454 | ✓ | 0.30 | convention_mismatch | — | — | — | — | — | — |
 | 2410.02218 | ✗ (AxionCPV) | 0.40 | no_comparable_gt | — | — | — | — | — | — |
 | 1808.02340 | ✓ | 0.45 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 1/265 |
 | 2311.16364 | ✓ | 0.55 | 90.1% | 0.567 | 0.585 | 0.756 | 0.963 | 20.2% | 28/121 |
 | 1704.02297 | ✓ | 0.82 | 98.3% | 0.084 | 0.084 | 0.110 | 0.084 | 94.7% | 33/58 |
 | 1707.07921 | ✓ | 0.60 | 50.0% | 0.559 | 0.693 | 0.538 | 0.080 | 20.0% | 6/30 |
-| 1806.00310 | ✓ | 0.85 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 1/9 |
-| 2007.03694 | ✓ | 0.85 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 0/2 |
+| 1806.00310 | ✓ | 0.85 | 100.0% | 0.005 | 0.005 | ∞ | 0.000 | 100.0% | 1/8 |
+| 2007.03694 | ✓ | 0.85 | 100.0% | 0.043 | 0.043 | 0.043 | 1.000 | 100.0% | 2/2 |
 | 1911.11905 | ✓ | 0.50 | 55.9% | 0.195 | 0.212 | 0.209 | 0.584 | 72.0% | 8/256 |
 | 1902.04246 | ✓ | 0.60 | 91.8% | 0.235 | 0.240 | 0.281 | 0.779 | 78.6% | 7/61 |
-| 1708.02111 | ✓ | 0.45 | 0.0% | ∞ | ∞ | 1.682 | 0.480 | 0.0% | 17/4 |
+| 1708.02111 | ✓ | 0.45 | 100.0% | 1.616 | 1.616 | 1.682 | 0.480 | 0.0% | 17/2 |
 | 2006.09721 | ✓ | 0.80 | 100.0% | 0.168 | 0.193 | 0.212 | 0.629 | 75.7% | 44/148 |
-| 1907.11485 | ✓ | 0.80 | 94.6% | 2.226 | 2.195 | 2.242 | 0.955 | 0.0% | 37/111 |
-| 2112.12116 | ✓ | 0.60 | 92.5% | 3.954 | 3.937 | 3.872 | 0.309 | 0.0% | 28/67 |
+| 1907.11485 | ✓ | 0.80 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 37/78 |
+| 2112.12116 | ✓ | 0.60 | 99.0% | 1.194 | 1.191 | 1.130 | 0.996 | 0.0% | 28/100 |
 | 2006.12431 | ✓ | 0.55 | 75.6% | 1.559 | 1.481 | 1.611 | 0.615 | 0.0% | 9/90 |
 | 2207.11330 | ✓ | 0.50 | 85.6% | 0.710 | 0.718 | 0.808 | 0.925 | 5.9% | 7/118 |
-| 2412.08699 | ✓ | 0.40 | no_extracted_points | — | — | — | — | — | — |
+| 2412.08699 | — | — | EXCLUDED | — | — | — | — | — | — |
 | 1512.06746 | ✓ | 0.50 | gt_point_reference | — | — | — | — | — | — |
-| 1606.07494 | ✓ | 0.50 | gt_point_reference | — | — | — | — | — | — |
-| 1906.00967 | ✓ | 0.20 | no_extracted_points | — | — | — | — | — | — |
-| 2108.05368 | ✓ | 0.20 | no_extracted_points | — | — | — | — | — | — |
-| 1705.00676 | ✓ | 0.05 | no_extracted_points | — | — | — | — | — | — |
-| 1509.00026 | ✓ | 0.20 | no_extracted_points | — | — | — | — | — | — |
+| 1606.07494 | ✓ | 0.50 | convention_mismatch | — | — | — | — | — | — |
+| 1906.00967 | — | — | EXCLUDED | — | — | — | — | — | — |
+| 2108.05368 | — | — | EXCLUDED | — | — | — | — | — | — |
+| 1705.00676 | — | — | EXCLUDED | — | — | — | — | — | — |
+| 1509.00026 | — | — | EXCLUDED | — | — | — | — | — | — |
 | 2402.00741 | ✓ | 0.20 | no_extracted_points | — | — | — | — | — | — |
-| 1708.07521 | ✓ | 0.50 | gt_point_reference | — | — | — | — | — | — |
-| 1606.03145 | ✓ | 0.30 | no_extracted_points | — | — | — | — | — | — |
-| 2401.17253 | ✓ | 0.50 | gt_point_reference | — | — | — | — | — | — |
+| 1708.07521 | ✓ | 0.50 | 100.0% | 0.127 | ∞ | — | — | 100.0% | 1/1 |
+| 1606.03145 | — | — | EXCLUDED | — | — | — | — | — | — |
+| 2401.17253 | ✓ | 0.50 | 100.0% | 0.897 | ∞ | — | — | 0.0% | 2/1 |
 | 1412.0789 | ✓ | 0.30 | gt_point_reference | — | — | — | — | — | — |
-| 2206.11598 | ✓ | 0.15 | no_extracted_points | — | — | — | — | — | — |
-| 1902.04644 | ✓ | 0.40 | 98.6% | 1.661 | 1.060 | 1.697 | 0.551 | 0.0% | 5/73 |
+| 2206.11598 | — | — | EXCLUDED | — | — | — | — | — | — |
+| 1902.04644 | ✓ | 0.40 | 98.1% | 1.344 | 1.003 | 1.437 | 0.452 | 0.0% | 5/52 |
 | 2306.08039 | ✓ | 0.50 | 40.0% | 0.301 | 0.307 | 0.396 | 0.400 | 49.9% | 4/1158 |
 | 2102.01448 | ✓ | 0.55 | 100.0% | 1.634 | 1.620 | 0.942 | 0.882 | 5.7% | 4/70 |
 | 2209.03289 | ✓ | 0.80 | 100.0% | 0.044 | 0.043 | 0.048 | 0.998 | 100.0% | 37/110 |
-| 2209.13588 | ✓ | 0.50 | 99.6% | 0.773 | 1.465 | 1.125 | 0.998 | 16.8% | 6/251 |
+| 2209.13588 | ✓ | 0.50 | 99.6% | 0.841 | 1.465 | 1.125 | 0.998 | 17.9% | 6/230 |
 | 1906.11844 | ✓ | 0.40 | no_extracted_points | — | — | — | — | — | — |
 | hep-ph/0611223 | ✗ (ScalarNucleon) | 0.70 | no_comparable_gt | — | — | — | — | — | — |
 | 1810.12257 | ✓ | 0.70 | 100.0% | 0.291 | 0.293 | 0.353 | 0.997 | 51.5% | 4/3214 |
 | 2102.06722 | ✓ | 0.75 | 98.7% | 0.348 | 0.411 | 0.369 | 0.991 | 41.7% | 5/391 |
 | 2404.12517 | ✓ | 0.70 | 99.6% | 0.321 | 0.179 | 0.191 | 0.998 | 45.6% | 6/284 |
-| 0910.5914 | ✓ | 0.80 | 0.0% | ∞ | ∞ | 0.082 | 0.074 | 0.0% | 33/27 |
+| 0910.5914 | ✓ | 0.80 | 100.0% | 0.080 | 0.080 | 0.082 | 0.074 | 100.0% | 33/27 |
 | 1804.05750 | ✓ | 0.55 | 100.0% | 0.178 | 0.141 | 0.167 | 0.906 | 83.4% | 4/145 |
 | 1910.08638 | ✓ | 0.82 | 100.0% | 0.030 | 0.029 | 0.025 | 0.555 | 100.0% | 22/172 |
 | 2504.07279 | ✓ | 0.70 | 88.0% | 0.208 | 0.187 | 0.188 | 0.913 | 91.3% | 20/234 |
@@ -273,15 +296,15 @@ These are symmetric, 2-D complements to the (asymmetric, vertical-only) interpol
 | 1901.00920 | ✓ | 0.55 | 99.1% | 0.490 | 0.583 | 0.332 | 1.000 | 6.0% | 6/117 |
 | 1004.1313 | ✓ | 0.60 | 63.2% | 0.179 | 0.066 | 0.075 | 0.131 | 67.4% | 5/228 |
 | 2008.05355 | ✓ | 0.55 | 98.0% | 0.115 | 0.195 | 0.208 | 0.971 | 72.9% | 17/49 |
-| 2302.10206 | ✓ | 0.40 | 90.0% | 0.442 | 0.568 | 0.369 | 0.743 | 44.4% | 5/10 |
+| 2302.10206 | ✓ | 0.40 | 100.0% | 1.545 | 1.427 | 2.401 | 0.146 | 0.0% | 5/14 |
 | 2101.11290 | ✓ | 0.82 | 50.0% | 0.000 | 0.000 | 0.000 | 0.010 | 100.0% | 3/2 |
-| 2002.08370 | ✓ | 0.60 | 70.7% | 0.353 | 0.770 | 0.695 | 0.208 | 48.3% | 27/41 |
+| 2002.08370 | ✓ | 0.60 | 71.1% | 8.698 | 8.662 | 0.695 | 0.208 | 0.0% | 27/38 |
 | 2211.12699 | ✓ | 0.80 | 98.7% | 0.115 | 0.097 | 0.129 | 0.966 | 91.9% | 33/75 |
 | 2108.03316 | ✓ | 0.80 | 99.7% | 0.126 | 0.099 | 0.132 | 0.981 | 77.8% | 48/321 |
-| 1709.00009 | ✓ | 0.70 | 100.0% | 2.121 | 3.066 | 3.070 | 0.807 | 18.9% | 24/37 |
+| 1709.00009 | ✓ | 0.70 | 100.0% | 0.565 | 2.696 | 3.070 | 0.807 | 27.0% | 24/37 |
 | 2007.13071 | ✓ | 0.50 | 99.4% | 0.245 | 0.125 | 0.266 | 0.968 | 56.0% | 4/318 |
 | 2009.09059 | ✓ | 0.85 | 74.6% | 0.546 | 0.542 | 0.524 | 0.303 | 9.4% | 17/114 |
-| 2112.03439 | ✗ (None) | 0.20 | no_prediction | — | — | — | — | — | — |
+| 2112.03439 | — | — | EXCLUDED | — | — | — | — | — | — |
 | 2001.05102 | ✓ | 0.40 | 94.8% | 0.971 | 0.991 | 0.970 | 0.973 | 0.0% | 2/77 |
 | 2008.10141 | ✓ | 0.60 | 98.2% | 0.111 | 0.091 | 0.106 | 0.966 | 99.5% | 2/222 |
 | 2012.10764 | ✓ | 0.55 | 100.0% | 0.310 | 0.236 | 0.322 | 0.996 | 48.8% | 5/125 |
@@ -294,8 +317,8 @@ These are symmetric, 2-D complements to the (asymmetric, vertical-only) interpol
 | 2211.02902 | ✓ | 0.55 | 100.0% | 0.447 | ∞ | 0.417 | 0.988 | 11.2% | 2/169 |
 | 1705.02290 | ✓ | 0.90 | 36.2% | 0.066 | 0.062 | 0.063 | 0.110 | 100.0% | 4/436 |
 | hep-ex/0702006 | ✓ | 0.70 | 53.4% | 0.115 | 0.098 | 0.077 | 0.156 | 98.4% | 5/118 |
-| 1704.05189 | ✓ | 0.50 | 98.4% | 0.680 | 0.909 | 0.745 | 0.887 | 28.3% | 21/61 |
-| 2411.13701 | ✓ | 0.60 | 92.6% | 8.469 | 8.486 | 8.521 | 0.292 | 0.0% | 35/81 |
+| 1704.05189 | ✓ | 0.50 | 98.4% | 0.029 | 0.103 | 0.745 | 0.887 | 81.7% | 21/61 |
+| 2411.13701 | ✓ | 0.60 | 88.8% | 1.302 | 1.062 | 1.121 | 0.946 | 3.3% | 35/170 |
 | 2109.03261 | ✓ | 0.85 | 31.0% | 0.095 | 0.096 | 0.090 | 0.365 | 100.0% | 4/29 |
 | 1304.0989 | ✓ | 0.80 | 96.6% | 0.070 | 0.035 | 0.030 | 0.197 | 100.0% | 8/29 |
 | 1703.07354 | ✓ | 0.80 | 63.6% | 0.117 | 0.132 | 0.178 | 0.228 | 67.9% | 42/44 |
@@ -304,47 +327,47 @@ These are symmetric, 2-D complements to the (asymmetric, vertical-only) interpol
 | 2407.10618 | ✓ | 0.55 | 92.8% | 3.590 | 2.089 | 3.281 | 0.919 | 7.8% | 9/2612 |
 | 2303.03594 | ✓ | 0.60 | 25.8% | 0.459 | 0.352 | 0.450 | 0.385 | 8.7% | 2/89 |
 | 2311.05476 | ✓ | 0.35 | no_extracted_points | — | — | — | — | — | — |
-| 2201.09890 | ✓ | 0.55 | 95.5% | 0.334 | 1.159 | 0.965 | 0.044 | 47.6% | 9/22 |
+| 2201.09890 | ✓ | 0.55 | 49.2% | 1.477 | 1.187 | 1.252 | 0.447 | 9.3% | 9/590 |
 | 1110.2895 | ✓ | 0.30 | no_extracted_points | — | — | — | — | — | — |
 | 2412.02232 | ✓ | 0.82 | 91.1% | 0.174 | 0.157 | 0.213 | 0.913 | 75.2% | 31/124 |
 | 2504.07559 | ✓ | 0.80 | 58.1% | 0.273 | 0.159 | 0.264 | 0.496 | 53.9% | 28/198 |
 | 2404.17333 | ✓ | 0.90 | 20.0% | 0.124 | 0.137 | 0.461 | 0.052 | 80.0% | 5/25 |
 | 2405.08059 | ✓ | 0.45 | 87.5% | 2.474 | 2.579 | 2.474 | 0.892 | 0.0% | 3/40 |
-| 2211.03414 | ✓ | 0.78 | 81.7% | 0.066 | 0.066 | 0.099 | 0.834 | 98.9% | 26/109 |
-| 1603.06978 | ✓ | 0.60 | 49.8% | 0.103 | 0.032 | 0.287 | 0.640 | 55.4% | 5/333 |
-| 2305.10327 | ✓ | 0.60 | 100.0% | 0.308 | 0.704 | 0.751 | 0.964 | 49.0% | 6/51 |
-| 2305.01002 | ✓ | 0.78 | 97.6% | 0.246 | 0.958 | 1.253 | 0.939 | 55.0% | 24/41 |
+| 2211.03414 | ✓ | 0.78 | 81.7% | 0.066 | 0.077 | 0.099 | 0.834 | 100.0% | 26/109 |
+| 1603.06978 | ✓ | 0.60 | 46.7% | 0.040 | 0.028 | 0.287 | 0.640 | 100.0% | 5/287 |
+| 2305.10327 | ✓ | 0.60 | 100.0% | 0.081 | 0.090 | 0.751 | 0.964 | 77.6% | 6/49 |
+| 2305.01002 | ✓ | 0.78 | 97.4% | 0.249 | 0.447 | 1.253 | 0.939 | 56.8% | 24/38 |
 | 2208.13794 | ✓ | 0.55 | 94.4% | 0.502 | 0.532 | 0.527 | 0.719 | 0.0% | 6/89 |
-| 2312.11608 | ✓ | 0.30 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 0/127 |
+| 2312.11608 | ✓ | 0.30 | 85.0% | 0.341 | 0.320 | 0.291 | 0.903 | 35.3% | 31/20 |
 | 2501.17119 | ✓ | 0.82 | 100.0% | 0.032 | 0.050 | 0.035 | 0.956 | 100.0% | 36/799 |
-| 1406.6053 | ✓ | 0.85 | 0.0% | ∞ | ∞ | 0.003 | 0.737 | 0.0% | 3/27 |
-| 2110.14406 | ✓ | 0.55 | gt_point_reference | — | — | — | — | — | — |
+| 1406.6053 | ✓ | 0.85 | 100.0% | 0.003 | 0.003 | 0.003 | 0.737 | 100.0% | 3/27 |
+| 2110.14406 | ✓ | 0.55 | 100.0% | 0.000 | ∞ | — | — | 100.0% | 13/1 |
 | 2203.04332 | ✓ | 0.82 | 87.8% | 0.009 | 0.010 | 0.018 | 0.330 | 100.0% | 35/148 |
 | 1610.02580 | ✓ | 0.72 | 54.5% | 0.048 | 0.098 | 0.050 | 0.511 | 98.5% | 2/123 |
 | 2008.01853 | ✓ | 0.80 | 46.8% | 0.433 | 1.427 | 1.033 | 0.191 | 0.0% | 4/111 |
 | 2409.08998 | ✓ | 0.60 | 98.5% | 0.062 | 0.048 | 1.146 | 0.362 | 97.5% | 33/324 |
 | 1311.3148 | ✓ | 0.78 | 59.1% | 0.027 | 0.025 | 0.030 | 0.300 | 100.0% | 5/22 |
 | 2301.06560 | ✓ | 0.30 | 68.0% | 13.008 | 12.593 | 12.814 | 0.813 | 0.0% | 24/97 |
-| 2412.02543 | ✓ | 0.60 | 99.0% | 0.394 | 0.448 | 0.440 | 0.990 | 34.3% | 6/100 |
+| 2412.02543 | ✓ | 0.60 | 99.0% | 0.399 | 0.448 | 0.440 | 0.990 | 33.7% | 6/99 |
 | 2209.06299 | ✓ | 0.55 | 100.0% | 1.245 | 1.171 | 1.286 | 0.995 | 0.0% | 10/45 |
-| 2310.15395 | ✓ | 0.70 | 79.0% | 0.139 | 0.048 | 0.159 | 0.789 | 84.0% | 3/300 |
+| 2310.15395 | ✓ | 0.70 | 79.8% | 0.133 | 0.048 | 0.159 | 0.789 | 84.7% | 3/262 |
 | 2503.11753 | ✓ | 0.60 | 95.9% | 0.590 | 0.616 | 0.673 | 0.963 | 6.5% | 11/1844 |
 | 1509.00476 | ✓ | 0.45 | 90.5% | 1.279 | 0.879 | 1.295 | 0.729 | 0.0% | 17/21 |
 | 2307.01365 | ✓ | 0.85 | 57.4% | 0.126 | 0.249 | 0.113 | 0.564 | 98.1% | 3/94 |
 | 2111.08025 | ✓ | 0.55 | 80.6% | 0.122 | 0.092 | 0.120 | 0.576 | 89.3% | 8/93 |
 | 2412.03660 | ✓ | 0.55 | 67.0% | 0.087 | 0.158 | 0.230 | 0.661 | 71.4% | 4/115 |
 | 2409.11777 | ✓ | 0.80 | 100.0% | 0.176 | 0.255 | 0.350 | 0.997 | 79.1% | 6/86 |
-| 2401.07798 | ✓ | 0.55 | 79.5% | 0.435 | 0.028 | 0.234 | 0.631 | 48.6% | 4/44 |
+| 2401.07798 | ✓ | 0.55 | 84.2% | 0.060 | 0.028 | 0.234 | 0.631 | 100.0% | 4/38 |
 | 1811.10997 | ✓ | 0.70 | 97.9% | 0.207 | 0.254 | 0.294 | 0.975 | 68.8% | 5/144 |
 | 2203.04319 | ✓ | 0.85 | 73.5% | 0.008 | 0.040 | 0.078 | 0.861 | 90.7% | 22/132 |
 | 2307.03878 | ✗ (AxionElectron) | 0.50 | no_comparable_gt | — | — | — | — | — | — |
-| 2110.13636 | ✓ | 0.78 | 87.7% | 0.190 | 0.200 | 0.175 | 0.809 | 84.2% | 28/65 |
-| 2008.09464 | ✓ | 0.70 | 84.9% | 0.215 | 0.156 | 0.191 | 0.948 | 80.0% | 7/53 |
+| 2110.13636 | ✓ | 0.78 | 88.7% | 0.181 | 0.200 | 0.175 | 0.809 | 89.1% | 28/62 |
+| 2008.09464 | ✓ | 0.70 | 88.0% | 0.251 | 0.156 | 0.191 | 0.948 | 75.0% | 7/50 |
 | 2202.08274 | ✓ | 0.55 | 100.0% | 0.526 | ∞ | 0.432 | 0.780 | 40.1% | 2/257 |
 | 2203.12152 | ✓ | 0.80 | 98.4% | 0.188 | 0.166 | 0.159 | 0.976 | 81.8% | 2/123 |
 | 2310.00904 | ✓ | 0.82 | 100.0% | 0.052 | ∞ | 0.055 | 0.979 | 100.0% | 2/53 |
 | 2407.18586 | ✓ | 0.60 | 100.0% | 0.043 | ∞ | 0.046 | 0.990 | 99.2% | 2/265 |
-| 1706.00209 | ✓ | 0.85 | gt_point_reference | — | — | — | — | — | — |
+| 1706.00209 | ✓ | 0.85 | 100.0% | 0.000 | ∞ | — | — | 100.0% | 1/1 |
 | 1506.08082 | ✓ | 0.80 | 91.7% | 0.108 | 0.048 | 0.066 | 0.036 | 90.9% | 43/12 |
 | 2303.08410 | ✓ | 0.83 | 99.5% | 0.117 | 0.087 | 0.100 | 0.993 | 92.1% | 27/192 |
 | 2403.02096 | ✓ | 0.85 | 100.0% | 0.151 | 0.159 | 0.117 | 0.998 | 67.3% | 6/838 |
@@ -352,40 +375,40 @@ These are symmetric, 2-D complements to the (asymmetric, vertical-only) interpol
 | 1510.08052 | ✓ | 0.60 | 73.9% | 0.168 | 0.188 | 0.152 | 0.032 | 100.0% | 4/88 |
 | 2409.10514 | ✓ | 0.82 | 100.0% | 0.108 | 0.074 | 0.111 | 0.862 | 89.1% | 24/156 |
 | 1903.03586 | ✓ | 0.45 | 100.0% | 0.281 | 0.361 | 0.312 | 0.352 | 57.1% | 10/7 |
-| 1903.06547 | ✓ | 0.60 | gt_point_reference | — | — | — | — | — | — |
-| 2012.09498 | ✓ | 0.85 | gt_point_reference | — | — | — | — | — | — |
+| 1903.06547 | ✓ | 0.60 | 100.0% | 0.003 | ∞ | — | — | 100.0% | 28/1 |
+| 2012.09498 | ✓ | 0.85 | 100.0% | 0.079 | ∞ | — | — | 100.0% | 1/1 |
 | 2304.07505 | ✓ | 0.78 | 75.0% | 0.519 | 0.669 | 0.489 | 0.718 | 20.8% | 2/32 |
 | 2402.19063 | ✓ | 0.75 | 100.0% | 0.387 | 0.455 | 0.346 | 0.999 | 37.6% | 3/149 |
 | 2104.13798 | ✓ | 0.80 | 100.0% | 0.000 | 0.000 | 0.000 | 1.000 | 100.0% | 2/2 |
 | 2403.07790 | ✓ | 0.85 | 99.8% | 0.203 | 0.579 | 0.207 | 0.992 | 79.7% | 2/420 |
 | 2409.01805 | ✓ | 0.85 | 65.9% | 0.311 | 0.468 | 0.655 | 0.553 | 48.3% | 21/91 |
 | 2003.03348 | ✓ | 0.85 | 99.6% | 0.059 | 0.082 | 0.103 | 0.991 | 94.4% | 45/857 |
-| 2303.11395 | ✓ | 0.50 | 100.0% | 0.422 | 1.178 | 1.047 | 0.985 | 32.5% | 6/40 |
-| 2304.01060 | ✓ | 0.82 | 89.8% | 0.279 | 0.182 | 0.584 | 0.981 | 58.5% | 32/59 |
+| 2303.11395 | ✓ | 0.50 | 100.0% | 0.369 | 0.769 | 1.047 | 0.985 | 40.5% | 6/37 |
+| 2304.01060 | ✓ | 0.82 | 92.2% | 0.226 | 0.146 | 0.584 | 0.981 | 93.6% | 32/51 |
 | 2212.09764 | ✓ | 0.82 | 90.9% | 0.086 | 0.085 | 0.090 | 0.132 | 100.0% | 28/33 |
 | 2405.19393 | ✓ | 0.55 | 94.5% | 0.707 | 0.562 | 0.560 | 0.874 | 25.0% | 7/55 |
-| 2306.11575 | ✓ | 0.60 | 96.4% | 2.413 | 2.391 | 2.414 | 0.969 | 0.0% | 6/415 |
+| 2306.11575 | ✓ | 0.60 | 96.4% | 0.312 | 0.338 | 0.344 | 0.969 | 48.2% | 6/415 |
 | 2006.06722 | ✓ | 0.72 | 98.7% | 0.042 | 0.016 | 0.064 | 0.241 | 78.7% | 6/76 |
 | 2203.16567 | ✓ | 0.85 | 99.1% | 0.082 | 0.068 | 0.091 | 0.984 | 96.5% | 27/115 |
 | 2008.13662 | ✓ | 0.55 | 98.4% | 0.241 | 0.217 | 0.312 | 0.986 | 57.1% | 6/64 |
 | 2205.05700 | ✓ | 0.55 | 100.0% | 0.636 | 0.706 | 0.698 | 0.846 | 23.0% | 7/122 |
 | 2303.06968 | ✓ | 0.50 | 100.0% | 0.414 | 0.221 | 0.565 | 0.973 | 33.3% | 8/174 |
-| 1501.01639 | ✓ | 0.60 | 11.1% | 2.499 | 1.615 | 1.476 | 0.333 | 0.0% | 7/18 |
+| 1501.01639 | ✓ | 0.60 | 50.0% | 0.304 | 3.003 | 2.415 | 0.612 | 0.0% | 7/2 |
 | 2307.11216 | ✓ | 0.40 | 78.3% | 0.088 | 0.093 | 0.102 | 0.803 | 100.0% | 5/60 |
 | 2112.09620 | ✓ | 0.85 | 90.4% | 0.212 | 0.214 | 0.201 | 0.926 | 76.0% | 33/83 |
 | 2408.16045 | ✓ | 0.55 | 100.0% | 1.475 | 1.428 | 1.741 | 0.981 | 0.0% | 7/124 |
 | 2205.05574 | ✓ | 0.80 | 98.8% | 0.030 | 0.022 | 0.019 | 0.983 | 100.0% | 3/508 |
 | 2307.07403 | ✓ | 0.60 | 95.3% | 0.285 | 0.329 | 0.295 | 0.970 | 52.7% | 7/555 |
-| astro-ph/0611502 | ✓ | 0.30 | 97.8% | 9.212 | 9.241 | 9.230 | 0.992 | 0.0% | 7/91 |
+| astro-ph/0611502 | ✓ | 0.30 | 97.8% | 0.157 | 0.181 | 0.150 | 0.992 | 98.9% | 7/91 |
 | 2301.06778 | ✓ | 0.60 | 98.8% | 0.198 | 0.399 | 0.179 | 0.948 | 89.4% | 2/86 |
 | 1912.07751 | ✓ | 0.40 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 18/85 |
 | 2402.07976 | ✓ | 0.60 | 97.6% | 0.433 | 0.122 | 0.394 | 0.940 | 10.5% | 5/10796 |
-| 2102.00379 | ✓ | 0.55 | 96.3% | 2.347 | 0.828 | 1.733 | 0.847 | 7.7% | 37/27 |
+| 2102.00379 | ✓ | 0.55 | 96.2% | 0.643 | 0.637 | 1.733 | 0.847 | 16.0% | 37/26 |
 | 2102.02207 | ✗ (AxionMass) | 0.20 | no_comparable_gt | — | — | — | — | — | — |
 | 2503.04726 | ✓ | 0.50 | 100.0% | 0.202 | 0.213 | 0.240 | 0.887 | 74.0% | 30/16611 |
 | 2008.03305 | ✓ | 0.70 | 75.7% | 0.002 | 0.011 | 0.018 | 0.143 | 100.0% | 5/115 |
-| 2412.09595 | ✓ | 0.60 | 76.7% | 0.421 | 0.429 | 0.458 | 0.066 | 36.4% | 11/43 |
-| 2008.02209 | ✓ | 0.70 | 100.0% | 1.732 | 1.627 | 1.931 | 0.125 | 0.0% | 33/12 |
+| 2412.09595 | ✓ | 0.60 | 82.5% | 0.151 | 0.188 | 0.232 | 0.066 | 100.0% | 6/40 |
+| 2008.02209 | ✓ | 0.70 | 100.0% | 0.620 | 0.550 | 0.674 | 0.692 | 21.2% | 33/99 |
 | 2407.16628 | ✓ | 0.80 | 95.0% | 1.801 | 1.803 | 1.848 | 0.977 | 0.0% | 36/101 |
 | 0801.1527 | ✓ | 0.55 | 49.1% | 0.343 | 0.420 | 0.475 | 0.545 | 36.0% | 7/175 |
 | 2002.05165 | ✓ | 0.60 | 65.6% | 0.282 | 0.236 | 0.523 | 0.371 | 60.2% | 6/671 |
@@ -397,52 +420,51 @@ These are symmetric, 2-D complements to the (asymmetric, vertical-only) interpol
 | 0810.5501 | ✓ | 0.78 | 88.4% | 0.097 | 0.102 | 0.117 | 0.961 | 100.0% | 40/112 |
 | 2002.01796 | ✗ (AxionPhoton) | 0.55 | no_comparable_gt | — | — | — | — | — | — |
 | 1907.12628 | ✓ | 0.60 | 100.0% | 0.117 | 0.115 | 0.123 | 0.890 | 95.9% | 41/73 |
-| 1906.08814 | ✓ | 0.75 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 1/2 |
+| 1906.08814 | ✓ | 0.75 | 100.0% | 0.000 | 0.000 | ∞ | 0.000 | 100.0% | 1/2 |
 | 2101.02805 | ✓ | 0.55 | 77.0% | 0.792 | 0.441 | 0.799 | 0.857 | 12.6% | 4/1274 |
 | 2405.20444 | ✓ | 0.60 | 99.8% | 0.410 | 0.863 | 0.372 | 0.994 | 35.2% | 2/493 |
 | 2301.11512 | ✓ | 0.80 | 93.8% | 0.077 | 0.061 | 0.155 | 0.894 | 60.0% | 23/16 |
 | 2207.05767 | ✓ | 0.60 | 98.7% | 0.179 | 0.074 | 0.227 | 0.998 | 64.5% | 5/237 |
-| 2003.13144 | ✓ | 0.70 | 100.0% | 1.091 | 1.038 | 0.992 | 0.552 | 0.0% | 5/12 |
+| 2003.13144 | ✓ | 0.70 | 86.4% | 0.196 | 0.287 | 0.192 | 0.802 | 68.4% | 5/22 |
 | 2310.13891 | ✓ | 0.70 | 100.0% | 0.026 | 0.022 | 0.026 | 0.925 | 100.0% | 5/87 |
-| 2304.12907 | ✓ | 0.70 | 100.0% | 2.452 | 2.329 | 2.051 | 0.800 | 5.3% | 32/152 |
+| 2304.12907 | ✓ | 0.70 | 99.3% | 1.105 | 0.805 | 1.331 | 0.269 | 4.9% | 32/145 |
 | 2211.00022 | ✓ | 0.70 | 100.0% | 1.345 | 0.884 | 2.298 | 0.978 | 11.2% | 7/143 |
 | 2406.19445 | ✓ | 0.78 | 49.5% | 0.991 | 0.963 | 0.844 | 0.233 | 10.2% | 23/99 |
 | 2402.17140 | ✓ | 0.40 | 99.5% | 1.973 | 1.692 | 2.201 | 0.974 | 0.0% | 5/401 |
 | 2110.01582 | ✓ | 0.55 | 46.2% | 0.092 | 0.143 | 0.170 | 0.787 | 91.7% | 3/26 |
 | 2301.03622 | ✓ | 0.55 | 100.0% | 0.381 | 0.583 | 0.396 | 0.983 | 39.2% | 6/401 |
-| 1410.5244 | ✓ | 0.60 | 1.0% | 3.256 | 3.175 | 3.215 | 0.002 | 0.0% | 22/102 |
-| 1003.0964 | ✓ | 0.85 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 1/21 |
+| 1410.5244 | ✓ | 0.60 | 100.0% | 0.429 | 0.410 | 0.804 | 0.773 | 28.6% | 22/21 |
 | 2410.02858 | ✓ | 0.55 | 33.3% | 0.603 | 0.341 | 0.603 | 0.080 | 0.0% | 6/6 |
-| 2110.10497 | ✓ | 0.72 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 1/72 |
+| 2110.10497 | ✓ | 0.72 | 100.0% | 0.113 | 0.113 | ∞ | 0.000 | 100.0% | 1/72 |
 | 2012.05427 | ✗ (VectorBL) | 0.70 | no_comparable_gt | — | — | — | — | — | — |
 | 2204.03818 | ✓ | 0.80 | 98.2% | 0.062 | 0.096 | 0.122 | 0.982 | 98.5% | 2/3689 |
 | 2405.12285 | ✓ | 0.60 | 91.2% | 0.144 | 0.128 | 0.171 | 0.850 | 73.5% | 6/91 |
 | 2406.02546 | ✓ | 0.60 | 95.5% | 0.406 | 0.295 | 0.581 | 0.896 | 38.1% | 5/22 |
 | 2209.03419 | ✓ | 0.60 | 98.2% | 0.182 | 0.275 | 0.174 | 0.993 | 82.8% | 3/325 |
 | 2212.01971 | ✓ | 0.60 | 97.7% | 0.428 | 0.409 | 0.389 | 0.976 | 32.8% | 4/131 |
-| 2305.09711 | ✓ | 0.70 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 1/57500 |
+| 2305.09711 | ✓ | 0.70 | 100.0% | 0.400 | 0.400 | ∞ | 0.000 | 0.0% | 1/57500 |
 | 1502.04490 | ✓ | 0.80 | 69.9% | 0.093 | 0.113 | 0.136 | 0.687 | 88.4% | 46/123 |
-| 1905.05579 | ✓ | 0.60 | 98.1% | 0.360 | 0.504 | 0.381 | 0.950 | 46.1% | 3/104 |
+| 1905.05579 | ✓ | 0.60 | 98.1% | 0.348 | 0.485 | 0.381 | 0.950 | 48.0% | 3/104 |
 | 1301.6557 | ✓ | 0.85 | 59.3% | 0.369 | 0.380 | 0.367 | 0.591 | 19.2% | 7/123 |
-| 2208.03183 | ✓ | 0.90 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 1/12 |
-| 2008.12231 | ✓ | 0.95 | gt_point_reference | — | — | — | — | — | — |
-| 2308.08337 | ✓ | 0.90 | gt_point_reference | — | — | — | — | — | — |
+| 2208.03183 | ✓ | 0.90 | 100.0% | 0.362 | ∞ | ∞ | 0.000 | 0.0% | 1/12 |
+| 2008.12231 | ✓ | 0.95 | 100.0% | 0.000 | ∞ | — | — | 100.0% | 1/1 |
+| 2308.08337 | ✓ | 0.90 | 100.0% | 0.000 | ∞ | — | — | 100.0% | 1/1 |
 | 1008.3536 | ✓ | 0.55 | 100.0% | 4.744 | 4.530 | 4.821 | 0.274 | 0.0% | 45/100 |
 | 2106.00022 | ✓ | 0.90 | 94.8% | 0.349 | 0.351 | 0.370 | 0.932 | 32.7% | 28/58 |
 | 1804.10777 | ✓ | 0.70 | 66.7% | 1.112 | 0.189 | 0.410 | 0.863 | 50.0% | 12/3 |
-| 1504.00118 | ✓ | 0.80 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 1/12 |
+| 1504.00118 | ✓ | 0.80 | 100.0% | 0.068 | 0.068 | ∞ | 0.000 | 100.0% | 1/12 |
 | 2006.02828 | ✓ | 0.80 | 100.0% | 0.176 | 0.007 | 0.139 | 0.952 | 100.0% | 3/6 |
-| 1907.12449 | ✓ | 0.55 | 31.0% | 0.427 | 0.271 | 0.381 | 0.308 | 34.3% | 6/555 |
+| 1907.12449 | ✓ | 0.55 | 31.0% | 0.468 | 0.264 | 0.381 | 0.308 | 22.7% | 6/555 |
 | 1903.05101 | ✓ | 0.70 | 77.4% | 0.188 | 0.185 | 0.179 | 0.745 | 100.0% | 13/53 |
 | 2006.13929 | ✓ | 0.78 | 98.0% | 0.983 | 1.018 | 1.319 | 0.933 | 13.5% | 32/98 |
 | 1807.04512 | ✗ (ScalarBaryon) | 0.45 | no_comparable_gt | — | — | — | — | — | — |
 | hep-ph/0307284 | ✗ (ScalarNucleon) | 0.30 | no_comparable_gt | — | — | — | — | — | — |
-| 2103.03783 | ✓ | 0.55 | 87.0% | 17.883 | 18.284 | 18.596 | 0.603 | 0.0% | 31/69 |
+| 2103.03783 | ✓ | 0.55 | 87.0% | 1.082 | 1.060 | 1.014 | 0.603 | 8.3% | 31/69 |
 | 2205.06817 | ✗ (ScalarPhoton) | 0.70 | no_comparable_gt | — | — | — | — | — | — |
 | 2306.16219 | ✓ | 0.55 | 100.0% | 0.176 | 0.138 | 0.198 | 0.996 | 71.6% | 43/102 |
 | 2303.00778 | ✓ | 0.55 | convention_mismatch | — | — | — | — | — | — |
 | 2212.05721 | ✓ | 0.82 | 100.0% | 0.127 | 0.080 | 0.103 | 0.933 | 93.1% | 35/333 |
-| 2005.14694 | ✗ (None) | 0.05 | no_prediction | — | — | — | — | — | — |
+| 2005.14694 | — | — | EXCLUDED | — | — | — | — | — | — |
 | 1503.06886 | ✓ | 0.60 | 33.7% | 0.198 | 0.215 | 0.292 | 0.502 | 78.2% | 6/1006 |
 | 1902.02788 | ✓ | 0.40 | convention_mismatch | — | — | — | — | — | — |
 | 2301.03433 | ✓ | 0.80 | 98.9% | 0.338 | 0.345 | 0.425 | 0.996 | 36.0% | 43/174 |
@@ -458,19 +480,20 @@ These are symmetric, 2-D complements to the (asymmetric, vertical-only) interpol
 | 2302.00685 | ✓ | 0.50 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 20/11 |
 | 2011.11646 | ✓ | 0.30 | 90.2% | 0.714 | 0.704 | 1.950 | 0.803 | 26.1% | 17/51 |
 | 2406.10337 | ✓ | 0.35 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 20/51 |
-| 2011.08693 | ✗ (None) | 0.10 | no_prediction | — | — | — | — | — | — |
+| 2011.08693 | — | — | EXCLUDED | — | — | — | — | — | — |
 | 2012.12790 | ✓ | 0.50 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 33/211 |
 | 2412.03655 | ✓ | 0.40 | 97.3% | 0.858 | 0.970 | 0.914 | 0.938 | 14.6% | 31/548 |
-| 2105.13963 | ✓ | 0.50 | 78.3% | 12.303 | 12.476 | 12.376 | 0.104 | 0.0% | 4/23 |
+| 2105.13963 | ✓ | 0.50 | convention_mismatch | — | — | — | — | — | — |
 | 2404.00616 | ✗ (ScalarNucleon) | 0.70 | no_comparable_gt | — | — | — | — | — | — |
 | 2412.20932 | ✓ | 0.30 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 8/2 |
-| 2408.07740 | ✓ | 0.35 | 100.0% | 1.015 | 0.415 | 0.457 | 0.778 | 20.0% | 25/20 |
-| 2410.21590 | ✓ | 0.30 | 94.7% | 0.580 | 0.481 | 0.844 | 0.705 | 33.3% | 34/38 |
+| 2408.07740 | ✓ | 0.35 | 100.0% | 0.396 | 0.394 | 0.457 | 0.778 | 42.1% | 25/19 |
+| 2410.21590 | ✓ | 0.30 | 94.1% | 0.200 | 0.292 | 0.844 | 0.705 | 90.6% | 34/34 |
 | 2205.01637 | ✗ (AxionPhoton) | 0.82 | no_comparable_gt | — | — | — | — | — | — |
 | 1708.08464 | ✗ (AxionCPV) | 0.35 | no_comparable_gt | — | — | — | — | — | — |
 | 2303.09865 | ✓ | 0.30 | 0.0% | ∞ | ∞ | ∞ | 0.000 | 0.0% | 14/2 |
 | 2211.02661 | ✓ | 0.50 | 12.5% | 15.165 | 7.000 | 6.737 | 0.433 | 0.0% | 24/168 |
 | 2301.10784 | ✗ (ScalarNucleon) | 0.55 | no_comparable_gt | — | — | — | — | — | — |
+| 1003.0964 | — | — | EXCLUDED | — | — | — | — | — | — |
 
 ## Breakdown by Extraction Source
 
@@ -478,9 +501,9 @@ Median residual is over papers with mass-range overlap; zero-overlap papers are 
 
 | Source | Papers | Compared | Zero-overlap | Med. Resid. | ≤0.3 dex |
 |--------|--------|----------|--------------|-------------|----------|
-| table | 5 | 4 | 2 | 4.668 dex | 40.0% |
-| figure_vision | 156 | 119 | 14 | 0.338 dex | 46.8% |
-| text | 166 | 148 | 12 | 0.326 dex | 49.7% |
+| table | 5 | 4 | 1 | 0.124 dex | 93.0% |
+| figure_vision | 156 | 120 | 8 | 0.268 dex | 51.6% |
+| text | 164 | 153 | 1 | 0.243 dex | 56.9% |
 
 ## Breakdown by Difficulty
 
@@ -488,9 +511,9 @@ Median residual is over papers with mass-range overlap; zero-overlap papers are 
 
 | Difficulty | Papers | Coupling Acc. | Med. Resid. | ≤0.3 dex |
 |------------|--------|---------------|-------------|----------|
-| easy | 15 | 100.0% | 0.170 dex | 53.8% |
-| medium | 290 | 90.0% | 0.316 dex | 49.2% |
-| hard | 41 | 90.2% | 0.392 dex | 42.3% |
+| easy | 12 | 100.0% | 0.045 dex | 85.9% |
+| medium | 278 | 90.6% | 0.245 dex | 55.0% |
+| hard | 41 | 90.2% | 0.301 dex | 47.5% |
 
 ## Confidence Calibration
 
@@ -501,10 +524,10 @@ Median residual is over papers with mass-range overlap; zero-overlap papers are 
 
 | Bin | N | Mean Conf. | Actual Acc. | Gap |
 |-----|---|------------|-------------|-----|
-| [0.2–0.4) | 13 | 30.8% | 7.7% | +0.23 |
-| [0.4–0.6) | 136 | 54.3% | 29.4% | +0.25 |
-| [0.6–0.8) | 51 | 72.3% | 45.1% | +0.27 |
-| [0.8–1.0) | 71 | 82.9% | 69.0% | +0.14 |
+| [0.2–0.4) | 12 | 30.8% | 25.0% | +0.06 |
+| [0.4–0.6) | 137 | 54.4% | 37.2% | +0.17 |
+| [0.6–0.8) | 51 | 72.3% | 52.9% | +0.19 |
+| [0.8–1.0) | 77 | 83.2% | 83.1% | +0.00 |
 
 > **Interpretation**: Gap > 0 means the pipeline is overconfident; Gap < 0 means underconfident.
 
@@ -514,10 +537,10 @@ Median (and IQR) of each bin's per-paper median residual, over papers with a fin
 
 | Bin | N | N finite | Median resid. (dex) | IQR (dex) |
 |-----|---|----------|---------------------|-----------|
-| [0.2–0.4) | 13 | 7 | 1.02 | 0.65–5.56 |
-| [0.4–0.6) | 136 | 127 | 0.44 | 0.23–1.32 |
-| [0.6–0.8) | 51 | 47 | 0.32 | 0.15–1.04 |
-| [0.8–1.0) | 71 | 62 | 0.12 | 0.07–0.20 |
+| [0.2–0.4) | 12 | 9 | 0.34 | 0.20–0.71 |
+| [0.4–0.6) | 137 | 132 | 0.40 | 0.19–0.87 |
+| [0.6–0.8) | 51 | 51 | 0.30 | 0.13–0.59 |
+| [0.8–1.0) | 77 | 75 | 0.09 | 0.04–0.17 |
 
 ### Continuous view: empirical P(residual < τ) per bin
 
@@ -525,10 +548,10 @@ Fraction of papers in each bin whose median residual is below τ dex (τ = 0.32 
 
 | Bin | N | P(<0.10) | P(<0.32) | P(<0.50) | P(<1.00) |
 |-----|---|----|----|----|----|
-| [0.2–0.4) | 13 | 0.0% | 7.7% | 7.7% | 23.1% |
-| [0.4–0.6) | 136 | 7.4% | 32.4% | 50.0% | 66.9% |
-| [0.6–0.8) | 51 | 17.6% | 45.1% | 54.9% | 68.6% |
-| [0.8–1.0) | 71 | 38.0% | 73.2% | 80.3% | 83.1% |
+| [0.2–0.4) | 12 | 0.0% | 25.0% | 50.0% | 58.3% |
+| [0.4–0.6) | 137 | 13.1% | 40.1% | 56.2% | 74.5% |
+| [0.6–0.8) | 51 | 19.6% | 52.9% | 66.7% | 82.4% |
+| [0.8–1.0) | 77 | 54.5% | 88.3% | 94.8% | 96.1% |
 
 ## Methodology
 
