@@ -152,19 +152,21 @@ Two kinds of labels are scored:
 
 ## II.5 Headline results
 
+> **Provenance (2026-07-02).** These numbers are the post-full346 **benchmark repair** re-baseline (PRs #650/#652/#653): the *same* cached extraction snapshots (2026-06-08, Haiku) rescored after fixing the grading itself — documented GT exclusions (15 papers whose GT could grade no extraction), per-entry GT data files, header-declared unit ingestion, both-sides convention canonicalization, reverse-pass/single-point scoring, and closed-contour envelopes. The failure analysis behind each change: `evaluation/eval_runs/failure_analysis_full346.md` (57% of the failure tail was the benchmark's own fault). Extraction behavior is unchanged; these are the same extractions graded fairly.
+
 | Aggregate metric | Value |
 |---|---|
-| Coupling-type accuracy | **90.5%** (N=346) |
-| Median coupling residual (overlap papers) | **0.331 dex** (IQR 0.125–0.821) |
-| Mean residual (outlier-sensitive) | 1.131 dex |
-| Within a factor of 2 (≤0.3 dex) | **48.4%** |
-| Within a factor of 3 (≤0.5 dex) | 61.7% |
-| Mean interpolation coverage | **76.2%** |
-| Zero-overlap papers | 28 / 271 (**10.3%**) |
-| Reverse-pass median residual | 0.343 dex (forward 0.331) |
-| Reverse-pass mean coverage | 69.8% (forward 76.2%) |
+| Coupling-type accuracy | **90.9%** (N=331 scoreable; 15 papers GT-excluded with documented reasons) |
+| Median coupling residual (overlap papers) | **0.245 dex** (IQR 0.094–0.562) |
+| Mean residual (outlier-sensitive) | 0.723 dex |
+| Within a factor of 2 (≤0.3 dex) | **55.1%** |
+| Within a factor of 3 (≤0.5 dex) | 69.4% |
+| Mean interpolation coverage | **83.7%** |
+| Zero-overlap papers | 10 / 277 (**3.6%**) |
+| Reverse-pass median residual | 0.252 dex (forward 0.245) |
+| Reverse-pass mean coverage | 73.9% (forward 83.7%) |
 
-Reading: the typical extracted curve is **within a factor of two for ~half of all curves**, lands at a median ~0.33 dex (≈ a factor of two), and covers ~three-quarters of the true mass range. The reverse pass tracking the forward pass means the curves cover the *right extent*, not just the right values where they happen to overlap.
+Reading: the typical extracted curve is **within a factor of two for over half of all curves**, lands at a median ~0.25 dex (better than a factor of two), and covers ~84% of the true mass range. The reverse pass tracking the forward pass means the curves cover the *right extent*, not just the right values where they happen to overlap.
 
 ### Two yardsticks for interpreting the residual
 
@@ -175,53 +177,55 @@ Reading: the typical extracted curve is **within a factor of two for ~half of al
 
 | Source | Papers | Compared | Zero-overlap | Median residual | ≤0.3 dex |
 |---|---|---|---|---|---|
-| Text | 166 | 148 | 12 | **0.326 dex** | 49.7% |
-| Figure (vision) | 156 | 119 | 14 | **0.338 dex** | 46.8% |
-| Table | 5 | 4 | 2 | 4.668 dex† | 40.0% |
+| Text | 164 | 153 | 1 | **0.243 dex** | 56.9% |
+| Figure (vision) | 156 | 120 | 8 | **0.268 dex** | 51.6% |
+| Table | 5 | 4 | 1 | 0.124 dex† | 93.0% |
 
-†The table row is **N = 4 and not meaningful**: it is dominated by one re-added old scalar-nucleon paper that hits the fifth-force-$\alpha$ convention gap (see §IV.2). It is a convention problem, not a table-reading problem.
+†The table row is **N = 4** — small but no longer pathological: the old 4.7-dex value was one scalar-nucleon paper hitting the fifth-force-$\alpha$ convention gap, which the repaired benchmark now correctly excludes as a units mismatch rather than scoring as table-reading error.
 
-**Figure-vision (0.338 dex) is now on par with text (0.326 dex).** Reading dense log–log plots — historically *the* hard part of this task and the dominant failure mode in earlier iterations — is no longer the limiting factor. The combination of read-vote consensus, quality-tier selection, and convention canonicalization closed the gap.
+**Figure-vision (0.268 dex) is on par with text (0.243 dex).** Reading dense log–log plots — historically *the* hard part of this task and the dominant failure mode in earlier iterations — is no longer the limiting factor. The combination of read-vote consensus, quality-tier selection, and convention canonicalization closed the gap.
 
 ### Breakdown by coupling type — where the difficulty actually lives
 
 | Coupling type | N | Median residual | 95% CI | Note |
 |---|---|---|---|---|
-| AxionPhoton | 127 | **0.207** | [0.151, 0.272] | the dominant, well-covered type |
-| DarkPhoton | 53 | 0.406 | [0.282, 0.792] | |
-| AxionElectron | 15 | 0.376 | [0.152, 1.270] | |
-| AxionNeutron | 13 | 0.773 | [0.510, 1.634] | convention-heavy ($2m_N$) |
-| VectorBL | 11 | 0.905 | [0.551, 2.940] | rare, often misclassified as DarkPhoton |
-| ScalarPhoton | 8 | 0.486 | [0.274, 17.883] | wide CI: fifth-force-$\alpha$ files |
-| AxionMass | 6 | 0.937 | [0.647, 13.734] | |
-| AxionProton | 3 | 0.421 | [0.045, 3.513] | small-sample |
-| AxionEDM | 3 | **4.649** | [1.906, 6.311] | operator-vs-response convention (§IV.1) |
+| AxionPhoton | 136 | **0.175** | [0.123, 0.218] | the dominant, well-covered type |
+| DarkPhoton | 60 | 0.338 | [0.192, 0.406] | |
+| AxionElectron | 19 | 0.235 | [0.090, 0.567] | |
+| AxionNeutron | 14 | 0.467 | [0.220, 1.096] | convention-heavy ($2m_N$; per-file registry fixed a +0.27 dex GT-side bug) |
+| VectorBL | 11 | 0.905 | [0.551, 2.940] | rare; tail = projection-vs-existing wrong-curve traces |
+| AxionMass | 8 | 0.555 | [0.200, 0.897] | |
+| ScalarPhoton | 8 | 0.486 | [0.274, 1.082] | |
+| AxionProton | 3 | 0.045 | [0.015, 0.151] | small-sample |
+| MonopoleDipole | 3 | 3.805 | [0.331, 4.905] | small-sample; poor vision traces |
 | ScalarElectron | 3 | 0.176 | [0.127, 3.745] | small-sample |
-| MonopoleDipole | 1 | 2.924 | — | single paper |
+| ScalarBaryon | 1 | 5.482 | — | single paper (wrong-curve vision trace) |
+| AxionEDM | 1 | 6.311 | — | single paper (LLM e·cm arithmetic; deterministic-constant fix pending re-extraction) |
 
-- **Micro-average** (per paper, 243 papers): **0.331 dex** — dominated by AxionPhoton, the most common type.
-- **Macro-average** (equal weight per type, 11 types): **1.115 dex**.
-- **Macro − micro gap: +0.784 dex.** The positive gap is the headline of Part IV: *the system is good on the common, well-covered couplings and markedly worse on the rare ones.*
+- **Micro-average** (per paper, 267 papers): **0.245 dex** — dominated by AxionPhoton, the most common type.
+- **Macro-average** (equal weight per type, 12 types): **1.582 dex**.
+- **Macro − micro gap: +1.337 dex.** The gap *rose* under the repaired benchmark — an honesty effect, not a regression: rare-type failures that were previously invisible (∞ residuals, unit-incommensurable comparisons) are now finite, visible numbers. It is concentrated: the three worst types have N ≤ 3, so ~4 known-fault papers control most of the gap (macro over the N ≥ 5 types is 0.45 dex). Per-paper causes and the fix pipeline are tracked in issue #658.
 
 ### Breakdown by difficulty
 
 | Difficulty | Papers | Coupling acc. | Median residual | ≤0.3 dex |
 |---|---|---|---|---|
-| easy | 15 | 100.0% | 0.170 | 53.8% |
-| medium | 290 | 90.0% | 0.316 | 49.2% |
-| hard | 41 | 90.2% | 0.392 | 42.3% |
+| easy | 12 | 100.0% | 0.045 | 85.9% |
+| medium | 278 | 90.6% | 0.245 | 55.0% |
+| hard | 41 | 90.2% | 0.301 | 47.5% |
 
-### Confidence calibration — the model does not know when it is wrong
+### Confidence calibration — mostly a scoring artifact, largely resolved
 
-A paper is counted "accurate" only if **median residual < 0.3 dex AND coverage ≥ 50%** (both value and span correct). Binning papers by the model's self-reported extraction confidence:
+A paper is counted "accurate" only if **median residual < 0.32 dex AND coverage ≥ 50%** (both value and span correct; 0.32 dex is the run-to-run noise floor). Binning papers by the model's self-reported extraction confidence:
 
 | Confidence bin | N | Mean confidence | Actual accuracy | Gap |
 |---|---|---|---|---|
-| [0.4–0.6) | 1 | 45.0% | 0.0% | +0.45 |
-| [0.6–0.8) | 65 | 72.1% | 4.6% | **+0.67** |
-| [0.8–1.0) | 94 | 89.5% | 20.2% | **+0.69** |
+| [0.2–0.4) | 12 | 30.8% | 25.0% | +0.06 |
+| [0.4–0.6) | 137 | 54.4% | 37.2% | +0.17 |
+| [0.6–0.8) | 51 | 72.3% | 52.9% | +0.19 |
+| [0.8–1.0) | 77 | 83.2% | 83.1% | **+0.00** |
 
-The model claims ~89% confidence on its top-bin extractions but only ~20% are accurate by the strict joint criterion — a **large, systematic overconfidence** (Gap > 0). Confidence is not a usable filter, which is precisely why human review remains mandatory (§IV.5).
+**The historically-reported "large, systematic overconfidence" (+0.69 top-bin gap in earlier drafts of this report) was primarily a benchmark-scoring artifact**: correct extractions were being graded as failures (convention gaps, single-point auto-fails, GT mis-mappings), which deflated "accuracy" while confidence was in fact tracking real quality. Under the repaired benchmark the top bin is calibrated to within 0.1 pp, and PLACEHOLDER_NO
 
 ---
 
@@ -263,9 +267,9 @@ The pattern: the convention layer has turned silent multi-dex errors into either
 
 At 90.5% coupling accuracy, roughly one proposal in ten is compared against — and in production would be inserted into — the *wrong* coupling's plot. The errors are systematically concentrated in **rare and easily-confused types**, e.g. VectorBL → DarkPhoton (both are vector couplings), scalar sub-types confused with each other or with ScalarBaryon, and AxionMass/AxionEDM/AxionCPV confusions. This compounds with IV.1: a misclassified rare-type paper becomes a `no_comparable_gt` (30 papers) or is scored against the wrong reference. It is the strongest single argument that **human-in-the-loop review is mandatory, not optional**.
 
-## IV.5 The model is overconfident, so confidence cannot gate review
+## IV.5 Confidence is informative but not sufficient to gate review
 
-The calibration table (§II.5) shows a +0.67–0.69 confidence gap: ~89% claimed confidence vs. ~20% strict accuracy in the top bin. There is no confidence threshold that cleanly separates good extractions from bad ones, so the system cannot auto-merge its high-confidence outputs. Useful directions: calibrate confidence against the held-out residual, or replace the self-reported scalar with agreement-based confidence (read-vote dispersion is already computed and is a more honest signal than the model's self-assessment).
+Earlier versions of this report claimed a +0.67–0.69 top-bin confidence gap ("the model does not know when it is wrong"). The post-full346 benchmark repair showed that claim was **mostly an artifact of unfair grading**: with the same extractions scored correctly, the top bin is calibrated to within 0.1 pp (83.2% claimed vs 83.1% strict accuracy) and accuracy is monotone in confidence (§II.5). What survives of the original concern: mid-confidence bins are still moderately overconfident (+0.17–0.19), and top-bin accuracy of 83% means roughly one in six high-confidence extractions is still wrong — so confidence can *prioritize* review (it is a genuine ranking signal) but cannot *replace* it. Agreement-based confidence (read-vote dispersion, already computed) remains a promising complement to the self-reported scalar.
 
 ## IV.6 Smaller, structural issues
 
@@ -282,4 +286,4 @@ The pipeline is deployed and has generated limit proposals; **none have merged**
 
 ## Appendix — one-line summary of the numbers
 
-346 papers · 271 comparable · 243 with overlap. Coupling-type accuracy **90.5%**. Median residual **0.331 dex** (factor-2 for **48.4%**, factor-3 for 61.7%), coverage **76.2%**, zero-overlap **10.3%**. Figure-vision **0.338 dex** ≈ text **0.326 dex**. Micro **0.331** vs macro **1.115 dex** (rare couplings harder). Noise floor 0.32 dex; digitisation floor 0.03 dex. Confidence overconfident by ~0.68. Largest open problems: AxionEDM operator-vs-response (4.6 dex), scalar fifth-force conventions, the rare-coupling frontier, and review governance.
+346 papers · 277 comparable · 267 with overlap (15 GT-excluded with documented reasons). Coupling-type accuracy **90.9%**. Median residual **0.245 dex** (factor-2 for **55.1%**, factor-3 for 69.4%), coverage **83.7%**, zero-overlap **3.6%**. Figure-vision **0.268 dex** ≈ text **0.243 dex**. Micro **0.245** vs macro **1.582 dex** (the gap is concentrated in three N ≤ 3 types — ~4 known-fault papers; macro over N ≥ 5 types is 0.45 dex). Noise floor 0.32 dex; digitisation floor 0.03 dex. Top-bin confidence calibrated (+0.00 gap; earlier +0.68 claim was a scoring artifact); mid bins +0.17–0.19. Largest open problems: wrong-curve vision traces on rare couplings, the declaration-contract mislabels (extractor-side fixes merged, re-extraction validation pending), the rare-coupling sample sizes (#658), and review governance.
