@@ -90,33 +90,50 @@ def _sig(path: Path):
     return (a.shape[0], float(a[:, 1].min()), float(a[:, 1].max()))
 
 
+def _sig_of_lines(lines: list[str]):
+    """Signature of data lines as produced by ``_ingest_reference_file``."""
+    import io
+    try:
+        a = np.loadtxt(io.StringIO("\n".join(lines)), ndmin=2)
+    except Exception:
+        return None
+    if a.ndim != 2 or a.shape[1] < 2 or a.shape[0] == 0:
+        return None
+    return (a.shape[0], float(a[:, 1].min()), float(a[:, 1].max()))
+
+
 def test_union_gt_data_matches_an_ohare_repo_file():
-    # For every union paper with a local GT data file, its content must match one
-    # of its entries' O'Hare reference_repo_file (limit_data/...). A mismatch
-    # means foreign/Claude/hand-built data leaked into the GT — forbidden.
+    # For every union entry with a local GT data file, its content must equal
+    # the DETERMINISTIC ingestion of that entry's own O'Hare
+    # reference_repo_file (limit_data/... run through the header-declared unit
+    # conversions in evaluation.ground_truth._ingest_reference_file — the
+    # lambda[m]→eV x-axis and the per-file y-scales). A mismatch means
+    # foreign/Claude/hand-built data leaked into the GT — forbidden.
+    from evaluation.ground_truth import _ingest_reference_file
+
     foreign = []
     checked = 0
     for aid in SUBSET["union"]:
-        local = DATA_DIR / f"{aid}.txt"
-        if not local.exists():
-            continue
-        sl = _sig(local)
-        if sl is None:
-            continue
-        checked += 1
-        ref_sigs = []
-        for r in _refs(aid):
-            if not r:
+        for e in PAPERS.get(aid, []):
+            f = e.get("ground_truth_data_file")
+            r = e.get("reference_repo_file")
+            if not f or not r:
                 continue
+            local = DATA_DIR / f
             rp = PROJECT_ROOT / r
-            if rp.exists():
-                ref_sigs.append(_sig(rp))
-        if sl not in ref_sigs:
-            foreign.append((aid, sl, [Path(r).name for r in _refs(aid) if r]))
+            if not local.exists() or not rp.exists():
+                continue
+            sl = _sig(local)
+            if sl is None:
+                continue
+            checked += 1
+            expected = _sig_of_lines(_ingest_reference_file(rp, r))
+            if sl != expected:
+                foreign.append((aid, sl, expected, Path(r).name))
     assert checked > 0, "no GT data files found — subset/paths broken?"
     assert not foreign, (
-        "benchmark GT data files that do NOT match any O'Hare repo file "
-        f"(foreign/Claude/hand-built data is forbidden): {foreign}"
+        "benchmark GT data files that do NOT match the deterministic ingestion "
+        f"of their O'Hare repo file (foreign/Claude/hand-built data is forbidden): {foreign}"
     )
 
 

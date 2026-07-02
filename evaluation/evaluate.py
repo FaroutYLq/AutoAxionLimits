@@ -442,9 +442,36 @@ def compute_all_metrics(
         if "error" in slot["result"] and "error" not in result:
             slot["result"] = result
 
+    # Excluded GT entries (Phase 1a, post-full346): skipped from ALL scoring
+    # (residuals AND classification — an invalid GT cannot grade either) but
+    # collected here so the report lists every exclusion with its reason.
+    # See evaluation/ground_truth/EXCLUSIONS.md.
+    gt_exclusions: list[dict] = []
+
     for arxiv_id, slot in by_id.items():
         paper_entries: list[GroundTruthEntry] = slot["entries"]
         result = slot["result"]
+
+        excluded_here = [e for e in paper_entries if e.excluded]
+        for e in excluded_here:
+            gt_exclusions.append({
+                "arxiv_id": arxiv_id,
+                "reference_repo_file": e.reference_repo_file,
+                "coupling_type": e.coupling_type,
+                "exclusion_reason": e.exclusion_reason,
+                "exclusion_evidence": e.exclusion_evidence,
+            })
+        paper_entries = [e for e in paper_entries if not e.excluded]
+        if not paper_entries:
+            per_paper.append({
+                "arxiv_id": arxiv_id,
+                "status": "excluded_gt",
+                "num_gt_entries_excluded": len(excluded_here),
+                "exclusion_reason": excluded_here[0].exclusion_reason,
+            })
+            comparison_status_counts["excluded_gt"] += 1
+            continue
+
         rep = paper_entries[0]  # representative entry for paper-level fields
 
         # Authoritative couplings = the couplings of the actual GT data files.
@@ -831,6 +858,11 @@ def compute_all_metrics(
     n_papers = len(by_id)
     return {
         "n_papers": n_papers,
+        "gt_exclusions": {
+            "n_entries": len(gt_exclusions),
+            "n_papers_fully_excluded": comparison_status_counts.get("excluded_gt", 0),
+            "entries": gt_exclusions,
+        },
         "per_type_aggregate": per_type_aggregate,
         "classification": {
             "coupling_type": {"accuracy": coupling_clf.accuracy, "total": coupling_clf.total, "errors": coupling_clf.errors},
@@ -891,8 +923,14 @@ def build_metrics_summary(all_metrics: dict) -> dict:
                 overconfidence_gap = top_bin_confidence - top_bin_accuracy
             break
 
+    exclusions = all_metrics.get("gt_exclusions", {})
+
     return {
         "n_papers": all_metrics.get("n_papers", 0),
+        "gt_exclusions": {
+            "n_entries": exclusions.get("n_entries", 0),
+            "n_papers_fully_excluded": exclusions.get("n_papers_fully_excluded", 0),
+        },
         "status_counts": coverage.get("status_counts", {}),
         "classification_accuracy": {
             field: classification.get(field, {}).get("accuracy")

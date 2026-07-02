@@ -16,6 +16,28 @@ GROUND_TRUTH_DIR = Path(__file__).parent / "ground_truth"
 PAPERS_JSON = GROUND_TRUTH_DIR / "papers.json"
 DATA_DIR = GROUND_TRUTH_DIR / "data"
 
+# --- Ingestion-time unit normalization (post-full346 Phase 1b) ---------------
+#
+# Several repo files do not store (mass [eV], coupling) directly; comparing
+# against them raw is a units gap, not extraction error. The conversions below
+# are DETERMINISTIC and declared in the source files' own headers, so they are
+# applied when populating ground_truth/data/ (the GT numbers remain O'Hare's,
+# only re-expressed in the benchmark's axes).
+#
+# 1. Fifth-force / monopole-dipole files whose x-column is the Yukawa range
+#    lambda in METERS (header contains "lambda [m]"): converted to mediator
+#    mass via m [eV] = (hbar*c) / lambda = 1.9732698e-7 eV.m / lambda[m].
+_HBARC_EV_M = 1.9732698e-7
+_LAMBDA_HEADER_TOKEN = "lambda [m]"
+# 2. Per-file y-column scale factors, each justified by the file's own header.
+#    COBEFIRAS_Cyr.txt stores "epsilon defined as g_agamma*B0_T/(1e-11 GeV^-1
+#    * 1 nG)", i.e. g_agamma [GeV^-1] = epsilon * 1e-11 at the B0 = 1 nG
+#    normalization (the curve the paper's Fig. 13 headline uses) — see
+#    failure_analysis_full346_detail.md § 2411.13701.
+_FILE_Y_SCALE: dict[str, float] = {
+    "limit_data/AxionPhoton/COBEFIRAS_Cyr.txt": 1e-11,
+}
+
 
 def _loadtxt_tolerant(path: Path) -> Optional[np.ndarray]:
     """Load an Nx2 numeric data file, tolerating whitespace- or comma-delimited
@@ -57,6 +79,13 @@ class GroundTruthEntry:
     ground_truth_num_points: Optional[int]
     verified_by: str
     verification_date: str
+    # Benchmark exclusion (post-full346 Phase 1a). An excluded entry stays in
+    # papers.json (documented, visible, reversible — never a silent deletion)
+    # but is skipped by residual scoring and listed in a dedicated report
+    # table. See evaluation/ground_truth/EXCLUSIONS.md.
+    excluded: bool = False
+    exclusion_reason: Optional[str] = None
+    exclusion_evidence: Optional[str] = None
 
     def load_data(self) -> Optional[np.ndarray]:
         """Load ground-truth data as Nx2 array (mass_eV, coupling)."""
@@ -116,17 +145,54 @@ def load_ground_truth(path: Path = PAPERS_JSON) -> list[GroundTruthEntry]:
             ground_truth_num_points=p.get("ground_truth_num_points"),
             verified_by=p["verified_by"],
             verification_date=p["verification_date"],
+            excluded=bool(p.get("excluded", False)),
+            exclusion_reason=p.get("exclusion_reason"),
+            exclusion_evidence=p.get("exclusion_evidence"),
         ))
 
     logger.info("Loaded %d ground-truth entries", len(entries))
     return entries
 
 
-def populate_data_from_repo(repo_root: Path) -> int:
-    """Copy reference repo files into ground_truth/data/ for entries that have
-    reference_repo_file set but no local data file yet.
+def _ingest_reference_file(src: Path, reference_repo_file: str) -> list[str]:
+    """Read a repo reference file, strip comments, and apply the deterministic
+    ingestion-time unit conversions declared in the file's own header (see the
+    module-level note): lambda[m] → mass[eV] on the x-column, and per-file
+    y-scale factors. Returns the data lines to write."""
+    raw = src.read_text(errors="replace").splitlines()
+    header = "\n".join(l for l in raw if l.strip().startswith("#")).lower()
+    lambda_axis = _LAMBDA_HEADER_TOKEN in header
+    y_scale = _FILE_Y_SCALE.get(reference_repo_file)
 
-    Returns the number of files copied.
+    lines: list[str] = []
+    for line in raw:
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        if lambda_axis or y_scale is not None:
+            parts = stripped.replace(",", " ").split()
+            try:
+                x, y = float(parts[0]), float(parts[1])
+            except (IndexError, ValueError):
+                logger.warning("Unparseable row in %s: %r", src, stripped)
+                continue
+            if lambda_axis:
+                if x <= 0:
+                    continue
+                x = _HBARC_EV_M / x
+            if y_scale is not None:
+                y *= y_scale
+            stripped = f"{x:.6e} {y:.6e}"
+        lines.append(stripped)
+    return lines
+
+
+def populate_data_from_repo(repo_root: Path, force: bool = False) -> int:
+    """Copy reference repo files into ground_truth/data/ for entries that have
+    reference_repo_file set but no local data file yet (all entries when
+    ``force``), applying the deterministic ingestion conversions above.
+
+    Returns the number of files written.
     """
     entries = load_ground_truth()
     DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -136,21 +202,14 @@ def populate_data_from_repo(repo_root: Path) -> int:
         if entry.ground_truth_data_file is None or entry.reference_repo_file is None:
             continue
         dest = DATA_DIR / entry.ground_truth_data_file
-        if dest.exists():
+        if dest.exists() and not force:
             continue
         src = repo_root / entry.reference_repo_file
         if not src.exists():
             logger.warning("Reference file %s not found, skipping", src)
             continue
 
-        # Read, strip comments, write pure data
-        lines = []
-        with open(src) as f:
-            for line in f:
-                stripped = line.strip()
-                if stripped and not stripped.startswith("#"):
-                    lines.append(stripped)
-
+        lines = _ingest_reference_file(src, entry.reference_repo_file)
         with open(dest, "w") as f:
             f.write("\n".join(lines) + "\n")
 
