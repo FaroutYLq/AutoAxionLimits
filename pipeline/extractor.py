@@ -135,6 +135,18 @@ def _call_with_retry(fn, max_retries: int = 4, base_delay: float = 5.0):
 _READ_TEMPERATURE = 0.0
 _TEMPERATURE_UNSUPPORTED: set[str] = set()
 
+# Prompt-cache marker for the large stable blocks each stage re-sends across
+# the AAL_READ_SAMPLES read-vote samples (the stage-1 paper text and the
+# figure-image sets — identical bytes every vote). Cached spans re-read at
+# ~0.1x input price. TTL 1h (2x write once) rather than the default 5m
+# (1.25x): a slow vision paper takes 5-10 min PER vote, so the 5m entry would
+# expire between votes exactly where the payloads are biggest; 1h always hits
+# and still nets ~27% on cached spans (2x + 2*0.1x vs 3x). Caching is a
+# prefix match, so every per-vote-varying text section (stage-2 axis_context,
+# verify spot-check mass) must sit AFTER the marked block; blocks below the
+# model's ~4k-token cacheable minimum silently no-op (harmless).
+_CACHE_1H = {"type": "ephemeral", "ttl": "1h"}
+
 
 def _create(client, **kwargs):
     """`client.messages.create` with deterministic decoding injected (#572).
@@ -998,19 +1010,11 @@ def _run_vision_verify(
             f"read its coupling value at mass {mid_mass:.3e} eV."
         )
 
+    # Prefix-stable ordering for the read-vote cache: the spot-check mass and
+    # benchmark hint depend on THIS vote's stage-2 points, so the question
+    # goes AFTER the (vote-stable, cache-marked) title + image blocks.
     content: list[dict] = [
-        {
-            "type": "text",
-            "text": (
-                f"Title: {paper.title}\n\n"
-                f"I need to verify axis readings from the exclusion limit plot in this paper.\n\n"
-                f"1. List ALL major y-axis tick values (powers of 10) visible on the plot.\n"
-                f"2. What is the full y-axis range (lowest to highest value)?\n"
-                f"3. At mass = {mid_mass:.3e} eV on the x-axis, what coupling value does "
-                f"the exclusion boundary cross? Read carefully from the y-axis scale."
-                + benchmark_hint
-            ),
-        }
+        {"type": "text", "text": f"Title: {paper.title}"},
     ]
     for img_path in figure_paths[:8]:
         img_data = base64.standard_b64encode(img_path.read_bytes()).decode()
@@ -1020,8 +1024,22 @@ def _run_vision_verify(
                 "source": {"type": "base64", "media_type": "image/png", "data": img_data},
             }
         )
+    content[-1]["cache_control"] = _CACHE_1H
+    content.append(
+        {
+            "type": "text",
+            "text": (
+                f"I need to verify axis readings from the exclusion limit plot in this paper.\n\n"
+                f"1. List ALL major y-axis tick values (powers of 10) visible on the plot.\n"
+                f"2. What is the full y-axis range (lowest to highest value)?\n"
+                f"3. At mass = {mid_mass:.3e} eV on the x-axis, what coupling value does "
+                f"the exclusion boundary cross? Read carefully from the y-axis scale."
+                + benchmark_hint
+            ),
+        }
+    )
     try:
-        resp = _call_with_retry(lambda: _create(client, 
+        resp = _call_with_retry(lambda: _create(client,
             model=CLAUDE_MODEL_VISION,
             max_tokens=1024,
             system=_STAGE3_VERIFY_SYSTEM,
@@ -1909,11 +1927,15 @@ def _run_stage1(
         f"{_PAPER_CONTENT_DELIMITER}\n{clean_text}\n{_PAPER_CONTENT_DELIMITER}\n"
     )
     try:
-        resp = _call_with_retry(lambda: _create(client, 
+        resp = _call_with_retry(lambda: _create(client,
             model=CLAUDE_MODEL,
             max_tokens=2048,
             system=_STAGE1_SYSTEM,
-            messages=[{"role": "user", "content": prompt}],
+            # The whole stage-1 prompt is identical across read-vote samples;
+            # cache it so votes 2..N read the paper text at ~0.1x.
+            messages=[{"role": "user", "content": [
+                {"type": "text", "text": prompt, "cache_control": _CACHE_1H},
+            ]}],
         ))
         result = _parse_json_response(resp.content[0].text)
         return _validate_coupling_type(result)
@@ -1975,8 +1997,10 @@ def _run_stage2a_axes(
                 "source": {"type": "base64", "media_type": "image/png", "data": img_data},
             }
         )
+    # The whole stage-2a prompt is identical across read-vote samples.
+    content[-1]["cache_control"] = _CACHE_1H
     try:
-        resp = _call_with_retry(lambda: _create(client, 
+        resp = _call_with_retry(lambda: _create(client,
             model=CLAUDE_MODEL_VISION,
             max_tokens=512,
             system=_STAGE2A_AXIS_SYSTEM,
@@ -2033,6 +2057,11 @@ def _run_stage2(
         if plot_idx >= 0:
             axis_context += f"- The exclusion plot is in image {plot_idx + 1}.\n"
         axis_context += "Use these axis ranges to calibrate your readings. Do NOT deviate from these ranges.\n"
+    # Prefix-stable ordering for the read-vote cache: title/abstract/hint and
+    # the images are identical across vote samples, but axis_context comes
+    # from THIS vote's stage-2a read and varies run to run — so it goes in a
+    # separate text block AFTER the cache marker on the last image (same
+    # words, same instructions; only the section's position changes).
     content: list[dict] = [
         {
             "type": "text",
@@ -2041,7 +2070,6 @@ def _run_stage2(
                 "Please examine the following pages for exclusion limit plots "
                 "and trace the constraint boundary."
                 + hint_text
-                + axis_context
             ),
         }
     ]
@@ -2053,8 +2081,11 @@ def _run_stage2(
                 "source": {"type": "base64", "media_type": "image/png", "data": img_data},
             }
         )
+    content[-1]["cache_control"] = _CACHE_1H
+    if axis_context:
+        content.append({"type": "text", "text": axis_context.lstrip("\n")})
     try:
-        resp = _call_with_retry(lambda: _create(client, 
+        resp = _call_with_retry(lambda: _create(client,
             model=CLAUDE_MODEL_VISION,
             max_tokens=2048,
             system=_STAGE2_SYSTEM,
