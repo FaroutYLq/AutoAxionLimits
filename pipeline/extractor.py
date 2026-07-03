@@ -1901,9 +1901,45 @@ def run_extraction_agent_voted(
     if len(results) == 1:
         return results[0]
 
-    samples = [(r.coupling_type, [tuple(p) for p in (r.data_points or [])]) for r in results]
+    # --- Gate-aware consensus (#666) ---
+    # The wrong-curve gates (#663/#667) act per sample, and their triggers are
+    # stochastic: they fire when a sample's vision notes CONFESS the mistrace.
+    # Without this filter, a sample whose notes phrased the same mistrace
+    # neutrally survives and then wins the vote on point count (1512.06165:
+    # 2/3 samples gate-rejected, the unconfessed third emitted 85 wrong
+    # points). When a MAJORITY of samples were gate-rejected, that is strong
+    # evidence the un-rejected survivors traced the same wrong curve — so the
+    # vote runs over the gate-aware (rejected -> fallback) samples only; if
+    # none of them salvaged any points, emit zero points + the gate flag
+    # rather than the survivors' curve. A minority of rejections stays
+    # advisory (single confessions are noise; the normal vote proceeds).
+    rejected_idx = [i for i, r in enumerate(results)
+                    if re.search(r"\[VISION GATE [ABC]\]", r.notes or "")]
+    pool = results
+    if len(rejected_idx) * 2 > len(results):
+        gate_aware = [results[i] for i in rejected_idx]
+        with_points = [r for r in gate_aware if r.data_points]
+        if with_points:
+            pool = with_points
+        else:
+            chosen = gate_aware[0]
+            chosen.data_points = []
+            chosen.extraction_confidence = min(
+                float(chosen.extraction_confidence or 0.0), 0.5)
+            chosen.notes = (chosen.notes or "") + (
+                f" | read-vote N={len(results)}: {len(rejected_idx)}/{len(results)} "
+                f"samples gate-rejected the traced curve and none salvaged a "
+                f"fallback; emitting zero points (#666)")
+            logger.warning("read-vote for %s: majority gate-rejected, no fallback",
+                           getattr(chosen, "arxiv_id", "?"))
+            return chosen
+
+    samples = [(r.coupling_type, [tuple(p) for p in (r.data_points or [])]) for r in pool]
     idx, note = read_vote.select_consensus(samples)
-    chosen = results[idx]
+    chosen = pool[idx]
+    if pool is not results:
+        note += (f"; gate-aware: vote restricted to the {len(pool)} "
+                 f"gate-rejected samples' fallbacks (#666)")
     chosen.notes = (chosen.notes or "") + f" | read-vote N={len(results)}: {note}"
     logger.info("read-vote for %s: %s", getattr(chosen, "arxiv_id", "?"), note)
     return chosen
