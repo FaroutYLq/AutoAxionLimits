@@ -13,6 +13,7 @@ from __future__ import annotations
 import ast
 import json
 import logging
+import os
 import math
 import re
 import textwrap
@@ -185,7 +186,11 @@ def _normalize_coupling_type(raw: str) -> str:
         return canonical
     raise KeyError(raw)
 
-CLAUDE_MODEL = "claude-opus-4-8"
+# Reviewer/code-gen model. Overridable via REVIEWER_MODEL (workflows set it
+# to Haiku for cost, 2026-07-03 user decision); falls back to EXTRACTOR_MODEL
+# so a single env switch covers both agents, then to the Opus default.
+CLAUDE_MODEL = os.environ.get(
+    "REVIEWER_MODEL", os.environ.get("EXTRACTOR_MODEL", "claude-opus-4-8"))
 
 REPO_ROOT = Path(__file__).parent.parent
 
