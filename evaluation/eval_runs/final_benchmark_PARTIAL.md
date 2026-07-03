@@ -1,4 +1,17 @@
-# Final full-scale benchmark — PARTIAL (credits exhausted mid-run)
+# Final full-scale benchmark — PARTIAL (RETRACTED: model-confounded)
+
+> **RETRACTION (2026-07-03, silent-Opus incident):** every number below
+> compared old-code snapshots (Haiku) against new-code snapshots that
+> SILENTLY ran claude-opus-4-8 — the EXTRACTOR_MODEL override did not exist
+> on master (fixed in #677). The comparison is model-confounded and must not
+> be cited. The Opus snapshots are preserved as a tier-calibration artifact
+> in `evaluation/eval_runs/opus_newcode_sample/` (see its README). The
+> protocol-clean Haiku benchmark plan: 65 provably-unchanged old snapshots
+> reused (tightened criterion: non-sparse in-range text/table winners, no
+> channel candidates, no gate fires) + 281 papers re-run at true Haiku N=3
+> via the Batches transport (AAL_BATCH=1), est. \$12-18. The original
+> partial-run text follows for the record.
+
 
 Run 2026-07-03 on master @ 5b3a4fce (all extraction-channels work merged:
 gates #663/#667/#669, source_data #665/#670, caching #668, vector_trace
