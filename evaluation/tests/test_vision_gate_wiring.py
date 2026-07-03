@@ -36,7 +36,7 @@ CLEAN_NOTES = "Traced the paper's own red exclusion curve from Figure 3."
 def test_gate_a_reject_falls_back_to_text():
     text_c = _make_candidate("text", TEXT_PTS, "VectorBL", 0.7)
     vis_c = _make_candidate("figure_vision", CURVE, "VectorBL", 0.6)
-    cands, text_c2, vis_c2, notes = _gate_candidates(
+    cands, text_c2, vis_c2, _src, notes = _gate_candidates(
         [text_c, vis_c], text_c, vis_c,
         is_projection=True, vision_notes=EXISTING_BOUND_NOTES,
         suggested_experiment_name="Eot-Wash EP", paper_title="A New Proposal",
@@ -54,7 +54,7 @@ def test_gate_d_demotes_below_clean_text():
     # so the un-gated vision candidate would win here.
     sparse_text = _make_candidate("text", TEXT_PTS[:2], "DarkPhoton", 0.7)
     assert quality(vis_c) > quality(sparse_text)
-    cands, _, vis_c2, notes = _gate_candidates(
+    cands, _, vis_c2, _src, notes = _gate_candidates(
         [sparse_text, vis_c], sparse_text, vis_c,
         is_projection=False, vision_notes=ENVELOPE_NOTES,
         suggested_experiment_name=None, paper_title=None, abstract=None)
@@ -74,7 +74,7 @@ def test_gate_c_rejects_nominal_mass_text_point():
     text_c = _make_candidate("text", [(1e-3, 1.1e-11)], "AxionElectron", 0.45)
     vis_pts = [(10 ** (3 + 0.1 * i), 10 ** (-12 + 0.02 * i)) for i in range(25)]
     vis_c = _make_candidate("figure_vision", vis_pts, "AxionElectron", 0.5)
-    cands, text_c2, vis_c2, notes = _gate_candidates(
+    cands, text_c2, vis_c2, _src, notes = _gate_candidates(
         [text_c, vis_c], text_c, vis_c,
         is_projection=False, vision_notes=CLEAN_NOTES,
         suggested_experiment_name=None, paper_title=None, abstract=abstract)
@@ -86,7 +86,7 @@ def test_gate_c_rejects_nominal_mass_text_point():
 
 def test_all_candidates_rejected_empties_pool():
     vis_c = _make_candidate("figure_vision", CURVE, "VectorBL", 0.6)
-    cands, _, vis_c2, notes = _gate_candidates(
+    cands, _, vis_c2, _src, notes = _gate_candidates(
         [vis_c], None, vis_c,
         is_projection=True, vision_notes=EXISTING_BOUND_NOTES,
         suggested_experiment_name=None, paper_title=None, abstract=None)
@@ -98,7 +98,7 @@ def test_all_candidates_rejected_empties_pool():
 def test_clean_candidates_untouched():
     text_c = _make_candidate("text", TEXT_PTS, "AxionPhoton", 0.7)
     vis_c = _make_candidate("figure_vision", CURVE, "AxionPhoton", 0.6)
-    cands, text_c2, vis_c2, notes = _gate_candidates(
+    cands, text_c2, vis_c2, _src, notes = _gate_candidates(
         [text_c, vis_c], text_c, vis_c,
         is_projection=True, vision_notes=CLEAN_NOTES,
         suggested_experiment_name="This Paper's Own Detector",

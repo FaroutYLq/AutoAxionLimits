@@ -80,7 +80,13 @@ R4_MIN_SPAN_DEX: float = 1.0
 #
 # The integers are spaced (not 0..3) to leave a slot BETWEEN cv_trace (0) and
 # figure_vision (2) for a *sparse* point-limit (see `_SPARSE_POINT_LIMIT_TIER`).
+#
+# `source_data` (WS1, #665) sits ABOVE `table`: numeric curve files shipped in
+# the paper's own e-print (pgfplots .dat / anc/ ancillary data) are the
+# authors' published coordinates — deterministic and exact where they exist
+# (survey: median 0.055 dex on hits), so no LLM read should outrank them.
 SOURCE_TIER: dict[str, int] = {
+    "source_data": 5,
     "table": 4,
     "text": 3,
     "figure_vision": 2,
