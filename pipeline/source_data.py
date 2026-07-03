@@ -309,6 +309,7 @@ class SourceCandidate:
     n_cols: int = 0
     referenced: bool = False      # named by an \addplot table / pgfplotstableread
     axis_hints: dict = field(default_factory=dict)   # xlabel/ylabel/xmode/ymode (sanitized)
+    column_labels: Optional[list] = None  # lowercased header labels, if the file has them
     score: float = 0.0
 
     @property
@@ -418,13 +419,197 @@ def scan_candidates(src_dir: Path, *, valid_for_ct: Optional[dict] = None,
         candidates.append(SourceCandidate(
             rel_path=rel, kind="pgfplots_ref" if ref_hit else "loose_file",
             rows=rows, n_cols=len(rows[0]), referenced=ref_hit is not None,
-            axis_hints=referenced.get(ref_hit, {}) if ref_hit else {}))
+            axis_hints=referenced.get(ref_hit, {}) if ref_hit else {},
+            column_labels=extract_column_labels(text, len(rows[0]))))
         seen.add(rel)
 
     for c in candidates:
         c.score = score_candidate(c, valid_for_ct=valid_for_ct)
     candidates.sort(key=lambda c: (-c.score, c.rel_path))
     return candidates[:max_candidates]
+
+
+# ---------------------------------------------------------------------------
+# Runtime curve pick (selector integration — no oracle, no LLM)
+# ---------------------------------------------------------------------------
+
+def extract_column_labels(text: str, ncols: int) -> Optional[list]:
+    """Column labels from the header line directly above the first data row.
+
+    Two accepted forms: a delimiter-split header whose token count equals the
+    column count (``mass_kev,limit,s2_roi_min,...``), and a prose comment
+    header that opens with ``mass [unit]`` (``# mass [eV]  photon coupling
+    ...``) — mapped to ``["mass_<unit>", "limit", ...]``. Anything else
+    returns ``None``: an unrecognized header must make the caller fall back
+    to structural heuristics, never guess.
+    """
+    lines = text.splitlines()[:200]
+    first_data = None
+    for i, line in enumerate(lines):
+        s = line.strip()
+        if not s:
+            continue
+        parts = [p for p in _SPLIT_RE.split(s) if p]
+        try:
+            if len(parts) >= 2:
+                [float(p) for p in parts]
+                first_data = i
+                break
+        except ValueError:
+            pass
+    if first_data is None:
+        return None
+    for j in range(first_data - 1, -1, -1):
+        s = lines[j].strip().lstrip("#%/ ").strip()
+        if not s:
+            continue
+        for parts in (
+            [p.strip().lower() for p in s.split(",")],
+            [p.strip().lower() for p in s.split()],
+        ):
+            if len(parts) == ncols and parts[0]:
+                try:
+                    [float(p) for p in parts]
+                except ValueError:
+                    return parts  # non-numeric header with matching arity
+                return None      # a stray numeric line — not a header
+        m = re.match(r"(?:m|mass)\s*\[\s*([a-zA-Zµμ]+)\s*\]", s)
+        if m:
+            return [f"mass_{m.group(1).lower()}"] + ["limit"] * (ncols - 1)
+        return None  # nearest non-blank line is not a recognizable header
+    return None
+
+
+# Mass units a file header may declare, in eV. Deliberately excludes tokens
+# that are case-ambiguous once lowercased ("mev": meV vs MeV differ by 9 dex,
+# "pev": peV vs PeV) — an ambiguous unit makes the candidate fall through.
+_MASS_UNIT_EV: dict[str, float] = {
+    "ev": 1.0, "kev": 1e3, "gev": 1e9, "tev": 1e12,
+    "uev": 1e-6, "µev": 1e-6, "μev": 1e-6, "nev": 1e-9,
+}
+
+_MASS_LABEL_RE = re.compile(r"^(?:mass|m)(?:[_\s\[\(]|$)")
+# any eV-suffixed token in the label ("kev", "mev", "ev", ...); the token is
+# then looked up in _MASS_UNIT_EV — an eV-ish token NOT in the map (case-
+# ambiguous "mev"/"pev", unknown prefixes) disqualifies the column entirely.
+_MASS_UNIT_IN_LABEL_RE = re.compile(r"(?:^|[_\s\[\(])([a-zµμ]*ev)(?:[\]\)\s_]|$)")
+_Y_LABEL_RE = re.compile(r"limit|coupl|bound|excl|mixing|\bg_?[a-z]{1,4}\b|chi|kappa|epsilon")
+
+
+# Filename evidence that a data file belongs to THIS coupling's limit curve.
+# Short tokens match whole filename parts (split on non-alphanumerics, so
+# "alp" matches 5e_results_alp.csv but not "alpha"); tokens of >= 5 chars
+# also match as substrings of the normalized path ("darkphoton" inside
+# DarkPhoton_DM_Constraint_Summary.dat).
+_CT_FILENAME_TOKENS: dict[str, tuple[str, ...]] = {
+    "DarkPhoton": ("darkphoton", "hiddenphoton", "kineticmixing", "paraphoton"),
+    "AxionPhoton": ("axionphoton", "gagg", "gag", "gagamma", "axion"),
+    "AxionElectron": ("axionelectron", "gae", "alp", "axion"),
+    "AxionNeutron": ("axionneutron", "gan", "gann", "axion"),
+    "AxionProton": ("axionproton", "gap", "axion"),
+    "AxionEDM": ("axionedm", "edm", "axion"),
+    "ScalarPhoton": ("scalarphoton", "scalar", "dilaton"),
+    "ScalarElectron": ("scalarelectron", "scalar", "dme"),
+    "ScalarNucleon": ("scalarnucleon", "scalar"),
+    "ScalarBaryon": ("scalarbaryon", "scalar"),
+    "VectorBL": ("vectorbl", "gbl", "bminusl"),
+    "VectorB-L": ("vectorbl", "gbl", "bminusl"),
+}
+
+
+def _filename_matches_ct(rel_path: str, coupling_type: Optional[str]) -> bool:
+    tokens = _CT_FILENAME_TOKENS.get(coupling_type or "", ())
+    if not tokens:
+        return False
+    norm = re.sub(r"[^a-z0-9]+", " ", rel_path.lower())
+    parts = set(norm.split())
+    joined = norm.replace(" ", "")
+    for t in tokens:
+        if (t in parts) or (len(t) >= 5 and t in joined):
+            return True
+    return False
+
+
+def best_curve_candidate(candidates: list[SourceCandidate],
+                         valid_for_ct: Optional[dict],
+                         coupling_type: Optional[str] = None,
+                         *, min_rows: int = 3,
+                         ) -> Optional[tuple[list[tuple[float, float]], SourceCandidate]]:
+    """Pick the (points, candidate) the runtime channel should emit, or None.
+
+    Deliberately conservative — the channel emits only when TWO independent
+    deterministic signals agree, otherwise it falls through to the other
+    extraction channels:
+
+    1. **identity units in range**: x = column 0 and the first y column whose
+       (median mass, median coupling) sit inside the STRICT ``VALID_RANGES``
+       window. Files needing a unit transform (GHz->eV, log10 columns, g^2)
+       fail the window — no conversion is attempted here (#657: that is the
+       registry's job; the ceiling survey showed real hits are overwhelmingly
+       identity-unit ``anc/`` files).
+    2. **the filename names the coupling** (:data:`_CT_FILENAME_TOKENS`):
+       being in-range alone is NOT evidence of being the right curve — the
+       heuristic check found in-range picks of a *different figure's* data
+       (1907.11485 5a nuclear-recoil file, 2402.07976 decay_rate_general)
+       that would have been emitted at the top tier.
+    """
+    if not valid_for_ct:
+        return None
+    (m_lo, m_hi) = valid_for_ct["mass"]
+    (c_lo, c_hi) = valid_for_ct["coupling"]
+
+    def _in_range(pts):
+        if len(pts) < min_rows:
+            return False
+        xs = sorted(p[0] for p in pts)
+        ys = sorted(p[1] for p in pts)
+        mx, my = xs[len(xs) // 2], ys[len(ys) // 2]
+        return (m_lo <= mx <= m_hi) and (c_lo <= my <= c_hi)
+
+    for cand in candidates:
+        if not _filename_matches_ct(cand.rel_path, coupling_type):
+            continue
+        rows = cand.rows
+        if len(rows) < min_rows:
+            continue
+        labels = cand.column_labels
+        if labels:
+            # Header labels are authoritative: x = the mass-labeled column
+            # (converted by its declared unit — the file's own header is the
+            # same evidence class as the GT ingester's header conversions),
+            # y = the first limit/coupling-labeled column. No label match ->
+            # fall through; never guess against an explicit header.
+            xi = x_scale = None
+            for i, lab in enumerate(labels):
+                if _MASS_LABEL_RE.match(lab):
+                    um = _MASS_UNIT_IN_LABEL_RE.search(lab)
+                    # no unit token -> identity; a unit token that is not in
+                    # the map (ambiguous "mev"/"pev", unknown) -> skip file.
+                    scale = _MASS_UNIT_EV.get(um.group(1)) if um else 1.0
+                    if scale is not None:
+                        xi, x_scale = i, scale
+                    break  # first mass column decides
+            if xi is None:
+                continue
+            yi = next((i for i, lab in enumerate(labels)
+                       if i != xi and _Y_LABEL_RE.search(lab)), None)
+            if yi is None:
+                continue
+            pts = [(float(r[xi]) * x_scale, float(r[yi])) for r in rows
+                   if len(r) > max(xi, yi) and r[xi] > 0 and r[yi] > 0]
+            if _in_range(pts):
+                return pts, cand
+            continue
+        # No header: only an unambiguous two-column (x, y) curve file is
+        # trusted, identity units, strict-range checked. Wider unlabeled
+        # tables fall through — the heuristic check caught in-range picks of
+        # non-mass columns (keV/eV twins, recoil energies) in such files.
+        if cand.n_cols == 2:
+            pts = [(float(r[0]), float(r[1])) for r in rows
+                   if r[0] > 0 and r[1] > 0]
+            if _in_range(pts):
+                return pts, cand
+    return None
 
 
 # ---------------------------------------------------------------------------

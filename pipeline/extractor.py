@@ -35,6 +35,7 @@ from .transform_guard import (
     span_dex,
     R1_SPOTCHECK_BAND,
     R3_BENCHMARK_BAND,
+    R4_MIN_SPAN_DEX,
 )
 from .vision_gates import check_vision_gates
 
@@ -1519,6 +1520,7 @@ def _gate_candidates(
     candidates: list[Candidate],
     text_cand: Candidate | None,
     vision_cand: Candidate | None,
+    source_cand: Candidate | None = None,
     *,
     is_projection: bool,
     vision_notes: str,
@@ -1561,6 +1563,14 @@ def _gate_candidates(
         if reject:
             candidates = [c for c in candidates if c is not text_cand]
             text_cand = None
+    if source_cand is not None and source_cand in candidates:
+        # Gate C also guards the source-data pick: a wrong ancillary file
+        # whose values happen to sit in VALID_RANGES still fails the
+        # abstract-stated mass window when one parses unambiguously.
+        reject, _ = _fired(source_cand, "", None)
+        if reject:
+            candidates = [c for c in candidates if c is not source_cand]
+            source_cand = None
     if vision_cand is not None and vision_cand in candidates:
         reject, demote = _fired(vision_cand, vision_notes, suggested_experiment_name)
         if reject:
@@ -1570,7 +1580,7 @@ def _gate_candidates(
             demoted = replace(vision_cand, reconstruction=True)
             candidates = [demoted if c is vision_cand else c for c in candidates]
             vision_cand = demoted
-    return candidates, text_cand, vision_cand, gate_notes
+    return candidates, text_cand, vision_cand, source_cand, gate_notes
 
 
 def run_extraction_agent(
@@ -1625,10 +1635,53 @@ def run_extraction_agent(
         )
         candidates.append(text_cand)
 
+    # --- WS1 source-data channel (#665 integration): deterministic curve data
+    # from the paper's own e-print (pgfplots .dat / anc/ ancillary files),
+    # SOURCE_TIER 5 — above every LLM read. Identity or header-declared units
+    # only; anything ambiguous falls through so the other channels run
+    # unaffected. Free (arXiv fetch, cached) — no Anthropic call.
+    source_cand = None
+    try:
+        from .config import VALID_RANGES
+        from .source_data import best_curve_candidate, scan_arxiv_source
+        _src_ct = stage1_result.get("coupling_type") or pre_ct
+        if _src_ct:
+            _src_pick = best_curve_candidate(
+                scan_arxiv_source(arxiv_id, pdf_path.parent),
+                VALID_RANGES.get(_src_ct), _src_ct)
+            if _src_pick:
+                _src_pts, _src_c = _src_pick
+                # Deterministic file read: high self-confidence; convention is
+                # declared canonical because acceptance REQUIRED the strict
+                # VALID_RANGES window in eV/canonical coupling units.
+                source_cand = _make_candidate("source_data", _src_pts, _src_ct, 0.9)
+                candidates.append(source_cand)
+                stage1_result["notes"] = (
+                    stage1_result.get("notes", "")
+                    + f" | source-data candidate: {_src_c.rel_path} ({_src_c.kind}, "
+                      f"{len(_src_pts)} rows"
+                    + (", header-labeled columns" if _src_c.column_labels else "")
+                    + ")")
+                logger.info("source-data candidate for %s: %s (%d rows)",
+                            arxiv_id, _src_c.rel_path, len(_src_pts))
+    except Exception as e:  # the channel must never break extraction
+        logger.warning("source-data channel error for %s: %s", arxiv_id, str(e)[:200])
+
     stage2_result: dict = {}
     figure_paths: list[Path] = []
     vision_cand = None
-    if should_consider_vision(text_cand):
+    # A valid, non-degenerate source-data candidate outranks any vision read
+    # (tier 5 > 2), so the vision API spend would be wasted — skip it. A
+    # degenerate or out-of-range source pick must NOT suppress vision.
+    _source_dominant = (
+        source_cand is not None
+        and source_cand.score.in_valid_ranges
+        and not source_cand.score.y_const
+        and (source_cand.score.span_dex or 0.0) >= R4_MIN_SPAN_DEX
+    )
+    if _source_dominant:
+        logger.info("Source-data candidate dominant for %s; skipping vision", arxiv_id)
+    if not _source_dominant and should_consider_vision(text_cand):
         figure_paths = extract_figures_from_pdf(pdf_path)
         if figure_paths:
             coupling_hint = stage1_result.get("coupling_type") or pre_ct
@@ -1668,8 +1721,8 @@ def run_extraction_agent(
     # --- WS3 wrong-curve gates (#663): deterministic post-hoc checks on each
     # candidate's own outputs/notes BEFORE selection, so a gate-rejected trace
     # falls back to the next candidate instead of being emitted.
-    candidates, text_cand, vision_cand, gate_notes = _gate_candidates(
-        candidates, text_cand, vision_cand,
+    candidates, text_cand, vision_cand, source_cand, gate_notes = _gate_candidates(
+        candidates, text_cand, vision_cand, source_cand,
         is_projection=bool(stage1_result.get("is_projection")),
         vision_notes=(stage2_result.get("notes", "") if stage2_result else ""),
         suggested_experiment_name=(stage2_result.get("suggested_experiment_name")
@@ -1701,6 +1754,11 @@ def run_extraction_agent(
         stage1_result["data_source"] = chosen.source
         stage1_result["extraction_confidence"] = chosen.extraction_confidence
         stage1_result["notes"] = stage1_result.get("notes", "") + " | " + sel_reason
+        if chosen is source_cand and source_cand is not None:
+            # Deterministic file read accepted under the strict canonical
+            # window; the truthful declaration is canonical (#657). The file
+            # path evidence is already in the notes.
+            stage1_result["coupling_convention"] = "canonical"
         # #594 contract: on a vision win, the axis read-back overrides a
         # canonical-claiming (or stale text-stage) declaration.
         _reconcile_declared_convention(stage1_result)

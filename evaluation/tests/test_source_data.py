@@ -258,3 +258,82 @@ class TestChannelContract:
         blob.write_bytes(b"\x1f\x8b corrupted gzip stream")
         monkeypatch.setattr(sd, "download_source", lambda *a, **k: blob)
         assert scan_arxiv_source("1234.56789", tmp_path) == []
+
+
+# ---------------------------------------------------------------------------
+# Selector integration (WS1 PR3): header labels, runtime picker, tier
+# ---------------------------------------------------------------------------
+
+from pipeline.source_data import best_curve_candidate, extract_column_labels
+from pipeline.transform_guard import SOURCE_TIER
+
+
+class TestExtractColumnLabels:
+    def test_csv_header(self):
+        text = "mass_kev,limit,extra\n0.2,3e-13,1\n0.3,4e-13,1\n"
+        assert extract_column_labels(text, 3) == ["mass_kev", "limit", "extra"]
+
+    def test_prose_comment_header(self):
+        text = ("# W. Yin, et al, 2024\n"
+                "# mass [eV]    photon coupling (max) [GeV^{-1}]   coupling (min)\n"
+                "1e-6 3e-11 2e-11\n2e-6 4e-11 3e-11\n")
+        assert extract_column_labels(text, 3) == ["mass_ev", "limit", "limit"]
+
+    def test_no_header(self):
+        assert extract_column_labels("1 2\n3 4\n5 6\n", 2) is None
+
+    def test_unrelated_comment_is_not_a_header(self):
+        assert extract_column_labels("# just a citation line\n1 2\n3 4\n", 2) is None
+
+
+VR = {"mass": (1e-24, 1e9), "coupling": (1e-20, 1.0)}
+
+
+def _cand(rel_path, rows, labels=None):
+    return SourceCandidate(rel_path=rel_path, kind="loose_file", rows=rows,
+                           n_cols=len(rows[0]), column_labels=labels)
+
+
+class TestBestCurveCandidate:
+    def test_two_column_identity_pick(self):
+        rows = [(1e-6 * (i + 1), 3e-11) for i in range(5)]
+        pick = best_curve_candidate([_cand("darkphoton_limit.dat", rows)],
+                                    VR, "DarkPhoton")
+        assert pick is not None and pick[0][0] == (1e-6, 3e-11)
+
+    def test_filename_must_name_the_coupling(self):
+        rows = [(1e-6 * (i + 1), 3e-11) for i in range(5)]
+        assert best_curve_candidate([_cand("decay_rate_general.txt", rows)],
+                                    VR, "DarkPhoton") is None
+
+    def test_header_kev_conversion(self):
+        # 1907.11485 pattern: mass_kev header -> x scaled to eV.
+        rows = [(0.2 * (i + 1), 3e-13, 999.0) for i in range(5)]
+        pick = best_curve_candidate(
+            [_cand("results_alp.csv", rows, labels=["mass_kev", "limit", "junk"])],
+            VR, "AxionElectron")
+        assert pick is not None
+        assert pick[0][0] == (200.0, 3e-13)
+
+    def test_ambiguous_mev_unit_falls_through(self):
+        rows = [(0.2, 3e-13), (0.4, 4e-13), (0.6, 5e-13)]
+        assert best_curve_candidate(
+            [_cand("alp.csv", rows, labels=["mass_mev", "limit"])],
+            VR, "AxionElectron") is None
+
+    def test_unlabeled_wide_table_falls_through(self):
+        # in-range non-mass columns must not be emitted (5a nuclear-recoil class)
+        rows = [(1.0 + i, 3e-13, 900.0 * (i + 1)) for i in range(5)]
+        assert best_curve_candidate([_cand("axion_stuff.csv", rows)],
+                                    VR, "AxionElectron") is None
+
+    def test_no_valid_ranges_no_pick(self):
+        rows = [(1e-6, 3e-11), (2e-6, 4e-11), (3e-6, 5e-11)]
+        assert best_curve_candidate([_cand("darkphoton.dat", rows)],
+                                    None, "DarkPhoton") is None
+
+
+class TestSourceTier:
+    def test_source_data_outranks_every_llm_read(self):
+        assert SOURCE_TIER["source_data"] > SOURCE_TIER["table"] > \
+            SOURCE_TIER["text"] > SOURCE_TIER["figure_vision"]

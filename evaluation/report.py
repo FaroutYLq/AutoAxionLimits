@@ -317,7 +317,7 @@ def generate_report(metrics: dict, output_path: str):
                      "zero-overlap papers are listed separately.\n")
         lines.append("| Source | Papers | Compared | Zero-overlap | Med. Resid. | ≤0.3 dex |")
         lines.append("|--------|--------|----------|--------------|-------------|----------|")
-        for src in ["table", "figure_vision", "text"]:
+        for src in ["source_data", "table", "figure_vision", "text"]:
             if src not in src_bd:
                 continue
             s = src_bd[src]
