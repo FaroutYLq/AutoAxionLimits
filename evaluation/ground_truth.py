@@ -38,6 +38,16 @@ _FILE_Y_SCALE: dict[str, float] = {
     "limit_data/AxionPhoton/COBEFIRAS_Cyr.txt": 1e-11,
 }
 
+# Per-file x-scale factors (mass-column corrections). Xenon1T.txt: the repo
+# file's header claims "mass [eV]" but the values are keV — PlotFuncs.py
+# multiplies dat[:,0] by 1e3 at plot time (`plt.fill_between(1e3*dat[:,0],
+# ...)`), and the paper's own e-print ancillary file (1907.11485
+# anc/5f_results_darkphoton.csv) has header `mass_kev` with identical values.
+# Ingest with the same correction so the GT is in true eV.
+_FILE_X_SCALE: dict[str, float] = {
+    "limit_data/DarkPhoton/Xenon1T.txt": 1e3,
+}
+
 
 def _loadtxt_tolerant(path: Path) -> Optional[np.ndarray]:
     """Load an Nx2 numeric data file, tolerating whitespace- or comma-delimited
@@ -163,13 +173,14 @@ def _ingest_reference_file(src: Path, reference_repo_file: str) -> list[str]:
     header = "\n".join(l for l in raw if l.strip().startswith("#")).lower()
     lambda_axis = _LAMBDA_HEADER_TOKEN in header
     y_scale = _FILE_Y_SCALE.get(reference_repo_file)
+    x_scale = _FILE_X_SCALE.get(reference_repo_file)
 
     lines: list[str] = []
     for line in raw:
         stripped = line.strip()
         if not stripped or stripped.startswith("#"):
             continue
-        if lambda_axis or y_scale is not None:
+        if lambda_axis or y_scale is not None or x_scale is not None:
             parts = stripped.replace(",", " ").split()
             try:
                 x, y = float(parts[0]), float(parts[1])
@@ -180,6 +191,8 @@ def _ingest_reference_file(src: Path, reference_repo_file: str) -> list[str]:
                 if x <= 0:
                     continue
                 x = _HBARC_EV_M / x
+            if x_scale is not None:
+                x *= x_scale
             if y_scale is not None:
                 y *= y_scale
             stripped = f"{x:.6e} {y:.6e}"
