@@ -308,3 +308,90 @@ def trace_figure_pdf(pdf_path: str | Path):
     except Exception as e:
         logger.debug("trace_figure_pdf(%s) failed: %s", pdf_path, e)
         return None, []
+
+
+# ---------------------------------------------------------------------------
+# Runtime candidate assembly (selector integration)
+# ---------------------------------------------------------------------------
+
+_FIG_NAME_TOKEN_RE = re.compile(
+    r"constraint|bound|limit|exclusion|excl", re.IGNORECASE)
+
+_PICK_MIN_POINTS = 10
+_PICK_MIN_SPAN_DEX = 1.0
+MAX_VECTOR_CANDIDATES = 12
+
+
+@dataclass
+class VectorCandidate:
+    """One qualifying (figure, curve) pair, mapped to data space."""
+
+    points: list = field(repr=False, default_factory=list)  # [(mass_eV, coupling)]
+    fig_name: str = ""
+    x_label: str = ""
+    y_label: str = ""
+    color: tuple = ()
+    n_source_items: int = 0
+
+    def summary(self) -> str:
+        xs = [p[0] for p in self.points]
+        ys = [p[1] for p in self.points]
+        return (f"figure {self.fig_name!r} (x-label {self.x_label!r}, y-label "
+                f"{self.y_label!r}), curve colour RGB{self.color}, "
+                f"{len(self.points)} points, x {min(xs):.3g}..{max(xs):.3g} eV, "
+                f"y {min(ys):.3g}..{max(ys):.3g}")
+
+
+def collect_vector_candidates(figures, valid_for_ct: Optional[dict]
+                              ) -> list[VectorCandidate]:
+    """Qualifying curve candidates across traced figures (keyless).
+
+    ``figures`` iterates ``(fig_name, AxisCalibration, [VectorCurve])``. A
+    curve qualifies when its data-space medians sit in the STRICT
+    ``VALID_RANGES`` window, it has >= ``_PICK_MIN_POINTS`` points and spans
+    >= ``_PICK_MIN_SPAN_DEX`` decades, and its figure has a usable x unit
+    (recognized label unit, or a mass/eV-flavoured x label with identity
+    assumed). WHICH candidate is the paper's own curve is not decidable here
+    — constraint figures are compilations — so the caller either takes a
+    sole survivor or asks the cheap LLM selection step.
+    """
+    if not valid_for_ct:
+        return []
+    (m_lo, m_hi) = valid_for_ct["mass"]
+    (c_lo, c_hi) = valid_for_ct["coupling"]
+    out: list[VectorCandidate] = []
+    for fig_name, cal, curves in figures:
+        if cal.x_to_ev is None:
+            xl = (cal.x_label or "").lower()
+            if not ("ev" in xl or "mass" in xl or re.search(r"\bm_", xl)):
+                continue
+        for c in curves:
+            pts = curve_to_data(c, cal)
+            if len(pts) < _PICK_MIN_POINTS:
+                continue
+            xs = sorted(p[0] for p in pts)
+            ys = sorted(p[1] for p in pts)
+            if xs[0] <= 0 or math.log10(xs[-1] / xs[0]) < _PICK_MIN_SPAN_DEX:
+                continue
+            mx, my = xs[len(xs) // 2], ys[len(ys) // 2]
+            if not ((m_lo <= mx <= m_hi) and (c_lo <= my <= c_hi)):
+                continue
+            out.append(VectorCandidate(
+                points=pts, fig_name=fig_name, x_label=cal.x_label,
+                y_label=cal.y_label, color=c.color, n_source_items=c.n_points))
+    out.sort(key=lambda v: (0 if _FIG_NAME_TOKEN_RE.search(v.fig_name) else 1,
+                            -len(v.points)))
+    return out[:MAX_VECTOR_CANDIDATES]
+
+
+def trace_source_figures(src_dir, *, max_figures: int = 20):
+    """Trace every figure PDF under an unpacked e-print tree (keyless)."""
+    figs = []
+    try:
+        for f in sorted(Path(src_dir).rglob("*.pdf"))[:max_figures]:
+            cal, curves = trace_figure_pdf(f)
+            if cal is not None and curves:
+                figs.append((f.name, cal, curves))
+    except Exception as e:
+        logger.debug("trace_source_figures(%s) failed: %s", src_dir, e)
+    return figs

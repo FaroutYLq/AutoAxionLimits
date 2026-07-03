@@ -85,9 +85,15 @@ R4_MIN_SPAN_DEX: float = 1.0
 # the paper's own e-print (pgfplots .dat / anc/ ancillary data) are the
 # authors' published coordinates — deterministic and exact where they exist
 # (survey: median 0.055 dex on hits), so no LLM read should outrank them.
-SOURCE_TIER: dict[str, int] = {
+# `vector_trace` (WS2) is the LLM-SELECTED deterministic vector-path trace:
+# exact geometry from the figure PDF, curve identity chosen by the cheap
+# selection call. It slots at 3.5 — above a text point-limit (its geometry is
+# measured, not read), below a table (the identity choice is still a model
+# judgement). This realises the tier the plan reserved for verified traces.
+SOURCE_TIER: dict[str, float] = {
     "source_data": 5,
     "table": 4,
+    "vector_trace": 3.5,
     "text": 3,
     "figure_vision": 2,
     "vision": 2,
@@ -126,7 +132,7 @@ _SPARSE_POINT_LIMIT_MAX: int = 3
 _SPARSE_POINT_LIMIT_TIER: int = 1   # below figure_vision (2), above cv_trace (0)
 
 
-def _source_tier(source: str, n_points: int) -> int:
+def _source_tier(source: str, n_points: int) -> float:
     """Effective T3 source tier, demoting a *sparse* point-limit below figure_vision.
 
     A text/table candidate with ``<= _SPARSE_POINT_LIMIT_MAX`` points is a lone

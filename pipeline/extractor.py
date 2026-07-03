@@ -1516,6 +1516,79 @@ def _make_candidate(source: str, data_points: list, coupling_type: str | None,
     )
 
 
+_VECTOR_SELECT_SYSTEM = """\
+You are a particle physics expert. A paper's figures were machine-traced; each
+candidate below is one curve from one figure, already converted to
+(mass [eV], coupling) data space. Exactly one candidate (or none) is the
+paper's OWN new exclusion-limit curve — the others are other experiments'
+bounds from compilation panels, projections, or non-limit quantities.
+
+Use the figure names, axis labels, colours, and ranges. Prefer the figure
+whose name/labels match the paper's own result; within a compilation, the
+paper's own curve is usually the one its caption/abstract highlights.
+
+Look at the attached figure images to identify which curve each candidate is
+(match by colour and range). Only answer with high confidence when you can
+actually tell which curve is the paper's own NEW result.
+
+Respond ONLY with JSON: {"index": <0-based candidate index, or -1 if none is
+clearly the paper's own new limit>, "confidence": "high"|"medium"|"low",
+"reason": "<one sentence>"}
+"""
+
+
+def _run_vector_select(paper, cands, coupling_type, client,
+                       src_dir=None) -> int:
+    """One cheap call (candidate summaries + rendered figure images): which
+    VectorCandidate is the paper's own curve? Returns the index, or -1
+    (none / low confidence / call failed / disabled). Emission requires
+    "high" confidence — a hesitant pick at tier 3.5 is worse than falling
+    back to the ordinary channels (validation run: two text-only mis-picks
+    at 1.9/3.3 dex; the images are what disambiguate compilation panels)."""
+    if os.environ.get("AAL_VECTOR_SELECT", "1") in ("0", "false", "no"):
+        return -1
+    lines = [f"Title: {paper.title}",
+             f"Abstract: {paper.summary[:1200]}",
+             f"Declared coupling type: {coupling_type}", "", "Candidates:"]
+    for i, c in enumerate(cands):
+        lines.append(f"{i}: {c.summary()}")
+    content: list = [{"type": "text", "text": "\n".join(lines)}]
+    if src_dir is not None:
+        try:
+            import fitz
+            for fig_name in list(dict.fromkeys(c.fig_name for c in cands))[:5]:
+                hits = list(Path(src_dir).rglob(fig_name))
+                if not hits:
+                    continue
+                pix = fitz.open(str(hits[0]))[0].get_pixmap(dpi=110)
+                content.append({"type": "text", "text": f"Image: {fig_name}"})
+                content.append({"type": "image", "source": {
+                    "type": "base64", "media_type": "image/png",
+                    "data": base64.standard_b64encode(pix.tobytes("png")).decode()}})
+        except Exception as e:
+            logger.debug("vector-select image render failed: %s", e)
+    try:
+        resp = _call_with_retry(lambda: _create(client,
+            model=CLAUDE_MODEL,
+            max_tokens=256,
+            system=_VECTOR_SELECT_SYSTEM,
+            messages=[{"role": "user", "content": content}],
+        ))
+        result = _parse_json_response(resp.content[0].text)
+        idx = int(result.get("index", -1))
+        conf = str(result.get("confidence", "low")).lower()
+        if 0 <= idx < len(cands) and conf == "high":
+            logger.info("vector-select: %d high (%s)", idx,
+                        str(result.get("reason", ""))[:120])
+            return idx
+        logger.info("vector-select declined (idx=%s conf=%s)", idx, conf)
+    except FatalAPIError:
+        raise
+    except Exception as e:
+        logger.warning("vector-select failed: %s", str(e)[:120])
+    return -1
+
+
 def _gate_candidates(
     candidates: list[Candidate],
     text_cand: Candidate | None,
@@ -1667,17 +1740,57 @@ def run_extraction_agent(
     except Exception as e:  # the channel must never break extraction
         logger.warning("source-data channel error for %s: %s", arxiv_id, str(e)[:200])
 
+    # --- WS2 vector-trace channel: exact curve geometry from the e-print's
+    # vector figure PDFs (keyless), identity chosen by ONE cheap text call
+    # (AAL_VECTOR_SELECT=0 disables -> sole-candidate fast path only).
+    # Tier 3.5: above text, below table. Skipped when source_data already won
+    # the pool (tier 5 beats it regardless).
+    vector_cand = None
+    if source_cand is None:
+        try:
+            from .config import VALID_RANGES as _VR2
+            from .vector_trace import collect_vector_candidates, trace_source_figures
+            _vt_ct = stage1_result.get("coupling_type") or pre_ct
+            _src_tree = pdf_path.parent / f"{arxiv_id.replace('/', '_')}_src"
+            if _vt_ct and _src_tree.is_dir():
+                _vt_cands = collect_vector_candidates(
+                    trace_source_figures(_src_tree), _VR2.get(_vt_ct))
+                _vt_pick = None
+                if len(_vt_cands) == 1:
+                    _vt_pick = _vt_cands[0]
+                elif len(_vt_cands) > 1:
+                    _vt_idx = _run_vector_select(paper, _vt_cands, _vt_ct, client, src_dir=_src_tree)
+                    if _vt_idx >= 0:
+                        _vt_pick = _vt_cands[_vt_idx]
+                if _vt_pick is not None:
+                    vector_cand = _make_candidate(
+                        "vector_trace", _vt_pick.points, _vt_ct, 0.85)
+                    candidates.append(vector_cand)
+                    stage1_result["notes"] = (
+                        stage1_result.get("notes", "")
+                        + f" | vector-trace candidate: {_vt_pick.fig_name} "
+                          f"colour {_vt_pick.color}, {len(_vt_pick.points)} pts"
+                          f" (selected among {len(_vt_cands)})")
+                    logger.info("vector-trace candidate for %s: %s (%d pts)",
+                                arxiv_id, _vt_pick.fig_name, len(_vt_pick.points))
+        except FatalAPIError:
+            raise
+        except Exception as e:
+            logger.warning("vector-trace channel error for %s: %s",
+                           arxiv_id, str(e)[:200])
+
     stage2_result: dict = {}
     figure_paths: list[Path] = []
     vision_cand = None
     # A valid, non-degenerate source-data candidate outranks any vision read
     # (tier 5 > 2), so the vision API spend would be wasted — skip it. A
     # degenerate or out-of-range source pick must NOT suppress vision.
+    _dominant_cand = source_cand or vector_cand
     _source_dominant = (
-        source_cand is not None
-        and source_cand.score.in_valid_ranges
-        and not source_cand.score.y_const
-        and (source_cand.score.span_dex or 0.0) >= R4_MIN_SPAN_DEX
+        _dominant_cand is not None
+        and _dominant_cand.score.in_valid_ranges
+        and not _dominant_cand.score.y_const
+        and (_dominant_cand.score.span_dex or 0.0) >= R4_MIN_SPAN_DEX
     )
     if _source_dominant:
         logger.info("Source-data candidate dominant for %s; skipping vision", arxiv_id)
@@ -1721,6 +1834,17 @@ def run_extraction_agent(
     # --- WS3 wrong-curve gates (#663): deterministic post-hoc checks on each
     # candidate's own outputs/notes BEFORE selection, so a gate-rejected trace
     # falls back to the next candidate instead of being emitted.
+    if vector_cand is not None:
+        _vt_fired = check_vision_gates(
+            source="vector_trace", is_projection=bool(stage1_result.get("is_projection")),
+            coupling_type=vector_cand.coupling_type, vision_notes="",
+            data_points=vector_cand.data_points,
+            abstract=(paper.summary or "")[:4000], paper_title=paper.title)
+        if any(r.action == "reject" for r in _vt_fired):
+            candidates = [c for c in candidates if c is not vector_cand]
+            stage1_result["notes"] = (stage1_result.get("notes", "") + " | "
+                                      + " ; ".join(r.note for r in _vt_fired))
+            vector_cand = None
     candidates, text_cand, vision_cand, source_cand, gate_notes = _gate_candidates(
         candidates, text_cand, vision_cand, source_cand,
         is_projection=bool(stage1_result.get("is_projection")),
@@ -1754,6 +1878,10 @@ def run_extraction_agent(
         stage1_result["data_source"] = chosen.source
         stage1_result["extraction_confidence"] = chosen.extraction_confidence
         stage1_result["notes"] = stage1_result.get("notes", "") + " | " + sel_reason
+        if chosen is vector_cand and vector_cand is not None:
+            # accepted under the strict canonical window (same argument as
+            # the source-data channel)
+            stage1_result["coupling_convention"] = "canonical"
         if chosen is source_cand and source_cand is not None:
             # Deterministic file read accepted under the strict canonical
             # window; the truthful declaration is canonical (#657). The file
