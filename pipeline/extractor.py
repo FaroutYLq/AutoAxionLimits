@@ -41,7 +41,14 @@ from .vision_gates import check_vision_gates
 
 logger = logging.getLogger(__name__)
 
-CLAUDE_MODEL = "claude-opus-4-8"
+# Production default is Opus; the whole extractor (all stages, spot-check,
+# classifier, vector-select) reads this single constant. Override via the
+# EXTRACTOR_MODEL env var for benchmark/eval runs (feedback: benchmarks run
+# Haiku for cost control) WITHOUT editing code. A before/after comparison
+# must use the SAME model on both sides. NOTE: this override previously
+# existed only on the unmerged lever-D branch — main-repo eval runs silently
+# used Opus at 5x prices while setting the env var (2026-07-03 incident).
+CLAUDE_MODEL = os.environ.get("EXTRACTOR_MODEL", "claude-opus-4-8")
 CLAUDE_MODEL_VISION = CLAUDE_MODEL  # Use same model; override for testing
 
 # Minimum data points from text extraction to skip vision fallback.
