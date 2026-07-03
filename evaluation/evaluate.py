@@ -246,7 +246,13 @@ def run_extraction(entry: GroundTruthEntry) -> dict:
         run_extraction_agent_voted,
     )
 
-    client = anthropic.Anthropic()
+    if os.environ.get("AAL_BATCH", "").lower() in ("1", "true", "yes"):
+        # Message-Batches transport (50% price): same agent code, calls ride
+        # a shared batching dispatcher. See pipeline/batch_client.py.
+        from pipeline.batch_client import get_shared_batching_client
+        client = get_shared_batching_client()
+    else:
+        client = anthropic.Anthropic()
 
     # Create a minimal paper-like object for the extractor
     class _PaperStub:
