@@ -136,3 +136,57 @@ class TestCurveToData:
         assert len(pts) == 2
         x0, y0 = pts[0]
         assert y0 == pytest.approx(10 ** (-0.01 * 80 - 8))  # lower coupling wins
+
+
+# ---------------------------------------------------------------------------
+# Selector integration (WS2 PR2)
+# ---------------------------------------------------------------------------
+
+from pipeline.extractor import _make_candidate
+from pipeline.transform_guard import SOURCE_TIER, quality
+from pipeline.vector_trace import VectorCandidate, collect_vector_candidates
+
+
+class TestVectorTier:
+    def test_tier_ordering(self):
+        assert SOURCE_TIER["source_data"] > SOURCE_TIER["table"] > \
+            SOURCE_TIER["vector_trace"] > SOURCE_TIER["text"] > \
+            SOURCE_TIER["figure_vision"]
+
+    def test_vector_beats_text_and_vision(self):
+        pts = [(10 ** (-6 + 0.1 * i), 10 ** (-11 - 0.05 * i)) for i in range(20)]
+        vec = _make_candidate("vector_trace", pts, "AxionPhoton", 0.85)
+        txt = _make_candidate("text", pts[:6], "AxionPhoton", 0.9)
+        vis = _make_candidate("figure_vision", pts, "AxionPhoton", 0.6)
+        assert quality(vec) > quality(txt) > quality(vis)
+
+    def test_table_still_beats_vector(self):
+        pts = [(10 ** (-6 + 0.1 * i), 10 ** (-11 - 0.05 * i)) for i in range(20)]
+        vec = _make_candidate("vector_trace", pts, "AxionPhoton", 0.85)
+        tab = _make_candidate("table", pts, "AxionPhoton", 0.9)
+        assert quality(tab) > quality(vec)
+
+
+class TestCollectVectorCandidates:
+    VR = {"mass": (1e-24, 1e9), "coupling": (1e-20, 1.0)}
+
+    def _figs(self):
+        cal = AxisCalibration(ax=0.02, bx=-9, ay=0.02, by=-14,
+                              x_label="mass [eV]", y_label="g_ae", x_to_ev=1.0)
+        good = VectorCurve(color=(1, 0, 0), filled=False,
+                           points=[(50 + 4 * i, 100 + i) for i in range(40)])
+        return [("bound_fig.pdf", cal, [good])]
+
+    def test_collects_qualifying_curve(self):
+        cands = collect_vector_candidates(self._figs(), self.VR)
+        assert len(cands) == 1
+        assert cands[0].fig_name == "bound_fig.pdf"
+
+    def test_unknown_x_unit_and_label_skipped(self):
+        figs = self._figs()
+        figs[0][1].x_to_ev = None
+        figs[0][1].x_label = "temperature (K)"
+        assert collect_vector_candidates(figs, self.VR) == []
+
+    def test_no_valid_ranges_empty(self):
+        assert collect_vector_candidates(self._figs(), None) == []
