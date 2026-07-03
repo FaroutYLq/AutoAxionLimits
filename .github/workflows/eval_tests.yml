@@ -13,6 +13,8 @@ on:
       - "pipeline/transform_guard.py"
       - "pipeline/source_data.py"
       - "evaluation/source_survey.py"
+      - "pipeline/vector_trace.py"
+      - "evaluation/vector_ceiling.py"
       - "pipeline/vision_gates.py"
       - "evaluation/replay_gates.py"
       - "pipeline/extractor.py"
@@ -28,6 +30,8 @@ on:
       - "pipeline/transform_guard.py"
       - "pipeline/source_data.py"
       - "evaluation/source_survey.py"
+      - "pipeline/vector_trace.py"
+      - "evaluation/vector_ceiling.py"
       - "pipeline/vision_gates.py"
       - "evaluation/replay_gates.py"
       - "pipeline/extractor.py"
@@ -58,6 +62,6 @@ jobs:
         # calls) can import pipeline.extractor and run here too; opencv/pytesseract
         # for the P1 axis-OCR tests. All such tests self-skip if a dep is ever
         # unavailable, so the job stays green.
-        run: pip install numpy scipy pytest anthropic arxiv httpx opencv-python-headless pytesseract pillow
+        run: pip install numpy scipy pytest anthropic arxiv httpx opencv-python-headless pytesseract pillow matplotlib pymupdf
       - name: Run metric unit tests
         run: python -m pytest evaluation/tests/ -v
