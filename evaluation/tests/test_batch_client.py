@@ -40,11 +40,16 @@ class FakeBatchesAPI:
 
     def __init__(self, item_errors=None):
         self.submitted: list[list] = []
+        self.direct_calls: list[dict] = []
         self.item_errors = dict(item_errors or {})  # prompt-text -> (kind, etype, emsg)
         b = SimpleNamespace(create=self._create, retrieve=self._retrieve,
                             results=self._results)
-        self.messages = SimpleNamespace(batches=b)
+        self.messages = SimpleNamespace(batches=b, create=self._direct_create)
         self._last = None
+
+    def _direct_create(self, **kwargs):
+        self.direct_calls.append(kwargs)
+        return _msg(str(kwargs["messages"]))
 
     def _create(self, requests):
         self.submitted.append(list(requests))
@@ -160,3 +165,31 @@ def test_non_retryable_item_error_raises_only_that_caller():
     for t in ts: t.join(timeout=20)
     assert isinstance(res["bad"], RuntimeError)
     assert not isinstance(res["fine"], BaseException)
+
+
+def test_oversized_item_bypasses_batch():
+    fake = FakeBatchesAPI()
+    bc = _client(fake, direct_bytes_threshold=1000)
+    big = "x" * 2000                             # serialized size > threshold
+    msg = bc.messages.create(model="m", max_tokens=8,
+                             messages=[{"role": "user", "content": big}])
+    assert len(fake.direct_calls) == 1           # went direct, caller thread
+    assert not fake.submitted                    # no batch was created
+    assert big in msg.content[0].text            # verbatim params, real result
+    assert bc.stats["direct_items"] == 1
+    # small items still ride batches
+    bc.messages.create(model="m", max_tokens=8,
+                       messages=[{"role": "user", "content": "small"}])
+    assert len(fake.submitted) == 1
+    assert len(fake.direct_calls) == 1
+
+
+def test_batch_byte_cap_splits_flush():
+    fake = FakeBatchesAPI()
+    # each item serializes to ~300B; cap allows ~2 per batch, never 6
+    bc = _client(fake, max_batch_bytes=700, direct_bytes_threshold=100_000)
+    res = _call_many(bc, [f"pp-{i}-" + "y" * 200 for i in range(6)])
+    assert len(fake.submitted) >= 2              # one flush split by byte cap
+    assert sum(len(b) for b in fake.submitted) == 6
+    for p, msg in res.items():
+        assert p in msg.content[0].text          # every caller still routed

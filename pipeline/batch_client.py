@@ -21,6 +21,19 @@ Error mapping preserves the ``_call_with_retry`` / #648 contract:
   (up to ``max_item_attempts``)
 * other item errors           -> raised in the calling thread
 
+Large-item bypass: requests whose serialized params exceed
+``direct_bytes_threshold`` (vision calls carrying base64 page images — tens
+of MB each) are sent as plain ``messages.create`` on the CALLER's thread at
+standard price instead of riding a batch. The single dispatcher connection
+uploads at ~100 KB/s, so a wave of image-heavy items would serialize into
+hours of upload (and re-upload on timeout retries); the direct path spreads
+the same bytes over every worker's own connection, which is the transport
+the pre-batch runs already used. Params are forwarded verbatim either way,
+so the extraction distribution is unchanged — only price and latency differ
+per item. Batches themselves are additionally capped at ``max_batch_bytes``
+so one flush can never exceed what reliably uploads within the API's
+request window.
+
 Enable in the eval driver with ``AAL_BATCH=1`` (see
 ``evaluation.evaluate.run_extraction``). Not used by the daily pipeline
 (latency-sensitive, low volume).
@@ -29,6 +42,7 @@ Enable in the eval driver with ``AAL_BATCH=1`` (see
 from __future__ import annotations
 
 import itertools
+import json
 import logging
 import threading
 import time
@@ -48,6 +62,7 @@ class _Pending:
     result: Any = None
     error: Optional[BaseException] = None
     attempts: int = 0
+    size: int = 0
 
 
 class _Messages:
@@ -68,7 +83,9 @@ class BatchingClient:
 
     def __init__(self, api_client=None, *, flush_after_s: float = 15.0,
                  max_batch: int = 500, poll_s: float = 20.0,
-                 max_item_attempts: int = 3):
+                 max_item_attempts: int = 3,
+                 direct_bytes_threshold: int = 3_000_000,
+                 max_batch_bytes: int = 25_000_000):
         import anthropic
         self._api = api_client or anthropic.Anthropic()
         self.messages = _Messages(self)
@@ -76,20 +93,34 @@ class BatchingClient:
         self._max_batch = max_batch
         self._poll_s = poll_s
         self._max_item_attempts = max_item_attempts
+        self._direct_bytes_threshold = direct_bytes_threshold
+        self._max_batch_bytes = max_batch_bytes
         self._lock = threading.Condition()
         self._queue: list[_Pending] = []
         self._last_arrival = 0.0
         self._seq = itertools.count()
         self._fatal: Optional[BaseException] = None
         self._stats = {"batches": 0, "items": 0, "in": 0, "out": 0,
-                       "cache_read": 0, "cache_write": 0}
+                       "cache_read": 0, "cache_write": 0,
+                       "direct_items": 0, "direct_bytes": 0}
         self._dispatcher = threading.Thread(target=self._run, daemon=True,
                                             name="batch-dispatcher")
         self._dispatcher.start()
 
     # ------------------------------------------------------------- caller side
     def _submit_and_wait(self, kwargs: dict):
-        p = _Pending(kwargs=kwargs)
+        size = len(json.dumps(kwargs, default=str))
+        if size > self._direct_bytes_threshold:
+            # image-heavy call: caller-thread direct create (standard price)
+            # rather than a serialized multi-hour dispatcher upload
+            with self._lock:
+                if self._fatal is not None:
+                    raise self._fatal
+                self._stats["direct_items"] += 1
+                self._stats["direct_bytes"] += size
+            logger.warning("direct (non-batch) call: %.1f MB payload", size / 1e6)
+            return self._api.messages.create(**kwargs)
+        p = _Pending(kwargs=kwargs, size=size)
         with self._lock:
             if self._fatal is not None:
                 raise self._fatal
@@ -110,7 +141,14 @@ class BatchingClient:
                 if self._queue:
                     quiet = time.monotonic() - self._last_arrival
                     if len(self._queue) >= self._max_batch or quiet >= self._flush_after_s:
-                        batch = self._queue[: self._max_batch]
+                        batch, total = [], 0
+                        for p in self._queue:
+                            if len(batch) >= self._max_batch:
+                                break
+                            if batch and total + p.size > self._max_batch_bytes:
+                                break
+                            batch.append(p)
+                            total += p.size
                         del self._queue[: len(batch)]
                         return batch
                     self._lock.wait(timeout=max(0.25, self._flush_after_s - quiet))
