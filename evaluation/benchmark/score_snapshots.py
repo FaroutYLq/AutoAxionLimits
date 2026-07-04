@@ -8,7 +8,7 @@ from pathlib import Path
 
 sys.path.insert(0, "/Users/lanqingyuan/Documents/GitHub/AutoAxionLimits")
 R = Path("/Users/lanqingyuan/Documents/GitHub/AutoAxionLimits")
-FINAL = R / "evaluation/eval_runs/final_full346"
+FINAL = R / "evaluation/eval_runs/final_full346_haiku"
 
 import evaluation.evaluate as ev
 
