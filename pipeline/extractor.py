@@ -56,6 +56,18 @@ CLAUDE_MODEL_VISION = CLAUDE_MODEL  # Use same model; override for testing
 # If text extraction returns fewer than this, try vision to trace the plot.
 MIN_DATA_POINTS_TEXT = 3
 
+# Text-vision corroboration gate. When a text/table candidate lands IN valid
+# ranges (a credible anchor) but the vision trace disagrees with it by more
+# than this many decades over their shared mass range, the vision trace has
+# almost certainly traced the wrong curve/panel (the catastrophic failure mode
+# — probe 2026-07-04: 1508.02463 text 0.003 dex vs vision 8.1 dex, 1403.1290
+# 0.70 vs 7.59). The sparse-point-limit demotion (#587) would otherwise let the
+# dense-but-wrong vision curve outrank the sparse-but-right text anchor purely
+# on point count, so this gate rejects the vision candidate and lets text win.
+# Set HIGH so it only fires on gross wrong-curve disagreement, never on normal
+# ~0.3 dex read-to-read differences or a legitimate projection-vs-measured gap.
+TEXT_VISION_DISAGREE_DEX = 2.0
+
 # ---------------------------------------------------------------------------
 # API retry helper
 # ---------------------------------------------------------------------------
@@ -1596,6 +1608,51 @@ def _run_vector_select(paper, cands, coupling_type, client,
     return -1
 
 
+def _curve_disagreement_dex(anchor: list, curve: list) -> float | None:
+    """Median vertical gap (decades) between an ``anchor`` point set and a
+    ``curve``, measured only where their mass ranges overlap.
+
+    Both are ``(mass_eV, coupling)`` lists. For each anchor mass inside the
+    curve's mass span, the curve's coupling is log-log linearly interpolated
+    and compared to the anchor's coupling; the return is the median
+    ``|log10(curve) - log10(anchor)|``. ``None`` when fewer than two anchor
+    points overlap (nothing to corroborate against). Pure — no API, no numpy.
+    """
+    import math
+
+    def _clean(pts):
+        out = []
+        for m, g in pts:
+            try:
+                m, g = float(m), float(g)
+            except (TypeError, ValueError):
+                continue
+            if m > 0 and g > 0:
+                out.append((math.log10(m), math.log10(g)))
+        return sorted(out)
+
+    a, c = _clean(anchor), _clean(curve)
+    if len(a) < 2 or len(c) < 2:
+        return None
+    lo, hi = c[0][0], c[-1][0]
+    diffs = []
+    for lm, lg in a:
+        if lm < lo or lm > hi:
+            continue
+        # linear interp of the curve (in log-log) at anchor mass lm
+        j = 0
+        while j < len(c) - 1 and c[j + 1][0] < lm:
+            j += 1
+        (x0, y0), (x1, y1) = c[j], c[j + 1]
+        yc = y0 if x1 == x0 else y0 + (y1 - y0) * (lm - x0) / (x1 - x0)
+        diffs.append(abs(yc - lg))
+    if len(diffs) < 2:
+        return None
+    diffs.sort()
+    n = len(diffs)
+    return diffs[n // 2] if n % 2 else 0.5 * (diffs[n // 2 - 1] + diffs[n // 2])
+
+
 def _gate_candidates(
     candidates: list[Candidate],
     text_cand: Candidate | None,
@@ -1660,6 +1717,25 @@ def _gate_candidates(
             demoted = replace(vision_cand, reconstruction=True)
             candidates = [demoted if c is vision_cand else c for c in candidates]
             vision_cand = demoted
+
+    # Text-vision corroboration (routing-instability fix, 2026-07-04): a vision
+    # trace that grossly contradicts a CREDIBLE (in-range) text anchor over
+    # their shared mass range is a wrong-curve trace. Reject it so the accurate
+    # text wins — the sparse-point-limit demotion (#587) would otherwise let the
+    # dense wrong curve outrank the sparse right one on point count alone.
+    # Demote is insufficient here (a sparse text sits at the same demoted tier,
+    # so vision would still win the point-count tiebreak), hence reject.
+    if (text_cand is not None and text_cand in candidates
+            and text_cand.score.in_valid_ranges
+            and vision_cand is not None and vision_cand in candidates):
+        gap = _curve_disagreement_dex(text_cand.data_points, vision_cand.data_points)
+        if gap is not None and gap > TEXT_VISION_DISAGREE_DEX:
+            candidates = [c for c in candidates if c is not vision_cand]
+            note = (f"[TEXT-VISION DISAGREEMENT] vision trace differs from the "
+                    f"in-range text anchor by {gap:.1f} dex (> {TEXT_VISION_DISAGREE_DEX}) "
+                    f"over the shared mass range — likely wrong curve; deferred to text")
+            gate_notes.append(note)
+            vision_cand = None
     return candidates, text_cand, vision_cand, source_cand, gate_notes
 
 

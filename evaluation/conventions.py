@@ -437,6 +437,79 @@ def to_canonical(coupling_type: Optional[str], data_points, convention: Optional
     return data_points, ""
 
 
+# --- Foreign-quantity screen (registry hardening, 2026-07-04) -----------------
+# The registry's vetted conversions apply to alternates OF THE CANONICAL
+# QUANTITY (its square, inverse, decay-rate plane, ...) — never to a DIFFERENT
+# physical quantity that merely shares a token. Substring rules alone were
+# fooled across couplings: 1508.02463 declared "(g_p^e)^2/(hbar c)" (a
+# dipole-dipole spin-spin strength) and matched AxionElectron's "squared" rule,
+# so a ~9-dex mis-scaled curve was scored at face value with the review flag
+# suppressed; 1401.6460's AxionEDM declaration matched on the word "gluon" in
+# a parenthetical. This screen fails CLOSED: a declaration that names foreign
+# physics is neither canonical nor convertible — the eval side maps it to
+# UNCONVERTIBLE (excluded as a convention gap) and the runtime mirror flags
+# [CONVENTION REVIEW]. "converted from ..." declarations are exempt (#594:
+# provenance formulas legitimately reference foreign symbols; the emitted
+# values are canonical-claimed). MIRRORS pipeline.transform_guard — keep in sync.
+
+# Quantity-class markers that signal a non-coupling observable regardless of
+# coupling type (interaction potentials, normalized squared strengths, ...).
+_FOREIGN_CLASS_TOKENS = (
+    "v_dd", "vdd", "potential", "force strength", "torque",
+    "cross section", "count rate",
+)
+# Couplings whose CANONICAL quantity is itself a dipole/product coupling —
+# the class tokens above (and g_s/g_p symbols) are native vocabulary there.
+_FOREIGN_CLASS_EXEMPT = ("MonopoleDipole", "AxionCPV")
+
+# Coupling-symbol stems the declaration MAY name for each coupling type (its
+# canonical symbol + vetted-alternate vocabulary). Any OTHER g_*/d_*/c_*-style
+# symbol in the declaration is a different quantity.
+_EXPECTED_SYMBOL_STEMS: dict = {
+    "AxionPhoton":    ("g_ag", "g_a\\gamma", "g_aγ"),
+    "AxionElectron":  ("g_ae", "g_p", "g_e"),
+    "AxionNeutron":   ("g_an", "g_ann", "g_n", "g_p", "g_ag"),   # g_agamma appears in vetted provenance formulas
+    "AxionProton":    ("g_ap", "g_ann", "g_an", "g_n", "g_p", "g_ag"),
+    "DarkPhoton":     (),
+    "AxionEDM":       ("g_d", "g_ang", "g_{a", "c_g", "d_n", "d_d", "f_a"),
+    "AxionMass":      ("f_a", "m_a"),
+    "ScalarPhoton":   ("d_e", "d_gamma", "g_phi", "g_ph"),
+    "ScalarElectron": ("d_me", "d_{m", "d_e", "g_phi", "g_ph"),
+    "ScalarNucleon":  ("d_e", "d_n"),
+    "ScalarBaryon":   ("d_e", "d_b"),
+    "VectorBL":       ("g_b",),
+}
+
+_NOT_CLAUSE_RE = _re_mod = None  # lazily compiled below
+
+
+def _foreign_quantity_declared(coupling_type: str, decl_lower: str) -> bool:
+    """True when the declaration names physics OUTSIDE the coupling's canonical/
+    vetted vocabulary — i.e. the registry must NOT treat it as convertible or
+    canonical. Fails closed on foreign symbols; exempts provenance ("converted
+    from") text and negation clauses ("NOT canonical g_ae")."""
+    global _NOT_CLAUSE_RE, _re_mod
+    import re as _re
+    if _NOT_CLAUSE_RE is None:
+        _re_mod = _re
+        _NOT_CLAUSE_RE = _re.compile(r"\bnot\b[^,;.]*")
+    if "converted" in decl_lower:
+        return False        # #594: canonical-claimed; formula text is provenance
+    # negation clauses describe what the values are NOT — drop before scanning
+    d = _NOT_CLAUSE_RE.sub(" ", decl_lower)
+    if coupling_type not in _FOREIGN_CLASS_EXEMPT \
+            and any(t in d for t in _FOREIGN_CLASS_TOKENS):
+        return True
+    expected = _EXPECTED_SYMBOL_STEMS.get(coupling_type)
+    if expected is None:
+        return False        # coupling with product/no symbol vocabulary: skip
+    for sym in _re_mod.findall(r"(?<![a-z0-9\\])[gdc]_\{?\\?[a-z0-9γ]+", d):
+        stem = sym.replace("{", "")
+        if not any(stem.startswith(e) for e in expected):
+            return True
+    return False
+
+
 # Map a model-DECLARED output-convention/units string (the convention the
 # extractor says its emitted data_points are in) to a `to_canonical` token.
 # Conservative: returns a non-canonical alternate ONLY on a clear unit signal,
@@ -455,6 +528,12 @@ def classify_reported_convention(coupling_type: Optional[str],
     # converted-but-emitted-raw; that mislabel is the extractor contract's
     # problem, not a registry guess).
     already_converted = "converted" in u
+    # Foreign-quantity screen (fail closed, 2026-07-04): a declaration naming a
+    # DIFFERENT physical quantity must not be token-matched into a vetted
+    # conversion (1508.02463 g_p^2/(hbar c) vs AxionElectron "squared") nor
+    # scored raw — exclude it as a convention gap.
+    if _foreign_quantity_declared(coupling_type, raw):
+        return UNCONVERTIBLE
     # Inverse-GeV (prefix-aware: must be 'gev', not bare 'ev' which is eV^-1).
     inv_gev = any(t in u for t in ("gev^-1", "gev-1", "gev^{-1}", "gev$^{-1}$", "1/gev"))
     # Squared-coupling axes (round-2 Family 3): two DISTINCT tokens 0.55 dex

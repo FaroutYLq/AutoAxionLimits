@@ -569,6 +569,61 @@ _CANONICAL_DECL: dict[str, tuple[str, ...]] = {
 }
 
 
+# --- Foreign-quantity screen (registry hardening, 2026-07-04) -----------------
+# MIRRORS evaluation.conventions._foreign_quantity_declared — keep in sync.
+# A declaration naming physics outside the coupling's canonical/vetted
+# vocabulary (a different coupling symbol like g_p when canonical is g_ae, an
+# hbar-c-normalized dipole-dipole strength, an interaction potential) is
+# NEITHER canonical NOR convertible: substring rules alone were fooled across
+# couplings (1508.02463 AxionElectron "(g_p^e)^2/(hbar c)" matched "squared"
+# AND its "dimensionless" matched the canonical tokens, so a ~9-dex mis-scaled
+# vision curve shipped with the review flag suppressed). Fails closed to
+# [CONVENTION REVIEW]. "converted from ..." declarations are exempt (#594) and
+# negation clauses ("NOT canonical g_ae") are dropped before scanning.
+_FOREIGN_CLASS_TOKENS = (
+    "v_dd", "vdd", "potential", "force strength", "torque",
+    "cross section", "count rate",
+)
+_FOREIGN_CLASS_EXEMPT = ("MonopoleDipole", "AxionCPV")
+_EXPECTED_SYMBOL_STEMS: dict = {
+    "AxionPhoton":    ("g_ag", "g_a\\gamma", "g_aγ"),
+    "AxionElectron":  ("g_ae", "g_p", "g_e"),
+    "AxionNeutron":   ("g_an", "g_ann", "g_n", "g_p", "g_ag"),
+    "AxionProton":    ("g_ap", "g_ann", "g_an", "g_n", "g_p", "g_ag"),
+    "DarkPhoton":     (),
+    "AxionEDM":       ("g_d", "g_ang", "g_{a", "c_g", "d_n", "d_d", "f_a"),
+    "AxionMass":      ("f_a", "m_a"),
+    "ScalarPhoton":   ("d_e", "d_gamma", "g_phi", "g_ph"),
+    "ScalarElectron": ("d_me", "d_{m", "d_e", "g_phi", "g_ph"),
+    "ScalarNucleon":  ("d_e", "d_n"),
+    "ScalarBaryon":   ("d_e", "d_b"),
+    "VectorBL":       ("g_b",),
+}
+_NOT_CLAUSE_RE = None
+
+
+def _foreign_quantity_declared(coupling_type: str, decl_lower: str) -> bool:
+    global _NOT_CLAUSE_RE
+    import re as _re
+    if _NOT_CLAUSE_RE is None:
+        _NOT_CLAUSE_RE = _re.compile(r"\bnot\b[^,;.]*")
+    if "converted" in decl_lower:
+        return False
+    d = _NOT_CLAUSE_RE.sub(" ", decl_lower)
+    if coupling_type not in _FOREIGN_CLASS_EXEMPT \
+            and any(t in d for t in _FOREIGN_CLASS_TOKENS):
+        return True
+    expected = _EXPECTED_SYMBOL_STEMS.get(coupling_type)
+    if expected is None:
+        return False
+    import re as _re2
+    for sym in _re2.findall(r"(?<![a-z0-9\\])[gdc]_\{?\\?[a-z0-9γ]+", d):
+        stem = sym.replace("{", "")
+        if not any(stem.startswith(e) for e in expected):
+            return True
+    return False
+
+
 def _declared_convertible(coupling_type: str, decl_lower: str) -> bool:
     """True iff the eval registry has a vetted conversion for this declared output
     convention. MIRRORS ``evaluation.conventions.classify_reported_convention`` —
@@ -577,7 +632,10 @@ def _declared_convertible(coupling_type: str, decl_lower: str) -> bool:
     Updated for the round-2 registry (post-full346 Phase 1d, #653): decay-rate/
     lifetime planes, squared axes, thermal xi, f_a-in-GeV, and the round-1
     scalar GeV^-1 branch (#600) that this mirror had never picked up.
+    Foreign-quantity declarations are never convertible (2026-07-04 hardening).
     """
+    if _foreign_quantity_declared(coupling_type, decl_lower):
+        return False
     inv_gev = any(t in decl_lower for t in
                   ("gev^-1", "gev-1", "gev^{-1}", "1/gev", "gev$^{-1}$"))
     squared = ("^2" in decl_lower or "squared" in decl_lower) \
@@ -622,6 +680,12 @@ def convention_review_needed(coupling_type, declared_convention) -> bool:
     d = str(declared_convention).strip().lower()
     if d in ("", "canonical", "standard", "none", "n/a"):
         return False
+    # Foreign-quantity screen FIRST (2026-07-04): a foreign-physics declaration
+    # must flag for review even when it contains a canonical token in passing
+    # (1508.02463's "(g_p^e)^2/(hbar c) dimensionless ..." matched
+    # AxionElectron's "dimensionless" and dodged the flag).
+    if _foreign_quantity_declared(coupling_type, d):
+        return True
     if any(t in d for t in _CANONICAL_DECL.get(coupling_type, ())):
         return False
     if _declared_convertible(coupling_type, d):
