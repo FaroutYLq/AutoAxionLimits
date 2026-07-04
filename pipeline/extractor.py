@@ -687,7 +687,18 @@ extraction_confidence rubric (coupling type AND data quality):
 - <0.3: cannot identify coupling type OR no extractable data
 If you are unsure which of 2+ coupling types is correct, confidence MUST be ≤0.5.
 
-Coupling units by type (return values in these units):
+PLOTTED-VALUES CONTRACT — overrides everything else about coupling units:
+Emit each coupling value EXACTLY as plotted on the y-axis (after applying any \
+axis multiplier like "x10^-14"). NEVER convert, rescale, square-root, or \
+re-normalize plotted values into a different variable or convention — even \
+when the plotted quantity differs from the canonical coupling listed below \
+(e.g. a squared coupling g^2, g^2/4pi, g^2/hbar-c, a decay rate, 1/f_a, an \
+energy scale Lambda, epsilon^2). Downstream code applies vetted conversions; \
+a value you convert yourself will be converted AGAIN and end up orders of \
+magnitude wrong. Describe the plotted quantity in "coupling_convention".
+
+Canonical coupling by type — for coupling_type IDENTIFICATION only (the y-axis
+may show a transformed variable; still emit plotted values):
 - AxionPhoton: g_agamma in GeV^-1 (typical range 1e-25 to 1e-3)
 - DarkPhoton: dimensionless kinetic mixing chi (typical range 1e-22 to 1)
 - AxionElectron: dimensionless g_ae (typical range 1e-20 to 1)
@@ -723,6 +734,10 @@ Respond ONLY with a JSON object:
     "AxionProton", "AxionEDM", "AxionCPV", "AxionMass", "MonopoleDipole", "ScalarPhoton",
     "ScalarElectron", "ScalarBaryon", "ScalarNucleon", "VectorBL"] or null,
   "data_points": [[mass_eV, coupling], ...],
+  "coupling_convention": str — the variable/units of YOUR emitted coupling values \
+EXACTLY as plotted on the y-axis (e.g. "canonical g_ae, dimensionless", \
+"(g_p)^2/(hbar c), dimensionless squared coupling", "decay rate in s^-1"). \
+Must describe the EMITTED numbers, per the plotted-values contract above.
   "dm_density_assumed": float | null,
   "polarization_assumption": str | null,
   "confidence_level": 0.90 or 0.95,
@@ -1894,16 +1909,19 @@ def run_extraction_agent(
                 _vis_ct = (stage1_result.get("coupling_type")
                            or stage2_result.get("coupling_type") or pre_ct)
                 _vis_hint = _axis_conv_hint(_vis_ct, (axis_info or {}).get("y_axis_unit"))
+                # Plotted-values contract: stage 2 now declares the convention
+                # of its OWN emitted values; that self-description is the
+                # primary declaration, the axis read-back the fallback (and,
+                # per #594, the override for canonical CLAIMS at win time).
+                _vis_decl = (stage2_result.get("coupling_convention") or "").strip() \
+                    or (_vis_hint[0] if _vis_hint else None)
                 vision_cand = _make_candidate(
                     "figure_vision",
                     vis_points,
                     _vis_ct,
                     stage2_result.get("extraction_confidence", 0.4),
                     axis_extent_dex=_axis_extent_dex(axis_info),
-                    # The vision candidate's effective declaration is the axis
-                    # read-back (a measurement), not the text-stage claim.
-                    convention_flagged=convention_review_needed(
-                        _vis_ct, _vis_hint[0] if _vis_hint else None),
+                    convention_flagged=convention_review_needed(_vis_ct, _vis_decl),
                 )
                 candidates.append(vision_cand)
         else:
@@ -1970,8 +1988,13 @@ def run_extraction_agent(
             # window; the truthful declaration is canonical (#657). The file
             # path evidence is already in the notes.
             stage1_result["coupling_convention"] = "canonical"
-        # #594 contract: on a vision win, the axis read-back overrides a
-        # canonical-claiming (or stale text-stage) declaration.
+        # Plotted-values contract: a vision win carries stage 2's declaration
+        # of its OWN emitted values (replacing the stale text-stage string) …
+        if chosen is vision_cand and stage2_result.get("coupling_convention"):
+            stage1_result["coupling_convention"] = \
+                stage2_result["coupling_convention"]
+        # … and the #594 contract still applies on top: the axis read-back (a
+        # measurement) overrides a canonical-claiming declaration.
         _reconcile_declared_convention(stage1_result)
         if chosen is vision_cand and stage2_result:
             # Vision won: carry its semantic metadata + the figures/benchmark the
@@ -2270,7 +2293,10 @@ Respond ONLY with a JSON object:
   "y_axis_scale": "log" | "linear",
   "y_axis_min": float (bottom value),
   "y_axis_max": float (top value),
-  "y_axis_unit": str (e.g., "GeV^-1", "dimensionless"),
+  "y_axis_unit": str — the plotted VARIABLE and its units as labeled, not just \
+dimensionality (e.g., "GeV^-1", "(g_p)^2/(hbar c) dimensionless", "epsilon^2", \
+"decay rate s^-1"). If the axis shows a squared or otherwise transformed \
+coupling, SAY SO here — never report just "dimensionless" for such an axis.
   "y_axis_tick_values": [list of visible y-axis tick values as floats]
 }
 
