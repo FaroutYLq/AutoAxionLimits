@@ -1,6 +1,8 @@
 # AutoAxionLimits — Technical Report
 
-*A companion to the PAI26 paper "LLM-Powered Automation of a Dark Matter Constraint Repository." This document expands the architecture (paper §2), evaluation (§3), and lessons (§4) into a self-contained, human-readable account, and then catalogues the problems the evaluation still exposes. All numbers are from the full 346-paper benchmark run (`evaluation/report.md`, current code, N=3 read-vote, Claude Opus 4.8).*
+*A companion to the PAI26 paper "LLM-Powered Automation of a Dark Matter Constraint Repository." This document expands the architecture (paper §2), evaluation (§3), and lessons (§4) into a self-contained, human-readable account, and then catalogues the problems the evaluation still exposes.*
+
+> **Era note (2026-07-04).** Part II's numbers are the 2026-07-02 repaired-benchmark rescore of the old-code N=3 snapshots (0.245 dex micro / 1.582 macro). The **current citable state** is the definitive two-arm benchmark on the fixed pipeline at N=1 (`evaluation/eval_runs/final2_definitive_report.md`): Opus 0.2646 micro / 1.156 macro, Haiku 0.6605 / 4.947, paired model gap +0.22 dex. Part I below is updated to the current (post-#683/#684, N=1) architecture; historical mechanisms that were since retired are marked as such rather than deleted.
 
 ---
 
@@ -32,36 +34,43 @@ A daily job pulls new submissions from the arXiv RSS feed and narrows them in th
 
 Two sibling workflows reuse the same machinery: a **weekly preprint checker** that re-extracts tracked papers when a new arXiv version appears (it once caught a JWST dark-photon search that demoted a measured limit to a projection on publication), and a **historical backfill** that mines INSPIRE-HEP for older high-citation papers and feeds them through extraction in batches.
 
-## I.2 Extraction — the two-stage core
+## I.2 Extraction — the multi-channel core
 
-Extraction turns a PDF into a structured `ExtractionResult`: coupling type, a list of `(mass, coupling)` data points, the declared units/convention, whether it is a new limit or a projection, an extraction-confidence score, and notes.
+Extraction turns a paper into a structured `ExtractionResult`: coupling type, a list of `(mass, coupling)` data points, the declared units/convention, whether it is a new limit or a projection, an extraction-confidence score, and notes. Rather than a single path, the agent produces **candidates through up to five channels** of differing semantic trust, staged as: a cheap pre-classification pass → a Stage-1 text/table read → a cheap Stage-2a axis-identification pass → a Stage-2 vision trace.
 
-**Stage 1 — text and tables (preferred).** The PDF is parsed with PyMuPDF and the full text is sent to the LLM with a structured prompt that demands JSON output. Text/tables are preferred because they are cheaper (no image tokens) and, when a paper tabulates its bound, far more accurate than reading it off a plot. Prompt-injection defences strip control characters and wrap the paper text in sentinel delimiters so instructions embedded in a PDF cannot hijack the model.
+- **`source_data` (tier 5, deterministic).** Numeric files shipped in the paper's own e-print source (pgfplots `.dat`, ancillary files) — exact where present.
+- **`table` (tier 4, LLM).** A read of a tabulated bound.
+- **`vector_trace` (tier 3.5, deterministic).** Curve geometry extracted from the vector paths of PDF figures; a single cheap LLM call identifies *which* path is the limit curve.
+- **`text` (tier 3, LLM).** The PDF is parsed with PyMuPDF and the full text is sent to the LLM with a structured prompt demanding JSON output. Prompt-injection defences strip control characters and wrap the paper text in sentinel delimiters so instructions embedded in a PDF cannot hijack the model.
+- **`figure_vision` (tier 2, LLM).** Selected figure pages are rendered to images and the model traces the curve. **Plotted-values contract (#684):** the vision channel never converts — it emits raw axis values and declares the plotted quantity; an axis read-back (a measurement) overrides a canonical-claiming declaration. This killed the double/zero-conversion plane-bookkeeping bug that produced ~8 dex errors on correct readings.
 
-**Stage 2 — vision fallback (only when needed).** Many papers publish their limit *only* as a figure. When Stage 1 is **not clearly dominant** — defined as failing any of: a valid mass window, ≥5 data points, extraction-confidence ≥0.6, and a non-degenerate (non-flat) curve — selected figure pages are rendered to images and the model reads axis labels, tick spacing, and curve positions off the log–log plot. This gating keeps the expensive vision path off the majority of papers (text wins on 166 of 346) while still covering plot-only results.
+**Deterministic guards (#683).** Pure functions over the model's own declared outputs — no extra API calls, fully unit-testable: wrong-curve gates (the model's own notes, abstract-stated mass windows, regime checks), range validation with snap-suppression on non-canonical declarations, and the **text–vision corroboration gate**, which rejects a vision trace deviating >2 dex from an in-range text anchor over shared mass support (19 firings in the definitive 346-paper run).
 
-### I.2.1 Consensus across noisy reads (read-vote)
+### I.2.1 Consensus across noisy reads (read-vote) — RETIRED from production
 
-A single LLM read of a dense log–log plot is unreliable *and* irreproducible: re-running the same paper gives different curves. We therefore read each paper **N = 3 times independently** and reconcile the reads (`pipeline/read_vote.py`):
+> **Status (2026-07-04):** a transport-matched probe measured N=3 − N=1 = **+0.003 dex** on the production model (`evaluation/eval_runs/nprobe_and_routing_memo.md`) — voting stabilises the traced curve, but the run-to-run variance lives in *channel routing*, which voting does not touch. Production runs **N=1**; the guards and corroboration gate replaced voting at zero API cost. The mechanism below is kept for the record.
+
+We read each paper **N = 3 times independently** and reconcile the reads (`pipeline/read_vote.py`):
 
 - **Coupling type:** majority vote across the 3 reads.
 - **Curve:** the **medoid** — among the reads that agree on the modal coupling type and have ≥2 points, pick the one whose curve is *most central*, i.e. has the smallest **median pairwise distance** to the others. "Distance" between two curves is the median $|\Delta\log_{10}(\text{coupling})|$ evaluated at 25 log-spaced mass points in their overlapping range.
 
-The medoid is deliberately **a real sample, not an average**. Averaging two incompatible curves would manufacture a bound no experiment reported (and possibly a non-physical one); the medoid returns an actual extracted curve while discarding one-off outliers. The run-to-run spread this damps is quantified in §II.5 (a 0.32 dex noise floor).
+The medoid is deliberately **a real sample, not an average**. Averaging two incompatible curves would manufacture a bound no experiment reported (and possibly a non-physical one); the medoid returns an actual extracted curve while discarding one-off outliers.
 
-### I.2.2 Quality-tier source selection
+### I.2.2 Validity-first candidate selection
 
-When the surviving candidate curves still disagree (e.g. a sparse text bound vs. a dense figure curve), they are ranked by a **lexicographic quality tuple** (`pipeline/transform_guard.py`) rather than by raw point count. In priority order:
+When the surviving candidate curves disagree (e.g. a sparse text bound vs. a dense figure curve), they are ranked by a **lexicographic quality tuple** (`pipeline/transform_guard.py`) in which every *validity* criterion outranks every *preference* criterion. In priority order:
 
 | Tier | Criterion | Why it matters |
 |---|---|---|
 | T0 | **In valid ranges** | Hard floor: coupling/mass must lie in physically possible ranges. A curve that fails is unusable. |
 | T1 | **Non-degenerate** | A traced curve must span ≥1 dex in coupling; a flat horizontal line is usually a misread axis or a fill artefact (point-limits are exempt). |
 | T2 | **Recoverable** | The values become valid under some power-of-ten correction (catches a clean unit slip). |
-| T3 | **Source tier** | table (4) > text (3) > figure-vision (2) > raw CV trace (0). **A sparse text/table snippet of ≤3 points is demoted below a traceable multi-point figure curve** — so a single headline number quoted in prose cannot override an actual digitised curve. |
-| T4 | **Corroborated** | A second read's spot-check value agrees within a factor of 3. |
-| T5 | **Confidence** | The model's self-reported extraction confidence (rounded, to avoid float jitter). |
-| T6 | **Point count** | Last-resort tie-breaker. |
+| T3 | **Convention known** | The declared convention is in the vetted registry vocabulary; candidates whose declaration failed convention review are demoted, never silently converted. |
+| T4 | **Source tier** | source_data (5) > table (4) > vector_trace (3.5) > text (3) > figure-vision (2). **A sparse text/table snippet of ≤3 points is demoted below a traceable multi-point figure curve** — unless corroborated (T5), so a corroborated point limit can still beat an uncorroborated trace. |
+| T5 | **Corroborated** | An independent channel numerically agrees. |
+| T6 | **Confidence** | The model's self-reported extraction confidence (rounded, to avoid float jitter). |
+| T7 | **Point count** | Last-resort tie-breaker. |
 
 This ordering encodes a hard-won lesson (§IV): "more points" is not "more trustworthy," and a confidently-quoted single number is often a worse source than a noisy-but-real figure trace.
 
@@ -81,6 +90,12 @@ Two further traps the layer handles: **sentinel values** — the rows valued $10
 
 The comparator (and the production pipeline) calls `to_canonical()` to map **both** the extracted curve and the reference curve to the canonical variable *before* any residual is computed. Anything outside the verified set — most importantly the AxionEDM *response* coupling $C_G/(f_a m_a)\propto 1/m_a$, which is not a constant rescale — is returned as `UNCONVERTIBLE` and surfaces as a `[CONVENTION REVIEW]` flag with capped confidence rather than a silent wrong number.
 
+Three contracts govern the layer's inputs (#683/#684, the "truthful-declaration" design):
+
+- **Truthful declaration.** Every channel declares the convention of the values it *emits* — not the paper's convention, the emitted values'. "Converted from …" declarations are never re-converted by the registry.
+- **Plotted values.** The vision channel emits raw axis values and declares the plotted quantity; conversion happens exactly once, in the registry. Asking the model to convert invites double conversion (model converts *and* registry converts) or zero conversion — both produced ~8 dex errors on correct readings (arXiv:1508.02463; fixed to 0.22–0.27 dex by #684).
+- **Foreign-quantity screen.** Declarations naming physics outside a coupling's vetted vocabulary (e.g. a decay-width axis on a coupling plot) **fail closed**: matching is against the vetted vocabulary, never by substring heuristics on free text (which silently suppress review flags). Runtime flags `[CONVENTION REVIEW]` for a human; the eval side excludes the paper as a convention gap rather than scoring the mismatch as extraction error.
+
 **Provenance of the conversion factors.** These were not guessed or prompted out of the model. They were derived with a guided physics-derivation assistant (**GPD**), which produced a reference document (`GPD/explanations/coupling-convention-conversions-EXPLAIN.md`) that is *code-verified* (every factor checked against the actual repository source and notebooks) and *citation-audited* (the underlying physics — Damour–Donoghue dilaton parameterisation, the axion derivative-coupling on-shell reduction giving the $2m_N$ factor — traced to real literature, 10 references checked). Getting these exactly right is a small but exacting derivation task, and treating it as such — rather than as a prompting problem — is what made the registry trustworthy enough to apply automatically.
 
 ## I.3 Integration
@@ -97,7 +112,7 @@ Every change becomes a **pull request**, never an automatic merge. Low-confidenc
 
 ## I.5 Cost model
 
-The pipeline runs on a frontier model (Claude Opus 4.8) to maximise extraction quality. Per paper it makes roughly **5–9 model calls**: 3 read-vote passes of Stage 1, plus up to 3 vision passes when gating triggers, plus relevance/codegen calls. Text-only papers (the majority) avoid the expensive image tokens entirely. Per-paper cost is on the order of **tens of cents to a few dollars**, dominated by vision papers. This is not a cheap pipeline, but it is far below the expert time it substitutes for, and text-first gating bounds the spend. (For the full benchmark, parallelising the independent extractions across a thread pool cut a ~9 h sequential run to ~50 min.)
+Production runs a frontier model (Claude Opus 4.8) at **N=1** — a single extraction read per channel — since the vote probe showed N=3 buys +0.003 dex for 3× the reads (§I.2.1). Bulk evaluation runs Haiku 4.5 (the standing cost rule; the measured trade is +0.22 dex paired median and a 3× larger catastrophic tail, `final2_definitive_report.md`). At production volume (1–3 papers/day) the Opus−Haiku cost difference is cents-to-a-dollar per day, so the tail risk — which lands on the human reviewer — dominates the decision, not the price. Prompt caching saves 20–36% of token spend (#668); text-first gating keeps most papers off the expensive vision path. Per-paper cost is on the order of **cents to ~a dollar**, dominated by vision papers. (For the full benchmark, parallelising the independent extractions across a thread pool cut a ~9 h sequential run to ~50 min.)
 
 ---
 
@@ -225,7 +240,9 @@ A paper is counted "accurate" only if **median residual < 0.32 dex AND coverage 
 | [0.6–0.8) | 51 | 72.3% | 52.9% | +0.19 |
 | [0.8–1.0) | 77 | 83.2% | 83.1% | **+0.00** |
 
-**The historically-reported "large, systematic overconfidence" (+0.69 top-bin gap in earlier drafts of this report) was primarily a benchmark-scoring artifact**: correct extractions were being graded as failures (convention gaps, single-point auto-fails, GT mis-mappings), which deflated "accuracy" while confidence was in fact tracking real quality. Under the repaired benchmark the top bin is calibrated to within 0.1 pp, and PLACEHOLDER_NO
+**The historically-reported "large, systematic overconfidence" (+0.69 top-bin gap in earlier drafts of this report) was primarily a benchmark-scoring artifact**: correct extractions were being graded as failures (convention gaps, single-point auto-fails, GT mis-mappings), which deflated "accuracy" while confidence was in fact tracking real quality. Under the repaired benchmark the top bin is calibrated to within 0.1 pp, and accuracy is monotone in confidence.
+
+> **Does not transfer across runs (2026-07-04).** The near-zero top-bin gap is a property of *this* rescored snapshot (old code, N=3). On the definitive fixed-pipeline N=1 Opus arm (`final2_opus_n1/metrics.json`), the top bin is 0.840 mean confidence vs 0.723 accuracy (+0.12), with monotone ranking intact. The durable claim is "confidence ranks but cannot replace review," not any particular gap value.
 
 ---
 
