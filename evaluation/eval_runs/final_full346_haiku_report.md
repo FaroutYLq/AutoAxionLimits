@@ -1,6 +1,6 @@
 # Final full-pool Haiku benchmark (346 papers) — complete, model-confounded headline
 
-**TL;DR:** The protocol-clean full-pool benchmark completed cleanly (346/346 papers, 0 errors, ~$57). The headline delta vs the 0.245 dex baseline is **model-confounded** — the baseline is Opus 4.8 + old code, this run is Haiku + new code — and a controlled model-isolation experiment on identical new code shows Haiku alone costs **+0.95 dex** vs Opus, dwarfing any plausible code effect. The new extraction channels fire correctly in vivo (19 vector_trace, 2 source_data), but this run **cannot grade the extraction-channels code**; that requires a same-model A/B.
+**TL;DR:** The protocol-clean full-pool benchmark completed cleanly (346/346 papers, 0 errors, ~$57). The headline delta vs the 0.245 dex baseline is **model-confounded** — the baseline is Opus 4.8 + old code, this run is Haiku + new code — and a controlled model-isolation experiment on identical new code shows Haiku alone costs **+0.95 dex** vs Opus, dwarfing any plausible code effect. The new extraction channels fire correctly in vivo (19 vector_trace, 2 source_data). A free **fixed-model (Opus) code A/B** closes the loop: at constant model the extraction-channels code does **not** regress (−0.016 dex) and recovers +4 papers of coverage — so the regression is the model, not the code. A companion causal digest (`haiku_regression_causal_digest.md`) stress-tests this and lands at high confidence on direction, moderate on the full-pool magnitude.
 
 Run 2026-07-03/04 on master (all extraction-channels work merged, PRs
 #663–#680: wrong-curve gates, source-data channel tier 5, vector-trace
@@ -90,6 +90,36 @@ the *absolute* numbers are higher than the full pool; the **+0.95 dex
 delta** is the clean signal. It dwarfs any plausible code effect and
 accounts for essentially the entire headline gap.
 
+## Opus-only code A/B (added) — the complementary control that DOES grade the code
+
+The model-isolation test above varies the model at fixed (new) code. The
+inverse control varies the **code at fixed model** (Opus 4.8): the same
+`opus_newcode_sample` (Opus, NEW code) vs the standing baseline (Opus, OLD
+code), on their 77 paired papers. This is free — both snapshot sets already
+exist — and it isolates the extraction-channels **code** effect.
+
+| Opus 4.8, 77 paired papers | micro-median | n compared |
+|---|---|---|
+| OLD code (baseline) | 0.369 dex | 47 |
+| NEW code (channels) | 0.353 dex | 51 |
+| **code effect (new − old)** | **−0.016 dex** (slight improvement) | **+4 coverage** |
+
+Paired per-paper: 21 improved, 12 regressed, 13 ~same; coverage recovered on
+5 papers (4 via text, 1 via figure_vision/41 pts), lost on 1 (1512.06165 — a
+projection/proposal paper the new code correctly declined with 0 points). So
+at fixed model the new code does **not** regress — it slightly helps and nets
++4 papers of coverage. **The regression appears only when the model changes,
+never when the code changes.** Combined with the model-isolation table, this
+is a clean 2-factor decomposition: code ≈ −0.02 dex, model ≈ +0.95 dex.
+
+A dedicated causal digest stress-tests this attribution against seven
+alternative explanations (code drift, parsing bugs, scoring asymmetry, reuse
+contamination — all ruled out; failure-tail sampling, N=3 noise, transport —
+limits on magnitude only): `haiku_regression_causal_digest.md`. Verdict: high
+confidence that the model swap caused the regression and that the code did not;
+moderate confidence on the exact +0.95 dex magnitude generalizing to the full
+pool (the shared-77 set over-samples the hard tail).
+
 ## Mechanism: Haiku's vision-JSON failures
 
 The run log contains **208 stage-2 "No JSON found in response" fallback
@@ -158,10 +188,17 @@ verbatim, so the extraction distribution is unchanged by the fix.
 3. The pipeline runs clean end-to-end at scale (346/346, 0 errors) on
    the batch+direct-bypass transport.
 
-**CANNOT conclude:** anything about the extraction-channels **code**
-benefit in isolation. That needs an old-code-vs-new-code A/B on the
-**same model**. The old-code-Haiku baseline does not exist; the only
-same-model pair available (`opus_newcode_sample`) is new-code-only.
+**CAN NOW conclude (via the free Opus-only code A/B above):** at fixed
+Opus model, the extraction-channels code does **not** regress accuracy
+(−0.016 dex) and **recovers +4 papers of coverage** on the 77-paper
+sample. The 0.245→0.604 headline is therefore a model effect, not a code
+regression. The `opus_newcode_sample` (Opus, OLD-vs-NEW code exists as
+baseline-vs-sample) supplied the same-model pair after all.
+
+**Still CANNOT conclude:** the *full-pool* magnitude of either effect. The
+code A/B and the model isolation both rest on the 77-paper sample, which
+over-samples the failure tail. Pinning the full-346 numbers needs a
+full-pool Opus (new code) run — the one definitive test in the digest.
 
 ## Recommended next steps (options, not decisions)
 
