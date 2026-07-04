@@ -106,3 +106,60 @@ def test_clean_candidates_untouched():
     assert notes == []
     assert cands == [text_c, vis_c]
     assert text_c2 is text_c and vis_c2 is vis_c
+
+
+# --- Text-vision corroboration gate (routing-instability fix, 2026-07-04) ---
+# DarkPhoton's coupling window spans 22 decades, so a text anchor at 1e-11 and a
+# wrong vision curve at 1e-2 are BOTH in-range yet 9 dex apart — the exact
+# 1508.02463 / 1403.1290 failure the probe surfaced.
+_TEXT_SPARSE_INRANGE = [(1e-6, 1e-11), (1e-4, 2e-11)]           # 2 pts, in valid ranges
+# sloped (non-degenerate) dense curves; WRONG sits ~9 dex above the anchor,
+# AGREE follows the anchor to within ~0.1 dex — both in DarkPhoton's window.
+_VIS_WRONG = [(1e-6, 1e-2), (3e-6, 8e-3), (1e-5, 6e-3), (3e-5, 5e-3), (1e-4, 4e-3)]
+_VIS_AGREE = [(1e-6, 1e-11), (3e-6, 1.2e-11), (1e-5, 1.4e-11), (3e-5, 1.7e-11), (1e-4, 2e-11)]
+
+
+def test_corroboration_rejects_wrong_vision_and_text_wins():
+    text_c = _make_candidate("text", _TEXT_SPARSE_INRANGE, "DarkPhoton", 0.6)
+    vis_c = _make_candidate("figure_vision", _VIS_WRONG, "DarkPhoton", 0.5)
+    # precondition: without the gate the dense wrong vision outranks sparse text
+    assert text_c.score.in_valid_ranges and vis_c.score.in_valid_ranges
+    assert quality(vis_c) > quality(text_c)
+    cands, text_c2, vis_c2, _src, notes = _gate_candidates(
+        [text_c, vis_c], text_c, vis_c,
+        is_projection=False, vision_notes="Traced the red exclusion curve.",
+        suggested_experiment_name=None, paper_title=None, abstract=None)
+    assert vis_c2 is None and text_c2 is text_c
+    assert cands == [text_c]
+    assert any("[TEXT-VISION DISAGREEMENT]" in n for n in notes)
+    chosen, _ = select_best(cands)
+    assert chosen is text_c            # the accurate sparse text now wins
+
+
+def test_corroboration_does_not_fire_when_vision_agrees():
+    # #587 preserved: when the dense vision curve AGREES with the text anchor,
+    # it is not rejected and still wins on point count.
+    text_c = _make_candidate("text", _TEXT_SPARSE_INRANGE, "DarkPhoton", 0.6)
+    vis_c = _make_candidate("figure_vision", _VIS_AGREE, "DarkPhoton", 0.5)
+    cands, text_c2, vis_c2, _src, notes = _gate_candidates(
+        [text_c, vis_c], text_c, vis_c,
+        is_projection=False, vision_notes="Traced the red exclusion curve.",
+        suggested_experiment_name=None, paper_title=None, abstract=None)
+    assert vis_c2 is vis_c and vis_c in cands
+    assert not any("[TEXT-VISION DISAGREEMENT]" in n for n in notes)
+    chosen, _ = select_best(cands)
+    assert chosen is vis_c             # denser agreeing vision still wins
+
+
+def test_corroboration_skipped_when_text_out_of_range():
+    # A text anchor that is NOT in valid ranges is not a credible corroborator;
+    # the gate must not fire (avoid trusting a bad text read over vision).
+    oor_text = _make_candidate("text", [(1e-6, 1e2), (1e-4, 2e2)], "DarkPhoton", 0.6)
+    vis_c = _make_candidate("figure_vision", _VIS_WRONG, "DarkPhoton", 0.5)
+    assert not oor_text.score.in_valid_ranges
+    _cands, _t, vis_c2, _src, notes = _gate_candidates(
+        [oor_text, vis_c], oor_text, vis_c,
+        is_projection=False, vision_notes="Traced the red exclusion curve.",
+        suggested_experiment_name=None, paper_title=None, abstract=None)
+    assert not any("[TEXT-VISION DISAGREEMENT]" in n for n in notes)
+    assert vis_c2 is vis_c
