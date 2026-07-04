@@ -17,8 +17,8 @@ on:
 # All-Haiku policy (2026-07-03): extraction + reviewer agents run Haiku
 # in CI to control cost; unset/override locally for Opus runs.
 env:
-  EXTRACTOR_MODEL: claude-haiku-4-5-20251001
-  REVIEWER_MODEL: claude-haiku-4-5-20251001
+  EXTRACTOR_MODEL: claude-opus-4-8
+  REVIEWER_MODEL: claude-opus-4-8
 
 jobs:
   preprint-check:
