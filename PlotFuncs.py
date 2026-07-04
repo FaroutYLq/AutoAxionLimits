@@ -4290,6 +4290,18 @@ class DarkPhoton():
                 rotation_mode='anchor',ha='center',va='center',clip_on=True)
         return
 
+    @staticmethod
+    def Amorphous_phonon_detector_SiO2_SiNx_projection(ax,col='crimson',fs=15,text_on=True,lw=1.5):
+        y2 = ax.get_ylim()[1]
+        dat = loadtxt("limit_data/DarkPhoton/Projections/Amorphous_phonon_detector_SiO2_SiNx_projection.txt",ndmin=2)
+        plt.fill_between(dat[:,0],dat[:,1],y2=y2,edgecolor=None,facecolor=col,zorder=1,alpha=0.5)
+        plt.plot(dat[:,0],dat[:,1],color=col,alpha=1,zorder=1,lw=lw)
+        if text_on:
+            plt.text(3e-3,1.5e-14,r'{\bf Amorphous phonon detector SiO$_2$/SiN$_x$}',fontsize=fs,color=col,rotation=0,
+                rotation_mode='anchor',ha='center',va='center',clip_on=True)
+        return
+
+
 
 
 

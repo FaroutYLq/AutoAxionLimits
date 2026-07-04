@@ -1,20 +1,19 @@
 %PDF-1.4
 %¬Ü «º
 1 0 obj
-<< /Pages 2 0 R /Type /Catalog >>
+<< /Type /Catalog /Pages 2 0 R >>
 endobj
 8 0 obj
-<< /ExtGState 4 0 R /Font 3 0 R /Pattern 5 0 R
-/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] /Shading 6 0 R
-/XObject 7 0 R >>
+<< /Font 3 0 R /XObject 7 0 R /ExtGState 4 0 R /Pattern 5 0 R
+/Shading 6 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] >>
 endobj
 11 0 obj
-<< /Annots 10 0 R /Contents 9 0 R
-/MediaBox [ 0 0 1078.8891702778 776.5789335459 ] /Parent 2 0 R
-/Resources 8 0 R /Type /Page >>
+<< /Type /Page /Parent 2 0 R /Resources 8 0 R
+/MediaBox [ 0 0 1078.8891702778 776.5789335459 ] /Contents 9 0 R
+/Annots 10 0 R >>
 endobj
 9 0 obj
-<< /Filter /FlateDecode /Length 12 0 R >>
+<< /Length 12 0 R /Filter /FlateDecode >>
 stream
 xœåM¯+Çq†³æ¯àR^¸ÕßË8N8È&¾ðÆðÂ°eY²e‘ùõyk®tºø¾Ã#ÃäYÈÌ‡zÎL³8ÕU3=ÃOúùù›Ïÿã³Ÿ\ÿéç—O÷«ß|sI×¯ðï‹k¼~…½¦ëgø÷Å%âÕ×—Çs®4ðòþå=´1W©àñöåï/—ß]>ýGü™o }v¹¤C[©ŽrM©†¾êLåøó-…,oüñæ‘khå»7ö_ºáßn2ÜäÂW×„0rIø‹«·Uíƒã1í]¸üŸË_/?ùpùô_ÒÛZ±÷s]éúáw—VY}åžã¼ÆPjŽ9¦ZÊõÇ7¯nþ»”[+æÕ{ééÒFh-âÿ*^]?|}|è~{ù$Å]?|…çkZaä2g_³—¿}Ãµ‡‚]¯)Æu~ms¬—ßì?|»ÕtM3¬<ñ_”Qòß¾ÕŽ—­Îg™ã2VX#Ž<æ@øüpÇ±áþp9BvI+‡Y«Djã‡ª÷Ðû>°'jŽc)£Ö^æÓ"f)yÔ¼J{%Rý6R¹Œ:ÏXoCåù£c•#¢SGê¥Õ6ž+Œ/Ä™f+Íþ¼XÕFJˆÏ¨³¼«F±²Œ)óaåùÃcUg¨¹5ìqŒí™±êøì;v>á³¯Ï‹Õ,˜®ðFÂA^‰U½UI-Ô±:…Êá‡Gj®Pbø×Zyb¤J\HE³ãËíëý¤HavµÏ6joó•@
 TÃÄÚfâèù£CUP¥™1a¬ó3CÕ"2ÑHÑ"•žªÞð2ÈL)¿«L±Z˜[!sôüá±)ÄçØà3CµQk52žWÖØCÎ­ÖÔúè¯„*Ý†ª–£5Òm¨<t¨jJöG×Lk>1Vµddy|+*Þñ¼XÕRD¡ÞbÎõ•XEŠzÂ…ÆS ç¢“ñ)áó1]Ðw`·Û@>¯ý±±ÝBñ„÷.x1gÆxrí¡±B+„R=•¾¡ªTÁ£µé·»nC…/T˜#az½•çÕÂ!\KÄ+ü'†ªá£ïcôQ~ÎçÅª¡*CŒ[º«I±²O‡"§@Ï«VVˆ9á¸êcgÆª-dÛŽò)¶ÜŸ+$[ôriÕýXÑ	‹nÈß¬ÛXyþðX!aÏµæ*©ÔþÄXaÇC-åSÃ·üy±êh†b·óA¥Œ|?VtÊ¢£}ÆŽ&Îž?:VøaŒY2zUŸ«šBIûêù‰óUo-¬jGÂX¯„ŠÎXtü‡e¶62…Êñ‡‡ªcV¼ÆXk~f¨fi%”O¨ÙÓCµz˜9¡ïGG9ïÇŠÎXØÙxT`‘S çŽÕˆØ—‚b¦ÔõÌÊ™hÍ‚í¥õ¼P¡•ÃŠVÒŠÞWª@:g1Ð?'D—3 çU-¡¢|Í}¡Èxf¬zA&š(Ÿ}ŸX"ÝÛ2Êh…_©éœÅD¿79zþðXMÂ+ÇŽjl>³
@@ -60,14 +59,14 @@ endobj
 ]
 endobj
 15 0 obj
-<< /Ascent 775 /CapHeight 1000 /Descent -960 /Flags 68
-/FontBBox [ -29 -960 1116 775 ] /FontFamily (Computer Modern)
-/FontFile 16 0 R /FontName /CMSY10 /ItalicAngle -14.04 /StemV 50
-/Type /FontDescriptor /XHeight 500 >>
+<< /Type /FontDescriptor /FontName /CMSY10 /Flags 68
+/FontBBox [ -29 -960 1116 775 ] /ItalicAngle -14.04 /Ascent 775
+/Descent -960 /CapHeight 1000 /XHeight 500 /FontFile 16 0 R
+/FontFamily (Computer Modern) /StemV 50 >>
 endobj
 16 0 obj
-<< /Filter /FlateDecode /Length 29335 /Length1 4973 /Length2 27031
-/Length3 0 >>
+<< /Length1 4973 /Length2 27031 /Length3 0 /Length 29335
+/Filter /FlateDecode >>
 stream
 xœŒ¸X•é÷JwƒRG	i8tH—twÇÝÒÝÝ‚ )%!)!Ý”4H
 ÜÃüf™ÿ½÷ñy”½ö~¿o¯ïÝ±ò¹‚2ƒ‰­HÜÖÆ‰ÈÈÌ‘UÖ2˜™Y™™YP()UÀNV ¿pJ5ƒ#ØÖ†ç—¡5t‚ÊÚÚ ¤œ­ @V ƒÈÉÃÌ`afæþ+ÐÖ jè6È2¤lm@Ž(”"¶vî`3s'È{þú@mL rssÒÿq dr Ú dÌAÖ7Z”mÁ '÷ß ~eîädÇÃÄäêêÊhhíÈhë`ÆOCp;™”@Ž 	à3@ÎÐô'7FJ€Š9Øñe[S'WC XA6Ž#Î6&  äõ eI€¼ÈæÁ2ÿ üùu @FàßûóôÃƒÀ6646¶µ¶3´qÛ˜LÁV €¼¸£“›=ÀÐÆä!ÐÐÊÑrÞÐÅleh	ø#uC€¸"ÀBñO~ŽÆ`;'GFG°ÕG¦‡Ç@¾³˜‰ˆ­µ5ÈÆÉå!AQ°ÈòåÝ™þ¼^K[WÏ¿,S°‰ég;&U°½3HRôÏ„òˆ™œ ìÌÜì@ È r36gzxŠ»èç0„„·§­ÀÂä6AþAñt4tœœAÞž¿:~·P€@€	ØØ	`2Û <>ƒLÿgC*ÀìÐf† ÀüðçïŸt!5fbkcåþþÇÿÅõoTXØÖàÉÀÂ`àæ` @ '';Àû÷üMý/Ú 
@@ -186,8 +185,8 @@ P]C±©æ·bî<~ËQúbÖjŸ5YjCÞÈ.$RP¨l^öª]ý'iPOÏI†¾¦ikËv¨ãèM²ô=¦¡pSéû,´Y«~©€
 endstream
 endobj
 14 0 obj
-<< /BaseFont /CMSY10 /FirstChar 0 /FontDescriptor 15 0 R /LastChar 127
-/Subtype /Type1 /Type /Font /Widths 13 0 R >>
+<< /Type /Font /Subtype /Type1 /FirstChar 0 /LastChar 127 /Widths 13 0 R
+/BaseFont /CMSY10 /FontDescriptor 15 0 R >>
 endobj
 17 0 obj
 [ 0 250 604 607 166 379 610 290 312 332 0 332 605 0 666 500 332 286 0 0 0
@@ -205,14 +204,14 @@ endobj
 286 286 545 581 545 545 545 545 545 605 555 602 602 602 602 555 600 555 ]
 endobj
 19 0 obj
-<< /Ascent 943 /CapHeight 1000 /Descent -283 /Flags 4
-/FontBBox [ -166 -283 1021 943 ] /FontFamily (URW Palladio L)
-/FontFile 20 0 R /FontName /URWPalladioL-Roma /ItalicAngle 0 /StemV 50
-/Type /FontDescriptor /XHeight 500 >>
+<< /Type /FontDescriptor /FontName /URWPalladioL-Roma /Flags 4
+/FontBBox [ -166 -283 1021 943 ] /ItalicAngle 0 /Ascent 943 /Descent -283
+/CapHeight 1000 /XHeight 500 /FontFile 20 0 R /FontFamily (URW Palladio L)
+/StemV 50 >>
 endobj
 20 0 obj
-<< /Filter /FlateDecode /Length 51336 /Length1 1631 /Length2 50482
-/Length3 0 >>
+<< /Length1 1631 /Length2 50482 /Length3 0 /Length 51336
+/Filter /FlateDecode >>
 stream
 xœ¬ºePd]—%Œ»»“P¸»»»S¸“8$îîîî^xán…k!…;îR¸}õ>o÷ôDÏüš¯Üˆ{¶¬½ö^çœŒŒ¸”d*êŒ¢æ S ÈÁ•‘•‰… ©¦¥bbggbnR`TÙ› þš9()Å&®Ö 	W @h šØØ ¬¼¼¼” q£—³µ¥•+€æ/-==ÃYþ0õúOÏßLkK Õßw ÈÑèàúâÿ9Q¸ZÖv@€¸²ŠŽ¬’4€FZI t :›ØTÜLí¬Í 
 Öf@ -Àä°û÷`r0·þWk.L±D] & G ™õß4 §Ðñ_.€#ÐÙÞÚÅåï;ÀÚ`élâàúw® €µƒ™›ù¿üµ[€þ!äèúaÿ×÷Läâêbælíè
@@ -405,8 +404,8 @@ L“þ .»-(QQb¨HJL–®¸– ¼T_Ã‰&ÎÞÑàª¨ÙâÈ=Òq”|u_ÕÝ¥‚Õ’†ë/ŒòôÛVš†'%e8|õP{«ìŽvV‹e
 endstream
 endobj
 18 0 obj
-<< /BaseFont /URWPalladioL-Roma
-/Encoding <<
+<< /Type /Font /Subtype /Type1 /FirstChar 0 /LastChar 255 /Widths 17 0 R
+/Encoding << /Type /Encoding
 /Differences [ 0 /.notdef /dotaccent /fi /fl /fraction /hungarumlaut /Lslash /lslash
 /ogonek /ring /.notdef /breve /minus /.notdef /Zcaron /zcaron /caron
 /dotlessi /dotlessj /ff /ffi /ffl /notequal /infinity /lessequal
@@ -436,16 +435,15 @@ endobj
 /eacute /ecircumflex /edieresis /igrave /iacute /icircumflex /idieresis
 /eth /ntilde /ograve /oacute /ocircumflex /otilde /odieresis /divide
 /oslash /ugrave /uacute /ucircumflex /udieresis /yacute /thorn /ydieresis ]
-/Type /Encoding >>
-/FirstChar 0 /FontDescriptor 19 0 R /LastChar 255 /Subtype /Type1
-/Type /Font /Widths 17 0 R >>
+>>
+/BaseFont /URWPalladioL-Roma /FontDescriptor 19 0 R >>
 endobj
 3 0 obj
-<< /F1 18 0 R /F2 14 0 R >>
+<< /F2 14 0 R /F1 18 0 R >>
 endobj
 4 0 obj
-<< /A1 << /CA 0 /Type /ExtGState /ca 1 >>
-/A2 << /CA 1 /Type /ExtGState /ca 1 >> >>
+<< /A1 << /Type /ExtGState /CA 0 /ca 1 >>
+/A2 << /Type /ExtGState /CA 1 /ca 1 >> >>
 endobj
 5 0 obj
 << >>
@@ -457,12 +455,12 @@ endobj
 << >>
 endobj
 2 0 obj
-<< /Count 1 /Kids [ 11 0 R ] /Type /Pages >>
+<< /Type /Pages /Kids [ 11 0 R ] /Count 1 >>
 endobj
 21 0 obj
-<< /CreationDate (D:20250325112015+11'00')
-/Creator (Matplotlib v3.5.2, https://matplotlib.org)
-/Producer (Matplotlib pdf backend v3.5.2) >>
+<< /Creator (Matplotlib v3.8.0, https://matplotlib.org)
+/Producer (Matplotlib pdf backend v3.8.0)
+/CreationDate (D:20260704174051-05'00') >>
 endobj
 xref
 0 22
@@ -489,7 +487,7 @@ xref
 0000038659 00000 n 
 0000092634 00000 n 
 trailer
-<< /Info 21 0 R /Root 1 0 R /Size 22 >>
+<< /Size 22 /Root 1 0 R /Info 21 0 R >>
 startxref
 92791
 %%EOF
