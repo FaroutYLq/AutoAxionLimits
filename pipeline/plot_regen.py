@@ -179,34 +179,29 @@ _mpl_figure.Figure.text = _patched_fig_text
 '''
 
 
-def execute_notebook_highlighted(
-    notebook_path: str,
+def _build_highlight_notebook(
+    nb: dict,
     notebook_call: str,
-    repo_root: Path = REPO_ROOT,
-    timeout_seconds: int = 300,
     data_file_path: str | None = None,
-) -> tuple[bool, str, list[str]]:
+) -> tuple[dict, list[str]]:
     """
-    Execute a modified copy of the notebook that greys out all existing limits
-    and highlights only the new one (identified by *notebook_call*).
+    Pure transform of a notebook dict for highlighted-plot generation.
 
-    The resulting plot files are saved with a ``_highlighted`` suffix so they
-    don't overwrite the standard plots.
+    Injects the grey-out monkey-patch cell, wraps the current run's call with
+    ``_HIGHLIGHT_ACTIVE = True/False`` (plus a bright overlay of
+    *data_file_path*), renames the target cell's MySaveFig outputs to
+    ``*_highlighted``, and disables MySaveFig in every other cell.
 
-    *data_file_path* (relative, e.g. "limit_data/AxionPhoton/X.txt") is used
-    to overlay a bright marker at the limit's data points.
+    Targeting is line-exact and last-occurrence: the target cell may already
+    contain earlier pipeline-inserted calls or a commented-out copy of this
+    one, which a substring match could latch onto. The current run's call is
+    always the LAST exact match — insert_notebook_call appends it immediately
+    before MySaveFig, after everything already in the cell.
 
-    Returns (success, stderr, list_of_highlight_plot_relative_paths).
+    Returns (patched deep copy, highlight plot names); names is empty when no
+    cell contains the call.
     """
-    nb_abs = repo_root / notebook_path
-    try:
-        nb = json.loads(nb_abs.read_text())
-    except Exception as exc:
-        return False, f"Cannot read notebook: {exc}", []
-
-    # Deep-copy so we don't mutate the original notebook on disk
     nb = copy.deepcopy(nb)
-
     call_line = notebook_call.strip()
 
     # Build the highlighted call: force bright red colour and thick edges,
@@ -234,27 +229,22 @@ def execute_notebook_highlighted(
     # 2. Find the cell containing the new method call, wrap it with
     #    _HIGHLIGHT_ACTIVE = True / False, and rename MySaveFig outputs.
     highlight_plots: list[str] = []
-    for cell in nb["cells"]:
+    for cell_idx, cell in enumerate(nb["cells"]):
         if cell.get("cell_type") != "code":
             continue
         source = "".join(cell.get("source", []))
-        if call_line not in source:
+        lines = source.split("\n")
+        call_idxs = [i for i, ln in enumerate(lines) if ln.strip() == call_line]
+        if not call_idxs:
             continue
 
-        # Keep theoretical benchmarks (QCD axion band, etc.) in their
-        # original colours — only experimental constraints should be grey.
-        _THEORY_PATTERNS = [".QCDAxion(", ".BlackHoleSpins("]
-        lines = source.split("\n")
-        new_lines = []
-        for line in lines:
-            stripped = line.strip()
-            if any(pat in stripped for pat in _THEORY_PATTERNS) and not stripped.startswith("#"):
-                new_lines.append("_HIGHLIGHT_ACTIVE = True")
-                new_lines.append(line)
-                new_lines.append("_HIGHLIGHT_ACTIVE = False")
-            else:
-                new_lines.append(line)
-        source = "\n".join(new_lines)
+        target = call_idxs[-1]
+        if len(call_idxs) > 1:
+            logger.info(
+                "Cell %d contains %d exact copies of %r; wrapping the last one "
+                "(the current run's insertion)",
+                cell_idx, len(call_idxs), call_line,
+            )
 
         # Wrap the new limit call so it draws in bright red.
         # Re-draw the limit data as a bright overlay so it is unmissable.
@@ -279,10 +269,27 @@ def execute_notebook_highlighted(
                 f'            facecolor="red", edgecolor="darkred", '
                 f'lw=1.5, zorder=1000, alpha=0.85)\n'
             )
-        source = source.replace(
-            call_line,
-            f"_HIGHLIGHT_ACTIVE = True\n{hl_call}\n{spike_code}_HIGHLIGHT_ACTIVE = False",
+        indent = lines[target][: len(lines[target]) - len(lines[target].lstrip())]
+        block = f"_HIGHLIGHT_ACTIVE = True\n{hl_call}\n{spike_code}_HIGHLIGHT_ACTIVE = False"
+        lines[target : target + 1] = [indent + ln for ln in block.split("\n")]
+        source = "\n".join(lines)
+        logger.info(
+            "Highlight wraps %r (line %d of notebook cell %d)", call_line, target, cell_idx
         )
+
+        # Keep theoretical benchmarks (QCD axion band, etc.) in their
+        # original colours — only experimental constraints should be grey.
+        _THEORY_PATTERNS = [".QCDAxion(", ".BlackHoleSpins("]
+        new_lines = []
+        for line in source.split("\n"):
+            stripped = line.strip()
+            if any(pat in stripped for pat in _THEORY_PATTERNS) and not stripped.startswith("#"):
+                new_lines.append("_HIGHLIGHT_ACTIVE = True")
+                new_lines.append(line)
+                new_lines.append("_HIGHLIGHT_ACTIVE = False")
+            else:
+                new_lines.append(line)
+        source = "\n".join(new_lines)
 
         # Rename MySaveFig outputs → *_highlighted
         def _rename_save(m: re.Match) -> str:
@@ -299,10 +306,6 @@ def execute_notebook_highlighted(
         cell["source"] = source.splitlines(keepends=True)
         break  # only patch the first matching cell
 
-    if not highlight_plots:
-        logger.warning("Could not find cell with %r for highlighting", call_line)
-        return False, "No matching cell found for highlight", []
-
     # 3. For all OTHER cells that contain MySaveFig, comment them out so we
     #    don't waste time regenerating unrelated plots.
     for cell in nb["cells"]:
@@ -316,7 +319,76 @@ def execute_notebook_highlighted(
             src = re.sub(r"^(MySaveFig\(.+\))", r"# \1  # skipped for highlight", src, flags=re.MULTILINE)
             cell["source"] = src.splitlines(keepends=True)
 
-    # 4. Write to a temp notebook alongside the original (same directory so
+    return nb, highlight_plots
+
+
+def _collect_fresh_outputs(
+    repo_root: Path, expected: list[str], before: dict[str, int | None]
+) -> list[str]:
+    """
+    Return the *expected* paths actually (re)written since the *before*
+    mtime snapshot. Existence alone is not evidence of generation: a stale
+    highlighted plot may already sit at the same path (on 2026-07-04 the
+    working tree carried master's previous-showcase TEXONO-highlighted plot),
+    and reporting it would attach the wrong plot to the PR.
+    """
+    produced: list[str] = []
+    for rel in expected:
+        p = repo_root / rel
+        if not p.exists():
+            continue
+        if before.get(rel) is not None and p.stat().st_mtime_ns == before[rel]:
+            logger.warning(
+                "Highlighted output %s was not regenerated (stale pre-run copy); excluding it",
+                rel,
+            )
+            continue
+        produced.append(rel)
+    return produced
+
+
+def execute_notebook_highlighted(
+    notebook_path: str,
+    notebook_call: str,
+    repo_root: Path = REPO_ROOT,
+    timeout_seconds: int = 300,
+    data_file_path: str | None = None,
+) -> tuple[bool, str, list[str]]:
+    """
+    Execute a modified copy of the notebook that greys out all existing limits
+    and highlights only the new one (identified by *notebook_call*).
+
+    The resulting plot files are saved with a ``_highlighted`` suffix so they
+    don't overwrite the standard plots.
+
+    *data_file_path* (relative, e.g. "limit_data/AxionPhoton/X.txt") is used
+    to overlay a bright marker at the limit's data points.
+
+    Returns (success, stderr, list_of_highlight_plot_relative_paths).
+    """
+    nb_abs = repo_root / notebook_path
+    try:
+        nb = json.loads(nb_abs.read_text())
+    except Exception as exc:
+        return False, f"Cannot read notebook: {exc}", []
+
+    nb, highlight_plots = _build_highlight_notebook(nb, notebook_call, data_file_path)
+
+    if not highlight_plots:
+        logger.warning("Could not find cell with %r for highlighting", notebook_call.strip())
+        return False, "No matching cell found for highlight", []
+
+    # Snapshot pre-run mtimes of the expected outputs so a stale copy already
+    # in the working tree is never reported as this run's output.
+    expected: list[str] = []
+    for name in highlight_plots:
+        expected.extend([f"plots/{name}.pdf", f"plots/plots_png/{name}.png"])
+    before: dict[str, int | None] = {}
+    for rel in expected:
+        p = repo_root / rel
+        before[rel] = p.stat().st_mtime_ns if p.exists() else None
+
+    # Write to a temp notebook alongside the original (same directory so
     #    relative imports like `from PlotFuncs import *` still work).
     tmp_name = Path(notebook_path).stem + "_highlighted_tmp.ipynb"
     tmp_nb_path = repo_root / tmp_name
@@ -340,12 +412,9 @@ def execute_notebook_highlighted(
                 result.returncode, result.stderr[-2000:],
             )
 
-        # Collect the output file paths that were actually produced
-        produced: list[str] = []
-        for name in highlight_plots:
-            for rel in [f"plots/{name}.pdf", f"plots/plots_png/{name}.png"]:
-                if (repo_root / rel).exists():
-                    produced.append(rel)
+        # Collect the outputs actually (re)generated by THIS execution —
+        # never stale pre-run copies (see _collect_fresh_outputs).
+        produced = _collect_fresh_outputs(repo_root, expected, before)
 
         return result.returncode == 0, result.stderr, produced
     finally:
