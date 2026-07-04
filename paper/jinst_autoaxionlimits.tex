@@ -47,7 +47,8 @@ automated curation of axion and dark-photon exclusion limits}
 \abstract{%
 Community compilations of dark matter constraints are critical experimental
 infrastructure, yet they are hand-curated by individual volunteers from
-results that are published, in practice, as figures. We present an
+results that, in the ultralight dark matter literature, are still published
+mostly as figures rather than as machine-readable records. We present an
 LLM-agent pipeline that monitors arXiv, extracts exclusion limits from
 papers through five competing channels (paper-provided source data,
 tables, deterministic vector-path tracing, text, and plot vision), selects
@@ -63,13 +64,14 @@ production configuration reaches a median residual of 0.26~dex at a single
 LLM read per paper, with 19 of 266 compared papers ($\sim$7\%) beyond
 3~dex. A confound-controlled two-arm comparison quantifies the model-tier
 effect cleanly: swapping the frontier model for a small one costs
-$+0.22$~dex in the paired median but triples the catastrophic tail. The
-decade-scale errors that once dominated were not vision failures ---
-vision reads plots to $\sim$0.2~dex --- but unit and convention
-bookkeeping, eliminated by contracts that forbid the model from converting
-units. We report what helped, what did not (consensus voting bought
-$+0.003$~dex for $3\times$ cost), and the measured run-to-run noise floor
-that bounds single-run benchmark claims.}
+$+0.22$~dex in the paired median and multiplies the catastrophic tail by
+2.3--2.7. The dominant class of decade-scale errors was not visual
+perception --- the vision channel's end-to-end median matches the text
+channel's at $\sim$0.3~dex --- but unit and convention bookkeeping,
+removed by contracts that forbid the model from converting units. We
+report what helped, what did not (consensus voting bought $+0.003$~dex for
+$3\times$ cost), and the measured run-to-run noise floor that bounds
+single-run benchmark claims.}
 
 \keywords{Analysis and statistical methods;
   Software architectures (event data models, frameworks and databases);
@@ -150,10 +152,16 @@ MaTableGPT~\cite{yi2024matablegpt}. A complementary thread tackles the figure
 modality directly: classical tools like WebPlotDigitizer~\cite{rohatgi2024wpd}
 digitise plots with computer-vision-assisted manual input, and recent
 vision--language methods such as DePlot~\cite{liu2023deplot} translate chart images
-into tables for downstream reasoning. Our pipeline differs in combining these
+into tables for downstream reasoning. The closest precedent for automated
+literature-to-database curation is the ChemDataExtractor lineage of
+auto-generated materials databases~\cite{huang2020battery}, and the nearest
+contemporaneous HEP system is a retrieval-augmented multi-agent framework
+for interpreting searches beyond the Standard Model~\cite{cakir2026limits},
+which operates on already-structured HEPData records. Our pipeline
+differs in combining text, table, vision, and deterministic-geometry
 modalities as \emph{competing channels} under deterministic selection and
 guards, and in grounding the output in an executable scientific repository
-rather than a free-text knowledge base.
+rather than a structured record store or free-text knowledge base.
 
 \paragraph{AI for science and literature infrastructure.}
 Beyond extraction, agentic LLM systems now plan and execute research, from
@@ -366,7 +374,8 @@ AxionNeutron / AxionProton & dimensionless $g_{aN}$ & GeV$^{-1}$ derivative $g_{
 AxionNeutron (SNO file only) & dimensionless $g_{an}$ & $g_{an}/m_n$ [GeV$^{-1}$] & $g_{an}=m_n\cdot(\text{stored})$ (per-file) \\
 Scalar / dilaton & dimensionless $d_e$, $d_{m_e}$ & fifth-force strength $\alpha$ & $d=Q^{-1}\sqrt{\alpha}$, $Q^{-1}=500$ (photon/nucleon), $4000$ (electron) \\
 DarkPhoton & kinetic mixing $\chi=\varepsilon$ & $\varepsilon^2$ & $\chi=\sqrt{\varepsilon^2}$ \\
-AxionMass / AxionEDM & $g_{a\gamma\gamma\gamma}$ [GeV$^{-2}$] & $1/f_a$ [GeV$^{-1}$] & $g_{a\gamma\gamma\gamma}=3.7\times10^{-3}\,(1/f_a)$ \\
+AxionEDM & $g_{an\gamma}$ ($=g_d$) [GeV$^{-2}$] & $1/f_a$ [GeV$^{-1}$] & $g_{an\gamma}=3.7\times10^{-3}\,(1/f_a)$ \\
+AxionMass & normalized $1/f_a$-based coupling & $f_a$ [GeV] & per-point reciprocal $f_a \to 1/f_a$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -404,19 +413,11 @@ conventional axis window, the axis is automatically widened (never shrunk) so th
 limit is plotted rather than silently dropped off the plot edge. Every change becomes
 a pull request, never an automatic merge. Confidence tiers in the PR title
 (\texttt{[LOW CONFIDENCE]}, \texttt{[NEEDS REVIEW]}, \texttt{[CONVENTION REVIEW]})
-route reviewer attention. The key reviewer aid is a \emph{highlighted plot}
-(figure~\ref{fig:highlighted}): the full constraint figure rendered with all existing
-limits greyed out and only the new proposed curve in red, so a domain expert can
-sanity-check the proposal visually in seconds without reading code.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.46\textwidth]{figures/DarkPhoton_highlighted.png}
-\caption{Highlighted dark-photon constraint projection plot from a production pull
-request for a phonon-sensor proposal~\cite{phonon_sensor}. Existing limits in grey;
-the new proposal in red. This format lets reviewers verify the proposal visually.}
-\label{fig:highlighted}
-\end{figure}
+route reviewer attention. The key reviewer aid is a \emph{highlighted plot}:
+the full constraint figure rendered with all existing limits greyed out and
+only the new proposed curve in red, so a domain expert can sanity-check the
+proposal visually in seconds without reading code
+(figure~\ref{fig:showcase} in the case study of section~\ref{sec:cases}).
 
 \subsection{Robustness and operations}
 \label{sec:ops}
@@ -451,10 +452,12 @@ our own model, which would be circular. This choice carries a consequence: the
 reference was itself digitised and rescaled from the same paper, so a perfect
 extraction still shows a nonzero residual equal to the upstream digitisation
 gap, measured independently at $\sim$0.034~dex on re-digitised table/text
-sources---far below the residuals we report, so what we report is extractor
-error, not yardstick artefact. Sixteen GT entries carry documented, reversible
-exclusions, used only when the GT itself can grade no extraction (prediction-band
-files, published-only data)---never because the extractor fails a paper. Each
+sources ($N=10$; the figure-only component of this yardstick remains
+unmeasured)---far below the residuals we report, so what we report is
+extractor error, not yardstick artefact. Eighteen GT entries (16 papers, 15
+of them in the benchmark pool) carry documented, reversible exclusions, used
+only when the GT itself can grade no extraction (prediction-band files,
+published-only data)---never because the extractor fails a paper. Each
 entry declares its unit conversions in a header, applied at ingestion.
 
 \subsection{Metrics}
@@ -465,16 +468,21 @@ giving a per-point residual $r_i = |\log_{10} g_{\rm ext}(m_i) - \log_{10}
 g_{\rm truth}(m_i)|$ (0.3~dex $\approx$ a factor of two); a paper's residual is
 the median $r_i$, and a reverse pass (interpolating GT onto extracted masses)
 flags curves that run past the true range. We report the \emph{micro-median}
-(over papers) and the \emph{macro-median} (median of per-coupling-type
-medians)---the latter is the tail-sensitive statistic, since it cannot be
-bought by accuracy on the most common coupling type. ``Compared'' papers are
-those scored against a same-coupling GT curve with finite residual; a paper is
-\emph{catastrophic} if its residual exceeds 3~dex. Convention-gap papers are
-excluded, not scored raw: scoring a units mismatch as extraction error is the
-larger sin, and the exclusion is reported. Every number in this paper is
-emitted by a committed script (\texttt{paper/make\_paper\_numbers.py}) from the
-committed benchmark artifacts, with each definition pinned in code; a referee
-can reproduce any value from the public repository.
+(the median over papers) and a \emph{macro average} (the \emph{mean} of
+per-coupling-type medians, equal weight per type)---the latter is the
+tail-sensitive statistic, since it cannot be bought by accuracy on the most
+common coupling type, and as a mean it is deliberately sensitive to a single
+badly-failing type. ``Compared'' papers are those scored against a
+same-coupling GT curve with finite residual; a paper is \emph{catastrophic}
+if its residual exceeds 3~dex. Convention-gap papers are excluded, not
+scored raw: scoring a units mismatch as extraction error is the larger sin,
+and the exclusion is reported. Every benchmark statistic in
+section~\ref{sec:results} is emitted by a committed script
+(\texttt{paper/make\_paper\_numbers.py}) from the committed benchmark
+artifacts, with each definition pinned in code, so a referee can reproduce
+those values from the public repository; numbers drawn from supporting
+studies (the vote probe, the channel surveys, the error-anatomy case) cite
+their specific artifacts inline where they appear.
 Table~\ref{tab:disposition} gives the disposition of all 346 papers in the
 production-configuration arm.
 
@@ -509,20 +517,23 @@ change had repointed the model environment variable, and the resulting
 ``regression'' (a $\sim$0.6~dex headline) was initially read as a code effect.
 The comparison was retracted and replaced with an isolation design: (i) a
 same-code A/B in which only the model differs, and (ii) a fixed-model A/B in
-which only the code differs. The definitive benchmark
+which only the code differs. (An earlier public preprint of this
+work~\cite{autoaxion_preprint} reports pre-repair numbers under the old
+consensus-voting architecture and is superseded by this manuscript.) The definitive benchmark
 (section~\ref{sec:results}) runs both models on identical code, an identical
 346-paper pool, identical transport, and identical vote count, with every
 extraction fresh (no snapshot reuse), enabling a \emph{paired} per-paper
 model comparison. Two further methodology measurements bound all claims:
 
 \textbf{Noise floor.} Repeat runs of the same configuration shift aggregate
-medians by $\sim$0.02--0.07~dex, dominated by channel-routing flips (a paper
-whose text and vision candidates are close can flip channels between runs).
-Single-run deltas below this floor are not signal; we report first decimals,
-not third. \textbf{Vote-count probe.} A transport-matched probe measured
-$N=3$ consensus voting against single reads ($N=1$) on the production model,
-isolating the vote count from all other variables
-(section~\ref{sec:votes}).
+medians by up to $\sim$0.07~dex (measured on a 30-paper repeat probe;
+\texttt{evaluation/eval\_runs/nprobe\_and\_routing\_memo.md}), dominated by
+channel-routing flips (a paper whose text and vision candidates are close
+can flip channels between runs). Single-run deltas below this floor are not
+signal; we report first decimals, not third. \textbf{Vote-count probe.} The
+same transport-matched 30-paper probe measured $N=3$ consensus voting
+against single reads ($N=1$) on the production model, isolating the vote
+count from all other variables (section~\ref{sec:votes}).
 
 %=============================================================================
 \section{Results}
@@ -539,8 +550,13 @@ papers each; \texttt{evaluation/eval\_runs/final2\_*}).
 Table~\ref{tab:results} shows both arms: the production configuration
 (Claude Opus~4.8~\cite{anthropic_claude}) and the same pipeline on a small
 model (Claude Haiku~4.5). The production arm reaches a \textbf{0.2646~dex}
-micro-median over 266 compared papers with 52\% of papers within a factor of
-two, at a single LLM read per paper. The deterministic guards are
+micro-median over 266 compared papers, at a single LLM read per paper. The
+same denominator caveat applies to both arms: 266 of 346 processed papers
+yield a comparable finite residual, and the remainder
+(table~\ref{tab:disposition}) --- misclassifications, empty extractions, and
+excluded convention gaps --- do not enter the median, so the headline
+describes accuracy \emph{given} a comparable extraction, not end-to-end
+success on every paper. The deterministic guards are
 load-bearing at this scale, not theoretical: the text--vision corroboration
 gate rejected 19 vision candidates and the convention layer flagged 20 papers
 for human review in this single 346-paper run. Coupling-type classification
@@ -563,11 +579,11 @@ residual $>3$~dex.}
  & \textbf{Opus 4.8 (production)} & \textbf{Haiku 4.5} \\
 \midrule
 micro-median residual   & \textbf{0.2646 dex} & 0.6605 dex \\
-macro-median (per-type) & \textbf{1.156 dex}  & 4.947 dex \\
+macro average (mean of per-type medians) & \textbf{1.156 dex}  & 4.947 dex \\
 papers compared         & 266 & 231 \\
 catastrophic ($>3$ dex) & 19 ($7.1\%$ of compared) & 44 ($19.0\%$) \\
 $>1$ dex                & 55 & 95 \\
-within factor 2 (0.3 dex) & 52.1\% & 30.1\% \\
+mean fraction of points within 0.3 dex & 52.1\% & 30.1\% \\
 mean mass-range coverage & 85.2\% & 76.9\% \\
 \bottomrule
 \end{tabular}
@@ -578,12 +594,17 @@ mean mass-range coverage & 85.2\% & 76.9\% \\
 The pre-rework baseline---the same production model on the \emph{old} code
 with $N=3$ consensus voting---scored 0.245~dex micro / 1.582~dex macro. The
 fixed pipeline at $N=1$ lands at 0.2646 / 1.156: headline parity within the
-measured noise floor at \textbf{one-third the LLM reads per paper}, with the
-per-type tail (the macro-median) improved from 1.582 to 1.156~dex. Parity is
-conservative, not flattering: the hardened registry now excludes as
-convention gaps papers the old scoring compared raw, so the fixed pipeline is
-graded on a stricter contract. A 77-paper paired code A/B at fixed model
-supports the same conclusion ($-0.016$~dex, $+4$ papers coverage).
+measured noise floor at \textbf{one-third the LLM reads per paper}. The
+macro average moved from 1.582 to 1.156~dex, but we do not claim that
+improvement as robust: being a mean over types with per-type medians, it is
+dominated by single-paper coupling types, and most of the delta traces to
+one such type flipping from a catastrophic to a clean extraction; no
+macro-level noise floor has been measured. Parity itself is conservative,
+not flattering: the hardened registry now excludes as convention gaps papers
+the old scoring compared raw, so the fixed pipeline is graded on a stricter
+contract. A 77-paper paired code A/B at fixed model supports the same
+conclusion ($-0.016$~dex, $+4$ papers coverage;
+\texttt{evaluation/eval\_runs/final\_full346\_haiku\_report.md}).
 
 \subsection{Model effect, measured cleanly}
 \label{sec:modeleffect}
@@ -591,9 +612,10 @@ Pairing the 217 papers compared in \emph{both} arms---identical code, papers,
 transport, and scorer; only the model differs---gives the clean model-tier
 measurement: \textbf{Haiku $-$ Opus $= +0.223$~dex median}, with the frontier
 model better on 139 papers, the small model on 38, and 40 within
-$\pm$0.05~dex. An earlier estimate on a 77-paper shared subset had put the
-gap at $+0.95$~dex; the shrinkage decomposes into failure-tail sampling (the
-subset over-sampled hard vision papers) and a code amplifier: the pre-fix
+$\pm$0.05~dex. An earlier estimate on a 77-paper shared subset
+(\texttt{evaluation/eval\_runs/haiku\_regression\_causal\_digest.md}) had put
+the gap at $+0.95$~dex; the shrinkage decomposes into failure-tail sampling
+(the subset over-sampled hard vision papers) and a code amplifier: the pre-fix
 plane bookkeeping (section~\ref{sec:anatomy}) turned the small model's
 erratic convention declarations into decade-scale errors, so a code bug was
 being charged to the model. Fixing the code moved the small model's own
@@ -606,9 +628,12 @@ large tail gap.
 
 \subsection{Vote-count economics}
 \label{sec:votes}
-The transport-matched probe measured $N=3$ minus $N=1$ at \textbf{$+0.003$~dex}
-on the production model---consensus voting buys essentially nothing at
-frontier-model quality, for $3\times$ the extraction cost. The reason is
+The transport-matched probe (30 papers, stratified toward the
+vision/ambiguous tail where voting should matter most;
+\texttt{evaluation/eval\_runs/nprobe\_and\_routing\_memo.md}) measured $N=3$
+minus $N=1$ at \textbf{$+0.003$~dex} on the production model---consensus
+voting buys essentially nothing at frontier-model quality, for $3\times$ the
+extraction cost. The reason is
 diagnostic: voting stabilises the \emph{traced curve}, but the run-to-run
 variance lives in \emph{channel routing} (which candidate wins), which voting
 does not touch. Consensus voting is retired from production; the guards and
@@ -617,20 +642,27 @@ it at zero API cost.
 
 \subsection{Anatomy of the decade-scale errors}
 \label{sec:anatomy}
-The paper's most transferable finding is where the multi-dex failures came
-from. They were never perception: on plots with canonical axes, the vision
-channel reads to $\sim$0.2~dex. The decade errors were \emph{unit and plane
-bookkeeping}. A dark-photon paper (arXiv:1508.02463) plotting
-$\varepsilon^2$ made both failure modes reproducible: the model, asked
-implicitly to be helpful, took the square root itself \emph{and} the registry
-took it again (double conversion); in another run the axis read-back arrived
-without its plane declaration and no conversion happened at all (zero
-conversion). Both produced $\sim$8~dex errors \emph{on correct readings}.
-Under the plotted-values contract (the vision channel emits raw axis values
-and declares the plotted quantity; conversion happens exactly once, in the
-registry) the same paper scores 0.22--0.27~dex end-to-end, reproduced twice.
-Before the fix, vision-routed papers held $\sim$60\% of the benchmark's total
-residual mass; the contract collapsed that concentration.
+The paper's most transferable finding is where the dominant class of
+multi-dex failures came from. It was not perception: in the definitive run
+the vision channel's end-to-end median (0.292~dex,
+table~\ref{tab:channels_result}) matches the text channel's. The decade
+errors it produced were \emph{unit and plane bookkeeping}. A dark-photon
+paper (arXiv:1508.02463) plotting $\varepsilon^2$ made both failure modes
+reproducible: the model, asked implicitly to be helpful, took the square
+root itself \emph{and} the registry took it again (double conversion); in
+another run the axis read-back arrived without its plane declaration and no
+conversion happened at all (zero conversion). Both produced $\sim$8~dex
+errors \emph{on correct readings} (pre-fix probe logs, PR \#684). Under the
+plotted-values contract (the vision channel emits raw axis values and
+declares the plotted quantity; conversion happens exactly once, in the
+registry) the same paper scores 0.22--0.27~dex end-to-end across repeat
+runs, and 0.27~dex in the definitive benchmark. The contract removed the
+bookkeeping \emph{amplifier}, not the concentration of difficulty: in the
+definitive run vision-routed papers still carry 60.1\% of the total residual
+mass and 11 of the 19 catastrophic outcomes (7 text, 1 vector-trace) --- but
+the surviving tail is wrong-curve selection and genuinely hard figures, a
+different and smaller failure class than the conversion errors this section
+dissects.
 
 \subsection{Channel value}
 \label{sec:channelvalue}
@@ -688,12 +720,20 @@ small-sample types ($N<5$) are greyed.}
 \subsection{Where the difficulty now lives}
 The micro--macro gap (0.2646 vs 1.156~dex) localises the remaining hard
 problem (figure~\ref{fig:pertype}): rare coupling types with idiosyncratic
-conventions---AxionEDM's operator-vs-response mapping ($\propto 1/m_a$, not a
-constant rescale, hence deliberately unconvertible), monopole--dipole
-couplings, and small-$N$ scalar types. These types are also misclassified
-most often, which removes them from the comparable pool entirely and
-compounds their difficulty. Improvement here is per-coupling registry and
-classification work, not further gains on the AxionPhoton-dominated headline.
+conventions---AxionEDM, monopole--dipole couplings, and small-$N$ scalar
+types. AxionEDM illustrates both failure routes. Papers reporting the
+oscillating-EDM response in e$\cdot$cm are deliberately \emph{excluded} as
+convention gaps: mapping that response back to the operator coupling folds
+in the assumed local dark-matter density and per-analysis numerical factors
+with no closed form, so the registry cannot vet a constant conversion and
+fails closed. Those exclusions, however, contribute nothing to the macro
+tail --- the AxionEDM residuals come from papers that \emph{were} compared
+and failed conventionally: mis-declared conventions and extractor arithmetic
+slips that the registry accepted at face value. These types are also
+misclassified most often, which removes them from the comparable pool
+entirely and compounds their difficulty. Improvement here is per-coupling
+registry and classification work, not further gains on the
+AxionPhoton-dominated headline.
 
 \subsection{Cost and calibration}
 \label{sec:calib}
@@ -722,24 +762,59 @@ confidence triages review, it does not replace it.}
 \label{fig:calib}
 \end{figure}
 
-\subsection{Case studies}
+\subsection{Case study: an end-to-end proposal on the release configuration}
 \label{sec:cases}
-% SHOWCASE PLACEHOLDER — to be filled after the hand-picked re-extraction runs
-% on the release configuration (Opus, N=1). Selection criteria (one each):
-%   1. clean text/table extraction (baseline behaviour);
-%   2. non-canonical-axis vision paper (squared coupling; the §anatomy case,
-%      e.g. 1508.02463);
-%   3. vector_trace win (exact geometry, LLM identity selection);
-%   4. wrong-curve gate rejection with graceful fallback;
-%   5. [CONVENTION REVIEW] escalation (unvetted convention, fail-closed).
-% Each case: highlighted plot + audit trail (declaration, gates fired,
-% selector reason).
-To illustrate the deployed behaviour end-to-end, we re-ran a set of
-hand-picked papers through the release configuration and show each proposal
-exactly as its reviewer sees it: the highlighted plot and the audit trail
-(the declared convention, the gates that fired, and the selector's stated
-reason). \emph{[Case studies to be inserted from the release-configuration
-re-extraction runs.]}
+To show the deployed behaviour end-to-end, we re-ran a paper through the
+release configuration (frontier model, $N=1$) exactly as the daily pipeline
+runs it, and present the proposal as its reviewer sees it. The paper --- a
+phonon-sensor dark-photon projection~\cite{phonon_sensor} --- had been
+processed by a very early version of the pipeline; the fresh run exercises
+most of the machinery of section~\ref{sec:arch} in a single pass, with this
+audit trail:
+
+\begin{itemize}
+\item \emph{Pre-classification:} DarkPhoton, confidence 0.95.
+\item \emph{Stage-2a axis identification:} $x\in[0.025, 0.2]$~eV,
+  $y\in[10^{-16},10^{-9}]$, declared plotted quantity ``kinetic mixing
+  $\kappa$, dimensionless, log axis'' --- already canonical, so the registry
+  applied no conversion (truthful-declaration path).
+\item \emph{Wrong-curve gate fired:} one vision candidate's own notes
+  admitted tracing ``the envelope of the median sensitivity curves'' of a
+  compilation rather than the paper's own result; the gate rejected it on
+  that declaration alone, at zero additional model cost.
+\item \emph{Validity-first selection:} the surviving figure-vision trace (35
+  points, confidence 0.78) won over the sparse text candidate on the full
+  quality tuple.
+\item \emph{Cross-channel corroboration:} at $1.2\times10^{-1}$~eV the
+  independent text spot-check gave $8.0\times10^{-13}$ against the trace's
+  $1.3\times10^{-12}$ --- a factor 0.6, well inside the corroboration gate.
+\item \emph{Integration:} data file under \texttt{Projections/} (the paper
+  reports a forecast, not a measured bound), AST-inserted plotting method,
+  notebook wiring, and the highlighted plot of
+  figure~\ref{fig:showcase}, all bundled into a pull request for expert
+  review.
+\end{itemize}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.72\textwidth]{figures/DarkPhoton_2603_22390_highlighted.pdf}
+\caption{The reviewer-facing highlighted plot produced by the case-study
+run: the full dark-photon compilation greyed out, with only the newly
+proposed phonon-sensor projection~\cite{phonon_sensor} in red
+(0.025--0.2~eV, $\kappa\sim10^{-12}$). A reviewer can judge the proposal's
+plausibility in seconds without reading code.}
+\label{fig:showcase}
+\end{figure}
+
+\paragraph{Operations.} The pipeline has operated on the live arXiv feed
+since spring 2026 through the daily and weekly workflows described in
+section~\ref{sec:arch}, with the historical backfill covering older
+literature. Every proposal is opened as a pull request against our fork and
+awaits expert disposition there; deliberately, no machine-generated limit
+has been merged into the upstream community compilation --- the review and
+governance mechanisms of section~\ref{sec:limitations} are, in our view, a
+precondition, and the human gate is the point of the design rather than a
+temporary scaffold.
 
 %=============================================================================
 \section{Lessons learned}
@@ -820,9 +895,16 @@ tiering.} Pre-classification does not need a frontier model; tracing might.
 community disposes. Reviewing machine-proposed limits at scale needs a
 process---a community editorial board analogous to the Particle Data Group
 reviewers~\cite{pdg}, where collaborations validate their own limits, is one
-model. More fundamentally, machine-readable limit data published alongside
-papers would bypass the extraction problem entirely, and remains the single
-highest-leverage change the field could make.
+model. More fundamentally, the infrastructure for machine-readable limit
+publication already exists and works: HEPData~\cite{hepdata} archives
+digitised collider results as standard practice, and the LHC Reinterpretation
+Forum has published community recommendations for reusable result
+presentation~\cite{reinterpretation_forum}. The gap is not tooling but
+\emph{adoption in the ultralight-dark-matter community}, where results are
+still published predominantly as figures. Extending the HEPData habit to
+this subfield would bypass the extraction problem this paper mitigates, and
+remains the single highest-leverage change available; until then, extraction
+pipelines like this one are the bridge.
 
 %=============================================================================
 \section{Conclusions}
@@ -836,9 +918,9 @@ before anything merges. The measured decomposition is the point: the decisive
 engineering was not the model but the architecture around it---deterministic
 channels and guards, single-owner convention canonicalization with
 fail-closed escalation, and confound-controlled measurement with a known
-noise floor. The frontier model earns its place in the tail (3$\times$ fewer
-catastrophic outcomes), not the median ($+0.22$~dex); consensus voting earns
-no place at all. We offer the pipeline, the benchmark, and these measured
+noise floor. The frontier model earns its place in the tail (a
+2.3--2.7$\times$ smaller catastrophic tail), not the median ($+0.22$~dex);
+consensus voting earns no place at all. We offer the pipeline, the benchmark, and these measured
 lessons to the community whose infrastructure problem motivated them.
 
 %=============================================================================

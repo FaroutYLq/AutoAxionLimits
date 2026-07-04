@@ -25,6 +25,10 @@ Pinned definitions:
                    per-paper residual; better/worse threshold 0.05 dex.
   accuracy (calib) residual < 0.32 dex AND interpolation coverage >= 50%
                    (the scorer's confidence_calibration definition).
+  macro statistic  the scorer's "macro_median_residual_dex" key is the MEAN
+                   of per-type medians (np.mean in evaluation/evaluate.py),
+                   not a median of medians; the key name is historical. Cite
+                   it as a macro average / mean of per-type medians.
 
 Run from repo root:  python paper/make_paper_numbers.py
 """

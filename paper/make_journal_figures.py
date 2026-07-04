@@ -98,8 +98,10 @@ for i, (n, s) in enumerate(zip(ns, small)):
     ax.text(hi[i] * 1.05, ypos[i], f"N={n}" + ("*" if s else ""), va="center", fontsize=8)
 micro = M["per_type_aggregate"]["micro_median_residual_dex"]
 macro = M["per_type_aggregate"]["macro_median_residual_dex"]
+# NOTE: the scorer's "macro_median_residual_dex" key is historically named;
+# the statistic is the MEAN of per-type medians (evaluation/evaluate.py).
 ax.axvline(micro, color="C2", ls="--", lw=1, label=f"micro-median {micro:.2f}")
-ax.axvline(macro, color="C3", ls="--", lw=1, label=f"macro-median {macro:.2f}")
+ax.axvline(macro, color="C3", ls="--", lw=1, label=f"macro (mean of type medians) {macro:.2f}")
 ax.axvline(0.3, color="k", ls=":", lw=0.8)
 ax.set_yticks(ypos)
 ax.set_yticklabels(names)
