@@ -47,15 +47,67 @@ def _run_gh(args: list[str], cwd: Path = REPO_ROOT) -> str:
 # Branch management
 # ---------------------------------------------------------------------------
 
+def _local_branch_exists(branch: str, repo_root: Path = REPO_ROOT) -> bool:
+    """True if a local branch named *branch* already exists."""
+    result = subprocess.run(
+        ["git", "rev-parse", "--verify", "--quiet", f"refs/heads/{branch}"],
+        cwd=str(repo_root), capture_output=True, text=True,
+    )
+    return result.returncode == 0
+
+
+def _remote_branch_exists(branch: str, repo_root: Path = REPO_ROOT) -> bool:
+    """True if origin already has a branch named *branch*.
+
+    A stale remote branch (e.g. from a long-closed PR) is exactly what makes a
+    plain ``git push`` fail non-fast-forward. If ``ls-remote`` itself fails
+    (offline / no remote configured), report False so branch selection degrades
+    to the local-only check rather than aborting the whole run.
+    """
+    result = subprocess.run(
+        ["git", "ls-remote", "--heads", "origin", branch],
+        cwd=str(repo_root), capture_output=True, text=True,
+    )
+    if result.returncode != 0:
+        return False
+    return bool(result.stdout.strip())
+
+
+def _pick_unique_branch(base: str, exists) -> str:
+    """Return *base*, or ``base-2``, ``base-3``, … — the first name *exists()* rejects.
+
+    Pure and injectable: *exists* is a predicate ``str -> bool``, so the numbering
+    logic is unit-testable without git.
+    """
+    if not exists(base):
+        return base
+    n = 2
+    while exists(f"{base}-{n}"):
+        n += 1
+    return f"{base}-{n}"
+
+
 def create_feature_branch(
     arxiv_id: str, experiment_name: str, repo_root: Path = REPO_ROOT
 ) -> str:
-    """Create and checkout branch pipeline/arxiv-{id}-{name}."""
+    """Create and checkout a unique branch ``pipeline/arxiv-{id}-{name}``.
+
+    The name is uniquified against BOTH local and remote branches: re-processing a
+    paper whose old PR branch still lives on origin used to reuse that name and then
+    fail the push non-fast-forward (marking a successfully-extracted paper failed).
+    A ``-2``/``-3``/… suffix is appended until the name is free on both sides.
+    """
     safe_id = arxiv_id.replace(".", "-")
     safe_name = re.sub(r"[^A-Za-z0-9_-]", "-", experiment_name)[:40]
-    branch = f"pipeline/arxiv-{safe_id}-{safe_name}"
+    base = f"pipeline/arxiv-{safe_id}-{safe_name}"
 
-    # Try to create; if it already exists, check it out
+    branch = _pick_unique_branch(
+        base,
+        lambda b: _local_branch_exists(b, repo_root) or _remote_branch_exists(b, repo_root),
+    )
+
+    # Fresh unique name → -b creates it. Guard the rare race where it appeared
+    # between the check and now by falling back to a plain checkout.
     try:
         _run_git(["checkout", "-b", branch], repo_root)
     except RuntimeError:

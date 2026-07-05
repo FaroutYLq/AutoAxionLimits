@@ -837,21 +837,99 @@ def run_reviewer_agent(
     )
 
 
+def class_has_method(plotfuncs_path: Path, class_name: str, method_name: str) -> bool:
+    """True if ``class_name`` already defines a method ``method_name`` in the file.
+
+    Uses ``ast`` (never a substring/regex scan) so it can't be fooled by the name
+    appearing in a comment, a string, or a *different* class. Returns False if the
+    file is missing or unparseable — the caller then falls back to insertion.
+    """
+    try:
+        tree = ast.parse(plotfuncs_path.read_text())
+    except (OSError, SyntaxError):
+        return False
+    for node in ast.walk(tree):
+        if isinstance(node, ast.ClassDef) and node.name == class_name:
+            for child in node.body:
+                if isinstance(child, (ast.FunctionDef, ast.AsyncFunctionDef)) and child.name == method_name:
+                    return True
+    return False
+
+
+def notebook_has_call(notebook_path: Path, coupling_class: str, experiment_name: str) -> bool:
+    """True if any code cell already calls ``<coupling_class>.<experiment_name>(``.
+
+    Matches the *call* token specifically (trailing ``(``) so a bare mention in a
+    ``loadtxt("…/Name.txt")`` path or a comment is not mistaken for an existing
+    call. Returns False on any read/parse error (caller falls back to insertion).
+    """
+    try:
+        nb = json.loads(notebook_path.read_text())
+    except (OSError, ValueError):
+        return False
+    needle = f"{coupling_class}.{experiment_name}("
+    for cell in nb.get("cells", []):
+        if cell.get("cell_type") != "code":
+            continue
+        if needle in "".join(cell.get("source", [])):
+            return True
+    return False
+
+
+def docs_has_entry(docs_path: Path, experiment_name: str) -> bool:
+    """True if a docs bullet already documents ``experiment_name``.
+
+    Format-agnostic: matches a list bullet (``-``/``*``) whose first token is the
+    experiment name, with or without surrounding ``**bold**``. Curated entries use
+    ``* Name: [limit](…)`` while generated ones use ``- **Name**: …`` — both count.
+    """
+    try:
+        text = docs_path.read_text()
+    except OSError:
+        return False
+    pat = re.compile(rf"^\s*[-*]\s*\*{{0,2}}\s*{re.escape(experiment_name)}\b", re.MULTILINE)
+    return bool(pat.search(text))
+
+
 def write_repo_files(review: ReviewResult, repo_root: Path = REPO_ROOT) -> None:
-    """Write data file, update PlotFuncs, update notebook, update docs."""
-    # 1. Data file
+    """Write data file, update PlotFuncs, update notebook, update docs.
+
+    Re-extraction / update semantics: when the experiment is ALREADY curated in the
+    repo (its PlotFuncs method, notebook call, or docs bullet exists), only the data
+    file is refreshed and the existing artifacts are left untouched. Blindly
+    appending a second ``def``/call/bullet used to shadow a hand-curated method with
+    a richer signature (e.g. ``edge_on``) and break the notebook with a TypeError.
+    Each artifact is guarded independently so a partially-curated state still
+    converges correctly.
+    """
+    # 1. Data file — always refreshed (this IS the update on the re-extraction path)
     data_path = repo_root / review.data_file_path
     data_path.parent.mkdir(parents=True, exist_ok=True)
     data_path.write_text(review.data_file_content)
     logger.info("Wrote data file: %s", data_path)
 
-    # 2. PlotFuncs method
+    # 2. PlotFuncs method — skip if the class already defines it (don't shadow a
+    #    hand-curated method whose signature we must not clobber).
     pf_path = repo_root / review.plotfuncs_file
-    insert_method_into_plotfuncs(pf_path, review.plotfuncs_class, review.plotfuncs_method)
+    if class_has_method(pf_path, review.plotfuncs_class, review.experiment_name):
+        logger.info(
+            "%s.%s already defined — leaving PlotFuncs unchanged (update: data file only)",
+            review.plotfuncs_class, review.experiment_name,
+        )
+    else:
+        insert_method_into_plotfuncs(pf_path, review.plotfuncs_class, review.plotfuncs_method)
 
-    # 3. Notebook
+    # 3. Notebook — skip if a call already exists (avoid a duplicate plot call).
     nb_path = repo_root / review.notebook_path
-    if nb_path.exists():
+    nb_class = review.notebook_call.split(".")[0]
+    if not nb_path.exists():
+        logger.warning("Notebook not found: %s", nb_path)
+    elif notebook_has_call(nb_path, nb_class, review.experiment_name):
+        logger.info(
+            "Notebook %s already calls %s.%s — leaving notebook unchanged",
+            nb_path.name, nb_class, review.experiment_name,
+        )
+    else:
         masses = [
             float(line.split()[0])
             for line in review.data_file_content.splitlines()
@@ -863,12 +941,17 @@ def write_repo_files(review: ReviewResult, repo_root: Path = REPO_ROOT) -> None:
             mass_range=mass_range,
             plotfuncs_path=pf_path,
         )
-    else:
-        logger.warning("Notebook not found: %s", nb_path)
 
-    # 4. Docs
+    # 4. Docs — skip if an entry already documents this experiment.
     docs_path = repo_root / review.docs_file
-    if docs_path.exists():
+    if not docs_path.exists():
+        return
+    if docs_has_entry(docs_path, review.experiment_name):
+        logger.info(
+            "Docs %s already document %s — leaving docs unchanged",
+            docs_path.name, review.experiment_name,
+        )
+    else:
         existing = docs_path.read_text()
         docs_path.write_text(existing + "\n" + review.docs_entry)
         logger.info("Updated docs: %s", docs_path)

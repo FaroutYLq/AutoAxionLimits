@@ -179,6 +179,35 @@ _mpl_figure.Figure.text = _patched_fig_text
 '''
 
 
+def _strip_kwargs(arg_str: str, names: tuple[str, ...]) -> str:
+    """Remove ``, name=<value>`` kwargs from a call-argument fragment.
+
+    *arg_str* is everything after the leading ``ax`` positional (so every kwarg is
+    comma-prefixed). Values are assumed simple (identifier or literal, no nested
+    comma) — the convention throughout these notebooks — so a non-greedy
+    ``[^,)]+`` value match is sufficient.
+    """
+    for name in names:
+        arg_str = re.sub(rf",\s*{name}\s*=\s*[^,)]+", "", arg_str)
+    return arg_str
+
+
+def _build_highlight_call(call_line: str) -> str:
+    """Rewrite ``Class.Method(ax, …)`` to force ``col='red', lw=3`` for the overlay.
+
+    Any pre-existing ``col=``/``lw=`` in the source call is stripped first —
+    otherwise appending our own produced ``…, col=X, col='red'`` and a SyntaxError
+    ("keyword argument repeated") that silently killed the highlighted plot.
+    Falls back to the original line if it isn't a recognisable method call.
+    """
+    m = re.match(r"(\w+\.\w+)\(ax(.*)\)", call_line)
+    if not m:
+        return call_line
+    method_ref, extra_args = m.group(1), m.group(2)
+    extra_args = _strip_kwargs(extra_args, ("col", "lw"))
+    return f"{method_ref}(ax{extra_args}, col='red', lw=3)"
+
+
 def _build_highlight_notebook(
     nb: dict,
     notebook_call: str,
@@ -206,15 +235,9 @@ def _build_highlight_notebook(
 
     # Build the highlighted call: force bright red colour and thick edges,
     # then overlay a prominent marker so the limit is unmissable even for
-    # single-point data files.
-    # Parse "CouplingClass.Method(ax)" or "CouplingClass.Method(ax, ...)"
-    hl_match = re.match(r"(\w+\.\w+)\(ax(.*)\)", call_line)
-    if hl_match:
-        method_ref = hl_match.group(1)  # e.g. "AxionPhoton.DALI_Prototype"
-        extra_args = hl_match.group(2)  # e.g. "" or ", fs=20"
-        hl_call = f"{method_ref}(ax{extra_args}, col='red', lw=3)"
-    else:
-        hl_call = call_line
+    # single-point data files. _build_highlight_call de-dupes any existing
+    # col=/lw= so the injected kwargs never collide (SyntaxError).
+    hl_call = _build_highlight_call(call_line)
 
     # 1. Inject the monkey-patch cell at position 0
     patch_cell = {
