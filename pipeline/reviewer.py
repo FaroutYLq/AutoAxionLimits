@@ -249,26 +249,53 @@ def apply_dm_density_correction(
     return corrected, note
 
 
-def apply_corrections(
-    result: ExtractionResult,
-) -> tuple[list[tuple[float, float]], list[str], list[str]]:
-    """Apply deterministic corrections; flag others for human review."""
-    corrections = PHYSICAL_CORRECTIONS.get(result.coupling_type or "", {})
-    data = list(result.data_points)
-    applied: list[str] = []
-    flagged: list[str] = []
+def dm_density_params(result: ExtractionResult) -> Optional[tuple[float, float]]:
+    """Return (rho_paper, rho_repo) if a DM-density rescale applies, else None.
 
-    # DM density correction — only for DM-search haloscope experiments.
-    # Guard: coupling type must have dm_density in PHYSICAL_CORRECTIONS (filters out
-    # stellar, cosmological, collider couplings) AND Claude must have reported a
-    # dm_density_assumed (should only happen for DM-absorption/haloscope results).
+    Guard: the coupling type must have a ``dm_density`` entry in
+    ``PHYSICAL_CORRECTIONS`` (filters out stellar/cosmological/collider
+    couplings) AND the extractor must have reported a ``dm_density_assumed``
+    that differs from the repository convention (haloscope/DM-search results).
+    """
+    corrections = PHYSICAL_CORRECTIONS.get(result.coupling_type or "", {})
     rho_paper = result.dm_density_assumed
     dm_corr_cfg = corrections.get("dm_density")
     if rho_paper is not None and dm_corr_cfg is not None:
         rho_repo = dm_corr_cfg.get("repo_convention", 0.45)
         if abs(rho_paper - rho_repo) > 0.01:
-            data, note = apply_dm_density_correction(data, rho_paper, rho_repo)
-            applied.append(note)
+            return rho_paper, rho_repo
+    return None
+
+
+def apply_corrections(
+    result: ExtractionResult,
+) -> tuple[list[tuple[float, float]], list[str], list[str]]:
+    """Apply deterministic corrections; flag others for human review.
+
+    Single-owner convention (2026-07-05): the DM-density rescale is NOT baked
+    into the stored data file. The data is kept paper-native, exactly as the
+    repository stores its own DM-search limits, and the ``sqrt(rho)`` rescale
+    is applied once by the plotting method at plot time (threaded into the
+    generated method by :func:`run_reviewer_agent`). Baking it into the file
+    *and* letting the method rescale would double-count on re-extraction of an
+    already-curated experiment.
+    """
+    corrections = PHYSICAL_CORRECTIONS.get(result.coupling_type or "", {})
+    data = list(result.data_points)
+    applied: list[str] = []
+    flagged: list[str] = []
+
+    # DM density — recorded for provenance; applied by the plotting method, not
+    # baked into the stored (paper-native) data file.
+    dens = dm_density_params(result)
+    if dens is not None:
+        rho_paper, rho_repo = dens
+        factor = math.sqrt(rho_paper / rho_repo)
+        applied.append(
+            f"DM density: paper={rho_paper} GeV/cm³ → repo={rho_repo} GeV/cm³; "
+            f"data stored paper-native, plotting method applies "
+            f"sqrt({rho_paper}/{rho_repo})={factor:.4f} (chi ∝ 1/sqrt(rho))"
+        )
 
     # Polarization — flag for human review
     if result.polarization_assumption:
@@ -412,13 +439,42 @@ _EXEMPLAR_METHODS = [
 ]
 
 
+def _inject_density_rescale(code: str, rho_paper: float, rho_repo: float) -> str:
+    """Insert a deterministic ``sqrt(rho_paper/rho_repo)`` rescale right after
+    the ``loadtxt`` assignment, making the plotting method the single owner of
+    the DM-density conversion (the repository's own PlotFuncs convention). The
+    stored data file is paper-native; this line converts it to the repository
+    density at plot time. Idempotent: skips if a density rescale is already
+    present.
+    """
+    if "sqrt(" in code and "# DM density" in code:
+        return code  # already injected
+    pattern = re.compile(r"^([ \t]*)(\w+)\s*=\s*loadtxt\([^\n]*\)\s*$", re.MULTILINE)
+    m = pattern.search(code)
+    if not m:
+        logger.warning("Could not find a loadtxt line to attach the DM-density rescale")
+        return code
+    indent, var = m.group(1), m.group(2)
+    rescale = (
+        f"{indent}{var}[:,1] = {var}[:,1]*sqrt({rho_paper}/{rho_repo})"
+        f"  # DM density {rho_paper}->{rho_repo} GeV/cm^3 (chi ~ 1/sqrt(rho))"
+    )
+    return code[: m.end()] + "\n" + rescale + code[m.end():]
+
+
 def generate_plotfuncs_method(
     experiment_name: str,
     data_file_path: str,
     coupling_type: str,
     client: anthropic.Anthropic,
+    density_rescale: Optional[tuple[float, float]] = None,
 ) -> str:
-    """Ask Claude to generate a PlotFuncs.py static method."""
+    """Ask Claude to generate a PlotFuncs.py static method.
+
+    When *density_rescale* is ``(rho_paper, rho_repo)``, a deterministic
+    ``sqrt(rho_paper/rho_repo)`` line is injected after the ``loadtxt`` so the
+    method owns the DM-density conversion (the data file is stored paper-native).
+    """
     exemplars = "\n\n".join(f"# Example:\n{m}" for m in _EXEMPLAR_METHODS)
     prompt = (
         f"{exemplars}\n\n"
@@ -444,6 +500,10 @@ def generate_plotfuncs_method(
         code = "@staticmethod\n" + code
     # Guarantee ndmin=2 in loadtxt calls — single-row data files return 1D arrays without it
     code = re.sub(r'loadtxt\(([^)]*?)(?<!ndmin=2)\)', _ensure_ndmin2, code)
+    # Single-owner DM-density conversion: inject the sqrt(rho) rescale so the
+    # method (not the stored file) owns it.
+    if density_rescale is not None:
+        code = _inject_density_rescale(code, *density_rescale)
     return code
 
 
@@ -806,12 +866,13 @@ def run_reviewer_agent(
     data_file_rel = f"{data_dir}/{experiment_name}.txt"
     data_file_content = format_data_file(corrected_data, result, applied)
 
-    # --- PlotFuncs method ---
+    # --- PlotFuncs method (owns the DM-density rescale; data stays paper-native) ---
     method_code = generate_plotfuncs_method(
         experiment_name,
         data_file_rel,
         result.coupling_type,
         client,
+        density_rescale=dm_density_params(result),
     )
 
     # --- Notebook ---
