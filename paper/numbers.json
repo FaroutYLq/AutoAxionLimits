@@ -2,29 +2,29 @@
   "generated_by": "paper/make_paper_numbers.py",
   "arms": {
     "opus": {
-      "n_papers": 346,
-      "micro_median_residual_dex": 0.2646,
-      "macro_median_residual_dex": 1.1564,
-      "n_compared_status": 270,
+      "n_papers": 328,
+      "micro_median_residual_dex": 0.2509,
+      "macro_median_residual_dex": 0.6286,
+      "n_compared_status": 262,
       "n_zero_overlap": 4,
-      "n_compared_finite": 266,
-      "catastrophic_gt3dex": 19,
-      "gt1dex": 55,
-      "frac_within_0_3dex_mean": 0.521,
-      "frac_within_0_5dex_mean": 0.6441,
-      "mean_interpolation_coverage": 0.8517,
+      "n_compared_finite": 258,
+      "catastrophic_gt3dex": 15,
+      "gt1dex": 49,
+      "frac_within_0_3dex_mean": 0.5336,
+      "frac_within_0_5dex_mean": 0.6601,
+      "mean_interpolation_coverage": 0.8559,
       "channel_mix": {
-        "figure_vision": 154,
-        "text": 139,
-        "none": 28,
-        "vector_trace": 17,
+        "figure_vision": 147,
+        "text": 135,
+        "none": 24,
+        "vector_trace": 14,
         "table": 5,
         "source_data": 3
       },
       "per_channel_residuals": {
         "figure_vision": {
-          "n_compared": 125,
-          "median_residual_dex": 0.2922
+          "n_compared": 120,
+          "median_residual_dex": 0.2673
         },
         "source_data": {
           "n_compared": 3,
@@ -35,89 +35,95 @@
           "median_residual_dex": 0.1296
         },
         "text": {
-          "n_compared": 123,
-          "median_residual_dex": 0.2756
+          "n_compared": 121,
+          "median_residual_dex": 0.2622
         },
         "vector_trace": {
-          "n_compared": 11,
-          "median_residual_dex": 0.1804
+          "n_compared": 10,
+          "median_residual_dex": 0.2329
         }
       },
       "guard_firings": {
         "corroboration_rejections": 19,
         "convention_review_flags": 20
       },
+      "vision_residual_mass_share": 0.5599,
+      "catastrophic_by_channel": {
+        "figure_vision": 8,
+        "text": 6,
+        "vector_trace": 1
+      },
       "confidence_calibration": [
         {
           "bin": "[0.2-0.4)",
-          "n_papers": 14,
-          "mean_confidence": 0.318,
-          "actual_accuracy": 0.286
+          "n_papers": 12,
+          "mean_confidence": 0.317,
+          "actual_accuracy": 0.333
         },
         {
           "bin": "[0.4-0.6)",
-          "n_papers": 92,
-          "mean_confidence": 0.528,
-          "actual_accuracy": 0.315
+          "n_papers": 89,
+          "mean_confidence": 0.526,
+          "actual_accuracy": 0.326
         },
         {
           "bin": "[0.6-0.8)",
-          "n_papers": 70,
+          "n_papers": 68,
           "mean_confidence": 0.716,
-          "actual_accuracy": 0.471
+          "actual_accuracy": 0.485
         },
         {
           "bin": "[0.8-1.0)",
-          "n_papers": 94,
+          "n_papers": 93,
           "mean_confidence": 0.84,
-          "actual_accuracy": 0.723
+          "actual_accuracy": 0.72
         }
       ],
       "classification": {
         "coupling_type": {
-          "accuracy": 0.9094,
-          "n": 331
+          "accuracy": 0.9233,
+          "n": 313
         },
         "is_new_limit": {
-          "accuracy": 0.8571,
-          "n": 35
+          "accuracy": 1.0,
+          "n": 30
         },
         "is_projection": {
-          "accuracy": 0.9714,
-          "n": 35
+          "accuracy": 1.0,
+          "n": 30
         },
         "data_source": {
-          "accuracy": 0.4286,
-          "n": 35
+          "accuracy": 0.4333,
+          "n": 30
         }
       },
       "comparison_status_counts": {
         "convention_mismatch": 19,
-        "compared": 270,
-        "no_comparable_gt": 28,
-        "excluded_gt": 15,
+        "compared": 262,
+        "no_comparable_gt": 23,
         "gt_unusable": 1,
-        "no_extracted_points": 11,
-        "no_prediction": 2
+        "excluded_gt": 15,
+        "no_extracted_points": 7,
+        "no_prediction": 1
       }
     },
     "haiku": {
-      "n_papers": 346,
-      "micro_median_residual_dex": 0.6605,
-      "macro_median_residual_dex": 4.9466,
-      "n_compared_status": 256,
-      "n_zero_overlap": 25,
-      "n_compared_finite": 231,
-      "catastrophic_gt3dex": 44,
-      "gt1dex": 95,
-      "frac_within_0_3dex_mean": 0.301,
-      "frac_within_0_5dex_mean": 0.41,
-      "mean_interpolation_coverage": 0.7687,
+      "n_papers": 328,
+      "micro_median_residual_dex": 0.6474,
+      "macro_median_residual_dex": 3.2593,
+      "n_compared_status": 248,
+      "n_zero_overlap": 23,
+      "n_compared_finite": 225,
+      "catastrophic_gt3dex": 41,
+      "gt1dex": 91,
+      "frac_within_0_3dex_mean": 0.3077,
+      "frac_within_0_5dex_mean": 0.4187,
+      "mean_interpolation_coverage": 0.7737,
       "channel_mix": {
-        "text": 165,
-        "figure_vision": 128,
-        "none": 24,
-        "vector_trace": 20,
+        "text": 162,
+        "figure_vision": 120,
+        "none": 19,
+        "vector_trace": 18,
         "figure": 4,
         "table": 3,
         "source_data": 2
@@ -128,8 +134,8 @@
           "median_residual_dex": 4.0853
         },
         "figure_vision": {
-          "n_compared": 89,
-          "median_residual_dex": 0.7069
+          "n_compared": 84,
+          "median_residual_dex": 0.7065
         },
         "source_data": {
           "n_compared": 2,
@@ -144,13 +150,20 @@
           "median_residual_dex": 0.5269
         },
         "vector_trace": {
-          "n_compared": 16,
-          "median_residual_dex": 2.2856
+          "n_compared": 15,
+          "median_residual_dex": 2.072
         }
       },
       "guard_firings": {
         "corroboration_rejections": 26,
-        "convention_review_flags": 24
+        "convention_review_flags": 23
+      },
+      "vision_residual_mass_share": 0.35,
+      "catastrophic_by_channel": {
+        "text": 19,
+        "figure_vision": 14,
+        "vector_trace": 6,
+        "figure": 2
       },
       "confidence_calibration": [
         {
@@ -167,64 +180,64 @@
         },
         {
           "bin": "[0.6-0.8)",
-          "n_papers": 79,
-          "mean_confidence": 0.726,
-          "actual_accuracy": 0.076
+          "n_papers": 74,
+          "mean_confidence": 0.724,
+          "actual_accuracy": 0.081
         },
         {
           "bin": "[0.8-1.0)",
-          "n_papers": 172,
-          "mean_confidence": 0.883,
-          "actual_accuracy": 0.302
+          "n_papers": 169,
+          "mean_confidence": 0.884,
+          "actual_accuracy": 0.308
         }
       ],
       "classification": {
         "coupling_type": {
-          "accuracy": 0.8731,
-          "n": 331
+          "accuracy": 0.8882,
+          "n": 313
         },
         "is_new_limit": {
-          "accuracy": 0.8857,
-          "n": 35
+          "accuracy": 1.0,
+          "n": 30
         },
         "is_projection": {
           "accuracy": 1.0,
-          "n": 35
+          "n": 30
         },
         "data_source": {
-          "accuracy": 0.2571,
-          "n": 35
+          "accuracy": 0.2333,
+          "n": 30
         }
       },
       "comparison_status_counts": {
         "convention_mismatch": 22,
-        "compared": 256,
-        "no_comparable_gt": 39,
-        "excluded_gt": 15,
-        "no_extracted_points": 8,
+        "compared": 248,
+        "no_comparable_gt": 33,
         "gt_unusable": 1,
+        "excluded_gt": 15,
+        "no_extracted_points": 5,
         "gt_point_reference": 2,
-        "no_prediction": 3
+        "no_prediction": 2
       }
     }
   },
   "paired": {
-    "n_shared_papers": 217,
-    "median_delta_haiku_minus_opus_dex": 0.2228,
+    "n_shared_papers": 212,
+    "median_delta_haiku_minus_opus_dex": 0.2098,
     "tie_threshold_dex": 0.05,
-    "opus_better": 139,
-    "haiku_better": 38,
+    "opus_better": 135,
+    "haiku_better": 37,
     "tied": 40
   },
   "old_baseline": {
-    "note": "Opus 4.8, OLD code, N=3 consensus (pre extraction-channels arc)",
-    "micro_median_residual_dex": 0.2454,
-    "macro_median_residual_dex": 1.5817
+    "note": "Opus 4.8, OLD code, N=3 consensus (pre extraction-channels arc), rescored measured-limits-only",
+    "micro_median_residual_dex": 0.2333,
+    "macro_median_residual_dex": 1.4621
   },
   "gt_pool": {
     "n_entries": 434,
     "n_unique_papers": 347,
     "n_excluded_entries": 18,
-    "note": "Benchmark pool is 346 papers (both arms). The GT registry has one additional id, 1007.3766, re-keyed from 1410.5244 during the post-full346 remediation after the pool was frozen (see evaluation/ground_truth/EXCLUSIONS.md); it has no extraction in this run."
+    "note": "Scope: measured limits only \u2014 25 is_projection GT entries (18 papers) are excluded (PR #698), leaving 409 entries / 329 ids and a 328-paper benchmark pool. One further GT id (1007.3766, re-keyed from 1410.5244 post-remediation) has no extraction in this run."
   }
 }

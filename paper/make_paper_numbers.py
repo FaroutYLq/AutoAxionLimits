@@ -6,12 +6,18 @@ paper/jinst_autoaxionlimits.tex must appear in this script's output
 (paper/numbers.json + paper/numbers.md). Definitions are pinned HERE so a
 referee can reproduce each value from the committed metrics files.
 
+Benchmark scope (2026-07-04): MEASURED LIMITS ONLY — GT entries flagged
+is_projection are excluded before scoring (see PR #698). Projections embed
+detector-scenario assumptions that make a single GT curve ill-defined and
+are of less community interest; the *_noproj.json artifacts are the citable
+metrics.
+
 Inputs (committed):
-  evaluation/eval_runs/final2_opus_n1/metrics.json   (definitive Opus arm)
-  evaluation/eval_runs/final2_haiku_n1/metrics.json  (definitive Haiku arm)
-  evaluation/eval_runs/final2_*/<id>.json            (extraction snapshots)
-  evaluation/results/metrics.json                    (old-code N=3 baseline)
-  evaluation/ground_truth/papers.json                (GT pool)
+  evaluation/eval_runs/final2_opus_n1/metrics_noproj.json   (definitive Opus arm)
+  evaluation/eval_runs/final2_haiku_n1/metrics_noproj.json  (definitive Haiku arm)
+  evaluation/eval_runs/final2_*/<id>.json                   (extraction snapshots)
+  evaluation/eval_runs/baseline_metrics_noproj.json         (old-code N=3 baseline, rescored)
+  evaluation/ground_truth/papers.json                       (GT pool)
 
 Pinned definitions:
   compared paper   comparison_status == "compared" AND finite forward
@@ -44,7 +50,7 @@ ARMS = {
     "opus": "evaluation/eval_runs/final2_opus_n1",
     "haiku": "evaluation/eval_runs/final2_haiku_n1",
 }
-OLD_BASELINE = "evaluation/results/metrics.json"
+OLD_BASELINE = "evaluation/eval_runs/baseline_metrics_noproj.json"
 GT_POOL = "evaluation/ground_truth/papers.json"
 
 GUARD_MARKERS = {
@@ -80,7 +86,7 @@ def median(xs):
 
 
 def arm_summary(arm_dir):
-    m = load(os.path.join(arm_dir, "metrics.json"))
+    m = load(os.path.join(arm_dir, "metrics_noproj.json"))
     pta = m["per_type_aggregate"]
     ia = m["interpolation_aggregate"]
     resid = finite_residuals(m)
@@ -104,17 +110,36 @@ def arm_summary(arm_dir):
         for src, rs in sorted(by_src.items())
     }
 
-    # guard firings recomputed from the snapshot notes
+    # guard firings recomputed from the snapshot notes, restricted to the
+    # papers in this metrics pool (i.e. excluding projection papers)
+    pool_ids = {pp["arxiv_id"] for pp in m["per_paper"]}
     guards = {}
     for key, marker in GUARD_MARKERS.items():
         n = 0
         for path in glob.glob(os.path.join(ROOT, arm_dir, "*.json")):
-            if os.path.basename(path) == "metrics.json":
+            base = os.path.basename(path)
+            if base.startswith("metrics"):
+                continue
+            pid = base[:-5].replace("_", "/", 1) if base[0].isalpha() else base[:-5]
+            if pid not in pool_ids:
                 continue
             with open(path) as f:
                 if marker in f.read():
                     n += 1
         guards[key] = n
+
+    # anatomy quantities cited in the manuscript: residual-mass share and
+    # catastrophic counts by channel (over compared+finite papers)
+    tot_mass = sum(resid.values())
+    vis_mass = sum(r for pp in m["per_paper"]
+                   if (r := resid.get(pp["arxiv_id"])) is not None
+                   and pp.get("data_source") == "figure_vision")
+    cat_by_src = {}
+    for pp in m["per_paper"]:
+        r = resid.get(pp["arxiv_id"])
+        if r is not None and r > 3:
+            src = pp.get("data_source") or "none"
+            cat_by_src[src] = cat_by_src.get(src, 0) + 1
 
     calib = [
         {
@@ -149,6 +174,8 @@ def arm_summary(arm_dir):
         "channel_mix": dict(sorted(mix.items(), key=lambda kv: -kv[1])),
         "per_channel_residuals": per_channel,
         "guard_firings": guards,
+        "vision_residual_mass_share": round(vis_mass / tot_mass, 4) if tot_mass else None,
+        "catastrophic_by_channel": dict(sorted(cat_by_src.items(), key=lambda kv: -kv[1])),
         "confidence_calibration": calib,
         "classification": classification,
         "comparison_status_counts": m["comparison_coverage"]["status_counts"],
@@ -181,11 +208,11 @@ def gt_pool():
         "n_unique_papers": len(ids),
         "n_excluded_entries": n_excluded,
         "note": (
-            "Benchmark pool is 346 papers (both arms). The GT registry has one "
-            "additional id, 1007.3766, re-keyed from 1410.5244 during the "
-            "post-full346 remediation after the pool was frozen (see "
-            "evaluation/ground_truth/EXCLUSIONS.md); it has no extraction in "
-            "this run."
+            "Scope: measured limits only — 25 is_projection GT entries "
+            "(18 papers) are excluded (PR #698), leaving 409 entries / 329 "
+            "ids and a 328-paper benchmark pool. One further GT id "
+            "(1007.3766, re-keyed from 1410.5244 post-remediation) has no "
+            "extraction in this run."
         ),
     }
 
@@ -194,7 +221,7 @@ def old_baseline():
     m = load(OLD_BASELINE)
     pta = m["per_type_aggregate"]
     return {
-        "note": "Opus 4.8, OLD code, N=3 consensus (pre extraction-channels arc)",
+        "note": "Opus 4.8, OLD code, N=3 consensus (pre extraction-channels arc), rescored measured-limits-only",
         "micro_median_residual_dex": round(pta["micro_median_residual_dex"], 4),
         "macro_median_residual_dex": round(pta["macro_median_residual_dex"], 4),
     }

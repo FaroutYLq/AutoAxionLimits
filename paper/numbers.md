@@ -2,38 +2,38 @@
 
 | quantity | Opus 4.8 (N=1, fixed) | Haiku 4.5 (N=1, fixed) |
 |---|---|---|
-| micro-median residual [dex] | 0.2646 | 0.6605 |
-| macro-median residual [dex] | 1.1564 | 4.9466 |
-| papers compared (finite) | 266 | 231 |
-| catastrophic (>3 dex) | 19 | 44 |
-| >1 dex | 55 | 95 |
-| mean frac within 0.3 dex | 0.521 | 0.301 |
-| mean mass-range coverage | 0.8517 | 0.7687 |
+| micro-median residual [dex] | 0.2509 | 0.6474 |
+| macro-median residual [dex] | 0.6286 | 3.2593 |
+| papers compared (finite) | 258 | 225 |
+| catastrophic (>3 dex) | 15 | 41 |
+| >1 dex | 49 | 91 |
+| mean frac within 0.3 dex | 0.5336 | 0.3077 |
+| mean mass-range coverage | 0.8559 | 0.7737 |
 
-**Paired (both arms, 217 papers):** Haiku − Opus median = **+0.2228 dex**; Opus better 139, Haiku better 38, tied 40 (±0.05 dex).
+**Paired (both arms, 212 papers):** Haiku − Opus median = **+0.2098 dex**; Opus better 135, Haiku better 37, tied 40 (±0.05 dex).
 
-**Old baseline** (Opus 4.8, OLD code, N=3 consensus (pre extraction-channels arc)): 0.2454 micro / 1.5817 macro dex.
+**Old baseline** (Opus 4.8, OLD code, N=3 consensus (pre extraction-channels arc), rescored measured-limits-only): 0.2333 micro / 1.4621 macro dex.
 
 ## Opus-arm detail
 
 **Guard firings (recomputed from snapshots):** corroboration_rejections = 19, convention_review_flags = 20
 
-**Classification:** coupling_type 90.9% (n=331), is_new_limit 85.7% (n=35), is_projection 97.1% (n=35), data_source 42.9% (n=35)
+**Classification:** coupling_type 92.3% (n=313), is_new_limit 100.0% (n=30), is_projection 100.0% (n=30), data_source 43.3% (n=30)
 
 | channel | n compared | median residual [dex] |
 |---|---|---|
-| figure_vision | 125 | 0.2922 |
+| figure_vision | 120 | 0.2673 |
 | source_data | 3 | 0.0 |
 | table | 4 | 0.1296 |
-| text | 123 | 0.2756 |
-| vector_trace | 11 | 0.1804 |
+| text | 121 | 0.2622 |
+| vector_trace | 10 | 0.2329 |
 
 | confidence bin | n | mean conf | accuracy |
 |---|---|---|---|
-| [0.2-0.4) | 14 | 0.318 | 0.286 |
-| [0.4-0.6) | 92 | 0.528 | 0.315 |
-| [0.6-0.8) | 70 | 0.716 | 0.471 |
-| [0.8-1.0) | 94 | 0.84 | 0.723 |
+| [0.2-0.4) | 12 | 0.317 | 0.333 |
+| [0.4-0.6) | 89 | 0.526 | 0.326 |
+| [0.6-0.8) | 68 | 0.716 | 0.485 |
+| [0.8-1.0) | 93 | 0.84 | 0.72 |
 
 **GT pool:** 347 unique papers, 434 entries (18 excluded).
 

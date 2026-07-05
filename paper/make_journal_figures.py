@@ -2,9 +2,9 @@
 """Generate JINST manuscript figures from the definitive two-arm benchmark.
 
 Data source: the 2026-07-04 definitive benchmark (both models on the fixed
-pipeline, N=1, 346 fresh papers each):
-    evaluation/eval_runs/final2_opus_n1/metrics.json
-    evaluation/eval_runs/final2_haiku_n1/metrics.json
+pipeline, N=1), measured-limits-only scope (projections excluded, PR #698):
+    evaluation/eval_runs/final2_opus_n1/metrics_noproj.json
+    evaluation/eval_runs/final2_haiku_n1/metrics_noproj.json
 No values are hand-entered; definitions match paper/make_paper_numbers.py
 (compared paper = comparison_status "compared" with finite forward residual).
 
@@ -26,8 +26,8 @@ FIG = os.path.join(HERE, "figures")
 os.makedirs(FIG, exist_ok=True)
 
 ARMS = {
-    "Opus 4.8": ("evaluation/eval_runs/final2_opus_n1/metrics.json", "C0", "-"),
-    "Haiku 4.5": ("evaluation/eval_runs/final2_haiku_n1/metrics.json", "C1", "--"),
+    "Opus 4.8": ("evaluation/eval_runs/final2_opus_n1/metrics_noproj.json", "C0", "-"),
+    "Haiku 4.5": ("evaluation/eval_runs/final2_haiku_n1/metrics_noproj.json", "C1", "--"),
 }
 PRIMARY = "Opus 4.8"  # per-type + calibration figures use the production arm
 
