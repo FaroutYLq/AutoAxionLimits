@@ -1,0 +1,51 @@
+{
+  "seed": 701,
+  "bootstrap_iters": 20000,
+  "arms": {
+    "opus": {
+      "arm": "opus",
+      "n_frozen": 100,
+      "n_compared_r1": 100,
+      "n_compared_r2": 57,
+      "n_paired": 57,
+      "pool_median_repeat1_dex": 0.2179,
+      "pool_median_repeat2_dex": 0.2179,
+      "abs_pool_median_shift_dex": 0.0,
+      "per_paper_std_median_dex": 0.0242,
+      "per_paper_std_mean_dex": 0.323,
+      "per_paper_absdelta_median_dex": 0.0342,
+      "per_paper_std_hist_bins": [
+        0,
+        0.02,
+        0.05,
+        0.1,
+        0.2,
+        0.5,
+        1.0,
+        2.0,
+        1000000000.0
+      ],
+      "per_paper_std_hist_counts": [
+        27,
+        5,
+        3,
+        5,
+        7,
+        6,
+        2,
+        2
+      ],
+      "aggregate_floor_boot_median_dex": 0.2179,
+      "aggregate_floor_ci95_dex": [
+        0.1586,
+        0.2756
+      ],
+      "aggregate_floor_ci_halfwidth_dex": 0.0585,
+      "_had_pairs": 57
+    },
+    "haiku": {
+      "arm": "haiku",
+      "status": "repeat-2 metrics missing: /Users/lanqingyuan/Documents/GitHub/AutoAxionLimits/evaluation/eval_runs/noise_floor_100_reuse/haiku_repeat2/metrics_noproj.json"
+    }
+  }
+}

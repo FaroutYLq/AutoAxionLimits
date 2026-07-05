@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "2111.08025",
+ "paper_title": "Strong constraints on decay and annihilation of dark matter from heating of gas-rich dwarf galaxies",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   5.0,
+   3e-12
+  ],
+  [
+   10.0,
+   8e-13
+  ],
+  [
+   26.2,
+   1e-13
+  ],
+  [
+   50.0,
+   4e-14
+  ],
+  [
+   100.0,
+   2e-14
+  ],
+  [
+   300.0,
+   8e-15
+  ],
+  [
+   500.0,
+   5e-15
+  ],
+  [
+   1000.0,
+   3e-15
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "LeoT_GasHeating_ALP",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper's primary results are DM decay lifetime and annihilation cross-section limits from heating of Leo T gas-rich dwarf galaxy. Recast to ALP-photon coupling in Fig. 4 (best limit for ma ~ 30 eV - keV). Data points are approximate estimates read from Fig. 4 (Leo T gas temp bound, Tgas=6100 K, solid black curve); precise tabulated values not available in text. The paper also constrains many other DM models (Higgs portal scalars, sterile neutrinos, dark neutrons), so multiple couplings discussed - AxionPhoton chosen as the enum-matching coupling. Halo-based astrophysical bound (not haloscope), so no DM density flag set. Confidence lowered due to approximate plot-reading and multi-model nature of paper. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 8))",
+ "num_points": 8,
+ "elapsed_s": 135.8203089237213
+}

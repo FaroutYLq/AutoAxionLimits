@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "1503.06886",
+ "paper_title": "DyDy",
+ "coupling_type": "ScalarPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-22,
+   4.2e-08
+  ],
+  [
+   1e-21,
+   4.2e-06
+  ],
+  [
+   3e-18,
+   0.00036
+  ],
+  [
+   1e-15,
+   0.1
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "DyDy_Dysprosium_Spectroscopy",
+ "coupling_convention": "dimensionless d_e",
+ "notes": "Scalar dilaton-like coupling d_e to photons constraining oscillation of fine-structure constant alpha, from dysprosium atomic spectroscopy. Values: most sensitive point d_e~4.2e-8 at m_phi~1e-22 eV (text), crosses EP limit 3.6e-4 at 3e-18 eV. Other points estimated from Fig.4 assuming approximately omega^-2 amplitude scaling at low frequencies; higher-mass points are rough. DM density assumed 0.3 GeV/cm^3, coupling scales as sqrt(rho). 95% CL. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.6, 4))",
+ "num_points": 4,
+ "elapsed_s": 111.44470500946045
+}

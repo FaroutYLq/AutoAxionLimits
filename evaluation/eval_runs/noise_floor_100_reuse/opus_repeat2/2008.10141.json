@@ -1,0 +1,102 @@
+{
+ "arxiv_id": "2008.10141",
+ "paper_title": "Search for invisible axion dark matter with a multiple-cell haloscope",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.3e-05,
+   1.1500000000000001e-14
+  ],
+  [
+   1.305e-05,
+   1.16e-14
+  ],
+  [
+   1.31e-05,
+   1.17e-14
+  ],
+  [
+   1.315e-05,
+   1.1500000000000001e-14
+  ],
+  [
+   1.32e-05,
+   1.14e-14
+  ],
+  [
+   1.325e-05,
+   1.1500000000000001e-14
+  ],
+  [
+   1.33e-05,
+   1.16e-14
+  ],
+  [
+   1.333e-05,
+   1.2000000000000001e-14
+  ],
+  [
+   1.335e-05,
+   1.1800000000000002e-14
+  ],
+  [
+   1.34e-05,
+   1.14e-14
+  ],
+  [
+   1.345e-05,
+   1.1300000000000001e-14
+  ],
+  [
+   1.35e-05,
+   1.12e-14
+  ],
+  [
+   1.355e-05,
+   1.1300000000000001e-14
+  ],
+  [
+   1.36e-05,
+   1.12e-14
+  ],
+  [
+   1.365e-05,
+   1.11e-14
+  ],
+  [
+   1.37e-05,
+   1.12e-14
+  ],
+  [
+   1.375e-05,
+   1.11e-14
+  ],
+  [
+   1.38e-05,
+   1.1e-14
+  ],
+  [
+   1.385e-05,
+   1.11e-14
+  ],
+  [
+   1.388e-05,
+   1.12e-14
+  ],
+  [
+   1.39e-05,
+   1.1300000000000001e-14
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "CAPP-9T (multiple-cell haloscope)",
+ "coupling_convention": "g_agamma / g_agamma^KSVZ, dimensionless ratio as plotted on main y-axis",
+ "notes": " | selector: figure_vision (sole candidate) | Vision: Main plot y-axis is the ratio g_agamma/g_agamma^KSVZ (5 to 50), NOT absolute g_agamma. The 'This work' band sits around ratio ~11 (text states g_agamma >~ 11.1 x g_KSVZ excluded). The inset shows absolute g_agamma [GeV^-1] but is too small/comparative to read reliably; emitted values are the plotted KSVZ ratio for the main result over 13.0-13.9 \u03bceV. Downstream conversion to absolute g_agamma requires multiplying by g_KSVZ at each mass. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.98 snapped to identity) | Auto-corrected couplings: \u00d71e-15 (\u00d71.00e-15, rule=argmin|log10(median*f)-log10(anchor=1.0e-14)|)",
+ "num_points": 21,
+ "elapsed_s": 213.3365650177002
+}

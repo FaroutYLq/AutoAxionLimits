@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1903.05101",
+ "paper_title": "WSi_Nanowire",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.8,
+   3e-13
+  ],
+  [
+   4.0,
+   1e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "WSi_Nanowire",
+ "coupling_convention": "dimensionless kinetic mixing kappa (approximate, read from Fig. 4 description)",
+ "notes": "Paper proposes superconducting nanowires for DM detection. The 4.3 ng WSi prototype places the strongest terrestrial bound on sub-eV dark photon absorption (Fig. 4, 'Bound WSi' curve). However, the exclusion curve numerical values are not tabulated in the text; Fig. 4 axes/data are not machine-readable in the provided content. The data_points given are rough placeholders spanning the ~0.8-few eV mass range where the bound is claimed to be strongest, with kappa ~1e-13 estimated. These should be treated as low-confidence approximations. The genuine measured bound is the 'Bound WSi' curve; projections (kg-yr NbN/WSi) are separate and not extracted here. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.3, 2))",
+ "num_points": 2,
+ "elapsed_s": 133.3600881099701
+}
