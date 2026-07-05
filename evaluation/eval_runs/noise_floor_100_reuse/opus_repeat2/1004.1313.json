@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "1004.1313",
+ "paper_title": "New ALPS Results on Hidden-Sector Lightweights",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0001,
+   6e-08
+  ],
+  [
+   0.0003,
+   6e-08
+  ],
+  [
+   0.0007,
+   6.5e-08
+  ],
+  [
+   0.001,
+   7e-08
+  ],
+  [
+   0.0015,
+   8e-08
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "ALPS2010",
+ "coupling_convention": "g_agamma in GeV^-1 (pseudoscalar g-)",
+ "notes": "ALPS LSW experiment at DESY with HERA dipole (5 T, 8.8 m), 532 nm laser. Paper reports probability limits P(gamma->WISP->gamma) ~ few x 10^-25 (Table 1). Coupling limits are given only in figures (Fig 4 pseudoscalar g-/scalar g+, Fig 5 hidden photon chi, Fig 6 MCP charge). Data points here are approximate values read from Fig 4 for the pseudoscalar ALP-photon coupling (vacuum + gas runs); flat region ~6e-8 GeV^-1 for m < ~1e-3 eV, rising for higher masses. Paper also constrains DarkPhoton (chi vs m, best lab bound, e.g. m~0.18 meV chi~1.4e-6) and minicharged particles. Not a DM haloscope, so no local density assumed. Extraction confidence lowered because numerical coupling values only available from plot. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 5))",
+ "num_points": 5,
+ "elapsed_s": 150.32965111732483
+}

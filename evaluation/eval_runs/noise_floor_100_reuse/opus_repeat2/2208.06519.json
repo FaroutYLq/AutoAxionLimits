@@ -1,0 +1,154 @@
+{
+ "arxiv_id": "2208.06519",
+ "paper_title": "One-Electron Quantum Cyclotron as a Milli-eV Dark-Photon Detector",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   7e-05,
+   3e-08
+  ],
+  [
+   7.5e-05,
+   6e-09
+  ],
+  [
+   8e-05,
+   1.2e-09
+  ],
+  [
+   8.5e-05,
+   7.999999999999999e-10
+  ],
+  [
+   9e-05,
+   1e-09
+  ],
+  [
+   9.5e-05,
+   8.500000000000001e-10
+  ],
+  [
+   0.0001,
+   9.5e-10
+  ],
+  [
+   0.000105,
+   7.999999999999999e-10
+  ],
+  [
+   0.00011,
+   1e-09
+  ],
+  [
+   0.000115,
+   1e-09
+  ],
+  [
+   0.000115,
+   8e-08
+  ],
+  [
+   0.00012,
+   6.999999999999999e-08
+  ],
+  [
+   0.00014,
+   5.4999999999999996e-08
+  ],
+  [
+   0.00016,
+   4.5e-08
+  ],
+  [
+   0.00018,
+   3.8e-08
+  ],
+  [
+   0.0002,
+   3.2e-08
+  ],
+  [
+   0.00025,
+   2.5e-08
+  ],
+  [
+   0.0003,
+   2e-08
+  ],
+  [
+   0.00035,
+   1.8e-08
+  ],
+  [
+   0.0004,
+   1.6e-08
+  ],
+  [
+   0.00045,
+   1.5e-08
+  ],
+  [
+   0.0005,
+   1.4e-08
+  ],
+  [
+   0.00055,
+   1.3e-08
+  ],
+  [
+   0.0006,
+   1.3e-08
+  ],
+  [
+   0.000612,
+   3.2e-10
+  ],
+  [
+   0.000612,
+   1.2e-08
+  ],
+  [
+   0.00065,
+   1.1e-08
+  ],
+  [
+   0.0007,
+   1e-08
+  ],
+  [
+   0.00075,
+   9.5e-09
+  ],
+  [
+   0.0008,
+   9e-09
+  ],
+  [
+   0.00085,
+   8.5e-09
+  ],
+  [
+   0.0009,
+   8e-09
+  ],
+  [
+   0.00095,
+   7.5e-09
+  ],
+  [
+   0.001,
+   7e-09
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "One-Electron Quantum Cyclotron DPDM",
+ "coupling_convention": "kinetic mixing epsilon (chi), dimensionless, as plotted",
+ "notes": "One-electron quantum cyclotron in Penning trap. Single measured limit at m_A' = 0.61227643 meV (148 GHz): epsilon < 3.2e-11 at 90% CL. This is 75x better than XENON1T/cosmology. Projection curve (ne=10, r=25mm spherical trap, 20-200 GHz) also shown but is a projection; only the measured point is emitted as a new limit. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 34)) | Vision: Fig. 5(b) full-range plot. The 'this work' constraint is a narrow vertical red line at m_A'=0.612 meV reaching epsilon~3.2e-11 (text: eps<3.2e-11). The broader lower boundary combines DOSUE (m<0.11 meV, reaching ~1e-10) and Cosmology/XENON1T (dashed/hatched, decreasing from ~few e-9 downward with mass). Points below 1.15e-4 eV trace DOSUE floor; points above trace the Cosmology dashed line. The narrow this-work spike at 6.12e-4 eV is included as two points. Panel (a) is a fine zoom (x-axis in units of 1e-6 meV offset from 0.61227643 meV) not directly usable for full-range trace. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=4.00)",
+ "num_points": 34,
+ "elapsed_s": 146.7090802192688
+}

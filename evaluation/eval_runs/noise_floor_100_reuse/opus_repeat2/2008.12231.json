@@ -1,0 +1,22 @@
+{
+ "arxiv_id": "2008.12231",
+ "paper_title": "SQuAD",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.486e-05,
+   1.68e-15
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.9,
+ "suggested_experiment_name": "SQuAD_Qubit_HP",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Superconducting qubit photon-counting hidden photon dark matter search. Excludes epsilon <= 1.68e-15 at 6.011 GHz (24.86 ueV) at 90% CL. Mass from 6.011 GHz = 24.86 ueV = 2.486e-5 eV. Narrow band search around single frequency. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.9, 1))",
+ "num_points": 1,
+ "elapsed_s": 104.9501359462738
+}

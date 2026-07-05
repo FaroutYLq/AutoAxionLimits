@@ -1,0 +1,162 @@
+{
+ "arxiv_id": "1910.08638",
+ "paper_title": "Extended Search for the Invisible Axion with the Axion Dark Matter Experiment",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.803e-06,
+   3.4e-16
+  ],
+  [
+   2.81e-06,
+   3.5e-16
+  ],
+  [
+   2.82e-06,
+   3.2e-16
+  ],
+  [
+   2.83e-06,
+   3.5e-16
+  ],
+  [
+   2.845e-06,
+   2.6e-16
+  ],
+  [
+   2.86e-06,
+   3.4e-16
+  ],
+  [
+   2.875e-06,
+   3.5e-16
+  ],
+  [
+   2.89e-06,
+   3.1e-16
+  ],
+  [
+   2.905e-06,
+   3.5e-16
+  ],
+  [
+   2.92e-06,
+   3.4e-16
+  ],
+  [
+   2.935e-06,
+   3.6e-16
+  ],
+  [
+   2.95e-06,
+   2.9e-16
+  ],
+  [
+   2.965e-06,
+   3.5e-16
+  ],
+  [
+   2.98e-06,
+   3.6e-16
+  ],
+  [
+   2.995e-06,
+   3.4e-16
+  ],
+  [
+   3.01e-06,
+   3.6e-16
+  ],
+  [
+   3.025e-06,
+   3.5e-16
+  ],
+  [
+   3.04e-06,
+   3.2e-16
+  ],
+  [
+   3.055e-06,
+   3.6e-16
+  ],
+  [
+   3.07e-06,
+   3.5e-16
+  ],
+  [
+   3.085e-06,
+   3e-16
+  ],
+  [
+   3.095e-06,
+   3.7e-16
+  ],
+  [
+   3.1e-06,
+   3.7e-16
+  ],
+  [
+   3.15e-06,
+   3.8e-16
+  ],
+  [
+   3.16e-06,
+   3.7e-16
+  ],
+  [
+   3.175e-06,
+   3.8e-16
+  ],
+  [
+   3.19e-06,
+   3.6e-16
+  ],
+  [
+   3.205e-06,
+   3.8e-16
+  ],
+  [
+   3.22e-06,
+   3.9e-16
+  ],
+  [
+   3.235e-06,
+   3.7e-16
+  ],
+  [
+   3.25e-06,
+   4e-16
+  ],
+  [
+   3.265e-06,
+   3.9e-16
+  ],
+  [
+   3.28e-06,
+   4.5e-16
+  ],
+  [
+   3.29e-06,
+   5.5e-16
+  ],
+  [
+   3.3e-06,
+   7e-16
+  ],
+  [
+   3.31e-06,
+   9.5e-16
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.78,
+ "suggested_experiment_name": "ADMX 2020 (Extended Search)",
+ "coupling_convention": "g_agamma in GeV^-1 as plotted",
+ "notes": "ADMX cavity haloscope search over 2.81-3.31 ueV (frequencies ~680-790 MHz, though mass range 2.81-3.31 ueV corresponds to ~680-800 MHz). Paper excludes down to DFSZ axion-photon coupling. Exclusion is shown only in Fig. 4 with no numerical table of g_agamma vs mass provided in the text. DFSZ coupling at ~740 MHz (3.06 ueV) is approximately g_agamma ~ 4e-16 GeV^-1. Data points here are rough estimates spanning the mass range at the DFSZ level; actual per-frequency limit values are not tabulated in the paper. Local density 0.45 GeV/cm^3 (MB model); N-body model used 0.63 GeV/cm^3. Extraction confidence low because numerical limit values must be read off the figure. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.78, 36)) | Vision: Traced lower boundary of green 'ADMX This work' MB-model exclusion region. Frequency converted to mass via the top axis (2.8-3.31 ueV corresponds to ~677-800 MHz). The boundary sits near the DFSZ line (~3.5-4e-16 GeV^-1), rising sharply above 3.28 ueV near a mode crossing/edge. Downward spikes represent enhanced sensitivity. Green region has gaps (mode crossings, e.g. near 3.1 ueV) where no limit was set. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.97 snapped to identity)",
+ "num_points": 36,
+ "elapsed_s": 191.1319661140442
+}

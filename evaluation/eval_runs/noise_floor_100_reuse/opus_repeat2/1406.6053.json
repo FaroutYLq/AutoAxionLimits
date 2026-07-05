@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1406.6053",
+ "paper_title": "Revisiting the bound on axion-photon coupling from Globular Clusters",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0,
+   6.6e-11
+  ],
+  [
+   0.0,
+   6.6e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.95,
+ "suggested_experiment_name": "GlobularClusters_Rparameter2014",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Stellar bound from R parameter of 39 Galactic Globular Clusters. Mass-independent limit valid for m_a below a few keV. Main result: g_agamma < 0.66e-10 GeV^-1 at 95% CL (benchmark using Aver et al. He abundance). Encoded as mass-independent flat bound with sentinel mass 0. | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 68.57626080513
+}

@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "1804.10777",
+ "paper_title": "TEXONO",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   20.0,
+   3e-05
+  ],
+  [
+   100.0,
+   2e-05
+  ],
+  [
+   1000.0,
+   1.5e-05
+  ],
+  [
+   10000.0,
+   1.2e-05
+  ],
+  [
+   100000.0,
+   1e-05
+  ],
+  [
+   1000000.0,
+   1e-05
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.4,
+ "suggested_experiment_name": "TEXONO_HiddenPhoton",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Reactor hidden photon search reinterpreting TEXONO data. Limit is on kinetic mixing epsilon vs mX. The paper's Fig.1 shows the exclusion but only axis ranges (Log10 eps from -15 to 0, Log10 mX from -2 to 6) are given; no numerical table. Data points are rough estimates for mX >~ 20 eV where P~eps^2 gives a limit slightly weaker than Ref[13]'s ~1e-5. Sensitivity vanishes below ~0.05-20 eV due to plasma mass suppression. Values are approximate and should be treated with low confidence. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.4, 6))",
+ "num_points": 6,
+ "elapsed_s": 63.44576597213745
+}

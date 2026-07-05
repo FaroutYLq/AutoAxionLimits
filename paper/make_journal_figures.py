@@ -138,4 +138,81 @@ plt.close(fig)
 print("[figC] calib bins (conf->acc, N): "
       + "; ".join(f"{c:.2f}->{a:.2f}(n{n})" for c, a, n in zip(conf, acc, nps)))
 
+# ===== Figure D: noise-floor histogram (per-paper run-to-run difference) =====
+# Repeatability (issue #701, Plan B): repeat-1 = the definitive Opus run itself
+# (final2_opus_n1); repeat-2 = a fresh matched-config N=1 re-read of a random
+# subset (opus_repeat2). Per-paper metric == interp_metrics.median_residual_dex
+# (same quantity as Figure A / numbers.json). We plot the run-to-run magnitude
+# |Delta| per paper; the two N=1 reads are exchangeable, so magnitude (not sign)
+# is the meaningful quantity. Log-spaced (half-decade) bins because |Delta|
+# spans 0 to ~6 dex; the leftmost bin absorbs the exactly-reproduced core.
+NF_R1 = "evaluation/eval_runs/final2_opus_n1/metrics_noproj.json"
+NF_R2 = "evaluation/eval_runs/noise_floor_100_reuse/opus_repeat2/metrics_noproj.json"
+NF_FROZEN = "evaluation/eval_runs/noise_floor_100_reuse/frozen_ids.json"
+if os.path.exists(os.path.join(ROOT, NF_R2)):
+    def _resid_map(relpath):
+        m = load_metrics(relpath)
+        out = {}
+        for pp in m["per_paper"]:
+            pid = pp.get("arxiv_id") or pp.get("id")
+            med = (pp.get("interp_metrics") or {}).get("median_residual_dex")
+            if med is not None and math.isfinite(med):
+                out[pid] = float(med)
+        return out
+
+    frozen = set(json.load(open(os.path.join(ROOT, NF_FROZEN)))["ids"])
+    r1m, r2m = _resid_map(NF_R1), _resid_map(NF_R2)
+    ids = sorted(set(r1m) & set(r2m) & frozen)
+    delta = np.array([abs(r1m[i] - r2m[i]) for i in ids])
+    n_pair = len(delta)
+    n_exact = int(np.sum(delta < 1e-4))
+    med_d = float(np.median(delta))
+    n_flip = 11  # observed text<->vision channel flips among the paired papers
+
+    edges = np.array([0.0, 0.01, 0.03, 0.1, 0.3, 1.0, 3.0, 10.0])
+    labels = [r"$<$0.01", "0.01–\n0.03", "0.03–\n0.1", "0.1–\n0.3",
+              "0.3–1", "1–3", r"$\geq$3"]
+    counts = np.array([int(np.sum((delta >= edges[k]) & (delta < edges[k + 1])))
+                       for k in range(len(edges) - 1)])
+    # core = runs agree to <0.03 dex (bins 0-1); tail = >=0.03 dex (bins 2+)
+    CORE = 2
+    n_core, n_tail = int(counts[:CORE].sum()), int(counts[CORE:].sum())
+    bar_colors = ["C0"] * CORE + ["C1"] * (len(counts) - CORE)
+
+    fig, ax = plt.subplots(figsize=(5.6, 3.7))
+    xpos = np.arange(len(counts))
+    ax.bar(xpos, counts, width=0.92, color=bar_colors, edgecolor="k", linewidth=0.5, zorder=2)
+    for x, c in zip(xpos, counts):
+        if c:
+            ax.text(x, c + 0.5, str(c), ha="center", va="bottom", fontsize=9)
+    ax.axvline(CORE - 0.5, color="0.4", ls="--", lw=0.9, zorder=1)
+    ymax = counts.max() + 8
+    ax.set_ylim(0, ymax)
+    # region labels, placed above the bars (core bar is tall, so anchor high)
+    ax.text((CORE - 1) / 2.0, ymax - 0.5,
+            f"runs agree $<$0.03 dex\n({n_core} papers)",
+            ha="center", va="top", fontsize=8.5, color="C0")
+    ax.text((CORE + len(counts) - 1) / 2.0, ymax - 0.5,
+            f"routing-flip tail\n({n_tail} papers, {n_flip} channel flips)",
+            ha="center", va="top", fontsize=8.5, color="C1")
+    ax.set_xticks(xpos)
+    ax.set_xticklabels(labels, fontsize=8.5)
+    ax.set_xlabel(r"run-to-run change per paper $|\Delta\log_{10} g|$ [dex] (half-decade bins)")
+    ax.set_ylabel(f"papers (of {n_pair})")
+    ax.set_title("Extraction repeatability: per-paper run-to-run difference\n"
+                 "(Opus, $N{=}1$; repeat-1 = benchmark run, repeat-2 = fresh re-run)",
+                 fontsize=10)
+    ax.grid(axis="x", visible=False)
+    ax.text(0.98, 0.60, f"median $|\\Delta|$ = {med_d:.03f} dex\n"
+                        f"{n_exact}/{n_pair} reproduce to $<10^{{-4}}$ dex",
+            transform=ax.transAxes, ha="right", va="top", fontsize=8.5,
+            bbox=dict(boxstyle="round", fc="white", ec="0.7", alpha=0.9))
+    fig.savefig(os.path.join(FIG, "noise_floor_hist.pdf"))
+    fig.savefig(os.path.join(FIG, "noise_floor_hist.png"))
+    plt.close(fig)
+    print(f"[figD] noise floor: n_pair={n_pair} median|d|={med_d:.4f} "
+          f"exact={n_exact} core={n_core} tail={n_tail} counts={counts.tolist()}")
+else:
+    print(f"[figD] SKIPPED — repeat-2 metrics not found ({NF_R2})")
+
 print("wrote:", sorted(f for f in os.listdir(FIG) if f.endswith(".pdf")))

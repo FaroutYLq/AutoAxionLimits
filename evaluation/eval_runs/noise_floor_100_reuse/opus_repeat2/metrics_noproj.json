@@ -1,0 +1,3784 @@
+{
+  "n_papers": 58,
+  "gt_exclusions": {
+    "n_entries": 0,
+    "n_papers_fully_excluded": 0,
+    "entries": []
+  },
+  "per_type_aggregate": {
+    "n_types": 7,
+    "n_papers_compared": 57,
+    "micro_median_residual_dex": 0.2179420769926672,
+    "macro_median_residual_dex": 0.28907209365746495,
+    "macro_minus_micro_dex": 0.07113001666479773,
+    "small_sample_threshold": 5,
+    "per_type": {
+      "AxionPhoton": {
+        "n": 26,
+        "median_residual_dex": 0.10920715315909524,
+        "ci95_lo": 0.03386658221022998,
+        "ci95_hi": 0.33075709526449304,
+        "small_sample": false
+      },
+      "DarkPhoton": {
+        "n": 21,
+        "median_residual_dex": 0.3622791292485683,
+        "ci95_lo": 0.10949897296063593,
+        "ci95_hi": 0.7128354229520504,
+        "small_sample": false
+      },
+      "AxionElectron": {
+        "n": 5,
+        "median_residual_dex": 0.4867424780082068,
+        "ci95_lo": 0.0,
+        "ci95_hi": 5.460642499040901,
+        "small_sample": false
+      },
+      "AxionNeutron": {
+        "n": 2,
+        "median_residual_dex": 0.18745173149502814,
+        "ci95_lo": 0.12865829783329685,
+        "ci95_hi": 0.24624516515675943,
+        "small_sample": true
+      },
+      "ScalarBaryon": {
+        "n": 1,
+        "median_residual_dex": 0.2179420769926672,
+        "ci95_lo": 0.2179420769926672,
+        "ci95_hi": 0.2179420769926672,
+        "small_sample": true
+      },
+      "ScalarPhoton": {
+        "n": 1,
+        "median_residual_dex": 0.23462566396485074,
+        "ci95_lo": 0.23462566396485074,
+        "ci95_hi": 0.23462566396485074,
+        "small_sample": true
+      },
+      "VectorBL": {
+        "n": 1,
+        "median_residual_dex": 0.42525642273383824,
+        "ci95_lo": 0.42525642273383824,
+        "ci95_hi": 0.42525642273383824,
+        "small_sample": true
+      }
+    }
+  },
+  "classification": {
+    "coupling_type": {
+      "accuracy": 1.0,
+      "total": 58,
+      "errors": []
+    },
+    "is_new_limit": {
+      "accuracy": 1.0,
+      "total": 4,
+      "errors": []
+    },
+    "is_projection": {
+      "accuracy": 1.0,
+      "total": 4,
+      "errors": []
+    },
+    "data_source": {
+      "accuracy": 0.5,
+      "total": 4,
+      "errors": [
+        {
+          "arxiv_id": "2005.14184",
+          "predicted": "text",
+          "expected": "figure_vision"
+        },
+        {
+          "arxiv_id": "1712.00483",
+          "predicted": "text",
+          "expected": "figure_vision"
+        }
+      ]
+    }
+  },
+  "comparison_coverage": {
+    "n_papers": 58,
+    "n_compared": 57,
+    "status_counts": {
+      "compared": 57,
+      "convention_mismatch": 1
+    }
+  },
+  "interpolation_aggregate": {
+    "n_papers": 57,
+    "n_zero_overlap": 0,
+    "n_finite": 57,
+    "mean_interpolation_coverage": 0.8484570195433166,
+    "median_median_residual_dex": 0.2179420769926672,
+    "p25_median_residual_dex": 0.062251338169842185,
+    "p75_median_residual_dex": 0.5169253823108484,
+    "mean_median_residual_dex": 0.5204499841552562,
+    "mean_p90_residual_dex": 1.0028254027098795,
+    "mean_frac_within_0_3dex": 0.5891357264051021,
+    "mean_frac_within_0_5dex": 0.7241880432510444,
+    "n_finite_reverse": 51,
+    "mean_interpolation_coverage_reverse": 0.7076031950224246,
+    "median_median_residual_dex_reverse": 0.18576101628456154,
+    "mean_median_residual_dex_reverse": 0.6209708481025504
+  },
+  "symmetric_aggregate": {
+    "n_papers": 53,
+    "n_finite_area": 52,
+    "median_area_between_log": 0.18440466295233182,
+    "mean_area_between_log": 0.637627597661441,
+    "median_mass_jaccard": 0.811755826374088,
+    "mean_mass_jaccard": 0.7226166447361617
+  },
+  "curve_aggregate": {
+    "n_papers_with_curves": 53,
+    "mean_coverage_0_5dex": 0.6415240881339446,
+    "mean_coverage_1_0dex": 0.730873374442117,
+    "mean_median_coupling_log_error": 0.5800237305280305,
+    "mean_mass_range_overlap": 0.7915775812561705
+  },
+  "confidence_calibration": [
+    {
+      "bin_lo": 0.0,
+      "bin_hi": 0.2,
+      "n_papers": 0,
+      "mean_confidence": 0.0,
+      "actual_accuracy": 0.0,
+      "paper_ids": [],
+      "median_residual_dex": null,
+      "p25_residual_dex": null,
+      "p75_residual_dex": null,
+      "n_finite": 0,
+      "frac_within_tau": {
+        "0.1": 0.0,
+        "0.32": 0.0,
+        "0.5": 0.0,
+        "1.0": 0.0
+      }
+    },
+    {
+      "bin_lo": 0.2,
+      "bin_hi": 0.4,
+      "n_papers": 1,
+      "mean_confidence": 0.3,
+      "actual_accuracy": 0.0,
+      "paper_ids": [
+        "1903.05101"
+      ],
+      "median_residual_dex": 4.467353075536931,
+      "p25_residual_dex": 4.467353075536931,
+      "p75_residual_dex": 4.467353075536931,
+      "n_finite": 1,
+      "frac_within_tau": {
+        "0.1": 0.0,
+        "0.32": 0.0,
+        "0.5": 0.0,
+        "1.0": 0.0
+      }
+    },
+    {
+      "bin_lo": 0.4,
+      "bin_hi": 0.6000000000000001,
+      "n_papers": 22,
+      "mean_confidence": 0.5431818181818181,
+      "actual_accuracy": 0.2727272727272727,
+      "paper_ids": [
+        "2005.14184",
+        "1905.13650",
+        "1712.00483",
+        "1903.12190",
+        "2208.06519",
+        "1911.11905",
+        "1804.05750",
+        "1911.05772",
+        "1004.1313",
+        "2008.10141",
+        "2012.10764",
+        "2111.08025",
+        "2205.05700",
+        "2102.00379",
+        "2008.02209",
+        "0801.1527",
+        "2101.02805",
+        "2211.00022",
+        "2301.03622",
+        "1804.10777",
+        "1907.12449",
+        "1503.06886"
+      ],
+      "median_residual_dex": 0.4375399248375902,
+      "p25_residual_dex": 0.2221129737357131,
+      "p75_residual_dex": 0.8641635115185191,
+      "n_finite": 22,
+      "frac_within_tau": {
+        "0.1": 0.045454545454545456,
+        "0.32": 0.3181818181818182,
+        "0.5": 0.5454545454545454,
+        "1.0": 0.7727272727272727
+      }
+    },
+    {
+      "bin_lo": 0.6000000000000001,
+      "bin_hi": 0.8,
+      "n_papers": 10,
+      "mean_confidence": 0.742,
+      "actual_accuracy": 0.4,
+      "paper_ids": [
+        "1310.8098",
+        "2110.10262",
+        "2207.11968",
+        "2004.02733",
+        "1707.07921",
+        "1910.08638",
+        "2009.09059",
+        "1905.05579",
+        "1504.00118",
+        "2109.08822"
+      ],
+      "median_residual_dex": 0.38274444915283956,
+      "p25_residual_dex": 0.1436855210096668,
+      "p75_residual_dex": 0.5264420860485757,
+      "n_finite": 10,
+      "frac_within_tau": {
+        "0.1": 0.1,
+        "0.32": 0.4,
+        "0.5": 0.6,
+        "1.0": 0.9
+      }
+    },
+    {
+      "bin_lo": 0.8,
+      "bin_hi": 1.0,
+      "n_papers": 24,
+      "mean_confidence": 0.8474999999999998,
+      "actual_accuracy": 0.7916666666666666,
+      "paper_ids": [
+        "2207.03102",
+        "2208.12670",
+        "2205.03679",
+        "2007.03694",
+        "2108.03316",
+        "1705.02290",
+        "1406.6053",
+        "2110.14406",
+        "1610.02580",
+        "1311.3148",
+        "1811.10997",
+        "2008.09464",
+        "2202.08274",
+        "2203.12152",
+        "2104.13798",
+        "2006.06722",
+        "2205.05574",
+        "1911.05086",
+        "0810.5501",
+        "1301.6557",
+        "2208.03183",
+        "2008.12231",
+        "2106.00022",
+        "2006.02828"
+      ],
+      "median_residual_dex": 0.05298078069241985,
+      "p25_residual_dex": 0.0024982039145613477,
+      "p75_residual_dex": 0.15891730626823608,
+      "n_finite": 24,
+      "frac_within_tau": {
+        "0.1": 0.625,
+        "0.32": 0.875,
+        "0.5": 0.9583333333333334,
+        "1.0": 1.0
+      }
+    }
+  ],
+  "difficulty_breakdown": {
+    "easy": {
+      "total": 4,
+      "extracted": 4,
+      "coupling_type_accuracy": 1.0,
+      "median_residual_dex": 0.6384420977408327,
+      "mean_frac_within_0_3dex": 0.25
+    },
+    "medium": {
+      "total": 51,
+      "extracted": 51,
+      "coupling_type_accuracy": 1.0,
+      "median_residual_dex": 0.16436348552160085,
+      "mean_frac_within_0_3dex": 0.628252768789156
+    },
+    "hard": {
+      "total": 3,
+      "extracted": 3,
+      "coupling_type_accuracy": 1.0,
+      "median_residual_dex": 0.5296143206278181,
+      "mean_frac_within_0_3dex": 0.3893659885443413
+    }
+  },
+  "source_breakdown": {
+    "figure_vision": {
+      "total": 22,
+      "n_compared": 21,
+      "n_zero_overlap": 0,
+      "median_residual_dex": 0.16663309461022524,
+      "mean_frac_within_0_3dex": 0.5584855088580974
+    },
+    "text": {
+      "total": 34,
+      "n_compared": 34,
+      "n_zero_overlap": 0,
+      "median_residual_dex": 0.24043541456080508,
+      "mean_frac_within_0_3dex": 0.5845110015412973
+    }
+  },
+  "per_paper": [
+    {
+      "arxiv_id": "2005.14184",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionElectron"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.55,
+      "data_source": "text",
+      "num_points_extracted": 8,
+      "elapsed_s": 76.56588506698608,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionElectron",
+      "coupling_type_expected": [
+        "AxionElectron"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionElectron/GERDA.txt",
+      "comparison_coupling": "AxionElectron",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 8,
+        "num_ground_truth": 891,
+        "num_interpolatable": 888,
+        "interpolation_coverage": 0.9966329966329966,
+        "median_residual_dex": 0.4867424780082068,
+        "mean_residual_dex": 0.4725389748606799,
+        "p90_residual_dex": 0.8667236939683316,
+        "max_residual_dex": 1.0948664725637087,
+        "frac_within_0_1dex": 0.16103603603603603,
+        "frac_within_0_3dex": 0.3367117117117117,
+        "frac_within_0_5dex": 0.5135135135135135,
+        "frac_within_1_0dex": 0.9808558558558559,
+        "num_interpolatable_reverse": 7,
+        "interpolation_coverage_reverse": 0.875,
+        "median_residual_dex_reverse": 0.25885133966666807,
+        "mean_residual_dex_reverse": 0.44291020450394186,
+        "p90_residual_dex_reverse": 0.8732061686592727,
+        "max_residual_dex_reverse": 1.035099979688507
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.3480508893433796,
+        "overlap_log_mass_width": 1.2202577631671812,
+        "mass_jaccard": 0.9979530541498604,
+        "ext_log_mass_lo": 4.778151250383644,
+        "ext_log_mass_hi": 6.0,
+        "gt_log_mass_lo": 4.779742236832819,
+        "gt_log_mass_hi": 6.000911938467011
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.5180652534929506,
+        "coverage_at_0_5dex": 0.9831649831649831,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 0.9992532254396823,
+        "median_coupling_log_error": 0.4658571611392812,
+        "p90_coupling_log_error": 0.908241172943143,
+        "num_extracted": 8,
+        "num_ground_truth": 891
+      }
+    },
+    {
+      "arxiv_id": "1905.13650",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionNeutron"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.55,
+      "data_source": "figure_vision",
+      "num_points_extracted": 40,
+      "elapsed_s": 203.3721148967743,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionNeutron",
+      "coupling_type_expected": [
+        "AxionNeutron"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionNeutron/CASPEr_Comagnetometer.txt",
+      "comparison_coupling": "AxionNeutron",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 14,
+        "num_ground_truth": 243,
+        "num_interpolatable": 243,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 0.12865829783329685,
+        "mean_residual_dex": 0.1542078540096988,
+        "p90_residual_dex": 0.31689020318851424,
+        "max_residual_dex": 0.514674954429454,
+        "frac_within_0_1dex": 0.41975308641975306,
+        "frac_within_0_3dex": 0.8765432098765432,
+        "frac_within_0_5dex": 0.9917695473251029,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 8,
+        "interpolation_coverage_reverse": 0.5714285714285714,
+        "median_residual_dex_reverse": 0.3330951929632202,
+        "mean_residual_dex_reverse": 0.3496294461073431,
+        "p90_residual_dex_reverse": 0.48960356583083026,
+        "max_residual_dex_reverse": 0.5216338092233026
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.2654462136205547,
+        "overlap_log_mass_width": 5.111111111111107,
+        "mass_jaccard": 0.7301587301587296,
+        "ext_log_mass_lo": -22.0,
+        "ext_log_mass_hi": -15.0,
+        "gt_log_mass_lo": -21.936507936507933,
+        "gt_log_mass_hi": -16.825396825396826
+      },
+      "curve_metrics": {
+        "hausdorff_log": 2.395422145393589,
+        "coverage_at_0_5dex": 0.01646090534979424,
+        "coverage_at_1_0dex": 0.32510288065843623,
+        "mass_range_overlap": 1.0,
+        "median_coupling_log_error": 0.4987550639429652,
+        "p90_coupling_log_error": 0.8619787735334915,
+        "num_extracted": 14,
+        "num_ground_truth": 243
+      }
+    },
+    {
+      "arxiv_id": "1310.8098",
+      "difficulty": "medium",
+      "num_gt_entries": 2,
+      "true_couplings": [
+        "AxionPhoton",
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.75,
+      "data_source": "figure_vision",
+      "num_points_extracted": 42,
+      "elapsed_s": 239.99925994873047,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton",
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/CROWS.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 42,
+        "num_ground_truth": 44,
+        "num_interpolatable": 43,
+        "interpolation_coverage": 0.9772727272727273,
+        "median_residual_dex": 0.3402324755718409,
+        "mean_residual_dex": 0.6080182715187579,
+        "p90_residual_dex": 1.5336587684779661,
+        "max_residual_dex": 1.7259921065094743,
+        "frac_within_0_1dex": 0.18604651162790697,
+        "frac_within_0_3dex": 0.3953488372093023,
+        "frac_within_0_5dex": 0.627906976744186,
+        "frac_within_1_0dex": 0.7441860465116279,
+        "num_interpolatable_reverse": 35,
+        "interpolation_coverage_reverse": 0.8333333333333334,
+        "median_residual_dex_reverse": 0.16119062996147449,
+        "mean_residual_dex_reverse": 0.3311098329518322,
+        "p90_residual_dex_reverse": 0.9598370915784995,
+        "max_residual_dex_reverse": 1.5542380541207788
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.20198861788417485,
+        "overlap_log_mass_width": 4.770864085386626,
+        "mass_jaccard": 0.8466650921512089,
+        "ext_log_mass_lo": -9.0,
+        "ext_log_mass_hi": -3.9208187539523753,
+        "gt_log_mass_lo": -9.555708073960599,
+        "gt_log_mass_hi": -4.229135914613374
+      },
+      "curve_metrics": {
+        "hausdorff_log": 5.680882430060192,
+        "coverage_at_0_5dex": 1.0,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 1.0,
+        "median_coupling_log_error": 0.3665670942336332,
+        "p90_coupling_log_error": 1.454066641384378,
+        "num_extracted": 36,
+        "num_ground_truth": 43
+      }
+    },
+    {
+      "arxiv_id": "1712.00483",
+      "difficulty": "medium",
+      "num_gt_entries": 4,
+      "true_couplings": [
+        "ScalarBaryon",
+        "ScalarElectron",
+        "ScalarNucleon",
+        "ScalarPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.55,
+      "data_source": "text",
+      "num_points_extracted": 2,
+      "elapsed_s": 74.92473483085632,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "ScalarBaryon",
+      "coupling_type_expected": [
+        "ScalarBaryon",
+        "ScalarElectron",
+        "ScalarNucleon",
+        "ScalarPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/ScalarBaryon/MICROSCOPE.txt",
+      "comparison_coupling": "ScalarBaryon",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 2,
+        "num_ground_truth": 119,
+        "num_interpolatable": 70,
+        "interpolation_coverage": 0.5882352941176471,
+        "median_residual_dex": 0.2179420769926672,
+        "mean_residual_dex": 0.7443332500707235,
+        "p90_residual_dex": 2.177340357875732,
+        "max_residual_dex": 2.7201664175049167,
+        "frac_within_0_1dex": 0.42857142857142855,
+        "frac_within_0_3dex": 0.5285714285714286,
+        "frac_within_0_5dex": 0.5714285714285714,
+        "frac_within_1_0dex": 0.6714285714285714,
+        "num_interpolatable_reverse": 1,
+        "interpolation_coverage_reverse": 0.5,
+        "median_residual_dex_reverse": 2.79331675293505,
+        "mean_residual_dex_reverse": 2.79331675293505,
+        "p90_residual_dex_reverse": 2.79331675293505,
+        "max_residual_dex_reverse": 2.79331675293505
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.3779863681052336,
+        "overlap_log_mass_width": 4.7048134867257545,
+        "mass_jaccard": 0.7180615324265035,
+        "ext_log_mass_lo": -18.0,
+        "ext_log_mass_hi": -12.0,
+        "gt_log_mass_lo": -16.704813486725755,
+        "gt_log_mass_hi": -11.44789649039261
+      },
+      "curve_metrics": {
+        "hausdorff_log": 6.7507634365225035,
+        "coverage_at_0_5dex": 0.0,
+        "coverage_at_1_0dex": 0.0,
+        "mass_range_overlap": 0.8949757985540767,
+        "median_coupling_log_error": 2.83236961738793,
+        "p90_coupling_log_error": 3.1472379857592263,
+        "num_extracted": 2,
+        "num_ground_truth": 119
+      }
+    },
+    {
+      "arxiv_id": "2207.03102",
+      "difficulty": "easy",
+      "num_gt_entries": 3,
+      "true_couplings": [
+        "AxionPhoton",
+        "ScalarPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.85,
+      "data_source": "text",
+      "num_points_extracted": 2,
+      "elapsed_s": 87.59048104286194,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton",
+        "ScalarPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/GlobularClusters-R2.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "reverse",
+      "interp_metrics": {
+        "num_extracted": 2,
+        "num_ground_truth": 2,
+        "num_interpolatable": 2,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 0.0,
+        "mean_residual_dex": 0.0,
+        "p90_residual_dex": 0.0,
+        "max_residual_dex": 0.0,
+        "frac_within_0_1dex": 1.0,
+        "frac_within_0_3dex": 1.0,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 2,
+        "interpolation_coverage_reverse": 1.0,
+        "median_residual_dex_reverse": 0.0,
+        "mean_residual_dex_reverse": 0.0,
+        "p90_residual_dex_reverse": 0.0,
+        "max_residual_dex_reverse": 0.0
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.0,
+        "overlap_log_mass_width": 6.0,
+        "mass_jaccard": 0.24,
+        "ext_log_mass_lo": -6.0,
+        "ext_log_mass_hi": 0.0,
+        "gt_log_mass_lo": -22.0,
+        "gt_log_mass_hi": 3.0
+      },
+      "curve_metrics": {
+        "hausdorff_log": 8.32,
+        "coverage_at_0_5dex": 0.0,
+        "coverage_at_1_0dex": 0.0,
+        "mass_range_overlap": 0.24,
+        "median_coupling_log_error": Infinity,
+        "p90_coupling_log_error": Infinity,
+        "num_extracted": 2,
+        "num_ground_truth": 2
+      }
+    },
+    {
+      "arxiv_id": "2208.12670",
+      "difficulty": "easy",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.8,
+      "data_source": "figure_vision",
+      "num_points_extracted": 36,
+      "elapsed_s": 170.53300595283508,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/QUAX3.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "single_point_gt",
+      "interp_metrics": {
+        "num_extracted": 36,
+        "num_ground_truth": 1,
+        "num_interpolatable": 1,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 0.3622779877743234,
+        "mean_residual_dex": 0.3622779877743234,
+        "p90_residual_dex": 0.3622779877743234,
+        "max_residual_dex": 0.3622779877743234,
+        "frac_within_0_1dex": 0.0,
+        "frac_within_0_3dex": 0.0,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 0,
+        "interpolation_coverage_reverse": 0.0,
+        "median_residual_dex_reverse": Infinity,
+        "mean_residual_dex_reverse": Infinity,
+        "p90_residual_dex_reverse": Infinity,
+        "max_residual_dex_reverse": Infinity
+      },
+      "symmetric_metrics": null,
+      "curve_metrics": null
+    },
+    {
+      "arxiv_id": "1903.12190",
+      "difficulty": "easy",
+      "num_gt_entries": 2,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.55,
+      "data_source": "figure_vision",
+      "num_points_extracted": 24,
+      "elapsed_s": 211.73670291900635,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/GasClouds.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 24,
+        "num_ground_truth": 3,
+        "num_interpolatable": 2,
+        "interpolation_coverage": 0.6666666666666666,
+        "median_residual_dex": 1.6551734122815493,
+        "mean_residual_dex": 1.6551734122815493,
+        "p90_residual_dex": 2.598584618054637,
+        "max_residual_dex": 2.8344374194979087,
+        "frac_within_0_1dex": 0.0,
+        "frac_within_0_3dex": 0.0,
+        "frac_within_0_5dex": 0.5,
+        "frac_within_1_0dex": 0.5,
+        "num_interpolatable_reverse": 23,
+        "interpolation_coverage_reverse": 0.9583333333333334,
+        "median_residual_dex_reverse": 2.149175797722748,
+        "mean_residual_dex_reverse": 1.950305415420777,
+        "p90_residual_dex_reverse": 2.908340687580412,
+        "max_residual_dex_reverse": 3.0797949020232744
+      },
+      "symmetric_metrics": {
+        "area_between_log": 1.8406796372107028,
+        "overlap_log_mass_width": 10.347003154574132,
+        "mass_jaccard": 0.8615707906488047,
+        "ext_log_mass_lo": -20.0,
+        "ext_log_mass_hi": -9.0,
+        "gt_log_mass_lo": -19.347003154574132,
+        "gt_log_mass_hi": -7.990536277602521
+      },
+      "curve_metrics": {
+        "hausdorff_log": 8.774122206956235,
+        "coverage_at_0_5dex": 0.5,
+        "coverage_at_1_0dex": 0.5,
+        "mass_range_overlap": 0.7711015736766803,
+        "median_coupling_log_error": Infinity,
+        "p90_coupling_log_error": Infinity,
+        "num_extracted": 24,
+        "num_ground_truth": 2
+      }
+    },
+    {
+      "arxiv_id": "2208.06519",
+      "difficulty": "easy",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.6,
+      "data_source": "figure_vision",
+      "num_points_extracted": 34,
+      "elapsed_s": 146.7090802192688,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/QuantumCyclotron.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "single_point_gt",
+      "interp_metrics": {
+        "num_extracted": 32,
+        "num_ground_truth": 1,
+        "num_interpolatable": 1,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 0.914606207707342,
+        "mean_residual_dex": 0.914606207707342,
+        "p90_residual_dex": 0.914606207707342,
+        "max_residual_dex": 0.914606207707342,
+        "frac_within_0_1dex": 0.0,
+        "frac_within_0_3dex": 0.0,
+        "frac_within_0_5dex": 0.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 0,
+        "interpolation_coverage_reverse": 0.0,
+        "median_residual_dex_reverse": Infinity,
+        "mean_residual_dex_reverse": Infinity,
+        "p90_residual_dex_reverse": Infinity,
+        "max_residual_dex_reverse": Infinity
+      },
+      "symmetric_metrics": null,
+      "curve_metrics": null
+    },
+    {
+      "arxiv_id": "2205.03679",
+      "difficulty": "hard",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.85,
+      "data_source": "figure_vision",
+      "num_points_extracted": 20,
+      "elapsed_s": 130.18543481826782,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/DOSUE-RR.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 20,
+        "num_ground_truth": 1525,
+        "num_interpolatable": 1525,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 0.10519680665707298,
+        "mean_residual_dex": 0.12100463969984471,
+        "p90_residual_dex": 0.21737714591274837,
+        "max_residual_dex": 0.42765521409947205,
+        "frac_within_0_1dex": 0.45114754098360654,
+        "frac_within_0_3dex": 0.9632786885245902,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 18,
+        "interpolation_coverage_reverse": 0.9,
+        "median_residual_dex_reverse": 0.10360831127768133,
+        "mean_residual_dex_reverse": 0.11788156247076337,
+        "p90_residual_dex_reverse": 0.17123026256145374,
+        "max_residual_dex_reverse": 0.21614351517302488
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.1274338947502874,
+        "overlap_log_mass_width": 0.16796349516641884,
+        "mass_jaccard": 0.9756189200588353,
+        "ext_log_mass_lo": -4.130768280269024,
+        "ext_log_mass_hi": -3.958607314841775,
+        "gt_log_mass_lo": -4.128252454247584,
+        "gt_log_mass_hi": -3.9602889590811654
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.2673202742439955,
+        "coverage_at_0_5dex": 1.0,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 1.0,
+        "median_coupling_log_error": 0.10564526728127355,
+        "p90_coupling_log_error": 0.21206555589840015,
+        "num_extracted": 20,
+        "num_ground_truth": 1525
+      }
+    },
+    {
+      "arxiv_id": "2110.10262",
+      "difficulty": "hard",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.7,
+      "data_source": "text",
+      "num_points_extracted": 2,
+      "elapsed_s": 75.86822509765625,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/ADMX_Sidecar_JTWPA.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 2,
+        "num_ground_truth": 88,
+        "num_interpolatable": 83,
+        "interpolation_coverage": 0.9431818181818182,
+        "median_residual_dex": 0.5296143206278181,
+        "mean_residual_dex": 0.5920524953453876,
+        "p90_residual_dex": 1.1087310446457337,
+        "max_residual_dex": 1.270077122977618,
+        "frac_within_0_1dex": 0.0,
+        "frac_within_0_3dex": 0.20481927710843373,
+        "frac_within_0_5dex": 0.4819277108433735,
+        "frac_within_1_0dex": 0.8313253012048193,
+        "num_interpolatable_reverse": 1,
+        "interpolation_coverage_reverse": 0.5,
+        "median_residual_dex_reverse": 1.123432006860373,
+        "mean_residual_dex_reverse": 1.123432006860373,
+        "p90_residual_dex_reverse": 1.123432006860373,
+        "max_residual_dex_reverse": 1.123432006860373
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.5719721088148547,
+        "overlap_log_mass_width": 0.0002235093727502857,
+        "mass_jaccard": 0.8092204744631608,
+        "ext_log_mass_lo": -4.702567795189831,
+        "ext_log_mass_hi": -4.702305130306926,
+        "gt_log_mass_lo": -4.7025813336159175,
+        "gt_log_mass_hi": -4.70234428581708
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.6415274396824526,
+        "coverage_at_0_5dex": 0.7840909090909091,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 0.94288735793675,
+        "median_coupling_log_error": 0.5761540412810433,
+        "p90_coupling_log_error": 1.1158046852971002,
+        "num_extracted": 2,
+        "num_ground_truth": 88
+      }
+    },
+    {
+      "arxiv_id": "2207.11968",
+      "difficulty": "hard",
+      "num_gt_entries": 2,
+      "true_couplings": [
+        "AxionElectron",
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.78,
+      "data_source": "figure_vision",
+      "num_points_extracted": 34,
+      "elapsed_s": 157.6292369365692,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionElectron",
+      "coupling_type_expected": [
+        "AxionElectron",
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionElectron/DarkSide.txt",
+      "comparison_coupling": "AxionElectron",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 34,
+        "num_ground_truth": 128,
+        "num_interpolatable": 128,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 5.460642499040901,
+        "mean_residual_dex": 5.483949974712294,
+        "p90_residual_dex": 5.853408993624779,
+        "max_residual_dex": 6.096905062790949,
+        "frac_within_0_1dex": 0.0,
+        "frac_within_0_3dex": 0.0,
+        "frac_within_0_5dex": 0.0,
+        "frac_within_1_0dex": 0.0,
+        "num_interpolatable_reverse": 32,
+        "interpolation_coverage_reverse": 0.9411764705882353,
+        "median_residual_dex_reverse": 5.429645768181106,
+        "mean_residual_dex_reverse": 5.481807385318877,
+        "p90_residual_dex_reverse": 5.839173583490558,
+        "max_residual_dex_reverse": 6.08546544095454
+      },
+      "symmetric_metrics": {
+        "area_between_log": 5.491309850363983,
+        "overlap_log_mass_width": 2.8138156921334634,
+        "mass_jaccard": 0.9964258587168507,
+        "ext_log_mass_lo": 1.4771212547196624,
+        "ext_log_mass_hi": 4.301029995663981,
+        "gt_log_mass_lo": 1.48366714539514,
+        "gt_log_mass_hi": 4.297482837528603
+      },
+      "curve_metrics": {
+        "hausdorff_log": 4.275156408583573,
+        "coverage_at_0_5dex": 0.0,
+        "coverage_at_1_0dex": 0.0,
+        "mass_range_overlap": 1.0,
+        "median_coupling_log_error": 5.457080439335347,
+        "p90_coupling_log_error": 5.853337041051887,
+        "num_extracted": 34,
+        "num_ground_truth": 128
+      }
+    },
+    {
+      "arxiv_id": "2004.02733",
+      "difficulty": "medium",
+      "num_gt_entries": 2,
+      "true_couplings": [
+        "AxionNeutron",
+        "AxionProton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.7,
+      "data_source": "text",
+      "num_points_extracted": 4,
+      "elapsed_s": 57.786693811416626,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionNeutron",
+      "coupling_type_expected": [
+        "AxionNeutron",
+        "AxionProton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionNeutron/SNO.txt",
+      "comparison_coupling": "AxionNeutron",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 2,
+        "num_ground_truth": 33,
+        "num_interpolatable": 32,
+        "interpolation_coverage": 0.9696969696969697,
+        "median_residual_dex": 0.24624516515675943,
+        "mean_residual_dex": 0.30238338104697743,
+        "p90_residual_dex": 0.4478685407975127,
+        "max_residual_dex": 1.6043273954186508,
+        "frac_within_0_1dex": 0.0625,
+        "frac_within_0_3dex": 0.65625,
+        "frac_within_0_5dex": 0.9375,
+        "frac_within_1_0dex": 0.96875,
+        "num_interpolatable_reverse": 1,
+        "interpolation_coverage_reverse": 0.5,
+        "median_residual_dex_reverse": 0.0023716185763120734,
+        "mean_residual_dex_reverse": 0.0023716185763120734,
+        "p90_residual_dex_reverse": 0.0023716185763120734,
+        "max_residual_dex_reverse": 0.0023716185763120734
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.040353620156874576,
+        "overlap_log_mass_width": 28.740362606424128,
+        "mass_jaccard": 0.9663756594527555,
+        "ext_log_mass_lo": -22.0,
+        "ext_log_mass_hi": 6.740362689494244,
+        "gt_log_mass_lo": -23.0,
+        "gt_log_mass_hi": 6.740362606424128
+      },
+      "curve_metrics": {
+        "hausdorff_log": 5.308851107539913,
+        "coverage_at_0_5dex": 0.0,
+        "coverage_at_1_0dex": 0.11764705882352941,
+        "mass_range_overlap": 0.9663756621520145,
+        "median_coupling_log_error": 0.25614993277977227,
+        "p90_coupling_log_error": 0.45573713847611874,
+        "num_extracted": 4,
+        "num_ground_truth": 34
+      }
+    },
+    {
+      "arxiv_id": "1707.07921",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionElectron"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.7,
+      "data_source": "text",
+      "num_points_extracted": 4,
+      "elapsed_s": 98.11282300949097,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionElectron",
+      "coupling_type_expected": [
+        "AxionElectron"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionElectron/PandaX_Solar.txt",
+      "comparison_coupling": "AxionElectron",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 4,
+        "num_ground_truth": 30,
+        "num_interpolatable": 29,
+        "interpolation_coverage": 0.9666666666666667,
+        "median_residual_dex": 0.5169253823108484,
+        "mean_residual_dex": 0.529980146237166,
+        "p90_residual_dex": 0.8995229568623937,
+        "max_residual_dex": 1.0432053637543373,
+        "frac_within_0_1dex": 0.06896551724137931,
+        "frac_within_0_3dex": 0.2413793103448276,
+        "frac_within_0_5dex": 0.4827586206896552,
+        "frac_within_1_0dex": 0.9310344827586207,
+        "num_interpolatable_reverse": 2,
+        "interpolation_coverage_reverse": 0.6666666666666666,
+        "median_residual_dex_reverse": 0.5508814627054459,
+        "mean_residual_dex_reverse": 0.5508814627054459,
+        "p90_residual_dex_reverse": 0.9415903077131415,
+        "max_residual_dex_reverse": 1.0392675189650653
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.8538866959378622,
+        "overlap_log_mass_width": 6.151584918251585,
+        "mass_jaccard": 0.42725451797593383,
+        "ext_log_mass_lo": -2.0,
+        "ext_log_mass_hi": 4.3979400086720375,
+        "gt_log_mass_lo": -10.0,
+        "gt_log_mass_hi": 4.151584918251585
+      },
+      "curve_metrics": {
+        "hausdorff_log": 6.438305072179953,
+        "coverage_at_0_5dex": 0.06666666666666667,
+        "coverage_at_1_0dex": 0.2,
+        "mass_range_overlap": 0.4346922944523169,
+        "median_coupling_log_error": 0.06337121433312909,
+        "p90_coupling_log_error": 0.1333307141776853,
+        "num_extracted": 4,
+        "num_ground_truth": 30
+      }
+    },
+    {
+      "arxiv_id": "2007.03694",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionElectron"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.9,
+      "data_source": "text",
+      "num_points_extracted": 2,
+      "elapsed_s": 108.60959696769714,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionElectron",
+      "coupling_type_expected": [
+        "AxionElectron"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionElectron/RedGiants.txt",
+      "comparison_coupling": "AxionElectron",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 2,
+        "num_ground_truth": 2,
+        "num_interpolatable": 2,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 0.0,
+        "mean_residual_dex": 0.0,
+        "p90_residual_dex": 0.0,
+        "max_residual_dex": 0.0,
+        "frac_within_0_1dex": 1.0,
+        "frac_within_0_3dex": 1.0,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 2,
+        "interpolation_coverage_reverse": 1.0,
+        "median_residual_dex_reverse": 0.0,
+        "mean_residual_dex_reverse": 0.0,
+        "p90_residual_dex_reverse": 0.0,
+        "max_residual_dex_reverse": 0.0
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.0,
+        "overlap_log_mass_width": 34.0,
+        "mass_jaccard": 1.0,
+        "ext_log_mass_lo": -30.0,
+        "ext_log_mass_hi": 4.0,
+        "gt_log_mass_lo": -30.0,
+        "gt_log_mass_hi": 4.0
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.0,
+        "coverage_at_0_5dex": 1.0,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 1.0,
+        "median_coupling_log_error": 0.0,
+        "p90_coupling_log_error": 0.0,
+        "num_extracted": 2,
+        "num_ground_truth": 2
+      }
+    },
+    {
+      "arxiv_id": "1911.11905",
+      "difficulty": "medium",
+      "num_gt_entries": 2,
+      "true_couplings": [
+        "AxionElectron",
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.4,
+      "data_source": "text",
+      "num_points_extracted": 6,
+      "elapsed_s": 117.3071870803833,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionElectron",
+      "coupling_type_expected": [
+        "AxionElectron",
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionElectron/SuperCDMS.txt",
+      "comparison_coupling": "AxionElectron",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 6,
+        "num_ground_truth": 256,
+        "num_interpolatable": 143,
+        "interpolation_coverage": 0.55859375,
+        "median_residual_dex": 0.16209387643297646,
+        "mean_residual_dex": 0.1739582659015319,
+        "p90_residual_dex": 0.34454173975467306,
+        "max_residual_dex": 0.5798350147383928,
+        "frac_within_0_1dex": 0.35664335664335667,
+        "frac_within_0_3dex": 0.8391608391608392,
+        "frac_within_0_5dex": 0.986013986013986,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 5,
+        "interpolation_coverage_reverse": 0.8333333333333334,
+        "median_residual_dex_reverse": 0.18057097915381526,
+        "mean_residual_dex_reverse": 0.2331631346578728,
+        "p90_residual_dex_reverse": 0.4584895943430482,
+        "max_residual_dex_reverse": 0.5874919748903409
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.15425814522467213,
+        "overlap_log_mass_width": 2.379157316542184,
+        "mass_jaccard": 0.5836340026980469,
+        "ext_log_mass_lo": 1.6020599913279623,
+        "ext_log_mass_hi": 4.0,
+        "gt_log_mass_lo": 1.6208426834578158,
+        "gt_log_mass_hi": 5.67851425126436
+      },
+      "curve_metrics": {
+        "hausdorff_log": 2.8491747284385833,
+        "coverage_at_0_5dex": 0.6328125,
+        "coverage_at_1_0dex": 0.8046875,
+        "mass_range_overlap": 0.5863356057248087,
+        "median_coupling_log_error": 0.21253634523112552,
+        "p90_coupling_log_error": 0.616701448178592,
+        "num_extracted": 6,
+        "num_ground_truth": 256
+      }
+    },
+    {
+      "arxiv_id": "1804.05750",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.6,
+      "data_source": "text",
+      "num_points_extracted": 4,
+      "elapsed_s": 113.48872709274292,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/ADMX2018.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 4,
+        "num_ground_truth": 145,
+        "num_interpolatable": 145,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 0.11666989551861207,
+        "mean_residual_dex": 0.13886532564367898,
+        "p90_residual_dex": 0.2643031124761229,
+        "max_residual_dex": 0.39844724894789607,
+        "frac_within_0_1dex": 0.4,
+        "frac_within_0_3dex": 0.9379310344827586,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 2,
+        "interpolation_coverage_reverse": 0.5,
+        "median_residual_dex_reverse": 0.08428921023255143,
+        "mean_residual_dex_reverse": 0.08428921023255143,
+        "p90_residual_dex_reverse": 0.09159963025478746,
+        "max_residual_dex_reverse": 0.09342723526034646
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.11205161258502287,
+        "overlap_log_mass_width": 0.02017952622534569,
+        "mass_jaccard": 0.9402962293655878,
+        "ext_log_mass_lo": -5.574302786637409,
+        "ext_log_mass_hi": -5.552841968657781,
+        "gt_log_mass_lo": -5.573880771287266,
+        "gt_log_mass_hi": -5.55370124506192
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.2097258069938443,
+        "coverage_at_0_5dex": 1.0,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 1.0,
+        "median_coupling_log_error": 0.11830085609590313,
+        "p90_coupling_log_error": 0.260992236729616,
+        "num_extracted": 4,
+        "num_ground_truth": 145
+      }
+    },
+    {
+      "arxiv_id": "1910.08638",
+      "difficulty": "medium",
+      "num_gt_entries": 2,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.78,
+      "data_source": "figure_vision",
+      "num_points_extracted": 36,
+      "elapsed_s": 191.1319661140442,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/ADMX2019_1.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 36,
+        "num_ground_truth": 172,
+        "num_interpolatable": 171,
+        "interpolation_coverage": 0.9941860465116279,
+        "median_residual_dex": 0.02939204601537071,
+        "mean_residual_dex": 0.03951262741942259,
+        "p90_residual_dex": 0.07983241202613556,
+        "max_residual_dex": 0.19521973496393663,
+        "frac_within_0_1dex": 0.9415204678362573,
+        "frac_within_0_3dex": 1.0,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 21,
+        "interpolation_coverage_reverse": 0.5833333333333334,
+        "median_residual_dex_reverse": 0.0257733286065438,
+        "mean_residual_dex_reverse": 0.031074479387535905,
+        "p90_residual_dex_reverse": 0.06235555960125794,
+        "max_residual_dex_reverse": 0.0730041459670776
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.029005445718130275,
+        "overlap_log_mass_width": 0.042410495852154284,
+        "mass_jaccard": 0.5854133510272629,
+        "ext_log_mass_lo": -5.552376902239714,
+        "ext_log_mass_hi": -5.480172006224281,
+        "gt_log_mass_lo": -5.552617391656188,
+        "gt_log_mass_hi": -5.5099664063875595
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.2547931788147832,
+        "coverage_at_0_5dex": 1.0,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 0.9943614569520591,
+        "median_coupling_log_error": 0.029411526328665616,
+        "p90_coupling_log_error": 0.09548750638906718,
+        "num_extracted": 36,
+        "num_ground_truth": 172
+      }
+    },
+    {
+      "arxiv_id": "1911.05772",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.45,
+      "data_source": "text",
+      "num_points_extracted": 6,
+      "elapsed_s": 84.6905620098114,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/ADMX_SLIC.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 6,
+        "num_ground_truth": 22,
+        "num_interpolatable": 22,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 0.3309859154929562,
+        "mean_residual_dex": 0.6259603072983352,
+        "p90_residual_dex": 2.003521126760562,
+        "max_residual_dex": 2.02112676056338,
+        "frac_within_0_1dex": 0.0,
+        "frac_within_0_3dex": 0.4090909090909091,
+        "frac_within_0_5dex": 0.6818181818181818,
+        "frac_within_1_0dex": 0.8181818181818182,
+        "num_interpolatable_reverse": 4,
+        "interpolation_coverage_reverse": 0.6666666666666666,
+        "median_residual_dex_reverse": 0.25243011589985453,
+        "mean_residual_dex_reverse": 0.3642236654885185,
+        "p90_residual_dex_reverse": 0.6266825579605043,
+        "max_residual_dex_reverse": 0.7805726683137983
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.5130004667672227,
+        "overlap_log_mass_width": 0.012542976128967709,
+        "mass_jaccard": 0.9918646749615785,
+        "ext_log_mass_lo": -6.757011587805205,
+        "ext_log_mass_hi": -6.744365733541413,
+        "gt_log_mass_lo": -6.756937477814395,
+        "gt_log_mass_hi": -6.744394501685427
+      },
+      "curve_metrics": {
+        "hausdorff_log": 1.0159416245728439,
+        "coverage_at_0_5dex": 0.8181818181818182,
+        "coverage_at_1_0dex": 0.8181818181818182,
+        "mass_range_overlap": 1.0,
+        "median_coupling_log_error": 0.3309859154929562,
+        "p90_coupling_log_error": 2.003521126760562,
+        "num_extracted": 6,
+        "num_ground_truth": 22
+      }
+    },
+    {
+      "arxiv_id": "1004.1313",
+      "difficulty": "medium",
+      "num_gt_entries": 2,
+      "true_couplings": [
+        "AxionPhoton",
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.55,
+      "data_source": "text",
+      "num_points_extracted": 5,
+      "elapsed_s": 150.32965111732483,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton",
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/ALPS.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 5,
+        "num_ground_truth": 228,
+        "num_interpolatable": 86,
+        "interpolation_coverage": 0.37719298245614036,
+        "median_residual_dex": 0.5335578085864787,
+        "mean_residual_dex": 0.42815517383675594,
+        "p90_residual_dex": 0.7840757272163548,
+        "max_residual_dex": 0.8351740027061556,
+        "frac_within_0_1dex": 0.2558139534883721,
+        "frac_within_0_3dex": 0.3953488372093023,
+        "frac_within_0_5dex": 0.4883720930232558,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 5,
+        "interpolation_coverage_reverse": 1.0,
+        "median_residual_dex_reverse": 0.09799860816368344,
+        "mean_residual_dex_reverse": 0.2702559322685092,
+        "p90_residual_dex_reverse": 0.6125411909178505,
+        "max_residual_dex_reverse": 0.7037581638605923
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.16188482079990846,
+        "overlap_log_mass_width": 1.1760912590556813,
+        "mass_jaccard": 0.06693034080473444,
+        "ext_log_mass_lo": -4.0,
+        "ext_log_mass_hi": -2.8239087409443187,
+        "gt_log_mass_lo": -20.0,
+        "gt_log_mass_hi": -2.428129829984541
+      },
+      "curve_metrics": {
+        "hausdorff_log": 8.771597573043428,
+        "coverage_at_0_5dex": 0.11842105263157894,
+        "coverage_at_1_0dex": 0.13596491228070176,
+        "mass_range_overlap": 0.06693034080473444,
+        "median_coupling_log_error": 0.7084123604258967,
+        "p90_coupling_log_error": 0.978130670285052,
+        "num_extracted": 5,
+        "num_ground_truth": 228
+      }
+    },
+    {
+      "arxiv_id": "2108.03316",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.85,
+      "data_source": "text",
+      "num_points_extracted": 2,
+      "elapsed_s": 77.83302998542786,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/BICEP-KECK.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 2,
+        "num_ground_truth": 321,
+        "num_interpolatable": 154,
+        "interpolation_coverage": 0.4797507788161994,
+        "median_residual_dex": 0.10174441079957841,
+        "mean_residual_dex": 0.09433024607089462,
+        "p90_residual_dex": 0.15542494522171235,
+        "max_residual_dex": 0.2840838270553192,
+        "frac_within_0_1dex": 0.4675324675324675,
+        "frac_within_0_3dex": 1.0,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 2,
+        "interpolation_coverage_reverse": 1.0,
+        "median_residual_dex_reverse": 0.03880660744906361,
+        "mean_residual_dex_reverse": 0.03880660744906361,
+        "p90_residual_dex_reverse": 0.04298512256233291,
+        "max_residual_dex_reverse": 0.044029751340650236
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.07779542994986992,
+        "overlap_log_mass_width": 1.4771212547196626,
+        "mass_jaccard": 0.3158334695025726,
+        "ext_log_mass_lo": -20.795880017344075,
+        "ext_log_mass_hi": -19.318758762624412,
+        "gt_log_mass_lo": -22.91767079574666,
+        "gt_log_mass_hi": -18.240771741805098
+      },
+      "curve_metrics": {
+        "hausdorff_log": 2.4997977771955244,
+        "coverage_at_0_5dex": 0.38317757009345793,
+        "coverage_at_1_0dex": 0.7570093457943925,
+        "mass_range_overlap": 0.3158334695025726,
+        "median_coupling_log_error": 0.10214016109630641,
+        "p90_coupling_log_error": 0.19731394801330088,
+        "num_extracted": 2,
+        "num_ground_truth": 321
+      }
+    },
+    {
+      "arxiv_id": "2009.09059",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.78,
+      "data_source": "figure_vision",
+      "num_points_extracted": 17,
+      "elapsed_s": 177.6926727294922,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/Betelgeuse.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 17,
+        "num_ground_truth": 114,
+        "num_interpolatable": 39,
+        "interpolation_coverage": 0.34210526315789475,
+        "median_residual_dex": 0.5637011299179786,
+        "mean_residual_dex": 0.5382340275385576,
+        "p90_residual_dex": 0.5710286560445788,
+        "max_residual_dex": 0.802842193658444,
+        "frac_within_0_1dex": 0.02564102564102564,
+        "frac_within_0_3dex": 0.07692307692307693,
+        "frac_within_0_5dex": 0.1282051282051282,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 17,
+        "interpolation_coverage_reverse": 1.0,
+        "median_residual_dex_reverse": 0.5609215696558962,
+        "mean_residual_dex_reverse": 0.4913439260511107,
+        "p90_residual_dex_reverse": 0.5734111242570445,
+        "max_residual_dex_reverse": 0.8119752275469292
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.5323304239643992,
+        "overlap_log_mass_width": 1.845098040014257,
+        "mass_jaccard": 0.13985460444887185,
+        "ext_log_mass_lo": -12.0,
+        "ext_log_mass_hi": -10.154901959985743,
+        "gt_log_mass_lo": -22.93822986404252,
+        "gt_log_mass_hi": -9.745256723935507
+      },
+      "curve_metrics": {
+        "hausdorff_log": 6.6282004982901155,
+        "coverage_at_0_5dex": 0.2631578947368421,
+        "coverage_at_1_0dex": 0.4824561403508772,
+        "mass_range_overlap": 0.13985460444887185,
+        "median_coupling_log_error": 0.5651588822320743,
+        "p90_coupling_log_error": 0.69726649829685,
+        "num_extracted": 17,
+        "num_ground_truth": 114
+      }
+    },
+    {
+      "arxiv_id": "2008.10141",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.6,
+      "data_source": "figure_vision",
+      "num_points_extracted": 21,
+      "elapsed_s": 213.3365650177002,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/CAPP-2.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 21,
+        "num_ground_truth": 222,
+        "num_interpolatable": 218,
+        "interpolation_coverage": 0.9819819819819819,
+        "median_residual_dex": 0.707700385632184,
+        "mean_residual_dex": 0.7500962131518315,
+        "p90_residual_dex": 0.7189145127325892,
+        "max_residual_dex": 9.67718606870979,
+        "frac_within_0_1dex": 0.0,
+        "frac_within_0_3dex": 0.0,
+        "frac_within_0_5dex": 0.0,
+        "frac_within_1_0dex": 0.9954128440366973,
+        "num_interpolatable_reverse": 20,
+        "interpolation_coverage_reverse": 0.9523809523809523,
+        "median_residual_dex_reverse": 0.7096357099000992,
+        "mean_residual_dex_reverse": 0.7075993513531524,
+        "p90_residual_dex_reverse": 0.7173755361109379,
+        "max_residual_dex_reverse": 0.7257914740957858
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.7080968786916246,
+        "overlap_log_mass_width": 0.028507311624648146,
+        "mass_jaccard": 0.9655295962113221,
+        "ext_log_mass_lo": -4.886056647693163,
+        "ext_log_mass_hi": -4.856985199745905,
+        "gt_log_mass_lo": -4.886510251838051,
+        "gt_log_mass_hi": -4.857549336068515
+      },
+      "curve_metrics": {
+        "hausdorff_log": 4.852484104498339,
+        "coverage_at_0_5dex": 0.990990990990991,
+        "coverage_at_1_0dex": 0.990990990990991,
+        "mass_range_overlap": 0.9843373687317825,
+        "median_coupling_log_error": 0.7076963492846069,
+        "p90_coupling_log_error": 0.7192839249085956,
+        "num_extracted": 21,
+        "num_ground_truth": 222
+      }
+    },
+    {
+      "arxiv_id": "2012.10764",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.55,
+      "data_source": "text",
+      "num_points_extracted": 6,
+      "elapsed_s": 106.95055890083313,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/CAPP-3.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 6,
+        "num_ground_truth": 125,
+        "num_interpolatable": 125,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 1.3105317710942277,
+        "mean_residual_dex": 1.3160182466845713,
+        "p90_residual_dex": 1.7022756383449467,
+        "max_residual_dex": 3.94249704380762,
+        "frac_within_0_1dex": 0.0,
+        "frac_within_0_3dex": 0.0,
+        "frac_within_0_5dex": 0.0,
+        "frac_within_1_0dex": 0.288,
+        "num_interpolatable_reverse": 4,
+        "interpolation_coverage_reverse": 0.6666666666666666,
+        "median_residual_dex_reverse": 1.2301861770039366,
+        "mean_residual_dex_reverse": 1.2356476798667893,
+        "p90_residual_dex_reverse": 1.556649321888518,
+        "max_residual_dex_reverse": 1.6508989892258281
+      },
+      "symmetric_metrics": {
+        "area_between_log": 1.0181219913042951,
+        "overlap_log_mass_width": 0.04865355890486356,
+        "mass_jaccard": 0.9956371601228592,
+        "ext_log_mass_lo": -4.9931062920521,
+        "ext_log_mass_hi": -4.944239535312265,
+        "gt_log_mass_lo": -4.993004465134342,
+        "gt_log_mass_hi": -4.944350906229478
+      },
+      "curve_metrics": {
+        "hausdorff_log": 1.9888700977449851,
+        "coverage_at_0_5dex": 0.576,
+        "coverage_at_1_0dex": 0.992,
+        "mass_range_overlap": 1.0,
+        "median_coupling_log_error": 0.8358259372065593,
+        "p90_coupling_log_error": 1.853989213435248,
+        "num_extracted": 6,
+        "num_ground_truth": 125
+      }
+    },
+    {
+      "arxiv_id": "1705.02290",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.85,
+      "data_source": "figure_vision",
+      "num_points_extracted": 37,
+      "elapsed_s": 179.3223328590393,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/CAST.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 37,
+        "num_ground_truth": 436,
+        "num_interpolatable": 329,
+        "interpolation_coverage": 0.7545871559633027,
+        "median_residual_dex": 0.0656058946873781,
+        "mean_residual_dex": 0.10109387641248256,
+        "p90_residual_dex": 0.21151295592875813,
+        "max_residual_dex": 0.3472100677631591,
+        "frac_within_0_1dex": 0.662613981762918,
+        "frac_within_0_3dex": 0.9908814589665653,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 37,
+        "interpolation_coverage_reverse": 1.0,
+        "median_residual_dex_reverse": 0.0656058946873781,
+        "mean_residual_dex_reverse": 0.07778641633936997,
+        "p90_residual_dex_reverse": 0.144842978713244,
+        "max_residual_dex_reverse": 0.255474555067174
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.0802575590957216,
+        "overlap_log_mass_width": 3.6989700043360187,
+        "mass_jaccard": 0.12302459677821867,
+        "ext_log_mass_lo": -4.0,
+        "ext_log_mass_hi": -0.3010299956639812,
+        "gt_log_mass_lo": -30.0,
+        "gt_log_mass_hi": 0.06691426921966755
+      },
+      "curve_metrics": {
+        "hausdorff_log": 13.868972764587408,
+        "coverage_at_0_5dex": 0.6353211009174312,
+        "coverage_at_1_0dex": 0.9885321100917431,
+        "mass_range_overlap": 0.12302459677821867,
+        "median_coupling_log_error": 0.07540640149296785,
+        "p90_coupling_log_error": 0.22700319290582113,
+        "num_extracted": 37,
+        "num_ground_truth": 436
+      }
+    },
+    {
+      "arxiv_id": "2104.12772",
+      "difficulty": "medium",
+      "num_gt_entries": 2,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.5,
+      "data_source": "figure_vision",
+      "num_points_extracted": 34,
+      "elapsed_s": 165.57038283348083,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "convention_mismatch",
+      "interp_metrics": null,
+      "curve_metrics": null,
+      "symmetric_metrics": null
+    },
+    {
+      "arxiv_id": "1406.6053",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.95,
+      "data_source": "text",
+      "num_points_extracted": 2,
+      "elapsed_s": 68.57626080513,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/GlobularClusters-R.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 2,
+        "num_ground_truth": 27,
+        "num_interpolatable": 2,
+        "interpolation_coverage": 0.07407407407407407,
+        "median_residual_dex": 0.0033309385527484636,
+        "mean_residual_dex": 0.0033309385527484636,
+        "p90_residual_dex": 0.0033309385527484636,
+        "max_residual_dex": 0.0033309385527484636,
+        "frac_within_0_1dex": 1.0,
+        "frac_within_0_3dex": 1.0,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 1,
+        "interpolation_coverage_reverse": 0.5,
+        "median_residual_dex_reverse": 0.017475169638371923,
+        "mean_residual_dex_reverse": 0.017475169638371923,
+        "p90_residual_dex_reverse": 0.017475169638371923,
+        "max_residual_dex_reverse": 0.017475169638371923
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.003771200336885283,
+        "overlap_log_mass_width": 16.06146026171404,
+        "mass_jaccard": 0.4512972569531607,
+        "ext_log_mass_lo": -30.0,
+        "ext_log_mass_hi": 4.0,
+        "gt_log_mass_lo": -12.061460261714041,
+        "gt_log_mass_hi": 5.589536639663263
+      },
+      "curve_metrics": {
+        "hausdorff_log": 21.344205100091457,
+        "coverage_at_0_5dex": 0.14814814814814814,
+        "coverage_at_1_0dex": 0.2222222222222222,
+        "mass_range_overlap": 0.9099463532544593,
+        "median_coupling_log_error": 0.01801960002189773,
+        "p90_coupling_log_error": 0.01801960002189773,
+        "num_extracted": 2,
+        "num_ground_truth": 27
+      }
+    },
+    {
+      "arxiv_id": "2110.14406",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.85,
+      "data_source": "text",
+      "num_points_extracted": 1,
+      "elapsed_s": 179.86558604240417,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/GrAHal.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "single_point_gt",
+      "interp_metrics": {
+        "num_extracted": 1,
+        "num_ground_truth": 1,
+        "num_interpolatable": 1,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 0.0,
+        "mean_residual_dex": 0.0,
+        "p90_residual_dex": 0.0,
+        "max_residual_dex": 0.0,
+        "frac_within_0_1dex": 1.0,
+        "frac_within_0_3dex": 1.0,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 0,
+        "interpolation_coverage_reverse": 0.0,
+        "median_residual_dex_reverse": Infinity,
+        "mean_residual_dex_reverse": Infinity,
+        "p90_residual_dex_reverse": Infinity,
+        "max_residual_dex_reverse": Infinity
+      },
+      "symmetric_metrics": null,
+      "curve_metrics": null
+    },
+    {
+      "arxiv_id": "1610.02580",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.9,
+      "data_source": "figure_vision",
+      "num_points_extracted": 35,
+      "elapsed_s": 174.49116015434265,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/HAYSTAC_PhaseI.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 35,
+        "num_ground_truth": 123,
+        "num_interpolatable": 69,
+        "interpolation_coverage": 0.5609756097560976,
+        "median_residual_dex": 0.056546006702761886,
+        "mean_residual_dex": 0.2002839491678734,
+        "p90_residual_dex": 0.08743787749235139,
+        "max_residual_dex": 9.490231211367814,
+        "frac_within_0_1dex": 0.9420289855072463,
+        "frac_within_0_3dex": 0.9710144927536232,
+        "frac_within_0_5dex": 0.9855072463768116,
+        "frac_within_1_0dex": 0.9855072463768116,
+        "num_interpolatable_reverse": 31,
+        "interpolation_coverage_reverse": 0.8857142857142857,
+        "median_residual_dex_reverse": 0.05532766833944969,
+        "mean_residual_dex_reverse": 0.08373218230448427,
+        "p90_residual_dex_reverse": 0.10744838750422936,
+        "max_residual_dex_reverse": 0.5121575054563312
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.06484824884720433,
+        "overlap_log_mass_width": 0.008127154554510518,
+        "mass_jaccard": 0.5230025594973065,
+        "ext_log_mass_lo": -4.628193541492584,
+        "ext_log_mass_hi": -4.619788758288394,
+        "gt_log_mass_lo": -4.635328174696455,
+        "gt_log_mass_hi": -4.620066386938073
+      },
+      "curve_metrics": {
+        "hausdorff_log": 5.0829801951959235,
+        "coverage_at_0_5dex": 0.6585365853658537,
+        "coverage_at_1_0dex": 0.7560975609756098,
+        "mass_range_overlap": 0.5325165493830862,
+        "median_coupling_log_error": 0.08854695273051405,
+        "p90_coupling_log_error": 0.4643308474780191,
+        "num_extracted": 35,
+        "num_ground_truth": 123
+      }
+    },
+    {
+      "arxiv_id": "1311.3148",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.8,
+      "data_source": "text",
+      "num_points_extracted": 2,
+      "elapsed_s": 120.90051698684692,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/HESS.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 2,
+        "num_ground_truth": 22,
+        "num_interpolatable": 13,
+        "interpolation_coverage": 0.5909090909090909,
+        "median_residual_dex": 0.02692219078571334,
+        "mean_residual_dex": 0.039641966693741676,
+        "p90_residual_dex": 0.0880609259864162,
+        "max_residual_dex": 0.1140865027169351,
+        "frac_within_0_1dex": 0.9230769230769231,
+        "frac_within_0_3dex": 1.0,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 1,
+        "interpolation_coverage_reverse": 0.5,
+        "median_residual_dex_reverse": 0.12009576038907355,
+        "mean_residual_dex_reverse": 0.12009576038907355,
+        "p90_residual_dex_reverse": 0.12009576038907355,
+        "max_residual_dex_reverse": 0.12009576038907355
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.029884170748215193,
+        "overlap_log_mass_width": 0.5729468864354992,
+        "mass_jaccard": 0.7779963940858833,
+        "ext_log_mass_lo": -7.823908740944319,
+        "ext_log_mass_hi": -7.221848749616356,
+        "gt_log_mass_lo": -7.794795636051855,
+        "gt_log_mass_hi": -7.087469740981227
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.6161948194736627,
+        "coverage_at_0_5dex": 0.9090909090909091,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 0.8100182538606041,
+        "median_coupling_log_error": 0.12656278042242786,
+        "p90_coupling_log_error": 0.22887472337598513,
+        "num_extracted": 2,
+        "num_ground_truth": 22
+      }
+    },
+    {
+      "arxiv_id": "2111.08025",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.55,
+      "data_source": "text",
+      "num_points_extracted": 8,
+      "elapsed_s": 135.8203089237213,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/LeoT.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 8,
+        "num_ground_truth": 93,
+        "num_interpolatable": 75,
+        "interpolation_coverage": 0.8064516129032258,
+        "median_residual_dex": 0.1562185023291356,
+        "mean_residual_dex": 0.19733743967850984,
+        "p90_residual_dex": 0.4470883225582288,
+        "max_residual_dex": 0.8926662924286024,
+        "frac_within_0_1dex": 0.3333333333333333,
+        "frac_within_0_3dex": 0.84,
+        "frac_within_0_5dex": 0.9066666666666666,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 5,
+        "interpolation_coverage_reverse": 0.625,
+        "median_residual_dex_reverse": 0.12282832169561608,
+        "mean_residual_dex_reverse": 0.15295181818291398,
+        "p90_residual_dex_reverse": 0.23792798001144427,
+        "max_residual_dex_reverse": 0.2650992571018218
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.16068005969226504,
+        "overlap_log_mass_width": 1.555127166059946,
+        "mass_jaccard": 0.5760256247172902,
+        "ext_log_mass_lo": 0.6989700043360189,
+        "ext_log_mass_hi": 3.0,
+        "gt_log_mass_lo": 1.444872833940054,
+        "gt_log_mass_hi": 3.398723451629605
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.9845019473731115,
+        "coverage_at_0_5dex": 0.967741935483871,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 0.7959294083080416,
+        "median_coupling_log_error": 0.13531936339967388,
+        "p90_coupling_log_error": 0.46085079859629396,
+        "num_extracted": 8,
+        "num_ground_truth": 93
+      }
+    },
+    {
+      "arxiv_id": "1811.10997",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.82,
+      "data_source": "figure_vision",
+      "num_points_extracted": 49,
+      "elapsed_s": 113.74940299987793,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/MOJAVE.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 49,
+        "num_ground_truth": 144,
+        "num_interpolatable": 141,
+        "interpolation_coverage": 0.9791666666666666,
+        "median_residual_dex": 0.04941555468207781,
+        "mean_residual_dex": 0.06106151353643224,
+        "p90_residual_dex": 0.13406813335848433,
+        "max_residual_dex": 0.16572901360956926,
+        "frac_within_0_1dex": 0.7872340425531915,
+        "frac_within_0_3dex": 1.0,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 48,
+        "interpolation_coverage_reverse": 0.9795918367346939,
+        "median_residual_dex_reverse": 0.05033313294032382,
+        "mean_residual_dex_reverse": 0.06065487717385184,
+        "p90_residual_dex_reverse": 0.12435076566989771,
+        "max_residual_dex_reverse": 0.15995455860594987
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.0629374405591713,
+        "overlap_log_mass_width": 1.37181214709085,
+        "mass_jaccard": 0.9754138128880382,
+        "ext_log_mass_lo": -22.30102999566398,
+        "ext_log_mass_hi": -20.920818753952375,
+        "gt_log_mass_lo": -22.292630901043225,
+        "gt_log_mass_hi": -20.894640083028705
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.1282262271113786,
+        "coverage_at_0_5dex": 1.0,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 0.9812740752039772,
+        "median_coupling_log_error": 0.0529719591458786,
+        "p90_coupling_log_error": 0.13558542407777652,
+        "num_extracted": 49,
+        "num_ground_truth": 144
+      }
+    },
+    {
+      "arxiv_id": "2008.09464",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.85,
+      "data_source": "vector_trace",
+      "num_points_extracted": 73,
+      "elapsed_s": 31.866204261779785,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/Mrk421.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 73,
+        "num_ground_truth": 50,
+        "num_interpolatable": 48,
+        "interpolation_coverage": 0.96,
+        "median_residual_dex": 0.02267622989978868,
+        "mean_residual_dex": 0.05542683111002056,
+        "p90_residual_dex": 0.1371675635889054,
+        "max_residual_dex": 0.3384360652506029,
+        "frac_within_0_1dex": 0.8125,
+        "frac_within_0_3dex": 0.9791666666666666,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 73,
+        "interpolation_coverage_reverse": 1.0,
+        "median_residual_dex_reverse": 0.022541205697020672,
+        "mean_residual_dex_reverse": 0.07457740383676495,
+        "p90_residual_dex_reverse": 0.2330299256014246,
+        "max_residual_dex_reverse": 0.35613737693396175
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.0395923763616923,
+        "overlap_log_mass_width": 3.1394807370222937,
+        "mass_jaccard": 0.9924493096690191,
+        "ext_log_mass_lo": -9.377620903018837,
+        "ext_log_mass_hi": -6.238140165996543,
+        "gt_log_mass_lo": -9.39851485148515,
+        "gt_log_mass_hi": -6.235148514851486
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.16504211328647764,
+        "coverage_at_0_5dex": 1.0,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 0.9924493096690191,
+        "median_coupling_log_error": 0.020268731467144363,
+        "p90_coupling_log_error": 0.17823120030927628,
+        "num_extracted": 73,
+        "num_ground_truth": 53
+      }
+    },
+    {
+      "arxiv_id": "2202.08274",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.8,
+      "data_source": "figure_vision",
+      "num_points_extracted": 40,
+      "elapsed_s": 209.7141101360321,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/NeutronStars_BreakthroughListen.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 40,
+        "num_ground_truth": 257,
+        "num_interpolatable": 257,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 0.2992244683839722,
+        "mean_residual_dex": 0.4465585517079865,
+        "p90_residual_dex": 1.061414952862576,
+        "max_residual_dex": 1.5513086083293555,
+        "frac_within_0_1dex": 0.0,
+        "frac_within_0_3dex": 0.5019455252918288,
+        "frac_within_0_5dex": 0.7354085603112841,
+        "frac_within_1_0dex": 0.8949416342412452,
+        "num_interpolatable_reverse": 33,
+        "interpolation_coverage_reverse": 0.825,
+        "median_residual_dex_reverse": 0.2526760831923749,
+        "mean_residual_dex_reverse": 0.37354072402699967,
+        "p90_residual_dex_reverse": 0.7785967403138523,
+        "max_residual_dex_reverse": 1.5278902687840201
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.34398274696492087,
+        "overlap_log_mass_width": 0.28714754001188325,
+        "mass_jaccard": 0.811755826374088,
+        "ext_log_mass_lo": -4.809668301829708,
+        "ext_log_mass_hi": -4.455931955649724,
+        "gt_log_mass_lo": -4.78342624828292,
+        "gt_log_mass_hi": -4.496278708271037
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.4030087919822256,
+        "coverage_at_0_5dex": 1.0,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 1.0,
+        "median_coupling_log_error": 0.30039864995820764,
+        "p90_coupling_log_error": 1.0661830407156858,
+        "num_extracted": 40,
+        "num_ground_truth": 257
+      }
+    },
+    {
+      "arxiv_id": "2203.12152",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.8,
+      "data_source": "figure_vision",
+      "num_points_extracted": 41,
+      "elapsed_s": 199.79923701286316,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/ORGAN-1a.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 41,
+        "num_ground_truth": 123,
+        "num_interpolatable": 123,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 0.15982922325972027,
+        "mean_residual_dex": 0.17524833823105126,
+        "p90_residual_dex": 0.43942166276932676,
+        "max_residual_dex": 0.5241322498976153,
+        "frac_within_0_1dex": 0.4634146341463415,
+        "frac_within_0_3dex": 0.7886178861788617,
+        "frac_within_0_5dex": 0.983739837398374,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 28,
+        "interpolation_coverage_reverse": 0.6829268292682927,
+        "median_residual_dex_reverse": 0.10536564064584297,
+        "mean_residual_dex_reverse": 0.16374675732504704,
+        "p90_residual_dex_reverse": 0.36827173768792504,
+        "max_residual_dex_reverse": 0.5239831928128869
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.14655296456068337,
+        "overlap_log_mass_width": 0.025886200027305684,
+        "mass_jaccard": 0.7499124916438457,
+        "ext_log_mass_lo": -4.199145508496439,
+        "ext_log_mass_hi": -4.164626547529991,
+        "gt_log_mass_lo": -4.198908801758489,
+        "gt_log_mass_hi": -4.173022601731184
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.20499087509015576,
+        "coverage_at_0_5dex": 1.0,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 1.0,
+        "median_coupling_log_error": 0.12496396151358269,
+        "p90_coupling_log_error": 0.44114571385765194,
+        "num_extracted": 41,
+        "num_ground_truth": 123
+      }
+    },
+    {
+      "arxiv_id": "2104.13798",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.85,
+      "data_source": "text",
+      "num_points_extracted": 2,
+      "elapsed_s": 79.82827377319336,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/RADES.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 2,
+        "num_ground_truth": 2,
+        "num_interpolatable": 2,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 0.0,
+        "mean_residual_dex": 0.0,
+        "p90_residual_dex": 0.0,
+        "max_residual_dex": 0.0,
+        "frac_within_0_1dex": 1.0,
+        "frac_within_0_3dex": 1.0,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 2,
+        "interpolation_coverage_reverse": 1.0,
+        "median_residual_dex_reverse": 0.0,
+        "mean_residual_dex_reverse": 0.0,
+        "p90_residual_dex_reverse": 0.0,
+        "max_residual_dex_reverse": 0.0
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.0,
+        "overlap_log_mass_width": 4.133102213099704e-05,
+        "mass_jaccard": 1.0,
+        "ext_log_mass_lo": -4.459998560172378,
+        "ext_log_mass_hi": -4.459957229150247,
+        "gt_log_mass_lo": -4.459998560172378,
+        "gt_log_mass_hi": -4.459957229150247
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.0,
+        "coverage_at_0_5dex": 1.0,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 1.0,
+        "median_coupling_log_error": 0.0,
+        "p90_coupling_log_error": 0.0,
+        "num_extracted": 2,
+        "num_ground_truth": 2
+      }
+    },
+    {
+      "arxiv_id": "2006.06722",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.8,
+      "data_source": "figure_vision",
+      "num_points_extracted": 30,
+      "elapsed_s": 249.4338459968567,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/SNe-gamma.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 30,
+        "num_ground_truth": 76,
+        "num_interpolatable": 75,
+        "interpolation_coverage": 0.9868421052631579,
+        "median_residual_dex": 0.03386658221022998,
+        "mean_residual_dex": 0.070235802871084,
+        "p90_residual_dex": 0.18002518722418662,
+        "max_residual_dex": 0.21624312196017392,
+        "frac_within_0_1dex": 0.6666666666666666,
+        "frac_within_0_3dex": 1.0,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 19,
+        "interpolation_coverage_reverse": 0.6333333333333333,
+        "median_residual_dex_reverse": 0.049412308315124776,
+        "mean_residual_dex_reverse": 0.0760869185672739,
+        "p90_residual_dex_reverse": 0.1821316484308923,
+        "max_residual_dex_reverse": 0.2117904457408919
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.07007537041351249,
+        "overlap_log_mass_width": 1.6144932107666428,
+        "mass_jaccard": 0.10431482600643915,
+        "ext_log_mass_lo": -10.0,
+        "ext_log_mass_hi": -7.522878745280337,
+        "gt_log_mass_lo": -23.0,
+        "gt_log_mass_hi": -8.385506789233357
+      },
+      "curve_metrics": {
+        "hausdorff_log": 7.003131068071559,
+        "coverage_at_0_5dex": 0.9868421052631579,
+        "coverage_at_1_0dex": 0.9868421052631579,
+        "mass_range_overlap": 0.110472062731346,
+        "median_coupling_log_error": 0.03281454680683282,
+        "p90_coupling_log_error": 0.17908251503358136,
+        "num_extracted": 30,
+        "num_ground_truth": 76
+      }
+    },
+    {
+      "arxiv_id": "2205.05700",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.6,
+      "data_source": "text",
+      "num_points_extracted": 6,
+      "elapsed_s": 19.528671979904175,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/SolarBasin.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 6,
+        "num_ground_truth": 122,
+        "num_interpolatable": 122,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 0.5087290576882202,
+        "mean_residual_dex": 0.8614949278295911,
+        "p90_residual_dex": 2.143309241672847,
+        "max_residual_dex": 2.6822955200384264,
+        "frac_within_0_1dex": 0.09836065573770492,
+        "frac_within_0_3dex": 0.36065573770491804,
+        "frac_within_0_5dex": 0.5,
+        "frac_within_1_0dex": 0.6639344262295082,
+        "num_interpolatable_reverse": 4,
+        "interpolation_coverage_reverse": 0.6666666666666666,
+        "median_residual_dex_reverse": 0.4629785364045951,
+        "mean_residual_dex_reverse": 0.5915058401123319,
+        "p90_residual_dex_reverse": 1.032552476711669,
+        "max_residual_dex_reverse": 1.2675857576749916
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.7127622069605127,
+        "overlap_log_mass_width": 0.7638175103556457,
+        "mass_jaccard": 0.9815797506963699,
+        "ext_log_mass_lo": 3.6989700043360187,
+        "ext_log_mass_hi": 4.477121254719663,
+        "gt_log_mass_lo": 3.709698559107879,
+        "gt_log_mass_hi": 4.473516069463525
+      },
+      "curve_metrics": {
+        "hausdorff_log": 1.7116325596865671,
+        "coverage_at_0_5dex": 0.5983606557377049,
+        "coverage_at_1_0dex": 0.7786885245901639,
+        "mass_range_overlap": 1.0,
+        "median_coupling_log_error": 0.4781984767943648,
+        "p90_coupling_log_error": 2.1134123708780113,
+        "num_extracted": 6,
+        "num_ground_truth": 122
+      }
+    },
+    {
+      "arxiv_id": "2205.05574",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.85,
+      "data_source": "figure_vision",
+      "num_points_extracted": 52,
+      "elapsed_s": 164.4693329334259,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/TASEH.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 52,
+        "num_ground_truth": 508,
+        "num_interpolatable": 506,
+        "interpolation_coverage": 0.9960629921259843,
+        "median_residual_dex": 0.015836263872829548,
+        "mean_residual_dex": 0.03611388146070053,
+        "p90_residual_dex": 0.09469471491450143,
+        "max_residual_dex": 0.19064184106547621,
+        "frac_within_0_1dex": 0.9071146245059288,
+        "frac_within_0_3dex": 1.0,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 51,
+        "interpolation_coverage_reverse": 0.9807692307692307,
+        "median_residual_dex_reverse": 0.004954556595476944,
+        "mean_residual_dex_reverse": 0.02137951274771431,
+        "p90_residual_dex_reverse": 0.0919310155740618,
+        "max_residual_dex_reverse": 0.20430720780609946
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.019670603401327865,
+        "overlap_log_mass_width": 0.008269091075929325,
+        "mass_jaccard": 0.9870888039191429,
+        "ext_log_mass_lo": -4.71072328096064,
+        "ext_log_mass_hi": -4.702348896756818,
+        "gt_log_mass_lo": -4.71072614816834,
+        "gt_log_mass_hi": -4.702454189884711
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.036547354293355795,
+        "coverage_at_0_5dex": 1.0,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 0.9996533822341219,
+        "median_coupling_log_error": 0.01317305470655672,
+        "p90_coupling_log_error": 0.12079701476473535,
+        "num_extracted": 52,
+        "num_ground_truth": 508
+      }
+    },
+    {
+      "arxiv_id": "2102.00379",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "AxionPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.45,
+      "data_source": "text",
+      "num_points_extracted": 5,
+      "elapsed_s": 96.00752568244934,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "AxionPhoton",
+      "coupling_type_expected": [
+        "AxionPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/AxionPhoton/WhiteDwarfs.txt",
+      "comparison_coupling": "AxionPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 5,
+        "num_ground_truth": 26,
+        "num_interpolatable": 20,
+        "interpolation_coverage": 0.7692307692307693,
+        "median_residual_dex": 0.351930765148039,
+        "mean_residual_dex": 0.3601106705890532,
+        "p90_residual_dex": 0.6347232589539459,
+        "max_residual_dex": 0.7216513624062415,
+        "frac_within_0_1dex": 0.05,
+        "frac_within_0_3dex": 0.45,
+        "frac_within_0_5dex": 0.75,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 2,
+        "interpolation_coverage_reverse": 0.4,
+        "median_residual_dex_reverse": 0.35137697781732324,
+        "mean_residual_dex_reverse": 0.35137697781732324,
+        "p90_residual_dex_reverse": 0.46770369678835644,
+        "max_residual_dex_reverse": 0.49678537653111476
+      },
+      "symmetric_metrics": {
+        "area_between_log": 2.3495445672544553,
+        "overlap_log_mass_width": 0.756214149139578,
+        "mass_jaccard": 0.22908430100086688,
+        "ext_log_mass_lo": 5.0,
+        "ext_log_mass_hi": 6.301029995663981,
+        "gt_log_mass_lo": 2.9999999999999996,
+        "gt_log_mass_hi": 5.756214149139578
+      },
+      "curve_metrics": {
+        "hausdorff_log": 3.33784302725182,
+        "coverage_at_0_5dex": 0.3333333333333333,
+        "coverage_at_1_0dex": 0.5925925925925926,
+        "mass_range_overlap": 0.27436697884148414,
+        "median_coupling_log_error": 1.0517241379310338,
+        "p90_coupling_log_error": 6.395896862910791,
+        "num_extracted": 5,
+        "num_ground_truth": 27
+      }
+    },
+    {
+      "arxiv_id": "2008.02209",
+      "difficulty": "medium",
+      "num_gt_entries": 3,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.45,
+      "data_source": "text",
+      "num_points_extracted": 10,
+      "elapsed_s": 132.58544206619263,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/Coulomb.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 10,
+        "num_ground_truth": 99,
+        "num_interpolatable": 95,
+        "interpolation_coverage": 0.9595959595959596,
+        "median_residual_dex": 1.8102054960203189,
+        "mean_residual_dex": 2.7231415830866132,
+        "p90_residual_dex": 6.342824470209379,
+        "max_residual_dex": 7.66434346378201,
+        "frac_within_0_1dex": 0.021052631578947368,
+        "frac_within_0_3dex": 0.06315789473684211,
+        "frac_within_0_5dex": 0.10526315789473684,
+        "frac_within_1_0dex": 0.23157894736842105,
+        "num_interpolatable_reverse": 7,
+        "interpolation_coverage_reverse": 0.7,
+        "median_residual_dex_reverse": 2.6323449613789807,
+        "mean_residual_dex_reverse": 3.5212998581133763,
+        "p90_residual_dex_reverse": 6.452258585513849,
+        "max_residual_dex_reverse": 7.6850965069290025
+      },
+      "symmetric_metrics": {
+        "area_between_log": 2.843592044113791,
+        "overlap_log_mass_width": 10.531558730941232,
+        "mass_jaccard": 0.7245163660647991,
+        "ext_log_mass_lo": -13.0,
+        "ext_log_mass_hi": 1.0,
+        "gt_log_mass_lo": -13.535984588095987,
+        "gt_log_mass_hi": -2.4684412690587685
+      },
+      "curve_metrics": {
+        "hausdorff_log": 6.918701934793318,
+        "coverage_at_0_5dex": 0.1038961038961039,
+        "coverage_at_1_0dex": 0.23376623376623376,
+        "mass_range_overlap": 0.9776097655414534,
+        "median_coupling_log_error": 1.737467384743796,
+        "p90_coupling_log_error": 5.313106174166185,
+        "num_extracted": 7,
+        "num_ground_truth": 77
+      }
+    },
+    {
+      "arxiv_id": "0801.1527",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.55,
+      "data_source": "text",
+      "num_points_extracted": 8,
+      "elapsed_s": 65.38986325263977,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/CAST.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 8,
+        "num_ground_truth": 175,
+        "num_interpolatable": 107,
+        "interpolation_coverage": 0.6114285714285714,
+        "median_residual_dex": 1.3197890203124985,
+        "mean_residual_dex": 1.814517978010852,
+        "p90_residual_dex": 3.740361792473506,
+        "max_residual_dex": 3.9139896038293465,
+        "frac_within_0_1dex": 0.04672897196261682,
+        "frac_within_0_3dex": 0.14018691588785046,
+        "frac_within_0_5dex": 0.2336448598130841,
+        "frac_within_1_0dex": 0.4392523364485981,
+        "num_interpolatable_reverse": 8,
+        "interpolation_coverage_reverse": 1.0,
+        "median_residual_dex_reverse": 1.9159385308396124,
+        "mean_residual_dex_reverse": 1.973113274674652,
+        "p90_residual_dex_reverse": 3.6532888495924274,
+        "max_residual_dex_reverse": 3.8851380637262984
+      },
+      "symmetric_metrics": {
+        "area_between_log": 1.9186747969259539,
+        "overlap_log_mass_width": 6.522878745280337,
+        "mass_jaccard": 0.7120638429842511,
+        "ext_log_mass_lo": -2.5228787452803374,
+        "ext_log_mass_hi": 4.0,
+        "gt_log_mass_lo": -4.239077886310746,
+        "gt_log_mass_hi": 4.921447268207747
+      },
+      "curve_metrics": {
+        "hausdorff_log": 5.135511030314383,
+        "coverage_at_0_5dex": 0.13714285714285715,
+        "coverage_at_1_0dex": 0.2914285714285714,
+        "mass_range_overlap": 0.7120638429842511,
+        "median_coupling_log_error": 1.4234446462752652,
+        "p90_coupling_log_error": 3.6933398989967743,
+        "num_extracted": 8,
+        "num_ground_truth": 175
+      }
+    },
+    {
+      "arxiv_id": "1911.05086",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.9,
+      "data_source": "source_data",
+      "num_points_extracted": 401,
+      "elapsed_s": 8.079217910766602,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/Cosmology_Witte_homogeneous.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 401,
+        "num_ground_truth": 401,
+        "num_interpolatable": 401,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 0.0,
+        "mean_residual_dex": 0.0,
+        "p90_residual_dex": 0.0,
+        "max_residual_dex": 0.0,
+        "frac_within_0_1dex": 1.0,
+        "frac_within_0_3dex": 1.0,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 401,
+        "interpolation_coverage_reverse": 1.0,
+        "median_residual_dex_reverse": 0.0,
+        "mean_residual_dex_reverse": 0.0,
+        "p90_residual_dex_reverse": 0.0,
+        "max_residual_dex_reverse": 0.0
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.0,
+        "overlap_log_mass_width": 20.0,
+        "mass_jaccard": 1.0,
+        "ext_log_mass_lo": -22.0,
+        "ext_log_mass_hi": -2.0,
+        "gt_log_mass_lo": -22.0,
+        "gt_log_mass_hi": -2.0
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.0,
+        "coverage_at_0_5dex": 1.0,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 1.0,
+        "median_coupling_log_error": 0.0,
+        "p90_coupling_log_error": 0.0,
+        "num_extracted": 376,
+        "num_ground_truth": 376
+      }
+    },
+    {
+      "arxiv_id": "0810.5501",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.8,
+      "data_source": "figure_vision",
+      "num_points_extracted": 45,
+      "elapsed_s": 113.97191405296326,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/Crab.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 44,
+        "num_ground_truth": 112,
+        "num_interpolatable": 99,
+        "interpolation_coverage": 0.8839285714285714,
+        "median_residual_dex": 0.16663309461022524,
+        "mean_residual_dex": 0.15345341673364304,
+        "p90_residual_dex": 0.2265766222401874,
+        "max_residual_dex": 0.35867112396009726,
+        "frac_within_0_1dex": 0.25252525252525254,
+        "frac_within_0_3dex": 0.9696969696969697,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 43,
+        "interpolation_coverage_reverse": 0.9772727272727273,
+        "median_residual_dex_reverse": 0.16440662217579693,
+        "mean_residual_dex_reverse": 0.15895742353565234,
+        "p90_residual_dex_reverse": 0.2738577944147818,
+        "max_residual_dex_reverse": 0.35868320607387494
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.1577273581763694,
+        "overlap_log_mass_width": 2.4741413089206725,
+        "mass_jaccard": 0.9614651065736222,
+        "ext_log_mass_lo": -7.481486060122113,
+        "ext_log_mass_hi": -5.0,
+        "gt_log_mass_lo": -7.573303276431718,
+        "gt_log_mass_hi": -5.00734475120144
+      },
+      "curve_metrics": {
+        "hausdorff_log": 1.6660891672665814,
+        "coverage_at_0_5dex": 0.9912280701754386,
+        "coverage_at_1_0dex": 0.9912280701754386,
+        "mass_range_overlap": 0.9803486569811743,
+        "median_coupling_log_error": 0.1644594151584169,
+        "p90_coupling_log_error": 0.2742803322956981,
+        "num_extracted": 45,
+        "num_ground_truth": 114
+      }
+    },
+    {
+      "arxiv_id": "2101.02805",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.6,
+      "data_source": "text",
+      "num_points_extracted": 4,
+      "elapsed_s": 167.949383020401,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/DarkEfield.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 4,
+        "num_ground_truth": 1274,
+        "num_interpolatable": 984,
+        "interpolation_coverage": 0.7723704866562009,
+        "median_residual_dex": 0.7128354229520504,
+        "mean_residual_dex": 0.7111550515217839,
+        "p90_residual_dex": 1.1462094661778723,
+        "max_residual_dex": 2.074701105448,
+        "frac_within_0_1dex": 0.0508130081300813,
+        "frac_within_0_3dex": 0.16869918699186992,
+        "frac_within_0_5dex": 0.30589430894308944,
+        "frac_within_1_0dex": 0.7926829268292683,
+        "num_interpolatable_reverse": 4,
+        "interpolation_coverage_reverse": 1.0,
+        "median_residual_dex_reverse": 0.8155164298104562,
+        "mean_residual_dex_reverse": 0.6892142855669983,
+        "p90_residual_dex_reverse": 1.0066457255442696,
+        "max_residual_dex_reverse": 1.0756402396807196
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.7898848132714937,
+        "overlap_log_mass_width": 0.5873537326669833,
+        "mass_jaccard": 0.8599180170068109,
+        "ext_log_mass_lo": -6.577902836868289,
+        "ext_log_mass_hi": -5.990549104201306,
+        "gt_log_mass_lo": -6.590026221910436,
+        "gt_log_mass_hi": -5.906991652276187
+      },
+      "curve_metrics": {
+        "hausdorff_log": 1.286546222585426,
+        "coverage_at_0_5dex": 0.5455259026687598,
+        "coverage_at_1_0dex": 0.978021978021978,
+        "mass_range_overlap": 0.8599180170068109,
+        "median_coupling_log_error": 0.7057257197733104,
+        "p90_coupling_log_error": 1.1413713989682623,
+        "num_extracted": 4,
+        "num_ground_truth": 1274
+      }
+    },
+    {
+      "arxiv_id": "2211.00022",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.6,
+      "data_source": "text",
+      "num_points_extracted": 10,
+      "elapsed_s": 14.763488054275513,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/HINODE.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 10,
+        "num_ground_truth": 143,
+        "num_interpolatable": 137,
+        "interpolation_coverage": 0.958041958041958,
+        "median_residual_dex": 1.6893065787630945,
+        "mean_residual_dex": 2.60434269080041,
+        "p90_residual_dex": 5.85767507673505,
+        "max_residual_dex": 6.726915462056154,
+        "frac_within_0_1dex": 0.043795620437956206,
+        "frac_within_0_3dex": 0.10218978102189781,
+        "frac_within_0_5dex": 0.12408759124087591,
+        "frac_within_1_0dex": 0.21897810218978103,
+        "num_interpolatable_reverse": 9,
+        "interpolation_coverage_reverse": 0.9,
+        "median_residual_dex_reverse": 1.086796797305647,
+        "mean_residual_dex_reverse": 1.5195323791526574,
+        "p90_residual_dex_reverse": 2.5130815729290186,
+        "max_residual_dex_reverse": 3.7955326923256774
+      },
+      "symmetric_metrics": {
+        "area_between_log": 2.657535783041474,
+        "overlap_log_mass_width": 8.958767166362232,
+        "mass_jaccard": 0.9624244690057238,
+        "ext_log_mass_lo": -6.0,
+        "ext_log_mass_hi": 3.0,
+        "gt_log_mass_lo": -5.9587671663622315,
+        "gt_log_mass_hi": 3.3085405191510704
+      },
+      "curve_metrics": {
+        "hausdorff_log": 5.9015909091359795,
+        "coverage_at_0_5dex": 0.12121212121212122,
+        "coverage_at_1_0dex": 0.3560606060606061,
+        "mass_range_overlap": 0.9641297840594847,
+        "median_coupling_log_error": 1.134168594641853,
+        "p90_coupling_log_error": 2.521833928878928,
+        "num_extracted": 10,
+        "num_ground_truth": 132
+      }
+    },
+    {
+      "arxiv_id": "2301.03622",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.6,
+      "data_source": "text",
+      "num_points_extracted": 6,
+      "elapsed_s": 10.555725812911987,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/LOFAR.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 6,
+        "num_ground_truth": 401,
+        "num_interpolatable": 401,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 0.3808744627787348,
+        "mean_residual_dex": 0.42527106743905874,
+        "p90_residual_dex": 0.8956873910097691,
+        "max_residual_dex": 1.1789792361792806,
+        "frac_within_0_1dex": 0.16209476309226933,
+        "frac_within_0_3dex": 0.3915211970074813,
+        "frac_within_0_5dex": 0.6334164588528678,
+        "frac_within_1_0dex": 0.9576059850374065,
+        "num_interpolatable_reverse": 2,
+        "interpolation_coverage_reverse": 0.3333333333333333,
+        "median_residual_dex_reverse": 0.658125585602221,
+        "mean_residual_dex_reverse": 0.658125585602221,
+        "p90_residual_dex_reverse": 0.8481551066969459,
+        "max_residual_dex_reverse": 0.8956624869706271
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.3948925227431273,
+        "overlap_log_mass_width": 0.4193672778938433,
+        "mass_jaccard": 0.5389277183415011,
+        "ext_log_mass_lo": -7.0,
+        "ext_log_mass_hi": -6.221848749616356,
+        "gt_log_mass_lo": -6.901893233424038,
+        "gt_log_mass_hi": -6.482525955530194
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.7827248630607168,
+        "coverage_at_0_5dex": 0.7805486284289277,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 1.0,
+        "median_coupling_log_error": 0.4756941312890568,
+        "p90_coupling_log_error": 0.948520260258972,
+        "num_extracted": 6,
+        "num_ground_truth": 401
+      }
+    },
+    {
+      "arxiv_id": "1905.05579",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.7,
+      "data_source": "text",
+      "num_points_extracted": 2,
+      "elapsed_s": 102.30393505096436,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/SHUKET.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 2,
+        "num_ground_truth": 104,
+        "num_interpolatable": 102,
+        "interpolation_coverage": 0.9807692307692307,
+        "median_residual_dex": 0.10633264472380155,
+        "mean_residual_dex": 0.12695449878018358,
+        "p90_residual_dex": 0.29290377817749946,
+        "max_residual_dex": 0.3977441531107839,
+        "frac_within_0_1dex": 0.49019607843137253,
+        "frac_within_0_3dex": 0.9215686274509803,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 1,
+        "interpolation_coverage_reverse": 0.5,
+        "median_residual_dex_reverse": 0.2416809978774488,
+        "mean_residual_dex_reverse": 0.2416809978774488,
+        "p90_residual_dex_reverse": 0.2416809978774488,
+        "max_residual_dex_reverse": 0.2416809978774488
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.13207185106506478,
+        "overlap_log_mass_width": 0.1285665664637312,
+        "mass_jaccard": 0.9501777866836655,
+        "ext_log_mass_lo": -4.681936665037238,
+        "ext_log_mass_hi": -4.548213564475709,
+        "gt_log_mass_lo": -4.676780130939441,
+        "gt_log_mass_hi": -4.546628759226834
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.30927410859334203,
+        "coverage_at_0_5dex": 1.0,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 0.9878233688356782,
+        "median_coupling_log_error": 0.12813058995681637,
+        "p90_coupling_log_error": 0.3097749453633403,
+        "num_extracted": 2,
+        "num_ground_truth": 104
+      }
+    },
+    {
+      "arxiv_id": "1301.6557",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.8,
+      "data_source": "figure_vision",
+      "num_points_extracted": 34,
+      "elapsed_s": 63.640636920928955,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/SPring-8.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 33,
+        "num_ground_truth": 123,
+        "num_interpolatable": 102,
+        "interpolation_coverage": 0.8292682926829268,
+        "median_residual_dex": 0.08023369500511279,
+        "mean_residual_dex": 0.18997275577841286,
+        "p90_residual_dex": 0.6093312755508615,
+        "max_residual_dex": 1.0552518373058448,
+        "frac_within_0_1dex": 0.5588235294117647,
+        "frac_within_0_3dex": 0.7745098039215687,
+        "frac_within_0_5dex": 0.8529411764705882,
+        "frac_within_1_0dex": 0.9901960784313726,
+        "num_interpolatable_reverse": 31,
+        "interpolation_coverage_reverse": 0.9393939393939394,
+        "median_residual_dex_reverse": 0.08566914860469588,
+        "mean_residual_dex_reverse": 0.2415181551783932,
+        "p90_residual_dex_reverse": 0.7277062530885314,
+        "max_residual_dex_reverse": 1.2813032831545255
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.16646597175555358,
+        "overlap_log_mass_width": 6.0381055823974865,
+        "mass_jaccard": 0.8617492561656577,
+        "ext_log_mass_lo": -2.744727494896694,
+        "ext_log_mass_hi": 3.4771212547196626,
+        "gt_log_mass_lo": -3.5296797830485165,
+        "gt_log_mass_hi": 3.293378087500793
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.7990542766351493,
+        "coverage_at_0_5dex": 0.9795918367346939,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 0.9751302416742805,
+        "median_coupling_log_error": 0.07699336107162136,
+        "p90_coupling_log_error": 0.6025167406430003,
+        "num_extracted": 29,
+        "num_ground_truth": 98
+      }
+    },
+    {
+      "arxiv_id": "2208.03183",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.9,
+      "data_source": "text",
+      "num_points_extracted": 1,
+      "elapsed_s": 147.74145412445068,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/SQMS.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "single_point",
+      "interp_metrics": {
+        "num_extracted": 1,
+        "num_ground_truth": 12,
+        "num_interpolatable": 1,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 0.3622791292485683,
+        "mean_residual_dex": 0.3622791292485683,
+        "p90_residual_dex": 0.3622791292485683,
+        "max_residual_dex": 0.3622791292485683,
+        "frac_within_0_1dex": 0.0,
+        "frac_within_0_3dex": 0.0,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 0,
+        "interpolation_coverage_reverse": 0.0,
+        "median_residual_dex_reverse": Infinity,
+        "mean_residual_dex_reverse": Infinity,
+        "p90_residual_dex_reverse": Infinity,
+        "max_residual_dex_reverse": Infinity
+      },
+      "symmetric_metrics": {
+        "area_between_log": Infinity,
+        "overlap_log_mass_width": 0.0,
+        "mass_jaccard": 0.0,
+        "ext_log_mass_lo": NaN,
+        "ext_log_mass_hi": NaN,
+        "gt_log_mass_lo": NaN,
+        "gt_log_mass_hi": NaN
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.3727210021446103,
+        "coverage_at_0_5dex": 1.0,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 0.0,
+        "median_coupling_log_error": 0.16353845100275244,
+        "p90_coupling_log_error": 0.4541528296254468,
+        "num_extracted": 1,
+        "num_ground_truth": 12
+      }
+    },
+    {
+      "arxiv_id": "2008.12231",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.9,
+      "data_source": "text",
+      "num_points_extracted": 1,
+      "elapsed_s": 104.9501359462738,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/SQuAD.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "single_point_gt",
+      "interp_metrics": {
+        "num_extracted": 1,
+        "num_ground_truth": 1,
+        "num_interpolatable": 1,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 0.0,
+        "mean_residual_dex": 0.0,
+        "p90_residual_dex": 0.0,
+        "max_residual_dex": 0.0,
+        "frac_within_0_1dex": 1.0,
+        "frac_within_0_3dex": 1.0,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 0,
+        "interpolation_coverage_reverse": 0.0,
+        "median_residual_dex_reverse": Infinity,
+        "mean_residual_dex_reverse": Infinity,
+        "p90_residual_dex_reverse": Infinity,
+        "max_residual_dex_reverse": Infinity
+      },
+      "symmetric_metrics": null,
+      "curve_metrics": null
+    },
+    {
+      "arxiv_id": "2106.00022",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.85,
+      "data_source": "figure_vision",
+      "num_points_extracted": 33,
+      "elapsed_s": 186.4003870487213,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/SuperMAG.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 33,
+        "num_ground_truth": 58,
+        "num_interpolatable": 55,
+        "interpolation_coverage": 0.9482758620689655,
+        "median_residual_dex": 0.620457345808783,
+        "mean_residual_dex": 0.6404378334362694,
+        "p90_residual_dex": 1.1629970542973251,
+        "max_residual_dex": 1.3291678772071354,
+        "frac_within_0_1dex": 0.0,
+        "frac_within_0_3dex": 0.10909090909090909,
+        "frac_within_0_5dex": 0.32727272727272727,
+        "frac_within_1_0dex": 0.8545454545454545,
+        "num_interpolatable_reverse": 31,
+        "interpolation_coverage_reverse": 0.9393939393939394,
+        "median_residual_dex_reverse": 0.5859636876335639,
+        "mean_residual_dex_reverse": 0.5969609547848675,
+        "p90_residual_dex_reverse": 0.998298571036452,
+        "max_residual_dex_reverse": 1.2312138698268322
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.5449922443404908,
+        "overlap_log_mass_width": 1.3478455836663201,
+        "mass_jaccard": 0.932044851848522,
+        "ext_log_mass_lo": -17.522878745280337,
+        "ext_log_mass_hi": -16.154901959985743,
+        "gt_log_mass_lo": -17.601018615201575,
+        "gt_log_mass_hi": -16.175033161614017
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.7126565856816991,
+        "coverage_at_0_5dex": 0.9137931034482759,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 0.9452028983012066,
+        "median_coupling_log_error": 0.6322988181429503,
+        "p90_coupling_log_error": 1.1268385405705708,
+        "num_extracted": 33,
+        "num_ground_truth": 58
+      }
+    },
+    {
+      "arxiv_id": "1804.10777",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.4,
+      "data_source": "text",
+      "num_points_extracted": 6,
+      "elapsed_s": 63.44576597213745,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/TEXONO.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 6,
+        "num_ground_truth": 3,
+        "num_interpolatable": 1,
+        "interpolation_coverage": 0.3333333333333333,
+        "median_residual_dex": 0.062251338169842185,
+        "mean_residual_dex": 0.062251338169842185,
+        "p90_residual_dex": 0.062251338169842185,
+        "max_residual_dex": 0.062251338169842185,
+        "frac_within_0_1dex": 1.0,
+        "frac_within_0_3dex": 1.0,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 6,
+        "interpolation_coverage_reverse": 1.0,
+        "median_residual_dex_reverse": 0.2856818916074193,
+        "mean_residual_dex_reverse": 0.26024619394183474,
+        "p90_residual_dex_reverse": 0.41331814415907253,
+        "max_residual_dex_reverse": 0.41331814415907253
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.2724964477236658,
+        "overlap_log_mass_width": 4.698970004336019,
+        "mass_jaccard": 0.6808166767645935,
+        "ext_log_mass_lo": 1.3010299956639813,
+        "ext_log_mass_hi": 6.0,
+        "gt_log_mass_lo": -0.9019607843137258,
+        "gt_log_mass_hi": 6.000000000000002
+      },
+      "curve_metrics": {
+        "hausdorff_log": 2.308619852872717,
+        "coverage_at_0_5dex": 0.5,
+        "coverage_at_1_0dex": 0.5,
+        "mass_range_overlap": 0.9999999999999997,
+        "median_coupling_log_error": 0.2385606273598313,
+        "p90_coupling_log_error": 0.3783666407992243,
+        "num_extracted": 6,
+        "num_ground_truth": 2
+      }
+    },
+    {
+      "arxiv_id": "1504.00118",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.75,
+      "data_source": "text",
+      "num_points_extracted": 3,
+      "elapsed_s": 62.79312086105347,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/Tokyo-Dish.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 3,
+        "num_ground_truth": 12,
+        "num_interpolatable": 8,
+        "interpolation_coverage": 0.6666666666666666,
+        "median_residual_dex": 0.10949897296063593,
+        "mean_residual_dex": 0.15869876589844845,
+        "p90_residual_dex": 0.32970325837922443,
+        "max_residual_dex": 0.4074870155414736,
+        "frac_within_0_1dex": 0.5,
+        "frac_within_0_3dex": 0.875,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 2,
+        "interpolation_coverage_reverse": 0.6666666666666666,
+        "median_residual_dex_reverse": 0.04960641919535469,
+        "mean_residual_dex_reverse": 0.04960641919535469,
+        "p90_residual_dex_reverse": 0.06398740671604308,
+        "max_residual_dex_reverse": 0.06758265359621518
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.08405600597086758,
+        "overlap_log_mass_width": 0.30776130350100617,
+        "mass_jaccard": 0.7663512027715521,
+        "ext_log_mass_lo": 0.2787536009528289,
+        "ext_log_mass_hi": 0.6334684555795865,
+        "gt_log_mass_lo": 0.32570715207858036,
+        "gt_log_mass_hi": 0.6803466334788695
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.373515005865372,
+        "coverage_at_0_5dex": 1.0,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 0.8678145543350528,
+        "median_coupling_log_error": 0.13547894337243793,
+        "p90_coupling_log_error": 0.332204965491438,
+        "num_extracted": 3,
+        "num_ground_truth": 12
+      }
+    },
+    {
+      "arxiv_id": "2006.02828",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.82,
+      "data_source": "text",
+      "num_points_extracted": 2,
+      "elapsed_s": 105.15212988853455,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/Tokyo-Tomita.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 2,
+        "num_ground_truth": 6,
+        "num_interpolatable": 6,
+        "interpolation_coverage": 1.0,
+        "median_residual_dex": 0.15861333393774135,
+        "mean_residual_dex": 0.15606783844290253,
+        "p90_residual_dex": 0.23096829861485446,
+        "max_residual_dex": 0.25832112670961216,
+        "frac_within_0_1dex": 0.16666666666666666,
+        "frac_within_0_3dex": 1.0,
+        "frac_within_0_5dex": 1.0,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 0,
+        "interpolation_coverage_reverse": 0.0,
+        "median_residual_dex_reverse": Infinity,
+        "mean_residual_dex_reverse": Infinity,
+        "p90_residual_dex_reverse": Infinity,
+        "max_residual_dex_reverse": Infinity
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.1668207080204888,
+        "overlap_log_mass_width": 0.0002142625629653061,
+        "mass_jaccard": 0.952344953393074,
+        "ext_log_mass_lo": -3.9363289460692825,
+        "ext_log_mass_hi": -3.9361039618740055,
+        "gt_log_mass_lo": -3.936327746762028,
+        "gt_log_mass_hi": -3.936113484199063
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.13981368807321684,
+        "coverage_at_0_5dex": 1.0,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 1.0,
+        "median_coupling_log_error": 0.16824394733358616,
+        "p90_coupling_log_error": 0.3684961684481749,
+        "num_extracted": 2,
+        "num_ground_truth": 6
+      }
+    },
+    {
+      "arxiv_id": "1907.12449",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.6,
+      "data_source": "text",
+      "num_points_extracted": 4,
+      "elapsed_s": 105.88380193710327,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/WISPDMX.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 4,
+        "num_ground_truth": 555,
+        "num_interpolatable": 172,
+        "interpolation_coverage": 0.3099099099099099,
+        "median_residual_dex": 0.3883373716669736,
+        "mean_residual_dex": 0.37692473394553905,
+        "p90_residual_dex": 0.5224756755506575,
+        "max_residual_dex": 1.2801604245673843,
+        "frac_within_0_1dex": 0.0755813953488372,
+        "frac_within_0_3dex": 0.3430232558139535,
+        "frac_within_0_5dex": 0.8255813953488372,
+        "frac_within_1_0dex": 0.9883720930232558,
+        "num_interpolatable_reverse": 4,
+        "interpolation_coverage_reverse": 1.0,
+        "median_residual_dex_reverse": 0.3966238448704047,
+        "mean_residual_dex_reverse": 0.3392963065767316,
+        "p90_residual_dex_reverse": 0.442190146122395,
+        "max_residual_dex_reverse": 0.4485185249699519
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.46205299830758917,
+        "overlap_log_mass_width": 1.0149403497929361,
+        "mass_jaccard": 0.3082585056306655,
+        "ext_log_mass_lo": -6.698970004336019,
+        "ext_log_mass_hi": -5.684029654543083,
+        "gt_log_mass_lo": -8.970792000660907,
+        "gt_log_mass_hi": -5.678294530991833
+      },
+      "curve_metrics": {
+        "hausdorff_log": 5.492154401581496,
+        "coverage_at_0_5dex": 0.33153153153153153,
+        "coverage_at_1_0dex": 0.3981981981981982,
+        "mass_range_overlap": 0.3082585056306655,
+        "median_coupling_log_error": 0.47264638525534775,
+        "p90_coupling_log_error": 0.6472852688602835,
+        "num_extracted": 4,
+        "num_ground_truth": 555
+      }
+    },
+    {
+      "arxiv_id": "1903.05101",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "DarkPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.3,
+      "data_source": "text",
+      "num_points_extracted": 2,
+      "elapsed_s": 133.3600881099701,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "DarkPhoton",
+      "coupling_type_expected": [
+        "DarkPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/DarkPhoton/WSi_Nanowire.txt",
+      "comparison_coupling": "DarkPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 2,
+        "num_ground_truth": 53,
+        "num_interpolatable": 51,
+        "interpolation_coverage": 0.9622641509433962,
+        "median_residual_dex": 4.467353075536931,
+        "mean_residual_dex": 4.46694975209382,
+        "p90_residual_dex": 4.550596638097161,
+        "max_residual_dex": 4.563864051480772,
+        "frac_within_0_1dex": 0.0,
+        "frac_within_0_3dex": 0.0,
+        "frac_within_0_5dex": 0.0,
+        "frac_within_1_0dex": 0.0,
+        "num_interpolatable_reverse": 1,
+        "interpolation_coverage_reverse": 0.5,
+        "median_residual_dex_reverse": 4.555099462781252,
+        "mean_residual_dex_reverse": 4.555099462781252,
+        "p90_residual_dex_reverse": 4.555099462781252,
+        "max_residual_dex_reverse": 4.555099462781252
+      },
+      "symmetric_metrics": {
+        "area_between_log": 4.467523559320266,
+        "overlap_log_mass_width": 0.6580025044376191,
+        "mass_jaccard": 0.919645108983161,
+        "ext_log_mass_lo": -0.09691001300805639,
+        "ext_log_mass_hi": 0.6020599913279624,
+        "gt_log_mass_lo": -0.055942513109656714,
+        "gt_log_mass_hi": 0.6185861039290124
+      },
+      "curve_metrics": {
+        "hausdorff_log": 2.8927367140420217,
+        "coverage_at_0_5dex": 0.0,
+        "coverage_at_1_0dex": 0.0,
+        "mass_range_overlap": 0.9754997605978479,
+        "median_coupling_log_error": 4.560096520918899,
+        "p90_coupling_log_error": 4.599386466105529,
+        "num_extracted": 2,
+        "num_ground_truth": 53
+      }
+    },
+    {
+      "arxiv_id": "1503.06886",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "ScalarPhoton"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.6,
+      "data_source": "text",
+      "num_points_extracted": 4,
+      "elapsed_s": 111.44470500946045,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "ScalarPhoton",
+      "coupling_type_expected": [
+        "ScalarPhoton"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/ScalarPhoton/DyDy.txt",
+      "comparison_coupling": "ScalarPhoton",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 4,
+        "num_ground_truth": 1006,
+        "num_interpolatable": 925,
+        "interpolation_coverage": 0.9194831013916501,
+        "median_residual_dex": 0.23462566396485074,
+        "mean_residual_dex": 0.28637837788054754,
+        "p90_residual_dex": 0.6129760754751412,
+        "max_residual_dex": 1.1690046583062923,
+        "frac_within_0_1dex": 0.10594594594594595,
+        "frac_within_0_3dex": 0.6681081081081081,
+        "frac_within_0_5dex": 0.8594594594594595,
+        "frac_within_1_0dex": 0.9967567567567568,
+        "num_interpolatable_reverse": 3,
+        "interpolation_coverage_reverse": 0.75,
+        "median_residual_dex_reverse": 0.18576101628456154,
+        "mean_residual_dex_reverse": 0.3743117415862822,
+        "p90_residual_dex_reverse": 0.7020786170783082,
+        "max_residual_dex_reverse": 0.8311580172767448
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.3090559167210382,
+        "overlap_log_mass_width": 6.913926946574815,
+        "mass_jaccard": 0.7683031747979129,
+        "ext_log_mass_lo": -22.0,
+        "ext_log_mass_hi": -15.0,
+        "gt_log_mass_lo": -23.998956627236883,
+        "gt_log_mass_hi": -15.086073053425185
+      },
+      "curve_metrics": {
+        "hausdorff_log": 2.534571481466917,
+        "coverage_at_0_5dex": 0.22580645161290322,
+        "coverage_at_1_0dex": 0.5385694249649369,
+        "mass_range_overlap": 0.5707911615625012,
+        "median_coupling_log_error": 0.20167180133587959,
+        "p90_coupling_log_error": 0.8855595602094657,
+        "num_extracted": 3,
+        "num_ground_truth": 713
+      }
+    },
+    {
+      "arxiv_id": "2109.08822",
+      "difficulty": "medium",
+      "num_gt_entries": 1,
+      "true_couplings": [
+        "VectorBL"
+      ],
+      "status": "extracted",
+      "extraction_confidence": 0.78,
+      "data_source": "figure_vision",
+      "num_points_extracted": 32,
+      "elapsed_s": 213.05664610862732,
+      "coupling_type_correct": true,
+      "coupling_type_predicted": "VectorBL",
+      "coupling_type_expected": [
+        "VectorBL"
+      ],
+      "comparison_status": "compared",
+      "gt_file": "limit_data/VectorB-L/EotWashDM.txt",
+      "comparison_coupling": "VectorBL",
+      "scored_via": "forward",
+      "interp_metrics": {
+        "num_extracted": 32,
+        "num_ground_truth": 32,
+        "num_interpolatable": 29,
+        "interpolation_coverage": 0.90625,
+        "median_residual_dex": 0.42525642273383824,
+        "mean_residual_dex": 0.36216145951097656,
+        "p90_residual_dex": 0.6320664887252697,
+        "max_residual_dex": 0.6780078324425318,
+        "frac_within_0_1dex": 0.1724137931034483,
+        "frac_within_0_3dex": 0.3103448275862069,
+        "frac_within_0_5dex": 0.7586206896551724,
+        "frac_within_1_0dex": 1.0,
+        "num_interpolatable_reverse": 32,
+        "interpolation_coverage_reverse": 1.0,
+        "median_residual_dex_reverse": 0.24314541398915956,
+        "mean_residual_dex_reverse": 0.2754149919650394,
+        "p90_residual_dex_reverse": 0.5005077995150633,
+        "max_residual_dex_reverse": 0.7037537652377672
+      },
+      "symmetric_metrics": {
+        "area_between_log": 0.2785794305080725,
+        "overlap_log_mass_width": 2.6020599913279625,
+        "mass_jaccard": 0.9624315204259101,
+        "ext_log_mass_lo": -18.30102999566398,
+        "ext_log_mass_hi": -15.698970004336019,
+        "gt_log_mass_lo": -18.387173386167728,
+        "gt_log_mass_hi": -15.683542077234227
+      },
+      "curve_metrics": {
+        "hausdorff_log": 0.8002282751903375,
+        "coverage_at_0_5dex": 1.0,
+        "coverage_at_1_0dex": 1.0,
+        "mass_range_overlap": 0.9624315204259101,
+        "median_coupling_log_error": 0.41180413779818537,
+        "p90_coupling_log_error": 0.669383338926037,
+        "num_extracted": 32,
+        "num_ground_truth": 32
+      }
+    }
+  ],
+  "benchmark_scope": "measured_limits_only (GT is_projection entries excluded)"
+}

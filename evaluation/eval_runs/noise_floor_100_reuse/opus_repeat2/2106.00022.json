@@ -1,0 +1,150 @@
+{
+ "arxiv_id": "2106.00022",
+ "paper_title": "SuperMAG",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3e-18,
+   0.0008
+  ],
+  [
+   3.3e-18,
+   0.00055
+  ],
+  [
+   3.7e-18,
+   0.00038
+  ],
+  [
+   4.2e-18,
+   0.00027
+  ],
+  [
+   4.8e-18,
+   0.0002
+  ],
+  [
+   5.5e-18,
+   0.00015000000000000001
+  ],
+  [
+   6.3e-18,
+   0.00011000000000000002
+  ],
+  [
+   7.2e-18,
+   8.5e-05
+  ],
+  [
+   8.2e-18,
+   6.800000000000001e-05
+  ],
+  [
+   9.4e-18,
+   5.500000000000001e-05
+  ],
+  [
+   1.07e-17,
+   4.5e-05
+  ],
+  [
+   1.2e-17,
+   3.8e-05
+  ],
+  [
+   1.4e-17,
+   2.9999999999999997e-05
+  ],
+  [
+   1.6e-17,
+   2.4e-05
+  ],
+  [
+   1.8e-17,
+   1.9e-05
+  ],
+  [
+   2e-17,
+   1.6000000000000003e-05
+  ],
+  [
+   2.3e-17,
+   1.3e-05
+  ],
+  [
+   2.6e-17,
+   1.0500000000000001e-05
+  ],
+  [
+   2.9e-17,
+   8.500000000000002e-06
+  ],
+  [
+   3.2e-17,
+   7e-06
+  ],
+  [
+   3.5e-17,
+   5.500000000000001e-06
+  ],
+  [
+   3.8e-17,
+   4.5e-06
+  ],
+  [
+   4.1e-17,
+   3.7e-06
+  ],
+  [
+   4.4e-17,
+   3e-06
+  ],
+  [
+   4.7e-17,
+   2.5e-06
+  ],
+  [
+   5e-17,
+   2.1e-06
+  ],
+  [
+   5.3e-17,
+   1.9000000000000002e-06
+  ],
+  [
+   5.6e-17,
+   1.8000000000000001e-06
+  ],
+  [
+   5.9e-17,
+   1.9000000000000002e-06
+  ],
+  [
+   6.2e-17,
+   2.3e-06
+  ],
+  [
+   6.5e-17,
+   4.000000000000001e-06
+  ],
+  [
+   6.8e-17,
+   9e-06
+  ],
+  [
+   7e-17,
+   2.2000000000000003e-05
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "SuperMAG",
+ "coupling_convention": "kinetic mixing epsilon, dimensionless (lower edge of exclusion band)",
+ "notes": "Paper is the companion/theory paper proposing Earth-as-transducer dark-photon DM search using SuperMAG data. It reports 95%-credible upper limits on kinetic mixing epsilon over mass range 2e-18 eV to 7e-17 eV (Fig. 4), assuming dark photon is all DM. However, no numerical epsilon values are given in the provided text; the exclusion curve is only shown graphically in Fig. 4 which is not reproducible here. The data_points given are only a rough placeholder spanning the stated mass range; the actual coupling value is not extractable from the text and should be taken from the companion paper [1] or the figure. Coupling type (DarkPhoton kinetic mixing) is unambiguous. dm_density not explicitly quoted numerically. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 33)) | Vision: Boundary traced from the lower edge of the dark blue exclusion band (guided by the smoothed light-blue line). Region above the curve is excluded. Numerous narrow upward spikes (candidate frequencies) omitted. X-axis log range 3e-18 to 7e-17 eV; y-axis log range 1e-6 to 0.03. Minimum epsilon ~2e-5 near 5.6e-17 eV before rising sharply toward high-mass edge. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.23)",
+ "num_points": 33,
+ "elapsed_s": 186.4003870487213
+}
