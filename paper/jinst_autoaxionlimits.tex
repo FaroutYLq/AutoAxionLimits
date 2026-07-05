@@ -18,6 +18,9 @@
 \usepackage{jinstpub}
 
 \usepackage{amsmath}
+% jinstpub loads newtxmath, which already defines \Bbbk; neutralise it so
+% amssymb can reload without a "command already defined" clash.
+\let\Bbbk\relax
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{booktabs}
@@ -39,7 +42,6 @@
   One Brookings Drive, St.\ Louis, MO 63130, U.S.A.}
 
 \emailAdd{yuan.l@wustl.edu}
-\emailAdd{karthikr@wustl.edu}
 \note[1]{Corresponding author.}
 
 \abstract{%
@@ -469,9 +471,13 @@ entry declares its unit conversions in a header, applied at ingestion.
 \subsection{Metrics}
 \label{sec:metrics}
 We compare in $\log_{10}$--$\log_{10}$ space. A log--log interpolation of the
-extracted points is evaluated at each GT mass inside the extracted mass range,
-giving a per-point residual $r_i = |\log_{10} g_{\rm ext}(m_i) - \log_{10}
-g_{\rm truth}(m_i)|$ (0.3~dex $\approx$ a factor of two); a paper's residual is
+extracted points is evaluated at each GT mass $m_i$ inside the extracted mass
+range, giving a per-point residual
+\begin{equation}
+  r_i = \bigl|\log_{10} g_{\rm ext}(m_i) - \log_{10} g_{\rm truth}(m_i)\bigr|
+  \label{eq:residual}
+\end{equation}
+where $0.3~\text{dex} \approx$ a factor of two. A paper's residual is
 the median $r_i$, and a reverse pass (interpolating GT onto extracted masses)
 flags curves that run past the true range. We report the \emph{micro-median}
 (the median over papers) and a \emph{macro average} (the \emph{mean} of
@@ -734,23 +740,21 @@ text 135, vector\_trace 14, table 5, source\_data 3, none 24.}
 
 \begin{figure}[t]
 \centering
-\begin{minipage}[t]{0.49\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/residual_cdf.pdf}
+\includegraphics[width=0.52\textwidth]{figures/residual_cdf.pdf}
 \caption{Cumulative distribution of per-paper median residuals for both arms
 of the definitive benchmark. The model-tier gap is visible as a rightward
 shift; the small model's heavier tail is the operationally relevant
 difference.}
 \label{fig:cdf}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.49\textwidth}
+\end{figure}
+
+\begin{figure}[t]
 \centering
-\includegraphics[width=\textwidth]{figures/per_type_residual.pdf}
+\includegraphics[width=0.52\textwidth]{figures/per_type_residual.pdf}
 \caption{Median residual by coupling type with bootstrap 95\% CIs (production
 arm). The micro--macro gap is concentrated in rare, convention-heavy types;
 small-sample types ($N<5$) are greyed.}
 \label{fig:pertype}
-\end{minipage}
 \end{figure}
 
 \subsection{Where the difficulty now lives}
@@ -937,11 +941,28 @@ shipped a wrong conclusion about a $5\times$ cost decision.
 %=============================================================================
 \emph{Channel-routing stability.} The residual run-to-run variance is
 dominated by which channel wins, not what a channel reads; corroboration
-mitigates but does not remove it. \emph{Vector-text figures.} Plots whose
-tick labels are outlined vector text defeat the current axis calibration; an
-OCR fallback is planned. \emph{Text-anchor generalisation.} The corroboration
-gate needs an in-range text anchor; abstract-stated bounds could widen its
-coverage. \emph{Registry growth.} Unknown conventions currently stop at the
+mitigates but does not remove it. \emph{Figure perception.} Deterministic
+vector-path tracing already covers the text-calibratable vector figures
+(roughly a third of the corpus); the remaining raster and outlined-vector-text
+figures are the irreducible perception floor, and reading them accurately
+needs a pixel-geometry tracer or a specialist chart-extraction model inside
+the validate-or-revert contract. Multi-curve figures additionally defeat curve
+\emph{selection}---vision traces a projection, a compilation envelope, or a
+neighbouring coupling's curve instead of the paper's own---which explicit
+target-curve cues aim to fix before a specialist model is warranted.
+\emph{Mass-window coverage.} Some extracted curves miss or overshoot the
+ground-truth mass range; a wrong-window gate rejects the catastrophic
+($\geq$3~dex) cases, but finer drift tolerance, using the figure's own axis
+range as a second window source, and auto-correcting constant-factor mass-axis
+unit offsets ($\mu$eV$\leftrightarrow$eV, GHz$\leftrightarrow$eV) would
+\emph{recover} such curves rather than reject them. \emph{Coupling-type
+classification.} The residual $\sim$8\% of misclassifications concentrate in
+rare, confusable types (vector $B\!-\!L$ vs.\ dark photon, scalar sub-types,
+AxionMass/EDM/CPV), each a \texttt{no\_comparable\_gt} double penalty and a
+driver of the micro--macro gap; targeted disambiguation cues and
+vote-agreement escalation are the path. \emph{Text-anchor generalisation.} The
+corroboration gate needs an in-range text anchor; abstract-stated bounds could
+widen its coverage. \emph{Registry growth.} Unknown conventions currently stop at the
 review flag; the planned loop drains them offline---queued, expert-vetted
 (with LLM assistance), then released to the registry---so the vetted
 vocabulary grows without ever guessing at runtime. \emph{Distributional
