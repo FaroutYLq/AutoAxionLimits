@@ -162,6 +162,16 @@ def _process_paper(paper, paper_id: str, client: anthropic.Anthropic, state: dic
         mark_processed(state, paper_id, reason="not_new_limit")
         return
 
+    # Projected sensitivities are out of scope (2026-07-04). Projections carry
+    # more complicated, detector-scenario-dependent assumptions (a single figure
+    # often shows several forecast curves for different configurations), are of
+    # less community interest than measured bounds, and are hard to record as a
+    # single ground-truth curve. We skip them rather than open a PR.
+    if extraction.is_projection:
+        logger.info("%s: projected sensitivity (is_projection=True); skipping", paper_id)
+        mark_processed(state, paper_id, reason="projection_out_of_scope")
+        return
+
     if not extraction.data_points:
         logger.info("%s: no data points extracted", paper_id)
         mark_processed(state, paper_id, reason="no_data_points")
