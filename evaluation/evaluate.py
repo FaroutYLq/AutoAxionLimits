@@ -69,7 +69,18 @@ from evaluation.report import generate_report
 
 logger = logging.getLogger(__name__)
 
-RESULTS_DIR = Path(__file__).parent / "results"
+# AAL_RESULTS_DIR: rescore an arbitrary snapshot directory (e.g. a benchmark
+# arm under evaluation/eval_runs/) without copying files around.
+RESULTS_DIR = Path(os.environ.get("AAL_RESULTS_DIR") or (Path(__file__).parent / "results"))
+
+# AAL_EXCLUDE_PROJECTIONS: benchmark-scope switch (2026-07-04) — drop GT
+# entries flagged is_projection before scoring. Projections embed
+# detector-scenario assumptions (often several curves per figure for
+# different configurations) that make a single GT curve ill-defined, and
+# they are of less community interest than measured limits. Metrics are
+# written to metrics_noproj.json so the full-scope metrics.json is never
+# silently overwritten.
+EXCLUDE_PROJECTIONS = os.environ.get("AAL_EXCLUDE_PROJECTIONS", "").lower() in ("1", "true", "yes")
 
 # arXiv metadata-fetch robustness (issue #560). The arxiv library uses an
 # internal requests.Session().get() with NO timeout, so when export.arxiv.org
@@ -1221,6 +1232,15 @@ def main():
     entries = load_ground_truth()
     logger.info("Loaded %d ground-truth papers", len(entries))
 
+    if EXCLUDE_PROJECTIONS:
+        n_entries0, n_papers0 = len(entries), len({e.arxiv_id for e in entries})
+        entries = [e for e in entries if not getattr(e, "is_projection", False)]
+        n_entries1, n_papers1 = len(entries), len({e.arxiv_id for e in entries})
+        logger.info(
+            "Projection exclusion active: %d -> %d entries, %d -> %d papers",
+            n_entries0, n_entries1, n_papers0, n_papers1,
+        )
+
     if args.populate:
         n = populate_data_from_repo(PROJECT_ROOT)
         logger.info("Populated %d data files from repo", n)
@@ -1263,15 +1283,17 @@ def main():
             return
 
         all_metrics = compute_all_metrics(valid_entries, results)
+        if EXCLUDE_PROJECTIONS:
+            all_metrics["benchmark_scope"] = "measured_limits_only (GT is_projection entries excluded)"
 
         # Save metrics
-        metrics_path = RESULTS_DIR / "metrics.json"
+        metrics_path = RESULTS_DIR / ("metrics_noproj.json" if EXCLUDE_PROJECTIONS else "metrics.json")
         with open(metrics_path, "w") as f:
             json.dump(all_metrics, f, indent=2, default=str)
         logger.info("Metrics saved to %s", metrics_path)
 
         # Diffable summary (committed to git; full metrics.json stays ignored).
-        summary_path = RESULTS_DIR / "metrics_summary.json"
+        summary_path = RESULTS_DIR / ("metrics_summary_noproj.json" if EXCLUDE_PROJECTIONS else "metrics_summary.json")
         write_metrics_summary(all_metrics, summary_path)
         logger.info("Metrics summary saved to %s", summary_path)
 
