@@ -1,0 +1,22 @@
+{
+ "arxiv_id": "2110.14406",
+ "paper_title": "The Grenoble Axion Haloscope platform (GrAHal): development plan and first results",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.637e-05,
+   2.2e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "GrAHal_Pathfinder2021",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "First pathfinding run limit g_agamma <= 2.2e-13 GeV^-1 at m_a = 26.37 ueV (6.375 GHz), 95% CL, assuming axions are all local dark matter. Only a single quoted value in text; the exclusion in Fig.4 spans a narrow band around this frequency. DM density assumed to be full local density (rho_a) but exact GeV/cm^3 value not stated in the note. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 1))",
+ "num_points": 1,
+ "elapsed_s": 179.86558604240417
+}

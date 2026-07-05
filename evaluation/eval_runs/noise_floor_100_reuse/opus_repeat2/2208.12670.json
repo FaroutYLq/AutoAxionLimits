@@ -1,0 +1,162 @@
+{
+ "arxiv_id": "2208.12670",
+ "paper_title": "Search for galactic axions with a high-Q dielectric cavity",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.28211e-05,
+   7.5e-13
+  ],
+  [
+   4.28212e-05,
+   5e-13
+  ],
+  [
+   4.282125e-05,
+   3e-13
+  ],
+  [
+   4.28213e-05,
+   2.2e-13
+  ],
+  [
+   4.282135e-05,
+   3.5e-13
+  ],
+  [
+   4.28214e-05,
+   1.8e-13
+  ],
+  [
+   4.282145e-05,
+   2.5e-13
+  ],
+  [
+   4.28215e-05,
+   1.3e-13
+  ],
+  [
+   4.282155e-05,
+   2e-13
+  ],
+  [
+   4.28216e-05,
+   1.1e-13
+  ],
+  [
+   4.282165e-05,
+   1.6e-13
+  ],
+  [
+   4.28217e-05,
+   9e-14
+  ],
+  [
+   4.282175e-05,
+   1.4e-13
+  ],
+  [
+   4.28218e-05,
+   8e-14
+  ],
+  [
+   4.282185e-05,
+   1.2e-13
+  ],
+  [
+   4.28219e-05,
+   7.3e-14
+  ],
+  [
+   4.282195e-05,
+   1e-13
+  ],
+  [
+   4.2822e-05,
+   8e-14
+  ],
+  [
+   4.282205e-05,
+   1.3e-13
+  ],
+  [
+   4.28221e-05,
+   9.5e-14
+  ],
+  [
+   4.282215e-05,
+   1.5e-13
+  ],
+  [
+   4.28222e-05,
+   1.1e-13
+  ],
+  [
+   4.282225e-05,
+   1.8e-13
+  ],
+  [
+   4.28223e-05,
+   1.3e-13
+  ],
+  [
+   4.282235e-05,
+   2.2e-13
+  ],
+  [
+   4.28224e-05,
+   1.6e-13
+  ],
+  [
+   4.282245e-05,
+   2.8e-13
+  ],
+  [
+   4.28225e-05,
+   2e-13
+  ],
+  [
+   4.282255e-05,
+   3.5e-13
+  ],
+  [
+   4.28226e-05,
+   2.6e-13
+  ],
+  [
+   4.282265e-05,
+   4.5e-13
+  ],
+  [
+   4.28227e-05,
+   3.5e-13
+  ],
+  [
+   4.282275e-05,
+   6e-13
+  ],
+  [
+   4.28228e-05,
+   5.5e-13
+  ],
+  [
+   4.282285e-05,
+   8e-13
+  ],
+  [
+   4.28229e-05,
+   9.5e-13
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "QUAX-agamma dielectric cavity",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted",
+ "notes": "QUAX-agamma haloscope with high-Q dielectric cavity. Limit g_agamma < 0.731e-13 GeV^-1 at 90% CL at maximum sensitivity, over mass range 42.8210-42.8223 ueV (1.32 neV wide, centered 42.8216 ueV). Encoded as horizontal line over the stated mass window since only the best limit value is quoted numerically. Local DM density rho_a = 0.45 GeV/cm^3. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 36)) | Vision: The limit curve is highly jagged. Lower envelope of the blue excluded region traced; minimum ~7.3e-14 GeV^-1 near center consistent with quoted g<0.731e-13 GeV^-1. Red curve is expected limit. QCD band (yellow) with KSVZ ~1.6e-14 and DFSZ ~6e-15. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.03 snapped to identity)",
+ "num_points": 36,
+ "elapsed_s": 170.53300595283508
+}

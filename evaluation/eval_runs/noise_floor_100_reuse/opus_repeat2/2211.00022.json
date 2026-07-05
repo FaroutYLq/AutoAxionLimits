@@ -1,0 +1,58 @@
+{
+ "arxiv_id": "2211.00022",
+ "paper_title": "HINODE",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-06,
+   1e-08
+  ],
+  [
+   0.001,
+   5e-09
+  ],
+  [
+   0.01,
+   2e-09
+  ],
+  [
+   0.1,
+   1e-09
+  ],
+  [
+   1.0,
+   1e-09
+  ],
+  [
+   10.0,
+   3e-10
+  ],
+  [
+   15.0,
+   1.2e-10
+  ],
+  [
+   100.0,
+   2e-10
+  ],
+  [
+   400.0,
+   6.1e-11
+  ],
+  [
+   1000.0,
+   1e-09
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "HINODE_XRT",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Solar helioscope search for dark photons via kinetic mixing using Hinode X-Ray Telescope darks and eclipse data. This is a production-based (not DM haloscope) bound, so no DM density assumed. Data points are approximate values read from exclusion plot (figure 5/8) for the optimistic darks analysis; specific benchmark points (m=15 eV, eps=1.2e-10; m=400 eV, eps=6.1e-11; m=1 eV) are quoted in text and table. Values are approximate as no numerical table of the exclusion curve was provided; the curve shows resonant bump structure around 5-300 eV and kink at low mass. Table 1 gives sensitivity at m=1 eV ~1e-9 for darks. | selector: text (sole candidate)",
+ "num_points": 10,
+ "elapsed_s": 14.763488054275513
+}

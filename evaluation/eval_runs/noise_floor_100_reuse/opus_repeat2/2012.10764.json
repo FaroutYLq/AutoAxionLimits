@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2012.10764",
+ "paper_title": "First Results from Axion Haloscope at CAPP around 10.7 $\u03bc$eV",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.016e-05,
+   5.4e-15
+  ],
+  [
+   1.034e-05,
+   5.4e-15
+  ],
+  [
+   1.077e-05,
+   5.4e-15
+  ],
+  [
+   1.137e-05,
+   5.4e-15
+  ],
+  [
+   1.07126e-05,
+   6e-16
+  ],
+  [
+   1.07186e-05,
+   6e-16
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "CAPP-PACE",
+ "coupling_convention": "g_agamma in GeV^-1 (approximate, from KSVZ scaling)",
+ "notes": "Haloscope search around 10.7 ueV. Two regimes: KSVZ-sensitivity band 10.7126-10.7186 ueV (near KSVZ coupling ~6e-16 GeV^-1) and wider 10.16-11.37 ueV band at ~9x KSVZ (~5.4e-15 GeV^-1). KSVZ coupling at ~2.6 GHz is roughly g_agamma~6.6e-16 GeV^-1; values are approximate since exact numeric limits not tabulated (only quoted as multiples of KSVZ). ma from Table I. Local DM density 0.45 GeV/cm^3. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 15.3 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+ "num_points": 6,
+ "elapsed_s": 106.95055890083313
+}

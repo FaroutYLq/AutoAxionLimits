@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2108.03316",
+ "paper_title": "BICEP / Keck XIV: Improved constraints on axion-like polarization oscillations in the cosmic microwave background",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.6e-21,
+   7.2e-12
+  ],
+  [
+   4.8e-20,
+   2.16e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "BICEP_Keck_2012-2015",
+ "coupling_convention": "g_agamma in GeV^-1, computed from g < (4.5e-12 GeV^-1) m/(1e-21 eV) over the stated 1-30 d range",
+ "notes": "CMB polarization oscillation search (BICEP/Keck XIV). Limit constrains axion-photon coupling assuming axions are all of DM (kappa=1) at rho0=0.3 GeV/cm^3. Reported relation g_phigamma < (4.5e-12 GeV^-1) * m/(1e-21 eV) valid for 1.6e-21 <= m <= 4.8e-20 eV (1-30 d periods). Two endpoints computed accordingly. A smoothed approximation (Eq. 15) extends over the full 1e-23 to 1e-18 eV range but the clean quoted result is the 1-30 d band. Values are read/derived from text, not a table. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+ "num_points": 2,
+ "elapsed_s": 77.83302998542786
+}

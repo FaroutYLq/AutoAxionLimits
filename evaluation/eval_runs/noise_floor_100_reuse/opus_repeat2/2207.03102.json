@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2207.03102",
+ "paper_title": "Advancing Globular Cluster Constraints on the Axion-Photon Coupling",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-06,
+   4.7e-11
+  ],
+  [
+   1.0,
+   4.7e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "GlobularCluster_R2_2022",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Stellar cooling bound from R2 parameter (AGB/HB ratio) in globular clusters. Most conservative constraint g_agamma < 0.47e-10 GeV^-1 = 4.7e-11 GeV^-1 using semiconvection scheme. Valid for ALP masses from O(10^-6) to O(1) eV (paper states these bounds apply below a few keV where thermal Primakoff production occurs). Mass-independent flat bound encoded as horizontal line over stated validity range. An improved bound of 3.4e-11 GeV^-1 is a projection based on asteroseismology (predictive mixing) and not adopted as the main result. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+ "num_points": 2,
+ "elapsed_s": 87.59048104286194
+}

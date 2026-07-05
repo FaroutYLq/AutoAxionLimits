@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "1707.07921",
+ "paper_title": "Limits on Axion Couplings from the first 80-day data of PandaX-II Experiment",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.01,
+   4e-13
+  ],
+  [
+   1000.0,
+   4e-13
+  ],
+  [
+   1000.0,
+   4e-13
+  ],
+  [
+   25000.0,
+   4e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "PandaX-II_2017",
+ "coupling_convention": "dimensionless g_Ae",
+ "notes": "Solar axion limit g_Ae <= ~4e-13 (abstract quotes 4.35e-12 but text/Fig.3 gives 4e-13) for m_A 1e-5 to 1 keV (mass-independent). Galactic ALP limit g_Ae < ~4.3e-14 (text) to 4e-13 for 1-25 keV. Encoded solar limit as flat line over 1e-2 to 1e3 eV and galactic limit over 1e3 to 2.5e4 eV using representative 4e-13; some inconsistency between abstract and body values. 57Fe line best limit 6e-14 at 10 keV not encoded as it is a narrow single-mass point. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.7, 4))",
+ "num_points": 4,
+ "elapsed_s": 98.11282300949097
+}

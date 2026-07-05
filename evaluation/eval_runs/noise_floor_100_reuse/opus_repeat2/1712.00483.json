@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1712.00483",
+ "paper_title": "MICROSCOPE mission: first constraints on the violation of the weak equivalence principle by a light scalar dilaton",
+ "coupling_type": "ScalarBaryon",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-18,
+   1e-11
+  ],
+  [
+   1e-12,
+   1e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "MICROSCOPE2018",
+ "coupling_convention": "dimensionless alpha (coupling strength relative to gravity), for q=B",
+ "notes": "MICROSCOPE WEP test. Main quoted results: |alpha|<1e-11 for scalar coupled to baryon number B, and |alpha|<1e-12 for B-L, valid for m_phi < 1e-12 eV (range > few 1e5 m). Emitted the B-coupled bound as a flat horizontal line. The B-L result (1e-12) would correspond to VectorBL-like coupling. Numerical exclusion curves in Figs 1-5 are plots only; no tables. The 2-sigma Eotvos limit is eta=(-1+/-27)e-15. Mass range chosen as lower bound approximate (constraints saturate below 1e-14 eV); upper bound 1e-12 eV is where MICROSCOPE loses sensitivity. Confidence lowered due to plot-only detailed data and B vs B-L ambiguity. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 7.3 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 74.92473483085632
+}

@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2004.02733",
+ "paper_title": "Searching for solar axions using data from the Sudbury Neutrino Observatory",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-22,
+   2e-05
+  ],
+  [
+   5500000.0,
+   2e-05
+  ],
+  [
+   5500000.0,
+   0.001
+  ],
+  [
+   1e-22,
+   0.001
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "SNO_Axiodissociation",
+ "coupling_convention": "isovector g3_aN in GeV^-1 (equated to |gan| assuming no cancellation)",
+ "notes": "Solar axion search via axiodissociation of deuterons in SNO. Constrains isovector axion-nucleon coupling |g3_aN|=|gan-gap|/2 between 2e-5 and 1e-3 GeV^-1 for axion masses up to ~5.5 MeV. The exclusion region is a band (not a simple line); I encoded it as the boundary of the excluded box spanning masses from sub-MeV to ~5.5 MeV. Assuming no cancellation, limit applies equally to gan/gap. Note the coupling has dimension GeV^-1 (derivative coupling convention), which is non-standard vs dimensionless g_an; declared accordingly. Lower mass bound not explicitly stated (valid for sub-MeV/light axions), used 1e-22 eV as span start. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.7, 4))",
+ "num_points": 4,
+ "elapsed_s": 57.786693811416626
+}
