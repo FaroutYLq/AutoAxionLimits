@@ -20,6 +20,8 @@ on:
       - "pipeline/extractor.py"
       - "pipeline/axis_ocr.py"
       - "pipeline/plot_calibration.py"
+      - "pipeline/plot_regen.py"
+      - "pipeline/tests/**"
       - ".github/workflows/eval_tests.yml"
   pull_request:
     paths:
@@ -37,6 +39,8 @@ on:
       - "pipeline/extractor.py"
       - "pipeline/axis_ocr.py"
       - "pipeline/plot_calibration.py"
+      - "pipeline/plot_regen.py"
+      - "pipeline/tests/**"
       - ".github/workflows/eval_tests.yml"
 
 jobs:
@@ -65,3 +69,7 @@ jobs:
         run: pip install numpy scipy pytest anthropic arxiv httpx opencv-python-headless pytesseract pillow matplotlib pymupdf
       - name: Run metric unit tests
         run: python -m pytest evaluation/tests/ -v
+      - name: Run pipeline unit tests
+        # No-API pipeline tests (extractor corrections, text truncation,
+        # highlighted-plot call targeting).
+        run: python -m pytest pipeline/tests/ -v
