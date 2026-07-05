@@ -479,7 +479,10 @@ range, giving a per-point residual
 \end{equation}
 where $0.3~\text{dex} \approx$ a factor of two. A paper's residual is
 the median $r_i$, and a reverse pass (interpolating GT onto extracted masses)
-flags curves that run past the true range. We report the \emph{micro-median}
+flags curves that run past the true range and rescues single-point reads,
+which have too few masses to interpolate forward ($\geq$2 are needed) yet score
+into a finite effective residual---so a one-point bound is graded rather than
+counted as a non-finite failure. We report the \emph{micro-median}
 (the median over papers) and a \emph{macro average} (the \emph{mean} of
 per-coupling-type medians, equal weight per type)---the latter is the
 tail-sensitive statistic, since it cannot be bought by accuracy on the most
@@ -496,7 +499,14 @@ those values from the public repository; numbers drawn from supporting
 studies (the vote probe, the channel surveys, the error-anatomy case) cite
 their specific artifacts inline where they appear.
 Table~\ref{tab:disposition} gives the disposition of all 328 papers in the
-production-configuration arm.
+production-configuration arm. Non-finite residuals are confined to the 4
+zero-mass-overlap papers in the compared set: their extracted and GT mass
+windows are disjoint---a wrong-window or wrong-panel read, or a unit/convention
+offset that slides the whole curve out of the GT range (a dedicated diagnostic,
+\texttt{evaluation/diagnose\_zero\_overlap.py}, matches such offsets against
+known conversion factors). Every other non-median paper is removed by an
+upstream filter---the remaining rows of table~\ref{tab:disposition}---not by a
+divergent residual.
 
 \begin{table}[t]
 \caption{Disposition of the 328 benchmark papers (production-configuration arm,
@@ -539,12 +549,18 @@ model comparison. Two further methodology measurements bound all claims:
 
 \textbf{Noise floor.} Repeat runs of the same configuration leave the
 aggregate median stable to within a 95\% bootstrap confidence interval of
-$\pm0.06$~dex (Opus, $N{=}1$), measured by re-running extraction on a random
-57-paper subset in matched configuration---same code, transport, and vote
+$\pm0.06$~dex (Opus, $N{=}1$), measured by re-running extraction on a frozen
+random 100-paper pool in matched configuration---same code, transport, and vote
 count---and pairing each fresh read with its benchmark counterpart, so that
 ``repeat~1'' is the definitive run itself and ``repeat~2'' a fresh matched
-re-run (\texttt{evaluation/eval\_runs/noise\_floor\_100\_reuse/}). The floor
-is dominated by channel-routing flips: 19\% of papers route to a different
+re-run (\texttt{evaluation/eval\_runs/noise\_floor\_100\_reuse/}). The pairing
+keeps only papers with a finite forward residual in \emph{both} reads---a
+stricter condition than the headline ``compared'' set, which additionally
+promotes the reverse pass---so the $\pm0.06$~dex bounds papers comparable in
+both runs, not all 100. The $100\to57$ attrition is budget, not instability:
+42 of the pool were never re-read (the Opus arm hit a clean API-credit
+fail-fast at 58/100, no error stubs) and only 1 of the 58 re-read papers was
+genuinely non-finite. The floor is dominated by channel-routing flips: 19\% of papers route to a different
 channel (text $\leftrightarrow$ vision) between runs, populating a heavy
 per-paper tail ($|\Delta|$ up to $\sim$6~dex) atop a stable core in which most
 papers reproduce to $<$0.03~dex (median run-to-run difference $|\Delta|=0.03$~dex;
