@@ -1,0 +1,158 @@
+{
+ "arxiv_id": "1610.02580",
+ "paper_title": "First results from a microwave cavity axion search at 24 micro-eV",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.354e-05,
+   7e-14
+  ],
+  [
+   2.3545e-05,
+   4e-14
+  ],
+  [
+   2.355e-05,
+   2.6e-14
+  ],
+  [
+   2.356e-05,
+   2.35e-14
+  ],
+  [
+   2.357e-05,
+   2.4e-14
+  ],
+  [
+   2.358e-05,
+   2.1e-14
+  ],
+  [
+   2.3585e-05,
+   7e-14
+  ],
+  [
+   2.359e-05,
+   2e-14
+  ],
+  [
+   2.36e-05,
+   2.05e-14
+  ],
+  [
+   2.362e-05,
+   2e-14
+  ],
+  [
+   2.364e-05,
+   1.95e-14
+  ],
+  [
+   2.366e-05,
+   2e-14
+  ],
+  [
+   2.368e-05,
+   1.9e-14
+  ],
+  [
+   2.37e-05,
+   1.9e-14
+  ],
+  [
+   2.372e-05,
+   1.85e-14
+  ],
+  [
+   2.374e-05,
+   1.85e-14
+  ],
+  [
+   2.3755e-05,
+   1.55e-14
+  ],
+  [
+   2.376e-05,
+   1.8e-14
+  ],
+  [
+   2.378e-05,
+   1.8e-14
+  ],
+  [
+   2.38e-05,
+   1.9e-14
+  ],
+  [
+   2.382e-05,
+   1.85e-14
+  ],
+  [
+   2.384e-05,
+   1.95e-14
+  ],
+  [
+   2.386e-05,
+   1.9e-14
+  ],
+  [
+   2.388e-05,
+   2e-14
+  ],
+  [
+   2.39e-05,
+   1.95e-14
+  ],
+  [
+   2.392e-05,
+   2.05e-14
+  ],
+  [
+   2.394e-05,
+   2.05e-14
+  ],
+  [
+   2.396e-05,
+   2.2e-14
+  ],
+  [
+   2.397e-05,
+   2.3e-14
+  ],
+  [
+   2.3975e-05,
+   2.5e-14
+  ],
+  [
+   2.398e-05,
+   2.7e-14
+  ],
+  [
+   2.3985e-05,
+   3e-14
+  ],
+  [
+   2.399e-05,
+   4e-14
+  ],
+  [
+   2.3995e-05,
+   5.5e-14
+  ],
+  [
+   2.4e-05,
+   7e-14
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.9,
+ "suggested_experiment_name": "HAYSTAC (Yale) 24 micro-eV cavity search",
+ "coupling_convention": "g_agamma in GeV^-1 (plotted as |g_agamma| in units of 10^-14 GeV^-1)",
+ "notes": "First HAYSTAC results. Excludes |g_agamma| >~ 2e-14 GeV^-1 over 23.55 < m_a < 24.0 ueV at 90% CL, corresponding to |g_gamma| >~ 2.3 x g_gamma^KSVZ. Full frequency-dependent limit shown in Fig. 3 (5.7-5.8 GHz range) but only the average value is given numerically; encoded as a flat two-point line over the stated mass range. Local DM density rho_a = 0.45 GeV/cm^3. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.9, 35)) | Vision: Green 'This work' exclusion limit at 90% CL over 23.55-24.0 \u03bceV. Excluded region is above the green curve. Sharp spikes near 5.704 GHz (~23.55 \u03bceV) are from a cut TE mode; narrow dips (~23.755 \u03bceV) are injected synthetic axion signals. KSVZ dashed line at ~0.9e-14 and DFSZ at ~0.3e-14 GeV^-1 shown for calibration. Curve plateaus around 1.8-2.0e-14 GeV^-1. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.01 snapped to identity)",
+ "num_points": 35,
+ "elapsed_s": 174.49116015434265
+}

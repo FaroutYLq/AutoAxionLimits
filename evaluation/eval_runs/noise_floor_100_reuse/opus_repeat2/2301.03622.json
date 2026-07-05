@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2301.03622",
+ "paper_title": "LOFAR",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-07,
+   1e-13
+  ],
+  [
+   2e-07,
+   1e-13
+  ],
+  [
+   3e-07,
+   1e-13
+  ],
+  [
+   4e-07,
+   1.2e-13
+  ],
+  [
+   5e-07,
+   1.5e-13
+  ],
+  [
+   6e-07,
+   2e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "LOFAR_SolarCorona",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Paper searches for resonant conversion of dark photon dark matter into radio waves in the solar corona using LOFAR data, 30-80 MHz (mA' ~ 1.2e-7 to 3.3e-7 eV). Main result is epsilon ~ 1e-13. Data points are approximate readings from Fig. 4 (the exclusion curve is jagged; representative values given). A subdominant axion-photon limit is also derived (Fig. 10) but is not competitive; the dark photon limit is the primary result. Mass range corresponds to plasma frequencies 30-80 MHz mapping to ~1.2e-7 to 3.3e-7 eV, though the plot x-axis extends 1-6 x1e-7 eV. | selector: text (sole candidate)",
+ "num_points": 6,
+ "elapsed_s": 10.555725812911987
+}

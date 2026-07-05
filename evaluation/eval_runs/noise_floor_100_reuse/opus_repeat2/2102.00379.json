@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2102.00379",
+ "paper_title": "WhiteDwarfs",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   100000.0,
+   8e-11
+  ],
+  [
+   300000.0,
+   3e-09
+  ],
+  [
+   600000.0,
+   1e-05
+  ],
+  [
+   1200000.0,
+   1e-05
+  ],
+  [
+   2000000.0,
+   3e-09
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.45,
+ "suggested_experiment_name": "WD-IFMR",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Stellar/astrophysical bound (white dwarf initial-final mass relation) on ALP-photon coupling in the keV-MeV mass range, excluding part of the cosmological triangle. This is not a DM haloscope, so no local DM density. No numerical table of the WD-IFMR exclusion contour is provided; data points are rough estimates read from Figures 1/15 describing the excluded triangular region around g~1e-5 GeV^-1, m~1 MeV, and the lower boundary near g~1e-10 for ~100 keV masses. Values are approximate and should be treated with low confidence. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.45, 5))",
+ "num_points": 5,
+ "elapsed_s": 96.00752568244934
+}

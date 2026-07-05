@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1905.05579",
+ "paper_title": "SHUKET",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.08e-05,
+   5e-12
+  ],
+  [
+   2.83e-05,
+   5e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "SHUKET",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "Dish antenna hidden-photon DM search, 5-6.8 GHz corresponding to 20.8-28.3 ueV. Paper quotes upper limit chi ~5e-12 across the mass range. Exact per-frequency curve values not tabulated; encoded as horizontal bound spanning stated mass range. Narrow-band improved point at 6.331525 GHz (~26.2 ueV) has ~2.1e-21 W power limit, better chi than average but no explicit chi value given. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.7, 2))",
+ "num_points": 2,
+ "elapsed_s": 102.30393505096436
+}

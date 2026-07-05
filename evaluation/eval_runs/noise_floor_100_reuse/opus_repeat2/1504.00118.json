@@ -1,0 +1,30 @@
+{
+ "arxiv_id": "1504.00118",
+ "paper_title": "Tokyo-Dish",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.9,
+   6e-12
+  ],
+  [
+   3.1,
+   6e-12
+  ],
+  [
+   4.3,
+   6e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "Tokyo_Dish_Antenna",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "Dish antenna search for hidden photon CDM. Upper limit chi ~ 6e-12 for hidden photon mass 3.1 +/- 1.2 eV. Data points approximate the mass range (1.9-4.3 eV) at the quoted chi ~6e-12. The chi scales weakly with mass (chi \u221d sqrt(m)) but text gives a single value ~6e-12 over the sensitive band. 95% CL. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.75, 3))",
+ "num_points": 3,
+ "elapsed_s": 62.79312086105347
+}

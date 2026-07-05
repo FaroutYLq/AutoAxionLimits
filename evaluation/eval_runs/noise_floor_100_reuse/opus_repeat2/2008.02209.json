@@ -1,0 +1,58 @@
+{
+ "arxiv_id": "2008.02209",
+ "paper_title": "AFM",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.1,
+   0.32
+  ],
+  [
+   1.0,
+   0.28
+  ],
+  [
+   10.0,
+   0.35
+  ],
+  [
+   1e-13,
+   3.2e-09
+  ],
+  [
+   1e-11,
+   3.2e-09
+  ],
+  [
+   2e-11,
+   4e-09
+  ],
+  [
+   1e-09,
+   3e-08
+  ],
+  [
+   1e-07,
+   3e-07
+  ],
+  [
+   1e-05,
+   3e-06
+  ],
+  [
+   0.001,
+   3e-05
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.45,
+ "suggested_experiment_name": "AFM_PlimptonLawton_HiddenPhoton",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "Laboratory bounds on hidden photon kinetic mixing chi vs mass. AFM setup covers 0.1-10 eV mass range with chi >~ 10^-0.5 (~0.3). Plimpton-Lawton experiment covers ~10 cm scale (small masses) with sensitivity gamma=3.3e-10. Numerical exclusion curves read approximately from Figs. 1, 6, 7; no explicit data table. Plimpton-Lawton points are rough estimates from Fig. 7 with the small-mass turnover near ~0.02 neV. Values are approximate off-plot reads; AFM branch centers around chi~0.3 for 0.1-10 eV. Not a DM haloscope, so no local DM density assumed. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.45, 10))",
+ "num_points": 10,
+ "elapsed_s": 132.58544206619263
+}
