@@ -259,10 +259,10 @@ PHYSICAL_CORRECTIONS = {
         "dm_density": {
             "repo_convention": 0.45,  # GeV/cm^3
             "common_paper_values": [0.3, 0.4, 0.45],
-            "formula": "chi_corrected = chi_paper * sqrt(rho_repo / rho_paper)",
+            "formula": "chi_corrected = chi_paper * sqrt(rho_paper / rho_repo)",
             "description": (
                 "Many dark photon haloscope limits assume rho_DM = 0.3 or 0.4 GeV/cm^3. "
-                "This repo uses 0.45 GeV/cm^3. Apply sqrt(rho_repo/rho_paper) factor."
+                "This repo uses 0.45 GeV/cm^3. Apply sqrt(rho_paper/rho_repo) factor (higher assumed density -> stronger limit)."
             ),
         },
         "polarization": {
@@ -283,31 +283,31 @@ PHYSICAL_CORRECTIONS = {
         "dm_density": {
             "repo_convention": 0.45,
             "common_paper_values": [0.3, 0.4, 0.45],
-            "formula": "g_corrected = g_paper * sqrt(rho_repo / rho_paper)",
+            "formula": "g_corrected = g_paper * sqrt(rho_paper / rho_repo)",
             "description": (
                 "Axion haloscope limits scale as sqrt(rho_DM). "
-                "Apply sqrt(rho_repo/rho_paper) when paper uses a different density."
+                "Apply sqrt(rho_paper/rho_repo) when paper uses a different density (higher density -> stronger limit)."
             ),
         },
     },
     "AxionElectron": {
         "dm_density": {
             "repo_convention": 0.45,
-            "formula": "g_corrected = g_paper * sqrt(rho_repo / rho_paper)",
+            "formula": "g_corrected = g_paper * sqrt(rho_paper / rho_repo)",
             "description": "Same sqrt(rho_DM) scaling for axion-electron DM search limits.",
         },
     },
     "AxionNeutron": {
         "dm_density": {
             "repo_convention": 0.45,
-            "formula": "g_corrected = g_paper * sqrt(rho_repo / rho_paper)",
+            "formula": "g_corrected = g_paper * sqrt(rho_paper / rho_repo)",
             "description": "Same sqrt(rho_DM) scaling for axion-neutron DM search limits.",
         },
     },
     "AxionProton": {
         "dm_density": {
             "repo_convention": 0.45,
-            "formula": "g_corrected = g_paper * sqrt(rho_repo / rho_paper)",
+            "formula": "g_corrected = g_paper * sqrt(rho_paper / rho_repo)",
             "description": "Same sqrt(rho_DM) scaling for axion-proton DM search limits.",
         },
     },

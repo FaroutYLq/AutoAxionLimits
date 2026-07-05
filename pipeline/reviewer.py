@@ -229,12 +229,22 @@ def apply_dm_density_correction(
     rho_paper: float,
     rho_repo: float = 0.45,
 ) -> tuple[list[tuple[float, float]], str]:
-    """Scale coupling values by sqrt(rho_repo / rho_paper)."""
-    factor = math.sqrt(rho_repo / rho_paper)
+    """Scale coupling values by sqrt(rho_paper / rho_repo).
+
+    A DM-search coupling limit scales as g_limit ∝ 1/sqrt(rho_DM) (the excluded
+    signal power ∝ rho·g²), so re-expressing a limit quoted at rho_paper in the
+    repo's rho_repo=0.45 GeV/cm³ *strengthens* it: g_repo = g_paper·sqrt(rho_paper/rho_repo).
+    A higher assumed density means more dark matter, hence a tighter bound. This
+    matches the repository's own plotting convention (``PlotFuncs.py`` DM-search
+    methods multiply stored paper-native data by ``sqrt(rho_paper/rho_repo)`` at
+    plot time, e.g. ``sqrt(0.3/0.45)``). The earlier ``sqrt(rho_repo/rho_paper)``
+    was inverted and weakened every density-corrected limit.
+    """
+    factor = math.sqrt(rho_paper / rho_repo)
     corrected = [(m, g * factor) for m, g in data_points]
     note = (
         f"DM density: paper={rho_paper} GeV/cm³ → repo={rho_repo} GeV/cm³; "
-        f"factor=sqrt({rho_repo}/{rho_paper})={factor:.4f}"
+        f"factor=sqrt({rho_paper}/{rho_repo})={factor:.4f}"
     )
     return corrected, note
 
