@@ -20,6 +20,8 @@ on:
       - "pipeline/extractor.py"
       - "pipeline/axis_ocr.py"
       - "pipeline/plot_calibration.py"
+      - "pipeline/reviewer.py"
+      - "pipeline/pr_creator.py"
       - "pipeline/plot_regen.py"
       - "pipeline/tests/**"
       - ".github/workflows/eval_tests.yml"
@@ -39,6 +41,8 @@ on:
       - "pipeline/extractor.py"
       - "pipeline/axis_ocr.py"
       - "pipeline/plot_calibration.py"
+      - "pipeline/reviewer.py"
+      - "pipeline/pr_creator.py"
       - "pipeline/plot_regen.py"
       - "pipeline/tests/**"
       - ".github/workflows/eval_tests.yml"
@@ -66,10 +70,9 @@ jobs:
         # calls) can import pipeline.extractor and run here too; opencv/pytesseract
         # for the P1 axis-OCR tests. All such tests self-skip if a dep is ever
         # unavailable, so the job stays green.
-        run: pip install numpy scipy pytest anthropic arxiv httpx opencv-python-headless pytesseract pillow matplotlib pymupdf
+        # nbformat is needed by the pipeline reviewer/notebook tests (no API).
+        run: pip install numpy scipy pytest anthropic arxiv httpx opencv-python-headless pytesseract pillow matplotlib pymupdf nbformat
       - name: Run metric unit tests
         run: python -m pytest evaluation/tests/ -v
-      - name: Run pipeline unit tests
-        # No-API pipeline tests (extractor corrections, text truncation,
-        # highlighted-plot call targeting).
+      - name: Run pipeline unit tests (no API — reviewer/pr_creator/plot_regen)
         run: python -m pytest pipeline/tests/ -v
