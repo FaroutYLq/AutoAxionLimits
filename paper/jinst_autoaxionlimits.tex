@@ -29,10 +29,8 @@
 % JINST recommends line numbers on submission; harmless if lineno is absent.
 \IfFileExists{lineno.sty}{\usepackage[mathlines]{lineno}\linenumbers}{}
 
-% Alternative title (old draft): "Towards LLM-Powered Automation of a Dark
-% Matter Constraint Repository" — final choice pending author decision.
-\title{AutoAxionLimits: an LLM-agent pipeline with deterministic guards for
-automated curation of axion and dark-photon exclusion limits}
+% Title chosen by the authors (2026-07-05).
+\title{Towards LLM-Powered Automation of a Dark Matter Constraint Repository}
 
 \author[a,1]{Lanqing Yuan\,\orcidlink{0000-0003-0024-8017}}
 \author[a]{and Karthik Ramanathan\,\orcidlink{0000-0003-4215-7834}}
@@ -795,18 +793,26 @@ curator's hand-digitised curve with the machine extraction. The audit trail:
   figure-vision trace --- the paper states its bound in prose, and a stated
   bound outranks a trace of equal validity on the tier order
   (table~\ref{tab:channels}).
-\item \emph{Deterministic physics correction:} the paper assumes local dark
-  matter density $\rho=0.3$~GeV/cm$^3$; the repository convention is
-  0.45~GeV/cm$^3$, so the registry applied the $\sqrt{\rho}$ rescale
-  (factor 1.2247) --- in code, not by the model.
-\item \emph{Result:} $\chi \leq 1.22\times10^{-12}$ over 19.7--30.5~$\mu$eV
-  (extraction confidence 0.70), landing on the curator's digitised curve
-  ($\chi \approx 1.1$--$1.7\times10^{-12}$ over the same band, stored at the
-  paper-native $\rho=0.3$) --- the residual is dominated by the density
-  convention, not the reading.
-\item \emph{Integration:} data-file update, no code changes needed (the
-  plotting method exists), and the highlighted plot of
-  figure~\ref{fig:showcase}, bundled into a pull request for expert review.
+\item \emph{Density convention (single-owner):} the paper assumes local dark
+  matter density $\rho=0.3$~GeV/cm$^3$ against the repository's
+  0.45~GeV/cm$^3$. A haloscope limit scales as $\chi\propto1/\sqrt{\rho}$, so
+  the repository stores each such limit paper-native and its \emph{single}
+  plotting method applies the display rescale
+  $\sqrt{\rho_{\rm paper}/\rho_{\rm repo}}=\sqrt{0.3/0.45}=0.816$ (a higher
+  assumed density gives a stronger limit). The pipeline therefore stores the
+  extraction paper-native and does \emph{not} duplicate the conversion --- the
+  single-owner-conversion principle, here with the owner being the plotting
+  method rather than the registry.
+\item \emph{Result:} $\chi \lesssim 1.0\times10^{-12}$ over 19.7--30.5~$\mu$eV
+  (extraction confidence 0.70), stored paper-native alongside the curator's
+  own digitised curve ($\chi \approx 1.1$--$1.7\times10^{-12}$ over the same
+  band at the same $\rho=0.3$). At matched density the two are directly
+  comparable; the modest offset reflects the paper stating a single flat
+  bound where the curator digitised a shallow curve, not a convention gap.
+\item \emph{Integration:} because the experiment is already curated, the
+  pipeline takes the update path (data-file replacement, no code change) and
+  emits the highlighted plot of figure~\ref{fig:showcase}, bundled into a pull
+  request for expert review.
 \end{itemize}
 
 \begin{figure}[t]
@@ -815,15 +821,22 @@ curator's hand-digitised curve with the machine extraction. The audit trail:
 \caption{The reviewer-facing highlighted plot produced by the case-study
 run: the full dark-photon compilation greyed out, with only the proposed
 QUALIPHIDE update~\cite{qualiphide} in red (19.7--30.5~$\mu$eV,
-$\chi\sim1.2\times10^{-12}$). A reviewer can judge the proposal's
+$\chi\sim1.0\times10^{-12}$). A reviewer can judge the proposal's
 plausibility in seconds without reading code.}
 \label{fig:showcase}
 \end{figure}
 
-The same run also demonstrated the system's honest failure reporting: the
-re-extraction path exposed integration bugs (a name collision with the
-existing plotting method) that were caught precisely because every output
-goes through a reviewable pull request rather than an automatic merge.
+The same run was also instructive about the review gate's scope. Re-extracting
+an already-curated experiment initially triggered an integration fault (a
+name collision with the existing plotting method); it surfaced --- and was
+fixed --- precisely because every output is a reviewable pull request rather
+than an automatic merge. We note honestly what the gate does \emph{not} catch
+on its own: the density-direction error discussed above was a deterministic
+code fault that an expert reviewing the plotted curve would not necessarily
+spot, and it was caught instead by independent scrutiny of this manuscript.
+The lesson we draw is section~\ref{sec:discussion}'s: deterministic transforms
+must be unit-tested at the source, because neither the model nor the visual
+review gate is a reliable backstop for a sign error in arithmetic.
 
 \paragraph{Operations.} The pipeline has operated on the live arXiv feed
 since spring 2026 through the daily and weekly workflows described in
@@ -915,8 +928,8 @@ community disposes. Reviewing machine-proposed limits at scale needs a
 process---a community editorial board analogous to the Particle Data Group
 reviewers~\cite{pdg}, where collaborations validate their own limits, is one
 model. More fundamentally, the infrastructure for machine-readable limit
-publication already exists and works: HEPData~\cite{hepdata} archives
-digitised collider results as standard practice, and the LHC Reinterpretation
+publication is already established and in routine use: HEPData~\cite{hepdata}
+archives digitised collider results as standard practice, and the LHC Reinterpretation
 Forum has published community recommendations for reusable result
 presentation~\cite{reinterpretation_forum}. The gap is not tooling but
 \emph{adoption in the ultralight-dark-matter community}, where results are
