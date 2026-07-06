@@ -1,5 +1,5 @@
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3932430.svg)](https://doi.org/10.5281/zenodo.3932430)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21213786.svg)](https://doi.org/10.5281/zenodo.21213786)
 
 > **AutoAxionLimits fork**: this repository extends the upstream repo with automated pipelines that keep limit plots up to date. See below and [docs/pipeline.md](docs/pipeline.md) for details.
 
