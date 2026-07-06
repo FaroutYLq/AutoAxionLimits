@@ -13,6 +13,7 @@ import logging
 import os
 import re
 import tempfile
+import threading
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -166,6 +167,31 @@ _TEMPERATURE_UNSUPPORTED: set[str] = set()
 # verify spot-check mass) must sit AFTER the marked block; blocks below the
 # model's ~4k-token cacheable minimum silently no-op (harmless).
 _CACHE_1H = {"type": "ephemeral", "ttl": "1h"}
+
+# The 1h cache above only pays off when the SAME prompt is re-read within the
+# hour, i.e. votes 2..N of a read-vote (N>1). On the single-read path (N=1, the
+# production and benchmark default since #685/#686) every payload is unique and
+# is written to cache but never read back — a measured ~2x write penalty with
+# zero reads (5-paper Opus run: 373k cache-write tokens, 0 cache-read,
+# ~$3.7 of $4.0). So caching is gated to the read-vote loop via a thread-local
+# flag (thread-local, not a global, so concurrent per-paper extractions in the
+# eval never toggle each other's state). Default off.
+_cache_state = threading.local()
+
+
+def _prompt_cache_enabled() -> bool:
+    return getattr(_cache_state, "enabled", False)
+
+
+def _apply_cache(block: dict) -> dict:
+    """Mark a content block cacheable only when re-reads will occur (N>1 vote).
+
+    A no-op on the single-read path, where a 1h breakpoint on a unique per-paper
+    payload is a pure ~2x write cost (measured: zero cache reads).
+    """
+    if _prompt_cache_enabled():
+        block["cache_control"] = _CACHE_1H
+    return block
 
 
 def _create(client, **kwargs):
@@ -1059,7 +1085,7 @@ def _run_vision_verify(
                 "source": {"type": "base64", "media_type": "image/png", "data": img_data},
             }
         )
-    content[-1]["cache_control"] = _CACHE_1H
+    _apply_cache(content[-1])
     content.append(
         {
             "type": "text",
@@ -2181,13 +2207,23 @@ def run_extraction_agent_voted(
 
     from . import read_vote
     results: list = []
-    for i in range(n):
-        try:
-            results.append(run_extraction_agent(paper, pdf_path, client))
-        except FatalAPIError:
-            raise  # #648: no other sample can succeed either
-        except Exception as e:
-            logger.warning("read-vote sample %d/%d failed: %s", i + 1, n, e)
+    # Votes 2..N re-read byte-identical prompts within the hour, so the 1h cache
+    # nets ~27% on the cached spans here (2x write once + (N-1)*0.1x reads vs
+    # N*1x). Enabled for the duration of the vote only; a single read leaves it
+    # off (see _apply_cache). Thread-local, so it never leaks into a concurrent
+    # single-read extraction.
+    prev_cache = _prompt_cache_enabled()
+    _cache_state.enabled = True
+    try:
+        for i in range(n):
+            try:
+                results.append(run_extraction_agent(paper, pdf_path, client))
+            except FatalAPIError:
+                raise  # #648: no other sample can succeed either
+            except Exception as e:
+                logger.warning("read-vote sample %d/%d failed: %s", i + 1, n, e)
+    finally:
+        _cache_state.enabled = prev_cache
     if not results:
         raise RuntimeError("all read-vote extraction samples failed")
     if len(results) == 1:
@@ -2262,7 +2298,7 @@ def _run_stage1(
             # The whole stage-1 prompt is identical across read-vote samples;
             # cache it so votes 2..N read the paper text at ~0.1x.
             messages=[{"role": "user", "content": [
-                {"type": "text", "text": prompt, "cache_control": _CACHE_1H},
+                _apply_cache({"type": "text", "text": prompt}),
             ]}],
         ))
         result = _parse_json_response(resp.content[0].text)
@@ -2329,7 +2365,7 @@ def _run_stage2a_axes(
             }
         )
     # The whole stage-2a prompt is identical across read-vote samples.
-    content[-1]["cache_control"] = _CACHE_1H
+    _apply_cache(content[-1])
     try:
         resp = _call_with_retry(lambda: _create(client,
             model=CLAUDE_MODEL_VISION,
@@ -2412,7 +2448,7 @@ def _run_stage2(
                 "source": {"type": "base64", "media_type": "image/png", "data": img_data},
             }
         )
-    content[-1]["cache_control"] = _CACHE_1H
+    _apply_cache(content[-1])
     if axis_context:
         content.append({"type": "text", "text": axis_context.lstrip("\n")})
     try:
