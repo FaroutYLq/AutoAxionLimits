@@ -1,0 +1,40 @@
+name: Measure Extraction Cost
+
+# Manual-only. Runs the production single-read extraction path (Opus by default)
+# on a handful of papers and prints a per-paper token + cost breakdown, so the
+# real marginal cost of processing a paper can be read off the Actions log and
+# checked against the account's credit-balance delta. Makes no commits or PRs.
+
+on:
+  workflow_dispatch:
+    inputs:
+      arxiv_ids:
+        description: 'Comma-separated arXiv IDs to extract and price'
+        required: false
+        default: '2606.26253,2406.16840,2204.03818,2303.08666,2012.10764'
+      model:
+        description: 'Extraction model (production = claude-opus-4-8)'
+        required: false
+        default: 'claude-opus-4-8'
+
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: requirements_pipeline.txt
+
+      - name: Install pipeline dependencies
+        run: pip install -r requirements_pipeline.txt
+
+      - name: Measure cost
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          EXTRACTOR_MODEL: ${{ inputs.model }}
+          MEASURE_ARXIV_IDS: ${{ inputs.arxiv_ids }}
+        run: python -m evaluation.measure_cost
