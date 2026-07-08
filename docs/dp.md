@@ -231,3 +231,4 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+- **Multiple_Dark_Photons_Cavendish_LSW_Solar_p_1_n_3_40**: [Constraining Multiple Kinetically Mixed Dark Photons](https://arxiv.org/abs/2606.26240)
