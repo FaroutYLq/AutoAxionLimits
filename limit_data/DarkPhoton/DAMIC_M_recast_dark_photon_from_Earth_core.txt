@@ -1,0 +1,33 @@
+# Thermal Emission of Dark Photons from Earth's Core
+# arXiv: https://arxiv.org/abs/2606.26253
+# Coupling type: DarkPhoton
+# Extracted from: figure_vision
+# Confidence level: 0.9
+# Extraction confidence: 0.70
+# Corrections applied:
+#   DM density: paper=0.3 GeV/cm³ → repo=0.45 GeV/cm³; data stored paper-native, plotting method applies sqrt(0.3/0.45)=0.8165 (chi ∝ 1/sqrt(rho))
+# mass [eV]    kinetic mixing chi
+1.000000e-04   7.000000e-09
+1.300000e-04   6.400000e-09
+1.700000e-04   5.800000e-09
+2.200000e-04   5.200000e-09
+3.000000e-04   4.600000e-09
+4.000000e-04   4.100000e-09
+5.000000e-04   3.700000e-09
+7.000000e-04   3.100000e-09
+1.000000e-03   2.600000e-09
+1.400000e-03   2.200000e-09
+2.000000e-03   1.800000e-09
+2.800000e-03   1.500000e-09
+4.000000e-03   1.200000e-09
+5.000000e-03   1.100000e-09
+7.000000e-03   9.000000e-10
+1.000000e-02   7.400000e-10
+1.400000e-02   6.200000e-10
+2.000000e-02   5.100000e-10
+2.800000e-02   4.300000e-10
+4.000000e-02   3.500000e-10
+5.000000e-02   3.100000e-10
+7.000000e-02   2.600000e-10
+1.000000e-01   2.100000e-10
+1.400000e-01   1.800000e-10
