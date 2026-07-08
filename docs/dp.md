@@ -231,3 +231,4 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+- **SPECTRA**: [Searching for Dark Photons with a room-temperature dielectric haloscope](https://arxiv.org/abs/2607.03240)
