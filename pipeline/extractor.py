@@ -903,6 +903,185 @@ def _classify_coupling_type(
 
 
 # ---------------------------------------------------------------------------
+# Confusable-pair classification referee (coupling-type disambiguation)
+# ---------------------------------------------------------------------------
+#
+# The pre-classifier + stage-1 read misclassify a residual ~8% of papers
+# (92.3% accurate on the definitive benchmark). The errors are not spread
+# uniformly: they cluster in a handful of confusable coupling types, measured
+# from the final2_opus_n1 run vs ground truth (45 misclassifications):
+#   AxionMass  -> EDM / a coupling plane / ScalarNucleon      (12)
+#   DarkPhoton <-> VectorBL / AxionPhoton / AxionElectron      (9)
+#   Scalar sub-types (Electron/Photon/Nucleon/Baryon)          (9)
+#   AxionProton <-> AxionNeutron                                (5)
+# Each miss is a DOUBLE penalty: the extracted curve is scored against the
+# wrong ground-truth family (usually "no comparable GT", so it drops out of the
+# compared pool entirely) AND a wrong-plot proposal would be produced.
+#
+# The referee is a focused second opinion, deliberately conservative:
+#   * It only ever re-picks WITHIN the current type's confusable neighbour set
+#     (a curated list per predicted type), never an arbitrary relabel.
+#   * For the high-volume, usually-correct types (AxionPhoton, DarkPhoton,
+#     AxionElectron) it spends an API call only when a cheap deterministic
+#     signal says something is off — the pre-classifier and stage-1 disagreed,
+#     or the extracted coupling magnitudes fall outside the predicted type's
+#     canonical band. Rare confusable types are always refereed (negligible
+#     volume, high base error rate). This caps the added cost at genuine
+#     ambiguity rather than one call per paper.
+#   * It is given a signal the abstract-only pre-classifier never had: the
+#     magnitude range of the actually-extracted values (a decisive tell, e.g.
+#     f_a ~ 1e9-1e18 for the AxionMass plane vs a dimensionless chi < 1).
+
+# Predicted type -> the curated set it may be re-picked among (itself first).
+# Every dense confusion pair measured on the benchmark is reachable: for a
+# GT->pred confusion, GT appears in neighbours[pred] so the referee can undo it.
+_CONFUSABLE_NEIGHBORS: dict[str, tuple[str, ...]] = {
+    "AxionMass":      ("AxionMass", "AxionEDM", "AxionCPV", "AxionPhoton",
+                       "AxionNeutron", "ScalarNucleon"),
+    "AxionEDM":       ("AxionEDM", "AxionMass", "AxionNeutron", "AxionCPV"),
+    "AxionCPV":       ("AxionCPV", "AxionMass", "AxionEDM"),
+    "AxionNeutron":   ("AxionNeutron", "AxionProton", "AxionEDM", "AxionMass"),
+    "AxionProton":    ("AxionProton", "AxionNeutron"),
+    "AxionPhoton":    ("AxionPhoton", "AxionElectron", "DarkPhoton", "AxionMass"),
+    "AxionElectron":  ("AxionElectron", "AxionPhoton", "DarkPhoton"),
+    "DarkPhoton":     ("DarkPhoton", "VectorBL", "AxionPhoton", "AxionElectron"),
+    "VectorBL":       ("VectorBL", "DarkPhoton", "ScalarBaryon"),
+    "ScalarPhoton":   ("ScalarPhoton", "ScalarElectron", "ScalarNucleon", "ScalarBaryon"),
+    "ScalarElectron": ("ScalarElectron", "ScalarPhoton"),
+    "ScalarNucleon":  ("ScalarNucleon", "ScalarPhoton", "ScalarBaryon", "AxionMass"),
+    "ScalarBaryon":   ("ScalarBaryon", "ScalarNucleon", "VectorBL", "ScalarPhoton"),
+}
+
+# High-volume, usually-correct types: referee ONLY on a deterministic signal.
+_REFEREE_DOMINANT: frozenset[str] = frozenset({"AxionPhoton", "DarkPhoton", "AxionElectron"})
+
+# Sharp, physics-grounded discriminators for the confusable distinctions. Kept
+# focused (the pre-classifier already carries the general rules); these are the
+# ones the benchmark showed still failing, restated for a second, data-aware read.
+_REFEREE_DISCRIMINATORS = """\
+- AxionMass is ONLY the m_a vs f_a plane (decay constant f_a in GeV on an axis, \
+cosmological/lattice/superradiance/black-hole-spin bounds). If a COUPLING \
+(g_agamma, g_ae, d_n, chi, ...) is the constrained quantity, it is that coupling \
+type, NOT AxionMass — even when f_a and m_a are discussed in the text.
+- AxionEDM is the oscillating neutron/nuclear EDM response (d_n in e*cm) from \
+axion dark matter; AxionCPV is a static CP-violating coupling (theta-bar, CP-odd \
+nuclear force). Neither is AxionMass.
+- AxionProton (g_ap) vs AxionNeutron (g_an): decide by the SAMPLE/observable — \
+proton-rich NMR samples (1H, hydrogen-bearing), solar/stellar proton processes \
+-> AxionProton; neutron-rich samples, neutron-star neutron processes -> \
+AxionNeutron. If both, prefer the one named in the title/main result.
+- DarkPhoton (kinetic mixing chi/epsilon, hidden photon) vs VectorBL (an \
+explicit U(1)_{B-L} gauge coupling g_{B-L}): 'B-L', 'B minus L', or U(1)_{B-L} \
+-> VectorBL; a generic dark/hidden photon with kinetic mixing -> DarkPhoton.
+- Scalar sub-types by the varied constant: d_e / alpha / fine-structure -> \
+ScalarPhoton; electron mass d_me / m_e variation -> ScalarElectron; nucleon \
+Yukawa fifth force / ISL / torsion pendulum between nucleons -> ScalarNucleon; \
+equivalence-principle / Eotvos / lunar-laser baryon coupling d_g -> ScalarBaryon.
+"""
+
+_REFEREE_SYSTEM = """\
+You are a particle physics expert acting as a classification referee. A first \
+pass assigned a coupling type to a paper; your job is to confirm it or correct \
+it to the single best choice FROM THE PROVIDED CANDIDATE LIST ONLY. Use the \
+paper's primary constrained quantity and the magnitude of the extracted values. \
+Respond ONLY with a JSON object: {"coupling_type": <one of the candidates>, \
+"confidence": float 0-1}. Never invent a type outside the candidate list.
+"""
+
+# Only override the first-pass type when the referee is clearly confident.
+_REFEREE_OVERRIDE_CONF = 0.75
+
+
+def _coupling_magnitude_summary(data_points) -> str | None:
+    """Human-readable magnitude range of the extracted coupling (y) column, the
+    signal the abstract-only pre-classifier never had. Returns None if empty."""
+    ys = [abs(float(g)) for _m, g in (data_points or []) if _safe_float(g) != 0.0]
+    ys = [y for y in ys if y > 0]
+    if not ys:
+        return None
+    return f"{min(ys):.2e} to {max(ys):.2e}"
+
+
+def _coupling_range_suspicious(data_points, coupling_type: str | None) -> bool:
+    """True when the extracted coupling magnitudes fall outside the predicted
+    type's canonical band (a cheap tell that the type may be wrong). Used only
+    to decide whether to spend a referee call on a high-volume type."""
+    from .config import VALID_RANGES
+    band = (VALID_RANGES.get(coupling_type) or {}).get("coupling")
+    ys = [abs(float(g)) for _m, g in (data_points or []) if _safe_float(g) > 0]
+    if not band or not ys:
+        return False
+    lo, hi = band
+    # Suspicious only if the whole extracted set sits outside the band (a single
+    # stray point is not enough — the range validator already handles snapping).
+    return max(ys) < lo or min(ys) > hi
+
+
+def _referee_coupling_type(
+    current_ct: str | None,
+    paper: "arxiv.Result",
+    data_points,
+    client: "anthropic.Anthropic",
+    *,
+    pre_ct: str | None = None,
+) -> tuple[str | None, str]:
+    """Confirm or correct ``current_ct`` within its confusable neighbour set.
+
+    Returns ``(coupling_type, note)``. ``coupling_type`` is the (possibly
+    unchanged) type; ``note`` is a non-empty audit string only when the type was
+    changed. Makes at most one cheap LLM call, and none at all when the type is
+    not confusable or (for a dominant type) no deterministic signal warrants it.
+    """
+    candidates = _CONFUSABLE_NEIGHBORS.get(current_ct or "")
+    if not candidates:
+        return current_ct, ""
+    # Cost gate for the high-volume, usually-correct types.
+    if current_ct in _REFEREE_DOMINANT:
+        disagree = bool(pre_ct and pre_ct != current_ct)
+        suspicious = _coupling_range_suspicious(data_points, current_ct)
+        if not (disagree or suspicious):
+            return current_ct, ""
+
+    mag = _coupling_magnitude_summary(data_points)
+    prompt = (
+        f"First-pass coupling type: {current_ct}\n"
+        f"Candidates (choose exactly one): {', '.join(candidates)}\n\n"
+        f"Discriminators:\n{_REFEREE_DISCRIMINATORS}\n"
+        f"Title: {paper.title}\n\n"
+        f"Abstract: {paper.summary[:2000]}\n\n"
+        + (f"Magnitude of the extracted constrained values: {mag}\n"
+           if mag else "")
+        + "Which candidate is correct?"
+    )
+    try:
+        resp = _call_with_retry(lambda: _create(
+            client,
+            model=CLAUDE_MODEL,
+            max_tokens=128,
+            system=_REFEREE_SYSTEM,
+            messages=[{"role": "user", "content": prompt}],
+        ))
+        result = _parse_json_response(resp.content[0].text)
+        pick = (result or {}).get("coupling_type")
+        try:
+            conf = float((result or {}).get("confidence", 0.0))
+        except (ValueError, TypeError):
+            conf = 0.0
+    except FatalAPIError:
+        raise  # #648: availability errors abort the run, never silently pass
+    except Exception as e:
+        logger.warning("Referee failed for %s: %s", getattr(paper, "title", "?")[:60], e)
+        return current_ct, ""
+
+    # Accept only a confident, in-candidate change; otherwise keep the original.
+    if pick and pick in candidates and pick != current_ct and conf >= _REFEREE_OVERRIDE_CONF:
+        note = (f"[REFEREE] coupling type {current_ct} -> {pick} "
+                f"(conf={conf:.2f}) on confusable-pair re-read")
+        return pick, note
+    return current_ct, ""
+
+
+# ---------------------------------------------------------------------------
 # Vision calibration: benchmark lines + verification pass
 # ---------------------------------------------------------------------------
 
@@ -1807,6 +1986,21 @@ def run_extraction_agent(
         }
     else:
         stage1_result = _run_stage1(paper, pdf_text, client, coupling_hint=pre_ct)
+
+    # --- Stage 1b: confusable-pair classification referee ---
+    # Correct the coupling type BEFORE candidates/vision/validation so every
+    # downstream step (candidate scoring, VALID_RANGES, convention, emission)
+    # uses one consistent type. Overriding stage1_result["coupling_type"] here
+    # is equivalent to stage 1 having classified correctly. No-op (and no API
+    # call) for non-confusable types or a confident, in-band dominant type.
+    _pre_referee_ct = stage1_result.get("coupling_type") or pre_ct
+    _refereed_ct, _referee_note = _referee_coupling_type(
+        _pre_referee_ct, paper, stage1_result.get("data_points"), client, pre_ct=pre_ct)
+    if _refereed_ct and _refereed_ct != _pre_referee_ct:
+        logger.info("Referee reclassified %s: %s -> %s",
+                    arxiv_id, _pre_referee_ct, _refereed_ct)
+        stage1_result["coupling_type"] = _refereed_ct
+        stage1_result["notes"] = (stage1_result.get("notes") or "") + " | " + _referee_note
 
     # --- P2 best-extraction selector (#571): collect candidates, score, argmax ---
     # The source decision stops being "whichever read produced more points" (the
