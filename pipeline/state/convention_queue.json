@@ -24,7 +24,8 @@
       "first_seen": "2026-07-14T00:00:00Z",
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
-      "status": "queued"
+      "status": "needs_human",
+      "failure_reason": "not a coupling convention: declaration states the f_a-vs-m_a plane of a prediction-band paper (GT-excluded class); extraction-content issue, no conversion exists"
     },
     {
       "cache_key": "axionmass::m a in ev lower bound ndw 1 model",
@@ -49,7 +50,8 @@
       "first_seen": "2026-07-14T00:00:00Z",
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
-      "status": "queued"
+      "status": "needs_human",
+      "failure_reason": "not a coupling convention: 'm_a in eV (lower bound)' describes a mass-prediction output, not a coupling axis; extraction should target the f_a curve (f_a_norm GT)"
     },
     {
       "cache_key": "scalarphoton::log10 of d e 0 043 d m d g emitted as absolute coupling value 10 y",
@@ -148,7 +150,8 @@
       "first_seen": "2026-07-14T00:00:00Z",
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
-      "status": "queued"
+      "status": "needs_human",
+      "failure_reason": "declared |d_mhat - d_g| plane not tracked upstream (repo holds this paper's d_e and d_me planes); no GT pair to verify; extraction should target the tracked planes \u2014 classification issue, not a registry gap"
     },
     {
       "cache_key": "axionedm::d n in e cm",
@@ -235,7 +238,8 @@
       "first_seen": "2026-07-14T00:00:00Z",
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
-      "status": "queued"
+      "status": "needs_human",
+      "failure_reason": "declared d_g plane not tracked upstream for this paper (repo holds its fa/ nuclear-clock bound, GT AxionMass); coupling-classification issue, no GT pair to verify a d_g conversion against"
     },
     {
       "cache_key": "scalarelectron::sin theta higgs portal scalar higgs mixing angle",
@@ -276,7 +280,8 @@
       "first_seen": "2026-07-14T00:00:00Z",
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
-      "status": "queued"
+      "status": "needs_human",
+      "failure_reason": "not a coupling convention: 'm_a in eV (prediction, not a limit)' \u2014 mass-prediction output; extraction should target the f_a curve (f_a_norm GT)"
     },
     {
       "cache_key": "scalarnucleon::d g dimensionless plotted as on y axis of fig 3a",
@@ -313,7 +318,8 @@
       "first_seen": "2026-07-14T00:00:00Z",
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
-      "status": "queued"
+      "status": "needs_human",
+      "failure_reason": "declared d_g plane not tracked upstream for this paper (repo holds its fa/ nuclear-clock bound, GT AxionMass); coupling-classification issue, no GT pair to verify a d_g conversion against"
     },
     {
       "cache_key": "axionmass::m a in ev qcd axion mass prediction not an exclusion limit",
@@ -329,7 +335,8 @@
       "first_seen": "2026-07-14T00:00:00Z",
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
-      "status": "queued"
+      "status": "needs_human",
+      "failure_reason": "not a coupling convention: QCD-axion mass prediction declaration; paper is in the prediction-band GT exclusion class"
     }
   ]
 }
