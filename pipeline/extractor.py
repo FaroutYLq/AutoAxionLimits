@@ -38,7 +38,11 @@ from .transform_guard import (
     R3_BENCHMARK_BAND,
     R4_MIN_SPAN_DEX,
 )
-from .convention_queue import record_convention_flag
+from .convention_queue import (
+    UNDECLARED_TOKEN,
+    record_convention_flag,
+    undeclared_suspicious,
+)
 from .vision_gates import check_vision_gates
 
 logger = logging.getLogger(__name__)
@@ -2138,6 +2142,7 @@ def run_extraction_agent(
     # flag the PR [CONVENTION REVIEW] (cap confidence below LOW_CONFIDENCE_THRESHOLD)
     # so a human resolves it rather than emitting a possibly-mis-converted limit.
     # Eval-neutral: only confidence + notes change (data_points/coupling_type intact).
+    from .config import VALID_RANGES
     declared_conv = stage1_result.get("coupling_convention")
     if declared_conv and declared_conv != "canonical" \
             and convention_review_needed(final_ct, declared_conv):
@@ -2157,6 +2162,27 @@ def run_extraction_agent(
         # cheap (one JSON append/counter-bump), and never fails the extraction.
         record_convention_flag(
             final_ct, declared_conv, arxiv_id, data_points=data_points,
+        )
+    elif undeclared_suspicious(final_ct, declared_conv, data_points, VALID_RANGES):
+        # Blind-spot #1 (design §1): an EMPTY declaration is treated as
+        # canonical (deliberately — the common case must not flag), so a novel-
+        # convention output with no declaration passes silently. When the
+        # emitted couplings sit >3 dex above the type's VALID_RANGES ceiling,
+        # that magnitude alone is the review signal: flag + queue, same cap.
+        prior_conf = float(stage1_result.get("extraction_confidence", 0.0) or 0.0)
+        stage1_result["extraction_confidence"] = min(prior_conf, 0.5)
+        stage1_result["notes"] = (
+            stage1_result.get("notes", "")
+            + " | [CONVENTION REVIEW] no convention declared but emitted coupling"
+            " magnitude far exceeds the physically-reasonable ceiling for "
+            f"{final_ct}; possible undeclared non-canonical convention"
+        )
+        logger.warning(
+            "Convention review for %s (%s): undeclared convention with suspicious"
+            " magnitude; flagged", arxiv_id, final_ct,
+        )
+        record_convention_flag(
+            final_ct, UNDECLARED_TOKEN, arxiv_id, data_points=data_points,
         )
 
     return ExtractionResult(

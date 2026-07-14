@@ -174,3 +174,118 @@ def test_extractor_wires_record_convention_flag():
     assert ex.record_convention_flag is cq.record_convention_flag
     src = __import__("inspect").getsource(ex.run_extraction_agent)
     assert "record_convention_flag(" in src, "flag site no longer records to queue"
+
+
+# ---------------------------------------------------------------------------
+# Known-unconvertible pre-verdict (e*cm class) — 2026-07-14
+# ---------------------------------------------------------------------------
+
+from pipeline.convention_queue import (  # noqa: E402
+    STATUS_UNCONVERTIBLE,
+    UNDECLARED_TOKEN,
+    known_unconvertible,
+    undeclared_suspicious,
+)
+
+
+@pytest.mark.parametrize("decl", [
+    "d_n in e*cm",
+    "d_n oscillation amplitude in e*cm (limit on dn-(mu_n/mu_Hg)dHg)",
+    "d_n in e*cm (oscillating deuteron EDM amplitude d_AC)",
+    "oscillating neutron EDM amplitude d_n in e cm",
+])
+def test_ecm_class_is_known_unconvertible(decl):
+    assert known_unconvertible("AxionEDM", decl)
+
+
+def test_ecm_converted_declaration_exempt():
+    # #594: "converted from ..." means the EMITTED values are canonical-claimed.
+    assert not known_unconvertible(
+        "AxionEDM", "g_d in GeV^-2, converted from d_n in e*cm")
+
+
+def test_ecm_other_coupling_not_unconvertible():
+    assert not known_unconvertible("AxionPhoton", "d_n in e*cm")
+
+
+def test_ecm_entry_enters_as_unconvertible(qpath):
+    e = append_flag(coupling_type="AxionEDM", declared_convention="d_n in e*cm",
+                    arxiv_id="2101.01241", path=qpath)
+    assert e["status"] == STATUS_UNCONVERTIBLE
+
+
+def test_unknown_token_still_enters_queued(qpath):
+    e = append_flag(coupling_type="AxionEDM",
+                    declared_convention="C_G/f_a in GeV^-1 as plotted",
+                    arxiv_id="2204.01454", path=qpath)
+    assert e["status"] == STATUS_QUEUED
+
+
+def test_unconvertible_entry_never_reopened(qpath):
+    append_flag(coupling_type="AxionEDM", declared_convention="d_n in e*cm",
+                arxiv_id="2101.01241", path=qpath)
+    e = append_flag(coupling_type="AxionEDM", declared_convention="d_n in e*cm",
+                    arxiv_id="2208.07293", path=qpath)
+    assert e["status"] == STATUS_UNCONVERTIBLE
+    assert e["count"] == 2 and set(e["arxiv_ids"]) == {"2101.01241", "2208.07293"}
+
+
+# ---------------------------------------------------------------------------
+# Blind-spot #1: undeclared + suspicious magnitude — 2026-07-14
+# ---------------------------------------------------------------------------
+
+_RANGES = {"ScalarNucleon": {"mass": (1e-24, 1e9), "coupling": (1e-20, 1e0)}}
+
+
+def _pts(vals):
+    return tuple((1e-10, v) for v in vals)
+
+
+def test_undeclared_huge_values_suspicious():
+    # d_e_large-class storage: ~1e30 vs ceiling 1e0 (+3 dex margin).
+    assert undeclared_suspicious("ScalarNucleon", "", _pts([1e30, 1e31, 1e32]),
+                                 _RANGES)
+
+
+def test_undeclared_in_range_not_suspicious():
+    assert not undeclared_suspicious("ScalarNucleon", "", _pts([1e-5, 1e-6]),
+                                     _RANGES)
+
+
+def test_margin_is_three_decades():
+    # Just above ceiling but within margin: not suspicious (strong-limit noise,
+    # unit sloppiness — the selector's range machinery owns that band).
+    assert not undeclared_suspicious("ScalarNucleon", "", _pts([5e2]), _RANGES)
+    assert undeclared_suspicious("ScalarNucleon", "", _pts([5e3]), _RANGES)
+
+
+def test_real_declaration_bypasses_blind_spot_guard():
+    # A populated declaration goes through convention_review_needed instead.
+    assert not undeclared_suspicious("ScalarNucleon", "|d_mhat - d_g|",
+                                     _pts([1e30]), _RANGES)
+
+
+@pytest.mark.parametrize("decl", ["", None, "canonical", "standard", "n/a"])
+def test_canonical_claim_variants_covered(decl):
+    assert undeclared_suspicious("ScalarNucleon", decl, _pts([1e30]), _RANGES)
+
+
+def test_small_values_never_suspicious():
+    # High side only: a stronger-than-expected limit is not a convention signal.
+    assert not undeclared_suspicious("ScalarNucleon", "", _pts([1e-40]), _RANGES)
+
+
+def test_no_ranges_or_type_fail_open():
+    assert not undeclared_suspicious(None, "", _pts([1e30]), _RANGES)
+    assert not undeclared_suspicious("ScalarNucleon", "", _pts([1e30]), None)
+    assert not undeclared_suspicious("Unknown", "", _pts([1e30]), _RANGES)
+
+
+def test_undeclared_token_groups_per_type(qpath):
+    e = append_flag(coupling_type="ScalarNucleon",
+                    declared_convention=UNDECLARED_TOKEN,
+                    arxiv_id="9999.00001", path=qpath)
+    e2 = append_flag(coupling_type="ScalarNucleon",
+                     declared_convention=UNDECLARED_TOKEN,
+                     arxiv_id="9999.00002", path=qpath)
+    assert e2["cache_key"] == e["cache_key"] and e2["count"] == 2
