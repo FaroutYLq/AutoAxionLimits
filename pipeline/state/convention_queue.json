@@ -84,11 +84,11 @@
         ]
       ],
       "target_repo_file": null,
-      "pr_url": null,
+      "pr_url": "https://github.com/FaroutYLq/AutoAxionLimits/pull/721",
       "first_seen": "2026-07-14T00:00:00Z",
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
-      "status": "queued"
+      "status": "promoted"
     },
     {
       "cache_key": "axionedm::d n oscillation amplitude in e cm limit on dn mu n mu hg dhg",
@@ -260,11 +260,11 @@
         ]
       ],
       "target_repo_file": null,
-      "pr_url": null,
+      "pr_url": "https://github.com/FaroutYLq/AutoAxionLimits/pull/721",
       "first_seen": "2026-07-14T00:00:00Z",
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
-      "status": "queued"
+      "status": "promoted"
     },
     {
       "cache_key": "axionmass::m a in ev prediction not a limit",
