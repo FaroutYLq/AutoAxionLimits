@@ -422,6 +422,26 @@ def to_canonical(coupling_type: Optional[str], data_points, convention: Optional
                     f"{GUARD_REFUSED}: scalar GeV^-1/Lambda values must be "
                     f"<1 (1/Lambda) or >1e3 (Lambda in GeV); median {med!r}")
 
+        # --- ScalarElectron: Higgs-portal sin theta -> d_me ---
+        # Drained token 2303.00778 (note convention-2303.00778-sintheta-d_me.md,
+        # citation-audited): equating the Damour-Donoghue vertex
+        # g_e = d_me * m_e/(sqrt2 M_Pl) with the portal vertex
+        # g_e = sin theta * m_e/v gives d_me = sqrt2 M_Pl/v * sin theta;
+        # spot-check +0.0067 dex vs ScalarElectron/WhiteDwarfs.txt. Magnitude
+        # guard: a mixing-angle BOUND is tiny (WD scale ~1e-10); refuse
+        # anything not clearly an angle (>=1e-2 — d_me-scale values would
+        # mean the declaration mislabeled already-canonical output).
+        if coupling_type == "ScalarElectron" and conv == "sin_theta_higgs":
+            f = _math.sqrt(2.0) * _M_PL_GEV / 246.22   # ~1.379e16
+            med = _median_positive(g for _m, g in data_points)
+            if med is None or med >= 1e-2:
+                return data_points, (
+                    f"{GUARD_REFUSED}: sin_theta_higgs expects a mixing-angle "
+                    f"bound << 1e-2 (median {med!r})")
+            return [(m, g * f) for m, g in data_points], (
+                f"convention: Higgs-portal sin theta -> d_me "
+                f"(x sqrt2 M_Pl/v = {f:.4g})")
+
         # --- DarkPhoton: epsilon^2 -> kinetic mixing chi ---
         if coupling_type == "DarkPhoton" and conv in ("epsilon_squared", "eps^2", "chi^2"):
             return [(m, _math.sqrt(g)) for m, g in data_points if g > 0], (
@@ -492,6 +512,28 @@ _EXPECTED_SYMBOL_STEMS: dict = {
 }
 
 _NOT_CLAUSE_RE = _re_mod = None  # lazily compiled below
+
+# Clock-comparison sensitivity combination (promoted 2026-07-14, drain of
+# convention token 1604.08514; derivation note
+# GPD/explanations/convention-1604.08514-clock-combo-d_e.md). A hyperfine
+# frequency-ratio bound constrains d_e + c(d_mhat - d_g) with |c| < 1 (Rb/Cs:
+# c = k_q/k_alpha = 0.043); the compilation plots it on the d_e plane under
+# one-coupling dominance, where the combination reduces IDENTICALLY to d_e.
+# Recognition is scoped: the declaration must be d_e-LEADING with an explicit
+# sub-unity decimal coefficient — a combination without the leading d_e term
+# (|d_mhat - d_g|, 1807.04512) is a different plane and must keep failing
+# closed (#683). MIRRORS pipeline.transform_guard._is_clock_combo_de.
+_CLOCK_COMBO_DE_RE = None  # lazily compiled (no module-level re import here)
+
+
+def _is_clock_combo_de(decl_lower: str) -> bool:
+    global _CLOCK_COMBO_DE_RE
+    if _CLOCK_COMBO_DE_RE is None:
+        import re as _re
+        _CLOCK_COMBO_DE_RE = _re.compile(r"d_e\s*\+\s*0?\.\d+\s*\*?\s*\(")
+    return bool(_CLOCK_COMBO_DE_RE.search(decl_lower))
+
+
 # "(equivalent to g_agamma in GeV^-1)" — the model asserts the emitted values
 # ARE the coupling's own canonical quantity; under the truthful-declaration
 # contract (#594/#657) that assertion governs the emitted values, so a
@@ -537,6 +579,8 @@ def _foreign_quantity_declared(coupling_type: str, decl_lower: str) -> bool:
         return True
     if _asserts_canonical_equivalence(coupling_type, d):
         return False
+    if coupling_type == "ScalarPhoton" and _is_clock_combo_de(d):
+        return False    # vetted clock combination — reduces to d_e (see above)
     expected = _EXPECTED_SYMBOL_STEMS.get(coupling_type)
     if expected is None:
         return False        # coupling with product/no symbol vocabulary: skip
@@ -633,13 +677,30 @@ def classify_reported_convention(coupling_type: Optional[str],
             return UNCONVERTIBLE
         return None
     if coupling_type in ("ScalarPhoton", "ScalarElectron"):
-        # The ONLY scalar conversion enabled (#600, vetted EXPLAIN Sec.1): the
-        # GeV^-1 Compton-like coupling g_{phi} -> dimensionless d (x sqrt2 M_Pl).
-        # Fires only when the extractor DECLARES a GeV^-1 / inverse-Lambda form
-        # (the model-declared-convention contract, #594) — a model that declares
-        # plain `d_e`/`d_me` is left canonical. The native large-valued scalar
-        # files stay governed by the #591 d_e_large exclusion guard (their
-        # per-file storage is unverified — do NOT auto-convert those here).
+        # Clock-comparison sensitivity combination (drained token 1604.08514,
+        # note convention-1604.08514-clock-combo-d_e.md): d_e-leading with a
+        # sub-unity coefficient reduces identically to d_e under the
+        # compilation's one-coupling-dominance convention — canonical, no
+        # conversion.
+        if coupling_type == "ScalarPhoton" and _is_clock_combo_de(raw):
+            return None
+        # Higgs-portal mixing angle (drained token 2303.00778, note
+        # convention-2303.00778-sintheta-d_me.md): d_me = sqrt(2) M_Pl/v * sin
+        # theta — closed form, spot-checked at +0.0067 dex vs the repo
+        # WhiteDwarfs.txt curve. Scoped to ScalarElectron ("sin theta" for
+        # ScalarPhoton would carry a different constant and stays flagged).
+        if coupling_type == "ScalarElectron" and "sin" in u \
+                and ("theta" in u or "θ" in u) \
+                and ("higgs" in u or "mixing" in u):
+            return "sin_theta_higgs"
+        # The ONLY other scalar conversion enabled (#600, vetted EXPLAIN
+        # Sec.1): the GeV^-1 Compton-like coupling g_{phi} -> dimensionless d
+        # (x sqrt2 M_Pl). Fires only when the extractor DECLARES a GeV^-1 /
+        # inverse-Lambda form (the model-declared-convention contract, #594) —
+        # a model that declares plain `d_e`/`d_me` is left canonical. The
+        # native large-valued scalar files stay governed by the #591 d_e_large
+        # exclusion guard (their per-file storage is unverified — do NOT
+        # auto-convert those here).
         lam_inv = ("lambda^-1" in u or "lambda_gamma^-1" in u
                    or "lambda_gamma" in u or "1/lambda" in u)
         if inv_gev or lam_inv:

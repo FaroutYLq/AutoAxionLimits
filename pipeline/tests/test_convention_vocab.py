@@ -45,13 +45,12 @@ UNFLAGGED = [
 
 # Genuinely unknown/foreign — must STAY flagged (and stay UNCONVERTIBLE or
 # review-needed on the eval side where applicable).
+# NOTE: 1604.08514 (clock combo) and 2303.00778 (Higgs-portal sin theta) sat
+# in this list until the 2026-07-14 queue drain promoted them (GPD-derived,
+# citation-audited); their coverage moved to the promotion tests below.
 STILL_FLAGGED = [
-    ("ScalarPhoton",
-     "log10 of d_e + 0.043(d_m̂ - d_g); emitted as absolute coupling value (10^y)"),  # 1604.08514
     ("ScalarNucleon",
      "|d_mhat^(1) - d_g^(1)|, dimensionless (plotted as log10 on y-axis)"),  # 1807.04512
-    ("ScalarElectron",
-     "sin theta (Higgs-portal scalar-Higgs mixing angle)"),               # 2303.00778
     ("AxionEDM", "d_n in e*cm"),                                          # 2101.01241
     ("AxionEDM",
      "d_n oscillation amplitude in e*cm (limit on dn-(mu_n/mu_Hg)dHg)"),  # 1708.06367
@@ -159,3 +158,63 @@ def test_braced_inverse_gev_canonical_for_axionmass():
     decl = "f_a^{-1} in GeV^{-1}, plotted as y-axis value directly"
     assert not convention_review_needed("AxionMass", decl)
     assert classify_reported_convention("AxionMass", decl) is None  # canonical
+
+
+# ---------------------------------------------------------------------------
+# Drained-token promotions (2026-07-14): clock combo + Higgs-portal sin theta
+# ---------------------------------------------------------------------------
+
+from evaluation.conventions import to_canonical  # noqa: E402
+
+_CLOCK_DECL = "log10 of d_e + 0.043(d_m̂ - d_g); emitted as absolute coupling value (10^y)"
+_SINTH_DECL = "sin theta (Higgs-portal scalar-Higgs mixing angle)"
+
+
+def test_clock_combo_promoted_canonical():
+    # Token 1604.08514 (note convention-1604.08514-clock-combo-d_e.md,
+    # citation-audited PASS): d_e-leading sub-unity combination == d_e under
+    # one-coupling dominance. No flag, no conversion.
+    assert not convention_review_needed("ScalarPhoton", _CLOCK_DECL)
+    assert classify_reported_convention("ScalarPhoton", _CLOCK_DECL) is None
+
+
+def test_clock_combo_scoped_to_d_e_leading():
+    # A combination WITHOUT the leading d_e term is a different plane: the
+    # 1807.04512 declaration must keep failing closed (also in STILL_FLAGGED).
+    assert convention_review_needed(
+        "ScalarNucleon", "|d_mhat^(1) - d_g^(1)|, dimensionless")
+    # A coefficient >= 1 is not the vetted sensitivity-combination shape.
+    assert convention_review_needed(
+        "ScalarPhoton", "d_e + 1.5(d_m̂ - d_g), dimensionless")
+    # Scoped to ScalarPhoton — the same string on another type still flags.
+    assert convention_review_needed("ScalarNucleon", _CLOCK_DECL)
+
+
+def test_sintheta_promoted_convertible():
+    # Token 2303.00778 (note convention-2303.00778-sintheta-d_me.md,
+    # citation-audited PASS): recognized at runtime (no flag), converted by
+    # the eval registry.
+    assert not convention_review_needed("ScalarElectron", _SINTH_DECL)
+    assert classify_reported_convention("ScalarElectron", _SINTH_DECL) == "sin_theta_higgs"
+
+
+def test_sintheta_numeric_spot_check():
+    # d_me = sqrt2 M_Pl/v * sin theta; the derivation's spot-check value:
+    # 1.9e-10 -> 2.619e6 vs repo WhiteDwarfs.txt 2.5793e6 (+0.0067 dex).
+    pts = [(1e-3, 1.9e-10), (1e3, 1.9e-10)]
+    out, note = to_canonical("ScalarElectron", pts, "sin_theta_higgs")
+    assert "sin theta -> d_me" in note
+    import math
+    assert abs(math.log10(out[0][1] / 2.5793e6)) < 0.05
+
+
+def test_sintheta_magnitude_guard_refuses_non_angle():
+    # d_me-scale values under a sin-theta declaration: mislabel, refuse.
+    pts = [(1e-3, 2.6e6)]
+    out, note = to_canonical("ScalarElectron", pts, "sin_theta_higgs")
+    assert out == pts and "refused" in note.lower()
+
+
+def test_sintheta_scoped_to_scalar_electron():
+    # ScalarPhoton sin-theta would carry a different constant: keep flagging.
+    assert convention_review_needed("ScalarPhoton", _SINTH_DECL)

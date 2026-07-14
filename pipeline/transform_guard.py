@@ -616,6 +616,24 @@ _EXPECTED_SYMBOL_STEMS: dict = {
     "VectorBL":       ("g_b", "g_z"),
 }
 _NOT_CLAUSE_RE = None
+
+# Clock-comparison sensitivity combination (promoted 2026-07-14, drained token
+# 1604.08514; note GPD/explanations/convention-1604.08514-clock-combo-d_e.md):
+# d_e-leading with an explicit sub-unity decimal coefficient reduces
+# identically to d_e under the compilation's one-coupling-dominance
+# convention. Scoped: no-d_e combinations (|d_mhat - d_g|) keep failing
+# closed (#683). MIRRORS evaluation.conventions._is_clock_combo_de.
+_CLOCK_COMBO_DE_RE = None
+
+
+def _is_clock_combo_de(decl_lower: str) -> bool:
+    global _CLOCK_COMBO_DE_RE
+    if _CLOCK_COMBO_DE_RE is None:
+        import re as _re
+        _CLOCK_COMBO_DE_RE = _re.compile(r"d_e\s*\+\s*0?\.\d+\s*\*?\s*\(")
+    return bool(_CLOCK_COMBO_DE_RE.search(decl_lower))
+
+
 # "(equivalent to g_agamma in GeV^-1)" — the model asserts the emitted values
 # ARE the coupling's own canonical quantity; under the truthful-declaration
 # contract (#594/#657) that assertion governs the emitted values, so a
@@ -655,6 +673,8 @@ def _foreign_quantity_declared(coupling_type: str, decl_lower: str) -> bool:
         return True
     if _asserts_canonical_equivalence(coupling_type, d):
         return False
+    if coupling_type == "ScalarPhoton" and _is_clock_combo_de(d):
+        return False    # vetted clock combination — reduces to d_e (see above)
     expected = _EXPECTED_SYMBOL_STEMS.get(coupling_type)
     if expected is None:
         return False
@@ -709,6 +729,14 @@ def _declared_convertible(coupling_type: str, decl_lower: str) -> bool:
         return any(t in decl_lower for t in
                    ("f_a in gev", "fa in gev", "f_a [gev", "fa [gev", "f [gev"))
     if coupling_type in ("ScalarPhoton", "ScalarElectron"):
+        # Higgs-portal sin theta -> d_me (drained token 2303.00778; eval
+        # registry converts via sin_theta_higgs, x sqrt2 M_Pl/v). Scoped to
+        # ScalarElectron — a ScalarPhoton sin-theta would carry a different
+        # constant and must keep flagging.
+        if coupling_type == "ScalarElectron" and "sin" in decl_lower \
+                and ("theta" in decl_lower or "θ" in decl_lower) \
+                and ("higgs" in decl_lower or "mixing" in decl_lower):
+            return True
         return inv_gev or "lambda" in decl_lower or "λ" in decl_lower
     return False
 
