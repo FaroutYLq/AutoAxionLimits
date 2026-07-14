@@ -421,6 +421,108 @@ def gate_mass_regime(*, data_points, abstract: str | None,
 
 
 # ---------------------------------------------------------------------------
+# Gate-C rescue — constant mass-axis unit-prefix / frequency correction
+# ---------------------------------------------------------------------------
+#
+# A constant-factor unit misread shifts EVERY extracted mass by the same power
+# of ten: the axis was μeV but read as eV (×1e6 too large), or a frequency axis
+# (GHz/MHz) was reported in eV without conversion. Gate C rejects these outright
+# today; a wrong-window gate that could recognise the offset would recover the
+# curve rather than discard it (issue-driven future-work item, JINST §7).
+#
+# This is NOT the blind #561 corrector, and the difference is the whole safety
+# argument. That corrector snapped to whichever factor got closest to a
+# geometric anchor with no absolute constraint, which is how a CORRECT 6–100 GeV
+# collider reading collapsed by ~14 dex when the frequency factor won the snap
+# (#587). Here every safeguard the blind path lacked is present:
+#   1. It only runs when Gate C is ALREADY rejecting the candidate (a correct
+#      in-window reading never reaches it — gap 0 < 3 dex, gate silent).
+#   2. It rescues ONLY if EXACTLY ONE factor lands the whole extracted interval
+#      inside the abstract-stated window (widened by ``tol_dex``). Zero or ≥2
+#      qualifying factors → no rescue, reject unchanged.
+#   3. Frequency→eV factors are candidates ONLY when the candidate's own notes
+#      declare a frequency axis (``allow_frequency``); a bare GeV reading with no
+#      frequency wording can never be reinterpreted as a frequency.
+# The #587 collider case is structurally excluded by (1) — its correct reading
+# and its abstract window coincide, so Gate C never fires — and is pinned by a
+# regression test.
+
+_H_EV = 4.135667696e-15  # Planck constant [eV·s]; 1 Hz ↔ h eV.
+
+# (factor, label): multiply every extracted mass by ``factor`` to correct a
+# constant unit-prefix misread. Both directions of the common prefix errors.
+_MASS_RESCUE_PREFIX_FACTORS: tuple[tuple[float, str], ...] = (
+    (1e-9, "GeV→eV (÷1e9)"),
+    (1e-6, "μeV→eV (÷1e6)"),
+    (1e-3, "meV→eV (÷1e3)"),
+    (1e3, "keV→eV (×1e3)"),
+    (1e6, "MeV→eV (×1e6)"),
+    (1e9, "GeV→eV (×1e9)"),
+)
+# Frequency-axis values reported as eV: multiply by h·(prefix) to reach eV.
+_MASS_RESCUE_FREQ_FACTORS: tuple[tuple[float, str], ...] = (
+    (_H_EV, "Hz→eV (×h)"),
+    (_H_EV * 1e3, "kHz→eV (×h·1e3)"),
+    (_H_EV * 1e6, "MHz→eV (×h·1e6)"),
+    (_H_EV * 1e9, "GHz→eV (×h·1e9)"),
+    (_H_EV * 1e12, "THz→eV (×h·1e12)"),
+)
+
+_FREQ_AXIS_RE = re.compile(r"\b(?:frequenc(?:y|ies)|[kMGT]?Hz)\b")
+
+
+def mass_axis_is_frequency(notes: str | None) -> bool:
+    """True when the extraction notes describe a frequency mass axis (Hz/GHz or
+    the word 'frequency'). Gates whether the frequency→eV rescue factors are in
+    play, so a bare GeV reading is never reinterpreted as a frequency."""
+    return bool(notes and _FREQ_AXIS_RE.search(notes))
+
+
+def rescue_mass_regime(
+    *,
+    data_points,
+    window: tuple[float, float] | None,
+    allow_frequency: bool = False,
+    tol_dex: float = 0.5,
+) -> tuple[float, str] | None:
+    """Find the UNIQUE constant factor that maps every extracted mass inside the
+    abstract ``window`` (widened by ``tol_dex`` each side). Returns
+    ``(factor, label)`` when exactly one candidate qualifies, else ``None``.
+
+    Pure and deterministic: no API, order-independent (min/max only), fixed
+    discrete candidate set. Intended to run only on a candidate Gate C is
+    already rejecting (see the module note above). ``allow_frequency`` adds the
+    frequency→eV factors; without it only unit-prefix powers of ten are tried.
+
+    ``tol_dex`` is deliberately tight (half a decade): the correct rescue is an
+    exact power of ten that lands the interval where the true masses live, so a
+    non-power-of-ten offset (e.g. ×1e2) whose nearest candidate leaves a
+    fractional-decade residual is rejected rather than mis-snapped. The slack
+    only absorbs a real curve extending slightly past the abstract's round
+    headline window. Because the μeV (÷1e6) and GHz (×h·1e9) factors sit ~0.6
+    dex apart, a haloscope whose window admits both is (correctly) refused as
+    ambiguous — either correction is within ~0.6 dex, but we never guess."""
+    try:
+        masses = [float(m) for m, *_ in (data_points or ()) if float(m) > 0]
+        if not masses or window is None:
+            return None
+        lo, hi = min(masses), max(masses)
+        abs_lo, abs_hi = window
+        if abs_lo <= 0 or abs_hi <= 0:
+            return None
+        w_lo = abs_lo / (10.0 ** tol_dex)
+        w_hi = abs_hi * (10.0 ** tol_dex)
+        factors = list(_MASS_RESCUE_PREFIX_FACTORS)
+        if allow_frequency:
+            factors += list(_MASS_RESCUE_FREQ_FACTORS)
+        hits = [(f, label) for f, label in factors
+                if w_lo <= lo * f and hi * f <= w_hi]
+        return hits[0] if len(hits) == 1 else None
+    except Exception:
+        return None
+
+
+# ---------------------------------------------------------------------------
 # Gate D — compilation-envelope trace
 # ---------------------------------------------------------------------------
 
