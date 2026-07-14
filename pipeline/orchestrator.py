@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import argparse
 import logging
-import os
 import sys
 import tempfile
 from datetime import datetime, timezone
@@ -17,6 +16,7 @@ from pathlib import Path
 
 import anthropic
 
+from .client_factory import make_client
 from .config import MAX_PAPERS_PER_RUN
 from .extractor import (
     CLAUDE_MODEL,
@@ -82,12 +82,7 @@ def main(
         stream=sys.stdout,
     )
 
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        logger.error("ANTHROPIC_API_KEY not set")
-        sys.exit(1)
-
-    client = anthropic.Anthropic(api_key=api_key)
+    client = make_client()
 
     # Fail fast on billing/auth outages BEFORE touching any state (#648): 18
     # runs once stayed green while every call failed on an exhausted credit

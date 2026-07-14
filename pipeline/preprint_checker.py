@@ -25,6 +25,7 @@ from .extractor import (
     FatalAPIError,
     run_extraction_agent,
 )
+from .client_factory import make_client
 from .pr_creator import create_feature_branch, stage_and_commit_files
 from .reviewer import ReviewResult, apply_corrections, format_data_file
 
@@ -463,8 +464,7 @@ def run_weekly_check(
        c. If published + no data: flag for review.
     4. Save state.
     """
-    api_key = __import__("os").environ.get("ANTHROPIC_API_KEY")
-    client = anthropic.Anthropic(api_key=api_key)
+    client = make_client(preflight=True)
 
     state = load_version_state()
     file_arxiv_map = scan_data_files_for_arxiv_ids(repo_root)
