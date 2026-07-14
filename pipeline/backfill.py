@@ -23,6 +23,7 @@ from typing import Optional
 import anthropic
 import httpx
 
+from .client_factory import make_client
 from .config import (
     ARXIV_KEYWORDS,
     BACKFILL_DEFAULT_MIN_CITATIONS,
@@ -639,12 +640,7 @@ def main(
         stream=sys.stdout,
     )
 
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key and not discover_only:
-        logger.error("ANTHROPIC_API_KEY not set")
-        sys.exit(1)
-
-    client = anthropic.Anthropic(api_key=api_key) if api_key else None
+    client = make_client(required=not discover_only, preflight=not discover_only)
     state = load_backfill_state()
 
     # --- Discovery phase ---

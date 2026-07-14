@@ -257,7 +257,21 @@ def run_extraction(entry: GroundTruthEntry) -> dict:
         run_extraction_agent_voted,
     )
 
-    if os.environ.get("AAL_BATCH", "").lower() in ("1", "true", "yes"):
+    from pipeline.client_factory import resolve_backend
+
+    _batch = os.environ.get("AAL_BATCH", "").lower() in ("1", "true", "yes")
+    if resolve_backend() in ("claude-cli", "cli"):
+        # Subscription transport: same agent code, calls shell out to
+        # headless `claude -p`. See pipeline/cli_client.py. Message Batches is
+        # an API-only concept, so the two transports are mutually exclusive.
+        if _batch:
+            raise RuntimeError(
+                "AAL_BATCH is incompatible with AAL_BACKEND=claude-cli "
+                "(Message Batches is an API-only transport)"
+            )
+        from pipeline.cli_client import ClaudeCLIClient
+        client = ClaudeCLIClient()
+    elif _batch:
         # Message-Batches transport (50% price): same agent code, calls ride
         # a shared batching dispatcher. See pipeline/batch_client.py.
         from pipeline.batch_client import get_shared_batching_client

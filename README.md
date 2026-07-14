@@ -13,6 +13,18 @@ Three GitHub Actions pipelines keep this repository current with new experimenta
 
 Every update goes through a pull request for human review — nothing merges automatically. Low-confidence extractions are flagged in the PR title. Pipeline code lives in `pipeline/` and can be run locally with `python -m pipeline.orchestrator` (daily), `python -m pipeline.preprint_checker` (weekly), or `python -m pipeline.backfill` (backfill). All support `--dry-run`.
 
+#### Running on a Claude Code subscription (no API key)
+
+By default the pipelines bill extraction to `ANTHROPIC_API_KEY`. Set `AAL_BACKEND=claude-cli` to route the model calls through headless `claude -p` instead, so they bill to your Claude Code Pro/Max subscription. Nothing else changes (same prompts, models, and outputs). See [pipeline/BACKENDS.md](pipeline/BACKENDS.md) for details.
+
+```bash
+claude login                 # one-time: log the CLI in to your subscription
+AAL_BACKEND=claude-cli python -m pipeline.orchestrator --dry-run   # preview, no PRs
+AAL_BACKEND=claude-cli python -m pipeline.orchestrator             # real run
+```
+
+Or, from inside a Claude Code session, just run the matching skill — `/daily-arxiv-digest`, `/weekly-preprint-check`, or `/backfill-extraction` — which handles worktree isolation and state restore for you. (Runs need network + keychain access, so don't sandbox them.)
+
 ---
 
 The purpose of this website is to host data files and python notebooks to create limit plots on axions, axion-like particles, dark photons, and other ultralight bosons. Please email me [ciaran.aj.ohare@gmail.com] if you have any questions/comments/complaints. I greatly appreciate corrections to anything here, no matter how minor or trivial. Please also inform me if a limit you have made isn't here, usually it will just be because I missed it. Also if you have made one of the limits shown here and it has been revised (e.g. in a v2 of the paper) please let me know as I am much more likely to have missed the update.
