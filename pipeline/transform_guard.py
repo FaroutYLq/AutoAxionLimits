@@ -559,7 +559,12 @@ _CANONICAL_DECL: dict[str, tuple[str, ...]] = {
     # through as "canonical" — post-full346 #594 follow-up.)
     "AxionEDM":       ("g_d", "g_angamma", "gev^-2", "gev-2"),
     "AxionCPV":       ("dimensionless", "coupling"),
-    "AxionMass":      ("gev^-1", "1/f_a", "f_a_norm", "dimensionless", "normalized"),
+    # gev^{-1} / f_a^{-1}: LaTeX-braced spellings of the canonical inverse-GeV
+    # plane (2302.00685 "f_a^{-1} in GeV^{-1}" was runtime-flagged while the
+    # eval registry's inv_gev — which lists the braced variant — treated it as
+    # canonical; mirror drift, 2026-07-14).
+    "AxionMass":      ("gev^-1", "gev^{-1}", "1/f_a", "f_a^{-1}", "fa^{-1}",
+                       "f_a_norm", "dimensionless", "normalized"),
     "MonopoleDipole": ("dimensionless", "coupling"),
     "ScalarPhoton":   ("d_e", "dimensionless"),
     "ScalarElectron": ("d_me", "d_{m_e}", "dimensionless"),

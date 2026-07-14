@@ -151,3 +151,11 @@ def test_cg_over_fa_not_flagged_at_runtime():
     decl = "C_G/f_a in GeV^-1 as plotted on y-axis (NOT d_n in e cm)"
     assert not convention_review_needed("AxionEDM", decl)
     assert classify_reported_convention("AxionEDM", decl) == "inv_fa"
+
+
+def test_braced_inverse_gev_canonical_for_axionmass():
+    # 2302.00685: LaTeX-braced spelling of the canonical inverse plane must not
+    # flag at runtime (eval's inv_gev already accepts the braced variant).
+    decl = "f_a^{-1} in GeV^{-1}, plotted as y-axis value directly"
+    assert not convention_review_needed("AxionMass", decl)
+    assert classify_reported_convention("AxionMass", decl) is None  # canonical
