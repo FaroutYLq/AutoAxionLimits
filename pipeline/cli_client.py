@@ -102,6 +102,15 @@ _USAGE_LIMIT_MARKERS = (
     "5-hour limit",
     "weekly limit",
     "reset at",
+    # 2026-07-14 incident: mid-run window exhaustion surfaced as "You've hit
+    # your session limit · resets 4:10pm" — a marker variant this list did not
+    # know, so it fell through to per-stage failure and 313/347 benchmark
+    # extractions fail-opened to EMPTY results (the exact #648 failure class:
+    # an availability error is a property of the run, never the paper).
+    "session limit",
+    "hit your limit",
+    "· resets",
+    "limit resets",
 )
 _RATELIMIT_MARKERS = ("rate limit", "too many requests", "429")
 _OVERLOAD_MARKERS = ("overloaded", "529", "service unavailable")
