@@ -38,6 +38,7 @@ from .transform_guard import (
     R3_BENCHMARK_BAND,
     R4_MIN_SPAN_DEX,
 )
+from .convention_queue import record_convention_flag
 from .vision_gates import check_vision_gates
 
 logger = logging.getLogger(__name__)
@@ -2150,6 +2151,12 @@ def run_extraction_agent(
         logger.warning(
             "Convention review for %s (%s): unknown declared convention %r; flagged",
             arxiv_id, final_ct, declared_conv,
+        )
+        # Escalation queue (#636): record the token so the offline convention-
+        # triage skill can derive its conversion once, per token. Deterministic,
+        # cheap (one JSON append/counter-bump), and never fails the extraction.
+        record_convention_flag(
+            final_ct, declared_conv, arxiv_id, data_points=data_points,
         )
 
     return ExtractionResult(
