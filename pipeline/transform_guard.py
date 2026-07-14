@@ -684,7 +684,12 @@ def _declared_convertible(coupling_type: str, decl_lower: str) -> bool:
     if coupling_type == "DarkPhoton":
         return any(t in decl_lower for t in ("eps^2", "epsilon^2", "chi^2", "squared"))
     if coupling_type == "AxionEDM":
-        return any(t in decl_lower for t in ("1/f_a", "invfa", "1/fa", "cg/fa", "gluon"))
+        # Mirror-drift fix (2026-07-14): the eval registry's inv_fa branch also
+        # accepts spelled-out "c_g/f_a" and "c_g/(f_a" (2204.01454 declared
+        # "C_G/f_a in GeV^-1" and was runtime-flagged while the eval converted
+        # it) — keep this token list identical to evaluation.conventions.
+        return any(t in decl_lower for t in ("1/f_a", "invfa", "1/fa", "cg/fa",
+                                             "c_g/f_a", "c_g/(f_a", "gluon"))
     if coupling_type == "AxionPhoton":
         if any(t in decl_lower for t in ("s^-1", "s-1", "decay rate", "1/s")):
             return True

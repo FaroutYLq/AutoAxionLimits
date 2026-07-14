@@ -139,3 +139,15 @@ def test_negation_clause_still_dropped():
 def test_mirrors_agree(ct, decl):
     assert tg_foreign(ct, decl.lower()) == ev_foreign(ct, decl.lower()), (
         f"transform_guard and evaluation.conventions disagree on {ct}: {decl!r}")
+
+
+# ---------------------------------------------------------------------------
+# Mirror-drift fix: runtime inv_fa tokens must match the eval registry
+# ---------------------------------------------------------------------------
+
+def test_cg_over_fa_not_flagged_at_runtime():
+    # 2204.01454: eval converts this via inv_fa; the runtime mirror was missing
+    # the spelled-out token and flagged a convertible declaration.
+    decl = "C_G/f_a in GeV^-1 as plotted on y-axis (NOT d_n in e cm)"
+    assert not convention_review_needed("AxionEDM", decl)
+    assert classify_reported_convention("AxionEDM", decl) == "inv_fa"
