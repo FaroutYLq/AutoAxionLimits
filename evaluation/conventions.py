@@ -345,12 +345,22 @@ def to_canonical(coupling_type: Optional[str], data_points, convention: Optional
         # paper's f_a convention) -> compare raw; anything between (e.g.
         # anchor-snap-corrupted f_a, 2105.13963's x1e-20 residue at ~1e-2) is
         # neither -> refuse.
-        if coupling_type == "AxionMass" and conv == "f_a_gev":
+        if coupling_type == "AxionMass" and conv in ("f_a_gev", "f_a_gev_axis"):
             if med_y is None:
                 return data_points, ""
             if med_y > 1e3:
                 return [(m, 1.0 / g) for m, g in data_points if g > 0], (
                     "convention: f_a [GeV] -> 1/f_a [GeV^-1] (reciprocal)")
+            # Mislabel escape ONLY for a model-declared f_a: the stage-2a axis
+            # read-back is a MEASUREMENT — an f_a[GeV] axis with canonical-scale
+            # values is a contradiction (anchor-corrupted trace), refuse
+            # (catastrophic-tail audit, 2026-07-15: 1708.08464/2105.13963).
+            if conv == "f_a_gev_axis":
+                return data_points, (
+                    f"{GUARD_REFUSED}: axis read-back measured an f_a [GeV] "
+                    f"axis but values are not decay-constant scale (median "
+                    f"{med_y:g}) — trace contradicts its own axis; likely "
+                    f"anchor-corrupted")
             if med_y < 1e-3:
                 return data_points, (
                     "convention: declared f_a [GeV] but values are already "
@@ -551,6 +561,24 @@ _FOREIGN_CLASS_TOKENS = (
     "v_dd", "vdd", "potential", "force strength", "torque",
     "cross section", "count rate",
 )
+# Per-COUPLING foreign-class tokens (catastrophic-tail audit, 2026-07-15):
+# planes that share a coupling's "dimensionless" vocabulary but are different
+# physics FOR THAT COUPLING. Scoped per coupling so the scalar alpha_fifthforce
+# converter (a vetted CONVERTIBLE alpha for Scalar*) is untouched.
+# MIRRORS pipeline.transform_guard._FOREIGN_CLASS_TOKENS_BY_CT — keep in sync.
+_FOREIGN_CLASS_TOKENS_BY_CT: dict = {
+    # Fifth-force Yukawa strength |alpha-tilde| (relative to gravity), not the
+    # gauge coupling g_BL: "dimensionless" matched canonical so 1207.2442
+    # compared raw at 13.4 dex. No vetted VectorBL alpha converter yet (the
+    # candidate g_BL = sqrt(4*pi*alpha)*m_n/M_Pl lands ~0.7 dex from GT but is
+    # underived w.r.t. B-L charge normalization) -> fail closed.
+    "VectorBL": ("alpha", "α"),
+    # QCD-axion mass-ratio bias parameter epsilon=(m_a/m_aQCD)^2 (and the
+    # "bias parameter xi" spelling), not the f_a plane: "dimensionless" +
+    # expected-stem "m_a" dodged every screen and 2410.21590 compared raw at
+    # 8.35 dex. NOTE: never a bare "xi" token — "axion" contains the substring.
+    "AxionMass": ("epsilon", "bias parameter", "(m_a/m_a"),
+}
 # Couplings whose CANONICAL quantity is itself a dipole/product coupling —
 # the class tokens above (and g_s/g_p symbols) are native vocabulary there.
 _FOREIGN_CLASS_EXEMPT = ("MonopoleDipole", "AxionCPV")
@@ -649,6 +677,11 @@ def _foreign_quantity_declared(coupling_type: str, decl_lower: str) -> bool:
     d = _NOT_CLAUSE_RE.sub(" ", decl_lower)
     if coupling_type not in _FOREIGN_CLASS_EXEMPT \
             and any(t in d for t in _FOREIGN_CLASS_TOKENS):
+        return True
+    # Per-coupling foreign planes (catastrophic-tail audit, 2026-07-15):
+    # VectorBL fifth-force alpha, AxionMass epsilon-bias — different physics
+    # for THIS coupling even though "dimensionless" matches its vocabulary.
+    if any(t in d for t in _FOREIGN_CLASS_TOKENS_BY_CT.get(coupling_type, ())):
         return True
     if _asserts_canonical_equivalence(coupling_type, d):
         return False
@@ -797,6 +830,17 @@ def _classify_reported_convention_core(coupling_type: Optional[str],
             return None  # already the inverse-scale convention
         if any(t in u for t in ("f_aingev", "faingev", "f_a[gev]", "fa[gev]",
                                 "f[gev]", "fingev")):
+            # Axis-read-back provenance (catastrophic-tail audit, 2026-07-15):
+            # when the declaration came from the stage-2a axis MEASUREMENT
+            # ("f_a in GeV (axis read-back)"), the f_a_gev mislabel escape
+            # (med < 1e-3 -> "already canonical, compare raw") must NOT apply —
+            # a measured f_a[GeV] axis with canonical-scale values is a
+            # contradiction (anchor-corrupted trace), not a mislabel
+            # (1708.08464 10.5 dex, 2105.13963 13.0 dex compared raw). A
+            # model-declared f_a with tiny values keeps the escape (1708.07521,
+            # 0.13 dex).
+            if "axis read-back" in raw:
+                return "f_a_gev_axis"
             return "f_a_gev"
         return None
     if coupling_type == "AxionPhoton":
