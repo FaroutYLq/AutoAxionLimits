@@ -177,7 +177,9 @@ def test_extractor_wires_record_convention_flag():
 
 
 # ---------------------------------------------------------------------------
-# Known-unconvertible pre-verdict (e*cm class) — 2026-07-14
+# e*cm is NOW convertible (Phase 2, #625) — the known-unconvertible pre-verdict
+# for the AxionEDM e*cm class was removed when the mass-dependent d_n_ecm
+# converter was promoted. These tests pin that reversal.
 # ---------------------------------------------------------------------------
 
 from pipeline.convention_queue import (  # noqa: E402
@@ -194,40 +196,22 @@ from pipeline.convention_queue import (  # noqa: E402
     "d_n in e*cm (oscillating deuteron EDM amplitude d_AC)",
     "oscillating neutron EDM amplitude d_n in e cm",
 ])
-def test_ecm_class_is_known_unconvertible(decl):
-    assert known_unconvertible("AxionEDM", decl)
+def test_ecm_class_no_longer_known_unconvertible(decl):
+    # Phase 2: the mass-dependent d_n_ecm converter handles these -> NOT a
+    # documented no-conversion class anymore.
+    assert not known_unconvertible("AxionEDM", decl)
 
 
-def test_ecm_converted_declaration_exempt():
-    # #594: "converted from ..." means the EMITTED values are canonical-claimed.
-    assert not known_unconvertible(
-        "AxionEDM", "g_d in GeV^-2, converted from d_n in e*cm")
-
-
-def test_ecm_other_coupling_not_unconvertible():
-    assert not known_unconvertible("AxionPhoton", "d_n in e*cm")
-
-
-def test_ecm_entry_enters_as_unconvertible(qpath):
-    e = append_flag(coupling_type="AxionEDM", declared_convention="d_n in e*cm",
-                    arxiv_id="2101.01241", path=qpath)
-    assert e["status"] == STATUS_UNCONVERTIBLE
+def test_no_known_unconvertible_class_remains():
+    from pipeline.convention_queue import _KNOWN_UNCONVERTIBLE
+    assert _KNOWN_UNCONVERTIBLE == {}
 
 
 def test_unknown_token_still_enters_queued(qpath):
     e = append_flag(coupling_type="AxionEDM",
-                    declared_convention="C_G/f_a in GeV^-1 as plotted",
-                    arxiv_id="2204.01454", path=qpath)
+                    declared_convention="some genuinely novel plane",
+                    arxiv_id="9999.99999", path=qpath)
     assert e["status"] == STATUS_QUEUED
-
-
-def test_unconvertible_entry_never_reopened(qpath):
-    append_flag(coupling_type="AxionEDM", declared_convention="d_n in e*cm",
-                arxiv_id="2101.01241", path=qpath)
-    e = append_flag(coupling_type="AxionEDM", declared_convention="d_n in e*cm",
-                    arxiv_id="2208.07293", path=qpath)
-    assert e["status"] == STATUS_UNCONVERTIBLE
-    assert e["count"] == 2 and set(e["arxiv_ids"]) == {"2101.01241", "2208.07293"}
 
 
 # ---------------------------------------------------------------------------

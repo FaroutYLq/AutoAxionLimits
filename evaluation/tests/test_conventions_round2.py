@@ -175,9 +175,11 @@ def test_edm_gev2_checked_before_ecm():
         "AxionEDM", "gd in GeV^-2 (converted from d_n in e*cm)") is None
 
 
-def test_edm_oscillating_amplitude_still_unconvertible():
+def test_edm_oscillating_amplitude_now_convertible():
+    # Phase 2 (#625): the e*cm oscillating-EDM amplitude is now the mass-dependent
+    # d_n_ecm converter (was UNCONVERTIBLE pre-Phase-2).
     assert classify_reported_convention(
-        "AxionEDM", "oscillating neutron EDM amplitude d_n in e*cm") == UNCONVERTIBLE
+        "AxionEDM", "oscillating neutron EDM amplitude d_n in e*cm") == "d_n_ecm"
 
 
 # ---------------------------------------------------------------------------
