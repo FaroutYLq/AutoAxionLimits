@@ -55,3 +55,30 @@ def test_unrelated_failure_not_swallowed_as_fatal():
     with pytest.raises(RuntimeError) as ei:
         _client()._raise_for_text("segmentation fault", 1)
     assert not isinstance(ei.value, FatalAPIError)
+
+
+def test_eval_run_extraction_reraises_fatal(monkeypatch, tmp_path):
+    """#648 eval side: evaluation.evaluate.run_extraction must NOT convert
+    FatalAPIError into an error-dict "result" (incident #2: 140 husk snapshots
+    saved while the driver reported errors=0)."""
+    import evaluation.evaluate as ev
+    import pipeline.extractor as ex
+
+    class _Entry:
+        arxiv_id = "0000.00000"
+        paper_title = "stub"
+
+    # Short-circuit everything before the extraction call.
+    monkeypatch.setattr(ev, "_fetch_paper_metadata",
+                        lambda aid, cache: ("stub title", "stub abstract"))
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "test-key-never-used")
+    monkeypatch.delenv("AAL_BACKEND", raising=False)
+
+    def _boom(*a, **k):
+        raise ex.FatalAPIError("claude subscription usage limit reached")
+
+    monkeypatch.setattr(ex, "download_pdf", lambda aid, d: tmp_path / "x.pdf")
+    monkeypatch.setattr(ex, "run_extraction_agent_voted", _boom)
+
+    with pytest.raises(ex.FatalAPIError):
+        ev.run_extraction(_Entry())
