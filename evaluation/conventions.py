@@ -104,6 +104,21 @@ def _coupling_value_range(data_file: Path) -> Optional[tuple[float, float]]:
     return float(np.min(y)), float(np.max(y))
 
 
+# Header-canonical GT files (Phase 4, #625): files whose O'Hare HEADER explicitly
+# declares the canonical d_e convention but whose `fill_between` polygon TOP wall
+# (a plotting artifact, not a coupling value) inflates ymax past the 1e3
+# d_e_large threshold, causing a FALSE non-canonical exclusion. Evidence per file
+# is the header line + a WIDE dynamic range (fill region, low real edge), which
+# distinguishes them from a uniformly-large genuine non-canonical curve
+# (ScalarElectron/WhiteDwarfs ~1e6 flat — correctly kept excluded). Verified by
+# rescore: each moves convention_mismatch -> compared at a clean residual.
+# Per-file, evidence-linked, reversible (exclusions discipline).
+_HEADER_CANONICAL_DE_FILES: frozenset = frozenset({
+    "limit_data/ScalarPhoton/HQuartzSapphire.txt",   # 2010.08107, header "d_e"
+    "limit_data/ScalarPhoton/DyQuartz.txt",          # 2212.04413, header "d_e"
+})
+
+
 def infer_convention(
     coupling_type: str,
     data_file: Optional[Path] = None,
@@ -118,6 +133,11 @@ def infer_convention(
 
     if data_file is None:
         return conv, units
+    # Phase 4 (#625): header-declared canonical d_e files whose fill wall would
+    # otherwise false-trigger the d_e_large range override.
+    if coupling_type in ("ScalarPhoton", "ScalarElectron") \
+            and str(data_file).replace("\\", "/") in _HEADER_CANONICAL_DE_FILES:
+        return "d_e", "d_e (dimensionless)"
     rng = _coupling_value_range(data_file)
     if rng is None:
         return conv, units
