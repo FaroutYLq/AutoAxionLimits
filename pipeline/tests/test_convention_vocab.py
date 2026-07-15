@@ -48,18 +48,27 @@ UNFLAGGED = [
 # NOTE: 1604.08514 (clock combo) and 2303.00778 (Higgs-portal sin theta) sat
 # in this list until the 2026-07-14 queue drain promoted them (GPD-derived,
 # citation-audited); their coverage moved to the promotion tests below.
+# NOTE: the AxionEDM e*cm entries were removed by the Phase 2 (#625) queue drain
+# — the mass-dependent d_n_ecm converter now handles them (see
+# ECM_NOW_CONVERTIBLE below). The ScalarNucleon d_g entries stay flagged: d_g is
+# a distinct coupling from canonical d_e with no universal conversion.
 STILL_FLAGGED = [
     ("ScalarNucleon",
      "|d_mhat^(1) - d_g^(1)|, dimensionless (plotted as log10 on y-axis)"),  # 1807.04512
+    # ScalarNucleon d_g stems deliberately not added (would suppress the
+    # combined-coupling flag above) — these two stay flagged as designed.
+    ("ScalarNucleon", "coupling d_g, dimensionless"),                     # 2301.10784
+    ("ScalarNucleon", "d_g dimensionless, plotted as on y-axis of Fig 3a"),  # 2404.00616
+]
+
+# Promoted by the Phase 2 drain — the oscillating-EDM amplitude in e*cm is now
+# the mass-dependent d_n_ecm converter (convertible, not review-flagged).
+ECM_NOW_CONVERTIBLE = [
     ("AxionEDM", "d_n in e*cm"),                                          # 2101.01241
     ("AxionEDM",
      "d_n oscillation amplitude in e*cm (limit on dn-(mu_n/mu_Hg)dHg)"),  # 1708.06367
     ("AxionEDM",
      "d_n in e*cm (oscillating deuteron EDM amplitude d_AC)"),            # 2208.07293
-    # ScalarNucleon d_g stems deliberately not added (would suppress the
-    # combined-coupling flag above) — these two stay flagged as designed.
-    ("ScalarNucleon", "coupling d_g, dimensionless"),                     # 2301.10784
-    ("ScalarNucleon", "d_g dimensionless, plotted as on y-axis of Fig 3a"),  # 2404.00616
 ]
 
 
@@ -81,10 +90,12 @@ def test_unknown_conventions_still_flagged(ct, decl):
         f"{ct}: genuinely unknown convention must keep its review flag: {decl!r}")
 
 
-def test_ecm_class_unconvertible_on_eval_side():
-    for ct, decl in STILL_FLAGGED:
-        if "e*cm" in decl:
-            assert classify_reported_convention(ct, decl) == UNCONVERTIBLE
+@pytest.mark.parametrize("ct,decl", ECM_NOW_CONVERTIBLE)
+def test_ecm_now_convertible_both_mirrors(ct, decl):
+    # Phase 2: e*cm routes to the mass-dependent d_n_ecm converter on the eval
+    # side and is no longer review-flagged at runtime.
+    assert classify_reported_convention(ct, decl) == "d_n_ecm"
+    assert not convention_review_needed(ct, decl)
 
 
 # ---------------------------------------------------------------------------

@@ -26,9 +26,11 @@ import httpx
 from .transform_guard import (
     Candidate,
     ConsistencyScore,
+    axis_plane_crosscheck,
     convention_review_needed,
     convertible_out_of_profile,
     couplings_y_const,
+    in_confusable_family,
     guard_transform,
     in_valid_ranges,
     normalize_convention,
@@ -1525,6 +1527,35 @@ def _axis_conv_hint(coupling_type: str | None, axis_unit_label: str | None
     return None
 
 
+def apply_axis_crosscheck(stage1_result: dict, current_ct: str | None,
+                          axis_unit: str | None, arxiv_id: str = "") -> str:
+    """Phase 3b (#625): re-label the coupling type from the figure axis, in place.
+
+    Given the already-classified ``current_ct`` and a stage-2a ``axis_unit``,
+    apply :func:`axis_plane_crosscheck`:
+      * ``override`` — set ``stage1_result["coupling_type"]`` to the axis's type
+        (same confusable family) and note it;
+      * ``review``   — cap confidence to 0.5 and add a ``[COUPLING REVIEW]`` note
+        (cross-family contradiction, NOT overridden);
+      * ``noop``     — leave everything unchanged.
+
+    Returns the action string. Pure w.r.t. everything except ``stage1_result``;
+    never raises on a bad axis (the cross-check itself is total)."""
+    if not current_ct or not axis_unit:
+        return "noop"
+    new_ct, action, note = axis_plane_crosscheck(current_ct, axis_unit)
+    if action == "override":
+        stage1_result["coupling_type"] = new_ct
+        stage1_result["notes"] = stage1_result.get("notes", "") + " | " + note
+        logger.info("Axis cross-check for %s: %s", arxiv_id, note)
+    elif action == "review":
+        prior = float(stage1_result.get("extraction_confidence", 0.0) or 0.0)
+        stage1_result["extraction_confidence"] = min(prior, 0.5)
+        stage1_result["notes"] = stage1_result.get("notes", "") + " | " + note
+        logger.warning("Axis cross-check for %s: %s", arxiv_id, note)
+    return action
+
+
 def _reconcile_declared_convention(stage1_result: dict) -> None:
     """Override a canonical-claiming declaration with the axis read-back.
 
@@ -2132,6 +2163,33 @@ def run_extraction_agent(
         )
         if cal_note:
             stage1_result["notes"] = stage1_result.get("notes", "") + " | Calibration: " + cal_note
+
+    # --- Phase 3 (#625): axis-plane consistency cross-check ---------------
+    # A figure y-axis that unambiguously names a DIFFERENT plane in the SAME
+    # confusable family (g_B-L vs ε, d_g vs d_e, g_ae vs g_aγ, e·cm vs g_d)
+    # overrides the classified coupling type. Figure selection is NOT re-run —
+    # the already-chosen candidate is re-labeled and the range/convention screens
+    # below re-run on the corrected type. Cross-family contradictions are
+    # review-flagged (not overridden); an unreadable/ambiguous axis is a no-op.
+    _cc_ct = stage1_result.get("coupling_type") or pre_ct
+    _axis_unit = stage1_result.get("_axis_y_unit")
+    # 3c: a text/table-routed paper in a confusable family has no axis read yet —
+    # spend ONE cheap vision call (stage-2a axes only) to read the main figure's
+    # y-axis label, cost-gated exactly to the confusable clusters (~15%).
+    if _cc_ct and not _axis_unit and in_confusable_family(_cc_ct) \
+            and stage1_result.get("data_source") in ("text", "table"):
+        try:
+            _peek_figs = extract_figures_from_pdf(pdf_path)
+            if _peek_figs:
+                _peek = _run_stage2a_axes(paper, _peek_figs, client)
+                _axis_unit = (_peek or {}).get("y_axis_unit", "")
+                stage1_result["_axis_y_unit"] = _axis_unit
+                if _axis_unit:
+                    stage1_result["notes"] = (stage1_result.get("notes", "")
+                        + " | axis-peek for confusable-family text read (#625 Phase 3c)")
+        except Exception as e:  # a peek must never break the extraction
+            logger.warning("Axis-peek failed for %s: %s", arxiv_id, e)
+    apply_axis_crosscheck(stage1_result, _cc_ct, _axis_unit, arxiv_id)
 
     # --- Range validation ---
     final_ct_for_validation = stage1_result.get("coupling_type") or pre_ct
