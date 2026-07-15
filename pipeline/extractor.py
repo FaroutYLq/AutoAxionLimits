@@ -1736,6 +1736,33 @@ def _curve_disagreement_dex(anchor: list, curve: list) -> float | None:
     return diffs[n // 2] if n % 2 else 0.5 * (diffs[n // 2 - 1] + diffs[n // 2])
 
 
+def text_anchor_rejects(text_cand, cand, channel: str) -> str | None:
+    """Corroboration-gate check of a traced-curve candidate against the text
+    anchor (#683, extended to the vector-trace channel).
+
+    Returns the rejection note when ``cand`` deviates more than
+    ``TEXT_VISION_DISAGREE_DEX`` from a CREDIBLE (in-range) text anchor over
+    their shared mass support, else ``None``. The vector channel needs this as
+    much as vision: its geometry is exact but its curve/panel identity is one
+    cheap model call, so a wrong pick ships a dense, high-confidence (0.85,
+    tier 3.5) garbage curve that outranks the sparse correct text read
+    (measured: 2102.06722 4.9 dex, 2110.01582 3.5 dex, both conf 0.85 in
+    full346_postfix_opus). Pure function over the candidates' own points —
+    no API calls; fails open on missing anchor / no shared support.
+    """
+    if text_cand is None or cand is None:
+        return None
+    if not text_cand.score.in_valid_ranges:
+        return None    # a suspect anchor must not veto a trace
+    gap = _curve_disagreement_dex(text_cand.data_points, cand.data_points)
+    if gap is None or gap <= TEXT_VISION_DISAGREE_DEX:
+        return None
+    return (f"[TEXT-{channel.upper()} DISAGREEMENT] {channel} trace differs "
+            f"from the in-range text anchor by {gap:.1f} dex "
+            f"(> {TEXT_VISION_DISAGREE_DEX}) over the shared mass range — "
+            f"likely wrong curve/panel; deferred to text")
+
+
 def _gate_candidates(
     candidates: list[Candidate],
     text_cand: Candidate | None,
@@ -2069,6 +2096,22 @@ def run_extraction_agent(
                                   + " | " + " ; ".join(gate_notes))
         logger.warning("Wrong-curve gates fired for %s: %s",
                        arxiv_id, " ; ".join(gate_notes)[:300])
+
+    # Text-vector corroboration (#683 extension, catastrophic-tail audit
+    # 2026-07-15): the same gate the vision channel has — a vector trace whose
+    # geometry is exact but whose curve identity (one cheap model call) grossly
+    # contradicts a credible text anchor is a wrong pick, and at tier 3.5 /
+    # conf 0.85 it would outrank the correct sparse text read. Runs AFTER
+    # _gate_candidates so the anchor itself survived its own gates.
+    if vector_cand is not None and vector_cand in candidates \
+            and text_cand is not None and text_cand in candidates:
+        _va_note = text_anchor_rejects(text_cand, vector_cand, "vector")
+        if _va_note:
+            candidates = [c for c in candidates if c is not vector_cand]
+            stage1_result["notes"] = (stage1_result.get("notes", "")
+                                      + " | " + _va_note)
+            logger.warning("Text-vector gate fired for %s: %s", arxiv_id, _va_note)
+            vector_cand = None
 
     chosen, sel_reason = select_best(candidates)
     if chosen is None:
