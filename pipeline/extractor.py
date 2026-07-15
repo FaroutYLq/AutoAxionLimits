@@ -27,6 +27,7 @@ from .transform_guard import (
     Candidate,
     ConsistencyScore,
     convention_review_needed,
+    convertible_out_of_profile,
     couplings_y_const,
     guard_transform,
     in_valid_ranges,
@@ -2206,6 +2207,29 @@ def run_extraction_agent(
         # Escalation queue (#636): record the token so the offline convention-
         # triage skill can derive its conversion once, per token. Deterministic,
         # cheap (one JSON append/counter-bump), and never fails the extraction.
+        record_convention_flag(
+            final_ct, declared_conv, arxiv_id, data_points=data_points,
+        )
+    elif declared_conv and convertible_out_of_profile(
+            final_ct, declared_conv, data_points):
+        # Phase 1b (#625): the declaration IS registry-convertible (so the
+        # unknown-convention screen above passed), but the emitted magnitude
+        # cannot be the declared quantity — the vetted converter would produce
+        # out-of-plane garbage (2204.01454/2410.02218: a d_n [e*cm] amplitude
+        # ~1e-28 mislabeled "C_G/f_a in GeV^-1", which x3.7e-3 became a
+        # "compared" 16-dex curve). Flag + queue like an unknown convention.
+        prior_conf = float(stage1_result.get("extraction_confidence", 0.0) or 0.0)
+        stage1_result["extraction_confidence"] = min(prior_conf, 0.5)
+        stage1_result["notes"] = (
+            stage1_result.get("notes", "")
+            + f" | [CONVENTION REVIEW] declared convertible convention "
+            f"'{declared_conv}' but emitted magnitude is out of the declared "
+            f"plane's plausible range; likely a mislabeled plane"
+        )
+        logger.warning(
+            "Convention review for %s (%s): convertible declaration with "
+            "out-of-profile magnitude; flagged", arxiv_id, final_ct,
+        )
         record_convention_flag(
             final_ct, declared_conv, arxiv_id, data_points=data_points,
         )

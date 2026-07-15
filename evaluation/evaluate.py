@@ -59,6 +59,7 @@ from evaluation.metrics import (
     InterpolationMetrics,
     SymmetricCurveMetrics,
     _expand_mass_independent,
+    build_coupling_type_confusion,
     compute_confidence_calibration,
     compute_curve_metrics,
     compute_interpolation_metrics,
@@ -1162,6 +1163,10 @@ def build_metrics_summary(all_metrics: dict) -> dict:
             for field in ("coupling_type", "is_new_limit",
                           "is_projection", "data_source")
         },
+        # Per-type confusion table (Phase 1c, #625) — GT-types x predicted,
+        # multi-type-aware; surfaces the confusable clusters the aggregate hides.
+        "coupling_type_confusion": build_coupling_type_confusion(
+            all_metrics.get("per_paper", [])),
         "interpolation": {
             "n_finite": interp.get("n_finite"),
             "n_zero_overlap": interp.get("n_zero_overlap"),

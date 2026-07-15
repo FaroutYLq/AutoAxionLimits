@@ -178,6 +178,45 @@ def generate_report(metrics: dict, output_path: str):
             lines.append(f"| {err['arxiv_id']} | {err['predicted']} | {err['expected']} |")
         lines.append("")
 
+    # --- Per-type confusion table (Phase 1c, #625) ---
+    per_paper = metrics.get("per_paper", [])
+    if per_paper:
+        from evaluation.metrics import build_coupling_type_confusion
+        conf = build_coupling_type_confusion(per_paper)
+        matrix = conf.get("matrix", {})
+        if matrix:
+            lines.append("### Coupling-Type Confusion Matrix (multi-type-aware)\n")
+            lines.append(
+                f"Rows = authoritative GT type, columns = predicted type. A "
+                f"prediction is correct iff it is in ANY of the paper's GT types "
+                f"(diagonal). Off-diagonal cells are the confusable clusters. "
+                f"Graded {conf['n_graded']}, correct {conf['n_correct']} "
+                f"({_pct(conf['accuracy'])}), skipped {conf['n_skipped']} "
+                f"(no prediction / no GT type).\n")
+            preds = sorted({p for row in matrix.values() for p in row})
+            header = "| GT ⟍ Pred | " + " | ".join(preds) + " |"
+            lines.append(header)
+            lines.append("|" + "---|" * (len(preds) + 1))
+            for gt in sorted(matrix):
+                row = matrix[gt]
+                cells = []
+                for p in preds:
+                    n = row.get(p, 0)
+                    if n == 0:
+                        cells.append("")
+                    elif p == gt:
+                        cells.append(f"**{n}**")
+                    else:
+                        cells.append(str(n))
+                lines.append(f"| {gt} | " + " | ".join(cells) + " |")
+            lines.append("")
+            confusions = conf.get("confusions", [])
+            if confusions:
+                lines.append("Off-diagonal confusions (GT → predicted, richest first):\n")
+                for c in confusions:
+                    lines.append(f"- {c['gt']} → {c['predicted']}: {c['count']}")
+                lines.append("")
+
     # --- Interpolation Quality (primary) ---
     if agg_interp.get("n_papers", 0) > 0:
         n_all = agg_interp.get("n_papers", 0)
