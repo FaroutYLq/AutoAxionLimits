@@ -25,7 +25,7 @@
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
       "status": "needs_human",
-      "failure_reason": "not a coupling convention: declaration states the f_a-vs-m_a plane of a prediction-band paper (GT-excluded class); extraction-content issue, no conversion exists"
+      "failure_reason": "DISPOSED (Phase 2, #625): declaration is a mass-prediction/lower-bound OUTPUT (m_a in eV or f_a-vs-m_a plane of a prediction-band paper), not a coupling-axis convention \u2014 no registry conversion exists. Handled as a prediction-band GT exclusion, not a convention gap. Terminal; excluded from further drain."
     },
     {
       "cache_key": "axionmass::m a in ev lower bound ndw 1 model",
@@ -51,7 +51,7 @@
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
       "status": "needs_human",
-      "failure_reason": "not a coupling convention: 'm_a in eV (lower bound)' describes a mass-prediction output, not a coupling axis; extraction should target the f_a curve (f_a_norm GT)"
+      "failure_reason": "DISPOSED (Phase 2, #625): declaration is a mass-prediction/lower-bound OUTPUT (m_a in eV or f_a-vs-m_a plane of a prediction-band paper), not a coupling-axis convention \u2014 no registry conversion exists. Handled as a prediction-band GT exclusion, not a convention gap. Terminal; excluded from further drain."
     },
     {
       "cache_key": "scalarphoton::log10 of d e 0 043 d m d g emitted as absolute coupling value 10 y",
@@ -113,7 +113,9 @@
       "first_seen": "2026-07-14T00:00:00Z",
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
-      "status": "unconvertible"
+      "status": "promoted",
+      "failure_reason": "",
+      "note": "Phase 2 (#625): promoted mass-dependent d_n_ecm converter g_angamma=C*d_n[e*cm]*m_a[eV]; spot-checked 0.03-0.30 dex vs nEDM/CASPEr/JEDI GT. See GPD/explanations/convention-dn-ecm-g_angamma.md"
     },
     {
       "cache_key": "scalarnucleon::d mhat 1 d g 1 dimensionless plotted as log10 on y axis",
@@ -151,7 +153,7 @@
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
       "status": "needs_human",
-      "failure_reason": "declared |d_mhat - d_g| plane not tracked upstream (repo holds this paper's d_e and d_me planes); no GT pair to verify; extraction should target the tracked planes \u2014 classification issue, not a registry gap"
+      "failure_reason": "Phase 2 (#625) investigated: d_g (dilaton-gluon) / |d_mhat - d_g| is a DISTINCT coupling from the repo-canonical d_e (dilaton-photon) \u2014 no universal closed-form conversion (the coupling ratio is model-dependent). Not a registry conversion; this is a GT-coverage question (does upstream track a d_g plane for this paper?) deferred to Phase 4 curation."
     },
     {
       "cache_key": "axionedm::d n in e cm",
@@ -176,7 +178,9 @@
       "first_seen": "2026-07-14T00:00:00Z",
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
-      "status": "unconvertible"
+      "status": "promoted",
+      "failure_reason": "",
+      "note": "Phase 2 (#625): promoted mass-dependent d_n_ecm converter g_angamma=C*d_n[e*cm]*m_a[eV]; spot-checked 0.03-0.30 dex vs nEDM/CASPEr/JEDI GT. See GPD/explanations/convention-dn-ecm-g_angamma.md"
     },
     {
       "cache_key": "axionedm::d n in e cm oscillating deuteron edm amplitude d ac",
@@ -201,7 +205,9 @@
       "first_seen": "2026-07-14T00:00:00Z",
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
-      "status": "unconvertible"
+      "status": "promoted",
+      "failure_reason": "",
+      "note": "Phase 2 (#625): promoted mass-dependent d_n_ecm converter g_angamma=C*d_n[e*cm]*m_a[eV]; spot-checked 0.03-0.30 dex vs nEDM/CASPEr/JEDI GT. See GPD/explanations/convention-dn-ecm-g_angamma.md"
     },
     {
       "cache_key": "scalarnucleon::coupling d g dimensionless",
@@ -239,7 +245,7 @@
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
       "status": "needs_human",
-      "failure_reason": "declared d_g plane not tracked upstream for this paper (repo holds its fa/ nuclear-clock bound, GT AxionMass); coupling-classification issue, no GT pair to verify a d_g conversion against"
+      "failure_reason": "Phase 2 (#625) investigated: d_g (dilaton-gluon) / |d_mhat - d_g| is a DISTINCT coupling from the repo-canonical d_e (dilaton-photon) \u2014 no universal closed-form conversion (the coupling ratio is model-dependent). Not a registry conversion; this is a GT-coverage question (does upstream track a d_g plane for this paper?) deferred to Phase 4 curation."
     },
     {
       "cache_key": "scalarelectron::sin theta higgs portal scalar higgs mixing angle",
@@ -281,7 +287,7 @@
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
       "status": "needs_human",
-      "failure_reason": "not a coupling convention: 'm_a in eV (prediction, not a limit)' \u2014 mass-prediction output; extraction should target the f_a curve (f_a_norm GT)"
+      "failure_reason": "DISPOSED (Phase 2, #625): declaration is a mass-prediction/lower-bound OUTPUT (m_a in eV or f_a-vs-m_a plane of a prediction-band paper), not a coupling-axis convention \u2014 no registry conversion exists. Handled as a prediction-band GT exclusion, not a convention gap. Terminal; excluded from further drain."
     },
     {
       "cache_key": "scalarnucleon::d g dimensionless plotted as on y axis of fig 3a",
@@ -319,7 +325,7 @@
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
       "status": "needs_human",
-      "failure_reason": "declared d_g plane not tracked upstream for this paper (repo holds its fa/ nuclear-clock bound, GT AxionMass); coupling-classification issue, no GT pair to verify a d_g conversion against"
+      "failure_reason": "Phase 2 (#625) investigated: d_g (dilaton-gluon) / |d_mhat - d_g| is a DISTINCT coupling from the repo-canonical d_e (dilaton-photon) \u2014 no universal closed-form conversion (the coupling ratio is model-dependent). Not a registry conversion; this is a GT-coverage question (does upstream track a d_g plane for this paper?) deferred to Phase 4 curation."
     },
     {
       "cache_key": "axionmass::m a in ev qcd axion mass prediction not an exclusion limit",
@@ -336,7 +342,7 @@
       "last_seen": "2026-07-14T00:00:00Z",
       "count": 1,
       "status": "needs_human",
-      "failure_reason": "not a coupling convention: QCD-axion mass prediction declaration; paper is in the prediction-band GT exclusion class"
+      "failure_reason": "DISPOSED (Phase 2, #625): declaration is a mass-prediction/lower-bound OUTPUT (m_a in eV or f_a-vs-m_a plane of a prediction-band paper), not a coupling-axis convention \u2014 no registry conversion exists. Handled as a prediction-band GT exclusion, not a convention gap. Terminal; excluded from further drain."
     }
   ]
 }

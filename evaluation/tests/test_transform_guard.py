@@ -356,6 +356,10 @@ def test_canonical_declarations_not_flagged(ct, decl):
     ("AxionMass", "f_a in GeV"),                   # convertible (reciprocal)
     ("AxionElectron", "(g_p^e)^2/(hbar c), squared"),  # convertible (sqrt)
     ("ScalarPhoton", "1/Lambda [GeV^-1]"),         # convertible (x sqrt2 M_Pl, #600)
+    # e*cm oscillating-EDM amplitude is now the mass-dependent d_n_ecm converter
+    # (Phase 2, #625) — convertible, no longer a review flag:
+    ("AxionEDM", "d_n in e cm"),
+    ("AxionEDM", "oscillating neutron EDM amplitude d_n in e*cm"),
 ])
 def test_convertible_alternates_not_flagged(ct, decl):
     assert _crn(ct, decl) is False
@@ -365,10 +369,6 @@ def test_convertible_alternates_not_flagged(ct, decl):
     ("ScalarElectron", "|delta alpha/alpha| amplitude"),
     ("AxionElectron", "Lambda [GeV] scale"),
     ("AxionProton", "some bespoke normalized coupling"),
-    # e*cm oscillating-EDM amplitude is UNCONVERTIBLE (#604) — it used to slip
-    # through as "canonical" when spelled without the asterisk:
-    ("AxionEDM", "d_n in e cm"),
-    ("AxionEDM", "oscillating neutron EDM amplitude d_n in e*cm"),
 ])
 def test_unknown_conventions_flagged(ct, decl):
     assert _crn(ct, decl) is True

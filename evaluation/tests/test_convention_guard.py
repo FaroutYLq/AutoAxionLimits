@@ -218,12 +218,13 @@ def test_axion_edm_cg_fa_classified_invfa():
         "AxionEDM", "CG/fa in GeV^-1 (axion-gluon coupling), NOT d_n in e*cm") == "inv_fa"
 
 
-def test_axion_edm_ecm_and_bare_gev_inv_are_unconvertible():
+def test_axion_edm_ecm_now_convertible_bare_gev_inv_unconvertible():
     from evaluation.conventions import classify_reported_convention, UNCONVERTIBLE
-    # oscillating-EDM amplitude (needs per-point a_0) and a bare GeV^-1 (the e*cm
-    # amplitude in disguise, 2204.01454) cannot be converted -> exclude sentinel
-    assert classify_reported_convention("AxionEDM", "d_n in e*cm") == UNCONVERTIBLE
-    assert classify_reported_convention("AxionEDM", "d_d (deuteron EDM) in e*cm") == UNCONVERTIBLE
+    # Phase 2 (#625): the oscillating-EDM amplitude in e*cm is now the mass-
+    # dependent d_n_ecm converter (per-point a_0). A bare GeV^-1 (no e*cm, no
+    # 1/f_a token) is still an ambiguous exclude sentinel.
+    assert classify_reported_convention("AxionEDM", "d_n in e*cm") == "d_n_ecm"
+    assert classify_reported_convention("AxionEDM", "d_d (deuteron EDM) in e*cm") == "d_n_ecm"
     assert classify_reported_convention("AxionEDM", "GeV^-1") == UNCONVERTIBLE
 
 
@@ -234,12 +235,14 @@ def test_axion_edm_canonical_gev2_not_excluded():
 
 
 def test_comparator_excludes_unconvertible_extraction():
-    # an AxionEDM extraction declaring e*cm is a convention gap, not error
+    # an AxionEDM extraction declaring a bare GeV^-1 amplitude (no e*cm / 1/f_a
+    # token) is a convention gap, not error. (e*cm itself is now the convertible
+    # d_n_ecm plane, Phase 2 #625 — covered by test_dn_ecm_converter.)
     gt = _StubGT("AxionEDM", "g_angamma",
                  "limit_data/AxionEDM/nEDM.txt", _GT_CURVE)
     res = {"coupling_type": "AxionEDM",
            "data_points": [[1e-5, 1e-26], [1e-3, 1e-26]],
-           "data_source": "figure_vision", "coupling_convention": "d_n in e*cm"}
+           "data_source": "figure_vision", "coupling_convention": "amplitude in GeV^-1"}
     rec = sc._paper_record("2101.01241-like", res, [gt])
     assert rec["status"] == "convention_mismatch"
 

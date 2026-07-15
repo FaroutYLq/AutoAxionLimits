@@ -104,6 +104,21 @@ def _coupling_value_range(data_file: Path) -> Optional[tuple[float, float]]:
     return float(np.min(y)), float(np.max(y))
 
 
+# Header-canonical GT files (Phase 4, #625): files whose O'Hare HEADER explicitly
+# declares the canonical d_e convention but whose `fill_between` polygon TOP wall
+# (a plotting artifact, not a coupling value) inflates ymax past the 1e3
+# d_e_large threshold, causing a FALSE non-canonical exclusion. Evidence per file
+# is the header line + a WIDE dynamic range (fill region, low real edge), which
+# distinguishes them from a uniformly-large genuine non-canonical curve
+# (ScalarElectron/WhiteDwarfs ~1e6 flat — correctly kept excluded). Verified by
+# rescore: each moves convention_mismatch -> compared at a clean residual.
+# Per-file, evidence-linked, reversible (exclusions discipline).
+_HEADER_CANONICAL_DE_FILES: frozenset = frozenset({
+    "limit_data/ScalarPhoton/HQuartzSapphire.txt",   # 2010.08107, header "d_e"
+    "limit_data/ScalarPhoton/DyQuartz.txt",          # 2212.04413, header "d_e"
+})
+
+
 def infer_convention(
     coupling_type: str,
     data_file: Optional[Path] = None,
@@ -118,6 +133,11 @@ def infer_convention(
 
     if data_file is None:
         return conv, units
+    # Phase 4 (#625): header-declared canonical d_e files whose fill wall would
+    # otherwise false-trigger the d_e_large range override.
+    if coupling_type in ("ScalarPhoton", "ScalarElectron") \
+            and str(data_file).replace("\\", "/") in _HEADER_CANONICAL_DE_FILES:
+        return "d_e", "d_e (dimensionless)"
     rng = _coupling_value_range(data_file)
     if rng is None:
         return conv, units
@@ -250,6 +270,24 @@ _HBAR_GEV_S = 6.582119569e-25   # hbar [GeV s]
 _64PI = 64.0 * _math.pi         # two-photon decay prefactor (Gamma = g^2 m^3/64pi)
 _SQRT_4PI = _math.sqrt(4.0 * _math.pi)
 _K_XI = 1.395e-10               # g[GeV^-1] = K_XI * xi * m[eV] (thermal QCD axion)
+
+# Mass-dependent d_n [e*cm] -> g_{anγ} [GeV^-2] converter (Phase 2, #625; note
+# GPD/explanations/convention-dn-ecm-g_angamma.md). The oscillating nucleon-EDM
+# amplitude is the axion-field RESPONSE d_n = g_{anγ} * a_0, a_0 = sqrt(2 rho)/m_a,
+# so g_{anγ} = d_n * m_a / sqrt(2 rho). With e*cm->GeV^-1 = e * (cm in GeV^-1) and
+# rho_DM = 0.4 GeV/cm^3 this is g_{anγ}[GeV^-2] = _K_DN_ECM * d_n[e*cm] * m_a[eV].
+# The single constant folds every unit factor; derivation spot-checked to
+# 0.13-0.26 dex against the same-paper nEDM/JEDI GT curves. This is a PLANE
+# conversion (not the CLAUDE.md sqrt(rho) density rescale). First mass-dependent
+# converter in the registry.
+_HBARC_GEV_CM = 1.9733e-14                      # hbar c [GeV cm]
+_CM_IN_INV_GEV = 1.0 / _HBARC_GEV_CM            # 5.0677e13 GeV^-1
+_E_CHARGE = _math.sqrt(4.0 * _math.pi / 137.036)  # 0.3028 (Heaviside-Lorentz e)
+_RHO_DM_GEV4 = 0.4 * _CM_IN_INV_GEV ** -3       # 0.4 GeV/cm^3 -> GeV^4
+_SQRT_2RHO = _math.sqrt(2.0 * _RHO_DM_GEV4)     # 2.479e-21 GeV^2
+_K_DN_ECM = (_E_CHARGE * _CM_IN_INV_GEV) * 1e-9 / _SQRT_2RHO  # 6.19e24
+# Plausible oscillating-nucleon-EDM amplitude band [e*cm] (magnitude guard).
+_DN_ECM_BAND = (1e-30, 1e-18)
 
 
 def _median_positive(vals) -> Optional[float]:
@@ -472,6 +510,21 @@ def to_canonical(coupling_type: Optional[str], data_points, convention: Optional
             f = 3.7e-3              # g_angamma [GeV^-2] = 3.7e-3 * (1/f_a) [GeV^-1]
             return [(m, g * f) for m, g in data_points], (
                 "convention: 1/f_a [GeV^-1] -> g_angamma [GeV^-2] (x3.7e-3)")
+
+        # Mass-dependent d_n [e*cm] -> g_{anγ} [GeV^-2] (Phase 2, #625). The
+        # oscillating-EDM amplitude is the DM-field response, so the converter
+        # carries an explicit * m_a (per-point). Guarded on the plausible d_n
+        # amplitude band. See GPD/explanations/convention-dn-ecm-g_angamma.md.
+        if coupling_type == "AxionEDM" and conv in ("d_n_ecm", "d_n", "e*cm", "ecm"):
+            lo, hi = _DN_ECM_BAND
+            if med_y is None or not (lo <= med_y <= hi):
+                return data_points, (
+                    f"{GUARD_REFUSED}: d_n_ecm expects an oscillating-EDM "
+                    f"amplitude in [{lo:g},{hi:g}] e*cm (median {med_y!r})")
+            out = [(m, _K_DN_ECM * g * m) for m, g in data_points
+                   if g > 0 and m > 0]
+            return out, ("convention: d_n [e*cm] -> g_{anγ} [GeV^-2] "
+                         f"({_K_DN_ECM:.3g} * d_n * m_a[eV], per point)")
     except Exception:
         return data_points, ""   # never break the comparator on a bad point
     return data_points, ""
@@ -522,7 +575,7 @@ _EXPECTED_SYMBOL_STEMS: dict = {
     "AxionNeutron":   ("g_an", "g_ann", "g_n", "g_p", "g_ag"),   # g_agamma appears in vetted provenance formulas
     "AxionProton":    ("g_ap", "g_ann", "g_an", "g_n", "g_p", "g_ag"),
     "DarkPhoton":     (),
-    "AxionEDM":       ("g_d", "g_ang", "g_{a", "c_g", "d_n", "d_d", "f_a"),
+    "AxionEDM":       ("g_d", "g_ang", "g_{a", "c_g", "d_n", "d_d", "d_ac", "f_a"),
     "AxionMass":      ("f_a", "m_a"),
     "ScalarPhoton":   ("d_e", "d_gamma", "g_phi", "g_ph"),
     "ScalarElectron": ("d_me", "d_{m", "d_e", "g_phi", "g_ph", "g_e"),
@@ -767,23 +820,23 @@ def _classify_reported_convention_core(coupling_type: Optional[str],
         return None
     if coupling_type == "AxionEDM":
         # Canonical AxionEDM = g_angamma [GeV^-2] (#604: every repo AxionEDM file
-        # is g_{a gamma n}/g_d/g_EDM [GeV^-2], NOT d_n [e cm]). Two cases:
+        # is g_{a gamma n}/g_d/g_EDM [GeV^-2], NOT d_n [e cm]). Cases:
         #  (a) the gluon coupling C_G/f_a (== 1/f_a with C_G~1) [GeV^-1] -> convert
-        #      x3.7e-3 to canonical (1708.06367 declares 'CG/fa in GeV^-1').
-        #  (b) the oscillating EDM AMPLITUDE d_n/d_d [e cm], or a bare 'GeV^-1'
-        #      (the magnitude is the e*cm amplitude, e.g. 2204.01454/2101.01241/
-        #      2208.07293): NOT convertible to g_angamma without the mass-dependent
-        #      field amplitude a_0 = sqrt(2 rho)/m_a (a per-point response factor,
-        #      not a constant — see EXPLAIN Sec.3b). Flag UNCONVERTIBLE so the
-        #      comparator EXCLUDES it (convention gap) instead of scoring a ~14-dex
-        #      raw units mismatch as extraction error.
+        #      x3.7e-3 to canonical (Phase 1b guards its magnitude).
+        #  (b) the oscillating EDM AMPLITUDE d_n/d_AC in e*cm -> the mass-dependent
+        #      d_n_ecm converter (Phase 2, #625: g_angamma = C * d_n[e*cm] * m_a[eV],
+        #      via a_0 = sqrt(2 rho)/m_a; note convention-dn-ecm-g_angamma.md,
+        #      spot-checked 0.13-0.26 dex vs nEDM/JEDI GT). Routed on an EXPLICIT
+        #      e*cm unit; the d_n/d_d symbol alone or a bare GeV^-1 stays a
+        #      convention gap (the calibration is e*cm-specific).
         if "gev^-2" in u or "gev-2" in u or "g_angamma" in u or "g_{a" in u:
             return None  # already canonical g_angamma [GeV^-2]
         if any(t in u for t in ("1/f_a", "invfa", "1/fa", "cg/fa", "c_g/f_a",
                                 "c_g/(f_a", "gluon")):
             return "inv_fa"
-        if any(t in u for t in ("e*cm", "ecm", "e cm", "e·cm",
-                                "d_n", "d_d", "edm")) or inv_gev:
+        if any(t in u for t in ("e*cm", "e·cm", "ecm", "e.cm")) or "e cm" in raw:
+            return "d_n_ecm"
+        if any(t in u for t in ("d_n", "d_d", "edm")) or inv_gev:
             return UNCONVERTIBLE
         return None
     if coupling_type in ("ScalarPhoton", "ScalarElectron"):
