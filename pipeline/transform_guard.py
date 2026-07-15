@@ -559,7 +559,12 @@ _CANONICAL_DECL: dict[str, tuple[str, ...]] = {
     # through as "canonical" — post-full346 #594 follow-up.)
     "AxionEDM":       ("g_d", "g_angamma", "gev^-2", "gev-2"),
     "AxionCPV":       ("dimensionless", "coupling"),
-    "AxionMass":      ("gev^-1", "1/f_a", "f_a_norm", "dimensionless", "normalized"),
+    # gev^{-1} / f_a^{-1}: LaTeX-braced spellings of the canonical inverse-GeV
+    # plane (2302.00685 "f_a^{-1} in GeV^{-1}" was runtime-flagged while the
+    # eval registry's inv_gev — which lists the braced variant — treated it as
+    # canonical; mirror drift, 2026-07-14).
+    "AxionMass":      ("gev^-1", "gev^{-1}", "1/f_a", "f_a^{-1}", "fa^{-1}",
+                       "f_a_norm", "dimensionless", "normalized"),
     "MonopoleDipole": ("dimensionless", "coupling"),
     "ScalarPhoton":   ("d_e", "dimensionless"),
     "ScalarElectron": ("d_me", "d_{m_e}", "dimensionless"),
@@ -586,7 +591,18 @@ _FOREIGN_CLASS_TOKENS = (
 )
 _FOREIGN_CLASS_EXEMPT = ("MonopoleDipole", "AxionCPV")
 _EXPECTED_SYMBOL_STEMS: dict = {
-    "AxionPhoton":    ("g_ag", "g_a\\gamma", "g_aγ"),
+    # Vocabulary hardening (2026-07-14, final2_opus_n1 flag audit): g_phi/g_chi
+    # (the ALP field named phi/chi — g_phigammagamma IS the photon coupling)
+    # and g_ksvz (benchmark-provenance parenthetical, "derived from
+    # 0.93*g_KSVZ") are photon-coupling family notation, not foreign physics;
+    # likewise g_z (the Z' gauge boson IS the B-L vector, 2304.12907) and g_e
+    # for ScalarElectron (the Yukawa in the canonical d_me definition gloss,
+    # 2201.02042; precedent: AxionElectron already lists g_e).
+    # ScalarNucleon d_g/d_mhat are deliberately ABSENT: adding them would let
+    # combined-coupling declarations (|d_mhat - d_g|, 1807.04512) pass the
+    # foreign screen and then match "dimensionless" as canonical, suppressing
+    # a genuine review flag (#683 — vocabulary must never suppress flags).
+    "AxionPhoton":    ("g_ag", "g_a\\gamma", "g_aγ", "g_phi", "g_chi", "g_ksvz"),
     "AxionElectron":  ("g_ae", "g_p", "g_e"),
     "AxionNeutron":   ("g_an", "g_ann", "g_n", "g_p", "g_ag"),
     "AxionProton":    ("g_ap", "g_ann", "g_an", "g_n", "g_p", "g_ag"),
@@ -594,12 +610,54 @@ _EXPECTED_SYMBOL_STEMS: dict = {
     "AxionEDM":       ("g_d", "g_ang", "g_{a", "c_g", "d_n", "d_d", "f_a"),
     "AxionMass":      ("f_a", "m_a"),
     "ScalarPhoton":   ("d_e", "d_gamma", "g_phi", "g_ph"),
-    "ScalarElectron": ("d_me", "d_{m", "d_e", "g_phi", "g_ph"),
+    "ScalarElectron": ("d_me", "d_{m", "d_e", "g_phi", "g_ph", "g_e"),
     "ScalarNucleon":  ("d_e", "d_n"),
     "ScalarBaryon":   ("d_e", "d_b"),
-    "VectorBL":       ("g_b",),
+    "VectorBL":       ("g_b", "g_z"),
 }
 _NOT_CLAUSE_RE = None
+
+# Clock-comparison sensitivity combination (promoted 2026-07-14, drained token
+# 1604.08514; note GPD/explanations/convention-1604.08514-clock-combo-d_e.md):
+# d_e-leading with an explicit sub-unity decimal coefficient reduces
+# identically to d_e under the compilation's one-coupling-dominance
+# convention. Scoped: no-d_e combinations (|d_mhat - d_g|) keep failing
+# closed (#683). MIRRORS evaluation.conventions._is_clock_combo_de.
+_CLOCK_COMBO_DE_RE = None
+
+
+def _is_clock_combo_de(decl_lower: str) -> bool:
+    global _CLOCK_COMBO_DE_RE
+    if _CLOCK_COMBO_DE_RE is None:
+        import re as _re
+        _CLOCK_COMBO_DE_RE = _re.compile(r"d_e\s*\+\s*0?\.\d+\s*\*?\s*\(")
+    return bool(_CLOCK_COMBO_DE_RE.search(decl_lower))
+
+
+# "(equivalent to g_agamma in GeV^-1)" — the model asserts the emitted values
+# ARE the coupling's own canonical quantity; under the truthful-declaration
+# contract (#594/#657) that assertion governs the emitted values, so a
+# foreign-looking symbol elsewhere in the declaration (c_gamma/Lambda,
+# 1903.03586) is presentation, not different physics. The asserted symbol must
+# itself be an expected stem — "equivalent to V_dd" exempts nothing.
+_EQUIV_CLAUSE_RE = None
+
+
+def _asserts_canonical_equivalence(coupling_type: str, decl_lower: str) -> bool:
+    """True when the declaration asserts equivalence to an expected-stem symbol
+    ("equivalent to g_agamma", "same as g_bl"). MIRRORS
+    evaluation.conventions._asserts_canonical_equivalence — keep in sync."""
+    global _EQUIV_CLAUSE_RE
+    import re as _re
+    if _EQUIV_CLAUSE_RE is None:
+        _EQUIV_CLAUSE_RE = _re.compile(
+            r"(?:equivalent to|equal to|same as)\s+([gdc]_\{?\\?[a-z0-9γ]+)")
+    expected = _EXPECTED_SYMBOL_STEMS.get(coupling_type) or ()
+    for m in _EQUIV_CLAUSE_RE.finditer(decl_lower):
+        stem = m.group(1).replace("{", "")
+        if any(stem.startswith(e) for e in expected):
+            return True
+    return False
 
 
 def _foreign_quantity_declared(coupling_type: str, decl_lower: str) -> bool:
@@ -613,6 +671,10 @@ def _foreign_quantity_declared(coupling_type: str, decl_lower: str) -> bool:
     if coupling_type not in _FOREIGN_CLASS_EXEMPT \
             and any(t in d for t in _FOREIGN_CLASS_TOKENS):
         return True
+    if _asserts_canonical_equivalence(coupling_type, d):
+        return False
+    if coupling_type == "ScalarPhoton" and _is_clock_combo_de(d):
+        return False    # vetted clock combination — reduces to d_e (see above)
     expected = _EXPECTED_SYMBOL_STEMS.get(coupling_type)
     if expected is None:
         return False
@@ -647,7 +709,12 @@ def _declared_convertible(coupling_type: str, decl_lower: str) -> bool:
     if coupling_type == "DarkPhoton":
         return any(t in decl_lower for t in ("eps^2", "epsilon^2", "chi^2", "squared"))
     if coupling_type == "AxionEDM":
-        return any(t in decl_lower for t in ("1/f_a", "invfa", "1/fa", "cg/fa", "gluon"))
+        # Mirror-drift fix (2026-07-14): the eval registry's inv_fa branch also
+        # accepts spelled-out "c_g/f_a" and "c_g/(f_a" (2204.01454 declared
+        # "C_G/f_a in GeV^-1" and was runtime-flagged while the eval converted
+        # it) — keep this token list identical to evaluation.conventions.
+        return any(t in decl_lower for t in ("1/f_a", "invfa", "1/fa", "cg/fa",
+                                             "c_g/f_a", "c_g/(f_a", "gluon"))
     if coupling_type == "AxionPhoton":
         if any(t in decl_lower for t in ("s^-1", "s-1", "decay rate", "1/s")):
             return True
@@ -662,6 +729,14 @@ def _declared_convertible(coupling_type: str, decl_lower: str) -> bool:
         return any(t in decl_lower for t in
                    ("f_a in gev", "fa in gev", "f_a [gev", "fa [gev", "f [gev"))
     if coupling_type in ("ScalarPhoton", "ScalarElectron"):
+        # Higgs-portal sin theta -> d_me (drained token 2303.00778; eval
+        # registry converts via sin_theta_higgs, x sqrt2 M_Pl/v). Scoped to
+        # ScalarElectron — a ScalarPhoton sin-theta would carry a different
+        # constant and must keep flagging.
+        if coupling_type == "ScalarElectron" and "sin" in decl_lower \
+                and ("theta" in decl_lower or "θ" in decl_lower) \
+                and ("higgs" in decl_lower or "mixing" in decl_lower):
+            return True
         return inv_gev or "lambda" in decl_lower or "λ" in decl_lower
     return False
 
