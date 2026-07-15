@@ -1,0 +1,342 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "cache_key": "axionmass::f a f a in gev vs m a in ev",
+      "coupling_type": "AxionMass",
+      "declared_convention": "f_a (F_a) in GeV vs m_a in eV",
+      "arxiv_id": "1202.5851",
+      "arxiv_ids": [
+        "1202.5851"
+      ],
+      "sample_points": [
+        [
+          0.001,
+          1000000000.0
+        ],
+        [
+          0.01,
+          10000000000.0
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-14T00:00:00Z",
+      "last_seen": "2026-07-14T00:00:00Z",
+      "count": 1,
+      "status": "needs_human",
+      "failure_reason": "not a coupling convention: declaration states the f_a-vs-m_a plane of a prediction-band paper (GT-excluded class); extraction-content issue, no conversion exists"
+    },
+    {
+      "cache_key": "axionmass::m a in ev lower bound ndw 1 model",
+      "coupling_type": "AxionMass",
+      "declared_convention": "m_a in eV (lower bound), NDW=1 model",
+      "arxiv_id": "1412.0789",
+      "arxiv_ids": [
+        "1412.0789"
+      ],
+      "sample_points": [
+        [
+          0.0,
+          8e-05
+        ],
+        [
+          0.0,
+          0.00013
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-14T00:00:00Z",
+      "last_seen": "2026-07-14T00:00:00Z",
+      "count": 1,
+      "status": "needs_human",
+      "failure_reason": "not a coupling convention: 'm_a in eV (lower bound)' describes a mass-prediction output, not a coupling axis; extraction should target the f_a curve (f_a_norm GT)"
+    },
+    {
+      "cache_key": "scalarphoton::log10 of d e 0 043 d m d g emitted as absolute coupling value 10 y",
+      "coupling_type": "ScalarPhoton",
+      "declared_convention": "log10 of d_e + 0.043(d_m\u0302 - d_g); emitted as absolute coupling value (10^y)",
+      "arxiv_id": "1604.08514",
+      "arxiv_ids": [
+        "1604.08514"
+      ],
+      "sample_points": [
+        [
+          3.16e-25,
+          5e-08
+        ],
+        [
+          5.6e-25,
+          3.2e-08
+        ],
+        [
+          1e-24,
+          1.6e-08
+        ],
+        [
+          1.8e-24,
+          8.9e-09
+        ],
+        [
+          3.16e-24,
+          5.6e-09
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": "https://github.com/FaroutYLq/AutoAxionLimits/pull/721",
+      "first_seen": "2026-07-14T00:00:00Z",
+      "last_seen": "2026-07-14T00:00:00Z",
+      "count": 1,
+      "status": "promoted"
+    },
+    {
+      "cache_key": "axionedm::d n oscillation amplitude in e cm limit on dn mu n mu hg dhg",
+      "coupling_type": "AxionEDM",
+      "declared_convention": "d_n oscillation amplitude in e*cm (limit on dn-(mu_n/mu_Hg)dHg)",
+      "arxiv_id": "1708.06367",
+      "arxiv_ids": [
+        "1708.06367"
+      ],
+      "sample_points": [
+        [
+          1e-24,
+          3.5e-26
+        ],
+        [
+          1e-17,
+          3.5e-26
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-14T00:00:00Z",
+      "last_seen": "2026-07-14T00:00:00Z",
+      "count": 1,
+      "status": "unconvertible"
+    },
+    {
+      "cache_key": "scalarnucleon::d mhat 1 d g 1 dimensionless plotted as log10 on y axis",
+      "coupling_type": "ScalarNucleon",
+      "declared_convention": "|d_mhat^(1) - d_g^(1)|, dimensionless (plotted as log10 on y-axis)",
+      "arxiv_id": "1807.04512",
+      "arxiv_ids": [
+        "1807.04512"
+      ],
+      "sample_points": [
+        [
+          1e-24,
+          0.00031600000000000004
+        ],
+        [
+          1e-23,
+          0.00031600000000000004
+        ],
+        [
+          1e-22,
+          0.00031600000000000004
+        ],
+        [
+          1e-21,
+          0.00031600000000000004
+        ],
+        [
+          1e-20,
+          0.00031600000000000004
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-14T00:00:00Z",
+      "last_seen": "2026-07-14T00:00:00Z",
+      "count": 1,
+      "status": "needs_human",
+      "failure_reason": "declared |d_mhat - d_g| plane not tracked upstream (repo holds this paper's d_e and d_me planes); no GT pair to verify; extraction should target the tracked planes \u2014 classification issue, not a registry gap"
+    },
+    {
+      "cache_key": "axionedm::d n in e cm",
+      "coupling_type": "AxionEDM",
+      "declared_convention": "d_n in e*cm",
+      "arxiv_id": "2101.01241",
+      "arxiv_ids": [
+        "2101.01241"
+      ],
+      "sample_points": [
+        [
+          1.62e-07,
+          1e-21
+        ],
+        [
+          1.66e-07,
+          1e-21
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-14T00:00:00Z",
+      "last_seen": "2026-07-14T00:00:00Z",
+      "count": 1,
+      "status": "unconvertible"
+    },
+    {
+      "cache_key": "axionedm::d n in e cm oscillating deuteron edm amplitude d ac",
+      "coupling_type": "AxionEDM",
+      "declared_convention": "d_n in e*cm (oscillating deuteron EDM amplitude d_AC)",
+      "arxiv_id": "2208.07293",
+      "arxiv_ids": [
+        "2208.07293"
+      ],
+      "sample_points": [
+        [
+          4.95e-10,
+          6.4e-23
+        ],
+        [
+          5.02e-10,
+          6.4e-23
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-14T00:00:00Z",
+      "last_seen": "2026-07-14T00:00:00Z",
+      "count": 1,
+      "status": "unconvertible"
+    },
+    {
+      "cache_key": "scalarnucleon::coupling d g dimensionless",
+      "coupling_type": "ScalarNucleon",
+      "declared_convention": "coupling d_g, dimensionless",
+      "arxiv_id": "2301.10784",
+      "arxiv_ids": [
+        "2301.10784"
+      ],
+      "sample_points": [
+        [
+          1e-23,
+          1.2e-08
+        ],
+        [
+          1.5e-23,
+          1.5000000000000002e-08
+        ],
+        [
+          2e-23,
+          1.8e-08
+        ],
+        [
+          3e-23,
+          2.5000000000000002e-08
+        ],
+        [
+          5e-23,
+          4e-08
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-14T00:00:00Z",
+      "last_seen": "2026-07-14T00:00:00Z",
+      "count": 1,
+      "status": "needs_human",
+      "failure_reason": "declared d_g plane not tracked upstream for this paper (repo holds its fa/ nuclear-clock bound, GT AxionMass); coupling-classification issue, no GT pair to verify a d_g conversion against"
+    },
+    {
+      "cache_key": "scalarelectron::sin theta higgs portal scalar higgs mixing angle",
+      "coupling_type": "ScalarElectron",
+      "declared_convention": "sin theta (Higgs-portal scalar-Higgs mixing angle)",
+      "arxiv_id": "2303.00778",
+      "arxiv_ids": [
+        "2303.00778"
+      ],
+      "sample_points": [
+        [
+          0.001,
+          1.9e-10
+        ],
+        [
+          1000.0,
+          1.9e-10
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": "https://github.com/FaroutYLq/AutoAxionLimits/pull/721",
+      "first_seen": "2026-07-14T00:00:00Z",
+      "last_seen": "2026-07-14T00:00:00Z",
+      "count": 1,
+      "status": "promoted"
+    },
+    {
+      "cache_key": "axionmass::m a in ev prediction not a limit",
+      "coupling_type": "AxionMass",
+      "declared_convention": "m_a in eV (prediction, not a limit)",
+      "arxiv_id": "2401.17253",
+      "arxiv_ids": [
+        "2401.17253"
+      ],
+      "sample_points": [],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-14T00:00:00Z",
+      "last_seen": "2026-07-14T00:00:00Z",
+      "count": 1,
+      "status": "needs_human",
+      "failure_reason": "not a coupling convention: 'm_a in eV (prediction, not a limit)' \u2014 mass-prediction output; extraction should target the f_a curve (f_a_norm GT)"
+    },
+    {
+      "cache_key": "scalarnucleon::d g dimensionless plotted as on y axis of fig 3a",
+      "coupling_type": "ScalarNucleon",
+      "declared_convention": "d_g dimensionless, plotted as on y-axis of Fig 3a",
+      "arxiv_id": "2404.00616",
+      "arxiv_ids": [
+        "2404.00616"
+      ],
+      "sample_points": [
+        [
+          2.9e-21,
+          3e-08
+        ],
+        [
+          5e-21,
+          6e-08
+        ],
+        [
+          1e-20,
+          1.2e-07
+        ],
+        [
+          3e-20,
+          4e-07
+        ],
+        [
+          1e-19,
+          1.5e-06
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-14T00:00:00Z",
+      "last_seen": "2026-07-14T00:00:00Z",
+      "count": 1,
+      "status": "needs_human",
+      "failure_reason": "declared d_g plane not tracked upstream for this paper (repo holds its fa/ nuclear-clock bound, GT AxionMass); coupling-classification issue, no GT pair to verify a d_g conversion against"
+    },
+    {
+      "cache_key": "axionmass::m a in ev qcd axion mass prediction not an exclusion limit",
+      "coupling_type": "AxionMass",
+      "declared_convention": "m_a in eV (QCD axion mass prediction, not an exclusion limit)",
+      "arxiv_id": "2412.08699",
+      "arxiv_ids": [
+        "2412.08699"
+      ],
+      "sample_points": [],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-14T00:00:00Z",
+      "last_seen": "2026-07-14T00:00:00Z",
+      "count": 1,
+      "status": "needs_human",
+      "failure_reason": "not a coupling convention: QCD-axion mass prediction declaration; paper is in the prediction-band GT exclusion class"
+    }
+  ]
+}
