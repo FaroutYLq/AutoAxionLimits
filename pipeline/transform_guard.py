@@ -888,3 +888,112 @@ def convertible_out_of_profile(coupling_type, declared_convention,
     med = _median(couplings)
     lo, hi = band
     return not (lo <= med <= hi)
+
+
+# ---------------------------------------------------------------------------
+# Axis-plane consistency cross-check (Phase 3, #625)
+# ---------------------------------------------------------------------------
+# The 19 remaining wrong-type predictions and the plane-declaration errors are
+# the SAME axis question: g_B-L vs ε, f_a vs g_aγ, d_g vs d_e, e·cm vs GeV^-2 are
+# all written on the figure y-axis. Figure selection uses the type prior, so this
+# is a CROSS-CHECK AFTER the axis read-back, never a blind reorder (no circularity
+# — #625's referee negative result). A stage-2a axis label that unambiguously
+# names a DIFFERENT plane within the SAME confusable family overrides the
+# classified type (re-label, no figure re-selection); a cross-family
+# contradiction is review-flagged; an ambiguous/unreadable axis is a no-op
+# (fail open to current behaviour).
+
+# Coupling types that are genuinely confusable from text alone but distinguished
+# by their figure axis (from the Phase-1 confusion matrix / issue #625).
+_CONFUSABLE_FAMILIES: tuple = (
+    frozenset({"DarkPhoton", "VectorBL"}),                 # ε vs g_B-L
+    frozenset({"ScalarPhoton", "ScalarElectron",
+               "ScalarNucleon", "ScalarBaryon"}),          # d_e vs d_me vs d_g
+    frozenset({"AxionMass", "AxionEDM", "AxionCPV"}),      # f_a/m_a vs e·cm/g_d vs CPV
+    frozenset({"AxionProton", "AxionNeutron"}),            # g_ap vs g_an
+    frozenset({"AxionElectron", "AxionPhoton"}),           # g_ae vs g_aγ
+)
+
+
+def same_confusable_family(a, b) -> bool:
+    """True iff a and b sit in the same confusable family (override guardrail)."""
+    if not a or not b or a == b:
+        return a == b
+    return any({a, b} <= fam for fam in _CONFUSABLE_FAMILIES)
+
+
+def in_confusable_family(ct) -> bool:
+    """True iff ``ct`` belongs to any confusable family (the 3c axis-peek gate:
+    only spend a vision call when the classified type could plausibly be
+    corrected by its axis)."""
+    return bool(ct) and any(ct in fam for fam in _CONFUSABLE_FAMILIES)
+
+
+def axis_implies_coupling_type(axis_label):
+    """The coupling type an EXPLICIT figure y-axis label names, else None.
+
+    High-precision by construction — fires only on unambiguous plane tokens, and
+    orders the most specific symbol first so g_agamma is never read as g_ae, d_me
+    never as d_e, etc. An unreadable / ambiguous label returns None (the caller
+    then no-ops). Pure, runtime-only (the eval scorer reads emitted snapshots and
+    never re-classifies, so there is no eval mirror)."""
+    if not axis_label:
+        return None
+    raw = str(axis_label).lower()
+    u = raw.replace(" ", "").replace("{", "").replace("}", "").replace("$", "")
+    # --- vector / dark photon ---
+    if "g_b-l" in u or "g_b−l" in u or "b-lgauge" in u or "b−lgauge" in u \
+            or "g_bl" in u:
+        return "VectorBL"
+    if "kineticmixing" in raw or "epsilon" in u or "\\chi" in u \
+            or "χ" in raw or "ε" in raw or (("eps" in u) and "eps^" not in u):
+        return "DarkPhoton"
+    # --- axion-fermion (specific symbol before generic) ---
+    if "g_agamma" in u or "g_aγ" in u or "g_a\\gamma" in u or "g_aγ" in raw:
+        return "AxionPhoton"
+    if "g_ae" in u:
+        return "AxionElectron"
+    if "g_ap" in u:
+        return "AxionProton"
+    if "g_an" in u:
+        return "AxionNeutron"
+    # --- axion-EDM (oscillating amplitude plane) ---
+    if any(t in u for t in ("e*cm", "e·cm", "ecm", "e.cm")) or "e cm" in raw \
+            or "d_n" in u or "d_ac" in u:
+        return "AxionEDM"
+    # --- scalar / dilaton dilaton sub-types (specific before generic) ---
+    if "d_me" in u or "d_m_e" in u or "d_mhat" in u or "d_m̂" in raw:
+        return "ScalarElectron"
+    if "d_g" in u:
+        return "ScalarNucleon"
+    if "d_e" in u:
+        return "ScalarPhoton"
+    # --- axion mass / decay-constant plane ---
+    if ("f_a" in u or "1/f_a" in u) and "gev" in u:
+        return "AxionMass"
+    return None
+
+
+def axis_plane_crosscheck(predicted_ct, axis_label):
+    """Cross-check a classified coupling type against its figure axis label.
+
+    Returns ``(resolved_ct, action, note)`` where action is:
+      * ``"noop"``     — axis unreadable/ambiguous or already consistent;
+      * ``"override"`` — axis names a DIFFERENT plane in the SAME confusable
+                         family; ``resolved_ct`` is the axis's type (re-label);
+      * ``"review"``   — axis names a plane in a DIFFERENT family (contradiction
+                         we will not silently act on); ``resolved_ct`` unchanged.
+
+    Pure and deterministic; never raises. Figure selection is NOT re-run by the
+    caller — this only re-labels the already-chosen candidate (#625: bounded, no
+    loop)."""
+    implied = axis_implies_coupling_type(axis_label)
+    if implied is None or implied == predicted_ct:
+        return predicted_ct, "noop", ""
+    if same_confusable_family(predicted_ct, implied):
+        return implied, "override", (
+            f"coupling type {predicted_ct} -> {implied} by axis read-back "
+            f"'{axis_label}' (same confusable family, #625 Phase 3)")
+    return predicted_ct, "review", (
+        f"[COUPLING REVIEW] axis '{axis_label}' implies {implied} but classified "
+        f"{predicted_ct} (cross-family contradiction — flagged, not overridden)")
