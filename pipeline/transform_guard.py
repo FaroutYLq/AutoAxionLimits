@@ -741,6 +741,70 @@ def _declared_convertible(coupling_type: str, decl_lower: str) -> bool:
     return False
 
 
+# ---------------------------------------------------------------------------
+# Unit-PLANE screen (Phase 1a, #625) — fail closed on the unit POWER
+# ---------------------------------------------------------------------------
+# MIRRORS evaluation.conventions._CANONICAL_PLANE / _explicit_unit_plane /
+# _unit_plane_contradicts — keep the two in sync. Token matching sees a plane's
+# vocabulary but not its unit POWER; a declaration whose explicit unit power
+# contradicts the coupling's canonical plane (and that no vetted converter
+# serves) is flagged for review even when it also carries a canonical SYMBOL
+# ("epsilon in GeV^-1" for DarkPhoton, "g_agamma in GeV^-2" for AxionPhoton).
+# Acts ONLY on an explicit unit token — a unit-less declaration is untouched.
+# AxionMass is deliberately ABSENT — legitimately multi-plane (dimensionless
+# normalized f_a_norm, 1/f_a [GeV^-1], and f_a [GeV] are all canonical); a
+# single-plane screen would false-flag a valid normalized read. MIRRORS
+# evaluation.conventions._CANONICAL_PLANE.
+_CANONICAL_PLANE: dict = {
+    "AxionPhoton":    "gev^-1",
+    "AxionEDM":       "gev^-2",
+    "AxionElectron":  "dimensionless",
+    "AxionNeutron":   "dimensionless",
+    "AxionProton":    "dimensionless",
+    "AxionCPV":       "dimensionless",
+    "DarkPhoton":     "dimensionless",
+    "VectorBL":       "dimensionless",
+    "MonopoleDipole": "dimensionless",
+    "ScalarPhoton":   "dimensionless",
+    "ScalarElectron": "dimensionless",
+    "ScalarNucleon":  "dimensionless",
+    "ScalarBaryon":   "dimensionless",
+}
+
+
+def _explicit_unit_plane(decl_lower: str):
+    """The explicit unit-plane token named in a declaration, else None. Most
+    specific power wins (GeV^-2 before GeV^-1 before bare GeV). MIRRORS
+    evaluation.conventions._explicit_unit_plane."""
+    u = (decl_lower or "").replace(" ", "")
+    if any(t in u for t in ("gev^-2", "gev-2", "gev^{-2}", "gev**-2", "1/gev^2")):
+        return "gev^-2"
+    if any(t in u for t in ("gev^-1", "gev-1", "gev^{-1}", "gev**-1",
+                            "gev$^{-1}$", "1/gev")):
+        return "gev^-1"
+    if any(t in u for t in ("e*cm", "e·cm", "ecm", "e.cm")) or "e cm" in decl_lower:
+        return "ecm"
+    if any(t in u for t in ("s^-1", "s-1", "1/s", "decayrate")):
+        return "s^-1"
+    if "gev" in u or "[gev]" in u:
+        return "gev"
+    if "dimensionless" in u:
+        return "dimensionless"
+    return None
+
+
+def _unit_plane_contradicts(coupling_type, decl_lower: str) -> bool:
+    """True iff the declaration names an explicit unit plane contradicting the
+    coupling's canonical plane. MIRRORS evaluation.conventions._unit_plane_contradicts."""
+    canon = _CANONICAL_PLANE.get(coupling_type or "")
+    if canon is None:
+        return False
+    got = _explicit_unit_plane(decl_lower)
+    if got is None:
+        return False
+    return got != canon
+
+
 def convention_review_needed(coupling_type, declared_convention) -> bool:
     """Whether an extraction's model-declared output convention should be flagged
     for human review (escalate-on-UNKNOWN, #536/#587).
@@ -761,8 +825,57 @@ def convention_review_needed(coupling_type, declared_convention) -> bool:
     # AxionElectron's "dimensionless" and dodged the flag).
     if _foreign_quantity_declared(coupling_type, d):
         return True
+    # Unit-plane screen (Phase 1a): an explicit unit power contradicting the
+    # canonical plane, with NO vetted converter, fails closed even when a
+    # canonical symbol appears ("epsilon in GeV^-1"). A convertible contradiction
+    # (AxionEDM "C_G/f_a in GeV^-1" -> inv_fa) is NOT flagged here — the converter
+    # owns it and Phase 1b magnitude-guards it at extraction time.
+    if _unit_plane_contradicts(coupling_type, d) \
+            and not _declared_convertible(coupling_type, d):
+        return True
     if any(t in d for t in _CANONICAL_DECL.get(coupling_type, ())):
         return False
     if _declared_convertible(coupling_type, d):
         return False
     return True
+
+
+# Plausible-input band for the AxionEDM 1/f_a [GeV^-1] plane (Phase 1b, #625).
+# A genuine decay constant f_a in [1e9,1e18] GeV gives 1/f_a in [1e-18,1e-9];
+# widened one decade each side (f_a in [1e7,1e20] GeV) so no real conversion is
+# refused. Values ~10 dex below the floor are the tiny oscillating-EDM d_n
+# [e*cm] amplitude mislabeled as GeV^-1. MIRRORS the inv_fa guard band in
+# evaluation.conventions.to_canonical.
+_INV_FA_BAND = (1e-20, 1e-7)
+
+
+def convertible_out_of_profile(coupling_type, declared_convention,
+                               data_points) -> bool:
+    """Runtime side of Phase 1b: a declaration that IS registry-convertible
+    (so :func:`convention_review_needed` returns False) but whose emitted
+    magnitude cannot be the declared quantity, so the vetted conversion would
+    produce out-of-plane garbage. Currently scoped to the AxionEDM inv_fa
+    (1/f_a [GeV^-1]) plane — the one converter whose magnitude guard was the
+    measured 16-dex hole (2204.01454, 2410.02218). Returns True -> the caller
+    flags [CONVENTION REVIEW] + queues, exactly as for an unknown convention.
+
+    Pure over the model's own declared output; never raises."""
+    if not coupling_type or not declared_convention or not data_points:
+        return False
+    if coupling_type != "AxionEDM":
+        return False
+    d = str(declared_convention).strip().lower()
+    # Only the inv_fa (1/f_a) plane — the e*cm / bare-GeV^-1 planes are already
+    # UNCONVERTIBLE and flagged by convention_review_needed.
+    if not any(t in d for t in ("1/f_a", "invfa", "1/fa", "cg/fa",
+                                "c_g/f_a", "c_g/(f_a", "gluon")):
+        return False
+    try:
+        couplings = [float(g) for _m, g in data_points if float(g) > 0]
+    except Exception:
+        return False
+    if not couplings:
+        return False
+    med = _median(couplings)
+    lo, hi = _INV_FA_BAND
+    return not (lo <= med <= hi)

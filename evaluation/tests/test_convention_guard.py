@@ -196,8 +196,11 @@ def test_classify_scalar_plain_de_does_not_misfire():
 
 
 def test_axion_edm_invfa_to_g_angamma():
-    out, _ = to_canonical("AxionEDM", [(1e-15, 1.0)], "1/f_a")
-    assert out[0][1] == pytest.approx(3.7e-3)
+    # A PHYSICAL 1/f_a: f_a = 1e12 GeV -> 1/f_a = 1e-12 GeV^-1 (inside the
+    # Phase-1b plausibility band). x3.7e-3 -> g_angamma [GeV^-2].
+    out, note = to_canonical("AxionEDM", [(1e-15, 1e-12)], "1/f_a")
+    assert out[0][1] == pytest.approx(1e-12 * 3.7e-3)
+    assert not note.startswith("__convention_guard_refused__")
 
 
 # --- #604: AxionEDM canonical is g_angamma [GeV^-2], not d_n [e cm] -----------

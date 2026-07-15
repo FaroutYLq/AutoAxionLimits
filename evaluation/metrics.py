@@ -48,6 +48,60 @@ class ClassificationMetrics:
             })
 
 
+def build_coupling_type_confusion(per_paper: list[dict]) -> dict:
+    """Per-coupling-type confusion table (Phase 1c, #625).
+
+    Multi-type-aware, matching ``evaluate.py``'s grading rule (a prediction is
+    correct iff it is in ANY of the paper's authoritative GT types):
+
+    * correct paper (predicted ``P`` in GT set ``G``): credit the diagonal
+      cell ``matrix[P][P]`` (P is one of the GT types by construction).
+    * wrong paper (``P`` not in ``G``): credit ``matrix[gt][P]`` for EVERY GT
+      type ``gt`` in ``G`` — this surfaces each confusable pair
+      (VectorBL->DarkPhoton, proton->neutron, ...) the aggregate accuracy hides.
+
+    Papers with no prediction or no GT type are skipped (counted separately).
+    Pure function of the per-paper report list; no I/O — unit-testable and
+    emitted into both ``metrics_summary`` and ``report.md``.
+    """
+    from collections import defaultdict
+    matrix: dict = defaultdict(lambda: defaultdict(int))
+    n_graded = 0
+    n_correct = 0
+    n_skipped = 0
+    for p in per_paper or []:
+        pred = p.get("coupling_type_predicted")
+        expected = p.get("coupling_type_expected") or []
+        if isinstance(expected, str):
+            expected = [expected]
+        if not pred or not expected:
+            n_skipped += 1
+            continue
+        n_graded += 1
+        correct = pred in expected
+        if correct:
+            n_correct += 1
+            matrix[pred][pred] += 1
+        else:
+            for gt in expected:
+                matrix[gt][pred] += 1
+    # Off-diagonal confusions, richest first — the confusable-cluster ledger.
+    confusions = []
+    for gt, row in matrix.items():
+        for pred, n in row.items():
+            if pred != gt:
+                confusions.append({"gt": gt, "predicted": pred, "count": n})
+    confusions.sort(key=lambda c: (-c["count"], c["gt"], c["predicted"]))
+    return {
+        "matrix": {gt: dict(row) for gt, row in sorted(matrix.items())},
+        "confusions": confusions,
+        "n_graded": n_graded,
+        "n_correct": n_correct,
+        "n_skipped": n_skipped,
+        "accuracy": (n_correct / n_graded) if n_graded else 0.0,
+    }
+
+
 @dataclass
 class CurveMetrics:
     """Metrics comparing extracted vs ground-truth exclusion curves."""

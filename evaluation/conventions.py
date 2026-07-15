@@ -449,6 +449,26 @@ def to_canonical(coupling_type: Optional[str], data_points, convention: Optional
 
         # --- AxionMass / AxionEDM linear links ---
         if coupling_type == "AxionEDM" and conv in ("inv_fa", "1/f_a"):
+            # Phase 1b (#625): magnitude guard on the inv_fa INPUT. This branch
+            # was the ONE vetted converter shipped WITHOUT the round-2 plausible-
+            # range guard every other branch carries, and it was the measured
+            # 16-dex hole: a mislabeled oscillating-EDM d_n [e*cm] curve (median
+            # ~1e-28, physically the tiny e*cm amplitude) declared "C_G/f_a in
+            # GeV^-1" matches this token and, ungated, was multiplied x3.7e-3 into
+            # a "compared" ~1e-30 garbage curve (2204.01454 17.07 dex, 2410.02218
+            # 16.25 dex in full346). A GENUINE 1/f_a [GeV^-1] is set by the decay
+            # constant f_a in [1e9,1e18] GeV, i.e. 1/f_a in [1e-18,1e-9]; the band
+            # below is widened one decade each side (f_a in [1e7,1e20] GeV) so no
+            # real conversion is refused (2204.01454's legitimate final2 read,
+            # median 2e-13 = 1/(5e12 GeV), sits comfortably inside and stays
+            # compared at 2.79 dex). Values ~10 dex below the floor are the e*cm
+            # amplitude mislabeled — refuse (GUARD_REFUSED -> convention_mismatch,
+            # a convention gap) rather than score raw garbage as extraction error.
+            if med_y is None or not (1e-20 <= med_y <= 1e-7):
+                return data_points, (
+                    f"{GUARD_REFUSED}: inv_fa expects 1/f_a in [1e-20,1e-7] "
+                    f"GeV^-1 (f_a in [1e7,1e20] GeV); median {med_y!r} is the "
+                    f"e*cm amplitude mislabeled as GeV^-1")
             f = 3.7e-3              # g_angamma [GeV^-2] = 3.7e-3 * (1/f_a) [GeV^-1]
             return [(m, g * f) for m, g in data_points], (
                 "convention: 1/f_a [GeV^-1] -> g_angamma [GeV^-2] (x3.7e-3)")
@@ -591,6 +611,82 @@ def _foreign_quantity_declared(coupling_type: str, decl_lower: str) -> bool:
     return False
 
 
+# ---------------------------------------------------------------------------
+# Unit-PLANE screen (Phase 1a, #625) — fail closed on the unit POWER
+# ---------------------------------------------------------------------------
+# The measured hole: token matching sees the plane's VOCABULARY ("gluon",
+# "C_G", "epsilon") but NOT the unit POWER, which is the actual discriminator.
+# A declaration whose EXPLICIT unit token contradicts the coupling's canonical
+# plane, and that no vetted converter serves, was silently waved through as
+# canonical whenever it also happened to contain a canonical SYMBOL
+# (DarkPhoton "epsilon in GeV^-1", AxionPhoton "g_agamma in GeV^-2"). This
+# screen fails such declarations CLOSED. It acts ONLY on an EXPLICIT unit
+# token — a declaration with no unit token is untouched (no new false flags),
+# and a declaration the per-coupling branch already routes to a converter or
+# to UNCONVERTIBLE is untouched (the converter path owns it; 1b guards its
+# magnitude). MIRRORS pipeline.transform_guard._unit_plane_contradicts.
+
+# Canonical unit plane per coupling type (the power the repo PLOTS).
+# AxionMass is deliberately ABSENT: it is legitimately MULTI-plane — the repo
+# stores it as a dimensionless normalized coupling (f_a_norm), as 1/f_a
+# [GeV^-1], AND as f_a [GeV] (infer_convention picks by value range) — so a
+# single-plane unit screen would false-flag a valid dimensionless normalized
+# read (1606.07494 theta_0). AxionMass plane mislabels are Phase 3's job.
+_CANONICAL_PLANE: dict = {
+    "AxionPhoton":    "gev^-1",
+    "AxionEDM":       "gev^-2",
+    "AxionElectron":  "dimensionless",
+    "AxionNeutron":   "dimensionless",
+    "AxionProton":    "dimensionless",
+    "AxionCPV":       "dimensionless",
+    "DarkPhoton":     "dimensionless",
+    "VectorBL":       "dimensionless",
+    "MonopoleDipole": "dimensionless",
+    "ScalarPhoton":   "dimensionless",
+    "ScalarElectron": "dimensionless",
+    "ScalarNucleon":  "dimensionless",
+    "ScalarBaryon":   "dimensionless",
+}
+
+
+def _explicit_unit_plane(decl_lower: str) -> Optional[str]:
+    """Return the explicit unit-plane token named in a declaration, else None.
+
+    Detects only UNAMBIGUOUS explicit unit tokens; a declaration naming no unit
+    returns None (untouched by the plane screen). Order matters — GeV^-2 is
+    tested before GeV^-1 before bare GeV so the most specific power wins.
+    """
+    u = (decl_lower or "").replace(" ", "")
+    if any(t in u for t in ("gev^-2", "gev-2", "gev^{-2}", "gev**-2", "1/gev^2")):
+        return "gev^-2"
+    if any(t in u for t in ("gev^-1", "gev-1", "gev^{-1}", "gev**-1",
+                            "gev$^{-1}$", "1/gev")):
+        return "gev^-1"
+    if any(t in u for t in ("e*cm", "e·cm", "ecm", "e.cm")) or "e cm" in decl_lower:
+        return "ecm"
+    if any(t in u for t in ("s^-1", "s-1", "1/s", "decayrate")):
+        return "s^-1"
+    # A bare energy unit (f_a "in GeV") — only when no inverse power matched.
+    if "gev" in u or "[gev]" in u:
+        return "gev"
+    if "dimensionless" in u:
+        return "dimensionless"
+    return None
+
+
+def _unit_plane_contradicts(coupling_type: Optional[str], decl_lower: str) -> bool:
+    """True iff the declaration names an EXPLICIT unit plane that contradicts the
+    coupling's canonical plane. Pure signal — the caller decides whether a vetted
+    converter nonetheless serves it (in which case this is not fired)."""
+    canon = _CANONICAL_PLANE.get(coupling_type or "")
+    if canon is None:
+        return False
+    got = _explicit_unit_plane(decl_lower)
+    if got is None:
+        return False
+    return got != canon
+
+
 # Map a model-DECLARED output-convention/units string (the convention the
 # extractor says its emitted data_points are in) to a `to_canonical` token.
 # Conservative: returns a non-canonical alternate ONLY on a clear unit signal,
@@ -598,6 +694,20 @@ def _foreign_quantity_declared(coupling_type: str, decl_lower: str) -> bool:
 # EXTRACTION side (the GT side uses `file_source_convention`).
 def classify_reported_convention(coupling_type: Optional[str],
                                  units_label: Optional[str]) -> Optional[str]:
+    """Public entry: the per-coupling token routing, with the Phase-1a unit-plane
+    fail-closed screen applied to any result the core would treat as canonical
+    (None). A None result whose declaration carries an explicit unit plane that
+    contradicts the canonical plane — and that the core did not route to a
+    converter — becomes UNCONVERTIBLE (a convention gap, not a raw residual)."""
+    token = _classify_reported_convention_core(coupling_type, units_label)
+    if token is None and units_label:
+        if _unit_plane_contradicts(coupling_type, units_label.lower()):
+            return UNCONVERTIBLE
+    return token
+
+
+def _classify_reported_convention_core(coupling_type: Optional[str],
+                                       units_label: Optional[str]) -> Optional[str]:
     if not coupling_type or not units_label:
         return None
     raw = units_label.lower()
