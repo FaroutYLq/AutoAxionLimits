@@ -589,6 +589,15 @@ _FOREIGN_CLASS_TOKENS = (
     "v_dd", "vdd", "potential", "force strength", "torque",
     "cross section", "count rate",
 )
+# Per-COUPLING foreign-class tokens (catastrophic-tail audit, 2026-07-15):
+# planes that share a coupling's "dimensionless" vocabulary but are different
+# physics FOR THAT COUPLING (VectorBL fifth-force alpha-tilde; AxionMass
+# epsilon-bias). Scoped per coupling so the scalar alpha_fifthforce converter
+# is untouched. MIRRORS evaluation.conventions._FOREIGN_CLASS_TOKENS_BY_CT.
+_FOREIGN_CLASS_TOKENS_BY_CT: dict = {
+    "VectorBL": ("alpha", "α"),
+    "AxionMass": ("epsilon", "bias parameter", "(m_a/m_a"),
+}
 _FOREIGN_CLASS_EXEMPT = ("MonopoleDipole", "AxionCPV")
 _EXPECTED_SYMBOL_STEMS: dict = {
     # Vocabulary hardening (2026-07-14, final2_opus_n1 flag audit): g_phi/g_chi
@@ -670,6 +679,9 @@ def _foreign_quantity_declared(coupling_type: str, decl_lower: str) -> bool:
     d = _NOT_CLAUSE_RE.sub(" ", decl_lower)
     if coupling_type not in _FOREIGN_CLASS_EXEMPT \
             and any(t in d for t in _FOREIGN_CLASS_TOKENS):
+        return True
+    # Per-coupling foreign planes (catastrophic-tail audit, 2026-07-15).
+    if any(t in d for t in _FOREIGN_CLASS_TOKENS_BY_CT.get(coupling_type, ())):
         return True
     if _asserts_canonical_equivalence(coupling_type, d):
         return False
@@ -849,31 +861,45 @@ def convention_review_needed(coupling_type, declared_convention) -> bool:
 # A genuine decay constant f_a in [1e9,1e18] GeV gives 1/f_a in [1e-18,1e-9];
 # widened one decade each side (f_a in [1e7,1e20] GeV) so no real conversion is
 # refused. Values ~10 dex below the floor are the tiny oscillating-EDM d_n
-# [e*cm] amplitude mislabeled as GeV^-1. MIRRORS the inv_fa / d_n_ecm guard
-# bands in evaluation.conventions.to_canonical.
+# [e*cm] amplitude mislabeled as GeV^-1. MIRRORS the inv_fa / d_n_ecm /
+# f_a_gev_axis guard bands in evaluation.conventions.to_canonical.
 _INV_FA_BAND = (1e-20, 1e-7)
 _DN_ECM_BAND = (1e-30, 1e-18)
+# A MEASURED f_a [GeV] axis must carry decay-constant-scale values (f_a in
+# [1e5,1e18] GeV, widened) — canonical-scale values contradict the read-back.
+_FA_GEV_AXIS_BAND = (1e3, 1e20)
 
 
 def convertible_out_of_profile(coupling_type, declared_convention,
                                data_points) -> bool:
-    """Runtime side of Phase 1b/2: a declaration that IS registry-convertible
-    (so :func:`convention_review_needed` returns False) but whose emitted
-    magnitude cannot be the declared quantity, so the vetted conversion would
-    produce out-of-plane garbage. Scoped to the two AxionEDM planes whose
-    converters carry a magnitude guard — inv_fa (1/f_a [GeV^-1], the measured
-    16-dex hole 2204.01454/2410.02218) and d_n_ecm (oscillating-EDM amplitude
-    [e*cm], Phase 2). Returns True -> the caller flags [CONVENTION REVIEW] +
-    queues, exactly as for an unknown convention.
+    """Runtime side of Phase 1b/2 + the catastrophic-tail audit: a declaration
+    that IS registry-convertible (so :func:`convention_review_needed` returns
+    False) but whose emitted magnitude cannot be the declared quantity, so the
+    vetted conversion would produce out-of-plane garbage. Scoped to the planes
+    whose converters carry a magnitude guard — AxionEDM inv_fa (the measured
+    16-dex hole 2204.01454/2410.02218), AxionEDM d_n_ecm (Phase 2), and the
+    AxionMass f_a-axis-read-back contradiction (1708.08464/2105.13963: a
+    measured f_a[GeV] axis with canonical-scale values). Returns True -> the
+    caller flags [CONVENTION REVIEW] + queues, exactly as for an unknown
+    convention.
 
     Pure over the model's own declared output; never raises."""
     if not coupling_type or not declared_convention or not data_points:
         return False
-    if coupling_type != "AxionEDM":
-        return False
     d = str(declared_convention).strip().lower()
-    if any(t in d for t in ("1/f_a", "invfa", "1/fa", "cg/fa",
-                            "c_g/f_a", "c_g/(f_a", "gluon")):
+    if coupling_type == "AxionMass":
+        # Only the axis-read-back provenance — a model-declared f_a keeps the
+        # registry's mislabel escape (1708.07521 compares at 0.13 dex).
+        if "axis read-back" in d and any(t in d.replace(" ", "") for t in
+                                         ("f_aingev", "faingev", "f_a[gev",
+                                          "fa[gev", "f[gev")):
+            band = _FA_GEV_AXIS_BAND
+        else:
+            return False
+    elif coupling_type != "AxionEDM":
+        return False
+    elif any(t in d for t in ("1/f_a", "invfa", "1/fa", "cg/fa",
+                              "c_g/f_a", "c_g/(f_a", "gluon")):
         band = _INV_FA_BAND
     elif any(t in d for t in ("e*cm", "e·cm", "ecm", "e.cm", "e cm")):
         band = _DN_ECM_BAND
