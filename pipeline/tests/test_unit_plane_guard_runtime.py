@@ -54,6 +54,27 @@ def test_convertible_out_of_profile_invfa(median, expected):
     assert convertible_out_of_profile("AxionEDM", "C_G/f_a in GeV^-1", pts) is expected
 
 
+@pytest.mark.parametrize("decl", [
+    "d_n in e*cm",
+    "d_AC (deuteron oscillating EDM) in e*cm",
+    "oscillating neutron EDM amplitude d_n in e cm",
+])
+def test_ecm_now_convertible_not_review_flagged(decl):
+    # Phase 2: e*cm AxionEDM is the mass-dependent d_n_ecm converter -> no flag.
+    assert convention_review_needed("AxionEDM", decl) is False
+
+
+@pytest.mark.parametrize("median,expected", [
+    (3.5e-26, False),   # genuine nEDM amplitude -> no flag
+    (6.4e-23, False),   # genuine JEDI amplitude
+    (1.0,     True),    # absurd magnitude -> flag
+    (1e-40,   True),    # below floor
+])
+def test_ecm_out_of_profile(median, expected):
+    pts = [(1e-15, median), (1e-14, median)]
+    assert convertible_out_of_profile("AxionEDM", "d_n in e*cm", pts) is expected
+
+
 def test_out_of_profile_scoped_to_invfa_edm_only():
     # Non-inv_fa AxionEDM (canonical g_d) never fires here.
     assert convertible_out_of_profile(

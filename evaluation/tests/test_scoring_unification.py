@@ -136,15 +136,16 @@ def test_scalar_gev_inv_declaration_canonicalized():
 
 
 def test_unconvertible_declaration_becomes_convention_mismatch():
-    # 2208.07293 shape: AxionEDM extraction declares an e*cm EDM amplitude —
-    # recognized but not convertible -> convention_mismatch, never a residual.
+    # A declaration recognized as a DIFFERENT quantity (foreign / no vetted
+    # conversion) -> convention_mismatch, never a residual. (e*cm is now the
+    # d_n_ecm converter, so use a bespoke novel plane that stays unconvertible.)
     gt = np.array([[4.37e-10, 1.47e-7], [5.72e-10, 1.5e-7]])
     e = _entry(coupling_type="AxionEDM", coupling_convention="g_angamma",
                reference_repo_file="limit_data/AxionEDM/Fake.txt")
     e.load_data = lambda: gt
     r = _result(coupling_type="AxionEDM",
                 data_points=[[4.95e-10, 1e-22], [5.02e-10, 1e-22]], num_points=2,
-                coupling_convention="d_n in e*cm (oscillating deuteron EDM amplitude)")
+                coupling_convention="oscillating EDM amplitude in GeV^-1")
     p = _run_one(e, r)
     assert p["comparison_status"] == "convention_mismatch"
     assert p["interp_metrics"] is None

@@ -607,7 +607,7 @@ _EXPECTED_SYMBOL_STEMS: dict = {
     "AxionNeutron":   ("g_an", "g_ann", "g_n", "g_p", "g_ag"),
     "AxionProton":    ("g_ap", "g_ann", "g_an", "g_n", "g_p", "g_ag"),
     "DarkPhoton":     (),
-    "AxionEDM":       ("g_d", "g_ang", "g_{a", "c_g", "d_n", "d_d", "f_a"),
+    "AxionEDM":       ("g_d", "g_ang", "g_{a", "c_g", "d_n", "d_d", "d_ac", "f_a"),
     "AxionMass":      ("f_a", "m_a"),
     "ScalarPhoton":   ("d_e", "d_gamma", "g_phi", "g_ph"),
     "ScalarElectron": ("d_me", "d_{m", "d_e", "g_phi", "g_ph", "g_e"),
@@ -713,8 +713,13 @@ def _declared_convertible(coupling_type: str, decl_lower: str) -> bool:
         # accepts spelled-out "c_g/f_a" and "c_g/(f_a" (2204.01454 declared
         # "C_G/f_a in GeV^-1" and was runtime-flagged while the eval converted
         # it) — keep this token list identical to evaluation.conventions.
-        return any(t in decl_lower for t in ("1/f_a", "invfa", "1/fa", "cg/fa",
-                                             "c_g/f_a", "c_g/(f_a", "gluon"))
+        if any(t in decl_lower for t in ("1/f_a", "invfa", "1/fa", "cg/fa",
+                                         "c_g/f_a", "c_g/(f_a", "gluon")):
+            return True
+        # Oscillating-EDM amplitude in e*cm is now the mass-dependent d_n_ecm
+        # converter (Phase 2, #625) — convertible, not a review flag. Its
+        # magnitude is guarded by convertible_out_of_profile at extraction time.
+        return any(t in decl_lower for t in ("e*cm", "e·cm", "ecm", "e.cm", "e cm"))
     if coupling_type == "AxionPhoton":
         if any(t in decl_lower for t in ("s^-1", "s-1", "decay rate", "1/s")):
             return True
@@ -844,20 +849,22 @@ def convention_review_needed(coupling_type, declared_convention) -> bool:
 # A genuine decay constant f_a in [1e9,1e18] GeV gives 1/f_a in [1e-18,1e-9];
 # widened one decade each side (f_a in [1e7,1e20] GeV) so no real conversion is
 # refused. Values ~10 dex below the floor are the tiny oscillating-EDM d_n
-# [e*cm] amplitude mislabeled as GeV^-1. MIRRORS the inv_fa guard band in
-# evaluation.conventions.to_canonical.
+# [e*cm] amplitude mislabeled as GeV^-1. MIRRORS the inv_fa / d_n_ecm guard
+# bands in evaluation.conventions.to_canonical.
 _INV_FA_BAND = (1e-20, 1e-7)
+_DN_ECM_BAND = (1e-30, 1e-18)
 
 
 def convertible_out_of_profile(coupling_type, declared_convention,
                                data_points) -> bool:
-    """Runtime side of Phase 1b: a declaration that IS registry-convertible
+    """Runtime side of Phase 1b/2: a declaration that IS registry-convertible
     (so :func:`convention_review_needed` returns False) but whose emitted
     magnitude cannot be the declared quantity, so the vetted conversion would
-    produce out-of-plane garbage. Currently scoped to the AxionEDM inv_fa
-    (1/f_a [GeV^-1]) plane — the one converter whose magnitude guard was the
-    measured 16-dex hole (2204.01454, 2410.02218). Returns True -> the caller
-    flags [CONVENTION REVIEW] + queues, exactly as for an unknown convention.
+    produce out-of-plane garbage. Scoped to the two AxionEDM planes whose
+    converters carry a magnitude guard — inv_fa (1/f_a [GeV^-1], the measured
+    16-dex hole 2204.01454/2410.02218) and d_n_ecm (oscillating-EDM amplitude
+    [e*cm], Phase 2). Returns True -> the caller flags [CONVENTION REVIEW] +
+    queues, exactly as for an unknown convention.
 
     Pure over the model's own declared output; never raises."""
     if not coupling_type or not declared_convention or not data_points:
@@ -865,10 +872,12 @@ def convertible_out_of_profile(coupling_type, declared_convention,
     if coupling_type != "AxionEDM":
         return False
     d = str(declared_convention).strip().lower()
-    # Only the inv_fa (1/f_a) plane — the e*cm / bare-GeV^-1 planes are already
-    # UNCONVERTIBLE and flagged by convention_review_needed.
-    if not any(t in d for t in ("1/f_a", "invfa", "1/fa", "cg/fa",
-                                "c_g/f_a", "c_g/(f_a", "gluon")):
+    if any(t in d for t in ("1/f_a", "invfa", "1/fa", "cg/fa",
+                            "c_g/f_a", "c_g/(f_a", "gluon")):
+        band = _INV_FA_BAND
+    elif any(t in d for t in ("e*cm", "e·cm", "ecm", "e.cm", "e cm")):
+        band = _DN_ECM_BAND
+    else:
         return False
     try:
         couplings = [float(g) for _m, g in data_points if float(g) > 0]
@@ -877,5 +886,5 @@ def convertible_out_of_profile(coupling_type, declared_convention,
     if not couplings:
         return False
     med = _median(couplings)
-    lo, hi = _INV_FA_BAND
+    lo, hi = band
     return not (lo <= med <= hi)

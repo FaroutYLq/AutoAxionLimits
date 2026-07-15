@@ -118,10 +118,11 @@ def test_reconciliation_noop_for_text_source_and_canonical_axis():
 def test_flagged_convention_candidate_loses_to_known_convention():
     pts_text = [(10 ** (-23 + 0.2 * i), 10 ** (-25.5 - 0.02 * i)) for i in range(6)]
     pts_vis = [(10 ** (-23 + 0.2 * i), 10 ** (-20 - 0.1 * i)) for i in range(20)]
-    # Text read: raw e*cm amplitude — unknown/unconvertible convention.
+    # Text read: a genuinely unknown/unconvertible convention (e*cm is now the
+    # d_n_ecm converter, so use a bespoke novel plane that still flags).
     text_c = _make_candidate("text", pts_text, "AxionEDM", 0.9,
                              convention_flagged=convention_review_needed(
-                                 "AxionEDM", "oscillating neutron EDM amplitude d_n in e*cm"))
+                                 "AxionEDM", "bespoke novel amplitude, non-standard plane"))
     # Vision read of the reinterpretation figure already in g_d [GeV^-2].
     vis_c = _make_candidate("figure_vision", pts_vis, "AxionEDM", 0.5,
                             convention_flagged=convention_review_needed(
@@ -143,8 +144,9 @@ def test_unflagged_text_still_beats_vision():
 # transform_guard consistency
 # ---------------------------------------------------------------------------
 
-def test_ecm_now_review_flagged_for_axionedm():
-    assert convention_review_needed("AxionEDM", "d_n in e cm") is True
+def test_ecm_now_convertible_for_axionedm():
+    # Phase 2 (#625): e*cm is the mass-dependent d_n_ecm converter -> not flagged.
+    assert convention_review_needed("AxionEDM", "d_n in e cm") is False
     assert convention_review_needed("AxionEDM", "g_d [GeV^-2]") is False
 
 

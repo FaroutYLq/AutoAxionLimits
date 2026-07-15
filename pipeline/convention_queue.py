@@ -41,14 +41,13 @@ STATUS_PROMOTED = "promoted"
 STATUS_UNCONVERTIBLE = "unconvertible"
 
 # Known-unconvertible classes: (coupling_type, declaration-token tuple).
-# AxionEDM e*cm: the oscillating-EDM AMPLITUDE d_n/d_d [e cm] needs the
-# mass-dependent field amplitude a_0 = sqrt(2 rho)/m_a — a per-point response
-# factor, not a constant (mirrors evaluation.conventions AxionEDM branch and
-# the benchmark's outright exclusion of e*cm papers). "converted from ..."
-# declarations are exempt (#594: emitted values are canonical-claimed).
-_KNOWN_UNCONVERTIBLE: dict = {
-    "AxionEDM": ("e*cm", "e cm", "e·cm", "ecm"),
-}
+# NOTE (Phase 2, #625): the AxionEDM e*cm class was REMOVED — the oscillating-
+# EDM amplitude d_n/d_AC [e*cm] is now converted by the mass-dependent d_n_ecm
+# registry converter (g_angamma = C * d_n[e*cm] * m_a[eV], via a_0 =
+# sqrt(2 rho)/m_a; note convention-dn-ecm-g_angamma.md), so those papers are
+# convertible, not pre-verdicted unconvertible. No known-unconvertible class
+# remains; the dict is kept for future documented no-conversion classes.
+_KNOWN_UNCONVERTIBLE: dict = {}
 
 
 def known_unconvertible(coupling_type: str | None, declared: str | None) -> bool:
