@@ -43,7 +43,12 @@ from .convention_queue import (
     record_convention_flag,
     undeclared_suspicious,
 )
-from .vision_gates import check_vision_gates
+from .vision_gates import (
+    check_vision_gates,
+    mass_axis_is_frequency,
+    parse_abstract_mass_window,
+    rescue_mass_regime,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -1726,7 +1731,17 @@ def _gate_candidates(
 
     gate_notes: list[str] = []
 
-    def _fired(cand: Candidate, own_notes: str, name: str | None):
+    def _resolve(cand: Candidate, own_notes: str, name: str | None):
+        """Run the gates on one candidate and decide its fate.
+
+        Returns ``(resolved_candidate_or_None, notes)``:
+        - no gate fired → the candidate unchanged;
+        - rejected solely by Gate C and a UNIQUE unit factor lands it back
+          inside the abstract window → a mass-rescaled replacement (kept, with
+          a single ``[MASS UNIT RESCUE]`` note instead of the reject note);
+        - rejected otherwise → ``None`` (drop from the pool);
+        - demoted (Gate D) → a ``reconstruction=True`` replacement.
+        """
         fired = check_vision_gates(
             source=cand.source,
             is_projection=is_projection,
@@ -1737,32 +1752,63 @@ def _gate_candidates(
             suggested_experiment_name=name,
             paper_title=paper_title,
         )
-        gate_notes.extend(r.note for r in fired)
-        return (any(r.action == "reject" for r in fired),
-                any(r.action == "demote" for r in fired))
+        rejects = [r for r in fired if r.action == "reject"]
+        if rejects:
+            # Gate-C rescue: a candidate whose ONLY reject is the mass-regime
+            # gate is a constant unit-prefix / frequency misread if exactly one
+            # factor maps its whole mass interval back into the abstract window.
+            # Rescue it rather than discard (see vision_gates.rescue_mass_regime).
+            if len(rejects) == 1 and rejects[0].gate == "C_mass_regime":
+                factor_label = rescue_mass_regime(
+                    data_points=cand.data_points,
+                    window=parse_abstract_mass_window(abstract),
+                    allow_frequency=mass_axis_is_frequency(own_notes),
+                )
+                if factor_label is not None:
+                    factor, label = factor_label
+                    rescaled = [(m * factor, g) for m, g in cand.data_points]
+                    # Rebuild (not replace) so the score's in_valid_ranges is
+                    # recomputed on the corrected masses — a stale mass-band flag
+                    # would otherwise mis-rank the rescued candidate.
+                    rescued = _make_candidate(
+                        cand.source, rescaled, cand.coupling_type,
+                        cand.extraction_confidence,
+                        axis_extent_dex=cand.score.axis_extent_dex,
+                        demote_to_reconstruction=cand.reconstruction,
+                        convention_flagged=cand.convention_flagged,
+                    )
+                    note = (f"[MASS UNIT RESCUE {label}] extracted mass window was "
+                            f"outside the abstract range; the unique unit factor "
+                            f"{factor:.3g} maps it back in-window — corrected, not rejected")
+                    return rescued, [note]
+            return None, [r.note for r in fired]
+        if any(r.action == "demote" for r in fired) and not cand.reconstruction:
+            return replace(cand, reconstruction=True), [r.note for r in fired]
+        return cand, [r.note for r in fired]
+
+    def _update(cand, resolved, notes):
+        """Fold a _resolve outcome back into the candidate pool. Returns the
+        possibly-replaced candidate handle (or None if it was rejected)."""
+        nonlocal candidates
+        gate_notes.extend(notes)
+        if resolved is None:
+            candidates = [c for c in candidates if c is not cand]
+            return None
+        if resolved is not cand:
+            candidates = [resolved if c is cand else c for c in candidates]
+        return resolved
 
     if text_cand is not None and text_cand in candidates:
-        reject, _ = _fired(text_cand, "", None)  # only gate C can fire on text
-        if reject:
-            candidates = [c for c in candidates if c is not text_cand]
-            text_cand = None
+        # only gate C can fire on text (empty notes suppress the vision gates)
+        text_cand = _update(text_cand, *_resolve(text_cand, "", None))
     if source_cand is not None and source_cand in candidates:
         # Gate C also guards the source-data pick: a wrong ancillary file
         # whose values happen to sit in VALID_RANGES still fails the
         # abstract-stated mass window when one parses unambiguously.
-        reject, _ = _fired(source_cand, "", None)
-        if reject:
-            candidates = [c for c in candidates if c is not source_cand]
-            source_cand = None
+        source_cand = _update(source_cand, *_resolve(source_cand, "", None))
     if vision_cand is not None and vision_cand in candidates:
-        reject, demote = _fired(vision_cand, vision_notes, suggested_experiment_name)
-        if reject:
-            candidates = [c for c in candidates if c is not vision_cand]
-            vision_cand = None
-        elif demote and not vision_cand.reconstruction:
-            demoted = replace(vision_cand, reconstruction=True)
-            candidates = [demoted if c is vision_cand else c for c in candidates]
-            vision_cand = demoted
+        vision_cand = _update(
+            vision_cand, *_resolve(vision_cand, vision_notes, suggested_experiment_name))
 
     # Text-vision corroboration (routing-instability fix, 2026-07-04): a vision
     # trace that grossly contradicts a CREDIBLE (in-range) text anchor over

@@ -253,6 +253,7 @@ def run_extraction(entry: GroundTruthEntry) -> dict:
 
     from pipeline.extractor import (
         ExtractionResult,
+        FatalAPIError,
         download_pdf,
         run_extraction_agent_voted,
     )
@@ -314,6 +315,13 @@ def run_extraction(entry: GroundTruthEntry) -> dict:
             result: ExtractionResult = run_extraction_agent_voted(
                 paper_stub, pdf_path, client
             )
+        except FatalAPIError:
+            # #648, eval side (2026-07-14 incident #2): an availability error
+            # is a property of the RUN, never the paper. Swallowing it here
+            # returned an error-dict the driver happily saved as a "result",
+            # so window exhaustion produced 140 husk snapshots while the run
+            # reported errors=0. Re-raise so drivers abort resume-safe.
+            raise
         except Exception as e:
             logger.error("Extraction failed for %s: %s", entry.arxiv_id, e)
             return {
