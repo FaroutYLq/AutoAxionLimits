@@ -289,6 +289,24 @@ _K_DN_ECM = (_E_CHARGE * _CM_IN_INV_GEV) * 1e-9 / _SQRT_2RHO  # 6.19e24
 # Plausible oscillating-nucleon-EDM amplitude band [e*cm] (magnitude guard).
 _DN_ECM_BAND = (1e-30, 1e-18)
 
+# LINEAR-coupling profile bands (double-conversion audit, 2026-07-16): the
+# range where a median reads as an already-canonical DIMENSIONLESS coupling
+# for the axis-reconciled squared-plane arbitration. Calibrated on the repo GT
+# pool (AxionElectron files ~1e-14..1e-8; nucleon files ~1e-10..1e-2) and the
+# measured cases: 2207.11968's linear-emitted 8.5e-13 and 2306.01048's 4e-6
+# must fall INSIDE (compare raw); 1508.02463's genuine g^2 = 5e-16 must fall
+# BELOW the electron floor (so a reconciled genuine-squared trace still
+# converts). Reconciled nucleon squared values near 1e-9 (0809.4700-scale
+# g^2/4pi) would read as linear — the conflict case deliberately favors the
+# linear interpretation (both measured conflicts were model-converted linear
+# emissions; a genuine raw trace has its model-declared token and never
+# enters this arbitration).
+_LINEAR_PROFILE: dict = {
+    "AxionElectron": (1e-15, 1e-6),
+    "AxionNeutron":  (1e-10, 1e-1),
+    "AxionProton":   (1e-10, 1e-1),
+}
+
 
 def _median_positive(vals) -> Optional[float]:
     v = sorted(x for x in vals if x and x > 0)
@@ -395,12 +413,33 @@ def to_canonical(coupling_type: Optional[str], data_points, convention: Optional
 
         # Family 3: squared-coupling axes. TWO distinct tokens 0.55 dex apart:
         # g^2/(4pi) (alpha-like, 0809.4700) vs plain g^2 (/hbar c, 1508.02463).
+        #
+        # _axis variants (double-conversion audit, 2026-07-16): the declaration
+        # was REWRITTEN by the stage-2a axis reconciliation — the model claimed
+        # canonical while the axis shows a squared plane. The #594 "axis wins"
+        # rule is only sound when the model obeyed #684 (emitted raw axis
+        # values); a model that already converted during the read emits LINEAR
+        # values, and the blind sqrt turns a perfect extraction into garbage
+        # (2207.11968: raw median 8.5e-13 was 0.06 dex from GT; sqrt -> 6.1
+        # dex). Arbitration by magnitude: a median inside the coupling's
+        # LINEAR-profile band is already canonical -> mislabeled rewrite,
+        # compare raw (#594 mislabel pattern); outside the band -> genuinely
+        # squared, convert. Model-declared squared tokens are untouched.
         if coupling_type in ("AxionNeutron", "AxionProton", "AxionElectron"):
-            if conv == "g_squared_over_4pi":
-                return [(m, _math.sqrt(4.0 * _math.pi * g))
-                        for m, g in data_points if g > 0], (
-                    "convention: g^2/(4pi) -> g (sqrt(4pi*y))")
-            if conv == "g_squared":
+            base = conv.replace("_axis", "")
+            if base in ("g_squared_over_4pi", "g_squared"):
+                if conv.endswith("_axis"):
+                    lo, hi = _LINEAR_PROFILE[coupling_type]
+                    if med_y is not None and lo <= med_y <= hi:
+                        return data_points, (
+                            "convention: axis read-back declared a squared "
+                            f"plane but the median ({med_y:g}) is already "
+                            "linear-coupling scale — model converted during "
+                            "the read; mislabeled rewrite, compared raw (#594)")
+                if base == "g_squared_over_4pi":
+                    return [(m, _math.sqrt(4.0 * _math.pi * g))
+                            for m, g in data_points if g > 0], (
+                        "convention: g^2/(4pi) -> g (sqrt(4pi*y))")
                 return [(m, _math.sqrt(g)) for m, g in data_points if g > 0], (
                     "convention: g^2 -> g (sqrt)")
 
@@ -816,11 +855,22 @@ def _classify_reported_convention_core(coupling_type: Optional[str],
     # Squared-coupling axes (round-2 Family 3): two DISTINCT tokens 0.55 dex
     # apart — g^2/(4pi) vs plain g^2 (e.g. "/hbar c"). Never fired on
     # "converted from" declarations.
+    # Provenance split (double-conversion audit, 2026-07-16, mirrors A1's
+    # f_a_gev_axis): a squared declaration REWRITTEN by the stage-2a axis
+    # reconciliation ("(axis read-back)") is the model-vs-axis CONFLICT case —
+    # the model claimed canonical, the axis shows a squared plane, and only
+    # magnitude can arbitrate which one describes the EMITTED values
+    # (2207.11968 emitted linear g_ae 0.06 dex from GT; the blind sqrt made it
+    # 6.1 dex). The _axis variants carry a linear-profile arbitration in
+    # to_canonical; the model's OWN squared declarations convert as before.
     squared = ("^2" in u or "squared" in u) and not already_converted
     if coupling_type in ("AxionNeutron", "AxionProton", "AxionElectron"):
         if squared:
-            return ("g_squared_over_4pi"
-                    if ("4pi" in u or "4π" in u) else "g_squared")
+            tok = ("g_squared_over_4pi"
+                   if ("4pi" in u or "4π" in u) else "g_squared")
+            if "axis read-back" in raw:
+                return tok + "_axis"
+            return tok
     if coupling_type in ("AxionNeutron", "AxionProton"):
         return "g_aNN_inv_gev" if inv_gev else None
     if coupling_type == "AxionMass":

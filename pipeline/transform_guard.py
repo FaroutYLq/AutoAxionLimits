@@ -515,6 +515,21 @@ def normalize_convention(coupling_type, data_points, axis_unit_label="", notes="
     note_inv = _has_inv_ev(notes) or "c_e/f_a" in note_l or "c_n/f_a" in note_l \
         or "c_p/f_a" in note_l or "c_e / f_a" in note_l
 
+    # Magnitude guard (double-conversion audit, 2026-07-16). The notes regex
+    # cannot distinguish "my emitted values are C/F_a [eV^-1]" from "the PAPER
+    # publishes C/F_a (which I already converted)": 1902.04246 emitted the
+    # already-canonical g_ae ~ 2.55e-10 while its notes discussed the paper's
+    # Ce/Fa convention, and the blind x2 m_e re-converted a correct value into
+    # 2.6e-4 (5.9 dex off). A genuine C/F_a [eV^-1] input is tiny — g/(2m) ~
+    # canonical/1e6-1e9 (the founding case 1902.04246 v1 read 5.00e-16) —
+    # while an already-canonical coupling sits >= ~1e-12. Convert ONLY when
+    # the median is below the C/F_a ceiling; otherwise the values are already
+    # dimensionless-scale and conversion would double-apply.
+    med = _median(couplings)
+    _CFA_INPUT_CEILING = 1e-12
+    if med >= _CFA_INPUT_CEILING and (label_inv or note_inv):
+        return data_points, ""
+
     if coupling_type == "AxionElectron":
         if label_inv or note_inv:
             factor = 2.0 * _M_E_EV  # g_ae = 2 m_e (C_e/F_a)
