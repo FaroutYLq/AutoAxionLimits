@@ -58,13 +58,32 @@ from evaluation.ground_truth import load_ground_truth  # noqa: E402
 DONE_PATH = RESULTS_DIR / ".parallel_done.json"
 
 
-def _unique_entries():
-    """One ground-truth entry per arXiv ID (extraction is per-paper)."""
+def _unique_entries(include_projections=False):
+    """One ground-truth entry per arXiv ID (extraction is per-paper).
+
+    **Measured-limits-only by default.** Projection papers are out of scope for
+    the benchmark: the production pipeline skips ``is_projection`` papers, and
+    the paper reports the ``*_noproj`` (measured-limits-only) metrics, so there
+    is no reason to spend extraction on them. A paper is kept iff it has at least
+    one measured (non-projection) ground-truth entry, and its representative
+    entry is a measured one when available (a paper may carry both a measured
+    curve and a projection curve). Projection-ONLY papers are dropped.
+
+    Pass ``include_projections=True`` to restore the full labelled pool (e.g. to
+    measure ``is_projection`` decline accuracy).
+    """
     seen = {}
     for e in load_ground_truth():
-        if e.arxiv_id not in seen:
+        prev = seen.get(e.arxiv_id)
+        # keep the first entry seen, but upgrade to a measured entry if one turns
+        # up later, so a paper that carries both curves is represented (and
+        # extracted) as a measured-limit paper rather than a projection.
+        if prev is None or (prev.is_projection and not e.is_projection):
             seen[e.arxiv_id] = e
-    return list(seen.values())
+    entries = list(seen.values())
+    if not include_projections:
+        entries = [e for e in entries if not e.is_projection]
+    return entries
 
 
 def _prewarm_metadata(entries, fetch=True):
@@ -116,12 +135,16 @@ def main():
     ap.add_argument("--no-fetch", action="store_true",
                     help="skip arXiv metadata fetch for uncached IDs (inject GT-title "
                          "fallback); use when arXiv is 429-storming")
+    ap.add_argument("--include-projections", action="store_true",
+                    help="restore the full labelled pool (default is measured-limits "
+                         "only; projections are out of benchmark scope)")
     args = ap.parse_args()
 
-    entries = _unique_entries()
+    entries = _unique_entries(include_projections=args.include_projections)
     if args.limit:
         entries = entries[: args.limit]
-    logger.info("full pool: %d unique papers; workers=%d AAL_READ_SAMPLES=%s",
+    logger.info("%s pool: %d unique papers; workers=%d AAL_READ_SAMPLES=%s",
+                "full (incl. projections)" if args.include_projections else "measured-limits",
                 len(entries), args.workers, os.environ.get("AAL_READ_SAMPLES", "1"))
 
     _prewarm_metadata(entries, fetch=not args.no_fetch)
