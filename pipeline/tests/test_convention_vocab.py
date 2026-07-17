@@ -229,3 +229,32 @@ def test_sintheta_magnitude_guard_refuses_non_angle():
 def test_sintheta_scoped_to_scalar_electron():
     # ScalarPhoton sin-theta would carry a different constant: keep flagging.
     assert convention_review_needed("ScalarPhoton", _SINTH_DECL)
+
+
+# ---------------------------------------------------------------------------
+# Fable-probe screen interactions (2026-07-17, #733): verbose definitional
+# glosses must not trip the screens. Both fixes are model-agnostic.
+# ---------------------------------------------------------------------------
+
+_FABLE_GLOSS_UNFLAGGED = [
+    # C_N in a g_aNN definitional gloss is family notation (precedent: c_g,
+    # g_e); 2111.09892's 0.00-dex extraction was excluded by the old screen.
+    ("AxionNeutron",
+     "dimensionless g_ann (axion-neutron coupling g_aNN = C_N m_N / f_a)"),
+    # clock-combo spelled without the underscore ("de + 0.043(...)").
+    ("ScalarPhoton",
+     "dimensionless d_e (paper's limit is on the combination de + 0.043(d_mhat - d_g))"),
+]
+
+
+@pytest.mark.parametrize("ct,decl", _FABLE_GLOSS_UNFLAGGED)
+def test_fable_gloss_not_flagged_both_mirrors(ct, decl):
+    assert not convention_review_needed(ct, decl)
+    assert classify_reported_convention(ct, decl) != UNCONVERTIBLE
+
+
+def test_no_de_leading_combo_still_flagged():
+    # #683 scope guard: a combination WITHOUT the leading d_e term stays closed
+    # even under the relaxed spelling.
+    decl = "|d_mhat^(1) - d_g^(1)|, dimensionless (plotted as log10 on y-axis)"
+    assert convention_review_needed("ScalarNucleon", decl)
