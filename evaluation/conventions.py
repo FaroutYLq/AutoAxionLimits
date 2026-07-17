@@ -639,8 +639,8 @@ _EXPECTED_SYMBOL_STEMS: dict = {
     # a genuine review flag (#683 — vocabulary must never suppress flags).
     "AxionPhoton":    ("g_ag", "g_a\\gamma", "g_aγ", "g_phi", "g_chi", "g_ksvz"),
     "AxionElectron":  ("g_ae", "g_p", "g_e"),
-    "AxionNeutron":   ("g_an", "g_ann", "g_n", "g_p", "g_ag"),   # g_agamma appears in vetted provenance formulas
-    "AxionProton":    ("g_ap", "g_ann", "g_an", "g_n", "g_p", "g_ag"),
+    "AxionNeutron":   ("g_an", "g_ann", "g_n", "g_p", "g_ag", "c_n"),   # c_n: definitional gloss "g_aNN = C_N m_N/f_a" (2111.09892, Fable probe); precedent c_g/g_e
+    "AxionProton":    ("g_ap", "g_ann", "g_an", "g_n", "g_p", "g_ag", "c_n", "c_p"),
     "DarkPhoton":     (),
     "AxionEDM":       ("g_d", "g_ang", "g_{a", "c_g", "d_n", "d_d", "d_ac", "f_a"),
     "AxionMass":      ("f_a", "m_a"),
@@ -670,7 +670,7 @@ def _is_clock_combo_de(decl_lower: str) -> bool:
     global _CLOCK_COMBO_DE_RE
     if _CLOCK_COMBO_DE_RE is None:
         import re as _re
-        _CLOCK_COMBO_DE_RE = _re.compile(r"d_e\s*\+\s*0?\.\d+\s*\*?\s*\(")
+        _CLOCK_COMBO_DE_RE = _re.compile(r"\bd_?e\s*\+\s*0?\.\d+\s*\*?\s*\(")
     return bool(_CLOCK_COMBO_DE_RE.search(decl_lower))
 
 
