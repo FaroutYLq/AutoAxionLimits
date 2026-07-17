@@ -303,6 +303,7 @@ def mark_failed(state: dict, arxiv_id: str, error: str) -> None:
 # ---------------------------------------------------------------------------
 
 def _arxiv_id(paper: arxiv.Result) -> str:
-    """Return the bare arXiv ID (e.g. '2412.12345')."""
-    # paper.entry_id is like 'http://arxiv.org/abs/2412.12345v2'
-    return re.sub(r"v\d+$", "", paper.entry_id.split("/")[-1])
+    """Return the canonical arXiv ID (e.g. '2412.12345', 'hep-ph/0307284')."""
+    # get_short_id() preserves the category prefix on old-style ids; a naive
+    # entry_id.split('/')[-1] would drop 'hep-ph/' and desync from the pool.
+    return re.sub(r"v\d+$", "", paper.get_short_id())

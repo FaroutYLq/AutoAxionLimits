@@ -334,7 +334,11 @@ def run_extraction(entry: GroundTruthEntry) -> dict:
         elapsed = time.time() - t0
 
     return {
-        "arxiv_id": result.arxiv_id,
+        # Use the ground-truth id, not result.arxiv_id: the benchmark paper's
+        # identity IS its pool id, so the saved payload must key on it (the
+        # error paths above already do). Belt-and-suspenders with the extractor
+        # get_short_id() fix — old-style ids stay canonical regardless.
+        "arxiv_id": entry.arxiv_id,
         "paper_title": result.paper_title,
         "coupling_type": result.coupling_type,
         "is_new_limit": result.is_new_limit,
