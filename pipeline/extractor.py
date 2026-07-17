@@ -62,7 +62,7 @@ logger = logging.getLogger(__name__)
 # must use the SAME model on both sides. NOTE: this override previously
 # existed only on the unmerged lever-D branch — main-repo eval runs silently
 # used Opus at 5x prices while setting the env var (2026-07-03 incident).
-CLAUDE_MODEL = os.environ.get("EXTRACTOR_MODEL", "claude-opus-4-8")
+CLAUDE_MODEL = os.environ.get("EXTRACTOR_MODEL", "claude-fable-5")
 CLAUDE_MODEL_VISION = CLAUDE_MODEL  # Use same model; override for testing
 
 # Minimum data points from text extraction to skip vision fallback.
