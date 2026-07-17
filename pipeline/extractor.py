@@ -1896,7 +1896,10 @@ def run_extraction_agent(
     client: anthropic.Anthropic,
 ) -> ExtractionResult:
     """Run two-stage extraction: text first, vision fallback."""
-    arxiv_id = re.sub(r"v\d+$", "", paper.entry_id.split("/")[-1])
+    # get_short_id() keeps the category prefix on old-style ids
+    # (e.g. 'hep-ph/0307284'); a naive entry_id.split('/')[-1] drops it,
+    # yielding a non-canonical id that no longer matches the ground truth.
+    arxiv_id = re.sub(r"v\d+$", "", paper.get_short_id())
     arxiv_url = f"https://arxiv.org/abs/{arxiv_id}"
 
     # --- Stage 0: lightweight coupling type pre-classification ---
