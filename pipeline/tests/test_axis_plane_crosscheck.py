@@ -51,6 +51,34 @@ def test_axis_map_fail_open(label):
     assert axis_implies_coupling_type(label) is None
 
 
+# --- final347 misfire classes (2026-07-16): both must now fail open/correct ---
+
+@pytest.mark.parametrize("label", [
+    # multi-symbol combination planes -> None (measured: 1708.02111, 1604.08514)
+    "GeV^-1 (this is sqrt(g_ae*g_aγ), the square-root of the product)",
+    "log10 of dimensionless coupling combination d_e + 0.043(d_m̂ − d_g)",
+    # bare epsilon: B−L papers use ε for their gauge coupling (2112.07687
+    # wrote 'epsilon^2 (squared dimensionless coupling constant)' for ε_B-L²)
+    "epsilon^2 (squared dimensionless coupling constant)",
+    "dimensionless epsilon",
+])
+def test_axis_map_ambiguous_fails_open(label):
+    assert axis_implies_coupling_type(label) is None
+
+
+def test_axis_map_epsilon_context_rules():
+    # ε with a B−L qualifier is the B−L gauge coupling (2403.03004).
+    assert axis_implies_coupling_type(
+        "epsilon_{B-L} dimensionless (gauge coupling normalized by EM coupling)"
+    ) == "VectorBL"
+    # ε with kinetic-mixing context is DarkPhoton (2012.05427 — the good
+    # override must keep firing).
+    assert axis_implies_coupling_type(
+        "dimensionless kinetic mixing epsilon") == "DarkPhoton"
+    # χ is unambiguous kinetic mixing on its own.
+    assert axis_implies_coupling_type("χ") == "DarkPhoton"
+
+
 def test_specific_symbol_beats_generic():
     # g_agamma must not be read as g_ae; d_me must not be read as d_e.
     assert axis_implies_coupling_type("g_agamma [GeV^-1]") == "AxionPhoton"
@@ -61,7 +89,7 @@ def test_mapping_covers_every_confusable_type():
     # Completeness: each type in a confusable family must be reachable from at
     # least one axis label (else the override can never restore it).
     reachable = {axis_implies_coupling_type(l) for l in (
-        "g_{B-L}", "ε", "g_agamma", "g_ae", "g_ap", "g_an", "d_n [e cm]",
+        "g_{B-L}", "χ", "g_agamma", "g_ae", "g_ap", "g_an", "d_n [e cm]",
         "d_me", "d_g", "d_e", "f_a [GeV]")}
     for fam in _CONFUSABLE_FAMILIES:
         # AxionCPV has no distinct axis symbol (it rides the AxionEDM/mass planes)
