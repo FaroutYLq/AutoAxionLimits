@@ -955,24 +955,78 @@ def in_confusable_family(ct) -> bool:
     return bool(ct) and any(ct in fam for fam in _CONFUSABLE_FAMILIES)
 
 
+# Distinct coupling-symbol families an axis label can name, used by the
+# multi-symbol ambiguity screen below. Each entry is (family_key, tokens);
+# a label naming symbols from >=2 DISTINCT families is a product/combination
+# plane (sqrt(g_ae*g_aγ), d_e + 0.043(d_m̂ − d_g)) — neither single plane, so
+# the map must fail OPEN. Measured on the final347 run: two of the four
+# override-caused wrong types were exactly this class (1708.02111, 1604.08514).
+_AXIS_SYMBOL_FAMILIES: tuple = (
+    ("photon",   ("g_agamma", "g_aγ", "g_a\\gamma")),
+    ("electron", ("g_ae",)),
+    ("proton",   ("g_ap",)),
+    ("neutron",  ("g_an",)),
+    ("edm",      ("d_n", "d_ac", "e*cm", "e·cm", "e.cm")),
+    ("sc_el",    ("d_me", "d_m_e", "d_mhat", "d_m̂")),
+    ("sc_glu",   ("d_g",)),
+    ("sc_ph",    ("d_e",)),
+    ("bl",       ("g_b-l", "g_b−l", "g_bl")),
+    ("eps",      ("epsilon", "ε", "\\chi", "χ")),
+)
+
+
+def _distinct_symbol_families(u: str, raw: str) -> set:
+    """Set of distinct coupling-symbol families named in an axis label."""
+    found = set()
+    for key, tokens in _AXIS_SYMBOL_FAMILIES:
+        for t in tokens:
+            if t in u or t in raw:
+                found.add(key)
+                break
+    # d_me contains no 'd_e' substring, but 'd_mhat'/'d_m̂' labels often ALSO
+    # write d_e in the same combination — that is exactly the >=2 case.
+    return found
+
+
 def axis_implies_coupling_type(axis_label):
     """The coupling type an EXPLICIT figure y-axis label names, else None.
 
     High-precision by construction — fires only on unambiguous plane tokens, and
     orders the most specific symbol first so g_agamma is never read as g_ae, d_me
-    never as d_e, etc. An unreadable / ambiguous label returns None (the caller
-    then no-ops). Pure, runtime-only (the eval scorer reads emitted snapshots and
-    never re-classifies, so there is no eval mirror)."""
+    never as d_e, etc. Two ambiguity screens (measured on the final347 run,
+    where each caused 2 override-driven wrong types):
+
+    * **multi-symbol combinations** — a label naming >=2 distinct coupling
+      symbols (``sqrt(g_ae*g_aγ)``, ``d_e + 0.043(d_m̂ − d_g)``) is a
+      product/combination plane, not either single plane -> None (fail open);
+    * **bare epsilon** — B−L papers write their gauge coupling ε_B-L / ε too,
+      so ε alone cannot distinguish DarkPhoton from VectorBL. ε with a B−L
+      qualifier -> VectorBL; ε with kinetic-mixing context (or the unambiguous
+      χ symbol) -> DarkPhoton; bare ε -> None.
+
+    An unreadable / ambiguous label returns None (the caller then no-ops).
+    Pure, runtime-only (the eval scorer reads emitted snapshots and never
+    re-classifies, so there is no eval mirror)."""
     if not axis_label:
         return None
     raw = str(axis_label).lower()
     u = raw.replace(" ", "").replace("{", "").replace("}", "").replace("$", "")
+    # --- multi-symbol combination screen (fail open) ---
+    if len(_distinct_symbol_families(u, raw)) >= 2:
+        return None
     # --- vector / dark photon ---
+    # Any B−L qualifier claims the label for VectorBL — including a B−L-
+    # subscripted epsilon (2403.03004 wrote its gauge coupling 'epsilon_{B-L}').
     if "g_b-l" in u or "g_b−l" in u or "b-lgauge" in u or "b−lgauge" in u \
-            or "g_bl" in u:
+            or "g_bl" in u or "b-l" in u or "b−l" in u:
         return "VectorBL"
-    if "kineticmixing" in raw or "epsilon" in u or "\\chi" in u \
-            or "χ" in raw or "ε" in raw or (("eps" in u) and "eps^" not in u):
+    # χ is unambiguous kinetic mixing; ε needs kinetic/mixing context (B−L
+    # papers use bare ε for their gauge coupling — 2112.07687 wrote 'epsilon^2
+    # (squared dimensionless coupling constant)' for ε_B-L^2).
+    if "\\chi" in u or "χ" in raw or "kineticmixing" in u:
+        return "DarkPhoton"
+    if ("epsilon" in u or "ε" in raw or ("eps" in u and "eps^" not in u)) \
+            and ("kinetic" in raw or "mixing" in raw):
         return "DarkPhoton"
     # --- axion-fermion (specific symbol before generic) ---
     if "g_agamma" in u or "g_aγ" in u or "g_a\\gamma" in u or "g_aγ" in raw:
@@ -987,7 +1041,7 @@ def axis_implies_coupling_type(axis_label):
     if any(t in u for t in ("e*cm", "e·cm", "ecm", "e.cm")) or "e cm" in raw \
             or "d_n" in u or "d_ac" in u:
         return "AxionEDM"
-    # --- scalar / dilaton dilaton sub-types (specific before generic) ---
+    # --- scalar / dilaton sub-types (specific before generic) ---
     if "d_me" in u or "d_m_e" in u or "d_mhat" in u or "d_m̂" in raw:
         return "ScalarElectron"
     if "d_g" in u:
