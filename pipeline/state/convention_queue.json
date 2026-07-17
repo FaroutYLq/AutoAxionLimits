@@ -343,6 +343,736 @@
       "count": 1,
       "status": "needs_human",
       "failure_reason": "DISPOSED (Phase 2, #625): declaration is a mass-prediction/lower-bound OUTPUT (m_a in eV or f_a-vs-m_a plane of a prediction-band paper), not a coupling-axis convention \u2014 no registry conversion exists. Handled as a prediction-band GT exclusion, not a convention gap. Terminal; excluded from further drain."
+    },
+    {
+      "cache_key": "axioncpv::1 f a in gev 1 alp gluon coupling plotted directly",
+      "coupling_type": "AxionCPV",
+      "declared_convention": "1/f_a in GeV^-1 (ALP-gluon coupling), plotted directly",
+      "arxiv_id": "2504.00720",
+      "arxiv_ids": [
+        "2504.00720"
+      ],
+      "sample_points": [
+        [
+          1e-19,
+          4e-16
+        ],
+        [
+          1.5e-19,
+          4.5e-16
+        ],
+        [
+          2.5e-19,
+          5e-16
+        ],
+        [
+          5e-19,
+          5.8e-16
+        ],
+        [
+          1e-18,
+          7e-16
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-16T14:22:49Z",
+      "last_seen": "2026-07-16T14:22:49Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "monopoledipole::dimensionless product g s n g p n mass in ev converted from interaction range via m hbar c lambda hbar c 1 973e 7 ev m",
+      "coupling_type": "MonopoleDipole",
+      "declared_convention": "dimensionless product g_S^N*g_P^n; mass in eV converted from interaction range via m=hbar*c/lambda (hbar*c=1.973e-7 eV*m)",
+      "arxiv_id": "2302.09096",
+      "arxiv_ids": [
+        "2302.09096"
+      ],
+      "sample_points": [
+        [
+          1.973e-21,
+          1.6e-35
+        ],
+        [
+          1.973e-19,
+          1.6e-35
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-16T15:06:11Z",
+      "last_seen": "2026-07-16T15:06:11Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "scalarnucleon::alpha yukawa strength relative to gravity x converted lambda mass via m ev 1 9733e 7 lambda m",
+      "coupling_type": "ScalarNucleon",
+      "declared_convention": "alpha (Yukawa strength relative to gravity); x converted lambda->mass via m[eV]=1.9733e-7/lambda[m]",
+      "arxiv_id": "0802.2350",
+      "arxiv_ids": [
+        "0802.2350"
+      ],
+      "sample_points": [
+        [
+          0.049333,
+          31000000.0
+        ],
+        [
+          0.032888,
+          460000.0
+        ],
+        [
+          0.019733,
+          14000.0
+        ],
+        [
+          0.010963,
+          1100.0
+        ],
+        [
+          0.005804,
+          250.0
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-16T15:21:32Z",
+      "last_seen": "2026-07-16T15:21:32Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "axionmass::d n in e cm oscillation amplitude of dn mu n mu hg d hg",
+      "coupling_type": "AxionMass",
+      "declared_convention": "d_n in e*cm (oscillation amplitude of dn - (mu_n/mu_Hg) d_Hg)",
+      "arxiv_id": "1708.06367",
+      "arxiv_ids": [
+        "1708.06367"
+      ],
+      "sample_points": [
+        [
+          4.1e-24,
+          6e-26
+        ],
+        [
+          4.1e-23,
+          5e-26
+        ],
+        [
+          4.1e-22,
+          4e-26
+        ],
+        [
+          4.1e-21,
+          4e-26
+        ],
+        [
+          4.1e-20,
+          3.5e-26
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-16T16:33:04Z",
+      "last_seen": "2026-07-16T16:33:04Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "axionmass::f a f a in gev masses computed from qcd axion relation m a 0 sqrt c0 lambda 2 f a",
+      "coupling_type": "AxionMass",
+      "declared_convention": "f_a (F_a) in GeV; masses computed from QCD axion relation m_a(0)=sqrt(c0)*Lambda^2/F_a",
+      "arxiv_id": "1202.5851",
+      "arxiv_ids": [
+        "1202.5851"
+      ],
+      "sample_points": [
+        [
+          0.00016,
+          38000000000.0
+        ],
+        [
+          0.00031,
+          20000000000.0
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-16T16:43:14Z",
+      "last_seen": "2026-07-16T16:43:14Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "vectorbl::alpha tilde dimensionless yukawa interaction strength normalized to gravity for a b l vector force exactly as plotted on the y axis",
+      "coupling_type": "VectorBL",
+      "declared_convention": "|alpha-tilde|, dimensionless Yukawa interaction strength (normalized to gravity) for a B-L vector force, exactly as plotted on the y-axis",
+      "arxiv_id": "1207.2442",
+      "arxiv_ids": [
+        "1207.2442"
+      ],
+      "sample_points": [
+        [
+          1.973e-19,
+          1.5e-12
+        ],
+        [
+          1.973e-18,
+          1.5e-12
+        ],
+        [
+          1.973e-17,
+          1.5e-12
+        ],
+        [
+          1.973e-16,
+          1.4e-12
+        ],
+        [
+          1.973e-15,
+          1.4e-12
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-16T19:03:30Z",
+      "last_seen": "2026-07-16T19:03:30Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "scalarphoton::dimensionless d me modulus of coupling to electron mass",
+      "coupling_type": "ScalarPhoton",
+      "declared_convention": "dimensionless d_me (modulus of coupling to electron mass)",
+      "arxiv_id": "2008.08773",
+      "arxiv_ids": [
+        "2008.08773"
+      ],
+      "sample_points": [
+        [
+          2e-21,
+          4e-05
+        ],
+        [
+          1e-20,
+          0.0001
+        ],
+        [
+          1e-19,
+          0.0004
+        ],
+        [
+          1e-18,
+          0.002
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-16T19:11:05Z",
+      "last_seen": "2026-07-16T19:11:05Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "scalarphoton::d me dimensionless upper limit for d me as plotted",
+      "coupling_type": "ScalarPhoton",
+      "declared_convention": "d_me, dimensionless (upper limit for d_me as plotted)",
+      "arxiv_id": "2006.07055",
+      "arxiv_ids": [
+        "2006.07055"
+      ],
+      "sample_points": [
+        [
+          4.1e-11,
+          0.04
+        ],
+        [
+          4.5e-11,
+          0.05
+        ],
+        [
+          5e-11,
+          0.07
+        ],
+        [
+          5.5e-11,
+          0.1
+        ],
+        [
+          6e-11,
+          0.06
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-16T19:21:21Z",
+      "last_seen": "2026-07-16T19:21:21Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "axioncpv::c g f a in gev 1 alp gluon coupling",
+      "coupling_type": "AxionCPV",
+      "declared_convention": "C_G/f_a in GeV^-1 (ALP-gluon coupling)",
+      "arxiv_id": "2410.02218",
+      "arxiv_ids": [
+        "2410.02218"
+      ],
+      "sample_points": [
+        [
+          1e-20,
+          1e-11
+        ],
+        [
+          1e-18,
+          1e-09
+        ],
+        [
+          1e-16,
+          1e-07
+        ],
+        [
+          1e-14,
+          1e-05
+        ],
+        [
+          1e-13,
+          4e-05
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-16T19:31:19Z",
+      "last_seen": "2026-07-16T19:31:19Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "axionphoton::sqrt g ae g agamma in gev 1 exactly as plotted on the y axis a product square root not canonical g ae",
+      "coupling_type": "AxionPhoton",
+      "declared_convention": "sqrt(g_ae * g_agamma) in GeV^-1, exactly as plotted on the y-axis (a product square-root, NOT canonical g_ae)",
+      "arxiv_id": "1708.02111",
+      "arxiv_ids": [
+        "1708.02111"
+      ],
+      "sample_points": [
+        [
+          0.0022,
+          2.5e-12
+        ],
+        [
+          0.0024,
+          2.3e-12
+        ],
+        [
+          0.0026,
+          2.15e-12
+        ],
+        [
+          0.0028,
+          2.05e-12
+        ],
+        [
+          0.003,
+          2e-12
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-16T19:41:51Z",
+      "last_seen": "2026-07-16T19:41:51Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "axionmass::m a in ev lower bound only",
+      "coupling_type": "AxionMass",
+      "declared_convention": "m_a in eV (lower bound only)",
+      "arxiv_id": "2402.00741",
+      "arxiv_ids": [
+        "2402.00741"
+      ],
+      "sample_points": [],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-16T19:52:04Z",
+      "last_seen": "2026-07-16T19:52:04Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "axionmass::t osc axion oscillation temperature in mev lower edge of the this work band not m a",
+      "coupling_type": "AxionMass",
+      "declared_convention": "T_osc (axion oscillation temperature) in MeV, lower edge of the 'this work' band; NOT m_a",
+      "arxiv_id": "1606.03145",
+      "arxiv_ids": [
+        "1606.03145"
+      ],
+      "sample_points": [
+        [
+          100000000000.0,
+          2050.0
+        ],
+        [
+          130000000000.0,
+          1980.0
+        ],
+        [
+          160000000000.0,
+          1900.0
+        ],
+        [
+          200000000000.0,
+          1830.0
+        ],
+        [
+          250000000000.0,
+          1750.0
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-16T19:54:37Z",
+      "last_seen": "2026-07-16T19:54:37Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "axionmass::x f a f a in gev y m a in ev qcd axion relation from dm abundance matching",
+      "coupling_type": "AxionMass",
+      "declared_convention": "x = f_a (F_a) in GeV, y = m_a in eV (QCD axion relation from DM abundance matching)",
+      "arxiv_id": "1412.0789",
+      "arxiv_ids": [
+        "1412.0789"
+      ],
+      "sample_points": [
+        [
+          76000000000.0,
+          8e-05
+        ],
+        [
+          47000000000.0,
+          0.00013
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-16T19:56:56Z",
+      "last_seen": "2026-07-16T19:56:56Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "axionphoton::c agamma dimensionless axion photon coupling model coupling not g agamma in gev 1",
+      "coupling_type": "AxionPhoton",
+      "declared_convention": "C_agamma, dimensionless axion-photon coupling (model coupling, NOT g_agamma in GeV^-1)",
+      "arxiv_id": "2401.17253",
+      "arxiv_ids": [
+        "2401.17253"
+      ],
+      "sample_points": [
+        [
+          1e-13,
+          0.01
+        ],
+        [
+          1e-12,
+          0.01
+        ],
+        [
+          6e-12,
+          0.01
+        ],
+        [
+          1.3e-11,
+          0.01
+        ],
+        [
+          1.4e-11,
+          0.03
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-16T19:57:16Z",
+      "last_seen": "2026-07-16T19:57:16Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "axionneutron::dimensionless g an with g an g ap assumed",
+      "coupling_type": "AxionNeutron",
+      "declared_convention": "dimensionless g_an (with g_an = g_ap assumed)",
+      "arxiv_id": "1906.11844",
+      "arxiv_ids": [
+        "1906.11844"
+      ],
+      "sample_points": [
+        [
+          1e-06,
+          6e-10
+        ],
+        [
+          0.1,
+          6e-10
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-16T20:05:35Z",
+      "last_seen": "2026-07-16T20:05:35Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "darkphoton::dimensionless g bl gauge coupling gz",
+      "coupling_type": "DarkPhoton",
+      "declared_convention": "dimensionless g_BL (gauge coupling gZ')",
+      "arxiv_id": "2304.12907",
+      "arxiv_ids": [
+        "2304.12907"
+      ],
+      "sample_points": [
+        [
+          0.0001,
+          4.1e-10
+        ],
+        [
+          10000.0,
+          4.1e-10
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-17T02:42:04Z",
+      "last_seen": "2026-07-17T02:42:04Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "scalarnucleon::dimensionless yukawa coupling g b baryophilic scalar nucleon",
+      "coupling_type": "ScalarNucleon",
+      "declared_convention": "dimensionless Yukawa coupling g_B (baryophilic scalar-nucleon)",
+      "arxiv_id": "2303.00778",
+      "arxiv_ids": [
+        "2303.00778"
+      ],
+      "sample_points": [
+        [
+          0.001,
+          7e-13
+        ],
+        [
+          1000.0,
+          7e-13
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-17T03:18:40Z",
+      "last_seen": "2026-07-17T03:18:40Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "scalarelectron::d e 0 043 d m d g dimensionless plotted as log10 linear combination of scalar coupling constants",
+      "coupling_type": "ScalarElectron",
+      "declared_convention": "d_e + 0.043(d_m\u0302 - d_g), dimensionless (plotted as log10); linear combination of scalar coupling constants",
+      "arxiv_id": "1604.08514",
+      "arxiv_ids": [
+        "1604.08514"
+      ],
+      "sample_points": [
+        [
+          3.16e-25,
+          3.98e-09
+        ],
+        [
+          1e-24,
+          3.98e-09
+        ],
+        [
+          2e-24,
+          3.5000000000000003e-09
+        ],
+        [
+          3.16e-24,
+          3.16e-09
+        ],
+        [
+          5e-24,
+          2.8000000000000003e-09
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-17T03:26:50Z",
+      "last_seen": "2026-07-17T03:26:50Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "scalarbaryon::dimensionless d g scalar coupling to gluons",
+      "coupling_type": "ScalarBaryon",
+      "declared_convention": "dimensionless d_g (scalar coupling to gluons)",
+      "arxiv_id": "2404.00616",
+      "arxiv_ids": [
+        "2404.00616"
+      ],
+      "sample_points": [
+        [
+          1e-21,
+          1e-08
+        ],
+        [
+          1e-18,
+          1e-05
+        ],
+        [
+          1e-14,
+          0.1
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-17T03:44:56Z",
+      "last_seen": "2026-07-17T03:44:56Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "axionmass::f a in gev axis read back",
+      "coupling_type": "AxionMass",
+      "declared_convention": "f_a in GeV (axis read-back)",
+      "arxiv_id": "2105.13963",
+      "arxiv_ids": [
+        "2105.13963"
+      ],
+      "sample_points": [
+        [
+          1e-20,
+          7.94e-06
+        ],
+        [
+          3.16e-20,
+          7.94e-06
+        ],
+        [
+          1e-19,
+          7.94e-06
+        ],
+        [
+          3.16e-19,
+          7.94e-06
+        ],
+        [
+          1e-18,
+          7.94e-06
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-17T03:46:19Z",
+      "last_seen": "2026-07-17T03:46:19Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "axionmass::epsilon m a m a qcd 2 dimensionless not f a in gev",
+      "coupling_type": "AxionMass",
+      "declared_convention": "epsilon = (m_a/m_a^QCD)^2 (dimensionless), NOT f_a in GeV",
+      "arxiv_id": "2410.21590",
+      "arxiv_ids": [
+        "2410.21590"
+      ],
+      "sample_points": [
+        [
+          2e-09,
+          5e-07
+        ],
+        [
+          0.001,
+          5e-07
+        ],
+        [
+          2e-09,
+          0.2
+        ],
+        [
+          0.001,
+          0.2
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-17T03:51:02Z",
+      "last_seen": "2026-07-17T03:51:02Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "scalarnucleon::dimensionless d g linear scalar gluon coupling values derived from text amplitude limit not read from figure",
+      "coupling_type": "ScalarNucleon",
+      "declared_convention": "dimensionless d_g (linear scalar-gluon coupling); values DERIVED from text amplitude limit, not read from figure",
+      "arxiv_id": "2301.10784",
+      "arxiv_ids": [
+        "2301.10784"
+      ],
+      "sample_points": [
+        [
+          5.8e-23,
+          1.9e-06
+        ],
+        [
+          2e-17,
+          0.62
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-17T03:59:43Z",
+      "last_seen": "2026-07-17T03:59:43Z",
+      "count": 1,
+      "status": "queued"
+    },
+    {
+      "cache_key": "axionelectron::sqrt g ae g agamma in gev 1 a product coupling emitted exactly as plotted on the y axis not the dimensionless g ae alone",
+      "coupling_type": "AxionElectron",
+      "declared_convention": "sqrt(g_ae * g_agamma) in GeV^-1 \u2014 a PRODUCT coupling, emitted exactly as plotted on the y-axis (NOT the dimensionless g_ae alone)",
+      "arxiv_id": "1708.02111",
+      "arxiv_ids": [
+        "1708.02111"
+      ],
+      "sample_points": [
+        [
+          0.0015,
+          1.9e-13
+        ],
+        [
+          0.0018,
+          1.85e-13
+        ],
+        [
+          0.0021,
+          1.82e-13
+        ],
+        [
+          0.0025,
+          1.8e-13
+        ],
+        [
+          0.0029,
+          1.75e-13
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-07-17T04:24:38Z",
+      "last_seen": "2026-07-17T04:24:38Z",
+      "count": 1,
+      "status": "queued"
     }
   ]
 }
