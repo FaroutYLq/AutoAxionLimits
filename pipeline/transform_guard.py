@@ -1092,3 +1092,59 @@ def axis_plane_crosscheck(predicted_ct, axis_label):
     return predicted_ct, "review", (
         f"[COUPLING REVIEW] axis '{axis_label}' implies {implied} but classified "
         f"{predicted_ct} (cross-family contradiction — flagged, not overridden)")
+
+
+# ---------------------------------------------------------------------------
+# Gauge-group type correction — U(1)_B / U(1)_{B-L} dark-photon-DM searches
+# ---------------------------------------------------------------------------
+# A search for a gauged U(1)_B or U(1)_{B-L} vector boson dark matter (the
+# LIGO/LISA-Pathfinder/PPTA class) writes its coupling as a dimensionless
+# epsilon / epsilon^2 normalized to e — identical in FORM to kinetic-mixing chi.
+# The figure axis is therefore a bare epsilon (axis_implies_coupling_type
+# deliberately refuses to override on it — see the 2112.07687 note there), so
+# the ONLY signal separating these from a real dark photon is the gauge group,
+# which the model names in its own convention declaration. The classifier
+# routinely still emits DarkPhoton, producing the internal contradiction
+# "coupling_type=DarkPhoton but coupling_convention says U(1)_{B-L}". The repo
+# folds both baryonic-vector planes into VectorBL (limit_data/VectorB-L holds
+# these very searches), so we re-label to VectorBL.
+#
+# Gated on the DECLARED CONVENTION (the model's own assertion about the emitted
+# quantity), never on free-text notes: the trigger is the type/convention
+# contradiction, not an incidental mention. A genuine kinetic-mixing chi
+# emission never declares a B/B-L gauge coupling, so this cannot demote a real
+# dark photon. Unlike convention_review_needed this does not read notes and does
+# not fire on a B-L mentioned only in the surrounding discussion (that path is
+# owned by the extractor prompt, which is the primary fix; this guard is the
+# deterministic, unit-testable net for the clear-declaration cases).
+_GAUGE_BL_DECL_TOKENS: tuple = (
+    "u(1)_b", "u(1)b", "u(1) b",           # gauged baryon number (prefix of B-L too)
+    "u(1)_{b-l}", "u(1)_{b−l}", "u(1)_b-l", "u(1)_b−l", "u(1)b-l",
+    "b-l gauge", "b−l gauge", "gauged b-l", "gauged b−l", "gauged baryon",
+    "baryon minus lepton", "baryon-lepton", "baryon number",
+    "b-l coupling", "b−l coupling", "g_bl", "g_b-l", "g_b−l",
+    # A dark photon "coupled to baryons" IS a gauged-baryon-number vector boson
+    # by definition — kinetic mixing couples to the EM current (electric charge),
+    # never to baryon content. So a convention describing the emitted value as a
+    # coupling to baryons is a reliable VectorBL signal even without "U(1)_B".
+    # (Measured: with the strengthened prompt, 2301.08736's own convention became
+    # "squared coupling of the dark photon to baryons" while it still typed
+    # DarkPhoton — the model understood the physics but filled the wrong enum.)
+    "to baryon", "coupled to baryon", "coupling to baryon", "baryonic vector",
+)
+
+
+def gauge_group_type_correction(coupling_type, declared_convention):
+    """``"VectorBL"`` if a DarkPhoton emission's own declared convention names a
+    gauged U(1)_B / U(1)_{B-L} coupling, else ``None``.
+
+    Pure and deterministic; never raises. Only ever maps DarkPhoton -> VectorBL,
+    so it is a no-op for every other classified type (including already-correct
+    VectorBL) and cannot regress a correct dark photon (whose convention
+    describes kinetic mixing / chi, not a B/B-L gauge coupling)."""
+    if coupling_type != "DarkPhoton" or not declared_convention:
+        return None
+    d = str(declared_convention).strip().lower()
+    if any(t in d for t in _GAUGE_BL_DECL_TOKENS):
+        return "VectorBL"
+    return None

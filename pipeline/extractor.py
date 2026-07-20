@@ -30,6 +30,7 @@ from .transform_guard import (
     convention_review_needed,
     convertible_out_of_profile,
     couplings_y_const,
+    gauge_group_type_correction,
     in_confusable_family,
     guard_transform,
     in_valid_ranges,
@@ -591,7 +592,11 @@ you output ARE the converted values. A false "converted" claim corrupts downstre
 processing far more than an honest non-canonical declaration, which is handled fine.
 
 Coupling type disambiguation (use EXACTLY one of the enum values above):
-- VectorBL = U(1)_{{B-L}} gauge boson (g_BL), NOT a generic dark photon
+- VectorBL = a gauged baryonic vector boson: U(1)_{{B-L}} (g_BL) OR U(1)_B \
+(gauged baryon number), NOT a generic kinetic-mixing dark photon. Use VectorBL \
+for dark-matter searches for a vector boson coupled to baryon number or to B-L \
+(e.g. LIGO/LISA-Pathfinder/pulsar-timing searches for U(1)_B or U(1)_{{B-L}} \
+dark matter), even when its coupling is written as a dimensionless epsilon.
 - MonopoleDipole = spin-mass CP-odd force (g_s*g_p product)
 - ScalarPhoton = scalar coupling to PHOTONS, constrains variation of fine-structure constant alpha \
 (d_e or d_gamma). Look for: alpha variation, clock comparison constraining alpha, optical cavity.
@@ -618,8 +623,11 @@ reports results as kinetic mixing chi or hidden photon mixing, use DarkPhoton. I
 reports results as g_agamma for axion-like particles, use AxionPhoton. Check the y-axis \
 label of the exclusion plot.
 - VectorBL: If the paper title, abstract, or exclusion plot mentions "B-L", "B minus L", \
-"baryon minus lepton", or U(1)_{{B-L}}, strongly prefer VectorBL over DarkPhoton even if \
-kinetic mixing is also discussed.
+"baryon minus lepton", U(1)_{{B-L}}, "U(1)_B", "gauged baryon number", or a vector boson \
+coupled to baryon number, use VectorBL over DarkPhoton even if kinetic mixing is also \
+discussed. The coupling being a dimensionless epsilon or epsilon^2 (normalized to e) does \
+NOT make it DarkPhoton — the gauge group is decisive. Reserve DarkPhoton for kinetic \
+mixing with the photon (hidden photon / paraphoton).
 
 extraction_confidence rubric (coupling type AND data quality):
 - 0.9+: coupling type unambiguous from title/abstract AND data from clearly labeled table
@@ -688,7 +696,11 @@ the tick reads "4", the actual value is 4e-14, NOT 4.
 values (1e-15, 1e-14, 1e-13), not just the exponents.
 
 Coupling type disambiguation (use EXACTLY one of the values listed below):
-- VectorBL = U(1)_{B-L} gauge boson (g_BL), NOT a generic dark photon
+- VectorBL = a gauged baryonic vector boson: U(1)_{B-L} (g_BL) OR U(1)_B \
+(gauged baryon number), NOT a generic kinetic-mixing dark photon. Use VectorBL \
+for dark-matter searches for a vector boson coupled to baryon number or to B-L \
+(e.g. LIGO/LISA-Pathfinder/pulsar-timing searches for U(1)_B or U(1)_{B-L} \
+dark matter), even when its coupling is written as a dimensionless epsilon.
 - MonopoleDipole = spin-mass CP-odd force (g_s*g_p product)
 - ScalarPhoton = scalar coupling to PHOTONS, constrains variation of fine-structure constant alpha \
 (d_e or d_gamma). Look for: alpha variation, clock comparison constraining alpha, optical cavity.
@@ -715,8 +727,11 @@ reports results as kinetic mixing chi or hidden photon mixing, use DarkPhoton. I
 reports results as g_agamma for axion-like particles, use AxionPhoton. Check the y-axis \
 label of the exclusion plot.
 - VectorBL: If the paper title, abstract, or exclusion plot mentions "B-L", "B minus L", \
-"baryon minus lepton", or U(1)_{B-L}, strongly prefer VectorBL over DarkPhoton even if \
-kinetic mixing is also discussed.
+"baryon minus lepton", U(1)_{B-L}, "U(1)_B", "gauged baryon number", or a vector boson \
+coupled to baryon number, use VectorBL over DarkPhoton even if kinetic mixing is also \
+discussed. The coupling being a dimensionless epsilon or epsilon^2 (normalized to e) does \
+NOT make it DarkPhoton — the gauge group is decisive. Reserve DarkPhoton for kinetic \
+mixing with the photon (hidden photon / paraphoton).
 
 extraction_confidence rubric (coupling type AND data quality):
 - 0.9+: coupling type unambiguous from title/abstract AND data from clearly labeled table
@@ -864,14 +879,14 @@ Valid coupling types:
 - ScalarElectron: scalar coupling to electron mass d_me (electron mass variation)
 - ScalarNucleon: scalar Yukawa fifth force between nucleons (d_hat, ISL, torsion pendulum)
 - ScalarBaryon: scalar coupling to baryonic matter d_g (WEP, Eotvos, lunar laser ranging)
-- VectorBL: U(1)_{B-L} gauge boson g_BL (NOT a generic dark photon)
+- VectorBL: gauged baryonic vector boson — U(1)_{B-L} (g_BL) or U(1)_B (gauged baryon number), NOT a generic kinetic-mixing dark photon
 
 Key disambiguation rules:
 - If the paper's primary result is on the f_a-m_a plane (e.g. cosmological bounds, lattice QCD, domain wall), use AxionMass. If the main plot has a coupling (g_agamma, g_ae, etc.) on the y-axis, use the coupling type instead even if f_a is also discussed.
 - If the paper measures neutron EDM oscillation from axion dark matter, use AxionEDM
 - If the paper tests equivalence principle / fifth force with torsion balance, classify by the specific coupling parameter
 - If the paper constrains both neutron and proton couplings, prefer AxionNeutron
-- VectorBL is ONLY for explicit B-L gauge symmetry; generic dark photon searches are DarkPhoton. If the paper mentions "B-L", "B minus L", or U(1)_{B-L}, strongly prefer VectorBL.
+- VectorBL is for a gauged baryonic vector boson — U(1)_{B-L} OR U(1)_B (gauged baryon number); generic kinetic-mixing dark photon searches are DarkPhoton. If the paper mentions "B-L", "B minus L", U(1)_{B-L}, "U(1)_B", "gauged baryon number", or a vector coupled to baryon number, use VectorBL even when the coupling is written as a dimensionless epsilon (that form does not imply kinetic mixing — the gauge group is decisive).
 - For LSW (light-shining-through-wall) experiments: kinetic mixing / hidden photon → DarkPhoton; g_agamma / ALP → AxionPhoton
 - If the paper constrains multiple coupling types, choose the PRIMARY one (the one featured in the title or main result)
 - Solar neutrino experiments measuring axion production in the Sun constrain g_ae (AxionElectron), not g_agamma (AxionPhoton)
@@ -2236,6 +2251,26 @@ def run_extraction_agent(
         except Exception as e:  # a peek must never break the extraction
             logger.warning("Axis-peek failed for %s: %s", arxiv_id, e)
     apply_axis_crosscheck(stage1_result, _cc_ct, _axis_unit, arxiv_id)
+
+    # --- Gauge-group type correction (U(1)_B / U(1)_{B-L} vector DM) ---------
+    # A gauged baryonic vector boson is plotted as a bare dimensionless epsilon,
+    # so the axis cross-check above cannot fire — the disambiguator is the gauge
+    # group the model named in its own convention declaration. When that names a
+    # B/B-L gauge coupling but the emitted type is still DarkPhoton, re-label to
+    # VectorBL (the repo's plane for these searches). Runs AFTER the axis check
+    # so an axis-driven relabel already wins; no-op for every non-DarkPhoton
+    # type. The extractor prompt is the primary fix (it also covers papers whose
+    # gauge group appears only in prose); this is the deterministic net.
+    _gg_ct = stage1_result.get("coupling_type") or pre_ct
+    _gg_new = gauge_group_type_correction(
+        _gg_ct, stage1_result.get("coupling_convention"))
+    if _gg_new and _gg_new != _gg_ct:
+        stage1_result["coupling_type"] = _gg_new
+        _gg_note = (f"coupling type {_gg_ct} -> {_gg_new}: declared convention "
+                    f"names a gauged B/B-L coupling (a dimensionless epsilon "
+                    f"is not kinetic mixing)")
+        stage1_result["notes"] = stage1_result.get("notes", "") + " | " + _gg_note
+        logger.info("Gauge-group correction for %s: %s", arxiv_id, _gg_note)
 
     # --- Range validation ---
     final_ct_for_validation = stage1_result.get("coupling_type") or pre_ct
