@@ -4279,6 +4279,19 @@ class DarkPhoton():
             plt.text(0.6e-14,0.8e-5,r'{\bf SNIPE}',fontsize=fs,color='w',rotation=-42,rotation_mode='anchor',ha='center',va='center',path_effects=line_background(1.5,'k'),clip_on=True)
         return
 
+    @staticmethod
+    def DAMIC_M_recast_dark_photon_from_Earth_core(ax,col='crimson',fs=15,text_on=True,lw=1.5):
+        y2 = ax.get_ylim()[1]
+        dat = loadtxt("limit_data/DarkPhoton/DAMIC_M_recast_dark_photon_from_Earth_core.txt",ndmin=2)
+        dat[:,1] = dat[:,1]*sqrt(0.3/0.45)  # DM density 0.3->0.45 GeV/cm^3 (chi ~ 1/sqrt(rho))
+        plt.fill_between(dat[:,0],dat[:,1],y2=y2,edgecolor=None,facecolor=col,zorder=1)
+        plt.plot(dat[:,0],dat[:,1],color='k',alpha=1,zorder=1,lw=lw)
+        if text_on:
+            plt.text(dat[0,0],dat[0,1]*1.5,r'{\bf DAMIC-M}',fontsize=fs,color=col,rotation=0,
+                rotation_mode='anchor',ha='center',va='center',clip_on=True)
+        return
+
+
 
 
 

@@ -231,3 +231,4 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+- **DAMIC_M_recast_dark_photon_from_Earth_core**: [Thermal Emission of Dark Photons from Earth's Core](https://arxiv.org/abs/2606.26253)
