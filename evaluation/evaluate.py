@@ -527,6 +527,36 @@ def _single_point_as_metrics(arxiv_id: str, sp, n_ext: int,
     )
 
 
+def _score_candidate(arxiv_id, result, predicted_ct, ext_array, entry, gt_data):
+    """Score an extraction against ONE same-type GT curve, returning
+    ``(status, scored_via, im, ext_c, gt_c, chosen)``.
+
+    Encapsulates the canonicalize → forward → reverse → single-point fallback
+    ladder so several candidate GT curves can be scored and the best match
+    chosen (#739). ``status`` is "compared" or "convention_mismatch"; on
+    convention_mismatch the metric fields are None and ``chosen`` is None."""
+    ext_c, gt_c, unconvertible = _maybe_canonicalize(
+        result, predicted_ct, ext_array, entry, gt_data)
+    if unconvertible:
+        return ("convention_mismatch", None, None, None, None, None)
+    scored_via = "forward"
+    im = compute_interpolation_metrics(
+        arxiv_id, ext_c, gt_c, coupling_type=predicted_ct)
+    if im.num_interpolatable == 0:
+        if im.num_interpolatable_reverse > 0:
+            scored_via = "reverse"
+            im = _reverse_as_effective(im)
+        else:
+            sp = single_point_compare(
+                gt_c, ext_c, predicted_ct, require_sparse_ref=True)
+            if sp is not None:
+                scored_via = "single_point"
+                im = _single_point_as_metrics(
+                    arxiv_id, sp, im.num_extracted, im.num_ground_truth)
+            # else: stays "forward" with an infinite residual (zero_overlap).
+    return ("compared", scored_via, im, ext_c, gt_c, entry)
+
+
 def _bootstrap_median_ci(
     values: list[float],
     n_resamples: int = 1000,
@@ -744,46 +774,32 @@ def compute_all_metrics(
                     single_candidates.append((1, e, gt))
 
             if multi_candidates:
-                multi_candidates.sort(key=lambda t: -t[0])  # richest GT curve wins
-                _, chosen, gt_data = multi_candidates[0]
-                # Canonicalize BOTH sides (vetted conversions only; no-op for
-                # snapshots that declare no convention).
-                ext_c, gt_c, unconvertible = _maybe_canonicalize(
-                    result, predicted_ct, ext_array, chosen, gt_data)
-                if unconvertible:
-                    # Declared convention is recognized but has NO vetted
-                    # conversion (#604, e.g. oscillating-EDM e*cm amplitude):
-                    # a convention gap, not a 15-dex "residual".
-                    comparison_status = "convention_mismatch"
-                    chosen = None
+                # Best-match multi-GT scoring (#739). A single paper can hold
+                # several DISTINCT same-type limits (2008.02209: AFM /
+                # Coulomb / Plimpton-Lawton hidden-photon curves). The
+                # extraction targets exactly ONE of them, so grade against the
+                # curve it actually matches (lowest finite residual) rather than
+                # the richest-by-points, which is arbitrary and can be a
+                # different sub-limit (the 2008.02209 false catastrophic: the
+                # extraction matched Plimpton-Lawton at 0.05 dex but was scored
+                # against the 100-point Coulomb curve at 3.2 dex).
+                multi_candidates.sort(key=lambda t: -t[0])  # richest first = fallback order
+                scored_cands = [
+                    _score_candidate(arxiv_id, result, predicted_ct, ext_array, e, gt)
+                    for _n, e, gt in multi_candidates
+                ]
+                finite = [s for s in scored_cands
+                          if s[0] == "compared" and s[2] is not None
+                          and np.isfinite(s[2].median_residual_dex)]
+                if finite:
+                    # the curve the extraction actually corresponds to
+                    best = min(finite, key=lambda s: s[2].median_residual_dex)
                 else:
-                    comparison_status = "compared"
-                    scored_via = "forward"
-                    im = compute_interpolation_metrics(
-                        arxiv_id, ext_c, gt_c, coupling_type=predicted_ct,
-                    )
-                    if im.num_interpolatable == 0:
-                        if im.num_interpolatable_reverse > 0:
-                            # Vertex-sparse GT or 1-point extraction inside the
-                            # GT range: promote the reverse pass (GT evaluated
-                            # at the extracted masses) to the effective score.
-                            scored_via = "reverse"
-                            im = _reverse_as_effective(im)
-                        else:
-                            # Sparse single-value extraction at one of the GT
-                            # curve's operating masses (nearest-mass tolerance;
-                            # guarded to <= 3 distinct extracted masses so a
-                            # genuine wrong-window curve failure is not masked
-                            # by one lucky near-mass point).
-                            sp = single_point_compare(
-                                gt_c, ext_c, predicted_ct, require_sparse_ref=True)
-                            if sp is not None:
-                                scored_via = "single_point"
-                                ext_n = im.num_extracted
-                                gt_n = im.num_ground_truth
-                                im = _single_point_as_metrics(arxiv_id, sp, ext_n, gt_n)
-                            # else: stays "forward" with an infinite residual —
-                            # a genuine zero_overlap.
+                    # no finite match on any candidate — preserve the prior
+                    # behaviour (richest candidate: convention_mismatch or a
+                    # genuine zero_overlap).
+                    best = scored_cands[0]
+                comparison_status, scored_via, im, ext_c, gt_c, chosen = best
             elif single_candidates:
                 # No multi-point GT curve. A single-mass GT is a point
                 # reference: compare the extracted value at that operating

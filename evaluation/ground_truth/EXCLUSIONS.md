@@ -127,28 +127,6 @@ now points at the paper's actual headline, `AxionPhoton/Projections/21cm.txt`
 result; the tombstone exists so the auto-expander does not silently re-add the
 wrong mapping.
 
----
-
-## 2008.02209 — AFM Casimir + Plimpton-Lawton hidden photons (scorer artifact, NOT a GT flaw)
-
-**What the paper reports:** two independent DarkPhoton kinetic-mixing limits —
-an AFM Casimir-force reanalysis and the 1936 Plimpton-Lawton Coulomb-law test.
-The repo carries three same-type entries: `AFM.txt`, `Coulomb.txt`,
-`PlimptonLawton.txt`. All three are fine.
-
-**Why it is excluded anyway:** the scorer compares a paper's extraction against
-one fixed GT entry; here it used `Coulomb.txt` (3.2 dex) while both benchmark
-arms extracted the Plimpton-Lawton curve and match `PlimptonLawton.txt` at
-**0.05 dex**. The resulting "catastrophic" is a false positive of multi-entry
-GT scoring (issue #739), identical in both arms. Unlike every other entry in
-this file, the GT *can* grade the extraction — the scorer just compares against
-the wrong sibling.
-
-**What would un-exclude it:** best-match same-coupling-type scoring (#739).
-Restore immediately when that lands.
-
----
-
 ## 1609.00667 — NuSTAR sterile-neutrino window (AxionPhoton/NuSTAR.txt)
 
 **What the paper reports:** sterile-neutrino dark-matter limits from the
