@@ -7316,10 +7316,7 @@
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 12,
       "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02",
-      "excluded": true,
-      "exclusion_reason": "Multi-entry GT scorer artifact (issue #739), NOT an upstream data flaw: the paper has 3 same-type DarkPhoton entries and the scorer compares against a fixed one (Coulomb.txt, 3.2 dex) while the extraction matches PlimptonLawton.txt at 0.05 dex. Excluded so a known-false catastrophic does not pollute the benchmark; RESTORE when best-match same-type scoring lands (#739).",
-      "exclusion_evidence": "https://github.com/FaroutYLq/AutoAxionLimits/issues/739 (per-curve residual table)"
+      "verification_date": "2026-06-02"
     },
     {
       "arxiv_id": "1004.1313",
@@ -7587,10 +7584,7 @@
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 100,
       "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02",
-      "excluded": true,
-      "exclusion_reason": "Multi-entry GT scorer artifact (issue #739), NOT an upstream data flaw: the paper has 3 same-type DarkPhoton entries and the scorer compares against a fixed one (Coulomb.txt, 3.2 dex) while the extraction matches PlimptonLawton.txt at 0.05 dex. Excluded so a known-false catastrophic does not pollute the benchmark; RESTORE when best-match same-type scoring lands (#739).",
-      "exclusion_evidence": "https://github.com/FaroutYLq/AutoAxionLimits/issues/739 (per-curve residual table)"
+      "verification_date": "2026-06-02"
     },
     {
       "arxiv_id": "0810.5501",
@@ -8266,10 +8260,7 @@
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 69,
       "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02",
-      "excluded": true,
-      "exclusion_reason": "Multi-entry GT scorer artifact (issue #739), NOT an upstream data flaw: the paper has 3 same-type DarkPhoton entries and the scorer compares against a fixed one (Coulomb.txt, 3.2 dex) while the extraction matches PlimptonLawton.txt at 0.05 dex. Excluded so a known-false catastrophic does not pollute the benchmark; RESTORE when best-match same-type scoring lands (#739).",
-      "exclusion_evidence": "https://github.com/FaroutYLq/AutoAxionLimits/issues/739 (per-curve residual table)"
+      "verification_date": "2026-06-02"
     },
     {
       "arxiv_id": "2209.03419",
