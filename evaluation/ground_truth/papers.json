@@ -833,7 +833,12 @@
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 2,
       "verified_by": "llm_labeler:claude-opus-4-5-20251101",
-      "verification_date": "2026-04-13"
+      "verification_date": "2026-04-13",
+      "also_published_types": [
+        "DarkPhoton",
+        "VectorBL"
+      ],
+      "also_published_evidence": "Hardy & Lasenby: abstract covers 'light scalars and vectors with a variety of SM couplings'; Fig.3 = dark-photon SN1987A bounds, Fig.4 = B-L vector solar/HB bounds; only the Fig.5 scalar phi-ee/phi-NN planes were ingested (ScalarElectron/RedGiants.txt, ScalarNucleon/RedGiant.txt)."
     },
     {
       "arxiv_id": "2111.06883",
@@ -857,7 +862,12 @@
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 188,
       "verified_by": "llm_labeler:claude-opus-4-5-20251101",
-      "verification_date": "2026-04-13"
+      "verification_date": "2026-04-13",
+      "also_published_types": [
+        "ScalarBaryon",
+        "ScalarNucleon"
+      ],
+      "also_published_evidence": "Oswald et al: abstract's headline is 'direct experimental bounds on the coupling of an oscillating UDM field to the up, down, and strange quarks and to the gluons' (Q_N d_g combination) \u2014 the nuclear-sector plane; pool ingested only the ScalarElectron/ScalarPhoton recasts (I2.txt)."
     },
     {
       "arxiv_id": "2112.10618",
@@ -1093,7 +1103,11 @@
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 9,
       "verified_by": "llm_labeler:claude-opus-4-5-20251101",
-      "verification_date": "2026-04-13"
+      "verification_date": "2026-04-13",
+      "also_published_types": [
+        "DarkPhoton"
+      ],
+      "also_published_evidence": "Abstract: 'stringent bounds can be put on the gauged L_mu-L_tau model and the dark photon model' \u2014 the dark-photon-model bounds (Fig.6, Eqs.35/39) are a published plane; pool ingested only the B-L (VectorBL) recast."
     },
     {
       "arxiv_id": "2310.06017",
@@ -2091,7 +2105,10 @@
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 10001,
       "verified_by": "repo_upstream",
-      "verification_date": "2026-04-13"
+      "verification_date": "2026-04-13",
+      "excluded": true,
+      "exclusion_reason": "Paper publishes sterile-neutrino limits only (sin^2(2theta) vs mass, decay rate Gamma vs mass) from the NuSTAR X-ray line search; it never quotes an axion-photon coupling. The repo AxionPhoton/NuSTAR.txt g_agamma curve is the maintainer's derived conversion of the same X-ray line flux limit to decaying-ALP DM, so the GT demands a quantity that is not extractable from the paper.",
+      "exclusion_evidence": "Title: '(Almost) Closing the nuMSM Sterile Neutrino Dark Matter Window with NuSTAR'; constrained parameters are sin^2(2theta) and Gamma. Same class as the 2112.03439 BreakthroughListen exclusion (maintainer-derived g_agamma never appearing in the paper). Extractor refusal (ct=None) reproduced independently by both Opus (final347_remediated) and Fable (final347_fable) arms."
     },
     {
       "arxiv_id": "2407.03828",
@@ -2600,7 +2617,11 @@
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 40,
       "verified_by": "repo_upstream",
-      "verification_date": "2026-04-13"
+      "verification_date": "2026-04-13",
+      "also_published_types": [
+        "AxionPhoton"
+      ],
+      "also_published_evidence": "Abstract: 'For the axion-photon coupling strength we find g_agamma < 7E-10 1/GeV' \u2014 the paper's headline result; pool ingested only the boson-electron Yukawa (AxionElectron) recast."
     },
     {
       "arxiv_id": "1508.02463",
@@ -5944,7 +5965,11 @@
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 78,
       "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verification_date": "2026-06-02",
+      "also_published_types": [
+        "AxionElectron"
+      ],
+      "also_published_evidence": "Title: 'New Constraints on ALP Electron and Photon Couplings from ArgoNeuT and the MiniBooNE Beam Dump' \u2014 new measured limits in BOTH g_ae (Fig.8, MiniBooNE dump) and g_agamma (Fig.7); pool ingested only the AxionPhoton curve."
     },
     {
       "arxiv_id": "2110.13636",
@@ -7048,7 +7073,10 @@
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 293,
       "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verification_date": "2026-06-02",
+      "excluded": true,
+      "exclusion_reason": "Paper publishes decaying-DM limits via the sterile-neutrino mixing angle sin^2(2theta) vs m_chi (5-16 keV) from XMM-Newton blank-sky observations; it never quotes an axion-photon coupling. The repo AxionPhoton/XMM-Newton.txt g_agamma curve is the maintainer's derived conversion, so the GT demands a quantity that is not extractable from the paper.",
+      "exclusion_evidence": "Foster et al, 'Deep Search for Decaying Dark Matter with XMM-Newton Blank-Sky Observations'; constrained parameter is sin^2(2theta). Same class as the 2112.03439 BreakthroughListen exclusion. Extractor refusal (ct=None) in final347_remediated."
     },
     {
       "arxiv_id": "1110.2895",
@@ -7459,7 +7487,11 @@
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 228,
       "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verification_date": "2026-06-02",
+      "also_published_types": [
+        "AxionPhoton"
+      ],
+      "also_published_evidence": "Arias et al 'WISPy Cold Dark Matter' covers ALP and hidden-photon photon-coupling planes on equal footing; the repo itself attributes AxionPhoton/EBL2.txt and AxionPhoton/ALP_CDM.txt to this paper; pool has only the DarkPhoton entries."
     },
     {
       "arxiv_id": "2002.05165",
@@ -7606,7 +7638,11 @@
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 99,
       "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verification_date": "2026-06-02",
+      "also_published_types": [
+        "AxionPhoton"
+      ],
+      "also_published_evidence": "Title: 'Axion and dark photon limits from Crab Nebula high energy gamma-rays' \u2014 headline ALP-photon limit g_agamma < 1.8e-10 GeV^-1 (Fig.3) alongside the dark-photon kinetic-mixing limit; pool ingested only the DarkPhoton entry."
     },
     {
       "arxiv_id": "1907.12628",
@@ -8953,7 +8989,12 @@
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 1000,
       "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verification_date": "2026-06-02",
+      "also_published_types": [
+        "ScalarNucleon",
+        "ScalarBaryon"
+      ],
+      "also_published_evidence": "Adelberger, Heckel & Nelson ISL review: native planes are alpha-lambda Yukawa fifth-force exclusions (Figs. 4/5/9), a nucleon-coupled Yukawa; the repo itself ingests Fig.4 as ScalarBaryon/FifthForce_CI.txt; pool has only the ScalarElectron/ScalarPhoton recasts."
     },
     {
       "arxiv_id": "2103.03783",
@@ -9169,7 +9210,12 @@
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 2,
       "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verification_date": "2026-06-02",
+      "also_published_types": [
+        "ScalarNucleon",
+        "ScalarBaryon"
+      ],
+      "also_published_evidence": "Abstract: 'Yukawa couplings g_B,L of baryophilic and leptophilic scalars', g_B <~ 7e-13 from the WD luminosity function; the repo itself ingests the baryophilic plane as ScalarNucleon/WhiteDwarfs.txt (header cites 2303.00778); pool has only the ScalarElectron entry."
     },
     {
       "arxiv_id": "2212.05721",
@@ -9508,7 +9554,11 @@
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 44,
       "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verification_date": "2026-06-02",
+      "also_published_types": [
+        "ScalarNucleon"
+      ],
+      "also_published_evidence": "Bordag, Mohideen & Mostepanenko Casimir review: Sec.7 publishes alpha-lambda constraints on Yukawa-type corrections to Newtonian gravity from Casimir measurements \u2014 an isotope-independent nucleon-coupled Yukawa plane; pool ingested only the VectorBL recast."
     },
     {
       "arxiv_id": "2109.08822",
@@ -9991,7 +10041,11 @@
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 9,
       "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verification_date": "2026-06-02",
+      "also_published_types": [
+        "ScalarBaryon"
+      ],
+      "also_published_evidence": "Abstract: ULDM 'couples dominantly to the SM strong/nuclear sector'; the projected reach is on the gluon coupling d_g (nuclear sector -> ScalarBaryon per repo enum); pool ingested only the f_a (AxionMass) plane of Fig.3b."
     },
     {
       "arxiv_id": "2412.20932",
@@ -10111,7 +10165,11 @@
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 10,
       "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verification_date": "2026-06-02",
+      "also_published_types": [
+        "AxionPhoton"
+      ],
+      "also_published_evidence": "Abstract: 'We constrain the coupling of thermally-produced axion-like particles ... with photons and gluons'; the g_agamma-vs-m_a Planck+BAO plane (Fig.7) is the paper's native published plane; pool ingested the derived AxionEDM/AxionMass entries."
     },
     {
       "arxiv_id": "1708.08464",
