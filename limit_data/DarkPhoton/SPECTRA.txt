@@ -1,0 +1,10 @@
+# Searching for Dark Photons with a room-temperature dielectric haloscope
+# arXiv: https://arxiv.org/abs/2607.03240
+# Coupling type: DarkPhoton
+# Extracted from: text
+# Confidence level: 0.9
+# Extraction confidence: 0.90
+# Corrections applied:
+#   DM density: paper=0.4 GeV/cm³ → repo=0.45 GeV/cm³; data stored paper-native, plotting method applies sqrt(0.4/0.45)=0.9428 (chi ∝ 1/sqrt(rho))
+# mass [eV]    kinetic mixing chi
+1.900000e+00   4.000000e-13
