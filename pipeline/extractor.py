@@ -2332,23 +2332,62 @@ def run_extraction_agent(
     declared_conv = stage1_result.get("coupling_convention")
     if declared_conv and declared_conv != "canonical" \
             and convention_review_needed(final_ct, declared_conv):
-        prior_conf = float(stage1_result.get("extraction_confidence", 0.0) or 0.0)
-        stage1_result["extraction_confidence"] = min(prior_conf, 0.5)
-        stage1_result["notes"] = (
-            stage1_result.get("notes", "")
-            + f" | [CONVENTION REVIEW] declared coupling convention '{declared_conv}' "
-            "is not canonical and has no vetted auto-conversion; needs human review"
-        )
-        logger.warning(
-            "Convention review for %s (%s): unknown declared convention %r; flagged",
-            arxiv_id, final_ct, declared_conv,
-        )
-        # Escalation queue (#636): record the token so the offline convention-
-        # triage skill can derive its conversion once, per token. Deterministic,
-        # cheap (one JSON append/counter-bump), and never fails the extraction.
-        record_convention_flag(
-            final_ct, declared_conv, arxiv_id, data_points=data_points,
-        )
+        # Inline convention-derivation tier (#724, opt-in via AAL_INLINE_CONVENTION).
+        # Before flagging, try to DERIVE the conversion on the fly and, only if it
+        # passes the deterministic gates, apply it provisionally. Default OFF, so
+        # this is a no-op for the paused arm / definitive benchmark / Actions.
+        _inline = None
+        try:
+            from .convention_derivation import inline_enabled, resolve_convention_inline
+            if inline_enabled():
+                _inline = resolve_convention_inline(
+                    final_ct, declared_conv, data_points, client, arxiv_id=arxiv_id,
+                )
+        except Exception:  # never fail extraction on the inline tier
+            _inline = None
+
+        if _inline and _inline.ok:
+            # Gates passed: convert provisionally and re-declare "converted from …"
+            # so the registry scores the converted values once (never re-converts
+            # a "converted from" declaration — the #684 double-conversion trap is
+            # structurally avoided). Milder cap than a hard review flag.
+            data_points = _inline.converted_points
+            stage1_result["data_points"] = data_points
+            stage1_result["coupling_convention"] = _inline.provisional_declaration
+            prior_conf = float(stage1_result.get("extraction_confidence", 0.0) or 0.0)
+            stage1_result["extraction_confidence"] = min(prior_conf, 0.7)
+            stage1_result["notes"] = (
+                stage1_result.get("notes", "")
+                + f" | [PROVISIONAL CONVERSION] {_inline.summary}; derivation applied "
+                "inline (#724), pending human registry promotion"
+            )
+            logger.info(
+                "Inline convention derivation for %s (%s): applied %s",
+                arxiv_id, final_ct, _inline.summary,
+            )
+            # Still record to the queue (status marks it provisional) so a human
+            # promotes the derived converter into the permanent registry.
+            record_convention_flag(
+                final_ct, declared_conv, arxiv_id, data_points=data_points,
+            )
+        else:
+            prior_conf = float(stage1_result.get("extraction_confidence", 0.0) or 0.0)
+            stage1_result["extraction_confidence"] = min(prior_conf, 0.5)
+            stage1_result["notes"] = (
+                stage1_result.get("notes", "")
+                + f" | [CONVENTION REVIEW] declared coupling convention '{declared_conv}' "
+                "is not canonical and has no vetted auto-conversion; needs human review"
+            )
+            logger.warning(
+                "Convention review for %s (%s): unknown declared convention %r; flagged",
+                arxiv_id, final_ct, declared_conv,
+            )
+            # Escalation queue (#636): record the token so the offline convention-
+            # triage skill can derive its conversion once, per token. Deterministic,
+            # cheap (one JSON append/counter-bump), and never fails the extraction.
+            record_convention_flag(
+                final_ct, declared_conv, arxiv_id, data_points=data_points,
+            )
     elif declared_conv and convertible_out_of_profile(
             final_ct, declared_conv, data_points):
         # Phase 1b (#625): the declaration IS registry-convertible (so the
