@@ -632,6 +632,14 @@ def compute_all_metrics(
         # Authoritative couplings = the couplings of the actual GT data files.
         true_couplings = {_authoritative_coupling(e) for e in paper_entries}
 
+        # Classification grading additionally accepts planes the paper
+        # demonstrably publishes but the pool never ingested a curve for
+        # (multi-plane papers; evidence recorded per entry in papers.json).
+        # Curve comparison is untouched — it only ever runs against actual GT
+        # curves, so accepting a curve-less plane cannot change residuals.
+        accepted_couplings = true_couplings | {
+            t for e in paper_entries for t in e.also_published_types}
+
         paper_report: dict = {
             "arxiv_id": arxiv_id,
             "difficulty": rep.difficulty,
@@ -654,7 +662,7 @@ def compute_all_metrics(
 
         # --- Coupling-type classification (against authoritative couplings) ---
         predicted_ct = _normalize_predicted_coupling(result.get("coupling_type"))
-        ct_correct = predicted_ct in true_couplings if predicted_ct else False
+        ct_correct = predicted_ct in accepted_couplings if predicted_ct else False
 
         coupling_clf.total += 1
         if ct_correct:
@@ -663,7 +671,7 @@ def compute_all_metrics(
             coupling_clf.errors.append({
                 "arxiv_id": arxiv_id,
                 "predicted": str(predicted_ct),
-                "expected": str(sorted(true_couplings)),
+                "expected": str(sorted(accepted_couplings)),
             })
 
         # --- Scalar-label classification (human-verified entries only) ---
@@ -675,7 +683,7 @@ def compute_all_metrics(
 
         paper_report["coupling_type_correct"] = ct_correct
         paper_report["coupling_type_predicted"] = predicted_ct
-        paper_report["coupling_type_expected"] = sorted(true_couplings)
+        paper_report["coupling_type_expected"] = sorted(accepted_couplings)
 
         # --- Curve comparison: ONLY against a GT curve of the same coupling ---
         extracted_points = result.get("data_points", [])

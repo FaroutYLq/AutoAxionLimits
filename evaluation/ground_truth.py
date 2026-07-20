@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import logging
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
@@ -96,6 +96,15 @@ class GroundTruthEntry:
     excluded: bool = False
     exclusion_reason: Optional[str] = None
     exclusion_evidence: Optional[str] = None
+    # Coupling planes the paper demonstrably publishes a limit in but the
+    # benchmark pool never ingested a curve for (multi-plane papers: EP tests,
+    # stellar-cooling papers, reviews). A prediction of any of these is a
+    # correct identification for classification grading, even though no curve
+    # comparison is possible against them. Evidence (abstract quote, figure
+    # number, or repo-file header attribution) is mandatory — never add a type
+    # here merely because the extractor picked it.
+    also_published_types: list[str] = field(default_factory=list)
+    also_published_evidence: Optional[str] = None
 
     def load_data(self) -> Optional[np.ndarray]:
         """Load ground-truth data as Nx2 array (mass_eV, coupling)."""
@@ -158,6 +167,8 @@ def load_ground_truth(path: Path = PAPERS_JSON) -> list[GroundTruthEntry]:
             excluded=bool(p.get("excluded", False)),
             exclusion_reason=p.get("exclusion_reason"),
             exclusion_evidence=p.get("exclusion_evidence"),
+            also_published_types=list(p.get("also_published_types", [])),
+            also_published_evidence=p.get("also_published_evidence"),
         ))
 
     logger.info("Loaded %d ground-truth entries", len(entries))

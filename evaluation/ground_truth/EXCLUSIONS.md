@@ -146,3 +146,41 @@ the wrong sibling.
 
 **What would un-exclude it:** best-match same-coupling-type scoring (#739).
 Restore immediately when that lands.
+
+---
+
+## 1609.00667 — NuSTAR sterile-neutrino window (AxionPhoton/NuSTAR.txt)
+
+**What the paper reports:** sterile-neutrino dark-matter limits from the
+NuSTAR X-ray line search — the active–sterile mixing angle sin²(2θ) and the
+decay rate Γ versus sterile-neutrino mass (10–50 keV). It never quotes an
+axion-photon coupling.
+
+**Why the GT cannot grade it:** the repo `AxionPhoton/NuSTAR.txt` g_aγγ curve
+is the maintainer's derived conversion of the same X-ray line-flux limit to
+decaying-ALP dark matter; the number does not appear in the paper, so the GT
+demands a quantity that is not extractable. Same class as the 2112.03439
+Breakthrough Listen exclusion. The extractor's refusal (ct=None) was correct
+and is reproduced independently by both the Opus (`final347_remediated`) and
+Fable (`final347_fable`) arms.
+
+**What would un-exclude it:** a vetted line-flux → g_aγγ converter applied on
+both sides at scoring time (the same machinery the Breakthrough Listen entry
+is waiting on).
+
+---
+
+## 2102.02207 — XMM-Newton blank-sky decaying DM (AxionPhoton/XMM-Newton.txt)
+
+**What the paper reports:** decaying dark-matter limits via the
+sterile-neutrino mixing angle sin²(2θ) versus m_χ (5–16 keV) from XMM-Newton
+blank-sky observations. It never quotes an axion-photon coupling.
+
+**Why the GT cannot grade it:** the repo `AxionPhoton/XMM-Newton.txt` g_aγγ
+curve is the maintainer's derived conversion to decaying-ALP dark matter; the
+GT demands a quantity that is not extractable from the paper. Same class as
+the 2112.03439 Breakthrough Listen exclusion. The extractor's refusal
+(ct=None) was correct.
+
+**What would un-exclude it:** a vetted line-flux → g_aγγ converter applied on
+both sides at scoring time.
