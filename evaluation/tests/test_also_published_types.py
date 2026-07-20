@@ -84,3 +84,16 @@ def test_papers_json_also_published_have_evidence():
         assert e.also_published_evidence, e.arxiv_id
         # Never a lone echo of the authoritative type.
         assert all(t != e.coupling_type for t in e.also_published_types), e.arxiv_id
+
+
+def test_2012_05427_publishes_bl_plane():
+    # 2012.05427 ("Cooling of young neutron stars and dark gauge bosons") derives
+    # BOTH a dark-photon kinetic-mixing bound and a gauged U(1)_{B-L} bound; the
+    # repo ingested only the kinetic-mixing plane (DarkPhoton/NeutronStarCooling.txt).
+    # Crediting the B-L plane keeps the gauged-B/B-L -> VectorBL extractor mapping
+    # (pipeline.transform_guard.gauge_group_type_correction) from grading as a
+    # false regression when the pipeline emits VectorBL for this paper.
+    entries = {e.arxiv_id: e for e in load_ground_truth()}
+    e = entries["2012.05427"]
+    assert "VectorBL" in e.also_published_types
+    assert e.also_published_evidence

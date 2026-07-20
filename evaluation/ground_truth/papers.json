@@ -8164,7 +8164,11 @@
       "ground_truth_coupling_range": null,
       "ground_truth_num_points": 27,
       "verified_by": "repo_upstream",
-      "verification_date": "2026-06-02"
+      "verification_date": "2026-06-02",
+      "also_published_types": [
+        "VectorBL"
+      ],
+      "also_published_evidence": "Kim, Masaki, Yin (2012.05427): the abstract derives the bound on the dark gauge boson (gauged U(1)_{B-L}) from Cas A / SN1987A young-neutron-star cooling alongside the dark-photon kinetic-mixing bound; the repo ingested only the kinetic-mixing plane (DarkPhoton/NeutronStarCooling.txt, header 'kinetic mixing'), so the B-L plane the paper also publishes is uningested."
     },
     {
       "arxiv_id": "2204.03818",
