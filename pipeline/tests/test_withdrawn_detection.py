@@ -279,7 +279,7 @@ def test_unknown_withdrawal_status_does_not_flag(monkeypatch, harness):
 # Flag PR body
 # ---------------------------------------------------------------------------
 
-def _body(old_version: int) -> str:
+def _body(old_version: int, report=None) -> str:
     return pc._withdrawal_flag_body(
         experiment_name="QUALIPHIDE_FIR",
         file_path=_FILE,
@@ -288,6 +288,7 @@ def _body(old_version: int) -> str:
         new_version=2,
         new_paper=_fake_paper(2),
         reason="the paper has been withdrawn from arXiv by its authors",
+        report=report,
     )
 
 
@@ -308,9 +309,31 @@ def test_body_quotes_the_author_withdrawal_comment():
     assert "numerical problem in efficiency estimation" in _body(1)
 
 
-def test_body_states_no_data_files_were_modified():
-    body = _body(0)
-    assert "No data files have been modified" in body
+def test_body_enumerates_the_proposed_removal():
+    """With a report, the PR carries the removal and says exactly what it deletes."""
+    from pipeline.removal import RemovalReport
+
+    report = RemovalReport(
+        experiment_name="QUALIPHIDE_FIR",
+        coupling_type="DarkPhoton",
+        removed=[f"data file `{_FILE}`", "`DarkPhoton.QUALIPHIDE_FIR()` in `PlotFuncs.py`"],
+        missing=["docs entry in `docs/dp.md`"],
+        changed_paths=[_FILE, "PlotFuncs.py"],
+    )
+    body = _body(0, report=report)
+
+    assert "This PR removes:" in body
+    assert _FILE in body
+    assert "`DarkPhoton.QUALIPHIDE_FIR()` in `PlotFuncs.py`" in body
+    assert "Already absent" in body and "docs/dp.md" in body
+    assert "merge to remove the limit" in body
+    assert "No data files have been modified" not in body
+
+
+def test_body_falls_back_to_flag_only_without_a_report():
+    """If the removal could not be applied, the PR degrades to a flag, not a lie."""
+    body = _body(0, report=None)
+    assert "does **not** modify any files" in body
     assert _FILE in body
 
 
