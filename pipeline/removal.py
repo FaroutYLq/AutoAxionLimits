@@ -131,10 +131,29 @@ def remove_method_from_plotfuncs(
     while start_idx > 0 and lines[start_idx - 1].strip().startswith("#"):
         start_idx -= 1
 
+    # Take back exactly the padding the insertion added. reviewer.
+    # insert_method_into_plotfuncs writes "\n" + method + "\n", one blank line on
+    # each side, so removing one blank on each side makes this the exact inverse
+    # and restores the file byte-for-byte (pinned by a test against the real
+    # PlotFuncs.py). Consuming the whole following blank run instead would eat
+    # pre-existing padding, and a global whitespace pass would rewrite blank-line
+    # runs hundreds of lines away, burying the real change in churn.
+    if start_idx > 0 and lines[start_idx - 1].strip() == "":
+        start_idx -= 1
+    took_after = end_idx < len(lines) and lines[end_idx].strip() == ""
+    if took_after:
+        end_idx += 1
+
+    # Floor: never butt two definitions together. A hand-curated method with a
+    # single blank line on each side is not one this pipeline inserted, so the
+    # symmetric rule would over-consume and leave the survivors adjacent.
+    prev_is_code = start_idx > 0 and lines[start_idx - 1].strip() != ""
+    next_is_code = end_idx < len(lines) and lines[end_idx].strip() != ""
+    if took_after and prev_is_code and next_is_code:
+        end_idx -= 1
+
     new_lines = lines[:start_idx] + lines[end_idx:]
     new_source = "".join(new_lines)
-    # Collapse the blank-line run left behind so the class stays tidy.
-    new_source = re.sub(r"\n{4,}", "\n\n\n", new_source)
 
     try:
         new_tree = ast.parse(new_source)

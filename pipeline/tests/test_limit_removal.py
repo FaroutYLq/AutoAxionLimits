@@ -117,6 +117,77 @@ def test_removes_method_with_its_decorator_and_comment(repo):
     assert [c.name for c in dp.body] == ["Keeper", "AlsoKeeper"]
 
 
+def test_touches_nothing_outside_the_removed_block(repo):
+    """A global whitespace pass would churn blank-line runs across the whole file.
+
+    Caught in review of the first live removal PR: collapsing blank lines with a
+    file-wide regex rewrote unrelated lines hundreds of lines away, burying the
+    real change in whitespace noise.
+    """
+    path = repo / "PlotFuncs.py"
+    before = path.read_text().splitlines()
+    assert remove_method_from_plotfuncs(path, "DarkPhoton", "QUALIPHIDE_FIR") is True
+    after = path.read_text().splitlines()
+
+    # Every surviving line must appear verbatim, in order, in the original: the
+    # edit may only DELETE a contiguous block, never reflow anything.
+    assert len(after) < len(before)
+    cut = len(before) - len(after)
+    for start in range(len(before) - cut + 1):
+        if before[:start] + before[start + cut:] == after:
+            break
+    else:
+        pytest.fail("removal changed lines outside one contiguous deleted block")
+
+
+def test_leaves_the_original_method_separation(repo):
+    """The gap left behind should match the file's method separation, not widen."""
+    path = repo / "PlotFuncs.py"
+    remove_method_from_plotfuncs(path, "DarkPhoton", "QUALIPHIDE_FIR")
+    src = path.read_text()
+    assert "\n\n\n\n" not in src, "removal left a widened blank-line run"
+    assert "return dat\n    @staticmethod" not in src, "survivors were left adjacent"
+
+
+def test_removal_is_the_exact_inverse_of_insertion(tmp_path):
+    """Insert a method the way the reviewer does, remove it, get the file back.
+
+    This is the case that matters in production: the limits being removed are
+    the ones this pipeline inserted. Byte-identity means the removal PR shows
+    only the limit coming out, with no whitespace churn for a reviewer to read
+    past.
+    """
+    from pipeline.reviewer import insert_method_into_plotfuncs
+
+    original = '''\
+class DarkPhoton:
+    @staticmethod
+    def Existing(ax):
+        return None
+
+
+
+
+#=============================================================================#
+def helper():
+    return 1
+'''
+    path = tmp_path / "PlotFuncs.py"
+    path.write_text(original)
+
+    method = (
+        "@staticmethod\n"
+        "def Doomed(ax, col='crimson'):\n"
+        "    dat = loadtxt('limit_data/DarkPhoton/Doomed.txt')\n"
+        "    return dat\n"
+    )
+    insert_method_into_plotfuncs(path, "DarkPhoton", method)
+    assert "Doomed" in path.read_text()
+
+    assert remove_method_from_plotfuncs(path, "DarkPhoton", "Doomed") is True
+    assert path.read_text() == original
+
+
 def test_absent_method_is_a_noop(repo):
     path = repo / "PlotFuncs.py"
     before = path.read_text()
