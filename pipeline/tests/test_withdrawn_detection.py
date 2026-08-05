@@ -275,6 +275,45 @@ def test_unknown_withdrawal_status_does_not_flag(monkeypatch, harness):
     assert entry["known_version"] == 2
 
 
+# ---------------------------------------------------------------------------
+# Flag PR body
+# ---------------------------------------------------------------------------
+
+def _body(old_version: int) -> str:
+    return pc._withdrawal_flag_body(
+        experiment_name="QUALIPHIDE_FIR",
+        file_path=_FILE,
+        arxiv_id=_ARXIV_ID,
+        old_version=old_version,
+        new_version=2,
+        new_paper=_fake_paper(2),
+        reason="the paper has been withdrawn from arXiv by its authors",
+    )
+
+
+def test_body_has_no_dead_v0_link_on_first_sight():
+    """old_version == 0 means "never tracked"; there is no arXiv v0 to link."""
+    body = _body(0)
+    assert "v0" not in body
+    assert "version not recorded" in body
+
+
+def test_body_links_the_curated_version_when_known():
+    body = _body(1)
+    assert f"https://arxiv.org/abs/{_ARXIV_ID}v1" in body
+    assert f"https://arxiv.org/abs/{_ARXIV_ID}v2" in body
+
+
+def test_body_quotes_the_author_withdrawal_comment():
+    assert "numerical problem in efficiency estimation" in _body(1)
+
+
+def test_body_states_no_data_files_were_modified():
+    body = _body(0)
+    assert "No data files have been modified" in body
+    assert _FILE in body
+
+
 def test_live_paper_first_sight_still_baselines_silently(monkeypatch, harness):
     """The pre-existing happy path must be unchanged."""
     monkeypatch.setattr(pc, "is_withdrawn", lambda aid, **kw: False)
