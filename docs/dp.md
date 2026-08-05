@@ -231,3 +231,4 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+- **QUALIPHIDE_FIR**: [Dark matter searches with a 13 meV threshold superconducting sensor array](https://arxiv.org/abs/2607.19319)
