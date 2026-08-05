@@ -275,6 +275,57 @@ def _parse_arxiv_feed(xml_text: str) -> list[arxiv.Result]:
     return papers
 
 
+# ---------------------------------------------------------------------------
+# Withdrawal detection
+# ---------------------------------------------------------------------------
+
+# arXiv's Atom API does NOT expose withdrawal: for a withdrawn paper the feed
+# still carries the ORIGINAL title and abstract, and the <arxiv:comment> holds
+# whatever free text the author wrote (arXiv:2607.19319v2's comment never says
+# "withdrawn"). The canonical machine-readable marker lives on the abs page as
+# arXiv's own banner, and the e-print/PDF for the withdrawn version 404s.
+_WITHDRAWN_BANNER = re.compile(r"This paper has been withdrawn by", re.IGNORECASE)
+
+# Secondary corroboration: the version-history row for the current version is
+# tagged "(withdrawn)", and the PDF-links list degrades to a bare "Withdrawn".
+_WITHDRAWN_SECONDARY = re.compile(r"<em>\(withdrawn\)</em>|<li>Withdrawn</li>", re.IGNORECASE)
+
+
+def is_withdrawn(arxiv_id: str, timeout: float = 20.0) -> Optional[bool]:
+    """Return True if the paper's current version is withdrawn from arXiv.
+
+    Returns None when the check could not be made (network error, unexpected
+    page). Callers MUST treat None as "unknown", never as "withdrawn" — a
+    transient arXiv outage must not mass-flag the whole corpus for removal.
+    """
+    import httpx
+
+    try:
+        resp = httpx.get(
+            f"https://arxiv.org/abs/{arxiv_id}",
+            timeout=timeout,
+            follow_redirects=True,
+        )
+        if resp.status_code != 200:
+            logger.warning(
+                "Withdrawal check for %s: abs page HTTP %d", arxiv_id, resp.status_code
+            )
+            return None
+        html = resp.text
+    except Exception as e:
+        logger.warning("Withdrawal check for %s failed: %s", arxiv_id, e)
+        return None
+
+    if _WITHDRAWN_BANNER.search(html):
+        return True
+    # Banner absent but both secondary markers present is still a withdrawal
+    # (defends against a banner-wording change), while a single stray match is
+    # not enough to act on.
+    if len(_WITHDRAWN_SECONDARY.findall(html)) >= 2:
+        return True
+    return False
+
+
 def is_published(paper: arxiv.Result) -> bool:
     """Return True if the paper has been published in a journal.
 
@@ -543,6 +594,75 @@ def run_weekly_check(
             }
             continue
 
+        # --- Withdrawal screen -------------------------------------------
+        # A withdrawn paper's limit is retracted by its own authors, so the
+        # curated data file must be flagged for removal. This MUST run before
+        # the first-sight baseline below: a freshly merged data file is unknown
+        # to the state, and baselining it at the withdrawal version records
+        # known_version == latest_version, after which every later run
+        # short-circuits and the withdrawal is never seen again.
+        # It also has to run before extraction, because the withdrawn version
+        # has no PDF (HTTP 404) and extraction would fail generically.
+        was_withdrawn = bool(file_state.get("withdrawn"))
+        version_moved = known_version is None or latest_version > known_version
+
+        if was_withdrawn and not version_moved:
+            # Already flagged and nothing new on arXiv — don't re-flag.
+            state["files"][file_path]["last_checked"] = now_iso
+            continue
+
+        withdrawn = False
+        if version_moved or was_withdrawn:
+            # None (check failed) is deliberately NOT treated as withdrawn.
+            withdrawn = is_withdrawn(arxiv_id) is True
+
+        if withdrawn:
+            logger.warning(
+                "%s v%d is WITHDRAWN from arXiv — flagging %s for removal",
+                arxiv_id, latest_version, file_path,
+            )
+            state["files"][file_path] = {
+                "arxiv_id": arxiv_id,
+                "known_version": latest_version,
+                "last_checked": now_iso,
+                "published": published,
+                "withdrawn": True,
+            }
+            state["last_checked"] = now_iso
+            save_version_state(state)
+
+            if was_withdrawn:
+                # Withdrawn at a NEWER version than the one already flagged;
+                # the open flag PR still describes the situation.
+                logger.info("%s already flagged as withdrawn; not re-opening", arxiv_id)
+            elif not dry_run:
+                try:
+                    _create_removal_flag_pr(
+                        repo_root=repo_root,
+                        file_path=file_path,
+                        arxiv_id=arxiv_id,
+                        old_version=known_version or 0,
+                        new_version=latest_version,
+                        new_paper=new_paper,
+                        reason="the paper has been withdrawn from arXiv by its authors",
+                        withdrawn=True,
+                    )
+                except Exception as e:
+                    logger.error("Failed to create withdrawal flag PR for %s: %s", arxiv_id, e)
+            else:
+                logger.info(
+                    "[DRY RUN] Would create WITHDRAWN flag PR for %s v%d (%s)",
+                    arxiv_id, latest_version, file_path,
+                )
+            continue
+
+        if was_withdrawn:
+            # Reinstated: a later version replaced the withdrawal. Drop the flag
+            # and let the normal update path re-extract it.
+            logger.info("%s no longer withdrawn at v%d — clearing flag", arxiv_id, latest_version)
+            file_state.pop("withdrawn", None)
+            state["files"].get(file_path, {}).pop("withdrawn", None)
+
         # First time seeing this file — set baseline, no PR
         if known_version is None:
             state["files"][file_path] = {
@@ -724,51 +844,99 @@ def _create_removal_flag_pr(
     new_version: int,
     new_paper: arxiv.Result,
     reason: str = "no extractable data",
+    withdrawn: bool = False,
 ) -> None:
-    """Create a flag PR when a published paper yields no usable limit data."""
+    """Create a flag PR when a curated limit's source paper is no longer sound.
+
+    Two routes reach here: a *published* version that yields no usable limit
+    data, and a *withdrawn* paper (``withdrawn=True``), which is flagged
+    regardless of publication status — a retraction by the authors invalidates
+    the limit whether or not the paper ever reached a journal.
+    """
     experiment_name = Path(file_path).stem
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
     branch = f"pipeline/review-{arxiv_id.replace('.', '-')}-v{new_version}-{timestamp}"
 
     from .pr_creator import _run_git, _run_gh
 
+    # Restore whatever was checked out, not a hardcoded "master": CI and local
+    # worktrees can run from a detached HEAD, where `git checkout master` fails
+    # and would turn a SUCCESSFUL pr-create into a reported failure.
+    original_ref = _run_git(["rev-parse", "--abbrev-ref", "HEAD"], repo_root)
+    if original_ref == "HEAD":
+        original_ref = _run_git(["rev-parse", "HEAD"], repo_root)
+
     _run_git(["checkout", "-B", branch], repo_root)
 
     # Commit only the updated state file (no data file changes)
     state_file_rel = str(STATE_PATH.relative_to(repo_root))
-    commit_msg = (
-        f"Flag {experiment_name} for review: arXiv:{arxiv_id} v{new_version} (published)\n\n"
-        f"Published version yielded no extractable data.\n"
-        f"Auto-generated by preprint_checker\n"
-    )
+    if withdrawn:
+        commit_msg = (
+            f"Flag {experiment_name} for removal: arXiv:{arxiv_id} v{new_version} withdrawn\n\n"
+            f"Source paper withdrawn from arXiv by its authors.\n"
+            f"Auto-generated by preprint_checker\n"
+        )
+    else:
+        commit_msg = (
+            f"Flag {experiment_name} for review: arXiv:{arxiv_id} v{new_version} (published)\n\n"
+            f"Published version yielded no extractable data.\n"
+            f"Auto-generated by preprint_checker\n"
+        )
     try:
         _run_git(["add", state_file_rel], repo_root)
         _run_git(["commit", "-m", commit_msg], repo_root)
         _run_git(["push", "-u", "origin", branch], repo_root)
     except Exception:
-        _run_git(["checkout", "master"], repo_root)
+        _run_git(["checkout", original_ref], repo_root)
         raise
 
     old_url = f"https://arxiv.org/abs/{arxiv_id}v{old_version}"
     new_url = f"https://arxiv.org/abs/{arxiv_id}v{new_version}"
+    abs_url = f"https://arxiv.org/abs/{arxiv_id}"
 
-    title = f"[NEEDS REVIEW] {experiment_name}: published version may have removed limit"
-    body = (
-        f"## Possible Limit Removal: {experiment_name}\n\n"
-        f"**Paper:** [{new_paper.title}]({new_url})\n\n"
-        f"**arXiv ID:** [{arxiv_id}]({new_url})\n"
-        f"- Old version: [v{old_version}]({old_url})\n"
-        f"- Published version: [v{new_version}]({new_url})\n\n"
-        f"> ⚠️ The published version of this paper yielded no usable limit data.\n"
-        f"> **Reason:** {reason}\n"
-        f"> This may indicate that the limit has been removed or replaced with a projection\n"
-        f"> in the peer-reviewed version.\n\n"
-        f"## Action Required\n\n"
-        f"Please verify whether the limit in `{file_path}` is still valid by checking\n"
-        f"the published version of the paper.\n\n"
-        f"**No data files have been modified by this PR.**\n\n"
-        f"🤖 Generated by AutoAxionLimits preprint checker"
-    )
+    if withdrawn:
+        title = f"[NEEDS REVIEW] {experiment_name}: source paper WITHDRAWN from arXiv"
+        body = (
+            f"## Withdrawn Source Paper: {experiment_name}\n\n"
+            f"**Paper:** [{new_paper.title}]({abs_url})\n\n"
+            f"**arXiv ID:** [{arxiv_id}]({abs_url})\n"
+            f"- Curated from: [v{old_version}]({old_url})\n"
+            f"- Current version: [v{new_version}]({new_url}) — **withdrawn**\n\n"
+            f"> ⚠️ This paper has been withdrawn from arXiv by its authors, so the\n"
+            f"> limit curated in `{file_path}` is no longer supported by a live source.\n"
+            f"> **Reason recorded:** {reason}\n"
+            + (
+                f">\n> **Author comment on the withdrawn version:** {new_paper.comment}\n"
+                if new_paper.comment else ""
+            )
+            + f"\n## Action Required\n\n"
+            f"Decide whether to **remove** the limit:\n\n"
+            f"- `{file_path}`\n"
+            f"- the corresponding method in `PlotFuncs.py`\n"
+            f"- the notebook call and the `docs/` entry\n\n"
+            f"If the authors post a corrected version, the checker will pick it up\n"
+            f"automatically and re-extract.\n\n"
+            f"**No data files have been modified by this PR.**\n\n"
+            f"🤖 Generated by AutoAxionLimits preprint checker"
+        )
+    else:
+        title = f"[NEEDS REVIEW] {experiment_name}: published version may have removed limit"
+        body = (
+            f"## Possible Limit Removal: {experiment_name}\n\n"
+            f"**Paper:** [{new_paper.title}]({new_url})\n\n"
+            f"**arXiv ID:** [{arxiv_id}]({new_url})\n"
+            f"- Old version: [v{old_version}]({old_url})\n"
+            f"- Published version: [v{new_version}]({new_url})\n\n"
+            f"> ⚠️ The published version of this paper yielded no usable limit data.\n"
+            f"> **Reason:** {reason}\n"
+            f"> This may indicate that the limit has been removed or replaced with a projection\n"
+            f"> in the peer-reviewed version.\n\n"
+            f"## Action Required\n\n"
+            f"Please verify whether the limit in `{file_path}` is still valid by checking\n"
+            f"the published version of the paper.\n\n"
+            f"**No data files have been modified by this PR.**\n\n"
+            f"🤖 Generated by AutoAxionLimits preprint checker"
+        )
 
     try:
         _run_gh(
@@ -778,7 +946,7 @@ def _create_removal_flag_pr(
         )
         logger.info("Created removal flag PR for %s v%d", arxiv_id, new_version)
     finally:
-        _run_git(["checkout", "master"], repo_root)
+        _run_git(["checkout", original_ref], repo_root)
 
 
 def _create_update_pr(
