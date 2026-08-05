@@ -1,5 +1,13 @@
 {
   "schema_version": 1,
-  "last_checked": null,
-  "files": {}
+  "last_checked": "2026-08-05T17:58:18.317288+00:00",
+  "files": {
+    "limit_data/DarkPhoton/QUALIPHIDE_FIR.txt": {
+      "arxiv_id": "2607.19319",
+      "known_version": 2,
+      "last_checked": "2026-08-05T17:58:18.317288+00:00",
+      "published": false,
+      "withdrawn": true
+    }
+  }
 }
