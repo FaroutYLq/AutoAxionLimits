@@ -61,7 +61,6 @@ def line_background(lw,col):
     return [pe.Stroke(linewidth=lw, foreground=col), pe.Normal()]
 
 
-
 def FilledLimit(ax,dat,text_label='',col='ForestGreen',edgecolor='k',zorder=1,linestyle='-',\
                     lw=2,y2=1e0,edgealpha=0.6,text_on=False,text_pos=[0,0],\
                     ha='left',va='top',clip_on=True,fs=15,text_col='k',rotation=0,facealpha=1,path_effects=None,textalpha=1):
@@ -1415,7 +1414,6 @@ class AxionPhoton():
         return
 
 
-
     def THESEUS(ax,text_label=r'{\bf THESEUS}',text_pos=[7e2,0.8e-17],col=[0.03, 0.57, 0.82],edgecolor=[0.03, 0.57, 0.82],text_col=[0.03, 0.57, 0.82],fs=17,zorder=0.00001,text_on=True,lw=1.5,facealpha=0.05):
         # THESEUS 2008.08306
         dat = loadtxt("limit_data/AxionPhoton/Projections/THESEUS.txt")
@@ -1468,7 +1466,6 @@ class AxionPhoton():
         return
 
 
-
     def IrreducibleFreezeIn(ax,text_label=r'{\bf Freeze-in}',text_pos=[1.3e6,7e-14],col='#376631',edgecolor='k',text_col='w',fs=24,zorder=0.009,text_on=True,lw=1.5,facealpha=1,rotation=-55,edgealpha=1):
         dat = loadtxt("limit_data/AxionPhoton/IrreducibleFreezeIn.txt")
         FilledLimit(ax,dat,text_label,text_pos=text_pos,col=col,text_col=text_col,
@@ -1515,8 +1512,6 @@ class AxionPhoton():
             plt.text(100.5744*0.93,2e-11,r'{\bf Ionisation}',fontsize=fs,color='w',rotation=-90,ha='left',va='top',clip_on=True,path_effects=line_background(1.5,'k'))
             plt.text(40*0.93,2e-11,r'{\bf fraction}',fontsize=fs,color='w',rotation=-90,ha='left',va='top',clip_on=True,path_effects=line_background(1.5,'k'))
         return
-
-
 
 
     def GlobularClusters(ax,text_label=r'{\bf Globular clusters}',text_pos=[1e0,1.1e-10],col=[0.0, 0.66, 0.42],text_col='w',fs=25,zorder=0.05,text_on=True,lw=1.5,edgealpha=1):
@@ -2063,7 +2058,6 @@ class AxionPhoton():
 #==============================================================================#
 
 
-
 #==============================================================================#
 class AxionElectron():
     def QCDAxion(ax,text_on=True,C_logwidth=10,KSVZ_on=False,DFSZ_on=True,Hadronic_on=True,fs=20,DFSZ_col='gold',KSVZ_col='#857c20',Hadronic_col='goldenrod',DFSZ_label_mass=5e-9,KSVZ_label_mass=5e-9,Hadronic_label_mass=5e-8):
@@ -2464,7 +2458,6 @@ class AxionElectron():
             AxionElectron.MagnonScan(ax,fs=fs,text_on=text_on)
         return
 #==============================================================================#
-
 
 
 #==============================================================================#
@@ -2920,7 +2913,6 @@ class AxionProton():
         return
 
 
-
     def Haloscopes(ax,projection=True,fs=20):
         AxionProton.NASDUCK(ax)
         AxionProton.ChangE(ax)
@@ -3290,7 +3282,6 @@ class Axion_fa():
 #==============================================================================#
 
 
-
 class AxionTop():
     
     def ATLAS_direct(ax,text_shift=[1,1],col='#1ec9e3',text_col='w',fs=20,zorder=2,text_on=True,lw=1.5,rotation=0,ha='center',edgealpha=0.5,path_effects=line_background(1.5,'k')):
@@ -3441,7 +3432,6 @@ class DarkPhoton():
             ax2 = ax.twiny()
 
 
-
             ax2.set_xscale('log')
             ax2.tick_params(which='major',direction=upper_tickdir,width=2.5,length=13,pad=7)
             ax2.tick_params(which='minor',direction=upper_tickdir,width=1,length=10)
@@ -3458,8 +3448,6 @@ class DarkPhoton():
 
             plt.sca(ax)
         return fig,ax
-
-
 
 
     def Haloscopes(ax,fs=17,projection=True,text_on=True,col='darkred'):
@@ -3626,9 +3614,6 @@ class DarkPhoton():
 
 
         return
-
-
-
 
 
     def DAMIC(ax,col='salmon',fs=21,text_on=True,lw=1.5):
@@ -4279,20 +4264,6 @@ class DarkPhoton():
             plt.text(0.6e-14,0.8e-5,r'{\bf SNIPE}',fontsize=fs,color='w',rotation=-42,rotation_mode='anchor',ha='center',va='center',path_effects=line_background(1.5,'k'),clip_on=True)
         return
 
-    @staticmethod
-    def QUALIPHIDE_FIR(ax, col='crimson', fs=15, text_on=True, lw=1.5):
-        y2 = ax.get_ylim()[1]
-        dat = loadtxt("limit_data/DarkPhoton/QUALIPHIDE_FIR.txt",ndmin=2)
-        plt.fill_between(dat[:,0],dat[:,1],y2=y2,edgecolor=None,facecolor=col,zorder=1)
-        plt.plot(dat[:,0],dat[:,1],color='k',alpha=1,zorder=1,lw=lw)
-        if text_on:
-            plt.text(dat[0,0],dat[0,1]*0.5,r'{\bf QUALIPHIDE}',fontsize=fs,color=col,rotation=0,
-                rotation_mode='anchor',ha='center',va='center',clip_on=True)
-        return
-
-
-
-
 
 #==============================================================================#
 def MySaveFig(fig,pltname,pngsave=True):
@@ -4393,7 +4364,6 @@ def MyDoublePlot_Vertical(xlab1='',ylab1='',xlab2='',ylab2='',\
     return fig,ax1,ax2
 
 
-
 def MyTriplePlot(xlab1='',ylab1='',xlab2='',ylab2='',xlab3='',ylab3='',\
                  wspace=0.25,lw=2.5,lfs=45,tfs=25,size_x=20,size_y=7,Grid=False):
     plt.rcParams['axes.linewidth'] = lw
@@ -4450,8 +4420,6 @@ def reverse_colourmap(cmap, name = 'my_cmap_r'):
     my_cmap_r = mpl.colors.LinearSegmentedColormap(name, LinearL)
     return my_cmap_r
 #==============================================================================#
-
-
 
 
 from matplotlib import patches
