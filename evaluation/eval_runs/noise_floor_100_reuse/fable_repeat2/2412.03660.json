@@ -1,0 +1,162 @@
+{
+ "arxiv_id": "2412.03660",
+ "paper_title": "NuSTAR bounds on radiatively decaying particles from M82",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   10000.0,
+   4.8e-12
+  ],
+  [
+   12000.0,
+   4e-12
+  ],
+  [
+   14500.0,
+   3.4e-12
+  ],
+  [
+   17500.0,
+   2.85e-12
+  ],
+  [
+   21000.0,
+   2.4e-12
+  ],
+  [
+   25500.0,
+   2e-12
+  ],
+  [
+   31000.0,
+   1.6e-12
+  ],
+  [
+   37000.0,
+   1.35e-12
+  ],
+  [
+   45000.0,
+   1.1e-12
+  ],
+  [
+   54000.0,
+   9.3e-13
+  ],
+  [
+   65000.0,
+   7.8e-13
+  ],
+  [
+   78000.0,
+   7e-13
+  ],
+  [
+   90000.0,
+   6.6e-13
+  ],
+  [
+   100000.0,
+   6.4e-13
+  ],
+  [
+   115000.0,
+   6.2e-13
+  ],
+  [
+   128000.0,
+   6.1e-13
+  ],
+  [
+   148000.0,
+   6.2e-13
+  ],
+  [
+   166000.0,
+   6.6e-13
+  ],
+  [
+   193000.0,
+   7.4e-13
+  ],
+  [
+   224000.0,
+   8.4e-13
+  ],
+  [
+   260000.0,
+   1e-12
+  ],
+  [
+   302000.0,
+   1.2e-12
+  ],
+  [
+   337000.0,
+   1.55e-12
+  ],
+  [
+   377000.0,
+   2.2e-12
+  ],
+  [
+   407000.0,
+   3.2e-12
+  ],
+  [
+   435000.0,
+   4.4e-12
+  ],
+  [
+   456000.0,
+   6e-12
+  ],
+  [
+   485000.0,
+   8.5e-12
+  ],
+  [
+   509000.0,
+   1.2e-11
+  ],
+  [
+   540000.0,
+   1.7e-11
+  ],
+  [
+   570000.0,
+   2.4e-11
+  ],
+  [
+   605000.0,
+   3.4e-11
+  ],
+  [
+   640000.0,
+   4.8e-11
+  ],
+  [
+   675000.0,
+   6.5e-11
+  ],
+  [
+   700000.0,
+   8e-11
+  ],
+  [
+   740000.0,
+   1e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "NuSTAR M82",
+ "coupling_convention": "g_agamma in GeV^-1, exactly as plotted on the y-axis of Fig. 2",
+ "notes": "New observed astrophysical exclusion limit on axion-photon coupling from NuSTAR X-ray observations of the starburst galaxy M82, constraining heavy axions (30-500 keV) decaying a->gamma gamma. Not a dark matter search (no DM density assumption). The only explicit numerical limit value in the text is g_agamma = 0.75e-12 GeV^-1 at m_a = 316 keV (the 'central benchmark coupling' in Fig. 3 stated to correspond to the constraint obtained). Other data points are approximate reconstructions of the Fig. 2 exclusion contour based on the abstract's stated range (g ~ 1e-10 to 1e-12 GeV^-1 over 30-500 keV) and the statement that bounds are >1 order of magnitude stronger than prior astrophysical bounds in 30-300 keV; treat those points as approximate. Limit derived via TS=2.7 threshold (one-sided, 95% CL). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 36)) | Vision: Fig. 2 shows the novel NuSTAR M82 exclusion (thick red curve, region above excluded). X-axis: axion mass 10-800 keV (converted to eV); y-axis: axion-photon coupling g_agamma in GeV^-1, range ~3e-13 to 1e-10. Boundary starts at ~5e-12 GeV^-1 at 10 keV, reaches a broad minimum ~6e-13 GeV^-1 near 100-150 keV, then rises steeply above ~350 keV, hitting 1e-10 GeV^-1 near ~740 keV. Bound derived from axion production in M82 stars and decay a->2gamma (TS=2.7 threshold, ~90-95% CL; paper uses half-chi-squared with TS=2.7, i.e. 95% CL). Not a dark-matter search, so no DM density assumption. Gray regions are previous bounds (globular clusters, SN1987A, diffuse-gamma, solar basin, freeze-in, SD). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.08 snapped to identity)",
+ "num_points": 36,
+ "elapsed_s": 126.64329314231873
+}

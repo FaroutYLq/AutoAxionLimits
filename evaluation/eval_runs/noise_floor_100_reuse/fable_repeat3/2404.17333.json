@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2404.17333",
+ "paper_title": "Bounds on heavy axions with an X-ray free electron laser",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.001,
+   0.000391
+  ],
+  [
+   44.0,
+   0.000391
+  ],
+  [
+   340.0,
+   0.00031
+  ],
+  [
+   460.0,
+   0.000387
+  ],
+  [
+   1100.0,
+   0.000369
+  ],
+  [
+   2400.0,
+   0.000276
+  ]
+ ],
+ "data_source": "table",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.9,
+ "suggested_experiment_name": "EuXFEL_LSW",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Light-shining-through-wall experiment at European XFEL using Laue-case Primakoff conversion in Ge crystals. Table I gives 90% CL limits at 5 detuning angles. The on-Bragg (Delta-theta=0) run gives a broadband bound g < 3.91e-4 GeV^-1 for m_a below ~44 eV (paper states sensitivity down to ~1e-3 eV), encoded as a two-point flat segment. The off-Bragg runs are narrow resonances (width ~1e-3 eV) at m_a = 340, 460, 1100, 2400 eV, encoded as single points each. Not a dark matter halo search, so no local DM density assumed. | selector: table (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+ "num_points": 6,
+ "elapsed_s": 37.61957406997681
+}

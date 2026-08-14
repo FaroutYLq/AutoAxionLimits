@@ -1,0 +1,158 @@
+{
+ "arxiv_id": "2303.09865",
+ "paper_title": "Nuclear decay anomalies as a signature of axion dark matter",
+ "coupling_type": "AxionMass",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.7e-23,
+   1.06e-13
+  ],
+  [
+   2.04e-23,
+   1.27e-13
+  ],
+  [
+   2.45e-23,
+   1.53e-13
+  ],
+  [
+   2.95e-23,
+   1.85e-13
+  ],
+  [
+   3.55e-23,
+   2.22e-13
+  ],
+  [
+   4.27e-23,
+   2.67e-13
+  ],
+  [
+   5.13e-23,
+   3.21e-13
+  ],
+  [
+   6.17e-23,
+   3.87e-13
+  ],
+  [
+   7.41e-23,
+   4.65e-13
+  ],
+  [
+   8.91e-23,
+   5.6e-13
+  ],
+  [
+   1.07e-22,
+   6.74e-13
+  ],
+  [
+   1.29e-22,
+   8.12e-13
+  ],
+  [
+   1.55e-22,
+   9.77e-13
+  ],
+  [
+   1.86e-22,
+   1.18e-12
+  ],
+  [
+   2.24e-22,
+   1.42e-12
+  ],
+  [
+   2.69e-22,
+   1.7e-12
+  ],
+  [
+   3.24e-22,
+   2.05e-12
+  ],
+  [
+   3.89e-22,
+   2.47e-12
+  ],
+  [
+   4.68e-22,
+   2.97e-12
+  ],
+  [
+   5.62e-22,
+   3.58e-12
+  ],
+  [
+   6.76e-22,
+   4.31e-12
+  ],
+  [
+   8.13e-22,
+   5.19e-12
+  ],
+  [
+   9.77e-22,
+   6.25e-12
+  ],
+  [
+   1.17e-21,
+   7.51e-12
+  ],
+  [
+   1.41e-21,
+   9.05e-12
+  ],
+  [
+   1.7e-21,
+   1.09e-11
+  ],
+  [
+   2.04e-21,
+   1.31e-11
+  ],
+  [
+   2.45e-21,
+   1.58e-11
+  ],
+  [
+   2.95e-21,
+   1.9e-11
+  ],
+  [
+   3.55e-21,
+   2.29e-11
+  ],
+  [
+   4.27e-21,
+   2.76e-11
+  ],
+  [
+   5.13e-21,
+   3.32e-11
+  ],
+  [
+   6.17e-21,
+   4e-11
+  ],
+  [
+   7.41e-21,
+   4.81e-11
+  ],
+  [
+   8.7e-21,
+   5.56e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "JRC Tritium decay (3H nuclear decay anomaly axion search)",
+ "coupling_convention": "1/f_a in GeV^-1, exactly as plotted on the y-axis of Fig. 3 (x-axis is m_a in eV). NOT converted to the (f_a, m_a) orientation suggested in the hint.",
+ "notes": "Paper analyses 12 years of JRC tritium (3H) beta-decay data to search for periodic variations induced by an oscillating QCD theta-angle from axion DM misalignment. Main result is an exclusion directly on the f_a-m_a plane (Fig. 3 plots 1/f_a vs m_a), so AxionMass is the correct type. Only the two endpoint values are stated explicitly in text: f_a < 9.4e12 GeV at m_a = 1.7e-23 eV and f_a < 1.8e10 GeV at m_a = 8.7e-21 eV; the limit scales approximately as f_a \u221d 1/m_a between them (signal amplitude \u221d 1/(m_a^2 f_a^2)). Assumes rho_DM = 0.45 GeV/cm^3. Projections for future fiducial experiments (f_a < 1.5e16 GeV over 5.4e-25 to 1.4e-17 eV; f_a < 4.5e11 GeV over 2.4e-21 to 6.3e-14 eV) are also discussed but the primary result is the measured JRC limit. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 35)) | Vision: The paper's new result is the dark-red 'Tritium decay' wedge in Fig. 3, plotted on the m_a [eV] vs 1/f_a [GeV^-1] plane (x: 1e-25 to 1e-12 eV; y: 1e-22 to 1e-2 GeV^-1). The caption gives the exclusion explicitly: f_a below 9.4e12 GeV at m_a = 1.7e-23 eV, down to f_a below 1.8e10 GeV at m_a = 8.7e-21 eV (95% CL). These endpoints correspond to 1/f_a = 1.06e-13 and 5.56e-11 GeV^-1; the boundary between them is very close to a straight slope-~1 line on the log-log plot (consistent with the I(theta) ~ 1/(m_a f_a)^2 signal scaling), with only small periodogram wiggles too fine to resolve. Points were generated along this line anchored to the two quoted endpoints. Lower boundary = smallest excluded 1/f_a (largest excluded f_a); region above (higher 1/f_a, lower f_a) is excluded. Other shaded regions (nEDM, SN1987A, BBN, pulsars, black hole spins, etc.) are prior constraints, not the paper's result. DM density assumed rho_DM = 0.45 GeV/cm^3 per Eq. (12). Coupling type labeled AxionMass since the result is on the f_a-m_a plane, but per the plotted-values contract the emitted couplings are 1/f_a in GeV^-1 as shown on the axis. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.97 snapped to identity)",
+ "num_points": 35,
+ "elapsed_s": 140.05987310409546
+}

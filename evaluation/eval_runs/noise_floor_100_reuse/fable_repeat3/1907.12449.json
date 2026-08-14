@@ -1,0 +1,182 @@
+{
+ "arxiv_id": "1907.12449",
+ "paper_title": "First results from the WISPDMX radio frequency cavity searches for hidden photon dark matter",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4e-10,
+   6.3e-05
+  ],
+  [
+   5e-10,
+   1e-05
+  ],
+  [
+   7.1e-10,
+   2.5e-06
+  ],
+  [
+   1e-09,
+   1.26e-06
+  ],
+  [
+   1.6e-09,
+   7.9e-07
+  ],
+  [
+   2.5e-09,
+   5.6e-07
+  ],
+  [
+   4e-09,
+   4e-07
+  ],
+  [
+   6.3e-09,
+   2.8e-07
+  ],
+  [
+   1e-08,
+   2e-07
+  ],
+  [
+   1.6e-08,
+   1.4e-07
+  ],
+  [
+   2e-08,
+   7.9e-08
+  ],
+  [
+   2.5e-08,
+   3.2e-08
+  ],
+  [
+   3.2e-08,
+   1e-08
+  ],
+  [
+   4e-08,
+   3.2e-09
+  ],
+  [
+   5e-08,
+   1.26e-09
+  ],
+  [
+   6.3e-08,
+   6.3e-10
+  ],
+  [
+   7.9e-08,
+   3.2e-10
+  ],
+  [
+   1e-07,
+   1.6e-10
+  ],
+  [
+   1.26e-07,
+   7.9e-11
+  ],
+  [
+   1.6e-07,
+   4e-11
+  ],
+  [
+   2e-07,
+   2e-11
+  ],
+  [
+   2.5e-07,
+   1.26e-11
+  ],
+  [
+   3.2e-07,
+   7.9e-12
+  ],
+  [
+   4e-07,
+   5e-12
+  ],
+  [
+   5e-07,
+   3.2e-12
+  ],
+  [
+   6.3e-07,
+   2e-12
+  ],
+  [
+   7.9e-07,
+   1.4e-12
+  ],
+  [
+   8.4e-07,
+   1e-12
+  ],
+  [
+   8.6e-07,
+   7e-14
+  ],
+  [
+   8.8e-07,
+   1e-12
+  ],
+  [
+   1e-06,
+   1e-12
+  ],
+  [
+   1.12e-06,
+   7.9e-13
+  ],
+  [
+   1.28e-06,
+   6.3e-13
+  ],
+  [
+   1.32e-06,
+   5e-14
+  ],
+  [
+   1.36e-06,
+   6.3e-13
+  ],
+  [
+   1.5e-06,
+   5.6e-13
+  ],
+  [
+   1.7e-06,
+   5e-13
+  ],
+  [
+   1.85e-06,
+   5e-13
+  ],
+  [
+   1.89e-06,
+   6.3e-14
+  ],
+  [
+   1.95e-06,
+   5e-13
+  ],
+  [
+   2.07e-06,
+   5e-13
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "WISPDMX",
+ "coupling_convention": "kinetic mixing chi, dimensionless (plot shows log10(chi); values emitted as linear chi)",
+ "notes": "WISPDMX first science run: haloscope search for hidden photon dark matter using tunable 208 MHz HERA RF cavity (four modes TM010, TE111-1, TE111-2, TM020). Paper reports 95% CL exclusion limits at chi ~ 1e-13 in resonant tuning ranges (0.8602-0.8646 ueV, 1.3088-1.3358 ueV, 1.8820-1.8977 ueV) and chi ~ 1e-12 for the broadband range 0.2-2.07 ueV, steadily weakening down to 0.4 neV. Exact limit curves are shown in Figs. 18-19 but no numerical table is provided; data points here are approximate reconstructions from the text-quoted levels. The resonant dips at 1e-13 and the low-mass rise (value at 0.4 neV is an order-of-magnitude estimate) are schematic. Assumes rho_DM = 0.3 GeV/cm^3, isotropic HP flux direction, vesc = 530 km/s. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.65, 41)) | Vision: Boundary traced from Fig. 19 (combined resonant+broadband 95% CL limits, blue region; excluded region above/inside). X-axis is log10(m_gamma' in eV) from -10 to 0; y-axis log10(chi) from -16 to -4. Broadband envelope is smooth/wedge-shaped, deepening from chi~1e-7 at ~2e-8 eV to ~5e-13 near 2 ueV; three deep resonant spikes (208, 320, 456 MHz modes; Fig. 18 floors chi~5-7e-14) at 8.6e-7, 1.32e-6, 1.89e-6 eV are included. Low-mass tail (0.4-10 neV) has weak, spiky limits chi~1e-6 to 1e-4; envelope there is approximate. Text confirms mass coverage 0.4 neV to 2.07 ueV, rho_DM=0.3 GeV/cm^3. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.50 snapped to identity)",
+ "num_points": 41,
+ "elapsed_s": 196.60848927497864
+}

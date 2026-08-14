@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2012.10764",
+ "paper_title": "First Results from Axion Haloscope at CAPP around 10.7 $\u03bc$eV",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.016e-05,
+   3.38e-14
+  ],
+  [
+   1.0712e-05,
+   3.57e-14
+  ],
+  [
+   1.07126e-05,
+   3.96e-15
+  ],
+  [
+   1.07186e-05,
+   3.97e-15
+  ],
+  [
+   1.0719e-05,
+   3.57e-14
+  ],
+  [
+   1.137e-05,
+   3.79e-14
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "CAPP_PACE",
+ "coupling_convention": "g_agamma in GeV^-1, computed from paper's stated exclusion in units of KSVZ coupling (KSVZ: g_agamma = 0.97*alpha_em/(pi*f_a), f_a*m_a = (78 MeV)^2)",
+ "notes": "First results from CAPP-PACE haloscope. Paper excludes 10.7126-10.7186 ueV at ~1x KSVZ coupling and 10.16-11.37 ueV at ~9x KSVZ (stated as 8-10x KSVZ) at 90% CL, assuming rho_a = 0.45 GeV/cm^3 and virialized axion line shape. No numerical table given; coupling values computed from the stated KSVZ multiples using g_KSVZ(m_a) ~ 3.70e-16 GeV^-1 * (m_a/ueV). The wide-range limit is represented as a band at 9x KSVZ with a narrow dip to 1x KSVZ in the KSVZ-run window. Actual exclusion curve (Fig. 4) has structure and gaps (mode crossings, bluetooth interference) not captured here. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+ "num_points": 6,
+ "elapsed_s": 42.909432888031006
+}

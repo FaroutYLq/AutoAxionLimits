@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2405.20444",
+ "paper_title": "New Limit on Dark Photon Kinetic Mixing in the 0.2-1.2 $\\boldsymbol\u03bc$eV Mass Range From the Dark E-Field Radio Experiment",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.1e-07,
+   6e-13
+  ],
+  [
+   1.24e-06,
+   6e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "DarkEField2024",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Paper reports a new measured 95% C.L. exclusion on dark photon kinetic mixing epsilon over 0.21-1.24 ueV (50-300 MHz) from the Dark E-Field Radio experiment at UC Davis. The actual limit curve (Fig. 11) is highly jagged, tracking shielded-room resonant modes, ranging between 6e-15 (best) and 6e-13 (worst). No numerical table is provided; the two emitted points encode the CONSERVATIVE envelope (weakest limit, 6e-13) across the full mass range. The true limit dips as low as 6e-15 at resonances. Local DM density fixed at rho_DM = 0.45 GeV/cm^3 (450 TeV/m^3). Future 0.3-25 GHz runs are projections only and not included. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.55, 2))",
+ "num_points": 2,
+ "elapsed_s": 114.10193705558777
+}

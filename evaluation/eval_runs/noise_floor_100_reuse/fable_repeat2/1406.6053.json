@@ -1,0 +1,154 @@
+{
+ "arxiv_id": "1406.6053",
+ "paper_title": "Revisiting the bound on axion-photon coupling from Globular Clusters",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.2317,
+   3.3e-12
+  ],
+  [
+   0.2318,
+   5.5e-12
+  ],
+  [
+   0.232,
+   7.5e-12
+  ],
+  [
+   0.2322,
+   8.9e-12
+  ],
+  [
+   0.2325,
+   1.15e-11
+  ],
+  [
+   0.233,
+   1.45e-11
+  ],
+  [
+   0.234,
+   1.9e-11
+  ],
+  [
+   0.235,
+   2.27e-11
+  ],
+  [
+   0.236,
+   2.58e-11
+  ],
+  [
+   0.237,
+   2.86e-11
+  ],
+  [
+   0.238,
+   3.12e-11
+  ],
+  [
+   0.239,
+   3.36e-11
+  ],
+  [
+   0.24,
+   3.58e-11
+  ],
+  [
+   0.242,
+   3.98e-11
+  ],
+  [
+   0.244,
+   4.35e-11
+  ],
+  [
+   0.246,
+   4.68e-11
+  ],
+  [
+   0.248,
+   5e-11
+  ],
+  [
+   0.25,
+   5.3e-11
+  ],
+  [
+   0.252,
+   5.58e-11
+  ],
+  [
+   0.254,
+   5.84e-11
+  ],
+  [
+   0.256,
+   6.1e-11
+  ],
+  [
+   0.258,
+   6.35e-11
+  ],
+  [
+   0.26,
+   6.58e-11
+  ],
+  [
+   0.262,
+   6.81e-11
+  ],
+  [
+   0.264,
+   7.03e-11
+  ],
+  [
+   0.266,
+   7.24e-11
+  ],
+  [
+   0.268,
+   7.45e-11
+  ],
+  [
+   0.269,
+   7.55e-11
+  ],
+  [
+   0.27,
+   7.65e-11
+  ],
+  [
+   0.272,
+   7.85e-11
+  ],
+  [
+   0.274,
+   8.04e-11
+  ],
+  [
+   0.276,
+   8.23e-11
+  ],
+  [
+   0.278,
+   8.41e-11
+  ],
+  [
+   0.28,
+   8.59e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "Globular Clusters R parameter (HB, Ayala et al. 2014)",
+ "coupling_convention": "g_agamma in GeV^-1 (plot y-axis is g_agamma x 10^-10 GeV^-1; axis multiplier applied)",
+ "notes": "Ayala et al. (2014) derive g_agamma < 0.66e-10 GeV^-1 at 95% CL from the R parameter (NHB/NRGB) of 39 Galactic Globular Clusters, using the Aver et al. He abundance Y=0.2535. This is a mass-independent astrophysical bound valid for axions/ALPs with mass below a few keV (Primakoff production in HB cores); encoded as a flat line from 1e-10 eV to 1e4 eV (~few keV upper validity). Alternative bounds under different Y assumptions: 0.50e-10 (SBBN) and 0.76e-10 (solar Y) GeV^-1 at 95% CL; the headline result 0.66e-10 is used. Not a dark-matter haloscope, so no local DM density assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.65, 34)) | Vision: IMPORTANT: This paper's Fig. 1 is NOT a mass-vs-coupling exclusion plot. Per the mandated axis calibration, the x-axis is the helium mass fraction Y (dimensionless, 0.23-0.28, linear) and the y-axis is g_agamma x 10^-10 GeV^-1 (0 to 3.3, linear with axis break above 1). The traced boundary is the leftmost long-dashed curve, i.e. the 95% CL upper bound on g_agamma as a function of assumed Y; couplings above it are excluded. Points were generated from the paper's Eq. (1) with R_th = 1.33 (95% CL): g10 = sqrt((6.26Y - 1.45)/0.41), which reproduces the plotted curve and the Table I anchor points (Y=0.260 -> g10=0.66; Y=0.269 -> g10=0.76). The headline mass-independent bound is g_agamma < 0.66e-10 GeV^-1 (95% CL) at Y=0.260, valid for axion masses up to roughly the keV scale (typical HB-star applicability); the x values emitted here are Y, NOT masses in eV, following the supplied calibration instruction. Horizontal reference lines read from plot: HB previous analysis at 1.0e-10, CAST ALPs at 0.88e-10, Cepheids at 0.8e-10 GeV^-1. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.25 snapped to identity)",
+ "num_points": 34,
+ "elapsed_s": 128.26511597633362
+}

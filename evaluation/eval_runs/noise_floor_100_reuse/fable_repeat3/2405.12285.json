@@ -1,0 +1,182 @@
+{
+ "arxiv_id": "2405.12285",
+ "paper_title": "In Situ Measurements of Dark Photon Dark Matter Using Parker Solar Probe: Going beyond the Radio Window",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.5e-10,
+   8e-12
+  ],
+  [
+   2.6e-10,
+   1.5e-12
+  ],
+  [
+   2.7e-10,
+   5e-13
+  ],
+  [
+   2.9e-10,
+   2e-13
+  ],
+  [
+   3.2e-10,
+   1e-13
+  ],
+  [
+   3.6e-10,
+   5e-14
+  ],
+  [
+   4e-10,
+   3e-14
+  ],
+  [
+   4.5e-10,
+   2.2e-14
+  ],
+  [
+   5e-10,
+   1.7e-14
+  ],
+  [
+   5.5e-10,
+   1.4e-14
+  ],
+  [
+   6e-10,
+   1.2e-14
+  ],
+  [
+   7e-10,
+   1.2e-14
+  ],
+  [
+   8e-10,
+   1.4e-14
+  ],
+  [
+   9e-10,
+   1.6e-14
+  ],
+  [
+   1e-09,
+   1.8e-14
+  ],
+  [
+   1.2e-09,
+   2e-14
+  ],
+  [
+   1.4e-09,
+   2.3e-14
+  ],
+  [
+   1.7e-09,
+   2e-14
+  ],
+  [
+   2e-09,
+   2.5e-14
+  ],
+  [
+   2.4e-09,
+   3e-14
+  ],
+  [
+   2.8e-09,
+   3.5e-14
+  ],
+  [
+   3.3e-09,
+   3e-14
+  ],
+  [
+   4e-09,
+   3.5e-14
+  ],
+  [
+   4.7e-09,
+   4.5e-14
+  ],
+  [
+   5.5e-09,
+   5e-14
+  ],
+  [
+   6.5e-09,
+   5.5e-14
+  ],
+  [
+   8e-09,
+   6e-14
+  ],
+  [
+   1e-08,
+   5.5e-14
+  ],
+  [
+   1.2e-08,
+   7e-14
+  ],
+  [
+   1.5e-08,
+   8e-14
+  ],
+  [
+   1.8e-08,
+   9e-14
+  ],
+  [
+   2.2e-08,
+   1.1e-13
+  ],
+  [
+   2.7e-08,
+   1.3e-13
+  ],
+  [
+   3.3e-08,
+   1.6e-13
+  ],
+  [
+   4e-08,
+   2e-13
+  ],
+  [
+   5e-08,
+   2.6e-13
+  ],
+  [
+   6e-08,
+   3.5e-13
+  ],
+  [
+   7e-08,
+   5e-13
+  ],
+  [
+   7.8e-08,
+   7e-13
+  ],
+  [
+   8.2e-08,
+   2e-12
+  ],
+  [
+   8.5e-08,
+   8e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "Parker Solar Probe (PSP) in-situ DPDM search",
+ "coupling_convention": "epsilon * (rho_A'/rho_DM)^0.5 \u2014 kinetic mixing parameter scaled by square root of local DPDM density fraction, as plotted on the y-axis of Fig. 2",
+ "notes": "Paper presents new 95% C.L. observed limits on dark photon kinetic mixing epsilon using in-situ Parker Solar Probe (and STEREO) radio spectrometer data, via resonant DPDM-to-photon conversion in solar wind plasma. Valid mass range m_A' ~ 3e-10 to 8e-8 eV (70 kHz - 20 MHz), with epsilon <~ 1e-14 - 1e-13. No numerical table is provided; the emitted data_points are an approximate reconstruction of the Fig. 2 envelope based on the stated range (endpoints ~1e-13, best sensitivity ~1e-14 at intermediate masses), hence the moderate extraction confidence. Limits quoted as epsilon*(rho_A'/rho_DM)^0.5, i.e. assuming DPDM constitutes the full local DM density (standard ~0.3 GeV/cm^3, not explicitly restated in excerpt). STEREO and CMB limits shown are weaker/pre-existing and not extracted. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 41)) | Vision: Main exclusion plot is Fig. 2 (left panel of second page image): 95% C.L. upper limits on kinetic mixing epsilon from PSP FIELDS/RFS data (Oct 2018 - Jul 2022). Boundary traced is the lower envelope of the blue PSP region. The boundary is noisy/jagged; traced points represent the mean lower envelope. Sharp left cutoff near m ~ 2.5-3e-10 eV (local plasma frequency) and sharp right cutoff near 8e-8 eV (20 MHz), consistent with text stating constraints span 3e-10 to 8e-8 eV with epsilon reaching down to ~1e-14 - 1e-13. STEREO (orange) and CMB (gray) regions also shown but PSP is the paper's new result. Y-axis includes (rho_A'/rho_DM)^0.5 scaling; for rho_A' = rho_DM the plotted value equals epsilon directly. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.57 snapped to identity)",
+ "num_points": 41,
+ "elapsed_s": 103.1122510433197
+}

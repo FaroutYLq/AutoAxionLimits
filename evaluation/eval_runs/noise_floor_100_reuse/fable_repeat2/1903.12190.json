@@ -1,0 +1,58 @@
+{
+ "arxiv_id": "1903.12190",
+ "paper_title": "Gas-rich dwarf galaxies as a new probe of dark matter interactions with ordinary matter",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-23,
+   0.01
+  ],
+  [
+   1e-21,
+   0.0001
+  ],
+  [
+   1e-19,
+   1e-06
+  ],
+  [
+   1e-17,
+   1e-08
+  ],
+  [
+   1e-15,
+   1e-10
+  ],
+  [
+   1e-13,
+   1e-12
+  ],
+  [
+   3e-13,
+   1e-13
+  ],
+  [
+   4e-12,
+   1e-13
+  ],
+  [
+   1e-11,
+   3e-13
+  ],
+  [
+   1e-10,
+   3e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.4,
+ "suggested_experiment_name": "LeoT_DMHeating",
+ "coupling_convention": "dimensionless kinetic mixing (paper's g, equivalent to epsilon/chi)",
+ "notes": "Wadekar & Farrar (arXiv:1903.12190): new observed limits on ultra-light hidden-photon DM kinetic mixing from requiring DM-induced plasma heating in the Leo T dwarf galaxy not exceed its radiative cooling rate (~3.8e-30 erg/cm^3/s). Coupling type (DarkPhoton, kinetic mixing g) is unambiguous, and the stated validity range is 1e-23 <= m_DM <= 1e-10 eV. However, the paper gives NO explicit numerical coupling values in the text; the exclusion curve is only in Fig. 2 (axis labels unreadable in the provided content; data files are on the authors' GitHub). The data_points above are an APPROXIMATE reconstruction using the paper's heating formalism (gamma_h ~ nu*g^2*m^2/2wp^2 for m<<wp, ~nu*g^2*wp^2/2m^2 for m>>wp, plasma frequency wp~few e-12 eV for Leo T's n_e), i.e., a V-shaped curve with minimum eps~1e-13 near m~1e-12 eV, scaling as 1/m to lower masses and ~m to higher masses. These values may be off by 1-2 orders of magnitude in normalization; treat as unreliable and prefer the official digitized data if available. Not a haloscope, so no local DM density set (they use Leo T's own halo model, rho~2 GeV/cm^3 central). The paper also constrains millicharged DM (eps vs m) and DM-nucleon/electron cross sections, which are not encodable in the given coupling enum; the HPDM result is the headline dark-photon limit. | [VISION GATE C] extracted mass window is 16.5 dex outside the abstract-stated range [1e-23, 1e-10] eV \u2014 wrong figure/panel/regime traced | selector: text (sole candidate)",
+ "num_points": 10,
+ "elapsed_s": 246.34495401382446
+}

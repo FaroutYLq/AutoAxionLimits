@@ -1,0 +1,146 @@
+{
+ "arxiv_id": "2208.13794",
+ "paper_title": "Seeking dark matter with $\u03b3$-ray attenuation",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.631,
+   1.58e-10
+  ],
+  [
+   0.794,
+   1.1200000000000001e-10
+  ],
+  [
+   1.0,
+   8.300000000000001e-11
+  ],
+  [
+   1.259,
+   6e-11
+  ],
+  [
+   1.585,
+   4.4e-11
+  ],
+  [
+   1.995,
+   3.1e-11
+  ],
+  [
+   2.512,
+   2.2e-11
+  ],
+  [
+   3.162,
+   1.55e-11
+  ],
+  [
+   3.548,
+   1.29e-11
+  ],
+  [
+   3.981,
+   1.0700000000000001e-11
+  ],
+  [
+   4.266,
+   8.900000000000001e-12
+  ],
+  [
+   4.571,
+   7.9e-12
+  ],
+  [
+   5.012,
+   7.4e-12
+  ],
+  [
+   5.37,
+   6.8e-12
+  ],
+  [
+   5.754,
+   6e-12
+  ],
+  [
+   6.31,
+   5.3000000000000004e-12
+  ],
+  [
+   7.079,
+   4.400000000000001e-12
+  ],
+  [
+   7.943,
+   3.6e-12
+  ],
+  [
+   8.913,
+   3e-12
+  ],
+  [
+   10.0,
+   2.5000000000000003e-12
+  ],
+  [
+   11.22,
+   2.1e-12
+  ],
+  [
+   12.59,
+   1.66e-12
+  ],
+  [
+   14.13,
+   1.32e-12
+  ],
+  [
+   15.85,
+   1e-12
+  ],
+  [
+   17.78,
+   7.900000000000001e-13
+  ],
+  [
+   19.95,
+   6.000000000000001e-13
+  ],
+  [
+   22.39,
+   4.2000000000000003e-13
+  ],
+  [
+   25.12,
+   2.8e-13
+  ],
+  [
+   28.18,
+   1.9e-13
+  ],
+  [
+   31.62,
+   1.3200000000000002e-13
+  ],
+  [
+   35.48,
+   8.900000000000001e-14
+  ],
+  [
+   39.81,
+   6.300000000000001e-14
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "Gamma-ray attenuation (EBL optical depth, Fermi-LAT/IACT blazars)",
+ "coupling_convention": "g_agamma in GeV^-1 (plot shows log10(g_agamma/GeV^-1); values converted from log10 readings)",
+ "notes": "Paper sets strongest bounds on ALP-photon coupling g_agamma over the 8-25 eV mass range using gamma-ray optical depth measurements from ~800 blazars (Fermi-LAT + Cherenkov telescopes). No numerical table of the exclusion curve is provided; results are shown in Fig. 3 (contours in the m_a vs g_agamma / Gamma_a planes). The only explicit numbers in text are the best-fit values m_a c^2 = 9.1 eV, Gamma_a = 2.5e-24 s^-1 (g_agamma = 2.1e-11 GeV^-1), with a 2.1-sigma preference for the ALP signal over null; the paper interprets the result as an upper bound. Data points above are approximate reconstructions of the upper-limit curve assuming a roughly mass-independent decay-rate limit (~1e-23 s^-1) scaled from the stated best fit via g ~ sqrt(Gamma)/m^1.5, consistent with the stated ~order-of-magnitude improvement over globular cluster bounds (~6.6e-11 GeV^-1) in this range. These values should be verified against digitized Fig. 3 contours. Bound assumes ALPs constitute all of the cosmological dark matter (Omega_a = Omega_DM); no local DM density is relevant (extragalactic decay signal, not a haloscope). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 32)) | Vision: Traced the upper edge of the outermost dark-blue 'This work' constraint contour in Fig. 3 (lower panel, g_agamma vs m_a). Boundary follows constant-decay-rate slope (log g ~ -1.5 log m) from (0.63 eV, 1.6e-9) to ~(20 eV, 6e-12), then steepens along the dashed segment (masses affected by neutral H absorption) to (40 eV, 6e-13). Paper's best fit: m_a c^2 = 9.1 eV, g_agamma = 2.1e-11 GeV^-1, lying just below the traced 99% CL boundary. ALPs assumed to constitute the dark matter (results rescalable to smaller abundances). Contours shown are 68/95/99% CL; traced line ~99% CL. Reading precision limited by small panel size (~0.1-0.2 dex uncertainty in coupling). | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.07)",
+ "num_points": 32,
+ "elapsed_s": 296.6085641384125
+}

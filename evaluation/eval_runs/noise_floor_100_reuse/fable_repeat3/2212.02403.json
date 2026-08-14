@@ -1,0 +1,154 @@
+{
+ "arxiv_id": "2212.02403",
+ "paper_title": "Search for ultralight axion dark matter in a side-band analysis of a 199Hg free-spin precession signal",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   9.9e-17,
+   3e-06
+  ],
+  [
+   1.24e-16,
+   3.5e-06
+  ],
+  [
+   1.65e-16,
+   4.5e-06
+  ],
+  [
+   2.07e-16,
+   5.5e-06
+  ],
+  [
+   2.9e-16,
+   7e-06
+  ],
+  [
+   4.14e-16,
+   9e-06
+  ],
+  [
+   6.2e-16,
+   1.3e-05
+  ],
+  [
+   8.27e-16,
+   1.8e-05
+  ],
+  [
+   1.24e-15,
+   2.6e-05
+  ],
+  [
+   1.65e-15,
+   3.4e-05
+  ],
+  [
+   2.07e-15,
+   4.2e-05
+  ],
+  [
+   2.9e-15,
+   5.8e-05
+  ],
+  [
+   4.14e-15,
+   8e-05
+  ],
+  [
+   5.38e-15,
+   0.0001
+  ],
+  [
+   6.62e-15,
+   0.00013
+  ],
+  [
+   8.27e-15,
+   0.00017
+  ],
+  [
+   1.03e-14,
+   0.00023
+  ],
+  [
+   1.24e-14,
+   0.00032
+  ],
+  [
+   1.45e-14,
+   0.00045
+  ],
+  [
+   1.65e-14,
+   0.00065
+  ],
+  [
+   1.78e-14,
+   0.0011
+  ],
+  [
+   1.86e-14,
+   0.0013
+  ],
+  [
+   1.95e-14,
+   0.0009
+  ],
+  [
+   2.07e-14,
+   0.0008
+  ],
+  [
+   2.48e-14,
+   0.00075
+  ],
+  [
+   2.9e-14,
+   0.0008
+  ],
+  [
+   3.31e-14,
+   0.00085
+  ],
+  [
+   3.72e-14,
+   0.0008
+  ],
+  [
+   4.14e-14,
+   0.00085
+  ],
+  [
+   4.96e-14,
+   0.0009
+  ],
+  [
+   5.79e-14,
+   0.001
+  ],
+  [
+   6.62e-14,
+   0.001
+  ],
+  [
+   7.44e-14,
+   0.0011
+  ],
+  [
+   8.27e-14,
+   0.0012
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "PSI-HgM-sideband (199Hg free-spin precession, nEDM apparatus at PSI)",
+ "coupling_convention": "g_aNN in GeV^-1 as plotted on the y-axis (axion-nucleon coupling divided by f_a-type normalization; NOT dimensionless g_an)",
+ "notes": "Measured 95% C.L. exclusion on axion-nucleon coupling g_aNN from side-band analysis of 199Hg free-spin precession at PSI (2017 nEDM apparatus data), covering 1e-16 eV < m_a < 1e-13 eV with peak sensitivity g_aNN ~ 3.5e-6 GeV^-1. The 199Hg system is predominantly sensitive to the axion-NEUTRON coupling (factor ~10 weaker dependence on g_app), so AxionNeutron is assigned; the exclusion plot assumes g_ann = g_app. No numerical table available: data points are reconstructed from the text peak sensitivity plus the analytic scaling in Eq. (13) where the limit is proportional to the sideband frequency offset (i.e., roughly proportional to m_a), so intermediate values are approximate and do not capture insensitive regions at multiples of f_Hg = 7.879 Hz or the noise dip near 4 Hz. Conservative rho_DM = 0.4 GeV/cm^3 assumed. Paper also gives a factor-10-better projection for the n2EDM apparatus (dashed line), not extracted here. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.65, 34)) | Vision: Exclusion plot (paper Fig. 4) shows g_aNN [GeV^-1] vs axion Compton frequency (bottom, 0.02-100 Hz) and axion mass (top, ~1e-16 to 4e-13 eV). Traced the lower boundary of the red 'PSI-HgM-sideband' region (95% CL). Mass converted via m[eV]=4.136e-15*f[Hz]. Boundary rises roughly linearly (log-log slope ~1) from ~3e-6 GeV^-1 at 0.024 Hz to ~8e-5 at 1 Hz, with a sensitivity-dip bump near 4-4.5 Hz (peak ~1.3e-3), then a wiggly plateau ~8e-4 to 1.2e-3 up to ~20 Hz. Paper states Hg is primarily sensitive to g_ann (factor ~10 weaker dependence on g_app), plot assumes g_ann = g_app; hence AxionNeutron. Insensitive notches at multiples of the 7.879 Hz carrier are not depicted in the plot. Other regions (CASPEr-ZULF, NASDUCK, 3He/K, n2EDM projection, New Force, SN1987A) not traced. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.94 snapped to identity)",
+ "num_points": 34,
+ "elapsed_s": 160.33943390846252
+}

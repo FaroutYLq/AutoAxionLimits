@@ -1,0 +1,174 @@
+{
+ "arxiv_id": "2102.00379",
+ "paper_title": "Constraining axion-like particles using the white dwarf initial-final mass relation",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1000.0,
+   1.2999999999999999e-09
+  ],
+  [
+   1500.0,
+   1.2999999999999999e-09
+  ],
+  [
+   2000.0,
+   1.2999999999999999e-09
+  ],
+  [
+   3000.0,
+   1.2999999999999999e-09
+  ],
+  [
+   5000.0,
+   1.2999999999999999e-09
+  ],
+  [
+   7000.0,
+   1.2999999999999999e-09
+  ],
+  [
+   10000.0,
+   1.2999999999999999e-09
+  ],
+  [
+   15000.0,
+   1.2999999999999999e-09
+  ],
+  [
+   20000.0,
+   1.35e-09
+  ],
+  [
+   30000.0,
+   1.4000000000000001e-09
+  ],
+  [
+   45000.0,
+   1.45e-09
+  ],
+  [
+   60000.0,
+   1.5e-09
+  ],
+  [
+   80000.0,
+   1.5999999999999999e-09
+  ],
+  [
+   100000.0,
+   1.7000000000000001e-09
+  ],
+  [
+   120000.0,
+   1.8e-09
+  ],
+  [
+   135000.0,
+   1.9e-09
+  ],
+  [
+   150000.0,
+   2e-09
+  ],
+  [
+   170000.0,
+   2.9e-09
+  ],
+  [
+   190000.0,
+   4.4e-09
+  ],
+  [
+   210000.0,
+   6.5999999999999995e-09
+  ],
+  [
+   230000.0,
+   9.6e-09
+  ],
+  [
+   250000.0,
+   1.25e-08
+  ],
+  [
+   270000.0,
+   1.9e-08
+  ],
+  [
+   300000.0,
+   3e-08
+  ],
+  [
+   330000.0,
+   5.4999999999999996e-08
+  ],
+  [
+   360000.0,
+   9.2e-08
+  ],
+  [
+   390000.0,
+   1.9e-07
+  ],
+  [
+   410000.0,
+   2.9000000000000003e-07
+  ],
+  [
+   430000.0,
+   5e-07
+  ],
+  [
+   455000.0,
+   8.900000000000001e-07
+  ],
+  [
+   470000.0,
+   1.6999999999999998e-06
+  ],
+  [
+   480000.0,
+   2.7e-06
+  ],
+  [
+   495000.0,
+   5.5e-06
+  ],
+  [
+   505000.0,
+   8.5e-06
+  ],
+  [
+   515000.0,
+   1.5e-05
+  ],
+  [
+   525000.0,
+   2.7e-05
+  ],
+  [
+   535000.0,
+   4.5e-05
+  ],
+  [
+   540000.0,
+   6.9e-05
+  ],
+  [
+   545000.0,
+   0.0001
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "WD-IFMR (white dwarf initial-final mass relation)",
+ "coupling_convention": "g_agamma in GeV^-1 as plotted on the y-axis of Figure 1",
+ "notes": "Paper derives a new stellar-evolution exclusion ('WD-IFMR') on the ALP-photon coupling for keV-MeV masses using the white dwarf initial-final mass relation from double WD binaries, targeting the 'cosmological triangle'. No numerical table is given; the exclusion is presented in Figures 1/15. Data points are reconstructed from explicit text statements: at ma=10 keV, ga\u03b3\u03b3 \u2265 0.794e-10 GeV^-1 is excluded; at ma=316 keV, ga\u03b3\u03b3=3.16e-9 GeV^-1 lies at/inside the excluded set (unconstrained by HB stars but flattens the IFMR beyond the DWD bound); at ma\u2248630 keV, ga\u03b3\u03b3=1e-5 GeV^-1 (inside the cosmological triangle) is excluded \u2014 this last point lies within the excluded region rather than exactly on the boundary. The constraint also has an UPPER ga\u03b3\u03b3 boundary where the ALP decay length falls below the He-burning shell width (~0.007 R_sun), which is not captured in these points. Digitization of Fig. 15 would be needed for a precise boundary. Astrophysical bound: no local DM density assumption. Constraints shown at 95% CL per Fig. 1 caption. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.55, 39)) | Vision: Figure 1 (page 2) shows the m_a-g_agamma plane in the keV-MeV range with the new WD-IFMR bound (green, 95% CL) alongside HB stars, SN1987A cooling/decay, and electron beam dump bounds. The green region's lower boundary was traced: flat at ~1.3e-10 GeV^-1 (just above the visible pure-yellow HB strip) for 1-100 keV, then rising exponentially (~90 keV per decade in g, consistent with Boltzmann suppression at He-B shell temperature ~20 keV) to the nose at ~545 keV, g~1e-5, which forms the left edge of the shrunken cosmological triangle. Boundary values are approximate because the plot uses heavily overlapping translucent shaded regions with no explicit boundary line or data table. Above the nose the green region's boundary turns back (trapping/decay-length limit); only the lower boundary is reported. Not a dark-matter search: no DM density assumption. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=4.55)",
+ "num_points": 39,
+ "elapsed_s": 385.61063599586487
+}

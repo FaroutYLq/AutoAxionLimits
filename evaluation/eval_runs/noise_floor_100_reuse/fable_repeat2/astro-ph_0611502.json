@@ -1,0 +1,46 @@
+{
+ "arxiv_id": "astro-ph/0611502",
+ "paper_title": "A Telescope Search for Decaying Relic Axions",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.5,
+   4.93e-12
+  ],
+  [
+   5.0,
+   6.88e-12
+  ],
+  [
+   6.0,
+   5.24e-12
+  ],
+  [
+   6.5,
+   4.57e-12
+  ],
+  [
+   7.0,
+   3.65e-12
+  ],
+  [
+   7.5,
+   3.38e-12
+  ],
+  [
+   7.65,
+   2.89e-12
+  ]
+ ],
+ "data_source": "table",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "VIMOS_ClusterTelescope_Grin2007",
+ "coupling_convention": "g_agamma in GeV^-1, converted from the paper's xi = (4/3)|E/N - 1.92| via g_agamma = (alpha/(2*pi*f_a)) * (3/4)*xi with f_a[GeV] = 5.7e6 / m_a[eV], i.e. g = 1.528e-10 * xi * m_a[eV] GeV^-1",
+ "notes": "Telescope search for optical line emission from two-photon decay of thermal relic axions in galaxy clusters Abell 2667 and 2390 (VIMOS IFU at VLT). Null result gives 95% CL upper limits on xi in the mass window 4.5-7.7 eV (Table I). Values converted to g_agamma using standard QCD axion mass-f_a relation (m_a*f_a = 5.7e-3 GeV^2) and g = (alpha/2pi f_a)(3/4)xi; if downstream prefers raw values, the paper's xi limits are: 7.17e-3 (4.5 eV), 9.00e-3 (5), 5.72e-3 (6), 4.60e-3 (6.5), 3.41e-3 (7), 2.95e-3 (7.5), 2.47e-3 (7.65). Limits assume thermal-freezeout cosmological axion abundance (Omega_a h^2 = m_a,eV/130), NOT a local DM halo density, so dm_density_assumed is null. Cross-correlation limits (Table II) are ~1.5x weaker and not included. Masses near 5.43 and 4.83 eV (sky lines at 5577 and 6300 A) are unconstrained. Paper also contains a projection for RDCS 1252 (8-14 eV) but the primary result is a measured limit. | selector: table (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+ "num_points": 7,
+ "elapsed_s": 58.577906370162964
+}

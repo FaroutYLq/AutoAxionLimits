@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2008.10141",
+ "paper_title": "Search for invisible axion dark matter with a multiple-cell haloscope",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.3e-05,
+   5.7e-14
+  ],
+  [
+   1.39e-05,
+   6.1e-14
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "CAPP-9T",
+ "coupling_convention": "g_agamma in GeV^-1 (computed as 11.1 x g_KSVZ at the mass endpoints, using g_KSVZ = (alpha/pi)*0.97/f_a with m_a*f_a = 5.7e15 eV^2)",
+ "notes": "CAPP-9T multiple-cell (double-cell) cavity haloscope. Paper reports an average exclusion of g_agamma >= 11.1 x g_KSVZ at 90% CL over 13.0-13.9 ueV (3.14-3.36 GHz). No numerical table is provided; the two data points are the KSVZ-model coupling at the mass range endpoints multiplied by 11.1. Actual limit curve (Fig. 5) has bin-by-bin variations and gaps near 13.35 ueV from mode mixing. Assumes rho_a = 0.45 GeV/cm^3 local axion DM density. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.75, 2))",
+ "num_points": 2,
+ "elapsed_s": 109.22826218605042
+}

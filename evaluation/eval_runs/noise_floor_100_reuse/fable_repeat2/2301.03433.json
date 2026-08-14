@@ -1,0 +1,54 @@
+{
+ "arxiv_id": "2301.03433",
+ "paper_title": "Improved limits on the coupling of ultralight bosonic dark matter to photons from optical atomic clock comparisons",
+ "coupling_type": "ScalarPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-24,
+   4.1e-08
+  ],
+  [
+   1e-23,
+   4.1e-09
+  ],
+  [
+   5.8e-23,
+   7e-10
+  ],
+  [
+   1e-22,
+   1.2e-09
+  ],
+  [
+   1e-21,
+   1.2e-08
+  ],
+  [
+   1e-20,
+   4.9e-08
+  ],
+  [
+   1e-19,
+   4.9e-07
+  ],
+  [
+   1e-18,
+   4.9e-06
+  ],
+  [
+   2e-17,
+   9.7e-05
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "PTB_YbSr_Clocks2023",
+ "coupling_convention": "dimensionless d_e (scalar photon coupling as in L = phi*(d_e/4mu0)*F_munu F^munu)",
+ "notes": "Paper (Filzinger et al., PTB, arXiv:2301.03433) presents new measured 95% CL bounds on scalar UBDM-photon coupling d_e from Yb+ E3/E2 and Yb+ E3/Sr optical clock comparisons over m ~ 1e-24 to 2e-17 eV. No numerical table is provided; the exclusion curve (Fig. 4) was reconstructed from text values: flat amplitude bounds A ~ 2e-17 (E3/E2, k_alpha=6.95) and ~7e-18 (E3/Sr, k_alpha=6.01, dominant above 1e-20 eV), converted via |d_e| = 3 * omega * A / k_alpha * sqrt(c^2/(8 pi G rho_DM)) with rho_DM = 0.4 GeV/cm^3 (factor 3 for stochastic DM amplitude fluctuations, as applied in the paper). Below f ~ 1/T ~ 1.4e-8 Hz (m ~ 5.8e-23 eV) the amplitude bound degrades as 1/omega^2, giving d_e ~ 1/m scaling. Points are approximate (factor ~2 accuracy) reconstructions of the combined (best) limit. DM density assumption applies since this is a direct DM oscillation search. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+ "num_points": 9,
+ "elapsed_s": 75.14245462417603
+}

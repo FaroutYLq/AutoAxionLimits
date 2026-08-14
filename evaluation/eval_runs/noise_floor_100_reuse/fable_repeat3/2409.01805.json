@@ -1,0 +1,150 @@
+{
+ "arxiv_id": "2409.01805",
+ "paper_title": "Search for sub-eV axion-like particles in a quasi-parallel stimulated resonant photon-photon collider with \"coronagraphy\"",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0025,
+   0.095
+  ],
+  [
+   0.00316,
+   0.025
+  ],
+  [
+   0.00398,
+   0.0073
+  ],
+  [
+   0.00501,
+   0.0023
+  ],
+  [
+   0.00631,
+   0.00076
+  ],
+  [
+   0.00794,
+   0.00028
+  ],
+  [
+   0.01,
+   0.00011
+  ],
+  [
+   0.0126,
+   4.6e-05
+  ],
+  [
+   0.0158,
+   2.1e-05
+  ],
+  [
+   0.02,
+   1.03e-05
+  ],
+  [
+   0.0251,
+   5.5e-06
+  ],
+  [
+   0.0316,
+   3.2e-06
+  ],
+  [
+   0.0398,
+   1.96e-06
+  ],
+  [
+   0.0501,
+   1.31e-06
+  ],
+  [
+   0.0631,
+   9.4e-07
+  ],
+  [
+   0.0794,
+   7.4e-07
+  ],
+  [
+   0.1,
+   6.2e-07
+  ],
+  [
+   0.112,
+   5.8e-07
+  ],
+  [
+   0.126,
+   5.6e-07
+  ],
+  [
+   0.141,
+   5.5e-07
+  ],
+  [
+   0.15,
+   5.45e-07
+  ],
+  [
+   0.158,
+   5.5e-07
+  ],
+  [
+   0.166,
+   6.1e-07
+  ],
+  [
+   0.178,
+   7.4e-07
+  ],
+  [
+   0.2,
+   1.28e-06
+  ],
+  [
+   0.224,
+   2.9e-06
+  ],
+  [
+   0.251,
+   8.6e-06
+  ],
+  [
+   0.282,
+   3.4e-05
+  ],
+  [
+   0.316,
+   0.00017
+  ],
+  [
+   0.355,
+   0.0012
+  ],
+  [
+   0.398,
+   0.0105
+  ],
+  [
+   0.427,
+   0.044
+  ],
+  [
+   0.447,
+   0.1
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "SAPPHIRES02",
+ "coupling_convention": "g/M in GeV^-1 (ALP-photon coupling as plotted on y-axis of Fig. 11)",
+ "notes": "SAPPHIRES02 stimulated resonant photon-photon collider (laboratory search, model-independent, no DM assumption). Null result sets a new 95% CL exclusion region in the g/M vs m plane for both scalar and pseudoscalar ALPs (Figs. 10-11), covering roughly 1e-3 to ~1 eV in mass. Only one explicit numerical value is given in the text: the most sensitive point g/M = 5.45e-7 GeV^-1 at m = 0.15 eV for pseudoscalar ALPs; the full exclusion curve is only available as a plot, so a single data point is emitted. Data points reported here are for the pseudoscalar case. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 33)) | Vision: Traced the red SAPPHIRES02 exclusion boundary in Fig. 11 (pseudoscalar ALP, m_sigma vs g/M plane). The curve is anchored by the text-quoted most sensitive point g/M = 5.45e-7 GeV^-1 at m = 0.15 eV. The boundary is a broad asymmetric U-shape: the left branch descends smoothly from g/M ~ 1e-1 at m ~ 2.5e-3 eV to the minimum at 0.15 eV, and the right branch rises steeply back to ~1e-1 GeV^-1 by m ~ 0.45 eV. Excluded region is above/inside the red hatched curve. 95% CL stated in text. This is a laser photon-photon collider search, independent of dark matter density assumptions. Fig. 10 (fig_02) shows the analogous scalar-field result, not used here since the hint requests the pseudoscalar (axion-photon) plot. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.96 snapped to identity)",
+ "num_points": 33,
+ "elapsed_s": 130.46766209602356
+}

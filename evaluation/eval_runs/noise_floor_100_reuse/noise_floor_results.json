@@ -41,11 +41,108 @@
         0.2756
       ],
       "aggregate_floor_ci_halfwidth_dex": 0.0585,
+      "channel_flips": 11,
+      "channel_flip_frac": 0.193,
+      "channel_flip_ids": {
+        "1503.06886": "figure_vision->text",
+        "1804.10777": "figure_vision->text",
+        "1903.12190": "text->figure_vision",
+        "1907.12449": "figure_vision->text",
+        "2005.14184": "figure_vision->text",
+        "2006.06722": "text->figure_vision",
+        "2007.03694": "table->text",
+        "2008.10141": "text->figure_vision",
+        "2106.00022": "text->figure_vision",
+        "2109.08822": "text->figure_vision",
+        "2208.06519": "text->figure_vision"
+      },
       "_had_pairs": 57
     },
     "haiku": {
       "arm": "haiku",
       "status": "repeat-2 metrics missing: /Users/lanqingyuan/Documents/GitHub/AutoAxionLimits/evaluation/eval_runs/noise_floor_100_reuse/haiku_repeat2/metrics_noproj.json"
+    },
+    "fable": {
+      "arm": "fable",
+      "n_frozen": 100,
+      "n_compared_r1": 98,
+      "n_compared_r2": 97,
+      "n_paired": 96,
+      "pool_median_repeat1_dex": 0.164,
+      "pool_median_repeat2_dex": 0.1987,
+      "abs_pool_median_shift_dex": 0.0347,
+      "per_paper_std_median_dex": 0.017,
+      "per_paper_std_mean_dex": 0.1631,
+      "per_paper_absdelta_median_dex": 0.024,
+      "per_paper_std_hist_bins": [
+        0,
+        0.02,
+        0.05,
+        0.1,
+        0.2,
+        0.5,
+        1.0,
+        2.0,
+        1000000000.0
+      ],
+      "per_paper_std_hist_counts": [
+        49,
+        13,
+        13,
+        6,
+        8,
+        4,
+        2,
+        1
+      ],
+      "aggregate_floor_boot_median_dex": 0.1949,
+      "aggregate_floor_ci95_dex": [
+        0.1607,
+        0.205
+      ],
+      "aggregate_floor_ci_halfwidth_dex": 0.0221,
+      "channel_flips": 12,
+      "channel_flip_frac": 0.125,
+      "channel_flip_ids": {
+        "1804.05750": "figure_vision->text",
+        "1910.08638": "figure_vision->text",
+        "2109.08822": "figure_vision->text",
+        "2207.11968": "figure_vision->none",
+        "2211.02902": "text->figure_vision",
+        "2301.03622": "figure_vision->text",
+        "2303.08410": "figure_vision->text",
+        "2405.19393": "text->figure_vision",
+        "2412.03660": "text->figure_vision",
+        "2412.09595": "vector_trace->figure_vision",
+        "2501.17119": "figure_vision->text",
+        "2504.07559": "figure_vision->text"
+      },
+      "_had_pairs": 96
     }
+  },
+  "fable_multi": {
+    "n_reads": 3,
+    "read_names": [
+      "repeat1(benchmark)",
+      "repeat2",
+      "repeat3"
+    ],
+    "n_shared_papers": 93,
+    "per_read_pool_median_dex": [
+      0.1819,
+      0.1977,
+      0.141
+    ],
+    "pool_median_spread_dex": 0.0567,
+    "pool_median_std_dex": 0.0293,
+    "per_paper_std_median_dex": 0.0376,
+    "per_paper_std_p90_dex": 0.3706,
+    "n_route_unstable_papers": 26,
+    "route_unstable_frac": 0.2796,
+    "kread_floor_ci95_dex": [
+      0.1471,
+      0.2031
+    ],
+    "kread_floor_ci_halfwidth_dex": 0.028
   }
 }

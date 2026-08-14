@@ -1,0 +1,186 @@
+{
+ "arxiv_id": "1301.6557",
+ "paper_title": "Results of a Search for Paraphotons with Intense X-ray Beams at SPring-8",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0006,
+   0.71
+  ],
+  [
+   0.0008,
+   0.4
+  ],
+  [
+   0.001,
+   0.26
+  ],
+  [
+   0.0015,
+   0.114
+  ],
+  [
+   0.002,
+   0.064
+  ],
+  [
+   0.003,
+   0.028
+  ],
+  [
+   0.004,
+   0.016
+  ],
+  [
+   0.005,
+   0.01
+  ],
+  [
+   0.007,
+   0.0052
+  ],
+  [
+   0.01,
+   0.0026
+  ],
+  [
+   0.015,
+   0.00114
+  ],
+  [
+   0.02,
+   0.00064
+  ],
+  [
+   0.03,
+   0.00028
+  ],
+  [
+   0.04,
+   0.00016
+  ],
+  [
+   0.05,
+   0.0001
+  ],
+  [
+   0.06,
+   7.1e-05
+  ],
+  [
+   0.07,
+   5.2e-05
+  ],
+  [
+   0.08,
+   4e-05
+  ],
+  [
+   0.1,
+   3.8e-05
+  ],
+  [
+   0.13,
+   3.6e-05
+  ],
+  [
+   0.17,
+   3.7e-05
+  ],
+  [
+   0.22,
+   3.7e-05
+  ],
+  [
+   0.3,
+   3.8e-05
+  ],
+  [
+   0.4,
+   3.7e-05
+  ],
+  [
+   0.5,
+   3.8e-05
+  ],
+  [
+   0.7,
+   3.7e-05
+  ],
+  [
+   1.0,
+   4e-05
+  ],
+  [
+   1.39,
+   8e-05
+  ],
+  [
+   1.8,
+   4.5e-05
+  ],
+  [
+   2.5,
+   3.8e-05
+  ],
+  [
+   3.5,
+   3.7e-05
+  ],
+  [
+   5.0,
+   3.7e-05
+  ],
+  [
+   7.0,
+   3.7e-05
+  ],
+  [
+   10.0,
+   3.7e-05
+  ],
+  [
+   20.0,
+   3.7e-05
+  ],
+  [
+   50.0,
+   3.7e-05
+  ],
+  [
+   100.0,
+   3.7e-05
+  ],
+  [
+   300.0,
+   3.7e-05
+  ],
+  [
+   1000.0,
+   3.7e-05
+  ],
+  [
+   3000.0,
+   3.7e-05
+  ],
+  [
+   10000.0,
+   3.7e-05
+  ],
+  [
+   26000.0,
+   3.7e-05
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "SPring-8 X-ray LSW paraphoton search",
+ "coupling_convention": "photon-paraphoton kinetic mixing angle chi, dimensionless, as plotted on y-axis of Fig. 4",
+ "notes": "X-ray light-shining-through-wall paraphoton search at SPring-8 BL19LXU. Final combined limit is mass-independent: chi < 8.06e-5 (95% C.L.) valid for 0.04 eV < m_gamma' < 26 keV, encoded as a two-point flat bound. The actual exclusion (Fig. 4) has oscillatory structure at low masses not captured here; the quoted flat value is the paper's conservative worst-case result. Not a DM search (LSW), so no local DM density assumption. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 42)) | Vision: Figure 4 shows the 95% C.L. upper limit on the paraphoton mixing angle chi from an X-ray light-shining-through-wall search at SPring-8. Boundary follows slope -2 (log-log) from ~6e-4 eV down to a knee near 0.08 eV, then a flat plateau at chi ~ 3.7e-5 with oscillation spikes; worst spike chi = 8.01e-5 at m = 1.39 eV (from text), final quoted result chi < 8.06e-5 for 0.04 eV < m < 26 keV. Plateau extends (dashed in plot) to the maximum beam energy 26 keV. This is a LSW terrestrial limit; no dark matter density assumption is needed. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.08 snapped to identity)",
+ "num_points": 42,
+ "elapsed_s": 102.56882977485657
+}

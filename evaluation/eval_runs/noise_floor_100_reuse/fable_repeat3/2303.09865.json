@@ -1,0 +1,158 @@
+{
+ "arxiv_id": "2303.09865",
+ "paper_title": "Nuclear decay anomalies as a signature of axion dark matter",
+ "coupling_type": "AxionMass",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.7e-23,
+   1.06e-13
+  ],
+  [
+   2e-23,
+   1.25e-13
+  ],
+  [
+   2.4e-23,
+   1.5e-13
+  ],
+  [
+   2.9e-23,
+   1.81e-13
+  ],
+  [
+   3.5e-23,
+   2.18e-13
+  ],
+  [
+   4.2e-23,
+   2.62e-13
+  ],
+  [
+   5e-23,
+   3.12e-13
+  ],
+  [
+   6e-23,
+   3.74e-13
+  ],
+  [
+   7.2e-23,
+   4.49e-13
+  ],
+  [
+   8.7e-23,
+   5.42e-13
+  ],
+  [
+   1.05e-22,
+   6.55e-13
+  ],
+  [
+   1.26e-22,
+   7.86e-13
+  ],
+  [
+   1.51e-22,
+   9.41e-13
+  ],
+  [
+   1.82e-22,
+   1.13e-12
+  ],
+  [
+   2.19e-22,
+   1.37e-12
+  ],
+  [
+   2.63e-22,
+   1.64e-12
+  ],
+  [
+   3.16e-22,
+   1.97e-12
+  ],
+  [
+   3.8e-22,
+   2.37e-12
+  ],
+  [
+   4.57e-22,
+   2.85e-12
+  ],
+  [
+   5.5e-22,
+   3.43e-12
+  ],
+  [
+   6.6e-22,
+   4.12e-12
+  ],
+  [
+   7.9e-22,
+   4.93e-12
+  ],
+  [
+   9.5e-22,
+   5.92e-12
+  ],
+  [
+   1.15e-21,
+   7.17e-12
+  ],
+  [
+   1.38e-21,
+   8.6e-12
+  ],
+  [
+   1.66e-21,
+   1.04e-11
+  ],
+  [
+   2e-21,
+   1.25e-11
+  ],
+  [
+   2.4e-21,
+   1.5e-11
+  ],
+  [
+   2.9e-21,
+   1.81e-11
+  ],
+  [
+   3.5e-21,
+   2.18e-11
+  ],
+  [
+   4.2e-21,
+   2.62e-11
+  ],
+  [
+   5e-21,
+   3.12e-11
+  ],
+  [
+   6e-21,
+   3.74e-11
+  ],
+  [
+   7.2e-21,
+   4.49e-11
+  ],
+  [
+   8.7e-21,
+   5.56e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "JRC Tritium decay (3H nuclear decay anomaly search)",
+ "coupling_convention": "1/f_a in GeV^-1 as plotted on the y-axis (x-axis is m_a in eV); NOT converted to f_a",
+ "notes": "Paper analyzes 12 years of JRC 3H (tritium) decay data for oscillations induced by QCD axion DM via time-varying theta-angle affecting nuclear binding energies. Main measured result is directly on the f_a-m_a plane (Fig. 3 plots 1/f_a vs m_a), so AxionMass is appropriate. Only endpoint values are given explicitly in text: f_a > 9.4e12 GeV at m_a = 1.7e-23 eV down to f_a > 1.8e10 GeV at m_a = 8.7e-21 eV (95% CL). Intermediate points interpolated using the fa \u221d 1/ma scaling implied by the signal amplitude I \u221d 1/(ma^2 fa^2), which is consistent with the stated endpoints. Assumes rho_DM = 0.45 GeV/cm^3. Paper also presents future sensitivity projections (fa up to 1.5e16 GeV) which are NOT included in data_points. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 35)) | Vision: Figure 3 plots m_a [eV] (x, 1e-25 to 1e-12) vs 1/f_a [GeV^-1] (y, 1e-22 to 1e-2). The paper's own 95% CL exclusion (Tritium decay, dark red) is anchored by explicit caption values: f_a < 9.4e12 GeV at m_a = 1.7e-23 eV and f_a < 1.8e10 GeV at m_a = 8.7e-21 eV, i.e. 1/f_a from 1.06e-13 to 5.6e-11 GeV^-1. Interior points follow the slope-1 log-log scaling (1/f_a \u221d m_a) implied by I \u221d 1/(m_a f_a)^2 and confirmed by the plotted diagonal boundary; small periodogram wiggles are not resolvable at this image scale. Signal frequency is 2x axion frequency (cos 2\u03c9t), consistent with the quoted frequency range 8.0e-9\u20134.2e-6 Hz. \u03c1_DM = 0.45 GeV/cm^3 assumed. Other shaded regions (nEDM, BBN, pulsars, SN1987A, black hole spins, future tritium projections) are external/projected and not traced. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.01 snapped to identity)",
+ "num_points": 35,
+ "elapsed_s": 139.67713689804077
+}

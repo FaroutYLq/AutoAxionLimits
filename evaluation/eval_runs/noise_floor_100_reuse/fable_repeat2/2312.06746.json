@@ -1,0 +1,166 @@
+{
+ "arxiv_id": "2312.06746",
+ "paper_title": "Constraints on photon mass and dark photon from the Jovian magnetic field",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.2e-18,
+   1.0
+  ],
+  [
+   4e-18,
+   0.82
+  ],
+  [
+   5e-18,
+   0.66
+  ],
+  [
+   7e-18,
+   0.49
+  ],
+  [
+   1e-17,
+   0.35
+  ],
+  [
+   1.5e-17,
+   0.24
+  ],
+  [
+   2e-17,
+   0.185
+  ],
+  [
+   3e-17,
+   0.128
+  ],
+  [
+   5e-17,
+   0.08
+  ],
+  [
+   7e-17,
+   0.058
+  ],
+  [
+   1e-16,
+   0.042
+  ],
+  [
+   1.5e-16,
+   0.029
+  ],
+  [
+   2e-16,
+   0.022
+  ],
+  [
+   3e-16,
+   0.0155
+  ],
+  [
+   4e-16,
+   0.0122
+  ],
+  [
+   5e-16,
+   0.01
+  ],
+  [
+   7e-16,
+   0.0075
+  ],
+  [
+   1e-15,
+   0.0052
+  ],
+  [
+   1.3e-15,
+   0.004
+  ],
+  [
+   1.6e-15,
+   0.0032
+  ],
+  [
+   2e-15,
+   0.0028
+  ],
+  [
+   2.5e-15,
+   0.0029
+  ],
+  [
+   3e-15,
+   0.003
+  ],
+  [
+   4e-15,
+   0.0033
+  ],
+  [
+   5e-15,
+   0.0035
+  ],
+  [
+   7e-15,
+   0.004
+  ],
+  [
+   9e-15,
+   0.0045
+  ],
+  [
+   1.1e-14,
+   0.0052
+  ],
+  [
+   1.4e-14,
+   0.0065
+  ],
+  [
+   1.7e-14,
+   0.0085
+  ],
+  [
+   2e-14,
+   0.012
+  ],
+  [
+   2.3e-14,
+   0.019
+  ],
+  [
+   2.6e-14,
+   0.033
+  ],
+  [
+   2.8e-14,
+   0.08
+  ],
+  [
+   3e-14,
+   0.2
+  ],
+  [
+   3.1e-14,
+   0.45
+  ],
+  [
+   3.2e-14,
+   1.0
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Juno MAG (Jovian magnetic field)",
+ "coupling_convention": "kinetic mixing parameter epsilon (dimensionless), as plotted on y-axis",
+ "notes": "Paper sets 95% credible upper limits on dark photon kinetic mixing epsilon vs mass mX from Juno MAG data of the Jovian magnetic field. Explicit text values: at eps=1, exclusion spans 3.2e-18 eV <= mX <= 3.2e-14 eV; strongest bound eps <= 2.8e-3 at mX = 2.0e-15 eV. Full exclusion contour is in Fig. 7 but only these three anchor points are given numerically in text, so the curve shape between anchors is approximate. Limit is independent of dark photon relic density (not a DM haloscope), hence no local DM density assumption. Paper also sets a photon mass bound m_gamma < 2.5e-18 eV, which is not encoded here since it is not a coupling-type limit in the enum. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 37)) | Vision: Traced the red 'Juno MAG (This Work)' 95% credible limit in Fig. 7 (image fig_06.png). Anchored by explicit text values: at epsilon=1, m_X <= 3.2e-18 eV or m_X >= 3.2e-14 eV; strongest bound epsilon <= 2.8e-3 at m_X = 2.0e-15 eV. This constraint is independent of the dark photon relic density (dark photon need not be dark matter). The green shaded region (m_X >= 1.8e-15 eV) is the COBE/FIRAS bound, not traced here. Also shown but not traced: Juno dipole and Pioneer 10 earlier limits. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.80 snapped to identity)",
+ "num_points": 37,
+ "elapsed_s": 122.33161687850952
+}

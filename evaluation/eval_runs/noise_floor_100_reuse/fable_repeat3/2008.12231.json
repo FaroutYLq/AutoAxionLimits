@@ -1,0 +1,30 @@
+{
+ "arxiv_id": "2008.12231",
+ "paper_title": "Searching for Dark Matter with a Superconducting Qubit",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.485999e-05,
+   2.38e-15
+  ],
+  [
+   2.486e-05,
+   1.68e-15
+  ],
+  [
+   2.486001e-05,
+   2.38e-15
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Dixit2021_QubitPhotonCounting",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Dixit et al. (arXiv:2008.12231): hidden photon dark matter search using QND photon counting with a superconducting transmon qubit coupled to a 6.011 GHz (24.86 ueV) storage cavity. On-resonance limit epsilon <= 1.68e-15 at 90% CL with 8.33 s integration. The exclusion is extremely narrow-band: sensitivity falls to half maximum (-3 dB in power, so epsilon limit worsens by sqrt(2) to ~2.38e-15) at only 3 kHz (~1.2e-11 eV) from resonance; side points encode this. Additional weaker off-resonant sensitivity bands exist between ~6.000-6.022 GHz (Fig. 4 inset) but numerical values are not extractable from text. Assumes hidden photon comprises all local DM (rho = 0.4 GeV/cm^3). | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 2.8 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+ "num_points": 3,
+ "elapsed_s": 99.94509601593018
+}

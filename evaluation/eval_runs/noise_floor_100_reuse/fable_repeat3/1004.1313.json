@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "1004.1313",
+ "paper_title": "New ALPS Results on Hidden-Sector Lightweights",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-05,
+   6.5e-08
+  ],
+  [
+   0.0001,
+   6.5e-08
+  ],
+  [
+   0.0003,
+   6.6e-08
+  ],
+  [
+   0.0005,
+   6.9e-08
+  ],
+  [
+   0.0007,
+   8.2e-08
+  ],
+  [
+   0.0008,
+   9.7e-08
+  ],
+  [
+   0.001,
+   2.1e-07
+  ],
+  [
+   0.0011,
+   6e-07
+  ]
+ ],
+ "data_source": "table",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "ALPS",
+ "coupling_convention": "g_- (pseudoscalar ALP-photon coupling) in GeV^-1",
+ "notes": "ALPS-I (2010) light-shining-through-wall experiment at DESY with a 5 T, HERA dipole (l=4.3 m per side, omega=2.33 eV, ~1.2 kW circulating power). Paper reports 95% C.L. limits on the LSW probability in Table 1 (e.g. 2.25e-25 for magnet on, parallel polarization, vacuum) and presents exclusion plots (Fig. 4) for g_-/g_+ vs m_phi without tabulated coupling values. The data_points above are the pseudoscalar g_- limit reconstructed from the tabulated probability limit via Eq. (5): g = sqrt(P_LSW)^(1/2)... specifically g = P_single^(1/2) * m^2 / (2*omega*B*sin(m^2*l/(4*omega))) with P_single = sqrt(2.25e-25); low-mass plateau g ~ 6.5e-8 GeV^-1, consistent with the published Fig. 4 (axis range 1e-7 to 1e-6 GeV^-1, masses 1e-4 to ~1e-3 eV). Gap near m~1.16e-3 eV is covered by Argon gas runs at a weaker probability limit (10.8e-25). Paper also sets limits on hidden-photon kinetic mixing (Fig. 5) and minicharged particles (Fig. 6); pseudoscalar ALP-photon chosen as the primary/most cited result per the pre-analysis hint. Not a dark-matter search, so no local DM density assumption. | selector: table (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+ "num_points": 8,
+ "elapsed_s": 71.22670292854309
+}

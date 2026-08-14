@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2404.17333",
+ "paper_title": "Bounds on heavy axions with an X-ray free electron laser",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.001,
+   0.000391
+  ],
+  [
+   44.0,
+   0.000391
+  ],
+  [
+   340.0,
+   0.00031
+  ],
+  [
+   460.0,
+   0.000387
+  ],
+  [
+   1100.0,
+   0.000369
+  ],
+  [
+   2400.0,
+   0.000276
+  ]
+ ],
+ "data_source": "table",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.9,
+ "suggested_experiment_name": "EuXFEL_LSW",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Light-shining-through-wall (Primakoff conversion in Ge crystals) experiment at European XFEL. Data from Table I: 5 discrete detuning angles. The on-Bragg run (delta-theta=0) covers a broad mass range ma <~ 44 eV (paper quotes sensitivity down to ~1e-3 eV), encoded here as a flat two-point segment [1e-3, 44] eV at g=3.91e-4 GeV^-1. The four off-Bragg runs are narrow-band (width ~1e-3 eV) limits at ma = 340, 460, 1100, 2400 eV; each is represented by a single point. 90% CL upper bounds from zero observed events (Ndet=2.3). Laboratory bound, no DM density assumption. Paper also mentions projected future sensitivity ~2e-6 GeV^-1, but the main result is the measured limit. | selector: table (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+ "num_points": 6,
+ "elapsed_s": 33.98950242996216
+}

@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2303.07370",
+ "paper_title": "Exotic energy injection in the early universe II: CMB spectral distortions and constraints on light dark matter",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   27.2,
+   8.1e-13
+  ],
+  [
+   10000.0,
+   1.4e-16
+  ],
+  [
+   85000.0,
+   7.7e-18
+  ],
+  [
+   720000.0,
+   3.6e-19
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "CMB_Anisotropy_DarkHistory2023",
+ "coupling_convention": "g_agamma in GeV^-1, converted from decay lifetime tau via Gamma = g^2 m^3/(64 pi)",
+ "notes": "Paper extends Planck CMB anisotropy constraints on DM->gamma gamma decay down to m_chi = 2R ~ 27.2 eV (tau > ~1e25 s), and recasts them as limits on the ALP-photon coupling g_agamma (Fig. 10, spanning ~10 eV to ~1 MeV). No numerical table of g_agamma is provided; I converted the stated lifetime limits (tau >~ 1e25 s at m=2R from text; tau values at 10 keV, 85 keV, 720 keV from the chi->gamma gamma legend in Figs. 2/7/9, which lie on the CMB anisotropy exclusion boundary from Ref. [9] that the new work reproduces/extends) using Gamma = g^2 m^3/(64 pi) with hbar = 6.582e-25 GeV s. Intermediate points between 27 eV and 10 keV (the genuinely new region) are shown only graphically in Figs. 9-10, so coverage is sparse. This is a cosmological (CMB) bound assuming ALPs are all of DM, but no local DM density is relevant. Confidence level not explicitly stated; Planck-based limits in Ref. [9] are 95% CL. Confidence reduced because values required unit conversion from lifetimes rather than a direct table of couplings. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 4))",
+ "num_points": 4,
+ "elapsed_s": 152.84059405326843
+}

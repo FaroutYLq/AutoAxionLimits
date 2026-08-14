@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "1911.05772",
+ "paper_title": "ADMX SLIC: Results from a Superconducting LC Circuit Investigating Cold Axions",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.7498e-07,
+   1e-12
+  ],
+  [
+   1.7519e-07,
+   1e-12
+  ],
+  [
+   1.7734e-07,
+   1e-12
+  ],
+  [
+   1.7738e-07,
+   1e-12
+  ],
+  [
+   1.8007e-07,
+   1e-12
+  ],
+  [
+   1.8015e-07,
+   1e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "ADMX_SLIC",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "First results from ADMX SLIC, a superconducting LC-circuit haloscope searching for axion dark matter. New measured exclusion limits on g_agamma over three narrow mass bands: 1.7498-1.7519e-7 eV (4.5 T), 1.7734-1.7738e-7 eV (5.0 T), 1.8007-1.8015e-7 eV (7.0 T). The abstract states exclusions reach couplings below 1e-12 GeV^-1; exact limit curves are only in Fig. 4 (no numerical table), so the emitted coupling value of ~1e-12 GeV^-1 across each band is an approximation from the text. Actual limits vary within each band and by run (higher B-field runs are somewhat stronger). DM density of 0.45 GeV/cm^3 is the standard ADMX halo assumption (from the associated thesis/analysis), not explicitly stated in this letter. RFI-limited analysis; blue curves in Fig. 4 are the actual exclusions. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.6, 6))",
+ "num_points": 6,
+ "elapsed_s": 101.36111307144165
+}

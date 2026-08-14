@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2006.02828",
+ "paper_title": "Search for hidden-photon cold dark matter using a K-band cryogenic receiver",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.00011579,
+   1.8e-10
+  ],
+  [
+   0.00011585,
+   4.3e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.39,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "Tomita2020_KbandCryoReceiver",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "Dish-antenna-type HP-CDM search (planar aluminum plate + cryogenic K-band receiver). Excludes chi = 1.8-4.3e-10 over 115.79-115.85 ueV (27.998-28.012 GHz) at 95% CL. Exact bin-by-bin limits only in Figure 7; the two emitted points span the stated mass range with the quoted min/max chi values, so the fine structure of the limit is not captured. Local DM density 0.39 +/- 0.03 GeV/cm^3 (Catena & Ullio) used, though eq. (1.3) is normalized to 0.3 GeV/cm^3. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.75, 2))",
+ "num_points": 2,
+ "elapsed_s": 79.95364999771118
+}

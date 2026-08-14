@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2302.04565",
+ "paper_title": "Analysis of atomic-clock data to constrain variations of fundamental constants",
+ "coupling_type": "ScalarNucleon",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.03e-20,
+   2.8e-07
+  ],
+  [
+   4.14e-20,
+   1.12e-06
+  ],
+  [
+   4.14e-19,
+   1.12e-05
+  ],
+  [
+   4.14e-18,
+   0.000112
+  ],
+  [
+   4.14e-17,
+   0.00112
+  ],
+  [
+   7.03e-17,
+   0.0019
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "NPL_YbSr_Clocks",
+ "coupling_convention": "dimensionless d_gamma^(1) (Damour-Donoghue convention, coupling normalized to gravitational strength kappa = 1/(sqrt(2) M_P))",
+ "notes": "Paper constrains multiple couplings (d_gamma, d_me-d_g, d_q-d_g, Higgs A, axion-gluon 1/f_a); the headline new exclusion is on the linear scalar-photon coupling d_gamma^(1) from Yb+/Sr clock ratio data, claimed to improve prior limits by ~1 order of magnitude for 1e-20 <= m_phi <= 1e-17 eV. No numerical exclusion table is given; data points were reconstructed from the text formula d^(1) = zeta^(1)_f * A_alpha(f) with zeta^(1)_f ~= 2.0e16 f/Hz and the global amplitude bound A_alpha(f) <= 5.6e-18 (1-sigma false-alarm level; the figure shows a slightly higher 95% C.L. curve, so these values are approximate to within a factor ~1.5). Frequency-to-mass via m = 4.136e-15 * f[Hz] over the stated range 2.5e-6 Hz to 1.7e-2 Hz. SHM with rho_DM = 0.3 GeV/cm^3 assumed; stochastic amplitude factor ~3 stated to be accounted for. A projected (blue dashed) Sr/Cs axion-gluon sensitivity also appears but is secondary; main result is measured. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c) | coupling type ScalarPhoton -> ScalarNucleon by axis read-back 'd_gamma^(1), dimensionless linear photon coupling (axis shown as log10 of the coupling, NOT squared)' (same confusable family, #625 Phase 3) | [CONVENTION REVIEW] declared coupling convention 'dimensionless d_gamma^(1) (Damour-Donoghue convention, coupling normalized to gravitational strength kappa = 1/(sqrt(2) M_P))' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 6,
+ "elapsed_s": 79.84598779678345
+}

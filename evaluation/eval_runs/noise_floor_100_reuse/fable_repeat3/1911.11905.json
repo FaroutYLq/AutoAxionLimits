@@ -1,0 +1,22 @@
+{
+ "arxiv_id": "1911.11905",
+ "paper_title": "Constraints on dark photons and axion-like particles from SuperCDMS Soudan",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   100.0,
+   1e-15
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "SuperCDMS_Soudan",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Paper sets new 90% CL exclusion limits from SuperCDMS Soudan (CDMSlite + iZIP Ge detectors) on both dark photon kinetic mixing (epsilon) and ALP axioelectric coupling (g_ae) over 40 eV to 500 keV, assuming the candidate is all of the galactic DM with rho = 0.3 GeV/cm^3. The full limit curves are shown only in figures (Figs. 12-13, corrected in erratum); no numerical table is provided. Only explicit textual value extracted: epsilon < ~1e-15 near m ~ 100 eV (best sensitivity region; world-leading/competitive in 40-186 eV). The paper equally constrains AxionElectron: g_ae < ~1e-12 at a few hundred eV (strongest laboratory constraint for 40-186 eV); DarkPhoton chosen per pre-analysis hint and the abstract's emphasis. A separate extraction should be done for the g_ae limit. Data point is approximate (order-of-magnitude from abstract text), hence moderate confidence. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.55, 1)) | [COUPLING REVIEW] axis 'g_ae, dimensionless axioelectric coupling (not squared or transformed)' implies AxionElectron but classified DarkPhoton (cross-family contradiction \u2014 flagged, not overridden)",
+ "num_points": 1,
+ "elapsed_s": 195.4004261493683
+}

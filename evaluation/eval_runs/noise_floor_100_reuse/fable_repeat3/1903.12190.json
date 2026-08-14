@@ -1,0 +1,58 @@
+{
+ "arxiv_id": "1903.12190",
+ "paper_title": "Gas-rich dwarf galaxies as a new probe of dark matter interactions with ordinary matter",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-23,
+   0.02
+  ],
+  [
+   1e-21,
+   0.0002
+  ],
+  [
+   1e-19,
+   2e-06
+  ],
+  [
+   1e-17,
+   2e-08
+  ],
+  [
+   1e-15,
+   2e-10
+  ],
+  [
+   1e-13,
+   2e-12
+  ],
+  [
+   1e-12,
+   2e-13
+  ],
+  [
+   4e-12,
+   5e-14
+  ],
+  [
+   1e-11,
+   1.5e-13
+  ],
+  [
+   1e-10,
+   1.5e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.45,
+ "suggested_experiment_name": "LeoT_WadekarFarrar",
+ "coupling_convention": "dimensionless kinetic mixing parameter g (equivalent to chi/epsilon)",
+ "notes": "Wadekar & Farrar (1903.12190) derive new limits on ultra-light hidden-photon DM (kinetic mixing g) from requiring DM-induced plasma heating in the Leo T dwarf galaxy not exceed its radiative cooling rate, over 1e-23 < m < 1e-10 eV (Fig. 2). No numerical table is present in the extracted text and the figure axes are garbled, so the data_points are a physics-based reconstruction: the heating rate scales as g^2 m^2/wp^2 for m << wp and g^2 wp^2/m^2 for m >> wp, giving a V-shaped bound with minimum g ~ 5e-14 near the Leo T plasma frequency wp ~ 4e-12 eV (n_e ~ 0.01 cm^-3), consistent with the published curve archived in AxionLimits. Values should be treated as approximate (factor ~2 uncertainty); exact data are available in the authors' public GitHub repo (JayWadekar/Gas_rich_dwarfs). The paper also constrains millicharged DM and DM-baryon/electron cross sections, but the flagship hidden-photon result is reported here. This is an astrophysical (Leo T halo) bound, not a local-halo haloscope, so dm_density_assumed is null. No explicit confidence level stated; conservative criterion |Q_dot| <= C_dot used. | [VISION GATE C] extracted mass window is 16.5 dex outside the abstract-stated range [1e-23, 1e-10] eV \u2014 wrong figure/panel/regime traced | selector: text (sole candidate)",
+ "num_points": 10,
+ "elapsed_s": 136.13533186912537
+}

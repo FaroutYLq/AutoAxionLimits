@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "1804.05750",
+ "paper_title": "A Search for Invisible Axion Dark Matter with the Axion Dark Matter Experiment",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.66e-06,
+   4e-16
+  ],
+  [
+   2.7e-06,
+   3.9e-16
+  ],
+  [
+   2.75e-06,
+   4e-16
+  ],
+  [
+   2.8e-06,
+   4.1e-16
+  ],
+  [
+   2.81e-06,
+   4.2e-16
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "ADMX2018",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "ADMX Run 1A (2018): haloscope search over 2.66-2.81 ueV (645-680 MHz), first exclusion of DFSZ axion-photon coupling. 90% CL limits shown in Fig. 4 with y-axis in units of 1e-16 GeV^-1; no numerical table provided, so data points are approximate values at roughly the DFSZ coupling level (~4e-16 GeV^-1 at these masses), which the paper states is excluded across 645-676 MHz. Two lineshape assumptions: Maxwellian SHM with rho=0.45 GeV/cm^3 and N-body lineshape with rho=0.63 GeV/cm^3; the primary quoted density 0.45 GeV/cm^3 is recorded. Region 660.16-660.27 MHz vetoed due to RF interference. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.6, 5))",
+ "num_points": 5,
+ "elapsed_s": 104.43193078041077
+}

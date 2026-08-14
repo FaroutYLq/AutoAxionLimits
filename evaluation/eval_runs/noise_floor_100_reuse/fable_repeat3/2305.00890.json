@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2305.00890",
+ "paper_title": "Long-baseline quantum sensor network as dark matter haloscope",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.1e-15,
+   0.0025
+  ],
+  [
+   2.1e-14,
+   0.0005
+  ],
+  [
+   2.1e-13,
+   5e-05
+  ],
+  [
+   2.1e-12,
+   5e-06
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "AMAILS",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "AMAILS: long-baseline network of 15 SERF atomic magnetometers in two 2m shielded rooms (Suzhou/Harbin, 1692 km apart) searching for dark-photon dark matter via kinetic mixing over 1-500 Hz (4.1 feV - 2.1 peV). The only explicit numerical limit in the text is epsilon ~ 5e-6 at 2.1 peV (95% C.L.). The remaining points are extrapolated using the signal scaling B \u221d epsilon*m_A' (Eq. 1) with roughly flat network sensitivity (~4-5 fT/Hz^1/2), giving epsilon \u221d 1/m_A'; they are approximate and should be checked against Fig. 3b. DM density assumed 0.45 GeV/cm^3. Paper also includes a future projection (~6 orders of magnitude improvement) not encoded here. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.6, 4))",
+ "num_points": 4,
+ "elapsed_s": 124.79510116577148
+}

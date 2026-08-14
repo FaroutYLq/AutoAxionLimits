@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2208.06519",
+ "paper_title": "One-Electron Quantum Cyclotron as a Milli-eV Dark-Photon Detector",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.000612272,
+   3.2e-11
+  ],
+  [
+   0.000612281,
+   3.2e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.9,
+ "suggested_experiment_name": "QuantumCyclotron2022",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Proof-of-principle measurement with a single trapped electron in a Penning trap. Sets epsilon < 3.2e-11 at m_A' = 0.612276 meV (148.048 GHz), 90% CL, ~75x better than prior XENON1T constraints. Sensitivity bandwidth is very narrow (~100-200 kHz, i.e., ~1e-6 fractional), encoded here as a two-point flat band around the central mass. Paper also contains a future projection (ne=10 electrons, spherical trap, epsilon ~ 8e-11 over 0.1-1 meV), which is NOT included in data_points since the primary reported result is the measured limit. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.9, 2))",
+ "num_points": 2,
+ "elapsed_s": 107.80081701278687
+}

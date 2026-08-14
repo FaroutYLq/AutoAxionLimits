@@ -1,0 +1,170 @@
+{
+ "arxiv_id": "2203.12152",
+ "paper_title": "Direct Search for Dark Matter Axions Excluding ALP Cogenesis in the 63-67 micro-eV Range, with The ORGAN Experiment",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   6.322e-05,
+   3.5e-12
+  ],
+  [
+   6.328e-05,
+   2.9e-12
+  ],
+  [
+   6.34e-05,
+   2.7e-12
+  ],
+  [
+   6.353e-05,
+   2.8e-12
+  ],
+  [
+   6.369e-05,
+   2.7e-12
+  ],
+  [
+   6.382e-05,
+   2.8e-12
+  ],
+  [
+   6.394e-05,
+   2.7e-12
+  ],
+  [
+   6.407e-05,
+   2.8e-12
+  ],
+  [
+   6.419e-05,
+   2.7e-12
+  ],
+  [
+   6.431e-05,
+   3e-12
+  ],
+  [
+   6.438e-05,
+   2.7e-12
+  ],
+  [
+   6.442e-05,
+   4e-12
+  ],
+  [
+   6.458e-05,
+   2.6e-12
+  ],
+  [
+   6.463e-05,
+   2.1e-12
+  ],
+  [
+   6.467e-05,
+   2.3e-12
+  ],
+  [
+   6.471e-05,
+   2e-12
+  ],
+  [
+   6.474e-05,
+   2.4e-12
+  ],
+  [
+   6.496e-05,
+   2e-12
+  ],
+  [
+   6.502e-05,
+   1.65e-12
+  ],
+  [
+   6.51e-05,
+   1.6e-12
+  ],
+  [
+   6.518e-05,
+   1.55e-12
+  ],
+  [
+   6.527e-05,
+   1.6e-12
+  ],
+  [
+   6.535e-05,
+   1.5e-12
+  ],
+  [
+   6.543e-05,
+   1.45e-12
+  ],
+  [
+   6.551e-05,
+   1.5e-12
+  ],
+  [
+   6.556e-05,
+   2.8e-12
+  ],
+  [
+   6.56e-05,
+   1.4e-12
+  ],
+  [
+   6.568e-05,
+   1.35e-12
+  ],
+  [
+   6.576e-05,
+   1.3e-12
+  ],
+  [
+   6.585e-05,
+   1.25e-12
+  ],
+  [
+   6.593e-05,
+   1.15e-12
+  ],
+  [
+   6.599e-05,
+   1.1e-12
+  ],
+  [
+   6.682e-05,
+   2.2e-12
+  ],
+  [
+   6.688e-05,
+   2e-12
+  ],
+  [
+   6.696e-05,
+   2.1e-12
+  ],
+  [
+   6.704e-05,
+   2.2e-12
+  ],
+  [
+   6.711e-05,
+   2.3e-12
+  ],
+  [
+   6.713e-05,
+   4e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "ORGAN Phase 1a",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted on the y-axis of FIG. 4",
+ "notes": "ORGAN Phase 1a haloscope search (UWA, Perth) scanning 15.28-16.23 GHz (63.2-67.1 ueV) with a TM010 copper cavity in an 11.5 T magnet. Abstract quotes a representative exclusion of g_agamma >= 3e-12 GeV^-1 at 95% CL over the mass range, assuming axions are all of the local DM (rho = 0.45 GeV/cm^3). The actual limit (Fig. 4) is frequency-dependent with gaps at mode-mixing regions (15.58-15.61, 15.65-15.69, 15.96-16.15 GHz), but no numerical table is provided, so the quoted flat value is encoded as a two-point horizontal bound over the stated validity range. Excludes ALP-cogenesis model over most of the range. Supplementary Fig. 5 also contains future-phase projections, but the primary result is a measured limit. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 38)) | Vision: FIG. 4 (page 5) is the main result: 95% CL exclusion on g_agamma (green) over 15.28-16.23 GHz (63-67 ueV), assuming axions comprise all local DM. Gaps at ~15.58-15.61, ~15.65-15.70, and ~15.96-16.15 GHz are mode-mixing regions with no constraint; boundary points are only within scanned segments. Edge spikes and the narrow spike near 15.85 GHz are included. Mass conversion: m[eV]=4.136e-15*f[Hz]. Limits sit below the ALP cogenesis band (lower edge ~4.5e-12) and well above KSVZ/DFSZ (not shown in FIG. 4). FIG. 5 (page 10) is only projected limits and was not traced. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.06 snapped to identity)",
+ "num_points": 38,
+ "elapsed_s": 126.87793302536011
+}

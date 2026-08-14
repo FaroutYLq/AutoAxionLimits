@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2104.13798",
+ "paper_title": "First results of the CAST-RADES haloscope search for axions at 34.67 $\u03bc$eV",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.46738e-05,
+   4e-13
+  ],
+  [
+   3.46771e-05,
+   4e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "CAST_RADES",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "First results of CAST-RADES haloscope (2018 data, CERN CAST dipole magnet, 8.384 GHz filter-like 5-sub-cavity). Measured 95% credibility exclusion limit g_agamma > ~4e-13 GeV^-1 over the narrow mass range 34.6738-34.6771 ueV. Assumed local DM density rho_DM = 0.45 GeV/cm^3 (Read 2014) and standard isothermal halo Maxwell-Boltzmann lineshape. The paper quotes a single representative coupling value for the band (detailed frequency-dependent limit shown only in Figure 9 inset, not tabulated), so a two-point flat line spanning the stated validity range is emitted. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+ "num_points": 2,
+ "elapsed_s": 73.92876100540161
+}

@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2301.06778",
+ "paper_title": "Searching for Low-Mass Axions using Resonant Upconversion",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.12e-06,
+   3e-06
+  ],
+  [
+   1.2e-06,
+   3e-06
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "UPLOAD",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "UPLOAD room-temperature resonant upconversion haloscope (power technique). Excludes axions with masses 1.12-1.20 ueV (271.7-290.3 MHz beat frequency) above g_agamma ~ 3e-6 GeV^-1 at 95% CL after 30 days. The same limit applies equivalently to the QEMD monopole coupling g_aBB. Exact numerical exclusion curve only shown in Fig. 7; abstract-quoted value 3e-6 1/GeV used as approximately flat limit over the stated mass range. Assumes standard virialized halo (Maxwell-Boltzmann, vc = 226 km/s) but no explicit local DM density value stated in text. Systematic uncertainty on g_agamma ~26%. Paper also gives a cryogenic niobium projection (dashed line, not extracted). | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.8, 2))",
+ "num_points": 2,
+ "elapsed_s": 88.46368384361267
+}

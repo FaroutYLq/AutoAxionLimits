@@ -1,0 +1,178 @@
+{
+ "arxiv_id": "1804.10777",
+ "paper_title": "Constraints on hidden photons produced in nuclear reactors",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.112,
+   1.0
+  ],
+  [
+   0.126,
+   0.79
+  ],
+  [
+   0.158,
+   0.5
+  ],
+  [
+   0.2,
+   0.316
+  ],
+  [
+   0.251,
+   0.2
+  ],
+  [
+   0.316,
+   0.126
+  ],
+  [
+   0.398,
+   0.079
+  ],
+  [
+   0.501,
+   0.05
+  ],
+  [
+   0.631,
+   0.0316
+  ],
+  [
+   0.794,
+   0.02
+  ],
+  [
+   1.0,
+   0.0126
+  ],
+  [
+   1.26,
+   0.0079
+  ],
+  [
+   1.58,
+   0.005
+  ],
+  [
+   2.0,
+   0.0032
+  ],
+  [
+   2.51,
+   0.002
+  ],
+  [
+   3.16,
+   0.00126
+  ],
+  [
+   3.98,
+   0.00079
+  ],
+  [
+   5.01,
+   0.0005
+  ],
+  [
+   6.31,
+   0.00032
+  ],
+  [
+   7.94,
+   0.0002
+  ],
+  [
+   10.0,
+   0.000126
+  ],
+  [
+   11.2,
+   0.0001
+  ],
+  [
+   12.6,
+   7.9e-05
+  ],
+  [
+   14.1,
+   6.3e-05
+  ],
+  [
+   15.8,
+   5e-05
+  ],
+  [
+   17.8,
+   4e-05
+  ],
+  [
+   20.0,
+   3.2e-05
+  ],
+  [
+   25.1,
+   3.2e-05
+  ],
+  [
+   39.8,
+   3.2e-05
+  ],
+  [
+   63.1,
+   3.2e-05
+  ],
+  [
+   100.0,
+   3.2e-05
+  ],
+  [
+   316.0,
+   3.2e-05
+  ],
+  [
+   1000.0,
+   3.2e-05
+  ],
+  [
+   3160.0,
+   3.2e-05
+  ],
+  [
+   10000.0,
+   3.2e-05
+  ],
+  [
+   31600.0,
+   3.2e-05
+  ],
+  [
+   100000.0,
+   3.2e-05
+  ],
+  [
+   316000.0,
+   3.2e-05
+  ],
+  [
+   630000.0,
+   3.2e-05
+  ],
+  [
+   1000000.0,
+   3.2e-05
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "TEXONO (reactor hidden photons, Danilov-Demidov-Gorbunov reanalysis)",
+ "coupling_convention": "kinetic mixing parameter epsilon (dimensionless); plot shows Log10(epsilon), values emitted as epsilon",
+ "notes": "Paper derives a revised 95% CL upper limit on hidden-photon kinetic mixing epsilon vs mass mX from published TEXONO reactor neutrino data, correcting Park (2017) by including photon-hidden-photon oscillations in reactor/detector media. No numerical table is given; the limit appears only in Fig. 1. Data points here are reconstructed from the text: for mX >~ 20 eV the limit is ~4^(1/4)~1.4x weaker than Park's epsilon ~ 1e-5 (flat up to the kinematic range ~MeV); for mX < mgamma ~ 20 eV the sensitivity degrades as (mgamma/mX)^2 in epsilon (signal ~ epsilon^4 mX^8), losing all sensitivity below ~0.1 eV. Values are approximate reconstructions, not digitized figure data. Not a dark-matter search (reactor production), so no local DM density assumed. Narrow resonance region mX ~ mgamma (20-60 eV) could have stronger limits but was not exploited. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 40)) | Vision: Paper reanalyzes TEXONO reactor data including visible-hidden photon oscillations. Traced the black solid TEXONO 95% CL line in Fig. 1 (page 3). Below m_gamma ~ 20 eV sensitivity falls steeply as epsilon ~ m^-2 (from P ~ eps^2 (m_X/20eV)^4), losing all sensitivity below ~0.05-0.1 eV as stated in text; above 20 eV the limit is mass-independent at epsilon ~ 3e-5 (log10 eps ~ -4.4 to -4.5 from pixel reading; text says 'only slightly weaker' than the ~1e-5 claim of Ref. [13]). Flat-plateau level carries ~factor-2 reading uncertainty. Other shaded regions (CAST, Solar Lifetime, HB, Rydberg, EW, dDM) are prior constraints, not traced. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.79 snapped to identity)",
+ "num_points": 40,
+ "elapsed_s": 118.50150990486145
+}

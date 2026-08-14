@@ -1,0 +1,166 @@
+{
+ "arxiv_id": "2407.03828",
+ "paper_title": "NuSTAR as an Axion Helioscope",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-11,
+   7.3e-12
+  ],
+  [
+   1e-10,
+   7.3e-12
+  ],
+  [
+   1e-09,
+   7.3e-12
+  ],
+  [
+   1e-08,
+   7.3e-12
+  ],
+  [
+   5e-08,
+   7.3e-12
+  ],
+  [
+   1e-07,
+   7.3e-12
+  ],
+  [
+   2e-07,
+   7.3e-12
+  ],
+  [
+   3e-07,
+   7.3e-12
+  ],
+  [
+   4e-07,
+   7.3e-12
+  ],
+  [
+   5e-07,
+   7.4e-12
+  ],
+  [
+   7e-07,
+   7.7e-12
+  ],
+  [
+   1e-06,
+   8.2e-12
+  ],
+  [
+   1.5e-06,
+   8.9e-12
+  ],
+  [
+   2e-06,
+   9.5e-12
+  ],
+  [
+   3e-06,
+   1.05e-11
+  ],
+  [
+   4e-06,
+   1.12e-11
+  ],
+  [
+   5e-06,
+   1.18e-11
+  ],
+  [
+   7e-06,
+   1.26e-11
+  ],
+  [
+   1e-05,
+   1.33e-11
+  ],
+  [
+   1.3e-05,
+   1.4e-11
+  ],
+  [
+   1.7e-05,
+   1.46e-11
+  ],
+  [
+   2e-05,
+   1.5e-11
+  ],
+  [
+   2.5e-05,
+   1.57e-11
+  ],
+  [
+   3e-05,
+   1.65e-11
+  ],
+  [
+   4e-05,
+   1.8e-11
+  ],
+  [
+   5e-05,
+   1.95e-11
+  ],
+  [
+   7e-05,
+   2.2e-11
+  ],
+  [
+   0.0001,
+   2.6e-11
+  ],
+  [
+   0.00014,
+   3e-11
+  ],
+  [
+   0.0002,
+   3.6e-11
+  ],
+  [
+   0.00028,
+   4.2e-11
+  ],
+  [
+   0.0004,
+   5e-11
+  ],
+  [
+   0.0005,
+   5.7e-11
+  ],
+  [
+   0.0006,
+   6.3e-11
+  ],
+  [
+   0.0007,
+   7e-11
+  ],
+  [
+   0.00085,
+   8.2e-11
+  ],
+  [
+   0.001,
+   1e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "NuSTAR solar axion helioscope",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted on the y-axis",
+ "notes": "New observed 95% CL helioscope-type limit from NuSTAR solar disk-center observations (Feb 2020 solar minimum): g_agamma < 7.3e-12 GeV^-1, flat for m_a <~ 4e-7 eV (encoded from the low end of the paper's exclusion plot at ~1e-11 eV to 4e-7 eV). Limit weakens at higher masses due to loss of conversion coherence, remaining stronger than CAST up to m_a ~ 3.4e-4 eV; the third point is an approximate endpoint where the limit meets the CAST level (~6.6e-11 GeV^-1) inferred from Fig. 1 and text, not an explicitly tabulated value. Detailed curve between 4e-7 and 3.4e-4 eV not available from text. No dark-matter assumption: axions are sourced by the Sun (helioscope-like), so no local DM density applies. Systematic uncertainty on the bound: +27.6%/-21.2%, dominated by solar coronal magnetic field modeling. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 37)) | Vision: Figure 1 (fig_00) shows the NuSTAR 95% CL exclusion (blue line, shaded blue above) on the m_a - g_agamma plane. The limit is flat at g_agamma = 7.3e-12 GeV^-1 for m_a <~ 4e-7 eV (value explicitly quoted in the abstract and text), then weakens at higher masses due to loss of coherence, rising to ~1e-10 GeV^-1 (top of plot) near m_a = 1e-3 eV. Points along the rising portion are traced from the plot; the flat portion is anchored by the quoted numerical value. Helioscope limit: no dark matter density assumption. Comparison lines: ALPS-II (dotted, ~2e-11), babyIAXO (dash-dot, ~1.5e-11), IAXO (dashed, ~4.5e-12), CAST (light red, ~6e-11). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.98 snapped to identity)",
+ "num_points": 37,
+ "elapsed_s": 97.26430487632751
+}

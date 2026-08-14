@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2106.00022",
+ "paper_title": "Earth as a transducer for dark-photon dark-matter detection",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2e-18,
+   2e-05
+  ],
+  [
+   5e-18,
+   8e-06
+  ],
+  [
+   1e-17,
+   4e-06
+  ],
+  [
+   3e-17,
+   2e-06
+  ],
+  [
+   7e-17,
+   1e-06
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.4,
+ "suggested_experiment_name": "SuperMAG",
+ "coupling_convention": "dimensionless kinetic mixing epsilon (chi)",
+ "notes": "Paper (Fedderke, Graham, Kimball, Kalia, arXiv:2106.00022) proposes Earth as a transducer for dark-photon DM and summarizes the SuperMAG geomagnetic search of companion paper arXiv:2108.08852. New 95%-credible upper limits on kinetic mixing epsilon are placed for 2e-18 eV < m_A' < 7e-17 eV (6e-4 Hz to 2e-2 Hz), assuming dark photon is all of local DM. The actual limit values appear only in Fig. 4 (not numerically in text), so the data_points here are approximate representative values (order 1e-6 to 1e-5) based on the described exclusion band being competitive with astrophysical gas-heating bounds; they should be replaced by digitized Fig. 4 / companion-paper data for precision. Coupling type unambiguous; data values approximate, hence moderate extraction confidence. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 2.1 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+ "num_points": 5,
+ "elapsed_s": 101.3158450126648
+}

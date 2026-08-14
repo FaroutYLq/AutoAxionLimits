@@ -1,0 +1,102 @@
+{
+ "arxiv_id": "2301.11512",
+ "paper_title": "New Exclusion Limit for Dark Photons from an SRF Cavity-Based Search (Dark SRF)",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.4545887110461436e-08,
+   1.0556888159026365e-06
+  ],
+  [
+   2.1833584205254068e-08,
+   7.03287747000237e-07
+  ],
+  [
+   4.3666477620275655e-08,
+   3.5164376755829016e-07
+  ],
+  [
+   2.1833224174257904e-07,
+   7.028567685180057e-08
+  ],
+  [
+   4.366620298694116e-07,
+   3.507266743596193e-08
+  ],
+  [
+   8.733103643894351e-07,
+   1.7400167830903025e-08
+  ],
+  [
+   1.310013984707678e-06,
+   1.1450247359753593e-08
+  ],
+  [
+   1.746682868181695e-06,
+   8.434168851419569e-09
+  ],
+  [
+   2.183286543652429e-06,
+   6.083742751222472e-09
+  ],
+  [
+   2.6199868824922976e-06,
+   4.876928872161698e-09
+  ],
+  [
+   3.056696423363743e-06,
+   4.052278085721088e-09
+  ],
+  [
+   3.493310953875996e-06,
+   3.4638936588863732e-09
+  ],
+  [
+   3.929964977649668e-06,
+   2.9813970390072887e-09
+  ],
+  [
+   4.366729809765062e-06,
+   2.6093161306641145e-09
+  ],
+  [
+   4.803233806335898e-06,
+   2.2915922451481215e-09
+  ],
+  [
+   5.239944321595844e-06,
+   2.019455010657071e-09
+  ],
+  [
+   5.67667826623128e-06,
+   1.7891319958287044e-09
+  ],
+  [
+   6.1133584956009e-06,
+   4.258078505446277e-08
+  ],
+  [
+   6.549999104946511e-06,
+   1.528626418295501e-07
+  ],
+  [
+   6.986584847012281e-06,
+   5.494962524463588e-07
+  ],
+  [
+   7.3064278853117745e-06,
+   1.0556888159026365e-06
+  ]
+ ],
+ "data_source": "vector_trace",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "DarkSRF",
+ "coupling_convention": "canonical",
+ "notes": "Dark SRF pathfinder LSW experiment at Fermilab using two 1.3 GHz SRF cavities. New measured 95% C.L. exclusion on kinetic mixing, best epsilon = 1.6e-9 near the cavity mass (m ~ omega = 5.37e-6 eV, from 1.298 GHz * 4.136e-15), world-leading over 2.1e-7 - 5.7e-6 eV. No numerical table provided; data points reconstructed from text anchors (epsilon_min = 1.6e-9, mass range endpoints) plus the known LSW longitudinal-mode scaling P_signal ~ eps^4 (m/omega)^4, giving eps limit ~ 1/m below resonance. The point at 5.7e-6 eV (above resonance, evanescent regime) is an approximate steep rise. This is an LSW search, not a haloscope, so no DM density assumption. Paper also sets photon mass limit (8.6e-15 eV), not encoded here. | vector-trace candidate: run0result_01242023_ZL.pdf colour (0.19, 0.39, 0.81), 21 pts (selected among 4) | selector: vector_trace over text (quality (1, 1, 1, 1, 3.5, 0, 0.85, 21))",
+ "num_points": 21,
+ "elapsed_s": 35.77961802482605
+}

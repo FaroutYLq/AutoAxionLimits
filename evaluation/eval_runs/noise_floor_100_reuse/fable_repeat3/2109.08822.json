@@ -1,0 +1,46 @@
+{
+ "arxiv_id": "2109.08822",
+ "paper_title": "A torsion-balance search for ultra low-mass bosonic dark matter",
+ "coupling_type": "VectorBL",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-18,
+   2.8e-25
+  ],
+  [
+   2e-18,
+   2e-25
+  ],
+  [
+   4e-18,
+   1.4e-25
+  ],
+  [
+   8e-18,
+   1e-25
+  ],
+  [
+   2e-17,
+   2.5e-25
+  ],
+  [
+   4e-17,
+   5e-25
+  ],
+  [
+   1e-16,
+   1.25e-24
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "EotWash_ULDM_Torsion",
+ "coupling_convention": "dimensionless g_BL (hbar*c)^{-1/2}, i.e. standard dimensionless g_{B-L}",
+ "notes": "Eot-Wash stationary torsion-balance search (Shaw et al., arXiv:2109.08822) for B-L coupled vector ultralight dark matter with Be-Al composition dipole. Best limit explicitly stated in abstract: g_BL < 1e-25 at m = 8e-18 eV (near resonance f0 = 1.934 mHz). Other data points reconstructed from the paper's stated frequency scaling of the limits (1/sqrt(f) below resonance, proportional to f above resonance) over the quoted validity range 1e-18 to 1e-16 eV; exact curve is in Fig. 5 which could not be digitized, so intermediate points are approximate. Assumes rho_DM = 0.3 GeV/cm^3. 95% CL via Rice distribution. Appendix also gives B-coupled limits (not extracted). | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+ "num_points": 7,
+ "elapsed_s": 45.15438270568848
+}

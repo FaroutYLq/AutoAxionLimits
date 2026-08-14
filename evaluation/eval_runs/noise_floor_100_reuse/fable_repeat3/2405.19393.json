@@ -1,0 +1,154 @@
+{
+ "arxiv_id": "2405.19393",
+ "paper_title": "Supernova axions convert to gamma-rays in magnetic fields of progenitor stars",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-12,
+   2.6e-12
+  ],
+  [
+   3e-12,
+   2.6e-12
+  ],
+  [
+   1e-11,
+   2.6e-12
+  ],
+  [
+   2e-11,
+   2.6e-12
+  ],
+  [
+   3e-11,
+   4e-12
+  ],
+  [
+   5e-11,
+   7e-12
+  ],
+  [
+   8e-11,
+   1.1e-11
+  ],
+  [
+   1.2e-10,
+   1.6e-11
+  ],
+  [
+   2e-10,
+   2.3e-11
+  ],
+  [
+   3e-10,
+   2.9e-11
+  ],
+  [
+   5e-10,
+   3e-11
+  ],
+  [
+   1e-09,
+   3e-11
+  ],
+  [
+   3e-09,
+   3e-11
+  ],
+  [
+   1e-08,
+   3e-11
+  ],
+  [
+   3e-08,
+   3e-11
+  ],
+  [
+   1e-07,
+   3e-11
+  ],
+  [
+   3e-07,
+   3e-11
+  ],
+  [
+   1e-06,
+   3e-11
+  ],
+  [
+   2e-06,
+   3e-11
+  ],
+  [
+   5e-06,
+   3e-11
+  ],
+  [
+   1e-05,
+   3e-11
+  ],
+  [
+   1.5e-05,
+   3e-11
+  ],
+  [
+   2e-05,
+   3.1e-11
+  ],
+  [
+   3e-05,
+   3.3e-11
+  ],
+  [
+   4e-05,
+   5e-11
+  ],
+  [
+   5e-05,
+   7.5e-11
+  ],
+  [
+   7e-05,
+   1.4e-10
+  ],
+  [
+   0.0001,
+   2.9e-10
+  ],
+  [
+   0.00015,
+   6.5e-10
+  ],
+  [
+   0.0002,
+   1.2e-09
+  ],
+  [
+   0.0003,
+   2.6e-09
+  ],
+  [
+   0.0004,
+   4.6e-09
+  ],
+  [
+   0.0005,
+   7e-09
+  ],
+  [
+   0.0006,
+   1e-08
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "SN1987A progenitor-star conversion (SMM, ALP limit)",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted on the y-axis of Fig. 1",
+ "notes": "Paper derives new 95% CL SN1987A exclusion on the axion-photon coupling by adding axion-photon conversion in the progenitor star's magnetic field (conservative 100 G surface dipole), extending the exclusion from ma<1e-10 eV up to ma~1e-1 eV. The only explicit numerical value in the text is the low-mass limit |g_agamma| < 2.6e-12 GeV^-1 (full production + UF Galactic field model), encoded here as a flat bound over the low-mass validity range (ma below ~1e-9 eV where Galactic conversion dominates). The mass-dependent extension to ~1e-1 eV (ALP SN1987A blue region in Fig. 1, degrading above ~5e-5 eV due to conversion-probability suppression) is only shown graphically and could not be extracted numerically. The paper also contains GALAXIS/Fermi-LAT projections for a future Galactic SN and NS mergers (not extracted; the measured SN1987A limit is the primary result). Not a DM haloscope search, so no local DM density assumption. Note the ALP limit assumes loop-induced hadronic couplings; a separate 'KSVZ-like' limit assumes KSVZ coupling ratios. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 34)) | Vision: Traced the lower boundary of the blue 'ALP SN1987A (excl. 95%)' region in Fig. 1 (SMM data, 95% CL). Low-mass plateau anchored by the text value |g_agamma| < 2.6e-12 GeV^-1 (Galactic B-field conversion, valid to m_a ~ 2e-11 eV). Stellar-conversion plateau (~3e-11 GeV^-1, B0=100 G conservative) read from the plot, dominating for m_a > 1e-9 eV up to ~3e-5 eV, then rising roughly as m_a^2 to the top of the plot near m_a ~ 6e-4 eV, consistent with the abstract's claim of constraints to m_a ~ 1e-3 eV. The transition region (2e-11 to 3e-10 eV) is interpolated at limited image resolution. The hatched 'KSVZ-like axion SN1987A' region extends somewhat lower but the ALP curve is the model-independent headline result. Not a DM search, so no local DM density assumed. Figure 1 is small in the provided page image, so plateau values carry ~30-50% reading uncertainty; text anchors used where available. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.98 snapped to identity)",
+ "num_points": 34,
+ "elapsed_s": 370.89392590522766
+}

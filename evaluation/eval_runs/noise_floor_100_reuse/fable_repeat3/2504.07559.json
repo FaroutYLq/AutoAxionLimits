@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "2504.07559",
+ "paper_title": "Axion dark matter search from terrestrial magnetic fields at extremely low frequencies",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.09e-15,
+   1.3e-11
+  ],
+  [
+   1.8e-15,
+   1e-11
+  ],
+  [
+   4.1e-15,
+   3e-12
+  ],
+  [
+   1e-14,
+   1e-12
+  ],
+  [
+   3e-14,
+   4e-13
+  ],
+  [
+   6e-14,
+   8e-13
+  ],
+  [
+   1e-13,
+   2e-12
+  ],
+  [
+   1.8e-13,
+   1e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "Eskdalemuir_TerrestrialELF",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "New 95% CL observed upper limit on g_agamma from long-term (2012-2022) magnetometer data at the Eskdalemuir observatory, exploiting axion-induced ELF EM waves (Schumann resonance cavity) in the geomagnetic field. Mass range ~1e-15 to ~1e-13 eV (frequencies 0.43-43.9 Hz). Only two explicit numerical values are given in the text: g_agamma <~ 4e-13 GeV^-1 at m_a ~ 3e-14 eV (best limit, at first Schumann resonance ~7.8 Hz) and g_agamma <~ 1.3e-11 GeV^-1 at 0.263 Hz (m_a ~ 1.09e-15 eV). Intermediate points are approximate interpolations of the Fig. 6 exclusion curve shape (limit weakens toward low masses due to fixed 8-hr segments and above 1e-13 eV due to suppressed geomagnetic response); no numerical table is provided, so these should be replaced with digitized Fig. 6 data if precision is needed. Local DM density assumed 0.3 GeV/cm^3. 342 frequency bins with SNR>2 signal candidates are excluded from the limit. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+ "num_points": 8,
+ "elapsed_s": 41.461589097976685
+}

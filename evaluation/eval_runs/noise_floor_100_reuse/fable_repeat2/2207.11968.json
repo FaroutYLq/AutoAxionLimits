@@ -1,0 +1,46 @@
+{
+ "arxiv_id": "2207.11968",
+ "paper_title": "Search for dark matter particle interactions with electron final states with DarkSide-50",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   60.0,
+   1e-12
+  ],
+  [
+   100.0,
+   6e-13
+  ],
+  [
+   300.0,
+   5e-13
+  ],
+  [
+   1000.0,
+   5e-13
+  ],
+  [
+   5000.0,
+   7e-13
+  ],
+  [
+   10000.0,
+   9e-13
+  ],
+  [
+   20000.0,
+   1.5e-12
+  ]
+ ],
+ "data_source": "none",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.45,
+ "suggested_experiment_name": "DarkSide50_2022",
+ "coupling_convention": "dimensionless g_Ae",
+ "notes": "DarkSide-50 (12306 kg d LAr exposure) sets new 90% C.L. limits on multiple channels: DM-electron cross section, axioelectric coupling gAe, dark photon kinetic mixing kappa, and sterile neutrino mixing. I selected AxionElectron (gAe) per the pre-analysis hint; the paper states stronger direct-detection limits on gAe for masses between 0.03 keV and 0.2 keV, with the analysis range 0.06-21 keV_er. No numerical table or explicit gAe values appear in the text; limits are only in Fig. 2, which is not machine-readable here. The listed data_points are APPROXIMATE values reconstructed from knowledge of the published exclusion curve (roughly flat at few x 10^-13 over ~0.06-20 keV) and should be verified against the figure/HEPData. Standard Halo Model assumed with rho_DM = 0.3 GeV/cm^3, v_esc = 544 km/s, v_0 = 238 km/s. Confidence reduced because coupling values are not directly extractable from the provided content and the paper covers multiple coupling types. | selector: none over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.45, 7))",
+ "num_points": 7,
+ "elapsed_s": 107.5250289440155
+}

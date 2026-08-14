@@ -1,0 +1,70 @@
+{
+ "arxiv_id": "2008.02209",
+ "paper_title": "Constraining hidden photons via atomic force microscope measurements and the Plimpton-Lawton experiment",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2e-11,
+   1.0
+  ],
+  [
+   1e-10,
+   0.19
+  ],
+  [
+   1e-09,
+   0.019
+  ],
+  [
+   1e-08,
+   0.0019
+  ],
+  [
+   1e-07,
+   0.00019
+  ],
+  [
+   5.2e-07,
+   8.7e-05
+  ],
+  [
+   1.3e-06,
+   7.9e-05
+  ],
+  [
+   2.6e-06,
+   8.9e-05
+  ],
+  [
+   7.8e-06,
+   0.00014
+  ],
+  [
+   0.001,
+   0.0016
+  ],
+  [
+   1.0,
+   0.05
+  ],
+  [
+   100.0,
+   0.5
+  ],
+  [
+   390.0,
+   1.0
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "PlimptonLawton_Reanalysis",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "Paper derives two new laboratory hidden-photon (kinetic mixing chi vs m_gamma') bounds: (1) from AFM Casimir-force measurements (excludes m ~ 0.1-10 eV, chi > 10^-0.5 ~ 0.32) and (2) from the 1936 Plimpton-Lawton concentric-shell Coulomb-law test with sensitivity gamma = 3.3e-10. The data_points encode the stronger Plimpton-Lawton exclusion curve, computed by evaluating the paper's closed-form Eq. (26) with R*=0.61 m, R=0.76 m, gamma=3.3e-10, including the asymptotics chi ~ 1.94e-11/m_eV at low mass (break at ~0.02 neV, as stated in text) and chi^2 = 2*m_tilde*R*gamma at high mass. No numerical table given in paper; points are reconstructed from the paper's formulas, hence moderate extraction confidence. Not a DM haloscope (no DM density assumed); paper also contains projections (Figs. 6, 8) which are NOT included here. Confidence level not explicitly stated (limits set at level of experimental uncertainty). | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+ "num_points": 13,
+ "elapsed_s": 69.9158570766449
+}

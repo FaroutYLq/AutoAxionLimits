@@ -1,0 +1,186 @@
+{
+ "arxiv_id": "2301.03622",
+ "paper_title": "Searching for Ultralight Dark Matter Conversion in Solar Corona using Low Frequency Array Data",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.25e-07,
+   8e-14
+  ],
+  [
+   1.3e-07,
+   6.5e-14
+  ],
+  [
+   1.35e-07,
+   5.5e-14
+  ],
+  [
+   1.4e-07,
+   5e-14
+  ],
+  [
+   1.45e-07,
+   5.5e-14
+  ],
+  [
+   1.5e-07,
+   5e-14
+  ],
+  [
+   1.55e-07,
+   6e-14
+  ],
+  [
+   1.6e-07,
+   6e-14
+  ],
+  [
+   1.65e-07,
+   7e-14
+  ],
+  [
+   1.7e-07,
+   7e-14
+  ],
+  [
+   1.75e-07,
+   9e-14
+  ],
+  [
+   1.8e-07,
+   7e-14
+  ],
+  [
+   1.85e-07,
+   6.5e-14
+  ],
+  [
+   1.9e-07,
+   7e-14
+  ],
+  [
+   1.95e-07,
+   8e-14
+  ],
+  [
+   2e-07,
+   8e-14
+  ],
+  [
+   2.05e-07,
+   9e-14
+  ],
+  [
+   2.1e-07,
+   1e-13
+  ],
+  [
+   2.15e-07,
+   1.2e-13
+  ],
+  [
+   2.2e-07,
+   1e-13
+  ],
+  [
+   2.25e-07,
+   1.1e-13
+  ],
+  [
+   2.3e-07,
+   1.2e-13
+  ],
+  [
+   2.35e-07,
+   1.3e-13
+  ],
+  [
+   2.4e-07,
+   1.3e-13
+  ],
+  [
+   2.45e-07,
+   1.5e-13
+  ],
+  [
+   2.5e-07,
+   1.6e-13
+  ],
+  [
+   2.55e-07,
+   1.8e-13
+  ],
+  [
+   2.6e-07,
+   2e-13
+  ],
+  [
+   2.65e-07,
+   2.3e-13
+  ],
+  [
+   2.7e-07,
+   2.6e-13
+  ],
+  [
+   2.75e-07,
+   3e-13
+  ],
+  [
+   2.8e-07,
+   3.5e-13
+  ],
+  [
+   2.85e-07,
+   4.2e-13
+  ],
+  [
+   2.9e-07,
+   5e-13
+  ],
+  [
+   2.95e-07,
+   5.5e-13
+  ],
+  [
+   3e-07,
+   6.5e-13
+  ],
+  [
+   3.05e-07,
+   7.5e-13
+  ],
+  [
+   3.1e-07,
+   8.5e-13
+  ],
+  [
+   3.15e-07,
+   9.5e-13
+  ],
+  [
+   3.2e-07,
+   1.05e-12
+  ],
+  [
+   3.25e-07,
+   1.1e-12
+  ],
+  [
+   3.3e-07,
+   1.2e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "LOFAR solar corona DPDM search",
+ "coupling_convention": "epsilon x (rho_A'/rho_DM)^0.5, dimensionless kinetic mixing scaled by dark photon density fraction, as plotted on y-axis of Fig. 4",
+ "notes": "New observed 95% C.L. limit on dark photon kinetic mixing from resonant DPDM-to-photon conversion in the solar corona, using 3x17-min LOFAR beam-formed observations (30-80 MHz). The paper states the limit reaches ~1e-13 across 30-80 MHz (mass range ~1.24e-7 to 3.31e-7 eV via m = 4.136e-15*f). Exact bin-by-bin values are only shown in Fig. 4 (with zig-zag structure spanning roughly 1e-14 to 1e-12); no numerical table is provided, so a flat representative ~1e-13 line over the validity range is emitted. The paper also derives a weaker axion-photon limit (Fig. 10) that does not exceed CAST/astrophysical bounds; the primary result is the dark photon constraint. DM density assumed rho_DM = 0.3 GeV/cm^3. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 42)) | Vision: Figure 4 (page 5): 95% C.L. upper limit on kinetic mixing epsilon for dark photon DM from 17-min LOFAR observations. X-axis linear in m_A' [10^-7 eV] from 1 to 6; LOFAR cyan exclusion spans 30-80 MHz (1.24-3.31e-7 eV). Boundary is jagged (per-frequency-bin limits); traced points are smoothed averages of the zig-zag lower envelope. Text confirms limit ~1e-13 in 30-80 MHz range. Fig. 10 (axion g_agamma) exists but the paper's primary result is the dark photon constraint per the hint and abstract. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.25 snapped to identity)",
+ "num_points": 42,
+ "elapsed_s": 106.16184306144714
+}

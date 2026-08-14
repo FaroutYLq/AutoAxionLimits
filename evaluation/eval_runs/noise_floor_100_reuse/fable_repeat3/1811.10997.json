@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "1811.10997",
+ "paper_title": "Constraining the photon coupling of ultra-light dark-matter axion-like particles by polarization variations of parsec-scale jets in active galaxies",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   5e-23,
+   4e-13
+  ],
+  [
+   1e-22,
+   8e-13
+  ],
+  [
+   2e-22,
+   1.6e-12
+  ],
+  [
+   5e-22,
+   4e-12
+  ],
+  [
+   1e-21,
+   8e-12
+  ],
+  [
+   1.2e-21,
+   1e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "MOJAVE_AGN_Polarization",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper sets new 95% CL upper limits on g_agamma for ULDM ALPs from non-observation of common-period EVPA oscillations in MOJAVE VLBA jets: <~1e-12 GeV^-1 for 5e-23 eV < m < 1.2e-21 eV (Fig. 6). No numerical table is given; data_points are reconstructed from the abstract statement, the Fig. 6 axis range (3e-13 to 1e-11 GeV^-1), and the theoretical scaling g_limit ~ m (Eq. 2.2 gives phi ~ g/m with roughly flat amplitude limits ~2-6 deg from Fig. 5), so values are approximate (factor ~2 uncertainty). The limit assumes DM density at the AGN host of 20 GeV/cm^3 (kappa=1); limits scale as kappa^(1/2). This is a source-side astrophysical DM density, not the local Milky Way halo density, so dm_density_assumed is left null. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+ "num_points": 6,
+ "elapsed_s": 48.16059494018555
+}
