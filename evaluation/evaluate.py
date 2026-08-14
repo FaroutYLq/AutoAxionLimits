@@ -959,8 +959,13 @@ def compute_all_metrics(
         per_paper.append(paper_report)
 
     # Confidence calibration (uses interpolation metrics)
+    # Equal-count (tie-aware quantile) bins: models emit a handful of round
+    # confidence values, so fixed-width bins leave the extremes nearly empty and
+    # their accuracy is then dominated by sampling noise. Equal-occupancy bins
+    # give every point on the calibration curve comparable statistical weight.
     calibration = compute_confidence_calibration(
-        confidences, interp_metrics_list, curve_arxiv_ids
+        confidences, interp_metrics_list, curve_arxiv_ids,
+        binning="equal_count",
     )
 
     # Aggregate interpolation statistics (primary).
