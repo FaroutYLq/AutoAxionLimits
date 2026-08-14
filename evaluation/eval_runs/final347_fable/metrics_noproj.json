@@ -15440,7 +15440,8 @@
       "coupling_type_correct": true,
       "coupling_type_predicted": "DarkPhoton",
       "coupling_type_expected": [
-        "DarkPhoton"
+        "DarkPhoton",
+        "VectorBL"
       ],
       "comparison_status": "convention_mismatch",
       "interp_metrics": null,
