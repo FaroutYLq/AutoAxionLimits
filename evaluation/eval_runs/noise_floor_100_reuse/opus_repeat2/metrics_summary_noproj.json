@@ -5,8 +5,8 @@
     "n_papers_fully_excluded": 0
   },
   "status_counts": {
-    "compared": 57,
-    "convention_mismatch": 1
+    "compared": 56,
+    "convention_mismatch": 2
   },
   "classification_accuracy": {
     "coupling_type": 1.0,
@@ -14,25 +14,55 @@
     "is_projection": 1.0,
     "data_source": 0.5
   },
+  "coupling_type_confusion": {
+    "matrix": {
+      "AxionElectron": {
+        "AxionElectron": 5
+      },
+      "AxionNeutron": {
+        "AxionNeutron": 2
+      },
+      "AxionPhoton": {
+        "AxionPhoton": 27
+      },
+      "DarkPhoton": {
+        "DarkPhoton": 21
+      },
+      "ScalarBaryon": {
+        "ScalarBaryon": 1
+      },
+      "ScalarPhoton": {
+        "ScalarPhoton": 1
+      },
+      "VectorBL": {
+        "VectorBL": 1
+      }
+    },
+    "confusions": [],
+    "n_graded": 58,
+    "n_correct": 58,
+    "n_skipped": 0,
+    "accuracy": 1.0
+  },
   "interpolation": {
-    "n_finite": 57,
+    "n_finite": 56,
     "n_zero_overlap": 0,
-    "median_median_residual_dex": 0.2179420769926672,
-    "mean_frac_within_0_3dex": 0.5891357264051021,
-    "median_median_residual_dex_reverse": 0.18576101628456154
+    "median_median_residual_dex": 0.19228758580144623,
+    "mean_frac_within_0_3dex": 0.6033983175550225,
+    "median_median_residual_dex_reverse": 0.1831659977191884
   },
   "symmetric": {
-    "median_area_between_log": 0.18440466295233182,
-    "median_mass_jaccard": 0.811755826374088
+    "median_area_between_log": 0.1668207080204888,
+    "median_mass_jaccard": 0.8104881504186244
   },
   "per_type_aggregate": {
     "n_types": 7,
-    "n_papers_compared": 57,
-    "micro_median_residual_dex": 0.2179420769926672,
-    "macro_median_residual_dex": 0.28907209365746495,
-    "macro_minus_micro_dex": 0.07113001666479773,
+    "n_papers_compared": 56,
+    "micro_median_residual_dex": 0.19228758580144623,
+    "macro_median_residual_dex": 0.2880059876061054,
+    "macro_minus_micro_dex": 0.09571840180465918,
     "per_type_n": {
-      "AxionPhoton": 26,
+      "AxionPhoton": 25,
       "DarkPhoton": 21,
       "AxionElectron": 5,
       "AxionNeutron": 2,
@@ -43,8 +73,8 @@
   },
   "calibration": {
     "noise_floor_residual_dex": 0.32,
-    "top_bin_mean_confidence": 0.8474999999999998,
-    "top_bin_actual_accuracy": 0.7916666666666666,
-    "overconfidence_gap": 0.05583333333333318
+    "top_bin_mean_confidence": 0.8733333333333333,
+    "top_bin_actual_accuracy": 0.7333333333333333,
+    "overconfidence_gap": 0.14
   }
 }

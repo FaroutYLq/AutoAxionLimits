@@ -5,15 +5,15 @@
     "opus": {
       "arm": "opus",
       "n_frozen": 100,
-      "n_compared_r1": 100,
-      "n_compared_r2": 57,
-      "n_paired": 57,
-      "pool_median_repeat1_dex": 0.2179,
-      "pool_median_repeat2_dex": 0.2179,
-      "abs_pool_median_shift_dex": 0.0,
-      "per_paper_std_median_dex": 0.0242,
-      "per_paper_std_mean_dex": 0.323,
-      "per_paper_absdelta_median_dex": 0.0342,
+      "n_compared_r1": 99,
+      "n_compared_r2": 56,
+      "n_paired": 56,
+      "pool_median_repeat1_dex": 0.2021,
+      "pool_median_repeat2_dex": 0.1923,
+      "abs_pool_median_shift_dex": 0.0098,
+      "per_paper_std_median_dex": 0.0223,
+      "per_paper_std_mean_dex": 0.307,
+      "per_paper_absdelta_median_dex": 0.0316,
       "per_paper_std_hist_bins": [
         0,
         0.02,
@@ -29,20 +29,20 @@
         27,
         5,
         3,
+        4,
+        8,
         5,
-        7,
-        6,
         2,
         2
       ],
-      "aggregate_floor_boot_median_dex": 0.2179,
+      "aggregate_floor_boot_median_dex": 0.2021,
       "aggregate_floor_ci95_dex": [
-        0.1586,
-        0.2756
+        0.1604,
+        0.2609
       ],
-      "aggregate_floor_ci_halfwidth_dex": 0.0585,
-      "channel_flips": 11,
-      "channel_flip_frac": 0.193,
+      "aggregate_floor_ci_halfwidth_dex": 0.0503,
+      "channel_flips": 10,
+      "channel_flip_frac": 0.1786,
       "channel_flip_ids": {
         "1503.06886": "figure_vision->text",
         "1804.10777": "figure_vision->text",
@@ -51,16 +51,15 @@
         "2005.14184": "figure_vision->text",
         "2006.06722": "text->figure_vision",
         "2007.03694": "table->text",
-        "2008.10141": "text->figure_vision",
         "2106.00022": "text->figure_vision",
         "2109.08822": "text->figure_vision",
         "2208.06519": "text->figure_vision"
       },
-      "_had_pairs": 57
+      "_had_pairs": 56
     },
     "haiku": {
       "arm": "haiku",
-      "status": "repeat-2 metrics missing: /Users/lanqingyuan/Documents/GitHub/AutoAxionLimits/evaluation/eval_runs/noise_floor_100_reuse/haiku_repeat2/metrics_noproj.json"
+      "status": "repeat-2 metrics missing: /private/tmp/claude-501/-Users-lanqingyuan-Documents-GitHub-AutoAxionLimits/83003412-5680-46b9-acd5-92e918f40e2e/scratchpad/repro/evaluation/eval_runs/noise_floor_100_reuse/haiku_repeat2/metrics_noproj.json"
     },
     "fable": {
       "arm": "fable",

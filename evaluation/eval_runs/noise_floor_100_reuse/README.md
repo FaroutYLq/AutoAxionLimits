@@ -13,8 +13,8 @@ The **production floor is now measured directly** rather than inherited from Opu
 | arm | n paired | aggregate floor 95% CI | half-width | per-paper std (median) | channel flips |
 |---|---|---|---|---|---|
 | **fable (production)** | **96** | **[0.161, 0.205]** | **±0.022 dex** | 0.017 dex | 12/96 = 12.5% |
-| fable, restricted to Opus's 57 | 57 | [0.117, 0.182] | ±0.033 dex | 0.013 dex | -- |
-| opus 4.8 | 57 | [0.159, 0.276] | ±0.059 dex | 0.024 dex | 11/57 = 19.3% |
+| fable, restricted to Opus's 56 | 56 | -- | ±0.036 dex | -- | -- |
+| opus 4.8 | 56 | [0.160, 0.261] | ±0.050 dex | 0.022 dex | 10/56 = 17.9% |
 
 The Fable arm is more reproducible than Opus on **identical papers** (±0.033 vs
 ±0.059 on the same 57), so the improvement is not a sample-size artifact. The
@@ -142,3 +142,11 @@ arm deferred). Requires the Haiku re-read.
 ./evaluation/eval_runs/noise_floor_100_reuse/run_repeat2.sh haiku   # 100 fresh (deliverable 3)
 python3 evaluation/eval_runs/noise_floor_100_reuse/analyze.py
 ```
+
+## Rescoring note (2026-08-14)
+All metrics in this directory are scored with the repository's CURRENT scorer
+(post #737/#738/#741/#743/#744/#745), so a fresh clone regenerates them
+bit-identically. Under that scorer the Plan-B Opus arm pairs 56 papers (one
+paper of the original 57 left the comparable pool) and its floor is ±0.050 dex
+with a 10/56 = 17.9% flip rate; the values previously quoted from the July
+scorer were 57 paired / ±0.059 / 19.3%. No production (fable) number changed.
