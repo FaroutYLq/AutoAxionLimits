@@ -48,10 +48,32 @@ entries = {e.arxiv_id: e for e in load_ground_truth()}
 outdir = Path(args.outdir)
 outdir.mkdir(parents=True, exist_ok=True)
 
+# Load triage helpers from the driver's own directory, not the target
+# worktree's sys.path: the driver is routinely pointed at older pinned
+# worktrees (code-matched repeats) that predate snapshot_triage.py.
+import importlib.util as _ilu  # noqa: E402
+_spec = _ilu.spec_from_file_location(
+    "snapshot_triage", Path(__file__).resolve().parent / "snapshot_triage.py")
+_triage = _ilu.module_from_spec(_spec)
+_spec.loader.exec_module(_triage)
+classify_snapshot = _triage.classify_snapshot
+is_environmental_error = _triage.is_environmental_error
+
+
 def one(aid: str):
     dest = outdir / f"{aid.replace(chr(47), chr(95))}.json"
     if dest.exists():
-        return aid, "cached"
+        # Only a GOOD snapshot counts as done. An error stub or husk left by
+        # an earlier run is re-extracted on resume rather than silently
+        # counted as coverage (the 2026-07-30 lesson: 45 husks passed a
+        # naive exists() check and deflated coverage unnoticed).
+        try:
+            kind = classify_snapshot(json.loads(dest.read_text()))
+        except Exception:
+            kind = "error"
+        if kind == "good":
+            return aid, "cached"
+        dest.unlink()
     entry = entries.get(aid)
     if entry is None:
         return aid, "no-gt"
@@ -61,9 +83,11 @@ def one(aid: str):
     except Exception as e:
         result = {"arxiv_id": aid, "status": "error", "error": str(e)[:400]}
     err = str(result.get("error", ""))
-    if "credit balance" in err or "billing" in err.lower():
-        # availability error: abort the whole run instead of burning the
-        # remaining ids into stubs (#648 semantics at the driver level)
+    if is_environmental_error(err):
+        # Availability/quota error: a property of the RUN, not the paper.
+        # Abort instead of burning the remaining ids into stubs (#648
+        # semantics at the driver level); nothing is saved for this paper,
+        # so a later resume retries it for free.
         print(f"FATAL availability error at {aid}: {err[:120]}", flush=True)
         import os as _os
         _os._exit(2)
