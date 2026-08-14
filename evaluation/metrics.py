@@ -904,6 +904,67 @@ class ConfidenceBin:
     frac_within_tau: dict[float, float] = field(default_factory=dict)
 
 
+def _equal_count_confidence_groups(
+    confidences: list[float], n_bins: int
+) -> list[list[float]]:
+    """Group distinct confidence values into <= ``n_bins`` tie-preserving bins
+    of approximately equal paper count.
+
+    A confidence value is atomic: every paper sharing it lands in the same bin,
+    because splitting a tie would make a bin's boundary depend on list order.
+    Extraction models emit only a handful of round confidences (0.5, 0.6, 0.85,
+    ...), often with one value holding a fifth of the corpus, so exactly equal
+    occupancy is usually unreachable; the greedy pass below closes a bin once it
+    reaches the running target and then recomputes that target from what is
+    left, which spreads the unavoidable imbalance over the remaining bins
+    instead of dumping it all in the last one.
+    """
+    counts: dict[float, int] = {}
+    for c in confidences:
+        counts[c] = counts.get(c, 0) + 1
+    uniq = sorted(counts)
+    if n_bins <= 1 or len(uniq) <= 1:
+        return [uniq]
+
+    n_bins = min(n_bins, len(uniq))  # cannot make more bins than distinct values
+    target = len(confidences) / n_bins
+    n_vals = len(uniq)
+    prefix = [0]
+    for v in uniq:
+        prefix.append(prefix[-1] + counts[v])
+
+    # Exact split by dynamic programming: choose contiguous groups of distinct
+    # values minimizing the squared deviation of each group's paper count from
+    # the equal-occupancy target. A greedy pass strands the sparse extreme
+    # values in a starved final bin (models rarely emit very high or very low
+    # confidence); the DP is trivial here because there are only a handful of
+    # distinct values, and it spreads the tie-induced imbalance optimally.
+    INF = float("inf")
+    # best[b][i] = min cost of splitting the first i values into b groups
+    best = [[INF] * (n_vals + 1) for _ in range(n_bins + 1)]
+    cut = [[-1] * (n_vals + 1) for _ in range(n_bins + 1)]
+    best[0][0] = 0.0
+    for b in range(1, n_bins + 1):
+        for i in range(b, n_vals + 1):          # each group needs >=1 value
+            for j in range(b - 1, i):
+                if best[b - 1][j] == INF:
+                    continue
+                size = prefix[i] - prefix[j]
+                cost = best[b - 1][j] + (size - target) ** 2
+                if cost < best[b][i]:
+                    best[b][i] = cost
+                    cut[b][i] = j
+
+    groups: list[list[float]] = []
+    i = n_vals
+    for b in range(n_bins, 0, -1):
+        j = cut[b][i]
+        groups.append(uniq[j:i])
+        i = j
+    groups.reverse()
+    return groups
+
+
 def compute_confidence_calibration(
     confidences: list[float],
     interp_metrics: list[InterpolationMetrics],
@@ -912,6 +973,7 @@ def compute_confidence_calibration(
     accuracy_threshold_residual: float = NOISE_FLOOR_RESIDUAL_DEX,
     accuracy_threshold_coverage: float = 0.5,
     taus: tuple[float, ...] = CONTINUOUS_TAUS_DEX,
+    binning: str = "equal_width",
 ) -> list[ConfidenceBin]:
     """Bin papers by extraction_confidence and compute calibration per bin.
 
@@ -932,19 +994,47 @@ def compute_confidence_calibration(
     *continuous* residual distribution (median + IQR) and the empirical
     P(residual < tau) for each tau in ``taus``, so a bin shows the real residual
     distribution rather than only a thresholded rate.
+
+    ``binning`` selects how papers are grouped:
+
+    * ``"equal_width"`` (default): fixed 1/n_bins-wide confidence intervals.
+      Simple, but models emit a small set of round confidence values, so the
+      occupancy is wildly uneven and the sparse extreme bins are dominated by
+      sampling noise.
+    * ``"equal_count"``: tie-aware quantile bins targeting equal occupancy.
+      Because a confidence value cannot be split across bins (models reuse a
+      handful of round values), occupancy is equalized only as far as the ties
+      allow; the binner rebalances its target after each closed bin. This is
+      what the manuscript reports, so every bin carries comparable statistical
+      weight and no bin's accuracy rests on a handful of papers.
     """
     if not confidences:
         return []
 
-    bin_edges = np.linspace(0.0, 1.0, n_bins + 1)
     bins = []
 
-    for i in range(n_bins):
-        lo, hi = bin_edges[i], bin_edges[i + 1]
-        indices = [
-            j for j, c in enumerate(confidences)
-            if lo <= c < hi or (i == n_bins - 1 and c == hi)
-        ]
+    if binning == "equal_count":
+        groups = _equal_count_confidence_groups(confidences, n_bins)
+    elif binning == "equal_width":
+        groups = None
+    else:
+        raise ValueError(f"unknown binning mode: {binning!r}")
+
+    bin_edges = np.linspace(0.0, 1.0, n_bins + 1)
+    n_iter = len(groups) if groups is not None else n_bins
+
+    for i in range(n_iter):
+        if groups is not None:
+            values = groups[i]
+            lo, hi = min(values), max(values)
+            vset = set(values)
+            indices = [j for j, c in enumerate(confidences) if c in vset]
+        else:
+            lo, hi = bin_edges[i], bin_edges[i + 1]
+            indices = [
+                j for j, c in enumerate(confidences)
+                if lo <= c < hi or (i == n_bins - 1 and c == hi)
+            ]
 
         if not indices:
             bins.append(ConfidenceBin(
