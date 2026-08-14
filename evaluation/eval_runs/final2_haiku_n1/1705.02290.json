@@ -1,0 +1,98 @@
+{
+ "arxiv_id": "1705.02290",
+ "paper_title": "New CAST Limit on the Axion-Photon Interaction",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-09,
+   1e-16
+  ],
+  [
+   1e-08,
+   1e-16
+  ],
+  [
+   1e-07,
+   1e-16
+  ],
+  [
+   1e-06,
+   1e-16
+  ],
+  [
+   1e-05,
+   1e-16
+  ],
+  [
+   0.0001,
+   1.2e-16
+  ],
+  [
+   0.0005,
+   1.5e-16
+  ],
+  [
+   0.001,
+   2e-16
+  ],
+  [
+   0.002,
+   3e-16
+  ],
+  [
+   0.005,
+   5e-16
+  ],
+  [
+   0.01,
+   8e-16
+  ],
+  [
+   0.02,
+   1.2e-15
+  ],
+  [
+   0.05,
+   2e-15
+  ],
+  [
+   0.1,
+   3.5e-15
+  ],
+  [
+   0.2,
+   6e-15
+  ],
+  [
+   0.5,
+   1.2e-14
+  ],
+  [
+   1.0,
+   2.5e-14
+  ],
+  [
+   2.0,
+   5e-14
+  ],
+  [
+   5.0,
+   1.2e-13
+  ],
+  [
+   10.0,
+   3e-13
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "CAST (CERN Axion Solar Telescope)",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling",
+ "notes": "Mass-independent bound valid for m_a \u2272 0.02 eV from CAST's final solar axion search phase (2013\u20132015) using evacuated magnet pipes. Main result: g_agamma < 0.66 \u00d7 10^-10 GeV^-1 (95% C.L.). Encoded as horizontal line from m_a = 0 to 0.02 eV. This is a world-leading limit on axion-photon coupling for low masses, comparable to astrophysical bounds from horizontal branch stars. The limit applies to axion-to-photon conversion in the 9 T magnetic field of a refurbished LHC test magnet. Systematic uncertainties estimated to be well below 10% of the quoted result. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 20)) | Vision: The CAST exclusion plot (FIG. 6) shows the constraint on axion-photon coupling g_agamma as a function of axion mass m_a. The main CAST result (blue horizontal line at ~10^-10.2 GeV^-1) applies for m_a \u2272 0.02 eV. The boundary traced follows the lower edge of the excluded region (light blue shaded area labeled 'CAST'). The plot also shows theoretical model lines (KSVZ and DFSZ axion models in yellow band) and other experimental constraints (OSQAR, DAMA, SUMICO, Helioscopes, HESS, SN1987A). The text states the final limit is g_agamma < 0.66 \u00d7 10^-10 GeV^-1 at 95% C.L. for m_a \u2272 0.02 eV. The boundary becomes steeper at higher masses due to the conversion probability dependence on mass (Eq. 1 in the paper). Tracing was done conservatively along the visible lower edge of the CAST exclusion band. | Calibration: No calibration needed",
+ "num_points": 20,
+ "elapsed_s": 149.29711627960205
+}

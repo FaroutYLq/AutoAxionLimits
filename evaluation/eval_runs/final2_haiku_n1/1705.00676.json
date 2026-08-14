@@ -1,0 +1,110 @@
+{
+ "arxiv_id": "1705.00676",
+ "paper_title": "Axions, Instantons, and the Lattice",
+ "coupling_type": "AxionMass",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   5e-06,
+   1.35
+  ],
+  [
+   7e-06,
+   1.25
+  ],
+  [
+   1e-05,
+   1.1
+  ],
+  [
+   1.5e-05,
+   0.95
+  ],
+  [
+   2e-05,
+   0.85
+  ],
+  [
+   3e-05,
+   0.7
+  ],
+  [
+   4e-05,
+   0.6
+  ],
+  [
+   5e-05,
+   0.52
+  ],
+  [
+   6e-05,
+   0.48
+  ],
+  [
+   7e-05,
+   0.43
+  ],
+  [
+   8e-05,
+   0.4
+  ],
+  [
+   9e-05,
+   0.37
+  ],
+  [
+   0.0001,
+   0.35
+  ],
+  [
+   0.00012,
+   0.32
+  ],
+  [
+   0.00015,
+   0.28
+  ],
+  [
+   0.00018,
+   0.25
+  ],
+  [
+   0.0002,
+   0.23
+  ],
+  [
+   0.00025,
+   0.2
+  ],
+  [
+   0.0003,
+   0.18
+  ],
+  [
+   0.00035,
+   0.16
+  ],
+  [
+   0.0004,
+   0.15
+  ],
+  [
+   0.00045,
+   0.14
+  ],
+  [
+   0.0005,
+   0.13
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.25,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "ADMX (Axion Dark Matter eXperiment)",
+ "coupling_convention": "\u03a9 (relic density fraction), dimensionless. This is NOT a coupling constant but rather the axion relic abundance as a fraction of critical density. The plot shows the relationship between axion mass m_a [\u03bceV] and relic density \u03a9 from misalignment in the post-inflationary scenario.",
+ "notes": "This paper is a theoretical study of axion cosmology and does NOT present new experimental exclusion limits or sensitivity projections. Instead, it reassesses theoretical uncertainties in the dilute instanton gas computation of the QCD topological susceptibility \u03c7(T) and its impact on axion relic density predictions. The paper argues that instanton-based uncertainties amount to a factor of ~20 in \u03c7 at T=1.5 GeV (or <20% in the effective action), and that combined with intermediate-temperature models, this yields a factor of 2-3 uncertainty in the zero-temperature axion mass for a given relic density. The paper does not constrain the axion-photon coupling g_agamma, axion-electron coupling g_ae, or any other direct coupling constant. It also does not present measured or projected experimental bounds. Instead, it provides theoretical predictions for the relationship between axion mass m_a and decay constant f_a (or equivalently, relic density \u03a9) as functions of temperature-dependent QCD parameters. Figure 1 shows \u03a9 vs m_a for different theoretical models of \u03c7(T), but these are theoretical predictions, not experimental exclusion limits. The paper's main result is that the axion mass required to explain dark matter is robust against theoretical uncertainties at the ~factor 2-3 level. No extractable (mass, coupling) data points suitable for an exclusion limit database exist in this paper. | selector: figure_vision (sole candidate) | Vision: This paper presents axion relic density calculations from misalignment in the post-inflationary scenario (Figure 1). The plot shows \u03a9 vs m_a [\u03bceV] with colored bands representing different theoretical models (blue for dilute instanton gas at T_2=100 MeV, green for chiral perturbation theory at T_2=500 MeV). The width of each band reflects uncertainty in the instanton computation of the free energy. The dashed line corresponds to lattice QCD results. The y-axis is NOT a coupling constant but the relic density \u03a9. The lower boundary of the allowed region (where \u03a9 matches observed dark matter density ~0.25) traces the minimum axion mass required for a given theoretical model. The plot does not represent an exclusion limit in the traditional sense but rather a cosmological constraint on the axion mass-decay constant relationship through relic abundance calculations. Extracted the lower envelope of the blue band as the primary constraint boundary. | Calibration: No calibration needed",
+ "num_points": 23,
+ "elapsed_s": 80.3836259841919
+}

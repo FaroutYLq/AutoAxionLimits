@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "2409.08998",
+ "paper_title": "Dark Matter Axion Search with HAYSTAC Phase II",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   7.14e-06,
+   2.0499999999999998e-14
+  ],
+  [
+   7.44e-06,
+   1.96e-14
+  ],
+  [
+   1.728e-05,
+   2.75e-14
+  ],
+  [
+   1.844e-05,
+   2.75e-14
+  ],
+  [
+   1.871e-05,
+   2.96e-14
+  ],
+  [
+   1.946e-05,
+   2.96e-14
+  ],
+  [
+   1.696e-05,
+   2.86e-14
+  ],
+  [
+   1.946e-05,
+   2.86e-14
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "HAYSTAC_PhaseII",
+ "coupling_convention": "|g_gamma / g_gamma^KSVZ| ratio (dimensionless, NOT converted to GeV^-1)",
+ "notes": "HAYSTAC Phase II squeezed-state receiver axion haloscope search. Exclusion limits are reported as multiples of the KSVZ axion-photon coupling |g_gamma/g_gamma^KSVZ|, NOT in GeV^-1. Phase IId: 2.75x over 17.28-18.44 ueV (excluding mode crossings 17.89-18.08 and 18.13-18.18 ueV). Phase IIc: 2.96x over 18.71-19.46 ueV. Combined Phase II aggregate: 2.86x over 16.96-19.46 ueV. Earlier subphases (a,b) shown in Table I: 2.05x and 1.96x (these are the average couplings for 5.1sigma initial scans). Local DM density rho_a = 0.45 GeV/cm^3. Lambda = 77.6 MeV. To convert ratios to g_agamma in GeV^-1, multiply by KSVZ value g_agamma^KSVZ which depends on mass. Downstream conversion required using KSVZ model; I have NOT applied this conversion and report raw ratios. Mass values in eV converted from ueV endpoints of stated ranges. | selector: text over figure_vision (quality (0, 1, 1, 1, 3, 0, 0.7, 8)) | Auto-corrected couplings: \u00d71e-14 (\u00d71.00e-14, rule=argmin|log10(median*f)-log10(anchor=1.0e-14)|)",
+ "num_points": 8,
+ "elapsed_s": 138.73518204689026
+}

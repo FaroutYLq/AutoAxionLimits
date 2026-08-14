@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2006.02828",
+ "paper_title": "Tokyo-Tomita",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.00011579,
+   4.3e-10
+  ],
+  [
+   0.00011585,
+   1.8e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.39,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Tomita_Kband_HPCDM_2020",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "Hidden-photon cold dark matter search with cryogenic K-band receiver and planar metal plate. Mass range 115.79-115.85 ueV (27.998-28.012 GHz). Limit chi < 1.8-4.3e-10 at 95% CL. Only the two endpoint values are given in text; the detailed curve is in Figure 7. Local DM density used is 0.39 GeV/cm^3. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+ "num_points": 2,
+ "elapsed_s": 143.34459900856018
+}

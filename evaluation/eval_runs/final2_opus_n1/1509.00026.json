@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "1509.00026",
+ "paper_title": "Axion dark matter: strings and their cores",
+ "coupling_type": "AxionMass",
+ "is_new_limit": false,
+ "is_projection": false,
+ "data_points": [],
+ "data_source": "none",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.1,
+ "suggested_experiment_name": "Fleury-Moore-AxionStrings2015",
+ "coupling_convention": null,
+ "notes": "This is a theoretical/numerical cosmology paper on axion string network evolution and axion production efficiency. It predicts a value of f_a = 3.3e11 GeV and m_a = 18 ueV from simulations, but this is a cosmological prediction of the axion mass/decay constant, not an experimental exclusion limit or sensitivity projection on a coupling. No exclusion curve or coupling constraint is presented, so no data points can be extracted as an experimental limit. | Coupling from pre-classifier (AxionMass, conf=0.90)",
+ "num_points": 0,
+ "elapsed_s": 101.15957117080688
+}

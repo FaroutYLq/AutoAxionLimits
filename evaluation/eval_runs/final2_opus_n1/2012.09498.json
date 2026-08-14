@@ -1,0 +1,142 @@
+{
+ "arxiv_id": "2012.09498",
+ "paper_title": "Search for invisible axion dark matter of mass m$_a=43~\u03bc$eV with the QUAX--$a\u03b3$ experiment",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.30288e-05,
+   2.5e-13
+  ],
+  [
+   4.303e-05,
+   1.8e-13
+  ],
+  [
+   4.3031e-05,
+   2.2e-13
+  ],
+  [
+   4.3032e-05,
+   1.9e-13
+  ],
+  [
+   4.3033e-05,
+   2.3e-13
+  ],
+  [
+   4.30345e-05,
+   1.7e-13
+  ],
+  [
+   4.3036e-05,
+   2e-13
+  ],
+  [
+   4.3046e-05,
+   1e-13
+  ],
+  [
+   4.30475e-05,
+   8.5e-14
+  ],
+  [
+   4.3049e-05,
+   9.5e-14
+  ],
+  [
+   4.30505e-05,
+   8e-14
+  ],
+  [
+   4.3052e-05,
+   8.5e-14
+  ],
+  [
+   4.30535e-05,
+   7.8e-14
+  ],
+  [
+   4.3055e-05,
+   8e-14
+  ],
+  [
+   4.30565e-05,
+   7.66e-14
+  ],
+  [
+   4.3058e-05,
+   7.8e-14
+  ],
+  [
+   4.30595e-05,
+   8.2e-14
+  ],
+  [
+   4.3061e-05,
+   9e-14
+  ],
+  [
+   4.30625e-05,
+   9.5e-14
+  ],
+  [
+   4.3064e-05,
+   1.05e-13
+  ],
+  [
+   4.30655e-05,
+   1.1e-13
+  ],
+  [
+   4.3067e-05,
+   1.2e-13
+  ],
+  [
+   4.30685e-05,
+   1.3e-13
+  ],
+  [
+   4.307e-05,
+   1.4e-13
+  ],
+  [
+   4.30715e-05,
+   1.5e-13
+  ],
+  [
+   4.3073e-05,
+   1.6e-13
+  ],
+  [
+   4.30745e-05,
+   1.7e-13
+  ],
+  [
+   4.3076e-05,
+   1.8e-13
+  ],
+  [
+   4.30775e-05,
+   1.9e-13
+  ],
+  [
+   4.3079e-05,
+   2e-13
+  ],
+  [
+   4.308e-05,
+   2.2e-13
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "QUAX-agamma",
+ "coupling_convention": "|g_agamma| in GeV^-1 (plotted as value x10^-13)",
+ "notes": "QUAX-agamma haloscope. 90% C.L. limit g_agamma < 0.766e-13 GeV^-1 at m_a = 43.0182 ueV (nu_c=10.40176 GHz) over 3.7 neV window. Note the abstract quotes 0.639e-13 but the body text and Fig.5 reference value is 0.766e-13 GeV^-1; used body-text value. Two-point horizontal line spans the 3.7 neV analysis window centered at 43.0182 ueV. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 31)) | Vision: Fig 5: observed 90% CL upper limit on g_agamma. X-axis frequency 10.4012-10.4022 GHz converted to mass via m=4.136e-15*f. Y-axis in units of 10^-13 GeV^-1. Two segments separated by excluded LO region. Minimum reference limit g<0.766e-13 GeV^-1 at max sensitivity. KSVZ line ~0.18 (1.8e-14 GeV^-1), DFSZ ~0.07 (7e-15 GeV^-1). | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.92 snapped to identity)",
+ "num_points": 31,
+ "elapsed_s": 261.199257850647
+}

@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2102.01448",
+ "paper_title": "Search for axion-like dark matter with spin-based amplifiers",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   8.3e-15,
+   3e-05
+  ],
+  [
+   6.75e-14,
+   2.9e-09
+  ],
+  [
+   8.205e-14,
+   3.5e-09
+  ],
+  [
+   7.44e-13,
+   5e-05
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "SpinAmplifier_129Xe_2021",
+ "coupling_convention": "g_aNN in GeV^-1 (dimensional axion-nucleon coupling, not dimensionless)",
+ "notes": "Spin-based amplifier (hyperpolarized 129Xe pre-amplifier + 87Rb magnetometer) searching for ALP-nucleon coupling over mass range 8.3 feV to 744 feV. The paper reports g_aNN in units of GeV^-1 (a dimensional coupling, gaNN = C/f_a type), NOT the dimensionless g_an convention. The best limit quoted in text: 2.9e-9 GeV^-1 at 67.5 feV (5h data), and 3.5e-9 GeV^-1 at 82.05 feV. Only a few explicit numerical values are given in text; the full exclusion curve (Fig 4b) is not tabulated. I emitted values in the paper's GeV^-1 convention (raw axis values), not converted to dimensionless g_an. Endpoints at mass edges (8.3 and 744 feV) approximate ~few\u00d710^-5 GeV^-1 from the plot. Confidence reduced because coupling convention differs from standard dimensionless g_an and exact curve values are approximate. 129Xe is neutron-sensitive, consistent with AxionNeutron hint. Density rho_a=0.4 GeV/cm^3 assumed. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.5, 4))",
+ "num_points": 4,
+ "elapsed_s": 179.00455403327942
+}

@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "2301.03433",
+ "paper_title": "PTB",
+ "coupling_type": "ScalarPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-24,
+   8e-06
+  ],
+  [
+   1e-23,
+   8e-06
+  ],
+  [
+   1e-22,
+   5e-06
+  ],
+  [
+   1e-21,
+   3e-06
+  ],
+  [
+   1e-20,
+   2e-06
+  ],
+  [
+   1e-19,
+   1e-06
+  ],
+  [
+   1e-18,
+   8e-07
+  ],
+  [
+   1e-17,
+   5e-06
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "PTB_Yb+_Sr_clock_2023",
+ "coupling_convention": "d_e dimensionless",
+ "notes": "Optical atomic clock comparison (Yb+ E3/E2 and Yb+ E3/Sr) constraining oscillations of the fine-structure constant, i.e. scalar coupling d_e of ultralight dark matter to photons over mass range ~1e-24 to 1e-17 eV. The paper presents the exclusion only in a plot (Fig. 4) without a numerical table; data points here are approximate order-of-magnitude estimates read from the described exclusion. Density assumed 0.4 GeV/cm^3. A factor-of-3 rescaling for stochastic fluctuations was applied by authors. Numerical values are uncertain since no table is provided. | [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of the two new PTB limits') rather than the paper's own single curve | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 8))",
+ "num_points": 8,
+ "elapsed_s": 133.79682612419128
+}

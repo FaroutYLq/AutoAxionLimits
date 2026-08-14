@@ -1,0 +1,166 @@
+{
+ "arxiv_id": "2006.12431",
+ "paper_title": "Stellar Basins of Gravitationally Bound Particles",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   200.0,
+   7.5e-12
+  ],
+  [
+   220.0,
+   5.5e-12
+  ],
+  [
+   250.0,
+   4.2e-12
+  ],
+  [
+   280.0,
+   3.5e-12
+  ],
+  [
+   320.0,
+   3.2e-12
+  ],
+  [
+   400.0,
+   3e-12
+  ],
+  [
+   500.0,
+   2.8e-12
+  ],
+  [
+   600.0,
+   2.7e-12
+  ],
+  [
+   680.0,
+   2.6e-12
+  ],
+  [
+   700.0,
+   1e-12
+  ],
+  [
+   800.0,
+   9.5e-13
+  ],
+  [
+   900.0,
+   9e-13
+  ],
+  [
+   1000.0,
+   8.5e-13
+  ],
+  [
+   1200.0,
+   8.2e-13
+  ],
+  [
+   1500.0,
+   8e-13
+  ],
+  [
+   2000.0,
+   8.3e-13
+  ],
+  [
+   2500.0,
+   8.8e-13
+  ],
+  [
+   3000.0,
+   9.5e-13
+  ],
+  [
+   3500.0,
+   1e-12
+  ],
+  [
+   4000.0,
+   1e-12
+  ],
+  [
+   4500.0,
+   9.5e-13
+  ],
+  [
+   5000.0,
+   9e-13
+  ],
+  [
+   6000.0,
+   8.5e-13
+  ],
+  [
+   7000.0,
+   8.5e-13
+  ],
+  [
+   8000.0,
+   9e-13
+  ],
+  [
+   9000.0,
+   9.5e-13
+  ],
+  [
+   10000.0,
+   1.05e-12
+  ],
+  [
+   12000.0,
+   1.2e-12
+  ],
+  [
+   15000.0,
+   1.6e-12
+  ],
+  [
+   18000.0,
+   2.2e-12
+  ],
+  [
+   22000.0,
+   3.2e-12
+  ],
+  [
+   26000.0,
+   5e-12
+  ],
+  [
+   30000.0,
+   7.5e-12
+  ],
+  [
+   35000.0,
+   1.2e-11
+  ],
+  [
+   40000.0,
+   3e-11
+  ],
+  [
+   42000.0,
+   6e-11
+  ],
+  [
+   43000.0,
+   1e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "Solar Axion Basin Limit (conservative)",
+ "coupling_convention": "canonical g_aee (g_aee), dimensionless",
+ "notes": "Paper presents a new 'Solar basin' limit on the axion-electron coupling g_aee (Fig. 3), recast from DM axion absorption line searches (XENON1T, LUX, PandaX-II) independent of DM assumptions. Data points are approximate readings from the conservative-limit blue curve in Fig. 3, spanning roughly m~1-100 keV. The stellar-basin density is a source rather than an assumed halo, so no dm_density is set. Values are approximate since extracted from a plot; the minimum coupling reached is ~9e-14 near ~10-20 keV. This is NOT the DM density assumption experiment though the recast uses rho_DM in Eq.28 for the mapping. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 37)) | Vision: Traced the thick solid blue 'conservative/fiducial' Solar Axion Basin exclusion boundary from Fig. 3, which is the DM-independent recast limit. Excluded region is above this curve. X-axis in keV converted to eV (0.1-100 keV = 100-1e5 eV). Curve shows a sharp drop near ~0.7 keV, a broad minimum near g_aee ~8e-13 in the 1-10 keV range, and a steep rise above ~10 keV. The paper's main plotted coupling is g_aee (=g_aee axion-electron pseudoscalar coupling). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.80 snapped to identity)",
+ "num_points": 37,
+ "elapsed_s": 179.11509704589844
+}

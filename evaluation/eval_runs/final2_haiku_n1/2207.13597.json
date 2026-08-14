@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2207.13597",
+ "paper_title": "Near-Quantum-Noise Axion Dark Matter Search at CAPP around 9.5 $\u03bc$eV",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   9.39e-06,
+   2.7e-16
+  ],
+  [
+   9.51e-06,
+   2.7e-16
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "CAPP-PACE",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper reports exclusion of axion mass range 9.39\u20139.51 \u00b5eV (converted to eV: 9.39e-6 to 9.51e-6 eV) with coupling sensitivity of 2.7-fold above the KSVZ level. The KSVZ model predicts g_agamma \u2248 1e-16 GeV^-1 at this mass scale; 2.7\u00d7 above KSVZ yields ~2.7e-16 GeV^-1. This is a mass-independent (flat) bound across the scanned range, encoded as a horizontal line. The paper explicitly states \u03c1_a = 0.45 GeV/cm\u00b3 (100% of local DM halo density). Confidence level is 90% as stated in the paper. The experiment is CAPP-PACE (Pilot Axion-Cavity Experiment at CAPP), which achieved the lowest system noise (200 mK) among published phase-insensitive JPA haloscope searches at the time of publication (July 2022). | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 16.2 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 82.95751667022705
+}

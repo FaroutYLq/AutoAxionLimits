@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "1004.1313",
+ "paper_title": "New ALPS Results on Hidden-Sector Lightweights",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-05,
+   6.5e-08
+  ],
+  [
+   0.0001,
+   6.5e-08
+  ],
+  [
+   0.0003,
+   7e-08
+  ],
+  [
+   0.0005,
+   8e-08
+  ],
+  [
+   0.001,
+   1.5e-07
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "ALPS2010",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "LSW experiment (light-shining-through-wall) at DESY using HERA dipole magnet. Constrains ALP-photon coupling g_- (pseudoscalar) and g_+ (scalar) vs ALP mass, kinetic mixing chi for hidden photons, and minicharged particle charge Q. Pre-analysis hint AxionPhoton is correct for the primary ALP result (Fig 4). Data points are approximate estimates read from the exclusion plot (Fig 4, y-axis 1e-7 to 1e-6 GeV^-1, x-axis 1e-4 to 1e-3 eV) since no numerical table of coupling limits is given (Table 1 gives only conversion probabilities ~1e-25). The paper also constrains DarkPhoton (chi vs m_gamma', Fig 5) and minicharged particles; those were not extracted. Not a DM haloscope, so no local density. Confidence lowered because multiple coupling types present and coupling values read from plot. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 5))",
+ "num_points": 5,
+ "elapsed_s": 152.63659811019897
+}

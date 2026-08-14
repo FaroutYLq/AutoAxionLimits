@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "2211.02661",
+ "paper_title": "WhiteDwarfs",
+ "coupling_type": "AxionMass",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [],
+ "data_source": "none",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "WhiteDwarfs_LightQCDAxion",
+ "coupling_convention": "f_a in GeV vs epsilon (dimensionless tuning parameter)",
+ "notes": "This paper constrains exceptionally light QCD axions via white dwarf mass-radius relation. The exclusion is presented in the (f, epsilon) plane and (f, m_a) plane, not a standard coupling-vs-mass exclusion. The main quantitative results are: 2e-20 < epsilon < 2e-7 (95% CL) and 5.5e9 < f/GeV < 1.1e16 (95% CL), plus 33 <= N <= 69 for the Z_N model. These are intervals in the axion decay constant f and tuning parameter epsilon, not standard (mass_eV, coupling) pairs. The relation m_a^2 = epsilon * m_pi^2 f_pi^2 / f^2 links epsilon, f, and m_a but no explicit (m_a, f) exclusion table is given. Cannot faithfully produce standard data_points format; coupling type does not cleanly map to enum options (it's an f_a vs epsilon/m_a bound). AxionMass chosen as closest match but data extraction unreliable.",
+ "num_points": 0,
+ "elapsed_s": 138.83196806907654
+}

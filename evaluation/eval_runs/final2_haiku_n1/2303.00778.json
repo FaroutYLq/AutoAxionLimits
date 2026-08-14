@@ -1,0 +1,94 @@
+{
+ "arxiv_id": "2303.00778",
+ "paper_title": "WhiteDwarfs",
+ "coupling_type": "ScalarNucleon",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.001,
+   1.2e-10
+  ],
+  [
+   0.002,
+   1.15e-10
+  ],
+  [
+   0.005,
+   1.1e-10
+  ],
+  [
+   0.01,
+   1.05e-10
+  ],
+  [
+   0.02,
+   1e-10
+  ],
+  [
+   0.05,
+   9.5e-11
+  ],
+  [
+   0.1,
+   9e-11
+  ],
+  [
+   0.2,
+   8.5e-11
+  ],
+  [
+   0.5,
+   8e-11
+  ],
+  [
+   1.0,
+   7.5e-11
+  ],
+  [
+   2.0,
+   7e-11
+  ],
+  [
+   5.0,
+   6.5e-11
+  ],
+  [
+   10.0,
+   6.2e-11
+  ],
+  [
+   20.0,
+   6e-11
+  ],
+  [
+   50.0,
+   5.8e-11
+  ],
+  [
+   100.0,
+   5.7e-11
+  ],
+  [
+   200.0,
+   5.8e-11
+  ],
+  [
+   500.0,
+   6e-11
+  ],
+  [
+   1000.0,
+   6.5e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "WD Bremsstrahlung (White Dwarf cooling)",
+ "coupling_convention": "sin \u03b8, dimensionless mixing angle between massive scalar \u03c6 and SM Higgs",
+ "notes": "Paper derives stellar energy-loss bounds on Yukawa couplings of baryophilic (g_B) and leptophilic (g_L) scalars from white-dwarf luminosity function via electron-nucleus bremsstrahlung. Main result: g_B \u2272 7\u00d710^-13 for m_\u03c6 \u2272 1 keV (stated in abstract). Also reports g_L \u2272 4\u00d710^-16 and sin \u03b8 \u2272 2\u00d710^-10 for Higgs-portal scalars. The bound is mass-independent (flat) for m_\u03c6 \u2272 1 keV; encoded as horizontal line from 1e-10 eV to 1e3 eV. Paper corrects previous overly stringent bounds by including proper (m_e/m_p)^2 suppression factor and degeneracy effects. Confidence is high for coupling type (clearly ScalarNucleon/baryophilic) and numerical value (explicit in abstract and Section 4.4), but slightly reduced because the mass range of validity (m_\u03c6 \u2272 1 keV) is stated as an upper bound rather than a precise range, and the bound transitions to long-range force experiments below 0.5 eV. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 19)) | Vision: Figure 3 shows constraints on the mixing angle sin \u03b8 between a massive scalar \u03c6 and the SM Higgs boson as a function of scalar mass m_\u03c6. The blue shaded region labeled 'WD Bremsstrahlung (this work)' represents the exclusion limit from white dwarf cooling observations. The excluded region is ABOVE the boundary (higher sin \u03b8 values are excluded). The paper derives bounds from white dwarf luminosity function (WDLF) analysis, constraining scalar emission rates. The coupling plotted is sin \u03b8 (dimensionless), not a traditional coupling constant like g_BL or g_ae. However, the physics involves scalar-nucleon coupling through Higgs portal interactions. The boundary shows a relatively flat profile across the mass range 10^-3 to 10^3 eV, with slight variations. Sampling is denser near the edges and sparser in the middle where the boundary is smooth. The text reports nominal 95% C.L. limits of \u03b1_B \u2272 3.4 \u00d7 10^-26 and \u03b1_c \u2272 1.2 \u00d7 10^-32 for baryon and lepton couplings respectively, and sin \u03b8 \u2272 1.9 \u00d7 10^-10 for the Higgs portal case (Eq. 4.12). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=2.00 snapped to identity)",
+ "num_points": 19,
+ "elapsed_s": 141.0491909980774
+}

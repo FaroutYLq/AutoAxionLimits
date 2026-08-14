@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2402.07976",
+ "paper_title": "WINERED",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.8,
+   2.5e-11
+  ],
+  [
+   2.0,
+   2.5e-11
+  ],
+  [
+   2.2,
+   2.5e-11
+  ],
+  [
+   2.4,
+   2.5e-11
+  ],
+  [
+   2.7,
+   3e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "WINERED2024",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "ALP dark matter decay search using WINERED spectrograph on Magellan Clay telescope, observing dSphs Leo V and Tucana II. Constrains photon coupling g_phi_gamma_gamma for ALP DM decaying to two photons in mass range 1.8-2.7 eV. Quoted bound g ~ (2-3)e-11 GeV^-1 for NFW profile (~1e-10 GeV^-1 for generalized Hernquist). Data points approximated from text/Fig 1 (NFW profile case); exact per-bin values in supplementary files not extractable here. This is a decaying-DM indirect search based on D-factors (column density), not a haloscope, so no local DM density assumed. Limit at 2-sigma (~95% CL). | source-data candidate: gagg_general.txt (loose_file, 8946 rows, header-labeled columns) | selector: text over source_data (quality (1, 1, 1, 1, 3, 0, 0.7, 5))",
+ "num_points": 5,
+ "elapsed_s": 48.2381272315979
+}

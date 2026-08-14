@@ -1,0 +1,166 @@
+{
+ "arxiv_id": "1207.3275",
+ "paper_title": "A microwave paraphoton and axion detection experiment with 300 dB electromagnetic shielding at 3 GHz",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-11,
+   1.2e-05
+  ],
+  [
+   2e-11,
+   1.1e-05
+  ],
+  [
+   5e-11,
+   9.5e-06
+  ],
+  [
+   1e-10,
+   8.2e-06
+  ],
+  [
+   2e-10,
+   7e-06
+  ],
+  [
+   5e-10,
+   5.5e-06
+  ],
+  [
+   1e-09,
+   4.2e-06
+  ],
+  [
+   2e-09,
+   3.2e-06
+  ],
+  [
+   5e-09,
+   2.3e-06
+  ],
+  [
+   1e-08,
+   1.6e-06
+  ],
+  [
+   2e-08,
+   1.2e-06
+  ],
+  [
+   5e-08,
+   8e-07
+  ],
+  [
+   1e-07,
+   5.5e-07
+  ],
+  [
+   2e-07,
+   3.8e-07
+  ],
+  [
+   5e-07,
+   2.4e-07
+  ],
+  [
+   1e-06,
+   1.6e-07
+  ],
+  [
+   2e-06,
+   1.1e-07
+  ],
+  [
+   5e-06,
+   6.5e-08
+  ],
+  [
+   1e-05,
+   4.2e-08
+  ],
+  [
+   2e-05,
+   2.8e-08
+  ],
+  [
+   5e-05,
+   1.6e-08
+  ],
+  [
+   0.0001,
+   1e-08
+  ],
+  [
+   0.0002,
+   7.5e-09
+  ],
+  [
+   0.0005,
+   4.5e-09
+  ],
+  [
+   0.001,
+   2.8e-09
+  ],
+  [
+   0.002,
+   1.9e-09
+  ],
+  [
+   0.005,
+   1.1e-09
+  ],
+  [
+   0.01,
+   7e-10
+  ],
+  [
+   0.02,
+   4.8e-10
+  ],
+  [
+   0.05,
+   2.8e-10
+  ],
+  [
+   0.1,
+   1.7e-10
+  ],
+  [
+   0.2,
+   1.2e-10
+  ],
+  [
+   0.5,
+   7e-11
+  ],
+  [
+   1.0,
+   4.5e-11
+  ],
+  [
+   2.0,
+   3.2e-11
+  ],
+  [
+   5.0,
+   1.9e-11
+  ],
+  [
+   10.0,
+   1.2e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "CERN Microwave LSW (Light Shining Through Wall) Paraphoton Search, March 2012",
+ "coupling_convention": "kinetic mixing parameter \u03c7 (dimensionless), canonical dark photon coupling",
+ "notes": "Microwave light-shining-through-wall (LSW) experiment at CERN searching for paraphotons (hidden photons). The paper reports an exclusion limit from a March 2012 measurement run with no paraphotons observed. The key result is shown in Figure 2 and stated in the text: at m_\u03b3' = 1.1\u00d710^-5 eV/c^2, the kinetic mixing parameter \u03c7 < 7.6\u00d710^-9. This is a single-point exclusion limit (mass-independent over the relevant range for this cavity frequency). The experiment achieved >300 dB electromagnetic shielding and used a vector signal analyzer with 24 \u00b5Hz resolution bandwidth. The paper focuses on paraphotons but mentions future axion searches with an additional magnet. Coupling type is DarkPhoton (kinetic mixing \u03c7) rather than AxionPhoton because the paper explicitly discusses paraphoton-photon oscillations via kinetic mixing and the y-axis of Figure 2 is labeled '\u03c7'. The mass value 1.1\u00d710^-5 eV corresponds to the cavity resonance frequency of 2.9565 GHz via the relation m_\u03b3' c^2 = h*f_sys. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 37)) | Vision: Exclusion limit extracted from Figure 2 of the paper. The plot shows the paraphoton (hidden photon/dark photon) exclusion region from a microwave LSW experiment at CERN with 300 dB electromagnetic shielding. The x-axis represents the paraphoton mass in eV (log scale, range ~1e-11 to 10 eV), and the y-axis represents the kinetic mixing parameter \u03c7 (log scale, range ~1e-8 to 1e-4). The boundary traced represents the minimum detectable coupling as a function of mass. The experiment operated at 3 GHz (corresponding to a mass of ~1.24e-5 eV from the frequency-to-mass conversion m[eV] = 4.136e-15 * f[Hz]). The shaded cyan region labeled 'Microwave LSW March 2012 CERN' represents the new exclusion limits from this work. The boundary shows a characteristic shape with steeper slopes at lower masses and flattening at higher masses, typical of LSW experiments where sensitivity depends on cavity Q-factors and geometric factors. | Calibration: No calibration needed",
+ "num_points": 37,
+ "elapsed_s": 153.21790528297424
+}

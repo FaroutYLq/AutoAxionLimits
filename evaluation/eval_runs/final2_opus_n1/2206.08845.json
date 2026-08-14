@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2206.08845",
+ "paper_title": "Searching for Invisible Axion Dark Matter with an 18T Magnet Haloscope",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.9764e-05,
+   4.65e-15
+  ],
+  [
+   1.9771e-05,
+   4.65e-15
+  ],
+  [
+   1.9772e-05,
+   8.37e-15
+  ],
+  [
+   1.9863e-05,
+   8.37e-15
+  ],
+  [
+   1.9863e-05,
+   5.27e-15
+  ],
+  [
+   1.989e-05,
+   5.27e-15
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "CAPP18T",
+ "coupling_convention": "g_agamma in GeV^-1, computed from multiples of KSVZ",
+ "notes": "Limits stated as multiples of KSVZ coupling. At m_a ~19.8 ueV, |g_KSVZ| ~ 3.1e-15 GeV^-1 (using g_KSVZ = 2.0e-16*(m_a/ueV) approx). Deep-scan: 1.5x and 1.7x KSVZ; shallow-scan: 2.7x KSVZ. Values are approximate conversions from stated KSVZ multiples; masses from text ranges. No table provided; derived from exclusion described in text/Fig.5. | selector: text (sole candidate)",
+ "num_points": 6,
+ "elapsed_s": 12.113737106323242
+}

@@ -1,0 +1,62 @@
+{
+ "arxiv_id": "2412.20932",
+ "paper_title": "K40",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3e-23,
+   1e-14
+  ],
+  [
+   5e-23,
+   1e-14
+  ],
+  [
+   1e-22,
+   1e-14
+  ],
+  [
+   2e-22,
+   1e-14
+  ],
+  [
+   5e-22,
+   1e-14
+  ],
+  [
+   1e-21,
+   1.1e-14
+  ],
+  [
+   3e-21,
+   1.2e-14
+  ],
+  [
+   1e-20,
+   1.5e-14
+  ],
+  [
+   3e-20,
+   2.5e-14
+  ],
+  [
+   6e-20,
+   5e-14
+  ],
+  [
+   9.6e-20,
+   1e-13
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.35,
+ "suggested_experiment_name": "40-K EC-decay (LNGS)",
+ "coupling_convention": "1/f_a in GeV^-1 (axion coupling to gluons), as plotted on y-axis",
+ "notes": "This paper constrains the axion-GLUON coupling (1/f_a) via theta-dependence of weak nuclear decays (40K EC and 137Cs beta decay) at Gran Sasso. The y-axis of the exclusion plot is 1/f_a in GeV^-1, NOT any of the enum coupling types. None of the enum options (AxionPhoton, AxionEDM, etc.) correctly describe the axion-gluon coupling 1/f_a. The result: axion decay constants below 1.0e14 - 3.2e10 GeV excluded for masses 3.0e-23 - 9.6e-20 eV. Data points emitted as 1/f_a in GeV^-1: at m_a=3.0e-23 eV, f_a>1.0e14 GeV so 1/f_a<1.0e-14; at m_a=9.6e-20 eV, f_a>3.2e10 GeV so 1/f_a<3.125e-11. Coupling type does not match any enum well; the closest gluon-related option would be AxionEDM (d_n) but the paper reports on the (m_a, 1/f_a) plane directly. Low extraction confidence due to coupling type ambiguity. Values are 2-sigma (95% CL). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.35, 11)) | Vision: The plot y-axis is 1/f_a [GeV^-1], an axion-gluon coupling, NOT g_agamma. Emitted values are 1/f_a as plotted. Text states exclusion of axion decay constants below 1.0e14 - 3.2e10 GeV (1/f_a above 1e-14 - 3.1e-11) for masses 3.0e-23 - 9.6e-20 eV. The 40-K EC-decay region is a subset near the low-mass edge. Coupling type flagged as AxionPhoton per hint but actual quantity is 1/f_a gluon coupling; confidence lowered accordingly. | Calibration: No calibration needed",
+ "num_points": 11,
+ "elapsed_s": 127.76738691329956
+}

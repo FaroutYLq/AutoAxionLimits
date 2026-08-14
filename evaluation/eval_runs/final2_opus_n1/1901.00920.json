@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "1901.00920",
+ "paper_title": "Piezoelectrically Tuned Multimode Cavity Search for Axion Dark Matter",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.738e-05,
+   1e-12
+  ],
+  [
+   1.757e-05,
+   1e-12
+  ],
+  [
+   2.103e-05,
+   1e-12
+  ],
+  [
+   2.398e-05,
+   1e-12
+  ],
+  [
+   2.967e-05,
+   5e-12
+  ],
+  [
+   2.979e-05,
+   5e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "ADMX_Sidecar",
+ "coupling_convention": "g_agamma in GeV^-1 (approximate, read from Fig. 4 axis ranges)",
+ "notes": "ADMX Sidecar haloscope excludes axion-photon coupling in three frequency ranges: A (4202-4249 MHz, TM010, 17.38-17.57 ueV), B (5086-5799 MHz, TM010, 21.03-23.98 ueV), C (7173-7203 MHz, TM020, 29.67-29.79 ueV). The exclusion plots (Fig 4) span g_agamma roughly 1e-13 to 1e-10 GeV^-1; precise numerical values are not tabulated, so data points are approximate representative values read from the plot axes (regions A/B reach ~1e-12, region C weaker due to lower form factor). Density assumed 0.45 GeV/cm^3, isothermal distribution, 90% CL. Actual point-by-point limits require digitizing Fig. 4. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 6))",
+ "num_points": 6,
+ "elapsed_s": 137.88337111473083
+}

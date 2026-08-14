@@ -1,0 +1,58 @@
+{
+ "arxiv_id": "2209.09917",
+ "paper_title": "Novel Constraints on Axions Produced in Pulsar Polar-Cap Cascades",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-08,
+   2.5e-12
+  ],
+  [
+   2e-08,
+   2.2e-12
+  ],
+  [
+   5e-08,
+   1.8e-12
+  ],
+  [
+   1e-07,
+   1.5e-12
+  ],
+  [
+   2e-07,
+   1.3e-12
+  ],
+  [
+   5e-07,
+   1.1e-12
+  ],
+  [
+   1e-06,
+   9.5e-13
+  ],
+  [
+   2e-06,
+   8.5e-13
+  ],
+  [
+   5e-06,
+   7.5e-13
+  ],
+  [
+   1e-05,
+   6.8e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Pulsar_PolarCap_Cascades",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper derives constraints on axion-photon coupling g_agamma using radio observations of 27 nearby pulsars. The mechanism is axion production in neutron star polar-cap vacuum gaps, with resonant conversion to photons in the magnetosphere. The limits are the strongest to date for masses 10^-8 eV \u2272 m_a \u2272 10^-5 eV. Data points extracted from Fig. 2 (upper panel showing the fiducial 95% CL limit band). The constraint does NOT assume axions are dark matter, unlike haloscope and radio line searches. Modeling uncertainties (factor ~2) are captured in the band shown in Fig. 2. The coupling values are read from the figure with typical uncertainty of \u00b10.2 dex. The paper uses both 2.5D PIC simulations and a semi-analytic model; the final limits take the weaker constraint at each mass from both approaches. | selector: text (sole candidate)",
+ "num_points": 10,
+ "elapsed_s": 36.97587776184082
+}

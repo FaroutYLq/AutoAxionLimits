@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "2408.16045",
+ "paper_title": "Search for ultralight dark matter in the SuperMAG high-fidelity dataset",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-17,
+   1.2e-09
+  ],
+  [
+   1.2e-17,
+   1e-09
+  ],
+  [
+   1.5e-17,
+   7.5e-10
+  ],
+  [
+   2e-17,
+   5e-10
+  ],
+  [
+   2.5e-17,
+   3.5000000000000003e-10
+  ],
+  [
+   3e-17,
+   2.5e-10
+  ],
+  [
+   4e-17,
+   1.5e-10
+  ],
+  [
+   5e-17,
+   1.0000000000000002e-10
+  ],
+  [
+   6e-17,
+   7e-11
+  ],
+  [
+   7e-17,
+   5.000000000000001e-11
+  ],
+  [
+   8e-17,
+   3.5e-11
+  ],
+  [
+   9e-17,
+   2.5000000000000004e-11
+  ],
+  [
+   1e-16,
+   1.8000000000000002e-11
+  ],
+  [
+   1.2e-16,
+   1.2e-11
+  ],
+  [
+   1.5e-16,
+   7.000000000000001e-12
+  ],
+  [
+   2e-16,
+   4e-12
+  ],
+  [
+   2.5e-16,
+   2.5000000000000003e-12
+  ],
+  [
+   3e-16,
+   1.8e-12
+  ],
+  [
+   4e-16,
+   1e-12
+  ],
+  [
+   5e-16,
+   6.000000000000001e-13
+  ],
+  [
+   6e-16,
+   4e-13
+  ],
+  [
+   7e-16,
+   2.8e-13
+  ],
+  [
+   8e-16,
+   2e-13
+  ],
+  [
+   9e-16,
+   1.5000000000000002e-13
+  ],
+  [
+   1e-15,
+   1.2e-13
+  ],
+  [
+   1.2e-15,
+   9.000000000000001e-14
+  ],
+  [
+   1.5e-15,
+   6e-14
+  ],
+  [
+   2e-15,
+   3.5e-14
+  ],
+  [
+   2.5e-15,
+   2.2e-14
+  ],
+  [
+   3e-15,
+   1.5e-14
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "SuperMAG high-fidelity magnetometer dataset",
+ "coupling_convention": "kinetic mixing chi (dimensionless), canonical dark photon coupling",
+ "notes": "Paper presents NEW measured exclusion limits on dark-photon dark matter (DPDM) using SuperMAG high-fidelity magnetometer dataset (1-second time resolution, 2005\u20132020). Constraints span 10^-3 Hz \u2264 f_DM \u2264 0.98 Hz (4\u00d710^-18 eV \u2264 m_DM \u2264 4\u00d710^-15 eV). The paper also constrains axion-like-particle dark matter with coupling g_a\u03b3. For DPDM, the limit is the leading direct constraint in the stated mass range and surpasses the astrophysical Leo T constraint near m_A' \u2248 2\u00d710^-15 eV. No robust DM candidates were identified. The data_points represent the approximate lower and upper bounds of the exclusion region; the actual constraint varies with frequency (shown as a band in Fig. 3). A 25% degradation factor was applied to account for finite signal width. Local DM density \u03c1_DM = 0.3 GeV/cm\u00b3 was assumed (standard galactic halo value). The coupling_type is DarkPhoton (kinetic mixing \u03b5) rather than AxionPhoton because the DPDM signal is described by kinetic mixing of a hidden photon with the Standard Model photon. The axion DM results (g_a\u03b3 coupling) are also presented but the primary new result emphasized in the abstract and title is the DPDM constraint. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 30)) | Vision: Exclusion limit plot (FIG. 3, left panel) shows constraints on dark photon dark matter (DPDM) from SuperMAG high-fidelity dataset. The darker blue shaded region represents the 95%-credible upper limits on kinetic mixing chi (\u03b5) as a function of dark photon mass m_A (corresponding to Compton frequency). The boundary traced represents the lower edge of the excluded region. The plot also shows comparison constraints from SNIPE Hunt (smoothed), Leo T, and FIRAS. The x-axis is labeled with frequency f_M [Hz] on the upper scale (10^-3, 10^-2, 0.1, 1) and mass m_A [eV] on the lower scale (10^-17, 10^-16, 10^-15). The y-axis shows kinetic mixing chi on a log scale from 10^-14 to 10^-7. The constraint is competitive with or exceeds leading astrophysical limits in the ultralight mass range 7\u00d710^-17 eV \u2272 m_A \u2272 4\u00d710^-15 eV. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.30)",
+ "num_points": 30,
+ "elapsed_s": 316.98902225494385
+}

@@ -1,0 +1,182 @@
+{
+ "arxiv_id": "1606.07494",
+ "paper_title": "Lattice QCD for Cosmology",
+ "coupling_type": "AxionMass",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-12,
+   4.800000000000001e-07
+  ],
+  [
+   1.5e-12,
+   6.499999999999999e-07
+  ],
+  [
+   2e-12,
+   8.500000000000001e-07
+  ],
+  [
+   3e-12,
+   1.2999999999999998e-06
+  ],
+  [
+   5e-12,
+   2.2e-06
+  ],
+  [
+   8e-12,
+   3.5e-06
+  ],
+  [
+   1e-11,
+   4.3e-06
+  ],
+  [
+   2e-11,
+   7.5e-06
+  ],
+  [
+   3e-11,
+   1e-05
+  ],
+  [
+   5e-11,
+   1.5e-05
+  ],
+  [
+   8e-11,
+   2e-05
+  ],
+  [
+   1e-10,
+   2.3e-05
+  ],
+  [
+   2e-10,
+   3.5000000000000004e-05
+  ],
+  [
+   3e-10,
+   4.4999999999999996e-05
+  ],
+  [
+   5e-10,
+   6.5e-05
+  ],
+  [
+   8e-10,
+   8.999999999999999e-05
+  ],
+  [
+   1e-09,
+   0.000105
+  ],
+  [
+   2e-09,
+   0.00016
+  ],
+  [
+   3e-09,
+   0.00021
+  ],
+  [
+   5e-09,
+   0.0003
+  ],
+  [
+   8e-09,
+   0.00042
+  ],
+  [
+   1e-08,
+   0.00049
+  ],
+  [
+   2e-08,
+   0.00075
+  ],
+  [
+   3e-08,
+   0.00098
+  ],
+  [
+   5e-08,
+   0.0014000000000000002
+  ],
+  [
+   8e-08,
+   0.0019
+  ],
+  [
+   1e-07,
+   0.0022
+  ],
+  [
+   2e-07,
+   0.0034000000000000002
+  ],
+  [
+   3e-07,
+   0.0045000000000000005
+  ],
+  [
+   5e-07,
+   0.006500000000000001
+  ],
+  [
+   8e-07,
+   0.009000000000000001
+  ],
+  [
+   1e-06,
+   0.0105
+  ],
+  [
+   2e-06,
+   0.015
+  ],
+  [
+   3e-06,
+   0.017
+  ],
+  [
+   5e-06,
+   0.019
+  ],
+  [
+   8e-06,
+   0.02
+  ],
+  [
+   1e-05,
+   0.020499999999999997
+  ],
+  [
+   3e-05,
+   0.021
+  ],
+  [
+   0.0001,
+   0.0215
+  ],
+  [
+   0.0003,
+   0.0215
+  ],
+  [
+   0.001,
+   0.0215
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "Lattice QCD axion mass (Borsanyi et al.)",
+ "coupling_convention": "theta_0 (initial misalignment angle), dimensionless, as plotted on y-axis",
+ "notes": "This is a lattice QCD prediction of the dark matter axion mass in the post-inflation scenario, not an experimental exclusion limit on a coupling. The paper predicts m_A = 28(2) ueV strict lower bound, m_A = 50(4) ueV for 50% misalignment contribution, and final estimate m_A = 50-1500 ueV. The x-axis of Fig. 3 is f_A [GeV] (1e9 to 1e19) and y-axis is m_A [ueV]. The relationship is m_A^2 = chi/f_A^2. Emitted points are illustrative of the predicted mass range corresponding to relevant f_A values; these are theoretical predictions not exclusion contours. Low confidence because the paper does not present a standard exclusion limit and the mass-f_A relationship should be handled with care. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.3, 41)) | Vision: This is Figure 3 showing the relation between axion mass m_A (bottom axis, converted from \u03bceV to eV) / f_A (top axis, GeV) and initial misalignment angle \u03b8\u2080 (y-axis). It is NOT a coupling exclusion plot in the standard sense \u2014 the y-axis is the misalignment angle \u03b8\u2080, not a canonical axion coupling. The blue curve is the pre-inflation initial angle relation; the red line is the post-inflation misalignment mass range (m_A=50-1500 \u03bceV, i.e. 5e-5 to 1.5e-3 eV). Coupling type set to AxionMass since the paper's primary result is the axion mass on the f_A-m_a plane, but plotted quantity differs. Confidence low because plotted y-value is \u03b8\u2080, not a coupling. | Calibration: Vision calibration: \u00d71e-2 (factor=1.00e-02, reason=spot-check verify/stage2, raw_ratio=0.02)",
+ "num_points": 41,
+ "elapsed_s": 202.80557322502136
+}

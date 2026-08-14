@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "2302.09096",
+ "paper_title": "Using the Sun and the Moon as Source masses and the Earth's Rotation as a Modulation to Search for Exotic Spin-Dependent Interactions at Astronomical Distances",
+ "coupling_type": "MonopoleDipole",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.973e-13,
+   1.5e-27
+  ],
+  [
+   1.5e-13,
+   3.0000000000000005e-28
+  ],
+  [
+   1.1e-13,
+   5.0000000000000004e-29
+  ],
+  [
+   8e-14,
+   1.0000000000000001e-29
+  ],
+  [
+   5e-14,
+   2e-30
+  ],
+  [
+   3.5e-14,
+   5e-31
+  ],
+  [
+   2.5e-14,
+   1.5000000000000001e-31
+  ],
+  [
+   1.973e-14,
+   6e-32
+  ],
+  [
+   1.4e-14,
+   3e-32
+  ],
+  [
+   1e-14,
+   2.0000000000000004e-32
+  ],
+  [
+   7e-15,
+   1.7000000000000002e-32
+  ],
+  [
+   3.9e-15,
+   1.6e-32
+  ],
+  [
+   1.973e-15,
+   1.6e-32
+  ],
+  [
+   1.3e-15,
+   1.7000000000000002e-32
+  ],
+  [
+   9.8e-16,
+   2.0000000000000004e-32
+  ],
+  [
+   7e-16,
+   3e-32
+  ],
+  [
+   5e-16,
+   6e-32
+  ],
+  [
+   3.9e-16,
+   1.2e-31
+  ],
+  [
+   3e-16,
+   3.0000000000000003e-31
+  ],
+  [
+   2.3e-16,
+   8e-31
+  ],
+  [
+   1.973e-16,
+   1.5e-33
+  ],
+  [
+   1.5e-16,
+   5e-34
+  ],
+  [
+   1.3e-16,
+   2.5e-34
+  ],
+  [
+   1e-16,
+   1.5000000000000002e-34
+  ],
+  [
+   7e-17,
+   1.1000000000000002e-34
+  ],
+  [
+   3.9e-17,
+   1.0000000000000001e-34
+  ],
+  [
+   1.973e-17,
+   1.0000000000000001e-34
+  ],
+  [
+   1e-17,
+   1.0000000000000001e-34
+  ],
+  [
+   3.9e-18,
+   1.0000000000000001e-34
+  ],
+  [
+   1.973e-18,
+   1.0000000000000001e-34
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "Sun/Moon source with Earth rotation modulation (comagnetometer)",
+ "coupling_convention": "|g_S^N g_P^n|, dimensionless product as plotted",
+ "notes": "Paper derives limits on scalar-pseudoscalar (g_S^N g_P^n, MonopoleDipole type), VA (g_V g_A) and AA (g_A g_A) neutron-nucleon interactions at astronomical ranges using Sun/Moon as source and Earth rotation modulation, from 3He-129Xe comagnetometer Lorentz-violation data. Primary/most stringent result is on g_S^N g_P^n. X-axis in original plots is interaction range lambda in meters (1e6-1e14 m); converted to mediator mass via m[eV]=1.973e-7/lambda[m]. Text explicitly states |g_S^N g_P^n| < 1.6e-35 (95% CL) for lambda>1e12 m (Sun source). SP interaction range spans ~2e10 m to ~1e14 m. Only asymptotic flat bound explicit in text; full curve shown in Fig 2 not digitized. VA bound |g_V^N g_A^n|<7.1e-59 and AA bound |g_A^N g_A^n|<8.1e-31 for lambda>1e12 m are other results not encoded here. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 30)) | Vision: Fig. 2 constrains SP interaction |g_S^N g_P^n| (MonopoleDipole). X-axis plotted as lambda (m); converted to mass via m[eV]=1.973e-7/lambda[m]. Boundary is composite of Moon (left/higher mass) and Sun (right/lower mass) curves; I traced the lower envelope of the dark-grey excluded region. There is a discontinuity where Moon and Sun curves overlap. Sun curve plateaus around 1e-33 at large lambda (low mass); Moon curve reaches ~1.6e-31 minimum. Values approximate from log-log plot reading. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.03)",
+ "num_points": 30,
+ "elapsed_s": 137.45534300804138
+}

@@ -1,0 +1,134 @@
+{
+ "arxiv_id": "2209.06299",
+ "paper_title": "Constraints on light decaying dark matter candidates from 16 years of INTEGRAL/SPI observations",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   60000000.0,
+   1.5e-20
+  ],
+  [
+   70000000.0,
+   1.0000000000000001e-20
+  ],
+  [
+   80000000.0,
+   6.0000000000000006e-21
+  ],
+  [
+   100000000.0,
+   4e-21
+  ],
+  [
+   130000000.0,
+   3.0000000000000003e-21
+  ],
+  [
+   160000000.0,
+   2.5000000000000002e-21
+  ],
+  [
+   200000000.0,
+   2e-21
+  ],
+  [
+   250000000.0,
+   1.7e-21
+  ],
+  [
+   300000000.0,
+   1.5000000000000001e-21
+  ],
+  [
+   400000000.0,
+   1.2e-21
+  ],
+  [
+   500000000.0,
+   1e-21
+  ],
+  [
+   600000000.0,
+   7.999999999999999e-22
+  ],
+  [
+   700000000.0,
+   7.000000000000001e-22
+  ],
+  [
+   800000000.0,
+   6.5e-22
+  ],
+  [
+   1000000000.0,
+   5.5e-22
+  ],
+  [
+   1300000000.0,
+   4.5e-22
+  ],
+  [
+   1600000000.0,
+   3.7999999999999998e-22
+  ],
+  [
+   2000000000.0,
+   3.2000000000000003e-22
+  ],
+  [
+   2500000000.0,
+   2.7e-22
+  ],
+  [
+   3000000000.0,
+   2.3000000000000003e-22
+  ],
+  [
+   4000000000.0,
+   1.8000000000000001e-22
+  ],
+  [
+   5000000000.0,
+   1.4000000000000002e-22
+  ],
+  [
+   6000000000.0,
+   1.1e-22
+  ],
+  [
+   7000000000.0,
+   9.000000000000001e-23
+  ],
+  [
+   8000000000.0,
+   7.5e-23
+  ],
+  [
+   10000000000.0,
+   4.9999999999999997e-23
+  ],
+  [
+   12000000000.0,
+   3.5000000000000005e-23
+  ],
+  [
+   14000000000.0,
+   2.4999999999999998e-23
+  ],
+  [
+   16000000000.0,
+   2.0000000000000002e-23
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "INTEGRAL/SPI decaying DM (ALP)",
+ "coupling_convention": "canonical g_agamma in GeV^-1",
+ "notes": "Decaying DM search with INTEGRAL/SPI. The paper's primary result is on the DM decay rate (Gamma) vs mass; recast into ALP-photon coupling (Fig 3, ma in keV vs g_agamma in GeV^-1 spanning ~100 keV to 16 MeV, y-axis 1e-23 to 1e-15). Data points are approximate reads from the exclusion curve (Fig 3), not from a table - numerical values are uncertain. Not a haloscope (NFW halo decay), so no local DM density assumption. Paper also presents AxionElectron (g_ae from FSR, Fig 4) and sterile-neutrino mixing (Fig 5) bounds; AxionPhoton (Fig 3) chosen as the flagship line result. Confidence lowered due to approximate plot reading and multiple couplings presented. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 29)) | Vision: Lower boundary of the blue 'This work' excluded region in Fig. 3. X-axis converted from keV to eV. The boundary declines from ~1e-19 at 60 keV to ~2e-20 near 5000 keV, then drops steeply to ~2e-22 at 16 MeV. The mass range for the 2gamma channel is 60 keV - 16 MeV per the text. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.05)",
+ "num_points": 29,
+ "elapsed_s": 192.90628790855408
+}

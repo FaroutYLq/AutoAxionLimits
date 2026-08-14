@@ -1,0 +1,110 @@
+{
+ "arxiv_id": "2309.16600",
+ "paper_title": "Constraining Ultralight Dark Matter through an Accelerated Resonant Search",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.5e-14,
+   1e-09
+  ],
+  [
+   5e-14,
+   8e-10
+  ],
+  [
+   5.5e-14,
+   7e-10
+  ],
+  [
+   6e-14,
+   6.5e-10
+  ],
+  [
+   6.5e-14,
+   6e-10
+  ],
+  [
+   7e-14,
+   5.5e-10
+  ],
+  [
+   7.5e-14,
+   5e-10
+  ],
+  [
+   8e-14,
+   5.2e-10
+  ],
+  [
+   8.5e-14,
+   5.5e-10
+  ],
+  [
+   9e-14,
+   6e-10
+  ],
+  [
+   9.5e-14,
+   6.5e-10
+  ],
+  [
+   1e-13,
+   7e-10
+  ],
+  [
+   1.05e-13,
+   7.5e-10
+  ],
+  [
+   1.1e-13,
+   8e-10
+  ],
+  [
+   1.15e-13,
+   8.5e-10
+  ],
+  [
+   1.2e-13,
+   9e-10
+  ],
+  [
+   1.25e-13,
+   9.5e-10
+  ],
+  [
+   1.3e-13,
+   1e-09
+  ],
+  [
+   1.35e-13,
+   1.05e-09
+  ],
+  [
+   1.4e-13,
+   1.1e-09
+  ],
+  [
+   1.45e-13,
+   1.15e-09
+  ],
+  [
+   1.5e-13,
+   1.2e-09
+  ],
+  [
+   1.55e-13,
+   1.25e-09
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "ChangE-NMR",
+ "coupling_convention": "g_ann in GeV^-1",
+ "notes": "Paper presents new measured exclusion limits on axion-neutron coupling g_ann in the 4.5\u201315.5 Hz Compton-frequency range (corresponding to axion masses ~1.9e-14 to 6.4e-14 eV using m_a = 4.136e-15 * f_a). The experiment uses a 21Ne-Rb-K hybrid spin magnetometer operating in NMR mode with Fermi-contact enhancement. Data points extracted from Fig. 3 (red spiky line showing 95% CL sensitivity). The paper also constrains axion-proton coupling g_app but the pre-analysis hint and primary focus is on neutron coupling. Local DM density \u03c1_DM = 0.4 GeV/cm\u00b3 is explicitly stated in Methods (Eq. 17). The experiment achieves ~30-fold acceleration in scan step while maintaining competitive sensitivity, surpassing previous ChangE-HSR limits by several-fold and exceeding astrophysical neutron-star cooling bounds in the 4.6\u20136.6 Hz and ~7.5 Hz bands. No ALP signal detected; limits are exclusion bounds at 95% confidence level. | selector: text (sole candidate)",
+ "num_points": 23,
+ "elapsed_s": 148.78289103507996
+}

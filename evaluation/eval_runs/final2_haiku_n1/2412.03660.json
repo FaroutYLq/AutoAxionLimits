@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "2412.03660",
+ "paper_title": "NuSTAR bounds on radiatively decaying particles from M82",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   30000.0,
+   1.2e-10
+  ],
+  [
+   50000.0,
+   8.5e-11
+  ],
+  [
+   100000.0,
+   5e-11
+  ],
+  [
+   150000.0,
+   3.5e-11
+  ],
+  [
+   200000.0,
+   2.5e-11
+  ],
+  [
+   316000.0,
+   1.5e-11
+  ],
+  [
+   400000.0,
+   1e-11
+  ],
+  [
+   500000.0,
+   7e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "NuSTAR_M82",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Novel astrophysical bounds on axion-photon coupling from NuSTAR observations of the starburst galaxy M82. Axions with masses 30\u2013500 keV are produced in stellar cores via Primakoff effect and photon coalescence, then decay to photons (a\u2192\u03b3\u03b3) producing X-ray signatures peaking around 100 keV. The absence of these features in NuSTAR data (30\u201370 keV energy range) constrains g_agamma to ~10^-10\u201310^-12 GeV^-1, excluding previously uncharted parameter space by ~1 order of magnitude compared to prior astrophysical bounds. Data points extracted from Fig. 2 (main exclusion plot) and abstract statement of coupling range. The bounds are mass-dependent and represent the 90% CL upper limits on g_agamma as a function of axion mass. This is a measured exclusion limit (not a projection) based on actual NuSTAR archival data (26 observations, ~1.96 Ms total exposure). The analysis uses forward-modeling of the axion decay signal through NuSTAR instrument response, with likelihood-based statistical methods (TS threshold = 2.7 for 90% CL). No local dark matter density assumption applies\u2014this is an astrophysical stellar cooling / decay signature search, not a direct DM haloscope experiment. | selector: text (sole candidate)",
+ "num_points": 8,
+ "elapsed_s": 35.905895948410034
+}

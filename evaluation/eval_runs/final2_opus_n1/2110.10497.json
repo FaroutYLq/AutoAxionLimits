@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2110.10497",
+ "paper_title": "MuDHI",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.4,
+   1.5e-10
+  ],
+  [
+   1.5,
+   9e-11
+  ],
+  [
+   1.61,
+   6.86e-11
+  ],
+  [
+   1.7,
+   9e-11
+  ],
+  [
+   1.8,
+   1.5e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "MuDHI",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "Dark photon dielectric haloscope search around 1.5 eV. Minimum chi limit of 6.86e-11 reached at 1.61 eV/c^2 at 90% CL. Other data points approximate from the boost factor sensitivity region (1.4-1.8 eV). DM density assumed 0.3 GeV/cm^3 (stated in appendix). Full exclusion curve shown in Fig. 11 but only the minimum value is given numerically in text; other points are estimates. | selector: text (sole candidate)",
+ "num_points": 5,
+ "elapsed_s": 126.10962414741516
+}

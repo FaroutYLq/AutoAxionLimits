@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "2108.04746",
+ "paper_title": "Constraints on scalar field dark matter from co-located Michelson interferometers",
+ "coupling_type": "ScalarPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [],
+ "data_source": "none",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "Holometer2022",
+ "coupling_convention": "Lambda_gamma in GeV (energy scale, inverse of d_gamma)",
+ "notes": "Paper sets 95% CL constraints on scalar field DM coupling parameters Lambda_gamma (photon) and Lambda_e (electron) over mass range 1.6e-12 to 1.0e-7 eV using Fermilab Holometer co-located interferometers. Constrains both ScalarPhoton (Lambda_gamma) and ScalarElectron (Lambda_e). Numerical data only available in Fig. 2 (not machine-readable in text); no data table provided. DM density 0.4 GeV/cm^3 assumed for Basic Scalar and Dilaton/Modulus scenarios; Relaxion Halo scenario uses mass-dependent overdensity up to ~1e19. Limits quoted as Lambda energy scales, related to standard d-parameters by inversion. Cannot extract reliable data points. | [VISION GATE B] vision notes assert the plotted axis belongs to ScalarElectron but the declared coupling is ScalarPhoton \u2014 wrong panel/curve traced",
+ "num_points": 0,
+ "elapsed_s": 155.31487488746643
+}

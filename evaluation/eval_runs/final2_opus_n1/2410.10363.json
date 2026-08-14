@@ -1,0 +1,22 @@
+{
+ "arxiv_id": "2410.10363",
+ "paper_title": "Shining Light on the Dark Sector: Search for Axion-like Particles and Other New Physics in Photonic Final States with FASER",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   80000000.0,
+   0.0001
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.4,
+ "suggested_experiment_name": "FASER_ALP_2024",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "FASER search for ALPs decaying to two photons using 57.7 fb^-1 of 13.6 TeV pp collision data. The PRIMARY and world-leading result is on the ALP-W model (coupling g_aWW to weak gauge bosons, excluding 3e-5 to 5e-4 GeV^-1 for masses 100-250 MeV), which does not map to any enum coupling type. The paper also presents an ALP-photon interpretation (g_agamma), which maps to AxionPhoton: 'FASER can probe ALP masses up to 80 MeV and couplings down to 1e-4 GeV^-1.' Only sparse text values are available since numerical limits are given as exclusion contours in figures (Fig. 11 left panel). The single extracted point (80 MeV, 1e-4 GeV^-1) is approximate. This is a collider bound, so no DM density applies. Confidence is low because (a) the enum does not contain the primary coupling type (g_aWW/AxionW), and (b) only very approximate numerical values are available from text, not tables or digitized plots. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.4, 1))",
+ "num_points": 1,
+ "elapsed_s": 208.12457394599915
+}

@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2008.01853",
+ "paper_title": "A quantum-enhanced search for dark matter axions",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.696e-05,
+   1.38e-16
+  ],
+  [
+   1.728e-05,
+   1.38e-16
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "HAYSTAC_2020_SSR",
+ "coupling_convention": "g_agamma in GeV^-1 (KSVZ-normalized: 1.38 \u00d7 g_\u03b3^KSVZ)",
+ "notes": "Quantum-enhanced axion haloscope search using squeezed state receiver (SSR). Exclusion limit: g_\u03b3 \u2265 1.38 \u00d7 g_\u03b3^KSVZ over combined mass windows 16.96\u201317.12 \u00b5eV/c\u00b2 and 17.14\u201317.28 \u00b5eV/c\u00b2. The KSVZ coupling constant g_\u03b3^KSVZ \u2248 3.92 \u00d7 10^-16 GeV^-1 (derived from standard QCD axion models). Reported as 90% confidence level exclusion via Bayesian power-measured analysis. Data acquisition Sept 2019\u2013Apr 2020. Achieved 4.0 dB off-resonant squeezing, yielding ~1.9\u00d7 scan rate enhancement over quantum limit. DM density 0.45 GeV/cm\u00b3 is the standard local galactic halo density assumption for haloscope experiments. Mass window encoded as two-point horizontal line at the exclusion coupling value. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 13.8 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | [CONVENTION REVIEW] declared coupling convention 'g_agamma in GeV^-1 (KSVZ-normalized: 1.38 \u00d7 g_\u03b3^KSVZ)' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 2,
+ "elapsed_s": 219.81619095802307
+}

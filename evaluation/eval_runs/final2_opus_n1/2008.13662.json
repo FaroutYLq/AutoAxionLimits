@@ -1,0 +1,46 @@
+{
+ "arxiv_id": "2008.13662",
+ "paper_title": "SgrA",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-20,
+   1e-11
+  ],
+  [
+   1e-19,
+   3e-12
+  ],
+  [
+   3e-19,
+   1e-12
+  ],
+  [
+   1e-18,
+   1e-12
+  ],
+  [
+   3e-18,
+   2e-12
+  ],
+  [
+   6e-18,
+   5e-12
+  ],
+  [
+   1e-17,
+   1e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "SgrA_EHT_Polarization",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "ALP-photon coupling upper limits from Sgr A* polarimetric birefringence with EHT sub-array data. Best sensitivity ~1e-12 GeV^-1 at ma ~(1e-19 - 1e-18) eV. Data points approximated from Fig. 1 red curve (95% CL); no numerical table provided. DM density uses solitonic core + NFW profile (~2e9 GeV/cm^3 reference in Eq 2.9) but this is a galactic-center DM density model rather than a standard local haloscope density, left null. Values in standard GeV^-1 convention. | selector: text (sole candidate)",
+ "num_points": 7,
+ "elapsed_s": 17.09733510017395
+}

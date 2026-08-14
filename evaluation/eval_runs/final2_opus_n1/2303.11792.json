@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2303.11792",
+ "paper_title": "Searching for Time-Dependent Axion Dark Matter Signals in Pulsars",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.9e-06,
+   5.5e-11
+  ],
+  [
+   4.7e-06,
+   5.5e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "MeerKAT_PSR_J2144-3933",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Time-domain axion-photon conversion search in pulsar PSR J2144-3933 magnetosphere using MeerKAT. Fiducial limit g_agamma < 5.5e-11 GeV^-1 over 3.9-4.7 ueV assuming D=0.165 kpc (parallax). Alternative D=0.29 kpc gives 9.6e-11. Limit scales linearly with distance. Encoded as flat horizontal line over stated mass range. DM density 0.45 GeV/cm^3 (NFW extrapolation). 95% CL (2-sigma). | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+ "num_points": 2,
+ "elapsed_s": 218.39408993721008
+}

@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "1807.04512",
+ "paper_title": "EotWashEP",
+ "coupling_type": "ScalarBaryon",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-24,
+   1e-05
+  ],
+  [
+   1e-22,
+   1e-05
+  ],
+  [
+   1e-20,
+   0.0001
+  ],
+  [
+   1e-18,
+   0.001
+  ],
+  [
+   1e-16,
+   0.01
+  ],
+  [
+   1e-14,
+   0.1
+  ],
+  [
+   1e-12,
+   1.0
+  ],
+  [
+   1e-10,
+   10.0
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "EotWashEP",
+ "coupling_convention": "dimensionless d_g (scalar coupling to baryon/nucleon mass)",
+ "notes": "Paper derives constraints on scalar dark matter coupling coefficients d_i from equivalence principle tests (E\u00f6t-Wash torsion balance, MICROSCOPE space mission, atomic clock comparisons). The coupling_type is ScalarBaryon because the paper constrains the coupling of a light scalar field to baryonic matter through tests of the universality of free fall and equivalence principle violations. Two cases studied: (1) linear coupling d^(1)_i and (2) quadratic coupling d^(2)_i. Data points are approximate representative bounds extracted from Figures 3 and 4 (MRA limits at 95% CL) for the linear case, spanning the mass range 10^-24 to ~1 eV where the scalar field behaves classically. The quadratic case shows richer phenomenology with screening/amplification mechanisms. Extraction confidence is moderate (0.65) because: (1) the paper presents multiple coupling coefficients (d_e, d_g, d_m, etc.) with different constraints, (2) the MRA method varies parameters one-at-a-time making it difficult to extract precise numerical bounds from figures, and (3) the paper focuses on theoretical framework and phenomenology rather than presenting a single clean exclusion limit. The dm_density_assumed (0.4 GeV/cm\u00b3) is used for clock measurements to fix the scalar field amplitude \u03d5\u2080, but UFF constraints are independent of this assumption. | selector: text (sole candidate) | [CONVENTION REVIEW] declared coupling convention 'dimensionless d_g (scalar coupling to baryon/nucleon mass)' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 8,
+ "elapsed_s": 21.49181580543518
+}

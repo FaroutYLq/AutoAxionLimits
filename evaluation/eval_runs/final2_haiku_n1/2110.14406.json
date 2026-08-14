@@ -1,0 +1,146 @@
+{
+ "arxiv_id": "2110.14406",
+ "paper_title": "The Grenoble Axion Haloscope platform (GrAHal): development plan and first results",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-06,
+   1.5e-15
+  ],
+  [
+   1.2e-06,
+   1.4e-15
+  ],
+  [
+   1.5e-06,
+   1.3e-15
+  ],
+  [
+   2e-06,
+   1.2e-15
+  ],
+  [
+   2.5e-06,
+   1.15e-15
+  ],
+  [
+   3e-06,
+   1.1e-15
+  ],
+  [
+   4e-06,
+   1.05e-15
+  ],
+  [
+   5e-06,
+   1e-15
+  ],
+  [
+   6e-06,
+   9.8e-16
+  ],
+  [
+   7e-06,
+   9.6e-16
+  ],
+  [
+   8e-06,
+   9.5e-16
+  ],
+  [
+   9e-06,
+   9.4e-16
+  ],
+  [
+   1e-05,
+   9.3e-16
+  ],
+  [
+   1.2e-05,
+   9.2e-16
+  ],
+  [
+   1.5e-05,
+   9.1e-16
+  ],
+  [
+   2e-05,
+   9e-16
+  ],
+  [
+   2.5e-05,
+   8.95e-16
+  ],
+  [
+   3e-05,
+   8.9e-16
+  ],
+  [
+   3.5e-05,
+   8.88e-16
+  ],
+  [
+   4e-05,
+   8.87e-16
+  ],
+  [
+   4.5e-05,
+   8.88e-16
+  ],
+  [
+   5e-05,
+   8.9e-16
+  ],
+  [
+   5.5e-05,
+   8.95e-16
+  ],
+  [
+   6e-05,
+   9e-16
+  ],
+  [
+   6.5e-05,
+   9.1e-16
+  ],
+  [
+   7e-05,
+   9.2e-16
+  ],
+  [
+   7.5e-05,
+   9.3e-16
+  ],
+  [
+   8e-05,
+   9.5e-16
+  ],
+  [
+   8.5e-05,
+   9.7e-16
+  ],
+  [
+   9e-05,
+   9.9e-16
+  ],
+  [
+   9.5e-05,
+   1.01e-15
+  ],
+  [
+   0.0001,
+   1.03e-15
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "GrAHal (Grenoble Axion Haloscope)",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis",
+ "notes": "First results from the Grenoble Axion Haloscope (GrAHal) pathfinding run at liquid He temperature. The exclusion limit g_agamma \u2264 2.2 \u00d7 10^-13 GeV^-1 is set at 6.375 GHz, corresponding to an axion mass of 26.37 \u03bceV (2.637 \u00d7 10^-5 eV). The paper explicitly states this is a new exclusion limit with 95% confidence, assuming axions constitute all of the local dark matter density (standard assumption \u03c1_a = 0.3 GeV/cm^3 for galactic halo). The limit is also expressed relative to the KSVZ benchmark as g_agamma \u2264 22 \u00d7 g_KSVZ. The cavity parameters: Q0 = 37000, \u03b2 = 1.2, C = 0.69 for TM010 mode; 14 Tesla magnet; copper cavity (36 mm inner diameter, 150 mm length). This is a haloscope experiment searching for axion dark matter via resonant conversion to photons in an RF cavity. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 32)) | Vision: FIG. 2 shows exclusion limits for axion-photon coupling vs axion mass. The plot displays the cyan band bounded by KSVZ (upper) and DFSZ (lower) theoretical models. The GrAHal first result (vertical purple dashed line at 6.375 GHz, corresponding to 26.37 \u03bceV axion mass) is shown. The lower boundary of the exclusion region (where GrAHal and other experiments set limits) traces a shallow minimum around 3-5 \u00d7 10^-5 eV, with coupling values near 8.9-9.0 \u00d7 10^-16 GeV^-1. The boundary rises steeply at lower masses (below 1 \u03bceV) and more gradually at higher masses. Sampling density increased near the minimum (around 3-5 \u00d7 10^-5 eV) where the slope changes. The GrAHal pathfinding run achieved g_agamma \u2264 22 \u00d7 10^-15 GeV^-1 (2.2 \u00d7 10^-14 GeV^-1) at 26.37 \u03bceV, which is above the theoretical models shown but represents early prototype performance. | Calibration: No calibration needed",
+ "num_points": 32,
+ "elapsed_s": 283.80667304992676
+}

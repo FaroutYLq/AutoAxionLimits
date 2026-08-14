@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1708.02111",
+ "paper_title": "Stellar Recipes for Axion Hunters",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": false,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.0,
+   1.6e-13
+  ],
+  [
+   1000.0,
+   1.6e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.35,
+ "suggested_experiment_name": "StellarCooling_GIRRS2017",
+ "coupling_convention": "dimensionless g_ae",
+ "notes": "This paper derives a PREFERRED (hinted) region for the axion-electron coupling from a global fit to stellar cooling anomalies (WD+RGB+HB), not an exclusion limit or sensitivity projection. Best-fit g_ae = 1.6e-13 (range 1.26e-13 to 1.89e-13), mass-independent up to ma ~ few keV per footnote 2. Because it is a favored region rather than an upper limit, is_new_limit is set false and confidence is low. The paper mainly presents model-dependent fit contours (DFSZ, KSVZ A/J) in coupling planes and projected sensitivities for IAXO/ARIADNE, which are external projections not derived here as exclusion data.",
+ "num_points": 2,
+ "elapsed_s": 107.52638530731201
+}

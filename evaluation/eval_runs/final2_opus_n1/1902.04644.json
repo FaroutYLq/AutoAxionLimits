@@ -1,0 +1,122 @@
+{
+ "arxiv_id": "1902.04644",
+ "paper_title": "Constraints on bosonic dark matter from ultralow-field nuclear magnetic resonance",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4e-16,
+   3e-05
+  ],
+  [
+   4e-16,
+   5e-05
+  ],
+  [
+   4e-16,
+   8e-05
+  ],
+  [
+   4.3e-16,
+   3.2e-05
+  ],
+  [
+   4.8e-16,
+   3.6e-05
+  ],
+  [
+   5.5e-16,
+   4.2e-05
+  ],
+  [
+   6.5e-16,
+   5e-05
+  ],
+  [
+   8e-16,
+   6.2e-05
+  ],
+  [
+   1e-15,
+   7.8e-05
+  ],
+  [
+   1.3e-15,
+   0.0001
+  ],
+  [
+   1.6e-15,
+   0.00013
+  ],
+  [
+   2e-15,
+   0.00016
+  ],
+  [
+   2.5e-15,
+   0.0002
+  ],
+  [
+   3.2e-15,
+   0.00026
+  ],
+  [
+   4e-15,
+   0.00032
+  ],
+  [
+   5e-15,
+   0.0004
+  ],
+  [
+   6.5e-15,
+   0.00052
+  ],
+  [
+   8e-15,
+   0.00065
+  ],
+  [
+   1e-14,
+   0.0008
+  ],
+  [
+   1.3e-14,
+   0.00105
+  ],
+  [
+   1.6e-14,
+   0.0013
+  ],
+  [
+   2e-14,
+   0.0016
+  ],
+  [
+   2.5e-14,
+   0.0021
+  ],
+  [
+   3.2e-14,
+   0.0026
+  ],
+  [
+   4e-14,
+   0.0033
+  ],
+  [
+   5e-14,
+   0.0042
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "CASPEr-ZULF",
+ "coupling_convention": "canonical g_aNN, dimensionless (plotted as g_aNN in GeV^-1 on axis label but treated as dimensionless per plot)",
+ "notes": "CASPEr-ZULF ultralow-field NMR search on 13C-formic acid. Primary result is the ALP wind linear coupling g_aNN (assuming g_app=g_ann=g_aNN) in GeV^-1, shown in Fig.3 over mass range 1.86e-16 to 7.85e-14 eV. Values are approximate read-offs from the log-scale exclusion plot; sensitivity degrades ~1/omega toward higher masses. The coupling is technically a combined nucleon coupling (proton+neutron assumed equal), mapped here to AxionNeutron. Note the reported g_aNN is in GeV^-1 (unusual for a dimensionless spin coupling; this is the paper's convention using effective field D). Paper also reports quadratic-wind gquad (Fig.4) and dark-photon gdEDM/gdMDM (Fig.5), not extracted here. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 26)) | Vision: Figure 3 shows the ALP wind-nucleon linear coupling (g_aNN) parameter space. The CASPEr-ZULF red region is the new exclusion by this work at 90% CL. Y-axis label reads g_aNN [GeV^-1] but the coupling is g_an to neutrons. The lower boundary consists of a vertical edge near mass ~4e-16 eV and a diagonal rising edge (g proportional to mass). Values read from log-log plot. The New Force (blue) and SN1987A (green) regions are external constraints; only the CASPEr-ZULF boundary traced. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.38 snapped to identity)",
+ "num_points": 26,
+ "elapsed_s": 295.1508090496063
+}

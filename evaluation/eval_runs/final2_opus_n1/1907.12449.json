@@ -1,0 +1,90 @@
+{
+ "arxiv_id": "1907.12449",
+ "paper_title": "WISPDMX",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.16e-08,
+   3.16e-09
+  ],
+  [
+   5e-08,
+   1e-09
+  ],
+  [
+   7.9e-08,
+   3.16e-10
+  ],
+  [
+   1e-07,
+   1.0000000000000002e-10
+  ],
+  [
+   1.58e-07,
+   3.16e-11
+  ],
+  [
+   2.51e-07,
+   1.0000000000000001e-11
+  ],
+  [
+   3.98e-07,
+   3.1600000000000003e-12
+  ],
+  [
+   6.31e-07,
+   1e-12
+  ],
+  [
+   7.94e-07,
+   5e-13
+  ],
+  [
+   1e-06,
+   3.16e-13
+  ],
+  [
+   1.26e-06,
+   1.58e-13
+  ],
+  [
+   1.58e-06,
+   1e-13
+  ],
+  [
+   1.78e-06,
+   6.31e-14
+  ],
+  [
+   2e-06,
+   4.0000000000000006e-14
+  ],
+  [
+   2.24e-06,
+   3.1600000000000005e-14
+  ],
+  [
+   2.51e-06,
+   3.1600000000000005e-14
+  ],
+  [
+   2.82e-06,
+   4.0000000000000006e-14
+  ],
+  [
+   3.16e-06,
+   5e-14
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "WISPDMX",
+ "coupling_convention": "kinetic mixing chi, dimensionless (plotted as log10(chi))",
+ "notes": "Hidden photon dark matter search. Limits reported qualitatively: chi ~1e-13 in resonant frequency ranges (0.86, 1.31-1.34, 1.88 ueV) and ~1e-12 broadband over 0.2-2.07 ueV, increasing below 0.2 ueV. Detailed numerical curves are in Figs 18-19 (not machine-readable in provided text). Data points here are approximate representative values from abstract/text statements. rho_DM=0.3 GeV/cm^3, V=447 L used. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.55, 18)) | Vision: Figure 19 shows the combined WISPDMX exclusion region as a jagged blue peaked region on log10(m_gamma') vs log10(chi) axes. The deepest exclusion reaches chi ~ 3e-13 near m ~ 2e-6 eV (mass range 0.4 neV to 2.07 ueV per text). The lower boundary is highly jagged (resonant scan structure); values here approximate the envelope of the bottom edge of the blue region. Mass axis converted from log10(eV). Extraction confidence moderate due to jagged boundary and small plot scale. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.10)",
+ "num_points": 18,
+ "elapsed_s": 199.26150798797607
+}

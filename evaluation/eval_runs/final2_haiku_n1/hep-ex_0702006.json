@@ -1,0 +1,98 @@
+{
+ "arxiv_id": "0702006",
+ "paper_title": "An improved limit on the axion-photon coupling from the CAST experiment",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-05,
+   1e-07
+  ],
+  [
+   0.0001,
+   1e-07
+  ],
+  [
+   0.001,
+   1e-07
+  ],
+  [
+   0.005,
+   1.2e-07
+  ],
+  [
+   0.01,
+   1.5e-07
+  ],
+  [
+   0.02,
+   2e-07
+  ],
+  [
+   0.05,
+   3.5e-07
+  ],
+  [
+   0.1,
+   6e-07
+  ],
+  [
+   0.15,
+   8e-07
+  ],
+  [
+   0.2,
+   1e-06
+  ],
+  [
+   0.3,
+   1.5e-06
+  ],
+  [
+   0.5,
+   2.5e-06
+  ],
+  [
+   0.7,
+   3.5e-06
+  ],
+  [
+   1.0,
+   5e-06
+  ],
+  [
+   1.5,
+   7e-06
+  ],
+  [
+   2.0,
+   9e-06
+  ],
+  [
+   3.0,
+   1.3e-05
+  ],
+  [
+   5.0,
+   2e-05
+  ],
+  [
+   7.0,
+   2.8e-05
+  ],
+  [
+   10.0,
+   4e-05
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "CAST (CERN Axion Solar Telescope) Phase I",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis",
+ "notes": "CAST phase I vacuum setup result. The limit g_agamma < 8.8 \u00d7 10^-11 GeV^-1 at 95% CL is valid for m_a \u2272 0.02 eV where the signal is mass-independent (coherent conversion regime where axion-photon oscillation length far exceeds magnet length). For m_a > 0.02 eV, sensitivity decreases rapidly due to momentum mismatch (qL >> 1). Combined result from 2004 CCD, TPC, and MM detectors plus 2003 data. This is a solar axion helioscope experiment using the Primakoff effect (thermal photon \u2192 axion conversion in Sun's electric fields, reverse process detected in LHC dipole magnet). No excess X-rays observed. This result supersedes previous CAST limit (1.16 \u00d7 10^-10 GeV^-1) and globular cluster star energy-loss bounds for m_a < 0.02 eV. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 20)) | Vision: Figure 8 shows the main exclusion plot for axion-photon coupling vs axion mass. The CAST Phase I limit (blue boundary) is the primary constraint shown. The plot compares CAST results with other experiments (Lazarus et al., SOLAX, COSME, DAMA, Tokyo helioscope, HB stars). The yellow band represents theoretical models with E/N = 0.07-1.95, and the green line corresponds to E/N = 0. The red line (HDM) shows the hot dark matter limit for hadronic axions. The abstract states the limit is 8.8 \u00d7 10^-11 GeV^-1 at 95% CL for m_a < 0.02 eV. The boundary was traced from the lower edge of the CAST Phase I exclusion region (blue curve), sampling more densely at the steep portion (low masses) and less densely at the flatter high-mass region. The x-axis spans from 10^-5 eV to 10 eV on log scale; the y-axis spans from 10^-12 to 10^-7 GeV^-1 on log scale. | Calibration: No calibration needed",
+ "num_points": 20,
+ "elapsed_s": 109.51904201507568
+}

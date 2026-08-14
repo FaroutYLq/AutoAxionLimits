@@ -1,0 +1,186 @@
+{
+ "arxiv_id": "2202.08858",
+ "paper_title": "Do direct detection experiments constrain axionlike particles coupled to electrons?",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3000.0,
+   1.3e-13
+  ],
+  [
+   3500.0,
+   1.2e-13
+  ],
+  [
+   4000.0,
+   1.1e-13
+  ],
+  [
+   4500.0,
+   1e-13
+  ],
+  [
+   5000.0,
+   9e-14
+  ],
+  [
+   5500.0,
+   7e-14
+  ],
+  [
+   6000.0,
+   5e-14
+  ],
+  [
+   6500.0,
+   3.5e-14
+  ],
+  [
+   7000.0,
+   2.5e-14
+  ],
+  [
+   8000.0,
+   1.5e-14
+  ],
+  [
+   9000.0,
+   1e-14
+  ],
+  [
+   10000.0,
+   6e-15
+  ],
+  [
+   11000.0,
+   4e-15
+  ],
+  [
+   12000.0,
+   3e-15
+  ],
+  [
+   14000.0,
+   1.8e-15
+  ],
+  [
+   16000.0,
+   1.2e-15
+  ],
+  [
+   18000.0,
+   8e-16
+  ],
+  [
+   20000.0,
+   5e-16
+  ],
+  [
+   25000.0,
+   2.5e-16
+  ],
+  [
+   30000.0,
+   1.3e-16
+  ],
+  [
+   35000.0,
+   8e-17
+  ],
+  [
+   40000.0,
+   5e-17
+  ],
+  [
+   50000.0,
+   2.5e-17
+  ],
+  [
+   60000.0,
+   1.3e-17
+  ],
+  [
+   70000.0,
+   8e-18
+  ],
+  [
+   80000.0,
+   5e-18
+  ],
+  [
+   90000.0,
+   3.5e-18
+  ],
+  [
+   100000.0,
+   2.5e-18
+  ],
+  [
+   120000.0,
+   1.5e-18
+  ],
+  [
+   150000.0,
+   8e-19
+  ],
+  [
+   180000.0,
+   5e-19
+  ],
+  [
+   200000.0,
+   3.5e-19
+  ],
+  [
+   250000.0,
+   2e-19
+  ],
+  [
+   300000.0,
+   1.2e-19
+  ],
+  [
+   350000.0,
+   8e-20
+  ],
+  [
+   400000.0,
+   5e-20
+  ],
+  [
+   500000.0,
+   2.5e-20
+  ],
+  [
+   600000.0,
+   1.5e-20
+  ],
+  [
+   700000.0,
+   9e-21
+  ],
+  [
+   800000.0,
+   6e-21
+  ],
+  [
+   900000.0,
+   4.5e-21
+  ],
+  [
+   1000000.0,
+   3.5e-21
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "X-ray/gamma-ray limits on ALP lifetime (NuSTAR/XMM/INTEGRAL)",
+ "coupling_convention": "|g_ae|, dimensionless",
+ "notes": "This is a theory/reinterpretation paper arguing that keV-MeV ALP dark matter coupled to electrons decays too fast (a->gamma gamma) to be dark matter, invalidating direct-detection limits (GERDA, EDELWEISS-III, SuperCDMS, Majorana) and noting X-ray/gamma-ray astronomy supersedes them for 6 keV-1 MeV. It does not present its own new tabulated exclusion limit; the relevant curves (lifetime boundary and X-ray/gamma-ray exclusion) are shown only in Fig. 2 without extractable numerical data. No new measured limit dataset is provided. | selector: figure_vision (sole candidate) | Vision: Traced the lowermost exclusion boundary (light grey X-ray/gamma-ray limits on lifetime), which supersedes lab limits for m_a > 6 keV. Below ~5 keV, direct detection limits (LUX/XENON1T) plateau near 1e-13, which form the boundary at low mass. The light grey astrophysical constraint dominates the lower boundary above ~6 keV, dropping steeply with mass roughly as inferred from lifetime scaling. Values read on log-log scale; the boundary has significant jaggedness in the actual figure. | Calibration: No calibration needed",
+ "num_points": 42,
+ "elapsed_s": 124.96676516532898
+}

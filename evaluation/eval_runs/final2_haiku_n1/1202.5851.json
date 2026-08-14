@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1202.5851",
+ "paper_title": "Production of dark matter axions from collapse of string-wall systems",
+ "coupling_type": "AxionMass",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1000000000.0,
+   0.0001
+  ],
+  [
+   10000000000.0,
+   0.0001
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Lattice_Simulation_Hiramatsu2012",
+ "coupling_convention": "f_a in GeV (x-axis); m_a in eV (y-axis, derived from f_a via cosmological relation)",
+ "notes": "Paper presents field-theoretic lattice simulations of axion production from domain wall collapse in the early universe. The main result is a cosmological upper bound on the axion decay constant f_a derived from requiring that the total relic abundance (from vacuum misalignment, string decay, and domain wall decay) does not exceed observed cold dark matter density. The paper concludes f_a \u2272 (2.0\u20133.8)\u00d710^10 GeV (Eq. 96), combined with astrophysical lower bound f_a \u2273 10^9 GeV, constraining the 'classical axion window' to f_a \u2243 10^9\u201310^10 GeV, corresponding to m_a \u2243 10^\u22123\u201310^\u22122 eV. This is a mass-independent (or rather, mass-dependent via QCD relation) cosmological bound on f_a. The coupling_type AxionMass is appropriate because the paper's primary result is on the f_a\u2013m_a plane (via the cosmological relic abundance calculation), not on a direct coupling constant like g_agamma. The data_points encode the allowed region: f_a ranges from ~10^9 to ~10^10 GeV; the corresponding m_a values follow from the QCD axion relation m_a \u2243 (0.6 meV) \u00d7 (10^12 GeV / f_a). For the upper bound f_a \u2272 3.8\u00d710^10 GeV, m_a \u2273 1.6\u00d710^\u22123 eV; for the lower bound f_a \u2273 10^9 GeV, m_a \u2272 6\u00d710^\u22122 eV. The two-point representation [[1e9, 1e10], [1e10, 1e10]] marks the horizontal exclusion boundary at f_a \u2243 10^10 GeV (the geometric mean of the range). Extraction confidence is 0.85 because the paper clearly states the bound and the coupling type is unambiguous, but the bound is derived from numerical simulation with acknowledged uncertainties (\u00b150% on scaling parameters \u03be and A) rather than direct experimental measurement. | selector: text (sole candidate) | Auto-corrected couplings: \u00d71e-14 (\u00d71.00e-14, rule=argmin|log10(median*f)-log10(anchor=3.2e-05)|)",
+ "num_points": 2,
+ "elapsed_s": 119.11743903160095
+}

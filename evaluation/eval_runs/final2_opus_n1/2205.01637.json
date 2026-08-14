@@ -1,0 +1,110 @@
+{
+ "arxiv_id": "2205.01637",
+ "paper_title": "PlanckBAO",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0001,
+   3.2e-08
+  ],
+  [
+   0.0003,
+   3.2e-08
+  ],
+  [
+   0.001,
+   3.2e-08
+  ],
+  [
+   0.003,
+   3.2e-08
+  ],
+  [
+   0.01,
+   3.2e-08
+  ],
+  [
+   0.03,
+   3e-08
+  ],
+  [
+   0.1,
+   2.8e-08
+  ],
+  [
+   0.2,
+   2.5e-08
+  ],
+  [
+   0.4,
+   2.3e-08
+  ],
+  [
+   0.7,
+   2.2e-08
+  ],
+  [
+   1.0,
+   2.1e-08
+  ],
+  [
+   1.5,
+   1.8e-08
+  ],
+  [
+   2.0,
+   1.6e-08
+  ],
+  [
+   3.0,
+   1.4e-08
+  ],
+  [
+   5.0,
+   1.2e-08
+  ],
+  [
+   7.0,
+   8e-09
+  ],
+  [
+   10.0,
+   6e-09
+  ],
+  [
+   15.0,
+   7e-09
+  ],
+  [
+   20.0,
+   9e-09
+  ],
+  [
+   30.0,
+   1.15e-08
+  ],
+  [
+   50.0,
+   9e-09
+  ],
+  [
+   70.0,
+   7.5e-09
+  ],
+  [
+   100.0,
+   6.5e-09
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Planck 2018 + BAO thermal axion",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Cosmological bounds on thermally-produced axion-like particles from Planck 2018 + BAO. The paper constrains both axion-photon (g_agamma) and axion-gluon (Cg/fa, gd) couplings. AxionPhoton chosen per Fig. 7. Marginalized 95% CL bound g_agamma < 3.16e-8 GeV^-1 (Planck+BAO). Mass-dependent per-fixed-mass values (masses {1e-4...100} eV) are shown in Fig. 7 as diamonds but exact numerical values are not all tabulated in text; data_points are approximate reconstructions of the described curve shape (bound tightens toward ma~10 eV, rises around ma~30 eV, tightens again ~100 eV). Anchors from text: g_agamma<3.16e-8 marginalized, and 2.19e-8 at 1e-4 eV when ACT added (not used here). This is not a haloscope so no DM density assumed. The axion-gluon bound (Cg/fa<1.06e-7 GeV^-1, gd<3.77e-10 GeV^-2) is the paper's strongest novel result but AxionEDM/gluon conventions differ; only photon coupling extracted here. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 23)) | Vision: Traced the Planck+BAO (blue diamond) dashed boundary, the lower edge of the excluded region in the g_agamma vs m_a plane. Data points sit at the fixed axion masses used in the run (10^-4 to 100 eV). The marginalised bound at low mass is g_agamma < 3.16e-8 GeV^-1 (Eq 5.1). The boundary is roughly flat at ~3.2e-8 for small masses, dips to a minimum near m_a=10 eV (~6e-9), then has a small bump near 30 eV before continuing down. Excluded region is above the boundary. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.85 snapped to identity)",
+ "num_points": 23,
+ "elapsed_s": 171.9622678756714
+}

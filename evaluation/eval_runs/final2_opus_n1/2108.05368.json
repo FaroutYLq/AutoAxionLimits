@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "2108.05368",
+ "paper_title": "Dark Matter from Axion Strings with Adaptive Mesh Refinement",
+ "coupling_type": "AxionMass",
+ "is_new_limit": false,
+ "is_projection": false,
+ "data_points": [],
+ "data_source": "none",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.2,
+ "suggested_experiment_name": "AMR_AxionStrings_2021",
+ "coupling_convention": "m_a in eV, f_a in GeV",
+ "notes": "This is a cosmological simulation paper predicting the post-inflation QCD axion DM mass window m_a in (40,180) micro-eV, corresponding to f_a in (3.1e10, 1.4e11) GeV, with a scale-invariant (q=1) prediction of m_a = 65 +/- 6 micro-eV. This is a preferred DM mass range from string network simulations, not an experimental exclusion limit or sensitivity projection on a coupling. It does not provide an exclusion curve of (mass, coupling) pairs. No extractable limit data points.",
+ "num_points": 0,
+ "elapsed_s": 201.9453330039978
+}

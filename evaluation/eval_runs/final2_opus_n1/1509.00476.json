@@ -1,0 +1,30 @@
+{
+ "arxiv_id": "1509.00476",
+ "paper_title": "Probing MeV to 90 GeV axion-like particles with LEP and LHC",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   100000000.0,
+   0.0005
+  ],
+  [
+   1000000000.0,
+   0.0003
+  ],
+  [
+   10000000000.0,
+   0.0001
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.35,
+ "suggested_experiment_name": "LEP_Z_to_photons_2015",
+ "coupling_convention": "g_agamma in GeV^-1 (approximate, read from figure description)",
+ "notes": "Paper derives new LEP constraints on ALP-photon (and ALP-hypercharge) coupling from Z->2gamma and Z->3gamma decays, filling the MeV-10 GeV gap. The exclusion limits are only presented graphically in Fig. 4 (log-log plots); no numerical table of the exclusion contour is given. The only tabulated numbers (Tab. 1) are signal/background cross sections at fixed g=1e-4 GeV^-1, not exclusion limits. The data_points provided are rough order-of-magnitude estimates read from the figure region and should be treated as unreliable. LHC and FCC-ee curves are projections; the main LEP limit is a new observed constraint. Coupling type is AxionPhoton (g_agamma), though the paper also presents limits on the hypercharge coupling g_aBB. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.35, 3))",
+ "num_points": 3,
+ "elapsed_s": 98.26129412651062
+}

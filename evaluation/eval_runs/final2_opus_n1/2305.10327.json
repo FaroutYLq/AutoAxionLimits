@@ -1,0 +1,174 @@
+{
+ "arxiv_id": "2305.10327",
+ "paper_title": "Multimessenger Constraints on Radiatively Decaying Axions from GW170817",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1000000.0,
+   7e-08
+  ],
+  [
+   1050000.0,
+   2.5e-08
+  ],
+  [
+   1100000.0,
+   1.5e-08
+  ],
+  [
+   1200000.0,
+   8e-09
+  ],
+  [
+   1400000.0,
+   5e-09
+  ],
+  [
+   1700000.0,
+   3.5e-09
+  ],
+  [
+   2000000.0,
+   2.8e-09
+  ],
+  [
+   2500000.0,
+   2e-09
+  ],
+  [
+   3000000.0,
+   1.6e-09
+  ],
+  [
+   4000000.0,
+   1.1e-09
+  ],
+  [
+   5000000.0,
+   8.5e-10
+  ],
+  [
+   7000000.0,
+   6e-10
+  ],
+  [
+   10000000.0,
+   4.2e-10
+  ],
+  [
+   13000000.0,
+   3.3e-10
+  ],
+  [
+   17000000.0,
+   2.6e-10
+  ],
+  [
+   20000000.0,
+   2.2e-10
+  ],
+  [
+   25000000.0,
+   1.9e-10
+  ],
+  [
+   30000000.0,
+   1.6e-10
+  ],
+  [
+   40000000.0,
+   1.3e-10
+  ],
+  [
+   50000000.0,
+   1.1e-10
+  ],
+  [
+   60000000.0,
+   9.5e-11
+  ],
+  [
+   70000000.0,
+   8.5e-11
+  ],
+  [
+   80000000.0,
+   8e-11
+  ],
+  [
+   90000000.0,
+   7.7e-11
+  ],
+  [
+   100000000.0,
+   7.5e-11
+  ],
+  [
+   110000000.0,
+   7.5e-11
+  ],
+  [
+   120000000.0,
+   7.8e-11
+  ],
+  [
+   130000000.0,
+   8.5e-11
+  ],
+  [
+   140000000.0,
+   1e-10
+  ],
+  [
+   150000000.0,
+   1.3e-10
+  ],
+  [
+   160000000.0,
+   1.8e-10
+  ],
+  [
+   170000000.0,
+   2.6e-10
+  ],
+  [
+   175000000.0,
+   3.5e-10
+  ],
+  [
+   180000000.0,
+   5e-10
+  ],
+  [
+   185000000.0,
+   8e-10
+  ],
+  [
+   190000000.0,
+   1.5e-09
+  ],
+  [
+   192000000.0,
+   3e-09
+  ],
+  [
+   195000000.0,
+   6e-09
+  ],
+  [
+   197000000.0,
+   1.5e-08
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "GW170817 axion fireball (CALET/Konus-Wind/Insight-HXMT)",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted",
+ "notes": "Astrophysical bound on radiatively decaying heavy axions from GW170817/GRB170817A. Paper reports excluding axion-photon couplings down to 5e-10 in the abstract text ('down to 5x10^-11 GeV^-1') for axion masses 1-400 MeV. The main result is presented as an exclusion region in Fig.3 (g_agamma vs m_a plane), not a simple curve; only the floor value (~5e-11 GeV^-1) and mass range (1-400 MeV) are given explicitly in text. Data points are approximate representation of the excluded region floor spanning the stated mass range; the actual boundary is a closed 2D region. Values could not be read precisely from the figure. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 39)) | Vision: Traced lower boundary of red 'Excluded by GW170817 data' region in Fig. 3 (main text). The region closes on both left (near 1 MeV, steeply rising) and right (near ~200 MeV). Bottom tail floor reaches ~7.5e-11 GeV^-1 near 100 MeV, consistent with abstract's 'down to 5e-11 GeV^-1'. Red contour chosen (GW170817 data exclusion) over black fireball-formation lines. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.91 snapped to identity)",
+ "num_points": 39,
+ "elapsed_s": 219.69967317581177
+}

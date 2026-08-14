@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "2303.06968",
+ "paper_title": "New solar X-ray constraints on keV Axion-Like Particles",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3000.0,
+   8e-12
+  ],
+  [
+   5000.0,
+   2e-12
+  ],
+  [
+   7000.0,
+   9e-13
+  ],
+  [
+   10000.0,
+   4e-13
+  ],
+  [
+   15000.0,
+   2e-13
+  ],
+  [
+   20000.0,
+   1.3e-13
+  ],
+  [
+   30000.0,
+   8e-14
+  ],
+  [
+   40000.0,
+   6e-14
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "SolarXray_TrappedALP_Coalescence2023",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Limits on hadronic ALPs (gae=0) in (g_agamma, m) plane from combined SphinX+NuSTAR solar X-ray data, improved by ~1 order of magnitude via photon coalescence. No local DM density assumption is made (explicitly stated). Data points approximate, read from Fig. 1 (coalescence/NuSTAR curve) since no numerical table is provided; values should be treated as rough. The leading limits are quoted between 3 keV and 40 keV. Multi-coupling paper (also gae), but primary exclusion plot y-axis is g_agamma. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 8))",
+ "num_points": 8,
+ "elapsed_s": 133.23423385620117
+}

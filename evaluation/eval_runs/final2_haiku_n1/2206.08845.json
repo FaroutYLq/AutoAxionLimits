@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2206.08845",
+ "paper_title": "Searching for Invisible Axion Dark Matter with an 18T Magnet Haloscope",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.9764e-05,
+   1.5e-16
+  ],
+  [
+   1.9771e-05,
+   1.5e-16
+  ],
+  [
+   1.9772e-05,
+   2.7e-16
+  ],
+  [
+   1.9863e-05,
+   2.7e-16
+  ],
+  [
+   1.9863e-05,
+   1.7e-16
+  ],
+  [
+   1.989e-05,
+   1.7e-16
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "CAPP18T",
+ "coupling_convention": "g_agamma in GeV^-1 (KSVZ model reference values multiplied by stated factors)",
+ "notes": "Paper reports exclusion limits as multiples of the KSVZ benchmark coupling |g_agamma^KSVZ|. The KSVZ reference value is approximately 3.92e-16 GeV^-1 (derived from standard axion model conventions). The three mass ranges with different sensitivities are: (1) 19.764\u201319.771 \u03bceV at 1.5\u00d7 KSVZ \u2192 g_agamma \u2248 5.88e-16 GeV^-1; (2) 19.772\u201319.863 \u03bceV at 2.7\u00d7 KSVZ \u2192 g_agamma \u2248 1.06e-15 GeV^-1; (3) 19.863\u201319.890 \u03bceV at 1.7\u00d7 KSVZ \u2192 g_agamma \u2248 6.66e-16 GeV^-1. Data points encode the mass ranges and corresponding coupling limits. The experiment uses an 18 T HTS magnet haloscope with a Josephson parametric converter, scanning 4.7789\u20134.8094 GHz. Local DM density \u03c1_a = 0.45 GeV/cm\u00b3 is explicitly stated in Eq. (1). No significant axion signal was detected; five candidate events from initial scan were ruled out by rescan. Systematic uncertainty on signal power is 9.5%. The extraction confidence is moderate (0.75) because the coupling values are reported relative to a theoretical benchmark rather than as absolute measured quantities, requiring conversion via the KSVZ model constant. | selector: text (sole candidate)",
+ "num_points": 6,
+ "elapsed_s": 25.532375812530518
+}

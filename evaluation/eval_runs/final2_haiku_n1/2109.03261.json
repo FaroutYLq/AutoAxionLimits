@@ -1,0 +1,114 @@
+{
+ "arxiv_id": "2109.03261",
+ "paper_title": "New constraints on light Axion-Like Particles using Chandra Transmission Grating Spectroscopy of the powerful cluster-hosted quasar H1821+643",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-19,
+   1.2e-13
+  ],
+  [
+   1e-18,
+   1.2e-13
+  ],
+  [
+   1e-17,
+   1.2e-13
+  ],
+  [
+   1e-16,
+   1.2e-13
+  ],
+  [
+   1e-15,
+   1.2e-13
+  ],
+  [
+   1e-14,
+   1.2e-13
+  ],
+  [
+   2e-14,
+   1.2e-13
+  ],
+  [
+   5e-14,
+   1.2e-13
+  ],
+  [
+   1e-13,
+   1.25e-13
+  ],
+  [
+   2e-13,
+   1.3e-13
+  ],
+  [
+   3e-13,
+   1.4e-13
+  ],
+  [
+   5e-13,
+   1.6000000000000003e-13
+  ],
+  [
+   8e-13,
+   2e-13
+  ],
+  [
+   1e-12,
+   2.5e-13
+  ],
+  [
+   1.5e-12,
+   3.2000000000000005e-13
+  ],
+  [
+   2e-12,
+   4e-13
+  ],
+  [
+   3e-12,
+   5.500000000000001e-13
+  ],
+  [
+   4e-12,
+   7e-13
+  ],
+  [
+   5e-12,
+   8.5e-13
+  ],
+  [
+   6e-12,
+   1e-12
+  ],
+  [
+   7e-12,
+   1.1500000000000001e-12
+  ],
+  [
+   8e-12,
+   1.3000000000000001e-12
+  ],
+  [
+   9e-12,
+   1.5e-12
+  ],
+  [
+   1e-11,
+   1.8e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.997,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "Chandra Transmission Grating Spectroscopy of H1821+643",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling",
+ "notes": "Paper presents new exclusion limits on axion-like particle (ALP) coupling to photons using Chandra transmission grating spectroscopy of quasar H1821+643 in cool-core cluster CL1821+643. At 99.7% credibility (3\u03c3), the paper excludes g_a\u03b3 > 6.3\u00d710^-13 GeV^-1 for most ALP masses m_a < 10^-12 eV. At 95.5% credibility (2\u03c3), the limit is g_a\u03b3 > 5.0\u00d710^-13 GeV^-1 in the same mass range. The constraint is mass-independent (flat) over the range m_a < 10^-12 eV, so encoded as a horizontal line from 10^-19 eV to 10^-12 eV. The analysis uses 571 ks combined HETG/LETG observations and assumes thermal-to-magnetic pressure ratio \u03b2=100 up to virial radius. The limit is derived from absence of spectral distortions due to photon-ALP oscillations in the magnetized intracluster medium. This represents the tightest constraint to date on light ALPs with log(m_a/eV) < -12.0, marginally improving upon Reynolds et al. (2020) NGC1275 results. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.92, 24)) | Vision: Exclusion limit plot from Figure 5 (page 9). The lower boundary of the exclusion region (thick black line labeled 'This work, 99.7% CL') traces the constraint on axion-photon coupling g_agamma vs ALP mass m_a. The plot shows that couplings ABOVE this boundary are excluded. The boundary is relatively flat at ~1.2e-12 GeV^-1 for masses below ~1e-12 eV, then rises steeply at higher masses. The paper reports excluding g_agamma > 6.3 \u00d7 10^-13 GeV^-1 for most light ALPs with m_a < 10^-12 eV at 99.7% CL. The constraint improves significantly over previous results (Hydra, M87, NCG1275, SN1987A, IAXO). Data points sampled more densely in the steep rising region (m_a > 1e-13 eV) where the boundary changes slope, and less densely in the flat region at lower masses. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.32)",
+ "num_points": 24,
+ "elapsed_s": 211.91627097129822
+}

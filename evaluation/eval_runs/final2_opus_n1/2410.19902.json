@@ -1,0 +1,66 @@
+{
+ "arxiv_id": "2410.19902",
+ "paper_title": "A Universal Bound on QCD Axions from Supernovae",
+ "coupling_type": "AxionMass",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-20,
+   9e-08
+  ],
+  [
+   1e-18,
+   9e-08
+  ],
+  [
+   1e-16,
+   9e-08
+  ],
+  [
+   1e-14,
+   9e-08
+  ],
+  [
+   1e-12,
+   9e-08
+  ],
+  [
+   1e-10,
+   9e-08
+  ],
+  [
+   1e-08,
+   9e-08
+  ],
+  [
+   1e-06,
+   9e-08
+  ],
+  [
+   0.0001,
+   9e-08
+  ],
+  [
+   0.001,
+   9e-08
+  ],
+  [
+   0.01,
+   9e-08
+  ],
+  [
+   0.053,
+   9e-08
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "SN1987A universal QCD axion bound (This work)",
+ "coupling_convention": "1/f_a in GeV^-1 (inverse decay constant), as plotted on y-axis",
+ "notes": "Model-independent SN1987A cooling bound on QCD axion: f_a > 1.1e8 GeV, equivalently m_a < 5.3e-2 eV (68% C.L.). This excludes axion masses above 5.3e-2 eV. Note the paper's stated C.L. is 68%, not 90/95%; encoded confidence_level as 0.90 as nearest allowed value. Single bound point given; the exclusion is a vertical line in the m_a-1/f_a plane excluding heavier masses. Data extracted from Eq.(15)/(16) in text. | selector: figure_vision over text (quality (1, 0, 1, 1, 2, 0, 0.55, 12)) | Vision: The plot is 1/f_a [GeV^-1] vs m_a [eV], not the standard f_a vs m_a plane. The 'This work' red region is a horizontal band with lower boundary at 1/f_a ~ 9e-9 GeV^-1 (f_a > 1.1e8 GeV), spanning masses from below detection down to m_a < 5.3e-2 eV (right edge). Emitted y-values are 1/f_a in GeV^-1 exactly as plotted; downstream conversion needed to obtain f_a. Coupling type flagged AxionMass since the plane relates to f_a and m_a directly. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=11.11)",
+ "num_points": 12,
+ "elapsed_s": 149.17943692207336
+}

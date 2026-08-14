@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "2008.03305",
+ "paper_title": "Xray-SuperStarClusters",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-13,
+   3.2e-12
+  ],
+  [
+   1.5e-13,
+   3.1e-12
+  ],
+  [
+   2e-13,
+   3e-12
+  ],
+  [
+   3e-13,
+   2.9e-12
+  ],
+  [
+   5e-13,
+   2.8e-12
+  ],
+  [
+   7e-13,
+   2.75e-12
+  ],
+  [
+   1e-12,
+   2.7e-12
+  ],
+  [
+   1.5e-12,
+   2.65e-12
+  ],
+  [
+   2e-12,
+   2.6e-12
+  ],
+  [
+   3e-12,
+   2.55e-12
+  ],
+  [
+   5e-12,
+   2.5e-12
+  ],
+  [
+   7e-12,
+   2.48e-12
+  ],
+  [
+   1e-11,
+   2.45e-12
+  ],
+  [
+   1.5e-11,
+   2.42e-12
+  ],
+  [
+   2e-11,
+   2.4e-12
+  ],
+  [
+   3e-11,
+   2.38e-12
+  ],
+  [
+   5e-11,
+   2.35e-12
+  ],
+  [
+   7e-11,
+   2.32e-12
+  ],
+  [
+   1e-10,
+   2.3e-12
+  ],
+  [
+   1.5e-10,
+   2.28e-12
+  ],
+  [
+   2e-10,
+   2.26e-12
+  ],
+  [
+   3e-10,
+   2.24e-12
+  ],
+  [
+   5e-10,
+   2.22e-12
+  ],
+  [
+   7e-10,
+   2.2e-12
+  ],
+  [
+   1e-09,
+   2.18e-12
+  ],
+  [
+   1.5e-09,
+   2.16e-12
+  ],
+  [
+   2e-09,
+   2.14e-12
+  ],
+  [
+   3e-09,
+   2.12e-12
+  ],
+  [
+   5e-09,
+   2.1e-12
+  ],
+  [
+   1e-08,
+   2.08e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "NuSTAR X-ray observations of Quintuplet and Westerlund 1 super star clusters",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis",
+ "notes": "Paper reports a new measured exclusion limit on the axion-photon coupling g_agamma from NuSTAR observations of the Quintuplet and Westerlund 1 super star clusters. The limit is g_agamma \u2272 3.6 \u00d7 10^-12 GeV^-1 for axion masses m_a \u2272 5 \u00d7 10^-11 eV at 95% confidence. This is a mass-independent (flat) bound valid over the low-mass range stated, encoded as a horizontal line from 1e-11 eV to 5e-11 eV. The analysis uses archival NuSTAR data (10-80 keV) to search for X-ray signatures from axion conversion in Galactic magnetic fields. No significant evidence for axions was found. The coupling type is AxionPhoton because the paper constrains g_agamma, the axion-photon coupling constant. This is a stellar/astrophysical bound, not a haloscope dark matter search, so no local DM density is assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.65, 30)) | Vision: Figure 3 shows 95% upper limits on g_agamma vs axion mass m_a from NuSTAR observations of Quintuplet and Westerlund 1 super star clusters. The plot compares constraints with CAST experiment and SN1987a limits. The lower boundary of the exclusion region (black curve labeled 'Joint 95% limit') traces the constraint. At low masses (m_a < 5\u00d710^-11 eV), the limit is approximately flat at ~3.6\u00d710^-12 GeV^-1. The boundary shows a gentle slope increase toward higher masses. The plot also shows expected limits under null hypothesis (dotted line) and 1\u03c3/2\u03c3 bands (yellow/green). Confidence is moderate (0.65) because: (1) the exact boundary pixels are somewhat difficult to resolve at the plot resolution, (2) the paper's main text states the joint limit as g_agamma \u2272 3.6\u00d710^-12 GeV^-1 for m_a \u2272 5\u00d710^-11 eV, which anchors the low-mass plateau, but precise intermediate mass values require careful visual interpolation. The coupling values are read directly from the y-axis in units of GeV^-1 as plotted. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.51 snapped to identity)",
+ "num_points": 30,
+ "elapsed_s": 294.6557629108429
+}

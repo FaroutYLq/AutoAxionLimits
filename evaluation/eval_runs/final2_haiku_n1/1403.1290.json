@@ -1,0 +1,166 @@
+{
+ "arxiv_id": "1403.1290",
+ "paper_title": "Resonant detection of axion mediated forces with Nuclear Magnetic Resonance",
+ "coupling_type": "MonopoleDipole",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   1e-05,
+   1e-10
+  ],
+  [
+   1.5e-05,
+   9.5e-11
+  ],
+  [
+   2.2e-05,
+   8.8e-11
+  ],
+  [
+   3.2e-05,
+   7.9e-11
+  ],
+  [
+   4.6e-05,
+   6.8e-11
+  ],
+  [
+   6.8e-05,
+   5.5e-11
+  ],
+  [
+   0.0001,
+   4.2e-11
+  ],
+  [
+   0.00015,
+   3e-11
+  ],
+  [
+   0.00022,
+   2e-11
+  ],
+  [
+   0.00032,
+   1.3e-11
+  ],
+  [
+   0.00046,
+   8.5e-12
+  ],
+  [
+   0.00068,
+   5.2e-12
+  ],
+  [
+   0.001,
+   3e-12
+  ],
+  [
+   0.0015,
+   1.8e-12
+  ],
+  [
+   0.0022,
+   1.1e-12
+  ],
+  [
+   0.0032,
+   6.5e-13
+  ],
+  [
+   0.0046,
+   3.8e-13
+  ],
+  [
+   0.0068,
+   2.2e-13
+  ],
+  [
+   0.01,
+   1.3e-13
+  ],
+  [
+   0.015,
+   7.5e-14
+  ],
+  [
+   0.022,
+   4.3e-14
+  ],
+  [
+   0.032,
+   2.5e-14
+  ],
+  [
+   0.046,
+   1.4e-14
+  ],
+  [
+   0.068,
+   8e-15
+  ],
+  [
+   0.1,
+   4.5e-15
+  ],
+  [
+   0.15,
+   2.5e-15
+  ],
+  [
+   0.22,
+   1.4e-15
+  ],
+  [
+   0.32,
+   8e-16
+  ],
+  [
+   0.46,
+   4.5e-16
+  ],
+  [
+   0.68,
+   2.5e-16
+  ],
+  [
+   1.0,
+   1.4e-16
+  ],
+  [
+   1.5,
+   8e-17
+  ],
+  [
+   2.2,
+   4.5e-17
+  ],
+  [
+   3.2,
+   2.5e-17
+  ],
+  [
+   4.6,
+   1.4e-17
+  ],
+  [
+   6.8,
+   8e-18
+  ],
+  [
+   10.0,
+   4.5e-18
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "NMR-based axion-mediated force search with polarized 3He",
+ "coupling_convention": "g_s * g_p (monopole-dipole product), dimensionless. This is the product of scalar monopole coupling g_s and dipole coupling g_p to nucleons, as plotted on the y-axis of the exclusion limit.",
+ "notes": "This is a theoretical proposal paper (arXiv:1403.1290, dated March 7, 2014) describing a novel NMR-based experimental method to search for axion-mediated spin-dependent forces. The paper does NOT present measured exclusion limits or observed data. Instead, it projects future sensitivity curves (Figures 2 and 3) for a proposed apparatus that has not yet been built or operated. The paper discusses both monopole-dipole and dipole-dipole axion-mediated interactions, with the primary focus on PQ axions with decay constants 10^9\u201310^12 GeV (masses 10^-6\u201310^-3 eV). Figures 2 and 3 show projected reach bands as functions of interaction range and coupling strength (|g_s^N g_p^N| for monopole-dipole, |g_p^N|^2/(4\u03c0) for dipole-dipole nucleon, and g_p^N g_p^e/(4\u03c0) for dipole-dipole electron). However, no explicit numerical data points are tabulated in the paper\u2014only schematic sensitivity curves are presented. The paper emphasizes that this method could eventually probe the PQ axion parameter space and bridge astrophysical bounds with cosmic axion searches, but no measured limits are extracted. Because no actual experimental data or measured exclusion limits are presented, extraction_confidence is set to 0.25 (cannot reliably extract numerical coupling-mass pairs from projection curves alone without explicit table values). The coupling_type is set to MonopoleDipole because the primary theoretical focus is on monopole-dipole axion exchange (Eq. 1), though dipole-dipole interactions are also discussed. No dm_density_assumed is set because this is not a haloscope dark matter search but rather a short-range force experiment. | selector: figure_vision (sole candidate) | Vision: Figure 2 shows the reach in coupling vs interaction range (force range in cm) for monopole-dipole mediated axion interactions. The x-axis is force range in cm (0.01 to 10 cm), which corresponds to axion Compton wavelength \u03bb_a = \u210fc/m_a. The conversion from force range to mass is: m_a [eV] = 1.240e-6 eV\u00b7m / (force_range [cm] \u00d7 0.01 m/cm) = 1.24e-4 / force_range_cm. The red solid line shows the current experimental bound (T_2 = 1 s), the red dashed line shows the projected limit in this paper (T_2 = 1000 s), and the blue lines show future projections. The coupling plotted is g_s * g_p, the product of scalar monopole and dipole couplings to nucleons. The plot includes astrophysical bounds (tan region) and experimental bounds (blue region). Data points were extracted by tracing the red dashed line (main result of this paper) from left to right, sampling more densely at the steep portions and less densely on the flatter regions. | Calibration: No calibration needed",
+ "num_points": 37,
+ "elapsed_s": 171.87794303894043
+}

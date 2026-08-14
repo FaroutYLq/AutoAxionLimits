@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2303.08410",
+ "paper_title": "Constraints on axion-like polarization oscillations in the cosmic microwave background with POLARBEAR",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   9.6e-22,
+   2.304e-11
+  ],
+  [
+   2.2e-20,
+   5.28e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "POLARBEAR_axion_biref",
+ "coupling_convention": "g_agamma in GeV^-1, computed from median limit g < 2.4e-11 * (m/1e-21 eV)",
+ "notes": "Median 95% stochastic limit g_phigamma < 2.4e-11 GeV^-1 * (m_phi/1e-21 eV) over mass range 9.6e-22 to 2.2e-20 eV. Data points computed as endpoints of this linear-in-mass relation: at 9.6e-22 eV -> 2.304e-11, at 2.2e-20 eV -> 5.28e-10. The relation is linear in mass so limit scales with m_phi. Deterministic (weaker assumption) limit was 1.1e-11 * (m/1e-21 eV). | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+ "num_points": 2,
+ "elapsed_s": 162.4496772289276
+}

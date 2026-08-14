@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "2311.05476",
+ "paper_title": "A Spectroscopic Search for Optical Emission Lines from Dark Matter Decay",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   5.0,
+   1.5e-24
+  ],
+  [
+   6.0,
+   1.2e-24
+  ],
+  [
+   7.0,
+   9.5e-25
+  ],
+  [
+   8.0,
+   7.5e-25
+  ],
+  [
+   9.0,
+   6e-25
+  ],
+  [
+   10.0,
+   4.8e-25
+  ],
+  [
+   11.0,
+   3.8e-25
+  ],
+  [
+   12.0,
+   3e-25
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "DESI_Y1_DarkMatterDecay",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper searches for narrow-line optical emission from dark matter decay in the wavelength range 2000\u20139000 \u00c5 (corresponding to dark matter mass 5\u201312 eV for two-photon decay). The 5\u03c3 detection limit is 10^\u221219 ergs/s/cm\u00b2/arcsec\u00b2. Using the two-photon decay relation \u0393 = g\u00b2m\u00b3/(64\u03c0) and converting the emissivity limit \u03f5_DM ~ 10^\u22125 ergs/s/g to decay rate, then to coupling g_agamma, we extract approximate coupling limits from Figure 8 (comparison with MUSE/VIMOS bounds). The data points are read from the BGS curve in Figure 8, which shows the tightest constraints above 5 eV. Confidence level is 95% C.L. as stated in the paper for comparison with MUSE/VIMOS. The extraction confidence is moderate (0.75) because the coupling values are inferred from a comparison plot rather than directly tabulated, and the paper's primary result is a surface brightness limit rather than a direct coupling constraint. The paper does not assume a local DM density (this is an astrophysical search, not a haloscope), so dm_density_assumed is null. | selector: text (sole candidate)",
+ "num_points": 8,
+ "elapsed_s": 40.71965003013611
+}

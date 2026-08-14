@@ -1,0 +1,62 @@
+{
+ "arxiv_id": "1607.07327",
+ "paper_title": "Search for light scalar Dark Matter candidate with AURIGA detector",
+ "coupling_type": "ScalarBaryon",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3e-12,
+   1.0000000000000002e-06
+  ],
+  [
+   3.15e-12,
+   1.2000000000000002e-06
+  ],
+  [
+   3.3e-12,
+   1.5e-06
+  ],
+  [
+   3.45e-12,
+   2.0000000000000003e-06
+  ],
+  [
+   3.6e-12,
+   3e-06
+  ],
+  [
+   3.75e-12,
+   5e-06
+  ],
+  [
+   3.9e-12,
+   8.000000000000001e-06
+  ],
+  [
+   4.05e-12,
+   1.2e-05
+  ],
+  [
+   4.2e-12,
+   1e-05
+  ],
+  [
+   4.35e-12,
+   6e-06
+  ],
+  [
+   4.5e-12,
+   3e-06
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "AURIGA (cryogenic resonant-mass gravitational wave detector)",
+ "coupling_convention": "d_g (dimensionless scalar coupling to baryonic matter), as plotted on y-axis",
+ "notes": "Paper constrains scalar field (moduli) coupling to ordinary matter via oscillations of atomic size. The coupling parameter d_e (electromagnetic gauge modulus) or d_me (electron mass modulus) is constrained. The abstract states 'd_e \u2272 10^-5 around masses m_\u03c6 = 3.6\u00b710^-12 eV'. The paper discusses both d_me and d_e couplings (Eqs. 1-2), and the final result in Fig. 5 shows upper limits on 'd_i' where d_i can be either d_me or d_e. The coupling is to ordinary matter (nucleons/baryons) via the variation of fundamental constants. Classified as ScalarBaryon because the interaction is fundamentally with baryonic matter through the moduli field affecting atomic structure. The DM density \u03c1_DM = 0.3 GeV/cm\u00b3 is explicitly stated as the Standard Halo Model assumption. Single data point extracted from abstract; Fig. 5 shows the exclusion curve but precise numerical values across the full mass range are not tabulated in the text. The 95% C.L. is explicitly stated. Extraction confidence is moderate (0.75) because while the coupling type and single reference point are clear, the paper does not provide a detailed table of (mass, coupling) pairs\u2014only the abstract summary and a figure. | selector: figure_vision over text (quality (1, 1, 1, 0, 2, 0, 0.75, 11)) | Vision: Figure 5 shows upper limits on moduli coupling to ordinary matter. The x-axis is the modulus mass m_\u03c6 in eV (range 3.0\u00d710\u207b\u00b9\u00b2 to 4.5\u00d710\u207b\u00b9\u00b2 eV, corresponding to frequencies 750\u20131100 Hz via m=hf/c). The y-axis is the coupling d_\u03c6 (dimensionless), ranging from 10\u207b\u2077 to 100. The red curve labeled 'Auriga' traces the 95% C.L. upper limit from AURIGA data. The boundary shows a characteristic peak around 3.9\u00d710\u207b\u00b9\u00b2 eV (\u2248900 Hz, the detector's resonance frequency) where sensitivity is best, with coupling limits reaching ~10\u207b\u2074. The coupling type is ScalarBaryon because the paper constrains the interaction of moduli (scalar dark matter) with ordinary baryonic matter in the detector. The plot also shows constraints from fifth-force tests (5F, gray), equivalence principle tests (EP, orange), and natural parameter space (green shaded region). Extraction confidence is 0.75 because the boundary is clearly visible but the exact numerical values require careful interpolation from the log-log plot. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.20) | [CONVENTION REVIEW] declared coupling convention 'd_g (dimensionless scalar coupling to baryonic matter), as plotted on y-axis' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 11,
+ "elapsed_s": 153.48448729515076
+}

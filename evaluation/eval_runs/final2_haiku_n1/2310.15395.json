@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2310.15395",
+ "paper_title": "Hunting Dark Matter Lines in the Infrared Background with the James Webb Space Telescope",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.863,
+   1.5e-11
+  ],
+  [
+   1.0,
+   2.4e-11
+  ],
+  [
+   1.5,
+   1.8e-11
+  ],
+  [
+   2.15,
+   9.4e-12
+  ],
+  [
+   2.5,
+   1.2e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "JWST_NIRSpec_GNz11",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper presents new measured exclusion limits on axion-photon coupling g_agamma from JWST NIRSpec IFU observations of blank sky in the mass range 0.8\u20133 eV. The primary result is shown in Figure 2 (bottom panel) as 2\u03c3 power-constrained limits on g_agamma vs. mass m_a. Key numerical values extracted from text: \u03c4 < 6.7\u00d710^26 s at m_DM \u2243 0.9 eV (corresponding to g_agamma > 9.4\u00d710^-12 GeV^-1 at m_a = 2.15 eV), and g_agamma > 2.4\u00d710^-11 GeV^-1 for m_a = 1 eV. The paper uses the continuum model constraint (red curve in Fig. 2), which is more sensitive than the total flux limit. Data points are read from Figure 2 (bottom) at representative masses. The search targets decaying dark matter producing narrow infrared emission lines via the dimension-5 operator L = -(1/4)g_agamma a F_\u03bc\u03bd F\u0303^\u03bc\u03bd. No local DM density assumption is needed as this is an astrophysical/cosmological bound using the Milky Way halo profile (NFW with \u03c1_s = 0.18 GeV/cm\u00b3), not a dedicated haloscope experiment. Confidence level is 2\u03c3 (95% CL) as stated in the paper. | selector: text (sole candidate)",
+ "num_points": 5,
+ "elapsed_s": 22.586502075195312
+}

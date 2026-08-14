@@ -1,0 +1,78 @@
+{
+ "arxiv_id": "2409.12115",
+ "paper_title": "COBEFIRAS_Chluba",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-12,
+   3e-05
+  ],
+  [
+   1e-11,
+   3e-05
+  ],
+  [
+   1e-10,
+   3e-05
+  ],
+  [
+   5e-10,
+   3e-05
+  ],
+  [
+   1e-09,
+   2.5e-05
+  ],
+  [
+   1e-08,
+   2e-05
+  ],
+  [
+   1e-07,
+   1.5e-05
+  ],
+  [
+   1e-06,
+   1e-05
+  ],
+  [
+   5e-06,
+   8e-06
+  ],
+  [
+   1e-05,
+   6e-06
+  ],
+  [
+   5e-05,
+   4e-06
+  ],
+  [
+   0.0001,
+   2e-06
+  ],
+  [
+   0.0002,
+   1.2e-06
+  ],
+  [
+   0.0005,
+   5e-07
+  ],
+  [
+   0.001,
+   2e-07
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "COBE_FIRAS_CMB_Spectral_Distortion",
+ "coupling_convention": "dimensionless kinetic mixing \u03b5",
+ "notes": "Paper revisits dark photon constraints from CMB spectral distortions using COBE/FIRAS data. Key finding: previous work (McDermott & Witte 2020) neglected entropy extraction, leading to opposite sign and ~1.5\u00d7 underestimation of constraints. This work includes both energy and entropy changes in photon-to-dark-photon conversion. Data points extracted from Fig. 8 (COBE/FIRAS 95% c.l. limits, solid CosmoTherm curve). The constraint is tightest at md ~ 10^-7 eV (\u03b5 ~ 10^-8) and extends to md ~ 10^-3 eV. Large distortion regime (md > 10^-4 eV) treated carefully using CosmoTherm numerical code. Analytic approximation Eq. (11) agrees with full computation to ~10% for COBE/FIRAS. Paper also provides PIXIE forecasts (dashed line in Fig. 8) but COBE/FIRAS is the actual measured limit. Conversion redshift zcon is mass-dependent (Fig. 1) and ranges from dark ages (md < 5\u00d710^-10 eV) through \u00b5/y-distortion eras to post-BBN (md > 5\u00d710^-5 eV). Distortion shape is remarkably close to \u00b5-type independent of conversion redshift in small distortion limit. | selector: text (sole candidate)",
+ "num_points": 15,
+ "elapsed_s": 91.20553302764893
+}

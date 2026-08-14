@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2409.03814",
+ "paper_title": "POLONAISE",
+ "coupling_type": "VectorBL",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.1036e-13,
+   2.98e-21
+  ],
+  [
+   1.10485e-13,
+   2.98e-21
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "POLONAISE",
+ "coupling_convention": "dimensionless g_BL",
+ "notes": "First ULDM search with magnetically levitated particle. Best 90% CL limit gB-L < 2.98e-21 at mDM ~1.1042e-13 eV in the narrow mass range (1.10360-1.10485)e-13 eV (frequency 26.685-26.715 Hz). Only the best limit value is given numerically in text; the full data-driven limit curve is in Fig. 3 but not tabulated. I encoded the best limit spanning the stated mass range. Projections (short/medium/long POLONAISE upgrades) exist but are separate; this entry is the observed limit. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 5.9 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 154.75906610488892
+}

@@ -1,0 +1,146 @@
+{
+ "arxiv_id": "1606.07001",
+ "paper_title": "DARWIN: towards the ultimate dark matter detector",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   1000.0,
+   3.3e-13
+  ],
+  [
+   1200.0,
+   3.2000000000000005e-13
+  ],
+  [
+   1500.0,
+   3.1e-13
+  ],
+  [
+   1800.0,
+   3e-13
+  ],
+  [
+   2000.0,
+   3e-13
+  ],
+  [
+   2500.0,
+   3e-13
+  ],
+  [
+   3000.0,
+   3.1e-13
+  ],
+  [
+   3500.0,
+   3.2000000000000005e-13
+  ],
+  [
+   4000.0,
+   3.3e-13
+  ],
+  [
+   4500.0,
+   3.2000000000000005e-13
+  ],
+  [
+   5000.0,
+   3e-13
+  ],
+  [
+   5500.0,
+   2.5e-13
+  ],
+  [
+   6000.0,
+   2e-13
+  ],
+  [
+   6500.0,
+   2.2000000000000002e-13
+  ],
+  [
+   7000.0,
+   2.6e-13
+  ],
+  [
+   7500.0,
+   3e-13
+  ],
+  [
+   8000.0,
+   3.4e-13
+  ],
+  [
+   8500.0,
+   3.8e-13
+  ],
+  [
+   9000.0,
+   4.5e-13
+  ],
+  [
+   9500.0,
+   6e-13
+  ],
+  [
+   10000.0,
+   7e-13
+  ],
+  [
+   11000.0,
+   6.500000000000001e-13
+  ],
+  [
+   12000.0,
+   6e-13
+  ],
+  [
+   14000.0,
+   5.800000000000001e-13
+  ],
+  [
+   16000.0,
+   5.7e-13
+  ],
+  [
+   18000.0,
+   5.800000000000001e-13
+  ],
+  [
+   20000.0,
+   6e-13
+  ],
+  [
+   24000.0,
+   6.500000000000001e-13
+  ],
+  [
+   28000.0,
+   7.499999999999999e-13
+  ],
+  [
+   32000.0,
+   9e-13
+  ],
+  [
+   36000.0,
+   1.1e-12
+  ],
+  [
+   40000.0,
+   1e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "DARWIN (200 t\u00d7y projection)",
+ "coupling_convention": "coupling squared, g^2 (axis read-back)",
+ "notes": "DARWIN projection for galactic ALPs (axio-electric effect) improving XENON100 by ~2 orders of magnitude for 200 t*y exposure. Paper gives sensitivity curves only in Figure 4 (not tabulated); XENON100 reference limit g_Ae ~2e-12 for 1-40 keV galactic ALPs. Two representative points estimated for the galactic ALP curve; actual numerical values not provided in text, so extraction is approximate. Paper also has a solar axion projection (g_Ae^solar ~ few e-13 improving XENON100's 7.7e-12) which would be a separate curve. Local DM density 0.3 GeV/cm^3 stated for galactic (DM) ALP interpretation. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 32)) | declaration reconciled to axis read-back: 'coupling squared, g^2 (axis read-back)' (model declared 'g_ae^alp dimensionless, as plotted on y-axis' \u2014 axis unit wins, #594 contract) | Vision: The provided axis calibration corresponds to the WIMP-nucleon cross-section plot (Figure 1), which is NOT an AxionElectron limit. The correct AxionElectron plot is Figure 4 right panel showing g_ae^ALP vs m_A [keV/c\u00b2] for galactic ALPs. Traced the DARWIN (blue dashed) projection curve. X-axis converted keV to eV (1 keV = 1000 eV). Values read from log-log plot; the DARWIN curve sits around 3e-14 with a dip near 6 keV and rising toward high mass. This is a projected sensitivity, not an actual exclusion. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=8.82)",
+ "num_points": 32,
+ "elapsed_s": 214.75447607040405
+}

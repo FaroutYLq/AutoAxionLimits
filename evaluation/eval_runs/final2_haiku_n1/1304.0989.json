@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "1304.0989",
+ "paper_title": "Constraints on axion-like particles from X-ray observations of Hydra galaxy cluster",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0,
+   8.3e-12
+  ],
+  [
+   7e-12,
+   8.3e-12
+  ],
+  [
+   1e-11,
+   1e-11
+  ],
+  [
+   2e-11,
+   2e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "Hydra_A_Chandra",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper constrains axion-like particle (ALP) coupling to photons using X-ray observations of Hydra A galaxy cluster with Chandra. Main result: g_agamma < 8.3\u00d710^-12 GeV^-1 at 95% CL for ALP masses below 7\u00d710^-12 eV. For higher masses (7\u00d710^-12 to ~2\u00d710^-11 eV), the exclusion curve rises as m_a^2 due to increasing critical energy. The constraint is derived from absence of spectral irregularities expected from photon-ALP oscillations in the cluster's turbulent magnetic field. Conservative analysis using measured magnetic field profile from Faraday rotation. Data points encode the flat limit for low masses and approximate shape of the rising exclusion curve at higher masses based on Figure 4. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.92, 4))",
+ "num_points": 4,
+ "elapsed_s": 63.43444085121155
+}

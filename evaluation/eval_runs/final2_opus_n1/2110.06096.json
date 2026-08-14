@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2110.06096",
+ "paper_title": "Search for \"Invisible\" Axion Dark Matter in the $3.3\\text{-}4.2~\u03bc$eV Mass Range",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.3e-06,
+   3.9e-16
+  ],
+  [
+   4.2e-06,
+   4.9e-16
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "ADMX_2021_3.3-4.2ueV",
+ "coupling_convention": "g_agamma in GeV^-1 (approximate KSVZ-level values across the mass range; exact curve only in Fig. 4)",
+ "notes": "ADMX haloscope excluding KSVZ axion-photon coupling in 3.3-4.2 ueV (approx 800-1020 MHz). The exclusion is at/below KSVZ level (ga\u03b3\u03b3 ~ few x 1e-16 GeV^-1 in this mass range). Precise data points are only available in Fig.4 (not in tabular form); the emitted points are approximate KSVZ-model coupling estimates at the band edges. Density 0.45 GeV/cc (boosted Maxwell-Boltzmann) or 0.6 GeV/cc (N-body). 90% C.L. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.55, 2))",
+ "num_points": 2,
+ "elapsed_s": 159.2919089794159
+}

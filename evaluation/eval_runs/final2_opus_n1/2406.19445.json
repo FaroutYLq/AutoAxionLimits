@@ -1,0 +1,54 @@
+{
+ "arxiv_id": "2406.19445",
+ "paper_title": "INTEGRAL",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   90000.0,
+   1e-13
+  ],
+  [
+   100000.0,
+   5e-14
+  ],
+  [
+   150000.0,
+   8e-15
+  ],
+  [
+   200000.0,
+   2e-15
+  ],
+  [
+   300000.0,
+   3e-16
+  ],
+  [
+   400000.0,
+   8e-17
+  ],
+  [
+   600000.0,
+   8e-18
+  ],
+  [
+   800000.0,
+   1e-18
+  ],
+  [
+   1022000.0,
+   1e-19
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.42,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "INTEGRAL_SPI_DarkPhotonTrident",
+ "coupling_convention": "dimensionless kinetic mixing epsilon (chi)",
+ "notes": "INTEGRAL/SPI 95% C.L. constraint on dark photon dark matter kinetic mixing via three-photon (trident) decay, valid 61-1022 keV. Paper states epsilon constrained from 10^-12 down to 10^-19 over 61-1022 keV. Data points estimated from Fig 4 (blue loop-correction line); no numerical table provided, so values are approximate read-offs following the steep m^9 decay-width scaling. NFW profile, rho_sun=0.42 GeV/cm3 assumed (DM = dark photon). | selector: text (sole candidate)",
+ "num_points": 9,
+ "elapsed_s": 33.848809003829956
+}

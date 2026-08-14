@@ -1,0 +1,22 @@
+{
+ "arxiv_id": "1504.00118",
+ "paper_title": "Tokyo-Dish",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.1,
+   6e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Tokyo_Dish_2015",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "Dish antenna search for hidden photon CDM. Single measured upper limit chi ~ 6e-12 at m_gamma' = 3.1 +/- 1.2 eV. Only one numerical data point explicitly given in text; full curve is in Fig. 5 but not tabulated. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 1))",
+ "num_points": 1,
+ "elapsed_s": 66.9083046913147
+}

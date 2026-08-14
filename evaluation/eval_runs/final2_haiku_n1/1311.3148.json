@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1311.3148",
+ "paper_title": "Constraints on axionlike particles with H.E.S.S. from the irregularity of the PKS 2155-304 energy spectrum",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.5e-08,
+   5e-11
+  ],
+  [
+   6e-08,
+   2.1e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "H.E.S.S._PKS2155-304",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper derives constraints on ALP-photon coupling from H.E.S.S. observations of PKS 2155-304 using spectral irregularity method. Main result: g_agamma < 2.1\u00d710^-11 GeV^-1 for ALP mass between 15 neV and 60 neV (conservative limit from galaxy cluster magnetic field). Additional optimistic limit from IGMF: ~5\u00d710^-11 GeV^-11 for ~1 neV mass. Data points represent the conservative cluster-based constraint endpoints. Limits improve CAST constraints by factor ~4 in this mass range. Method is independent of spectral shape assumptions and applies to both pseudoscalar and scalar bosons coupling to photons. | [VISION GATE B] vision notes assert the plotted axis belongs to VectorB-L/VectorBL but the declared coupling is AxionPhoton \u2014 wrong panel/curve traced | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 136.3964240550995
+}

@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1708.06367",
+ "paper_title": "Search for axion-like dark matter through nuclear spin precession in electric and magnetic fields",
+ "coupling_type": "AxionEDM",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-24,
+   1e-26
+  ],
+  [
+   1e-17,
+   1e-26
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "nEDM_PSI_ILL",
+ "coupling_convention": "oscillation amplitude in e*cm (10^-26 e*cm units as plotted)",
+ "notes": "Paper reports search for axion-induced oscillating neutron EDM via spin-precession frequency ratio of ultracold neutrons and 199Hg atoms. Primary results presented as limits on oscillation amplitude (in units of 10^-26 e*cm) vs frequency/mass in Fig. 2. The paper constrains two distinct couplings: (1) axion-gluon coupling via oscillating nEDM (Eq. 2), and (2) axion-nucleon coupling via axion-wind spin-precession effect (Eq. 4). The pre-analysis hint suggested AxionEDM, which is appropriate for the oscillating nEDM search (primary result). However, the paper actually constrains fa/CG (axion-gluon) and fa/CN (axion-nucleon) in GeV^-1 units, presented in Fig. 4. The oscillation amplitude limits in Fig. 2 are intermediate results used to derive the fa/CG and fa/CN constraints. Since the paper's main exclusion plots (Fig. 4) show fa/CG and fa/CN vs mass (not a direct EDM coupling), and these represent gluon and nucleon couplings respectively, the coupling type is ambiguous between AxionEDM (for the oscillating EDM mechanism) and AxionNeutron (for the nucleon coupling). The paper title emphasizes 'nuclear spin precession' and the abstract mentions 'oscillating electric dipole moment of the neutron' and 'axion coupling to gluons' and 'nucleons'. Given the complexity and the fact that Fig. 4 shows fa/CG and fa/CN (not standard dimensionless g_agamma, g_ae, g_an), extraction confidence is reduced. The data_points encode the mass range and approximate sensitivity baseline from Fig. 2 (long time-base analysis shows ~1-3 \u00d7 10^-26 e*cm sensitivity across the range). DM density of 0.4 GeV/cm^3 is explicitly stated in the paper as the assumed local cold DM energy density. | selector: text over figure_vision (quality (1, 1, 1, 0, 1, 0, 0.65, 2)) | [CONVENTION REVIEW] declared coupling convention 'oscillation amplitude in e*cm (10^-26 e*cm units as plotted)' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 2,
+ "elapsed_s": 122.29138731956482
+}

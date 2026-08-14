@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2410.10363",
+ "paper_title": "Shining Light on the Dark Sector: Search for Axion-like Particles and Other New Physics in Photonic Final States with FASER",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.05,
+   0.0001
+  ],
+  [
+   0.08,
+   0.0001
+  ],
+  [
+   0.1,
+   3e-05
+  ],
+  [
+   0.14,
+   0.0002
+  ],
+  [
+   0.25,
+   0.0005
+  ],
+  [
+   0.3,
+   2e-05
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "FASER2024",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper presents first FASER search for light long-lived particles decaying to photon pairs. Primary target is ALP-W model (ALPs coupled to weak gauge bosons), but results are reinterpreted for multiple models including ALP-photon, ALP-gluon, U(1)_B, up-philic scalars, and 2HDM. The abstract and main text emphasize ALP-W coupling g_aWW around 10^-4 GeV^-1 for masses up to 300 MeV as world-leading constraints. However, the paper also provides exclusion limits for ALP-photon model (Fig. 11 left panel) probing masses up to 80 MeV and couplings down to 10^-4 GeV^-1. Since the pre-analysis hint suggested AxionPhoton and the paper does present ALP-photon reinterpretation results, but the PRIMARY target is ALP-W (weak gauge boson coupling), there is ambiguity. The coupling_type is set to AxionPhoton based on the hint and the explicit ALP-photon results shown in Fig. 11. Data points extracted from text descriptions of exclusion regions: ALP-W masses 100-250 MeV with couplings 3\u00d710^-5 to 5\u00d710^-4 GeV^-1, and up to 300 MeV at 2\u00d710^-5 GeV^-1; ALP-photon up to 80 MeV at 10^-4 GeV^-1. Confidence is moderate (0.75) because while the paper clearly presents new exclusion limits, the primary coupling type is actually ALP-W (weak gauge bosons), not photons, though photon reinterpretation is provided. The extraction of precise numerical limits from the figures is approximate due to reading from plots rather than explicit tables. | selector: text (sole candidate)",
+ "num_points": 6,
+ "elapsed_s": 121.20154285430908
+}

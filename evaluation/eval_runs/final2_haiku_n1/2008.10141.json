@@ -1,0 +1,86 @@
+{
+ "arxiv_id": "2008.10141",
+ "paper_title": "Search for invisible axion dark matter with a multiple-cell haloscope",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.3e-05,
+   1e-11
+  ],
+  [
+   1.305e-05,
+   9.5e-12
+  ],
+  [
+   1.31e-05,
+   9e-12
+  ],
+  [
+   1.315e-05,
+   8.5e-12
+  ],
+  [
+   1.32e-05,
+   8e-12
+  ],
+  [
+   1.325e-05,
+   7.5e-12
+  ],
+  [
+   1.33e-05,
+   7e-12
+  ],
+  [
+   1.335e-05,
+   6.5e-12
+  ],
+  [
+   1.34e-05,
+   6.2e-12
+  ],
+  [
+   1.345e-05,
+   6e-12
+  ],
+  [
+   1.35e-05,
+   5.8e-12
+  ],
+  [
+   1.355e-05,
+   5.6e-12
+  ],
+  [
+   1.36e-05,
+   5.5e-12
+  ],
+  [
+   1.365e-05,
+   5.4e-12
+  ],
+  [
+   1.37e-05,
+   5.3e-12
+  ],
+  [
+   1.375e-05,
+   5.2e-12
+  ],
+  [
+   1.38e-05,
+   5.1e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "CAPP-9T (Center for Axion and Precision Physics Research, 9 Tesla)",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling",
+ "notes": "Paper reports exclusion limit g_agamma \u2273 11.1 \u00d7 g_KSVZ_agamma at 90% CL over mass range 13.0\u201313.9 \u03bceV. The KSVZ model prediction for g_agamma is approximately 1.11 \u00d7 10^-16 GeV^-1 (dimensionless g_agamma \u2248 1.11 \u00d7 10^-16 in natural units, or ~1.11 \u00d7 10^-16 when expressed in GeV^-1 for the axion-photon coupling). The limit 11.1 \u00d7 g_KSVZ corresponds to g_agamma \u2273 11.1 \u00d7 1.11 \u00d7 10^-16 \u2248 1.23 \u00d7 10^-15 GeV^-1. The mass range is converted from \u03bceV: 13.0 \u03bceV = 1.3 \u00d7 10^-5 eV, 13.9 \u03bceV = 1.39 \u00d7 10^-5 eV. Local DM halo density assumed \u03c1_a = 0.45 GeV/cm\u00b3 (stated in text). This is the first results from a double-cell cavity haloscope, demonstrating a novel cavity design for high-mass axion searches. The experiment used a 9T superconducting magnet and achieved a scan rate of 4.4 GHz/year for KSVZ sensitivity. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 17)) | Vision: Exclusion limit plot from FIG. 5 of the paper. The plot shows the CAPP-9T double-cell cavity haloscope results at 90% CL over the mass range 13.0\u201313.9 \u03bceV. The y-axis is labeled with g_agamma [GeV^-1] on a log scale from 10^-13 to 10^-11. The x-axis shows mass in \u03bceV (linear scale). The red band represents the total uncertainty. The boundary traced is the lower edge of the exclusion region (the sensitivity limit). KSVZ and DFSZ theoretical model lines are shown for reference. The paper reports exclusion of axion-photon coupling g_agamma \u2273 11.1 \u00d7 g_agamma^KSVZ at 90% CL in this mass range, superseding previous cavity haloscope results. The data points represent the approximate lower boundary of the excluded region, sampled more densely near the edges and less densely in the smooth central region. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.40 snapped to identity)",
+ "num_points": 17,
+ "elapsed_s": 145.21239495277405
+}

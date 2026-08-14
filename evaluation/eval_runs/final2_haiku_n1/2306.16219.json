@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "2306.16219",
+ "paper_title": "NANOGrav",
+ "coupling_type": "ScalarNucleon",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-24,
+   1.2e-07
+  ],
+  [
+   1.2e-24,
+   1.1e-07
+  ],
+  [
+   1.5e-24,
+   9.5e-08
+  ],
+  [
+   2e-24,
+   8e-08
+  ],
+  [
+   2.5e-24,
+   7.2e-08
+  ],
+  [
+   3e-24,
+   6.8e-08
+  ],
+  [
+   4e-24,
+   6.2e-08
+  ],
+  [
+   5e-24,
+   5.8e-08
+  ],
+  [
+   6e-24,
+   5.5e-08
+  ],
+  [
+   7e-24,
+   5.3e-08
+  ],
+  [
+   8e-24,
+   5.2e-08
+  ],
+  [
+   9e-24,
+   5.1e-08
+  ],
+  [
+   1e-23,
+   5e-08
+  ],
+  [
+   1.2e-23,
+   4.9e-08
+  ],
+  [
+   1.5e-23,
+   4.8e-08
+  ],
+  [
+   2e-23,
+   4.7e-08
+  ],
+  [
+   2.5e-23,
+   4.6e-08
+  ],
+  [
+   3e-23,
+   4.5e-08
+  ],
+  [
+   4e-23,
+   4.4e-08
+  ],
+  [
+   5e-23,
+   4.3e-08
+  ],
+  [
+   6e-23,
+   4.2e-08
+  ],
+  [
+   7e-23,
+   4.1e-08
+  ],
+  [
+   8e-23,
+   4e-08
+  ],
+  [
+   9e-23,
+   3.9e-08
+  ],
+  [
+   1e-22,
+   3.8e-08
+  ],
+  [
+   1.2e-22,
+   3.6e-08
+  ],
+  [
+   1.5e-22,
+   3.4e-08
+  ],
+  [
+   2e-22,
+   3.1e-08
+  ],
+  [
+   2.5e-22,
+   2.8e-08
+  ],
+  [
+   3e-22,
+   2.5e-08
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "NANOGrav 15-year pulsar timing array",
+ "coupling_convention": "d_e (scalar coupling to electron mass variation), dimensionless",
+ "notes": "This paper is primarily a gravitational wave background (GWB) analysis using pulsar timing arrays (PTAs), not an axion/dark photon coupling constraint paper. Section 6.1 discusses ultralight dark matter (ULDM) searches with couplings to electrons, muons, gluons, and photons, but the paper reports constraints on coupling parameters (d_e, d_gamma, d_m, d_mu) as functions of ULDM mass via Figures 14-15 rather than as explicit numerical (mass, coupling) pairs in tables or text. The ULDM analysis assumes a local DM density of 0.4 GeV/cm\u00b3. Section 6.2 discusses dark matter substructures (PBHs) and fifth-force constraints. Without explicit tabulated data points for axion-photon, axion-electron, or other standard coupling types, and given the paper's primary focus on GWB cosmological interpretations, extraction of specific coupling limits is not feasible. The paper does not present new exclusion limits on standard axion or dark photon couplings in the conventional sense used by dark matter direct detection experiments. | selector: figure_vision (sole candidate) | Vision: Figure 14 shows constraints on ULDM scalar coupling parameters (d_e, d_\u03bc, d_u, d_d) from NANOGrav 15-year data. The plot shown is the d_e panel (electron mass coupling). The red solid line represents correlated signal constraints at 95% credible level. The boundary traced represents the lower edge of the excluded region. The coupling values are dimensionless scalar couplings to electron mass. Confidence is moderate (0.65) because: (1) the exact coupling type among the scalar parameters is somewhat ambiguous from the figure alone, though d_e is most prominent; (2) the boundary has some noise/fluctuations making precise point extraction difficult; (3) the paper discusses multiple d parameters simultaneously. The mass range 1e-24 to 1e-20 eV corresponds to frequencies ~10^-9 to 10^-6 Hz in the pulsar timing band. | Calibration: No calibration needed",
+ "num_points": 30,
+ "elapsed_s": 231.15951895713806
+}

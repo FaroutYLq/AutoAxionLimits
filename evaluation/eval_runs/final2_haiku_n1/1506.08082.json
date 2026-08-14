@@ -1,0 +1,98 @@
+{
+ "arxiv_id": "1506.08082",
+ "paper_title": "New Exclusion Limits for the Search of Scalar and Pseudoscalar Axion-Like Particles from \"Light Shining Through a Wall\"",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0001,
+   3.2e-07
+  ],
+  [
+   0.00012,
+   3.1e-07
+  ],
+  [
+   0.00015,
+   3e-07
+  ],
+  [
+   0.0002,
+   2.7999999999999997e-07
+  ],
+  [
+   0.00025,
+   2.6e-07
+  ],
+  [
+   0.0003,
+   2.4e-07
+  ],
+  [
+   0.00035,
+   2.1999999999999998e-07
+  ],
+  [
+   0.0004,
+   2e-07
+  ],
+  [
+   0.00045,
+   1.8e-07
+  ],
+  [
+   0.0005,
+   1.6e-07
+  ],
+  [
+   0.00055,
+   1.5e-07
+  ],
+  [
+   0.0006,
+   1.3999999999999998e-07
+  ],
+  [
+   0.00065,
+   1.3e-07
+  ],
+  [
+   0.0007,
+   1.25e-07
+  ],
+  [
+   0.00075,
+   1.2e-07
+  ],
+  [
+   0.0008,
+   1.1500000000000001e-07
+  ],
+  [
+   0.00085,
+   1.0999999999999999e-07
+  ],
+  [
+   0.0009,
+   1.05e-07
+  ],
+  [
+   0.00095,
+   1.02e-07
+  ],
+  [
+   0.001,
+   1e-07
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "OSQAR (Optical Search for QED vacuum birefringence, Axions and photon Regeneration)",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis",
+ "notes": "Paper reports two separate exclusion limits from the 2014 OSQAR LSW campaign: pseudoscalar ALPs constrained to g_agamma < 3.5\u00d710^-8 GeV^-1 and scalar ALPs to g_agamma < 3.2\u00d710^-8 GeV^-1, both valid in the nearly massless limit (m_A < 2\u00d710^-4 eV). The primary result quoted in the abstract and conclusion is the pseudoscalar limit of 3.5\u00d710^-8 GeV^-1. Both limits are encoded as mass-independent (flat) bounds spanning the stated validity range [0, 2\u00d710^-4 eV]. The experiment uses the Light Shining Through a Wall (LSW) method with a 9 T transverse magnetic field over 2\u00d714.3 m, 18.5 W laser at 532 nm, and a CCD detector. No regenerated photons were detected. The Bayesian analysis yielded posterior probability distributions with 95% C.L. upper limits on the reconverted photon rate, from which coupling limits were derived via Eqs. 3 & 4. This represents the most stringent LSW constraint on ALPs at the time of publication. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 20)) | Vision: Exclusion limits extracted from FIG. 6 (Color online) showing exclusion domain for pseudoscalar and scalar ALPs. The plot shows OSQAR LSW experiment results (solid blue line) compared with ALPS collaboration results (dashed orange line). The x-axis represents ALP mass m_A in eV (log scale, range 10^-4 to 10^-3 eV). The y-axis represents the di-photon coupling strength g_A\u03b3\u03b3 in GeV^-1 (log scale, range 10^-8 to 10^-6 GeV^-1). The exclusion region is above the boundary curve. The paper reports limits of g_A\u03b3\u03b3 < 3.5 \u00d7 10^-8 GeV^-1 and g_A\u03b3\u03b3 < 3.2 \u00d7 10^-8 GeV^-1 for pseudoscalar and scalar searches respectively in the nearly massless limit (m_A < 2 \u00d7 10^-4 eV). The boundary shows a characteristic rise in coupling strength as mass increases, with steeper slope at lower masses and flattening toward higher masses. Both polarization states (parallel and perpendicular to magnetic field) were analyzed, with results combined for the final exclusion limits. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=21.33)",
+ "num_points": 20,
+ "elapsed_s": 153.86750602722168
+}

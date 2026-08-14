@@ -1,0 +1,134 @@
+{
+ "arxiv_id": "1201.5902",
+ "paper_title": "Cosmology_Arias",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-09,
+   3e-10
+  ],
+  [
+   1e-08,
+   3e-10
+  ],
+  [
+   1e-07,
+   3e-10
+  ],
+  [
+   1e-06,
+   3e-10
+  ],
+  [
+   1e-05,
+   3e-10
+  ],
+  [
+   0.0001,
+   3e-10
+  ],
+  [
+   0.001,
+   3e-10
+  ],
+  [
+   0.003,
+   3.5e-10
+  ],
+  [
+   0.01,
+   4e-10
+  ],
+  [
+   0.03,
+   4e-10
+  ],
+  [
+   0.1,
+   4e-10
+  ],
+  [
+   0.3,
+   3e-10
+  ],
+  [
+   1.0,
+   5e-10
+  ],
+  [
+   2.0,
+   2e-10
+  ],
+  [
+   3.0,
+   3e-10
+  ],
+  [
+   5.0,
+   6e-10
+  ],
+  [
+   10.0,
+   1.5e-10
+  ],
+  [
+   30.0,
+   8e-11
+  ],
+  [
+   100.0,
+   3e-11
+  ],
+  [
+   300.0,
+   1e-11
+  ],
+  [
+   1000.0,
+   4e-12
+  ],
+  [
+   3000.0,
+   1.5e-12
+  ],
+  [
+   10000.0,
+   6e-13
+  ],
+  [
+   30000.0,
+   2.5e-13
+  ],
+  [
+   100000.0,
+   1e-13
+  ],
+  [
+   300000.0,
+   5e-14
+  ],
+  [
+   1000000.0,
+   2e-14
+  ],
+  [
+   3000000.0,
+   1e-14
+  ],
+  [
+   10000000.0,
+   5e-15
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "Arias et al. ALP/HP cosmology (CAST/ALPS/HB/EBL compilation)",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted (Log10 g)",
+ "notes": "This is a theoretical/phenomenological paper mapping out ALP and hidden-photon cold dark matter parameter space from the misalignment mechanism. It does not present a new measured exclusion limit or a specific sensitivity projection with extractable numerical (mass, coupling) pairs; it compiles existing bounds (CAST, ALPS, HB, EBL, etc.) and DM-viability regions in the m_phi-g plane. No table of numerical limit points is provided in the text. | [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of non-DM experimental/astrophysical exclusion regions') rather than the paper's own single curve | selector: figure_vision (sole candidate) | Vision: Figure 1 shows ALP parameter space with axes Log10 m_phi [eV] vs Log10 g [GeV^-1]. The lower boundary traced follows the envelope of non-DM experimental/astrophysical exclusion regions (ALPS, CAST+Sumico, HB at low mass ~3e-10 GeV^-1, then EBL and X-Rays declining toward high mass). The kink near m~1 eV corresponds to the x_ion/Optical features and CAST/HB overlap. Axis multipliers not present; values read directly from log scale. Confidence moderate due to complex multi-region boundary and log-scale reading. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.33 snapped to identity)",
+ "num_points": 29,
+ "elapsed_s": 177.68617296218872
+}

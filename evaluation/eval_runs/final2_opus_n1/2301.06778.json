@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2301.06778",
+ "paper_title": "Searching for Low-Mass Axions using Resonant Upconversion",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.12e-06,
+   3e-06
+  ],
+  [
+   1.2e-06,
+   3e-06
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "UPLOAD",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Room temperature resonant upconversion haloscope (UPLOAD, power technique). Excludes axions of mass 1.12-1.20 ueV (271.7-290.3 MHz) above coupling strength 3e-6 1/GeV for both g_agamma and g_aBB. Values taken from abstract/text; exclusion is approximately flat at 3e-6 GeV^-1 over the mass range (Fig. 7). Standard virialized halo model assumed but local DM density not explicitly quoted in extractable form. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.7, 2))",
+ "num_points": 2,
+ "elapsed_s": 247.7569682598114
+}

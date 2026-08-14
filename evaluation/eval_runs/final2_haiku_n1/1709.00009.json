@@ -1,0 +1,162 @@
+{
+ "arxiv_id": "1709.00009",
+ "paper_title": "Revised constraints and Belle II sensitivity for visible and invisible axion-like particles",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   0.0001,
+   1e-09
+  ],
+  [
+   10.0,
+   1e-09
+  ],
+  [
+   0.0005,
+   5e-09
+  ],
+  [
+   10.0,
+   5e-09
+  ],
+  [
+   0.001,
+   1e-08
+  ],
+  [
+   10.0,
+   1e-08
+  ],
+  [
+   0.005,
+   5e-08
+  ],
+  [
+   10.0,
+   5e-08
+  ],
+  [
+   0.01,
+   1e-07
+  ],
+  [
+   10.0,
+   1e-07
+  ],
+  [
+   0.05,
+   5e-07
+  ],
+  [
+   10.0,
+   5e-07
+  ],
+  [
+   0.1,
+   1e-06
+  ],
+  [
+   10.0,
+   1e-06
+  ],
+  [
+   0.5,
+   5e-06
+  ],
+  [
+   10.0,
+   5e-06
+  ],
+  [
+   1.0,
+   1e-05
+  ],
+  [
+   10.0,
+   1e-05
+  ],
+  [
+   2.0,
+   2e-05
+  ],
+  [
+   9.0,
+   2e-05
+  ],
+  [
+   0.05,
+   0.0001
+  ],
+  [
+   9.0,
+   0.0001
+  ],
+  [
+   0.1,
+   5e-05
+  ],
+  [
+   9.0,
+   5e-05
+  ],
+  [
+   0.5,
+   0.0001
+  ],
+  [
+   9.0,
+   0.0001
+  ],
+  [
+   1.0,
+   0.0002
+  ],
+  [
+   9.0,
+   0.0002
+  ],
+  [
+   0.05,
+   0.001
+  ],
+  [
+   9.0,
+   0.001
+  ],
+  [
+   0.1,
+   0.0005
+  ],
+  [
+   9.0,
+   0.0005
+  ],
+  [
+   0.5,
+   0.001
+  ],
+  [
+   9.0,
+   0.001
+  ],
+  [
+   1.0,
+   0.005
+  ],
+  [
+   9.0,
+   0.005
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "Belle II",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "This paper presents PROJECTED sensitivities (not measured limits) for Belle II to search for axion-like particles (ALPs) coupling to photons via g_agamma. The paper reviews existing constraints from colliders, beam dumps, and astrophysics, then provides detailed calculations of Belle II's expected sensitivity for both visible (a\u2192\u03b3\u03b3) and invisible (a\u2192\u03c7\u03c7) ALP decays. Data points extracted from Figures 4 and 7 represent the projected 90% CL exclusion limits for Belle II with 20 fb^-1 and 50 ab^-1 integrated luminosity. The paper also discusses resonant freeze-out scenarios where ALPs mediate DM interactions. The coupling type is AxionPhoton because the paper focuses on the g_agamma coupling to photons (not g_agamma_Z or other couplings). Confidence is moderate (0.75) because while the coupling type is clear, the exact numerical values from the figures are approximate readings from plots rather than tabulated values, and the paper presents projections rather than measured limits. | selector: text (sole candidate)",
+ "num_points": 36,
+ "elapsed_s": 46.45577883720398
+}

@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2412.09595",
+ "paper_title": "SuperKamiokande",
+ "coupling_type": "AxionProton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1000000.0,
+   0.0002
+  ],
+  [
+   1000000.0,
+   2e-05
+  ],
+  [
+   30000000.0,
+   2e-05
+  ],
+  [
+   70000000.0,
+   0.0002
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "SuperKamiokande_DiffuseSNALP",
+ "coupling_convention": "dimensionless g_ap",
+ "notes": "Paper constrains ALP-proton coupling gap using a diffuse galactic SN ALP flux detected in Super-Kamiokande via a p->p gamma. Excluded region spans gap ~ 2e-5 to 2e-4 for ma ~ 1-70 MeV (masses converted to eV: 1 MeV=1e6 eV, 70 MeV=7e7 eV). Data points approximate the excluded band boundary from Fig. 4/6 since no numerical table is given; the band is roughly a horizontal strip between 2e-5 and 2e-4 across 1-70 MeV. This is an astrophysical/SN-based bound, not a haloscope, so no DM density. 95% C.L. from statistical analysis. HK is a projection (not included here as separate points). Coupling type is proton-specific (gan=0 assumed, Cap=-0.47). | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 4))",
+ "num_points": 4,
+ "elapsed_s": 159.12382316589355
+}

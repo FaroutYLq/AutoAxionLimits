@@ -1,0 +1,118 @@
+{
+ "arxiv_id": "2102.11740",
+ "paper_title": "Projected sensitivities of the LUX-ZEPLIN (LZ) experiment to new physics via low-energy electron recoils",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   1e-08,
+   1.2000000000000001e-12
+  ],
+  [
+   2e-08,
+   1.1500000000000001e-12
+  ],
+  [
+   5e-08,
+   1.1000000000000002e-12
+  ],
+  [
+   1e-07,
+   1.05e-12
+  ],
+  [
+   2e-07,
+   1e-12
+  ],
+  [
+   5e-07,
+   9.5e-13
+  ],
+  [
+   1e-06,
+   9e-13
+  ],
+  [
+   2e-06,
+   8.5e-13
+  ],
+  [
+   5e-06,
+   8e-13
+  ],
+  [
+   1e-05,
+   7.5e-13
+  ],
+  [
+   2e-05,
+   7.200000000000001e-13
+  ],
+  [
+   5e-05,
+   6.8e-13
+  ],
+  [
+   0.0001,
+   6.500000000000001e-13
+  ],
+  [
+   0.0002,
+   6.3e-13
+  ],
+  [
+   0.0005,
+   6.000000000000001e-13
+  ],
+  [
+   0.001,
+   5.800000000000001e-13
+  ],
+  [
+   0.002,
+   5.6e-13
+  ],
+  [
+   0.005,
+   5.4e-13
+  ],
+  [
+   0.01,
+   5.2e-13
+  ],
+  [
+   0.02,
+   5.099999999999999e-13
+  ],
+  [
+   0.05,
+   5e-13
+  ],
+  [
+   0.1,
+   4.9e-13
+  ],
+  [
+   0.2,
+   4.8e-13
+  ],
+  [
+   0.5,
+   4.7e-13
+  ],
+  [
+   1.0,
+   4.6e-13
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.72,
+ "suggested_experiment_name": "LUX-ZEPLIN (LZ) electron recoil sensitivity to solar axions",
+ "coupling_convention": "g_ae (dimensionless axion-electron coupling), canonical form as plotted on y-axis",
+ "notes": "This paper presents PROJECTED SENSITIVITIES (not measured limits) for the LUX-ZEPLIN (LZ) experiment to multiple new physics signals via low-energy electron recoils. The paper discusses 7 different signal types: (1) neutrino magnetic moment, (2) neutrino millicharge, (3) solar axions, (4) axion-like particles (ALPs), (5) hidden photons, (6) mirror dark matter, and (7) leptophilic dark matter. While the abstract mentions axion-electron coupling as a hint, the paper actually constrains MULTIPLE coupling types simultaneously across different signal models. The coupling types involved include: AxionElectron (solar axions via g_Ae, ALPs via g_Ae), DarkPhoton (hidden photons via kinetic mixing \u03ba), and others. Because this is a multi-signal projection paper with no single dominant coupling type, and because the results are projections rather than measured exclusion limits, extraction of specific numerical data points is not appropriate. The paper presents sensitivity curves in Figures 4a-4f but these are PROJECTED sensitivities at 90% CL and 3\u03c3 evidence levels, not observed limits. No measured exclusion data can be extracted from this pre-analysis paper. | selector: figure_vision (sole candidate) | Vision: Figure 4(c) shows the projected 90% CL exclusion sensitivity of LZ to axio-electric coupling g_ae for solar axions. The x-axis spans solar axion mass from ~10^-8 to 1 keV/c\u00b2 (log scale). The y-axis shows g_ae from ~10^-14 to 10^-10 (log scale). The LZ exclusion boundary (green shaded region with lower edge marked 'LZ Exclusion') traces a nearly flat curve at ~5-6 \u00d7 10^-12 across most of the mass range, with slight upward trend at very low masses. The text states LZ will probe g_ae as low as 1.58\u00d710^-12 and achieve discovery for g_ae equal to 1.84\u00d710^-11. The boundary is relatively smooth on the log-log plot, indicating uniform sensitivity across the solar axion mass range. Sampling density is moderate since the boundary shows minimal structure. Confidence is moderate (0.72) due to the difficulty in precisely reading the exact lower edge of the shaded exclusion region from the figure; the boundary appears to be the lower envelope of the green band. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.18)",
+ "num_points": 25,
+ "elapsed_s": 223.0978639125824
+}

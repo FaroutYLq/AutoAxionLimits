@@ -1,0 +1,46 @@
+{
+ "arxiv_id": "2305.01002",
+ "paper_title": "First Constraints on the Photon Coupling of Axion-like Particles from Multimessenger Studies of the Neutron Star Merger GW170817",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0001,
+   5e-11
+  ],
+  [
+   0.001,
+   3e-11
+  ],
+  [
+   0.01,
+   2e-11
+  ],
+  [
+   0.1,
+   1.5e-11
+  ],
+  [
+   0.398,
+   5.01e-11
+  ],
+  [
+   1.0,
+   8e-11
+  ],
+  [
+   10.0,
+   2e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "GW170817_Fermi-LAT",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "First constraints on ALP-photon coupling from multimessenger observations of neutron star merger GW170817. The purple shaded exclusion region in Fig. 4 represents the 95% CL constraint derived using Fermi-LAT data (0.1-1 GeV, time window 1153-2027 sec after GW signal, flux upper limit 4.5\u00d710^-10 erg/cm\u00b2/sec). The constraint is robust to variations in merger remnant lifetime (0.72-1.29 sec) and merger profile choice. Benchmark 1 (m_a=398 MeV, g_agamma=5.01\u00d710^-11 GeV^-1) and Benchmark 2 (m_a=200 MeV, g_agamma=1.41\u00d710^-12 GeV^-1) are shown as reference points. Data points extracted from the approximate boundary of the exclusion region in Fig. 4, spanning roughly 0.1 meV to 10 GeV in mass. The constraint is weaker than SN1987A constraints at low masses but offers complementary temporal-spectral information for future multimessenger studies. Future projections with stacked analyses, closer mergers, and improved MeV gamma-ray missions are also discussed but not included in the primary new limit. | selector: text (sole candidate)",
+ "num_points": 7,
+ "elapsed_s": 40.169079065322876
+}

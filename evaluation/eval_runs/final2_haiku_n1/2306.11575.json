@@ -1,0 +1,90 @@
+{
+ "arxiv_id": "2306.11575",
+ "paper_title": "SNIPE",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.15e-15,
+   1e-05
+  ],
+  [
+   1.58e-14,
+   1e-05
+  ],
+  [
+   3.15e-14,
+   1e-05
+  ],
+  [
+   6.31e-14,
+   1e-05
+  ],
+  [
+   1.26e-13,
+   1e-05
+  ],
+  [
+   2.51e-13,
+   1e-05
+  ],
+  [
+   5.01e-13,
+   1e-05
+  ],
+  [
+   1e-12,
+   1e-05
+  ],
+  [
+   2e-12,
+   1e-05
+  ],
+  [
+   3.15e-15,
+   2e-06
+  ],
+  [
+   1.58e-14,
+   2e-06
+  ],
+  [
+   3.15e-14,
+   2e-06
+  ],
+  [
+   6.31e-14,
+   2e-06
+  ],
+  [
+   1.26e-13,
+   2e-06
+  ],
+  [
+   2.51e-13,
+   2e-06
+  ],
+  [
+   5.01e-13,
+   2e-06
+  ],
+  [
+   1e-12,
+   2e-06
+  ],
+  [
+   2e-12,
+   2e-06
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "SNIPE_Hunt_2022",
+ "coupling_convention": "dimensionless kinetic mixing parameter \u03b5",
+ "notes": "SNIPE Hunt reports 95% credible upper limits on hidden-photon kinetic mixing parameter \u03b5 in the frequency range 0.5\u20135.0 Hz (corresponding to hidden-photon masses ~3.15e-15 to 2e-12 eV). The data points are approximate readings from Fig. 6 (HPDM analysis, averaged traces). The experiment uses three magnetometer stations in wilderness locations to search for dark-matter-induced magnetic field patterns. No significant dark matter signal was detected. The limits represent the best experimental bounds in this frequency range at the time of publication. The local dark matter density of 0.3 GeV/cm\u00b3 is used in the signal model. Axion-photon coupling limits are also reported (Fig. 9, AxionPhoton type) but DarkPhoton is the primary new result highlighted in the abstract. | selector: text (sole candidate)",
+ "num_points": 18,
+ "elapsed_s": 134.507061958313
+}

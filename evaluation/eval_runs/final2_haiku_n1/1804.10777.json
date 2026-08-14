@@ -1,0 +1,46 @@
+{
+ "arxiv_id": "1804.10777",
+ "paper_title": "TEXONO",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.01,
+   1e-06
+  ],
+  [
+   10.0,
+   1e-06
+  ],
+  [
+   100.0,
+   1e-05
+  ],
+  [
+   1000.0,
+   0.0001
+  ],
+  [
+   10000.0,
+   0.001
+  ],
+  [
+   100000.0,
+   0.01
+  ],
+  [
+   1000000.0,
+   0.1
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "TEXONO",
+ "coupling_convention": "dimensionless kinetic mixing \u03f5",
+ "notes": "Exclusion limit on hidden photon (dark photon) kinetic mixing parameter \u03f5 vs. mass mX extracted from TEXONO neutrino experiment data. The paper derives 95% CL upper limits on \u03f5 by analyzing the \u03bd\u0304e\u2212e\u2212 scattering cross section measurement. Key findings: (1) For mX \u2273 20 eV, the limit is only slightly weaker than prior work due to \u03f5\u2074 dependence; (2) For mX \u2272 20 eV, sensitivity is drastically reduced due to oscillation effects and effective photon mass in matter (m\u03b3 \u2248 20 eV); (3) The paper corrects theoretical treatment of photon-hidden photon oscillations and accounts for anti-Compton selection efficiency. Data points are approximate readings from Fig. 1 (the exclusion boundary in the log-log plane). The paper emphasizes that neutrino experiments are insensitive to hidden photons lighter than ~0.05\u20130.1 eV due to coherence and absorption effects. The resonance region (mX \u2248 m\u03b3) could yield enhanced sensitivity but requires detailed knowledge of reactor and detector materials unavailable to the authors. | selector: text (sole candidate)",
+ "num_points": 7,
+ "elapsed_s": 17.832178831100464
+}

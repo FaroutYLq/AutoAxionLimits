@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1902.04246",
+ "paper_title": "Constraints on axionlike dark matter with masses down to $10^{-23}$ eV/c$^2$",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-23,
+   2000000000000000.0
+  ],
+  [
+   1e-18,
+   2000000000000000.0
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "E\u00f6t-Wash_Torsion_Pendulum_2019",
+ "coupling_convention": "F_a/C_e in eV",
+ "notes": "Paper constrains axionlike dark matter coupling to electrons via the 'axion wind' effect. The coupling is expressed as F_a/C_e (decay constant divided by electron coupling factor). Abstract states '95% confidence limit F_a/C_e \u2265 1 \u00d7 10^15 eV' but main text and Fig. 5 show 'F_a/C_e > 2 \u00d7 10^15 eV' over most of the mass range 10^-23 to 10^-18 eV/c^2. The limit is approximately mass-independent (flat) across this range, with structure near 47 zeV (sidereal bump) and attenuation at highest masses. Local DM density of 0.45 GeV/cm^3 is explicitly assumed. The coupling C_e characterizes axion coupling to electron spin. Data extracted from abstract and Fig. 5; the horizontal line representation reflects the mass-independent nature of the bound over the stated range. | [VISION GATE C] extracted mass window is 16.0 dex outside the abstract-stated range [1e-23, 1e-18] eV \u2014 wrong figure/panel/regime traced | selector: text (sole candidate) | Range snap SUPPRESSED (declared convention non-canonical; a decade snap cannot fix a convention mismatch): median mass 1.0e-18 / coupling 2.0e+15 vs windows [1e-24,1e+09] / [1e-20,1e+00] | contract: median outside VALID_RANGES after corrections (flagged low confidence) | [CONVENTION REVIEW] declared coupling convention 'F_a/C_e in eV' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 2,
+ "elapsed_s": 162.15391898155212
+}

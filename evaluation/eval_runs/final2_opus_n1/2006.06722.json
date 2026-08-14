@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2006.06722",
+ "paper_title": "SNe-gamma",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-12,
+   2.6e-11
+  ],
+  [
+   3e-10,
+   2.6e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "FermiLAT_SNe2020",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Fermi-LAT search for ALP-induced prompt gamma-ray emission from extragalactic core-collapse SNe. Main result: g_agamma > 2.6e-11 GeV^-1 excluded (95% CL) for m_a < 3e-10 eV, under 10 M_sun progenitor assumption. Limit is mass-independent below m_a ~ 3e-10 eV (Pa\u03b3 constant for m_a < 0.5 neV) and degrades at higher masses. Encoded as flat horizontal line spanning the valid mass range. Not a DM haloscope, so no local density assumed. Astrophysical bound (Primakoff production in SN + conversion in Galactic magnetic field). | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+ "num_points": 2,
+ "elapsed_s": 344.07002902030945
+}

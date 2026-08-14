@@ -1,0 +1,134 @@
+{
+ "arxiv_id": "2403.02381",
+ "paper_title": "MICROSCOPE",
+ "coupling_type": "VectorBL",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   5.228954712884362e-21,
+   7.3629005880807e-26
+  ],
+  [
+   4.94678631689438e-15,
+   7.327361224806678e-26
+  ],
+  [
+   8.787457787079244e-15,
+   7.251391195041095e-26
+  ],
+  [
+   1.2584216162826487e-14,
+   7.136323423882551e-26
+  ],
+  [
+   1.6180808283130355e-14,
+   6.992898545306278e-26
+  ],
+  [
+   1.9714217025766807e-14,
+   6.822410467734332e-26
+  ],
+  [
+   2.3591795347217085e-14,
+   6.606481152975561e-26
+  ],
+  [
+   2.7729626590769185e-14,
+   6.351007910912721e-26
+  ],
+  [
+   3.20132074215336e-14,
+   6.072518964642324e-26
+  ],
+  [
+   3.900394268047706e-14,
+   5.640381187974481e-26
+  ],
+  [
+   4.4227848640194067e-14,
+   5.400917453771383e-26
+  ],
+  [
+   4.7521309351914264e-14,
+   5.321297452299484e-26
+  ],
+  [
+   5.020899820465266e-14,
+   5.313155097139529e-26
+  ],
+  [
+   5.214366750040525e-14,
+   5.344841561067202e-26
+  ],
+  [
+   5.41528840967965e-14,
+   5.414790991718941e-26
+  ],
+  [
+   5.6239446960056275e-14,
+   5.530232186091886e-26
+  ],
+  [
+   5.840648345021363e-14,
+   5.698402104052337e-26
+  ],
+  [
+   6.065702088861127e-14,
+   5.92618641091965e-26
+  ],
+  [
+   6.419646334418849e-14,
+   6.393163684903208e-26
+  ],
+  [
+   6.794243841071191e-14,
+   7.026034629614557e-26
+  ],
+  [
+   7.327927511144951e-14,
+   8.151928366079277e-26
+  ],
+  [
+   8.054363181428048e-14,
+   1.0051238936633651e-25
+  ],
+  [
+   1.0105335727152032e-13,
+   1.7202869299078945e-25
+  ],
+  [
+   1.2920545834019896e-13,
+   3.045445676731496e-25
+  ],
+  [
+   1.652001387559452e-13,
+   5.253106078371121e-25
+  ],
+  [
+   2.1936156699916574e-13,
+   9.618784254705737e-25
+  ],
+  [
+   3.201548963691723e-13,
+   2.104089445868967e-24
+  ],
+  [
+   5.752675190422633e-13,
+   6.90506972067405e-24
+  ],
+  [
+   8.128777735830008e-13,
+   1.383784063941173e-23
+  ]
+ ],
+ "data_source": "vector_trace",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "OptomechanicalCavity_BL_ThreePeak_2024",
+ "coupling_convention": "canonical",
+ "notes": "Paper presents a projected 90% CL sensitivity for ultralight U(1)_{B-L} vector dark matter using optomechanical cavities (Fig 5), for resonance frequencies f0=0.1,1,10 Hz. Best projected limit gB-L ~ 7e-26 at low masses over valid range 5e-20 to 5e-15 eV. Coupling type is VectorBL (B-L gauge boson), NOT generic ScalarBaryon despite the pre-analysis hint - the paper explicitly gauges U(1)_{B-L}. Data points are approximate reads off the f0=0.1 Hz (best) curve; exact tabulated values not provided. Frequency->mass conversion m[eV]=4.14e-15*f[Hz] applied. Appendix E also derives an updated MICROSCOPE fifth-force bound (|eps_BL| <~ 8.93e-19 in EM-relative units, or gB-L <~ 7e-26), a recast (not haloscope). dm_density assumed as GeV/cm^3 (~0.3) via a0=sqrt(2rho/3)/u. | vector-trace candidate: b-l.pdf colour (0.52, 0.19, 0.44), 29 pts (selected among 6) | selector: vector_trace over text (quality (1, 1, 1, 1, 3.5, 0, 0.85, 29))",
+ "num_points": 29,
+ "elapsed_s": 54.62893795967102
+}

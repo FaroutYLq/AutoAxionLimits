@@ -1,0 +1,130 @@
+{
+ "arxiv_id": "2005.14184",
+ "paper_title": "The first search for bosonic super-WIMPs with masses up to 1 MeV/c$^2$ with GERDA",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   60000.0,
+   8e-12
+  ],
+  [
+   70000.0,
+   7.5e-12
+  ],
+  [
+   80000.0,
+   8e-12
+  ],
+  [
+   90000.0,
+   9e-12
+  ],
+  [
+   100000.0,
+   1e-11
+  ],
+  [
+   110000.0,
+   1.0999999999999999e-11
+  ],
+  [
+   120000.0,
+   1.2999999999999999e-11
+  ],
+  [
+   130000.0,
+   1.5e-11
+  ],
+  [
+   150000.0,
+   3e-11
+  ],
+  [
+   170000.0,
+   3.3e-11
+  ],
+  [
+   200000.0,
+   3.5e-11
+  ],
+  [
+   230000.0,
+   3.8e-11
+  ],
+  [
+   260000.0,
+   4.2e-11
+  ],
+  [
+   300000.0,
+   4.7999999999999996e-11
+  ],
+  [
+   350000.0,
+   5.5000000000000004e-11
+  ],
+  [
+   400000.0,
+   6.2e-11
+  ],
+  [
+   450000.0,
+   6.8e-11
+  ],
+  [
+   500000.0,
+   7.5e-11
+  ],
+  [
+   550000.0,
+   8.2e-11
+  ],
+  [
+   600000.0,
+   9e-11
+  ],
+  [
+   650000.0,
+   9.8e-11
+  ],
+  [
+   700000.0,
+   1.05e-10
+  ],
+  [
+   750000.0,
+   1.1000000000000001e-10
+  ],
+  [
+   800000.0,
+   1.15e-10
+  ],
+  [
+   850000.0,
+   1.2e-10
+  ],
+  [
+   900000.0,
+   1.25e-10
+  ],
+  [
+   950000.0,
+   1.3000000000000002e-10
+  ],
+  [
+   1000000.0,
+   1.35e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.78,
+ "suggested_experiment_name": "GERDA super-WIMP (pseudoscalar)",
+ "coupling_convention": "canonical g_ae, dimensionless",
+ "notes": "GERDA search for bosonic super-WIMPs (60 keV/c2 to 1 MeV/c2). Paper reports both g_ae (AxionElectron) and alpha'/alpha (DarkPhoton) limits. The anchor point g_ae < 3e-12 at 150 keV/c2 is explicitly stated in text/abstract; other points are approximate reads from Fig. 3 (log axis) and should be treated as rough. Local DM density 0.3 GeV/cm3 assumed. 90% credible interval. A separate DarkPhoton limit (alpha'/alpha < 6.5e-24 at 150 keV) also exists but only one coupling type can be reported. | [VISION GATE C] extracted mass window is 4.5 dex outside the abstract-stated range [1e+06, 2e+06] eV \u2014 wrong figure/panel/regime traced | selector: figure_vision (sole candidate) | Vision: GERDA curve (light blue) traced on top panel (g_ae vs mass). GERDA data spans ~60 keV to 1 MeV. Text states g_ae < 3e-12 at 150 keV/c^2, consistent with reading. Lower boundary of GERDA exclusion region traced. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=5.45)",
+ "num_points": 28,
+ "elapsed_s": 142.66973185539246
+}

@@ -1,0 +1,46 @@
+{
+ "arxiv_id": "0611502",
+ "paper_title": "A Telescope Search for Decaying Relic Axions",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.5,
+   0.00717
+  ],
+  [
+   5.0,
+   0.009
+  ],
+  [
+   6.0,
+   0.00572
+  ],
+  [
+   6.5,
+   0.0046
+  ],
+  [
+   7.0,
+   0.00341
+  ],
+  [
+   7.5,
+   0.00295
+  ],
+  [
+   7.65,
+   0.00247
+  ]
+ ],
+ "data_source": "table",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "VIMOS_A2667_A2390_2007",
+ "coupling_convention": "xi (dimensionless two-photon coupling parameter, xi = (4/3)(E/N - 1.92)); NOT g_agamma in GeV^-1",
+ "notes": "Telescope search for optical line emission from two-photon decay of relic thermal axions in galaxy clusters Abell 2667 and 2390 using VLT VIMOS IFU. Paper reports 95% CL upper limits on the dimensionless two-photon coupling parameter xi (Table I), NOT g_agamma in GeV^-1. Conversion to g_agamma requires the axion lifetime relation tau = 6.8e24 xi^-2 m_a,eV^-5 s and is mass-dependent; raw xi values emitted here. Valid mass window 4.5-7.7 eV. Not a haloscope, so no local DM density assumed (thermal relic abundance Omega_a h^2 = m_a,eV/130 assumed). Cross-correlation limits (Table II) are less stringent alternatives, not included. | selector: table over figure_vision (quality (0, 1, 1, 1, 4, 0, 0.72, 7)) | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+ "num_points": 7,
+ "elapsed_s": 191.76131105422974
+}

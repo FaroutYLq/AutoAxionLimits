@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "1008.3536",
+ "paper_title": "Spectroscopy",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1000.0,
+   1e-07
+  ],
+  [
+   10000.0,
+   1e-07
+  ],
+  [
+   100000.0,
+   1e-06
+  ],
+  [
+   1000000.0,
+   1e-05
+  ],
+  [
+   10000000.0,
+   0.0001
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "AtomicSpectroscopy_Hydrogen_Helium",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "Paper derives bounds on hidden photons (kinetic mixing parameter \u03c7) using precision atomic spectroscopy of hydrogen, helium ions, and exotic atoms. Main new bounds come from Lamb shift measurements in ordinary hydrogen (2s\u2081/\u2082\u22122p\u2081/\u2082 transition, blue curve in Fig. 3) and combined 1s\u2081/\u2082\u22122s\u2081/\u2082 + 2s\u2081/\u2082\u22128s\u2081/\u2082 transitions (green curve). These are presented as the best pure Coulomb's law tests from atomic spectra. The paper also discusses speculative future bounds from true muonium and muonic hydrogen. Data points extracted from Fig. 1 and Fig. 3 are approximate; exact numerical values for the exclusion curves are not tabulated in the paper. The bounds are mass-dependent, peaking around m_\u03b3' ~ 1/a where a is the Bohr radius (keV scale for ordinary atoms, MeV scale for muonic atoms). Confidence is moderate because: (1) exact numerical data points are not explicitly tabulated, requiring approximate reading from figures; (2) the paper presents multiple bounds (some speculative) and it is not entirely clear which represent the primary new experimental results vs. projections; (3) the coupling convention (kinetic mixing \u03c7) is clear but the mass range of validity varies by transition type. | selector: text (sole candidate)",
+ "num_points": 5,
+ "elapsed_s": 32.724462032318115
+}

@@ -1,0 +1,142 @@
+{
+ "arxiv_id": "2202.08274",
+ "paper_title": "Extraterrestrial Axion Search with the Breakthrough Listen Galactic Center Survey",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.5e-05,
+   1e-10
+  ],
+  [
+   1.6e-05,
+   9.5e-11
+  ],
+  [
+   1.7e-05,
+   8.5e-11
+  ],
+  [
+   1.8e-05,
+   7e-11
+  ],
+  [
+   1.9e-05,
+   5.5e-11
+  ],
+  [
+   2e-05,
+   4e-11
+  ],
+  [
+   2.05e-05,
+   3.2e-11
+  ],
+  [
+   2.1e-05,
+   2.8e-11
+  ],
+  [
+   2.15e-05,
+   2.5e-11
+  ],
+  [
+   2.2e-05,
+   2.3e-11
+  ],
+  [
+   2.25e-05,
+   2.2e-11
+  ],
+  [
+   2.3e-05,
+   2.1e-11
+  ],
+  [
+   2.35e-05,
+   2e-11
+  ],
+  [
+   2.4e-05,
+   1.95e-11
+  ],
+  [
+   2.45e-05,
+   1.9e-11
+  ],
+  [
+   2.5e-05,
+   1.85e-11
+  ],
+  [
+   2.55e-05,
+   1.8e-11
+  ],
+  [
+   2.6e-05,
+   1.75e-11
+  ],
+  [
+   2.65e-05,
+   1.7e-11
+  ],
+  [
+   2.7e-05,
+   1.65e-11
+  ],
+  [
+   2.75e-05,
+   1.6e-11
+  ],
+  [
+   2.8e-05,
+   1.55e-11
+  ],
+  [
+   2.85e-05,
+   1.5e-11
+  ],
+  [
+   2.9e-05,
+   1.45e-11
+  ],
+  [
+   2.95e-05,
+   1.4e-11
+  ],
+  [
+   3e-05,
+   1.35e-11
+  ],
+  [
+   3.1e-05,
+   1.25e-11
+  ],
+  [
+   3.2e-05,
+   1.15e-11
+  ],
+  [
+   3.3e-05,
+   1.05e-11
+  ],
+  [
+   3.4e-05,
+   9.5e-12
+  ],
+  [
+   3.5e-05,
+   8.5e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.346,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Breakthrough Listen Galactic Center Survey (Green Bank Telescope C-Band)",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling constant",
+ "notes": "Paper reports leading constraints on axion-photon coupling g_agamma ~ 10^-11 GeV^-1 for axion masses between 15 and 35 \u03bceV using Green Bank Telescope archival data from Breakthrough Listen Galactic Center survey. The limit is mass-independent (flat) over the stated mass range, so encoded as a two-point horizontal line. DM density of 0.346 GeV/cm^3 is the local DM density used in the NFW profile normalization for the Galactic Center analysis. Figure 1 shows the 95% CL upper limit (median over 100 MC realizations with 68% and 95% statistical uncertainties). The search exploits axion-to-photon conversion in neutron star magnetospheres in the inner parsec of the Galaxy. No signal detected; 11 candidate excesses remained after vetoing but none exceeded the predetermined discovery threshold of t=100. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 31)) | Vision: Exclusion limit plot from Figure 1 of Foster et al. (2022). The plot shows upper limits (95% CL) on the axion-photon coupling g_agamma derived from Breakthrough Listen radio observations of the Galactic Center using the Green Bank Telescope. The x-axis shows axion mass m_a in \u03bceV (converted to eV: 15-35 \u03bceV = 1.5e-5 to 3.5e-5 eV). The y-axis shows g_agamma in GeV^-1 on a logarithmic scale from 1e-15 to 1e-10. The excluded region is above the traced boundary (higher coupling values are excluded). The plot includes theoretical model lines for KSVZ and DFSZ axion models, and the ALP Cogenesis region. The boundary shows a steep decline from ~1e-10 at 15 \u03bceV down to ~2e-11 at 20 \u03bceV, then gradually flattens to ~8.5e-12 at 35 \u03bceV. Dense sampling was applied near the steep transition region (15-20 \u03bceV) and sparser sampling in the flatter region (20-35 \u03bceV). | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.69 snapped to identity)",
+ "num_points": 31,
+ "elapsed_s": 327.68940806388855
+}

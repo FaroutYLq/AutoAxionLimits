@@ -1,0 +1,142 @@
+{
+ "arxiv_id": "2404.14476",
+ "paper_title": "Leading Axion-Photon Sensitivity with NuSTAR Observations of M82 and M87",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-14,
+   6.3e-11
+  ],
+  [
+   1.5e-14,
+   5.8e-11
+  ],
+  [
+   2.2e-14,
+   5.2e-11
+  ],
+  [
+   3.2e-14,
+   4.6e-11
+  ],
+  [
+   4.6e-14,
+   4.0000000000000004e-11
+  ],
+  [
+   6.8e-14,
+   3.4000000000000005e-11
+  ],
+  [
+   1e-13,
+   2.8000000000000003e-11
+  ],
+  [
+   1.5e-13,
+   2.2e-11
+  ],
+  [
+   2.2e-13,
+   1.6e-11
+  ],
+  [
+   3.2e-13,
+   1.2e-11
+  ],
+  [
+   4.6e-13,
+   8.500000000000001e-12
+  ],
+  [
+   6.8e-13,
+   6e-12
+  ],
+  [
+   1e-12,
+   4.2e-12
+  ],
+  [
+   1.5e-12,
+   3e-12
+  ],
+  [
+   2.2e-12,
+   2.2000000000000003e-12
+  ],
+  [
+   3.2e-12,
+   1.6e-12
+  ],
+  [
+   4.6e-12,
+   1.2000000000000001e-12
+  ],
+  [
+   6.8e-12,
+   9e-13
+  ],
+  [
+   1e-11,
+   6.8e-13
+  ],
+  [
+   1.5e-11,
+   5.2e-13
+  ],
+  [
+   2.2e-11,
+   4e-13
+  ],
+  [
+   3.2e-11,
+   3.1000000000000004e-13
+  ],
+  [
+   4.6e-11,
+   2.4e-13
+  ],
+  [
+   6.8e-11,
+   1.9e-13
+  ],
+  [
+   1e-10,
+   1.5000000000000002e-13
+  ],
+  [
+   1.5e-10,
+   1.2e-13
+  ],
+  [
+   2.2e-10,
+   1e-13
+  ],
+  [
+   3.2e-10,
+   8.5e-14
+  ],
+  [
+   4.6e-10,
+   7.2e-14
+  ],
+  [
+   6.8e-10,
+   6.2e-14
+  ],
+  [
+   1e-09,
+   5.5e-14
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.88,
+ "suggested_experiment_name": "NuSTAR M82/M87 Axion Search",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling",
+ "notes": "Paper reports 95% upper limit |g_agamma| \u2272 6.4 \u00d7 10^-13 GeV^-1 for m_a \u2272 10^-10 eV from M82 analysis (M87 gives slightly weaker limit of 8.4 \u00d7 10^-13 GeV^-1). This is a mass-independent bound valid for ultralight axions with m_a well below 10^-10 eV. The limit is derived from NuSTAR hard X-ray observations (30-70 keV) searching for axion-to-photon conversion in galactic magnetic fields. Encoded as horizontal line spanning the stated validity range (10^-10 to 10^-9 eV) per instructions for mass-independent bounds. M82 provides the leading constraint. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.88, 31)) | Vision: Exclusion limit plot (Figure 2) shows 95% CL upper limits on axion-photon coupling g_agamma vs axion mass m_a from NuSTAR observations of M82 and M87 galaxies. The boundary traces the lower edge of the excluded region (above which couplings are ruled out). The plot shows M82 provides stronger constraints (lower coupling limits) than M87 across the mass range 1e-14 to 1e-9 eV. The y-axis is labeled in units of 10^-13 GeV^-1, and tick marks show 1, 10, 100, 1000 (corresponding to 1e-13, 1e-12, 1e-11, 1e-10 GeV^-1). The boundary exhibits a characteristic V-shape with a minimum around 1e-12 eV, consistent with the axion-to-photon conversion physics in the galactic magnetic fields. Comparison with other constraints (CAST, Diffuse SN, Hydra-A, etc.) is shown. The paper reports best-fit couplings of g_agamma \u2248 3.7 \u00d7 10^-13 GeV^-1 and g_agamma \u2248 7.9 \u00d7 10^-13 GeV^-1 for M82 and M87 respectively. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.04)",
+ "num_points": 31,
+ "elapsed_s": 312.3892197608948
+}

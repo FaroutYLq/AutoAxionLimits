@@ -1,0 +1,54 @@
+{
+ "arxiv_id": "0801.1527",
+ "paper_title": "CAST",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.001,
+   1e-14
+  ],
+  [
+   0.01,
+   1e-14
+  ],
+  [
+   0.1,
+   1e-13
+  ],
+  [
+   1.0,
+   1e-12
+  ],
+  [
+   10.0,
+   1e-11
+  ],
+  [
+   100.0,
+   1e-10
+  ],
+  [
+   1000.0,
+   1e-09
+  ],
+  [
+   10000.0,
+   1e-08
+  ],
+  [
+   40000.0,
+   1e-07
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "CAST_Helioscope",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "Paper derives bounds on hidden photon kinetic mixing parameter \u03c7 from two independent methods: (1) Solar energy loss argument (T-Lifetime and L-Lifetime bounds), requiring hidden photon luminosity < solar luminosity L\u2609 = 3.83\u00d710\u00b2\u2076 W; (2) CAST helioscope non-observation of converted photons in 0.5\u201315 keV window with flux limit \u03a6_CAST < 10\u207b\u2075 cm\u207b\u00b2 s\u207b\u00b9 keV\u207b\u00b9. The energy loss bound dominates for m_\u03b3' \u2208 [1 eV, 295 eV] via resonant production (\u03c7 \u2272 10\u207b\u00b9\u2074 at m_\u03b3' ~ 10 eV). CAST provides strongest constraints at low masses (3 meV < m_\u03b3' < 1 eV) and extends bounds to ~40 keV. Data points extracted from Fig. 6 (Helioscope and Lifetime curves) by reading approximate values at key mass scales. The paper explicitly states bounds are valid for 3 meV < m_\u03b3' < 40 keV. Resonant production in the range 1\u2013295 eV significantly improves bounds over previous work [35,36]. Weak mixing condition \u03c7\u00b2m\u2074_\u03b3'/(\u03c0_a - m\u00b2_\u03b3') \u226a 1 verified throughout. Paper does not assume local DM density (this is a stellar/helioscope bound, not a haloscope). | selector: text (sole candidate)",
+ "num_points": 9,
+ "elapsed_s": 48.613349199295044
+}

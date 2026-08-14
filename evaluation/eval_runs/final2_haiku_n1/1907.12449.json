@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "1907.12449",
+ "paper_title": "WISPDMX",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   8.602e-07,
+   1e-13
+  ],
+  [
+   8.646e-07,
+   1e-13
+  ],
+  [
+   1.3088e-06,
+   1e-13
+  ],
+  [
+   1.3358e-06,
+   1e-13
+  ],
+  [
+   1.882e-06,
+   1e-13
+  ],
+  [
+   1.8977e-06,
+   1e-13
+  ],
+  [
+   2e-10,
+   1e-12
+  ],
+  [
+   2.07e-06,
+   1e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "WISPDMX",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "WISPDMX first science run (Oct-Nov 2017) searched for hidden photon dark matter using a tunable RF cavity with 500 MHz broadband recording. Exclusion limits derived from resonant modes (TM010, TE111\u22121, TE111\u22122, TM020) at 10^\u221213 level and broadband search at 10^\u221212 level for 0.2\u20132.07 \u00b5eV range, increasing below 0.2 \u00b5eV. One candidate signal found at 0.901648 \u00b5eV with coupling ~1.1\u00d710^\u221212 but deemed spurious after broader spectral inspection. Local DM density \u03c1_DM = 0.3 GeV/cm\u00b3 assumed per standard halo model. Cavity volume V = 447 L. Measurements span 0.4 neV to 2.07 \u00b5eV mass range. | selector: text (sole candidate)",
+ "num_points": 8,
+ "elapsed_s": 35.705140829086304
+}

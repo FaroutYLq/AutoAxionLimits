@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "0809.4700",
+ "paper_title": "Limits on new long range nuclear spin-dependent forces set with a K-3He co-magnetometer",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0,
+   5.8e-10
+  ],
+  [
+   1e-07,
+   5.8e-10
+  ],
+  [
+   1e-06,
+   5.8e-10
+  ],
+  [
+   1e-05,
+   5.8e-10
+  ],
+  [
+   0.0001,
+   5.8e-10
+  ],
+  [
+   0.001,
+   1.5e-10
+  ],
+  [
+   0.01,
+   2e-11
+  ],
+  [
+   0.1,
+   5e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "K-3He_comagnetometer_2009",
+ "coupling_convention": "(g_n^p)^2/(4\u03c0), dimensionless",
+ "notes": "Paper constrains pseudoscalar boson (axion-like) coupling to neutrons via spin-dependent forces. Primary limit from Fig. 4: (g_n^p)^2/(4\u03c0) < 5.8\u00d710^-10 for massless boson (m \u2192 0). Data points extracted from Fig. 4 curve showing mass-dependent constraints from ~10^-7 meV to ~10^-1 meV. The coupling is presented as (g_n^p)^2/(4\u03c0) in dimensionless form. This is a direct laboratory search for anomalous neutron spin-dependent forces using a K-3He co-magnetometer with a 3He spin source at 48.7 cm distance. The experiment also constrains vector boson couplings and other exotic particles (unparticles, Lorentz-violating bosons) but the primary new exclusion limit is on pseudoscalar (axion-like) neutron coupling shown in Fig. 4. Confidence is high because coupling type is unambiguous from abstract and figure, and numerical values are clearly stated in text and figure. | selector: text (sole candidate)",
+ "num_points": 8,
+ "elapsed_s": 18.850724935531616
+}

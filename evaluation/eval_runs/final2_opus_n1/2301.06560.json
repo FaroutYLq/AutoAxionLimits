@@ -1,0 +1,162 @@
+{
+ "arxiv_id": "2301.06560",
+ "paper_title": "Probing the Blue Axion with Cosmic Optical Background Anisotropies",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   7.5,
+   2.5e-25
+  ],
+  [
+   8.0,
+   3e-25
+  ],
+  [
+   8.5,
+   3.6e-25
+  ],
+  [
+   9.0,
+   4.3e-25
+  ],
+  [
+   9.5,
+   5.1e-25
+  ],
+  [
+   10.0,
+   6e-25
+  ],
+  [
+   10.5,
+   7e-25
+  ],
+  [
+   11.0,
+   8.2e-25
+  ],
+  [
+   11.5,
+   9.5e-25
+  ],
+  [
+   12.0,
+   1.1e-24
+  ],
+  [
+   12.5,
+   1.25e-24
+  ],
+  [
+   13.0,
+   1.4e-24
+  ],
+  [
+   13.5,
+   1.6e-24
+  ],
+  [
+   14.0,
+   1.8e-24
+  ],
+  [
+   14.5,
+   2e-24
+  ],
+  [
+   15.0,
+   2.3e-24
+  ],
+  [
+   15.5,
+   2.5e-24
+  ],
+  [
+   16.0,
+   2.8e-24
+  ],
+  [
+   16.5,
+   3.1e-24
+  ],
+  [
+   17.0,
+   3.4e-24
+  ],
+  [
+   17.5,
+   3.8e-24
+  ],
+  [
+   18.0,
+   4.2e-24
+  ],
+  [
+   18.5,
+   4.6e-24
+  ],
+  [
+   19.0,
+   5e-24
+  ],
+  [
+   19.5,
+   5.5e-24
+  ],
+  [
+   20.0,
+   6e-24
+  ],
+  [
+   20.5,
+   6.5e-24
+  ],
+  [
+   21.0,
+   7e-24
+  ],
+  [
+   21.5,
+   7.6e-24
+  ],
+  [
+   22.0,
+   8.2e-24
+  ],
+  [
+   22.5,
+   8.8e-24
+  ],
+  [
+   23.0,
+   9.5e-24
+  ],
+  [
+   23.5,
+   1.02e-23
+  ],
+  [
+   24.0,
+   1.1e-23
+  ],
+  [
+   24.5,
+   1.18e-23
+  ],
+  [
+   25.0,
+   1.25e-23
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.4,
+ "suggested_experiment_name": "HST COB anisotropy 606 nm (CDM)",
+ "coupling_convention": "decay rate Gamma_{a->gamma gamma} in s^-1 (NOT g_agamma). Plotted quantity is the radiative decay rate; lower boundary of HST 606 nm (conservative) excluded region in the CDM panel of Fig. 8",
+ "notes": "Paper constrains 'blue axion' (m_a ~5-25 eV) via COB anisotropies from HST at 606 nm. Primary results reported as decay rate Gamma_agammagamma (s^-1) / lifetime vs mass, not directly as g_agamma exclusion curves in most figures. Only a few explicit coupling values are given in text: for m_a=4.2 eV, g >~ 2.33e-11 GeV^-1 excluded (note added, MUSE filter gap region). Other text values (e.g. g_agamma <~ 3e-12 GeV^-1 for CDM in 4.5-7.7 eV range) are approximate. Bulk of the exclusion is in the Gamma_a-m_a plane (Figs 1,6,8) which would require Eq.(2) conversion Gamma=g^2 m_a^3/64pi to get g. Because main plots use decay rate not coupling, and multiple couplings (g_agammagamma and g_agammachi) discussed, extraction confidence is moderate. Local DM density not a haloscope assumption (uses rho_c cosmological). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.4, 36)) | Vision: The y-axis of the exclusion plots (Fig. 8, Fig. 11) is the decay rate Gamma in s^-1, NOT the axion-photon coupling g_agamma. Per the plotted-values contract, emitted values are the raw decay rates as plotted. The traced boundary is the lower edge of the HST 606 nm (conservative) excluded region in the CDM panel (image 6/Fig 8 upper-left; note the CALIBRATION references 'image 6' but the CDM Fig 8 panel is used). Downstream conversion from Gamma to g_agamma would require m_a via Gamma = g^2 m_a^3/(64 pi). Confidence reduced because plotted quantity is decay rate, not coupling. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.65 snapped to identity)",
+ "num_points": 36,
+ "elapsed_s": 223.61809730529785
+}

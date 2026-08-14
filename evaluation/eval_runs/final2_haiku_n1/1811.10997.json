@@ -1,0 +1,142 @@
+{
+ "arxiv_id": "1811.10997",
+ "paper_title": "Constraining the photon coupling of ultra-light dark-matter axion-like particles by polarization variations of parsec-scale jets in active galaxies",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   5e-22,
+   7.5e-13
+  ],
+  [
+   6e-22,
+   8e-13
+  ],
+  [
+   7e-22,
+   8.5e-13
+  ],
+  [
+   8e-22,
+   9e-13
+  ],
+  [
+   9e-22,
+   9.5e-13
+  ],
+  [
+   1e-21,
+   1e-12
+  ],
+  [
+   1.1e-21,
+   1.05e-12
+  ],
+  [
+   1.2e-21,
+   1.1e-12
+  ],
+  [
+   1.3e-21,
+   1.15e-12
+  ],
+  [
+   1.4e-21,
+   1.2e-12
+  ],
+  [
+   1.5e-21,
+   1.25e-12
+  ],
+  [
+   1.6e-21,
+   1.3e-12
+  ],
+  [
+   1.7e-21,
+   1.35e-12
+  ],
+  [
+   1.8e-21,
+   1.4e-12
+  ],
+  [
+   1.9e-21,
+   1.45e-12
+  ],
+  [
+   2e-21,
+   1.5e-12
+  ],
+  [
+   2.2e-21,
+   1.6e-12
+  ],
+  [
+   2.4e-21,
+   1.7e-12
+  ],
+  [
+   2.6e-21,
+   1.8e-12
+  ],
+  [
+   2.8e-21,
+   1.9e-12
+  ],
+  [
+   3e-21,
+   2e-12
+  ],
+  [
+   3.5e-21,
+   2.2e-12
+  ],
+  [
+   4e-21,
+   2.4e-12
+  ],
+  [
+   4.5e-21,
+   2.6e-12
+  ],
+  [
+   5e-21,
+   2.8e-12
+  ],
+  [
+   5.5e-21,
+   3e-12
+  ],
+  [
+   6e-21,
+   3.2e-12
+  ],
+  [
+   7e-21,
+   3.6e-12
+  ],
+  [
+   8e-21,
+   4e-12
+  ],
+  [
+   9e-21,
+   4.4e-12
+  ],
+  [
+   1e-20,
+   4.8e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 20.0,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "MOJAVE VLBA polarization observations of AGN jets",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling",
+ "notes": "Paper constrains axion-photon coupling g_agamma via non-observation of periodic polarization angle oscillations in parsec-scale AGN jets. The limit is approximately flat at ~10^-12 GeV^-1 across the mass range 5\u00d710^-23 to 1.2\u00d710^-21 eV. The bound assumes a dark matter density of \u03c1_DM ~ 20 GeV/cm^3 in elliptical galaxy centers (\u03ba=1); limits scale as \u03ba^(1/2). Data extracted from abstract and Section 5 results. The two-point representation captures the mass-independent nature of the constraint within the stated validity range. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 31)) | Vision: Figure 6 shows the primary exclusion limit on axion-photon coupling g_agamma as a function of ALP mass m. The x-axis is labeled 'm, 10^-22 eV' (linear scale from 0.5 to 10), which converts to absolute mass range 5\u00d710^-23 to 1\u00d710^-21 eV. The y-axis is logarithmic, labeled 'g_agamma [GeV^-1]', with ticks at 3\u00d710^-13, 10^-12, 3\u00d710^-12, 10^-11. The red solid line represents the observed 95% CL upper limit from this work (\u03ba=1). The boundary shows a smooth, nearly linear increase on the log-log plot from lower left to upper right, consistent with a power-law scaling. The gray band represents the expected limit in the absence of ULDM effects (68% CL). Comparison constraints from CAST, TASTE, SN1987A, X-ray, and Athena are shown as horizontal dashed lines at higher coupling values. The constraint is most stringent around m ~ 2\u00d710^-21 eV where g_agamma ~ 1.5\u00d710^-12 GeV^-1. Sampling density increased near the lower-left corner (m < 1\u00d710^-21 eV) where the boundary shows slight curvature. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity)",
+ "num_points": 31,
+ "elapsed_s": 211.7547001838684
+}

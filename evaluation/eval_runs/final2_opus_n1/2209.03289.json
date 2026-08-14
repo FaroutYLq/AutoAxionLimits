@@ -1,0 +1,182 @@
+{
+ "arxiv_id": "2209.03289",
+ "paper_title": "Laboratory Constraints on the Neutron-Spin Coupling of feV-scale Axions",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.136e-17,
+   3e-09
+  ],
+  [
+   4.55e-17,
+   2.6e-09
+  ],
+  [
+   5e-17,
+   2.2e-09
+  ],
+  [
+   5.79e-17,
+   1.8e-09
+  ],
+  [
+   6.62e-17,
+   1.5e-09
+  ],
+  [
+   7.45e-17,
+   1.4e-09
+  ],
+  [
+   8.27e-17,
+   1.35e-09
+  ],
+  [
+   1.03e-16,
+   1.4e-09
+  ],
+  [
+   1.24e-16,
+   1.4e-09
+  ],
+  [
+   1.65e-16,
+   1.3e-09
+  ],
+  [
+   2.07e-16,
+   1.1e-09
+  ],
+  [
+   2.48e-16,
+   8e-10
+  ],
+  [
+   3.31e-16,
+   6e-10
+  ],
+  [
+   4.14e-16,
+   5e-10
+  ],
+  [
+   4.96e-16,
+   4.5e-10
+  ],
+  [
+   6.2e-16,
+   4e-10
+  ],
+  [
+   8.27e-16,
+   3.5e-10
+  ],
+  [
+   1.03e-15,
+   3.2e-10
+  ],
+  [
+   1.24e-15,
+   3e-10
+  ],
+  [
+   1.65e-15,
+   2.8e-10
+  ],
+  [
+   2.07e-15,
+   2.6e-10
+  ],
+  [
+   2.48e-15,
+   2.5e-10
+  ],
+  [
+   3.1e-15,
+   2.4e-10
+  ],
+  [
+   3.72e-15,
+   2.4e-10
+  ],
+  [
+   4.14e-15,
+   2.5e-10
+  ],
+  [
+   4.96e-15,
+   2.6e-10
+  ],
+  [
+   6.2e-15,
+   2.8e-10
+  ],
+  [
+   7.45e-15,
+   3e-10
+  ],
+  [
+   8.27e-15,
+   3.2e-10
+  ],
+  [
+   1.03e-14,
+   4e-10
+  ],
+  [
+   1.24e-14,
+   5.5e-10
+  ],
+  [
+   1.45e-14,
+   7e-10
+  ],
+  [
+   1.65e-14,
+   8.5e-10
+  ],
+  [
+   1.86e-14,
+   7.5e-10
+  ],
+  [
+   2.07e-14,
+   6e-10
+  ],
+  [
+   2.48e-14,
+   5e-10
+  ],
+  [
+   2.9e-14,
+   4.5e-10
+  ],
+  [
+   3.31e-14,
+   4.5e-10
+  ],
+  [
+   3.72e-14,
+   5e-10
+  ],
+  [
+   4.14e-14,
+   6e-10
+  ],
+  [
+   4.14e-14,
+   7e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.78,
+ "suggested_experiment_name": "K-3He co-magnetometer axion neutron-spin search",
+ "coupling_convention": "g_aNN 95% limit (MC median lower envelope), dimensionless, in GeV^-1 as plotted",
+ "notes": "Median 95% upper limit g_aNN < 2.4e-10 GeV^-1 for axion masses 0.4-4 feV (0.4 feV = 4e-16 eV... using stated range 0.4 to 4 feV => 4e-16 to 4e-15 eV). Note: this coupling is the dimensionful derivative coupling in GeV^-1, NOT the standard dimensionless g_an. The best median limit is 2.4e-10 GeV^-1 at 0.36 Hz. Full spectrum spans 0.01-10 Hz (~4e-17 to 4e-14 eV) with limits rising from ~2.4e-10 up to ~1e-6 GeV^-1. Mass range points: 0.4 feV = 1.65e-15 eV mislabeled; correct: 0.4 feV = 4e-16 eV, 4 feV = 4e-15 eV. Emitted a flat two-point line over the quoted 0.4-4 feV validity range. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.78, 41)) | Vision: Y-axis plotted in GeV^-1. Lower boundary traced from green MC median line as the effective constraint floor. Mass converted from frequency via m[eV]=4.136e-15*f[Hz]; range 0.01-10 Hz maps to ~4e-17 to 4e-14 eV. Median limit 2.4e-10 GeV^-1 at 0.36 Hz confirmed in text. SN1987 line at ~1e-9 GeV^-1, neutron star line at ~1.2e-9 GeV^-1. Experimental orange line has many spikes; median gives clean lower envelope. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.15 snapped to identity)",
+ "num_points": 41,
+ "elapsed_s": 275.8746738433838
+}

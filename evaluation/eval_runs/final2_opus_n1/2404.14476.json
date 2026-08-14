@@ -1,0 +1,170 @@
+{
+ "arxiv_id": "2404.14476",
+ "paper_title": "Leading Axion-Photon Sensitivity with NuSTAR Observations of M82 and M87",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-13,
+   7e-13
+  ],
+  [
+   1.5e-13,
+   6.9e-13
+  ],
+  [
+   2e-13,
+   6.8e-13
+  ],
+  [
+   3e-13,
+   6.7e-13
+  ],
+  [
+   4.5e-13,
+   6.6e-13
+  ],
+  [
+   6e-13,
+   6.6e-13
+  ],
+  [
+   8e-13,
+   6.5e-13
+  ],
+  [
+   1e-12,
+   6.5e-13
+  ],
+  [
+   1.5e-12,
+   6.5e-13
+  ],
+  [
+   2e-12,
+   6.4e-13
+  ],
+  [
+   3e-12,
+   6.4e-13
+  ],
+  [
+   4e-12,
+   6.4e-13
+  ],
+  [
+   5e-12,
+   6.4e-13
+  ],
+  [
+   6e-12,
+   6.5e-13
+  ],
+  [
+   8e-12,
+   6.7e-13
+  ],
+  [
+   1e-11,
+   7e-13
+  ],
+  [
+   1.3e-11,
+   7.6e-13
+  ],
+  [
+   1.6e-11,
+   8.5e-13
+  ],
+  [
+   2e-11,
+   1e-12
+  ],
+  [
+   2.5e-11,
+   1.3e-12
+  ],
+  [
+   3e-11,
+   1.6e-12
+  ],
+  [
+   4e-11,
+   2.3e-12
+  ],
+  [
+   5e-11,
+   3.1e-12
+  ],
+  [
+   6e-11,
+   4e-12
+  ],
+  [
+   7e-11,
+   5e-12
+  ],
+  [
+   8e-11,
+   6.2e-12
+  ],
+  [
+   1e-10,
+   8.5e-12
+  ],
+  [
+   1.3e-10,
+   1.2e-11
+  ],
+  [
+   1.6e-10,
+   1.6e-11
+  ],
+  [
+   2e-10,
+   2.1e-11
+  ],
+  [
+   2.5e-10,
+   2.9e-11
+  ],
+  [
+   3e-10,
+   3.7e-11
+  ],
+  [
+   4e-10,
+   5.3e-11
+  ],
+  [
+   5e-10,
+   6.8e-11
+  ],
+  [
+   6e-10,
+   8.5e-11
+  ],
+  [
+   7e-10,
+   1e-10
+  ],
+  [
+   8e-10,
+   1.2e-10
+  ],
+  [
+   1e-09,
+   1.5e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "NuSTAR M82",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Stellar axion production (Primakoff) in M82/M87 with conversion in galactic/cluster magnetic fields. Fiducial 95% upper limit from M82 |g_agamma| < 6.4e-13 GeV^-1 for m_a < ~1e-10 eV (M87 gives 8.4e-13 GeV^-1). Limit is essentially flat for ultralight axions up to ~1e-9 eV; encoded as a horizontal line over the paper's quoted validity range. This is a stellar/astrophysical bound, not a DM haloscope, so no local DM density assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 38)) | Vision: Traced the M82 (this work) lower boundary, which is the strongest (lowest) 95% CL limit in Fig 2. Flat at ~6.4e-13 GeV^-1 for m_a < 1e-11 eV, consistent with the abstract value of 6.4e-13 GeV^-1. Rises above ~1e-11 eV where the axion becomes non-negligible in mass. M87 (this work) gives a slightly weaker limit (~8.4e-13 GeV^-1 floor). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.69 snapped to identity)",
+ "num_points": 38,
+ "elapsed_s": 353.557767868042
+}

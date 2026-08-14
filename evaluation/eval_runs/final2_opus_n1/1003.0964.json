@@ -1,0 +1,22 @@
+{
+ "arxiv_id": "1003.0964",
+ "paper_title": "LSW_UWA",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.788e-05,
+   2.9e-05
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.9,
+ "suggested_experiment_name": "LSW_UWA",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "Microwave cavity light-shining-through-wall experiment searching for hidden sector photons. Reports single upper limit chi = 2.9e-5 at hidden photon mass m = 3.788e-5 eV (37.78 ueV). Not a DM haloscope, so no local density assumption. This is an LSW measured bound, not a projection (though future improvements are discussed). | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.9, 1))",
+ "num_points": 1,
+ "elapsed_s": 125.75306797027588
+}

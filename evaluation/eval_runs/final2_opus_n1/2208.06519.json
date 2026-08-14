@@ -1,0 +1,22 @@
+{
+ "arxiv_id": "2208.06519",
+ "paper_title": "One-Electron Quantum Cyclotron as a Milli-eV Dark-Photon Detector",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.000612276,
+   3.2e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "OneElectronQuantumCyclotron2022",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Single-point limit epsilon < 3.2e-11 at m_A' = 0.61227643 meV (148 GHz). Proof-of-principle 7.4 day search with one trapped electron. The result is a single mass point; the plots in Fig 5(a) show a narrow band around this mass. Projections in Fig 5(b) for a dedicated apparatus are not extracted as they are sensitivity projections. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.92, 1))",
+ "num_points": 1,
+ "elapsed_s": 128.85344624519348
+}

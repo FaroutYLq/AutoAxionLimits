@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2303.03594",
+ "paper_title": "First results of axion dark matter search with DANCE",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-14,
+   0.0008
+  ],
+  [
+   1e-13,
+   0.0008
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "DANCE_Act-1",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "First results from DANCE Act-1 prototype. The paper reports a 95% CL upper limit of g_agamma \u2272 8\u00d710^-4 GeV^-1 in the mass range 10^-14 eV < m_a < 10^-13 eV from a 24-hour observation. This is encoded as a horizontal line (mass-independent bound over the stated validity range). The experiment uses a bow-tie ring cavity to detect rotational oscillation of linearly polarized light caused by axion-photon coupling, without external magnetic field. The DM density assumed is \u03c1_a = 0.4 GeV/cm^3 (local galactic DM density near the Sun, as stated in Eq. 8). Although the bound does not exceed current best limits (CAST, SHAFT, ABRACADABRA-10cm), this is the first demonstration of polarization-based axion DM search without external magnetic field. Sensitivity was limited by classical noise sources (laser intensity, frequency, mechanical vibration) and non-zero reflective phase difference between polarizations, not shot noise. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 4.5 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 119.99664306640625
+}

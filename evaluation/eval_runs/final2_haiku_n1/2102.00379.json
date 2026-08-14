@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2102.00379",
+ "paper_title": "WhiteDwarfs",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   10000.0,
+   1e-10
+  ],
+  [
+   100000.0,
+   1e-10
+  ],
+  [
+   100000.0,
+   3.16e-10
+  ],
+  [
+   316000.0,
+   3.16e-10
+  ],
+  [
+   630000.0,
+   1e-05
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.72,
+ "suggested_experiment_name": "WD-IFMR",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper derives a new constraint on axion-like particles (ALPs) coupling to photons using the white dwarf initial-final mass relation (IFMR). The constraint is based on stellar evolution simulations showing that keV-MeV scale ALPs drain energy from helium-burning shells in asymptotic giant branch (AGB) stars, reducing final white dwarf masses in a way that violates the observed IFMR from double white dwarf binaries. The solid dark blue line in Figure 15 shows the primary constraint including ALP decay effects. Key data points extracted: (1) constraint becomes relevant around ma ~ 10 keV with g_agamma ~ 1e-10 GeV^-1; (2) extends to ma ~ 100 keV; (3) reaches into cosmological triangle region near ma ~ 630 keV, g_agamma ~ 1e-5 GeV^-1 (shown as dotted blue line in Figure 14). The constraint relaxes at high coupling due to ALP decay within the He-B shell (decay length \u03bb_a < shell thickness). Extraction confidence is moderate (0.72) because: (a) the exact numerical boundary is not tabulated but must be read from Figure 15; (b) multiple systematic uncertainties are discussed (rotation, core overshoot, mass loss) that shift the constraint; (c) the paper uses a conservative approach with the less restrictive DWD constraint. The constraint is at 95% confidence level as stated in the paper. | selector: text (sole candidate)",
+ "num_points": 5,
+ "elapsed_s": 135.56822180747986
+}

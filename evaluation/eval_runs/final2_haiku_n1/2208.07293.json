@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2208.07293",
+ "paper_title": "First Search for Axion-Like Particles in a Storage Ring Using a Polarized Deuteron Beam",
+ "coupling_type": "AxionEDM",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.95e-10,
+   6.4e-23
+  ],
+  [
+   5.02e-10,
+   6.4e-23
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "JEDI_COSY_2019",
+ "coupling_convention": "d_n in e*cm",
+ "notes": "First search for ALPs using a storage ring with polarized deuteron beam at COSY. The paper reports a 90% confidence level upper bound on the oscillating EDM component of the deuteron: |d_d^AC| < 6.4 \u00d7 10^-23 e\u00b7cm in the frequency range 120.0\u2013121.4 kHz, corresponding to axion mass range m_a = 0.495\u20130.502 neV/c^2 (or 4.95\u20135.02 \u00d7 10^-10 eV). The bound is mass-independent within this narrow range and is encoded as a horizontal line. The paper also provides bounds on related couplings: g_a^d\u03b3 (axion coupling to deuteron EDM operator), C_G^d/f_a (ALP-gluon coupling), and C_d/f_a (ALP pseudo-magnetic coupling to deuteron spin via axion-wind effect). The experiment used four beam bunches with different polarization directions to sample all possible phases of the unknown ALP field. No ALP resonance was observed. The measurement is based on detecting a vertical polarization jump when the spin precession frequency resonates with the ALP-induced oscillating EDM frequency. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 17.8 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | [CONVENTION REVIEW] declared coupling convention 'd_n in e*cm' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 2,
+ "elapsed_s": 251.77627110481262
+}

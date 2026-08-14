@@ -1,0 +1,114 @@
+{
+ "arxiv_id": "2109.03261",
+ "paper_title": "New constraints on light Axion-Like Particles using Chandra Transmission Grating Spectroscopy of the powerful cluster-hosted quasar H1821+643",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-19,
+   5.5e-13
+  ],
+  [
+   1e-18,
+   5.5e-13
+  ],
+  [
+   1e-17,
+   5.5e-13
+  ],
+  [
+   1e-16,
+   5.5e-13
+  ],
+  [
+   1e-15,
+   5.5e-13
+  ],
+  [
+   1e-14,
+   5.5e-13
+  ],
+  [
+   5e-14,
+   5.5e-13
+  ],
+  [
+   1e-13,
+   5.6e-13
+  ],
+  [
+   1.5e-13,
+   8e-13
+  ],
+  [
+   2e-13,
+   5.7e-13
+  ],
+  [
+   3e-13,
+   8.5e-13
+  ],
+  [
+   4e-13,
+   5.7e-13
+  ],
+  [
+   6e-13,
+   8.5e-13
+  ],
+  [
+   8e-13,
+   5.8e-13
+  ],
+  [
+   1.2e-12,
+   8.5e-13
+  ],
+  [
+   1.6e-12,
+   6e-13
+  ],
+  [
+   2.5e-12,
+   8.5e-13
+  ],
+  [
+   3.5e-12,
+   6.5e-13
+  ],
+  [
+   5e-12,
+   9e-13
+  ],
+  [
+   7e-12,
+   1.2e-12
+  ],
+  [
+   1e-11,
+   2e-12
+  ],
+  [
+   1.5e-11,
+   5e-12
+  ],
+  [
+   2e-11,
+   1e-11
+  ],
+  [
+   3e-11,
+   2e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.78,
+ "suggested_experiment_name": "H1821+643 Chandra LETG/HETG ALP",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted",
+ "notes": "X-ray photon-ALP oscillation constraint from Chandra HETG/LETG spectroscopy of quasar H1821+643 in cluster CL1821+643. At 99.7% CL, exclude g_agamma > 6.3e-13 GeV^-1 for m_a < 1e-12 eV (assuming beta=100). The bound is essentially flat below ~1e-12 eV; exclusion curve spans log(m_a/eV) in [-19,-10.2]. Encoded as horizontal line at 6.3e-13 GeV^-1 from 1e-19 eV to 1e-12 eV. Note conclusions section has a typo (6.3e-12) but abstract/results consistently state 6.3e-13. This is an astrophysical (stellar/cluster) bound, not a DM haloscope, so no DM density assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.78, 24)) | Vision: Traced 'This work, 99.7% CL' magenta lower boundary in Fig. 5. Flat plateau ~5.5e-13 GeV^-1 for m_a < 1e-13 eV, with oscillatory kinks between 1e-13 and 1e-11 eV, then sharp rise near 1e-11 eV. Paper quotes g_agamma > 6.3e-13 GeV^-1 (99.7%) and > 5.0e-13 (95.5%) for m_a < 1e-12 eV. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.59 snapped to identity)",
+ "num_points": 24,
+ "elapsed_s": 270.7699372768402
+}

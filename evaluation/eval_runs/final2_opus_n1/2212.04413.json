@@ -1,0 +1,158 @@
+{
+ "arxiv_id": "2212.04413",
+ "paper_title": "Search for ultralight dark matter with spectroscopy of radio-frequency atomic transitions",
+ "coupling_type": "ScalarPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-17,
+   3.0
+  ],
+  [
+   1.5e-17,
+   3.0
+  ],
+  [
+   2.5e-17,
+   2.8
+  ],
+  [
+   4e-17,
+   2.8
+  ],
+  [
+   6e-17,
+   2.9
+  ],
+  [
+   1e-16,
+   3.0
+  ],
+  [
+   1.5e-16,
+   3.2
+  ],
+  [
+   2.5e-16,
+   3.5
+  ],
+  [
+   4e-16,
+   4.0
+  ],
+  [
+   6e-16,
+   4.5
+  ],
+  [
+   1e-15,
+   5.5
+  ],
+  [
+   1.5e-15,
+   7.0
+  ],
+  [
+   2e-15,
+   9.0
+  ],
+  [
+   2.5e-15,
+   12.0
+  ],
+  [
+   3e-15,
+   40.0
+  ],
+  [
+   3.2e-15,
+   15.0
+  ],
+  [
+   4e-15,
+   18.0
+  ],
+  [
+   5e-15,
+   22.0
+  ],
+  [
+   6e-15,
+   28.0
+  ],
+  [
+   8e-15,
+   40.0
+  ],
+  [
+   1e-14,
+   50.0
+  ],
+  [
+   1.5e-14,
+   70.0
+  ],
+  [
+   2e-14,
+   90.0
+  ],
+  [
+   3e-14,
+   130.0
+  ],
+  [
+   4e-14,
+   170.0
+  ],
+  [
+   6e-14,
+   230.0
+  ],
+  [
+   8e-14,
+   300.0
+  ],
+  [
+   1e-13,
+   350.0
+  ],
+  [
+   1.5e-13,
+   500.0
+  ],
+  [
+   2e-13,
+   650.0
+  ],
+  [
+   3e-13,
+   900.0
+  ],
+  [
+   4e-13,
+   1200.0
+  ],
+  [
+   6e-13,
+   1700.0
+  ],
+  [
+   8e-13,
+   2200.0
+  ],
+  [
+   1e-12,
+   2800.0
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "Rb/Quartz (spectroscopy of rf atomic transitions)",
+ "coupling_convention": "d_e, dimensionless, as plotted on y-axis of Fig 3a",
+ "notes": " | selector: figure_vision (sole candidate) | Vision: Traced the Rb/Quartz (pink/magenta) exclusion boundary in Fig 3a, which constrains d_e (scalar coupling to alpha/photons). Mass range ~1e-17 to ~1e-12 eV. Curve rises with mass; a spike/kink near ~3e-15 eV corresponds to a resonance feature. Values approximate given log-log reading. Note: the provided axis calibration (y 1e-16 to 1e-4) applies to Fig 4 (1/f_phi), not Fig 3a; I used Fig 3a's actual axes (d_e, 1e-4 to 1e8). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.45 snapped to identity) | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+ "num_points": 35,
+ "elapsed_s": 371.1894290447235
+}

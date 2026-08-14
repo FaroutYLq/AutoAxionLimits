@@ -1,0 +1,46 @@
+{
+ "arxiv_id": "2307.07403",
+ "paper_title": "Robust bounds on ALP dark matter from dwarf spheroidal galaxies in the optical MUSE-Faint survey",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.7,
+   1e-12
+  ],
+  [
+   3.0,
+   1e-12
+  ],
+  [
+   3.5,
+   9e-13
+  ],
+  [
+   4.0,
+   8e-13
+  ],
+  [
+   4.5,
+   7e-13
+  ],
+  [
+   5.0,
+   6e-13
+  ],
+  [
+   5.3,
+   6e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.72,
+ "suggested_experiment_name": "MUSE-Faint_dSph_2024",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "95% C.L. upper limits on ALP-two-photon coupling g_agamma from radiative decay of ALP DM in five dwarf spheroidal galaxies (combined analysis, NFW profile), mass range 2.7-5.3 eV. Numerical values approximate, read from Figs. 2 and 5 (combined limits around 1e-12 GeV^-1, improving slightly with mass). Bounds derived assuming ALPs constitute all DM but exact local density not stated (uses dwarf D-factors), so dm_density left null. | selector: text (sole candidate)",
+ "num_points": 7,
+ "elapsed_s": 34.80508995056152
+}

@@ -1,0 +1,178 @@
+{
+ "arxiv_id": "2208.13794",
+ "paper_title": "Seeking dark matter with $\u03b3$-ray attenuation",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.7079,
+   1.585e-09
+  ],
+  [
+   0.8511,
+   1.2589999999999999e-09
+  ],
+  [
+   1.0,
+   1e-09
+  ],
+  [
+   1.2589,
+   9e-10
+  ],
+  [
+   1.5849,
+   7.999999999999999e-10
+  ],
+  [
+   2.0,
+   6.499999999999999e-10
+  ],
+  [
+   2.5119,
+   5.5e-10
+  ],
+  [
+   2.6303,
+   5e-10
+  ],
+  [
+   2.7542,
+   3.5000000000000003e-10
+  ],
+  [
+   2.8184,
+   1.9999999999999998e-10
+  ],
+  [
+   2.884,
+   1.2e-10
+  ],
+  [
+   3.0,
+   8e-11
+  ],
+  [
+   3.1623,
+   5.5000000000000004e-11
+  ],
+  [
+   3.548,
+   4e-11
+  ],
+  [
+   3.9811,
+   3e-11
+  ],
+  [
+   4.2658,
+   2.4999999999999998e-11
+  ],
+  [
+   4.5709,
+   2e-11
+  ],
+  [
+   4.6774,
+   1.5e-11
+  ],
+  [
+   4.7863,
+   1.1999999999999999e-11
+  ],
+  [
+   4.898,
+   9e-12
+  ],
+  [
+   5.0119,
+   7e-12
+  ],
+  [
+   5.2481,
+   5e-12
+  ],
+  [
+   5.6234,
+   4e-12
+  ],
+  [
+   6.3096,
+   3.2e-12
+  ],
+  [
+   7.0795,
+   2.8e-12
+  ],
+  [
+   7.9433,
+   2.5e-12
+  ],
+  [
+   8.9125,
+   2.3e-12
+  ],
+  [
+   10.0,
+   2.2e-12
+  ],
+  [
+   11.2202,
+   2.3e-12
+  ],
+  [
+   12.5893,
+   2.5e-12
+  ],
+  [
+   14.1254,
+   2.9999999999999997e-12
+  ],
+  [
+   15.8489,
+   4e-12
+  ],
+  [
+   17.7828,
+   5.4999999999999996e-12
+  ],
+  [
+   19.9526,
+   8e-12
+  ],
+  [
+   22.3872,
+   1.0999999999999999e-11
+  ],
+  [
+   25.1189,
+   1.5e-11
+  ],
+  [
+   28.1838,
+   2e-11
+  ],
+  [
+   31.6228,
+   2.8e-11
+  ],
+  [
+   35.4813,
+   3.8e-11
+  ],
+  [
+   39.8107,
+   4.9999999999999995e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "Gamma-ray attenuation ALP (This work)",
+ "coupling_convention": "g_agamma in GeV^-1, plotted as log10(g_agamma/GeV^-1)",
+ "notes": "Paper constrains ALP-photon coupling via gamma-ray attenuation/EBL. Best fit reported at m_a=9.1 eV, Gamma_a=2.5e-24 s^-1 corresponding to g_agamma=2.1e-11 GeV^-1. The bound spans the 8-25 eV mass range as stated. The full exclusion curve is shown only in Fig. 3 (g_agamma vs mass on a log scale) which is not numerically tabulated; only the best-fit coupling value (2.1e-11 GeV^-1) is given explicitly in text. Encoded as an approximate horizontal line over the stated 8-25 eV validity range using the best-fit coupling as a representative scale \u2014 this is NOT a precise digitization of the exclusion contour, hence low extraction confidence. Assumes ALPs make up all of dark matter (Omega_a = full DM), but density is cosmological (Omega_a*rho_c) not a haloscope local density, so dm_density_assumed left null. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 40)) | Vision: Traced the lower boundary of the 'This work' dark-blue contour in Fig. 3 lower panel (g_a\u03b3 vs mass). The constrained region is roughly 8-25 eV where the strongest bound (~2e-13 GeV^-1) is reached near 10 eV. The contour is complex with a plateau at light masses and rising toward high mass. Values approximate due to log-log reading. Best fit g_a\u03b3 = 2.1e-11 GeV^-1 at m_a = 9.1 eV per text. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=14.29)",
+ "num_points": 40,
+ "elapsed_s": 248.8061089515686
+}

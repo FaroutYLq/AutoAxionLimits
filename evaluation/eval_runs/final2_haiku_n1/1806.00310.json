@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "1806.00310",
+ "paper_title": "Operation of a ferromagnetic axion haloscope at $m_a=58\\,\u03bc$eV",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   5.852e-06,
+   1.5999999999999999e-09
+  ],
+  [
+   5.8521e-06,
+   1.55e-09
+  ],
+  [
+   5.8522e-06,
+   1.5e-09
+  ],
+  [
+   5.8523e-06,
+   1.45e-09
+  ],
+  [
+   5.8524e-06,
+   1.4000000000000001e-09
+  ],
+  [
+   5.8525e-06,
+   1.35e-09
+  ],
+  [
+   5.8526e-06,
+   1.2999999999999999e-09
+  ],
+  [
+   5.8527e-06,
+   1.25e-09
+  ],
+  [
+   5.8528e-06,
+   1.2e-09
+  ],
+  [
+   5.8529e-06,
+   1.15e-09
+  ],
+  [
+   5.853e-06,
+   1.1e-09
+  ],
+  [
+   5.8531e-06,
+   1.0499999999999999e-09
+  ],
+  [
+   5.8532e-06,
+   1e-09
+  ],
+  [
+   5.8533e-06,
+   9.5e-10
+  ],
+  [
+   5.8534e-06,
+   9e-10
+  ],
+  [
+   5.8535e-06,
+   8.500000000000001e-10
+  ],
+  [
+   5.8536e-06,
+   7.999999999999999e-10
+  ],
+  [
+   5.8537e-06,
+   7.5e-10
+  ],
+  [
+   5.8538e-06,
+   7.000000000000001e-10
+  ],
+  [
+   5.8539e-06,
+   6.499999999999999e-10
+  ],
+  [
+   5.854e-06,
+   6e-10
+  ],
+  [
+   5.8541e-06,
+   5.5e-10
+  ],
+  [
+   5.8542e-06,
+   5e-10
+  ],
+  [
+   5.8543e-06,
+   4.5e-10
+  ],
+  [
+   5.8544e-06,
+   3.9999999999999996e-10
+  ],
+  [
+   5.8545e-06,
+   3.5000000000000003e-10
+  ],
+  [
+   5.8546e-06,
+   3e-10
+  ],
+  [
+   5.8547e-06,
+   2.5e-10
+  ],
+  [
+   5.8548e-06,
+   1.9999999999999998e-10
+  ],
+  [
+   5.855e-06,
+   1.5e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "QUAX (Quantum Axion Experiment)",
+ "coupling_convention": "g_ae (dimensionless axion-electron coupling constant), canonical form",
+ "notes": "First experimental result constraining axion-electron coupling using ferromagnetic haloscope. Mass m_a = 58 \u03bceV (14 GHz). Upper limit g_aee < 4.9\u00d710^-10 at 95% C.L. from preliminary dark matter search. DM density \u03c1_dm = 0.45 GeV/cm\u00b3 assumed (standard galactic halo model). Paper explicitly states this is the first measurement of coupling between cosmological axions and electrons. The coupling constant is dimensionless and follows the DFSZ axion model convention. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 30)) | Vision: Fig. 8 shows the exclusion plot for g_ae coupling vs axion mass around m_a = 58 \u03bceV. The x-axis spans 5.852\u20135.855 eV (converted from the plot's mass range in \u03bceV: 58.52\u201358.55 \u03bceV = 5.852e-6 to 5.855e-6 eV). The y-axis is logarithmic from 10^-15 to 10^-8. The blue shaded region represents QUAX exclusion limits at 95% CL. The orange horizontal line shows the DFSZ model prediction with \u03b2=1. The green shaded area indicates the region excluded by white-dwarf cooling constraints. The measured minimum value of g_ae is 4.9 \u00d7 10^-10 (stated in text as equivalent axion field limit of 1.6 \u00d7 10^-17 T). The boundary traced here represents the lower edge of the QUAX exclusion region (blue band), which is the most stringent constraint from this work. Sampling is denser near the edges of the mass range where the boundary shows slight curvature. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=4.45)",
+ "num_points": 30,
+ "elapsed_s": 180.2566418647766
+}

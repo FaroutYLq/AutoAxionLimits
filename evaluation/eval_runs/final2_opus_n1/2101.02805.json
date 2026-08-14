@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2101.02805",
+ "paper_title": "DarkEfield",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.64e-07,
+   6.4e-13
+  ],
+  [
+   2.91e-07,
+   6.4e-13
+  ],
+  [
+   6.29e-07,
+   6.4e-13
+  ],
+  [
+   1.02e-06,
+   6.4e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "DarkEfield_Pilot",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Pilot Dark E-Field radio experiment searching for dark photon dark matter 50-300 MHz. The paper reports 5-sigma spot-frequency limits on kinetic mixing epsilon at 63.9, 70.5, 152, 247 MHz (orange dots, extrapolated to 1 month). A representative explicit 5-sigma limit of epsilon~6.4e-13 at 70.5 MHz between 70.49-70.51 MHz is quoted in text. Spot frequencies converted to mass via m=4.136e-15*f: 63.9 MHz->2.64e-7 eV, 70.5 MHz->2.91e-7 eV, 152 MHz->6.29e-7 eV, 247 MHz->1.02e-6 eV. Only the 70.5 MHz value (6.4e-13) is explicitly given; the other spot values are approximate (~same order per Fig 12). Broadband pilot reach (~1e-12 over 50-300 MHz) also reported. Phase-I/Phase-II are projections not included here. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.7, 4))",
+ "num_points": 4,
+ "elapsed_s": 193.59161972999573
+}

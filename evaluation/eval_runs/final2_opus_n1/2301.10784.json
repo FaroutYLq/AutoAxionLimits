@@ -1,0 +1,162 @@
+{
+ "arxiv_id": "2301.10784",
+ "paper_title": "Yb",
+ "coupling_type": "ScalarNucleon",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-23,
+   1.2e-08
+  ],
+  [
+   1.5e-23,
+   1.5000000000000002e-08
+  ],
+  [
+   2e-23,
+   1.8e-08
+  ],
+  [
+   3e-23,
+   2.5000000000000002e-08
+  ],
+  [
+   5e-23,
+   4e-08
+  ],
+  [
+   7e-23,
+   6.000000000000001e-08
+  ],
+  [
+   1e-22,
+   8.500000000000001e-08
+  ],
+  [
+   1.5e-22,
+   1.3e-07
+  ],
+  [
+   2e-22,
+   1.8e-07
+  ],
+  [
+   3e-22,
+   2.7e-07
+  ],
+  [
+   5e-22,
+   4.5000000000000003e-07
+  ],
+  [
+   7e-22,
+   6.499999999999999e-07
+  ],
+  [
+   1e-21,
+   9.500000000000001e-07
+  ],
+  [
+   1.5e-21,
+   1.4999999999999998e-06
+  ],
+  [
+   2e-21,
+   2.0000000000000003e-06
+  ],
+  [
+   3e-21,
+   2.9999999999999997e-06
+  ],
+  [
+   5e-21,
+   5e-06
+  ],
+  [
+   7e-21,
+   7e-06
+  ],
+  [
+   1e-20,
+   1e-05
+  ],
+  [
+   1.5e-20,
+   1.6000000000000003e-05
+  ],
+  [
+   2e-20,
+   2.1e-05
+  ],
+  [
+   3e-20,
+   3.2000000000000005e-05
+  ],
+  [
+   5e-20,
+   5.3e-05
+  ],
+  [
+   7e-20,
+   7.400000000000001e-05
+  ],
+  [
+   1e-19,
+   0.00010999999999999999
+  ],
+  [
+   1.5e-19,
+   0.00016
+  ],
+  [
+   2e-19,
+   0.00021999999999999998
+  ],
+  [
+   3e-19,
+   0.00033
+  ],
+  [
+   5e-19,
+   0.00055
+  ],
+  [
+   7e-19,
+   0.00077
+  ],
+  [
+   1e-18,
+   0.0011
+  ],
+  [
+   1.5e-18,
+   0.0017000000000000001
+  ],
+  [
+   2e-18,
+   0.0023
+  ],
+  [
+   3e-18,
+   0.0034000000000000002
+  ],
+  [
+   5e-18,
+   0.005699999999999999
+  ],
+  [
+   8e-18,
+   0.0085
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "Yb+ E3/E2 clock (field shift), d_g",
+ "coupling_convention": "coupling d_g, dimensionless",
+ "notes": "Paper constrains scalar UDM-nuclear couplings (d_g to gluons, d_mhat to quark masses) and QCD axion decay constant 1/f_a via nuclear charge-radius oscillation using 171Yb+ E3/E2 clock frequency ratio over 26 months. Mass range roughly 6e-23 eV to 2e-17 eV; relative-amplitude limits below ~2e-17. Multiple coupling types present (ScalarNucleon-type d_g/d_mhat plus an axion 1/f_a bound - could be AxionMass), so coupling-type assignment is ambiguous. No explicit numerical coupling-limit values given in text/tables (only in exclusion figures Fig.1 and Fig.2), so no data points extractable. DM density 0.4 GeV/cm^3 assumed. 95% CL. | selector: figure_vision (sole candidate) | Vision: Fig. 1a shows coupling d_g (gluon/nuclear scalar coupling) vs DM mass. Traced the dark red 'Field shift' Yb+ E3/E2 exclusion boundary (the paper's main result). Boundary is approximately power-law rising with mass. Excluded region is above the line. | Calibration: Vision calibration: \u00d71e-2 (factor=1.00e-02, reason=spot-check verify/stage2, raw_ratio=0.01) | [CONVENTION REVIEW] declared coupling convention 'coupling d_g, dimensionless' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 36,
+ "elapsed_s": 88.83270597457886
+}

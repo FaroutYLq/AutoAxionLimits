@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "2011.11646",
+ "paper_title": "BlackHoleSpins_Baryakhtar",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": false,
+ "is_projection": true,
+ "data_points": [],
+ "data_source": "none",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.2,
+ "suggested_experiment_name": "BlackHoleSuperradiance_SelfInteracting",
+ "coupling_convention": "GeV/f (dimensionless ratio)",
+ "notes": "This is a theoretical paper on black hole superradiance of self-interacting scalar fields. It discusses observational signatures (GW annihilation/transition signals, axion wave detection via CASPEr-Wind NMR) but does not present a clean numerical exclusion limit or sensitivity curve as extractable (mass_eV, coupling) pairs. Projected sensitivities are shown as reach in kpc and in terms of coupling ratios CN, not directly as g_an vs mass. No tabulated coupling-vs-mass data available for extraction. | [VISION GATE A] is_projection=true but the vision notes say the traced curve is existing experiment 'union' \u2014 not the paper's own projected curve",
+ "num_points": 0,
+ "elapsed_s": 190.7948670387268
+}

@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "1707.07921",
+ "paper_title": "Limits on Axion Couplings from the first 80-day data of PandaX-II Experiment",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.01,
+   4e-13
+  ],
+  [
+   1000.0,
+   4e-13
+  ],
+  [
+   1000.0,
+   4e-13
+  ],
+  [
+   25000.0,
+   4e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "PandaX-II_2017",
+ "coupling_convention": "dimensionless g_Ae",
+ "notes": "Solar axion (CBRD) limit g_Ae <= 4e-13 (90% CL) over 1e-5 to 1 keV/c2 (abstract says ~4.35e-12 but body/Fig.3 states 4e-13, treated as largely mass-independent). Galactic ALP limit g_Ae <= 4e-13 (down to 4.3e-14 best) for 1-25 keV/c2 with local DM density 0.3 GeV/cm^3. Also a 57Fe de-excitation limit reaching 6e-14 at 10 keV. Data points approximate flat horizontal segments for solar (span 1e-5 to 1 keV in eV: 1e-2 to 1e3 eV) and galactic (1e3 to 2.5e4 eV). Mass converted keV->eV (x1000). | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.7, 4))",
+ "num_points": 4,
+ "elapsed_s": 88.65708899497986
+}

@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2212.04413",
+ "paper_title": "Search for ultralight dark matter with spectroscopy of radio-frequency atomic transitions",
+ "coupling_type": "ScalarElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-17,
+   1e-05
+  ],
+  [
+   8.3e-13,
+   1e-05
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 3e-06,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.45,
+ "suggested_experiment_name": "Rb-Quartz-Dy",
+ "coupling_convention": "d_me (dimensionless)",
+ "notes": "Paper constrains THREE distinct coupling types: (1) ScalarPhoton (d_e, coupling to fine-structure constant \u03b1), (2) ScalarElectron (d_me, coupling to electron mass), and (3) ScalarNucleon (d_g, coupling to QCD scale \u039b_QCD). Additionally, pseudoscalar/QCD-axion constraints on 1/f_\u03c6 are presented. The pre-analysis hint suggested ScalarElectron, but the paper's primary results span multiple scalar couplings shown in Fig. 3a-c. Extraction confidence is low (0.45) because: (i) the paper presents constraints on THREE different scalar couplings simultaneously, making it ambiguous which is 'primary'; (ii) the data_points returned represent only a mass-range span for d_me without explicit numerical coupling values extracted from figures or tables; (iii) Fig. 3 shows exclusion curves but precise numerical values at specific masses are not tabulated. The paper states bounds improve by factors of \u00d7100 in the 1\u2013200 Hz range and \u00d73 orders of magnitude for d_e from Dy, but does not provide a single canonical (mass, coupling) table. To properly extract all three scalar couplings and the pseudoscalar limit, one would need to digitize Figs. 3 and 4, which is beyond reliable manual extraction. The DM density \u03c1_DM \u2248 3\u00d710^-6 eV^4 is stated in the paper and used in the UBDM field amplitude \u03c6_0 = m_\u03c6^-1 \u221a(2\u03c1_DM), but this is a standard galactic halo assumption, not a free parameter\u2014it is NOT a local DM density in GeV/cm\u00b3 units (which would apply only to haloscope experiments like ADMX). Setting dm_density_assumed to 3e-6 records the paper's stated value in eV^4 units for reference, though it is not a haloscope-type local density. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 5.3 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 201.95667576789856
+}

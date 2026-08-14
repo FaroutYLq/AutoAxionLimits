@@ -1,0 +1,118 @@
+{
+ "arxiv_id": "2101.11290",
+ "paper_title": "Constraints on the Coupling between Axionlike Dark Matter and Photons Using an Antiproton Superconducting Tuned Detection Circuit in a Cryogenic Penning Trap",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.7905e-09,
+   1.3e-11
+  ],
+  [
+   2.79055e-09,
+   1.25e-11
+  ],
+  [
+   2.7906e-09,
+   1.2e-11
+  ],
+  [
+   2.79063e-09,
+   9.5e-12
+  ],
+  [
+   2.79065e-09,
+   1.1e-11
+  ],
+  [
+   2.7907e-09,
+   1.1e-11
+  ],
+  [
+   2.79075e-09,
+   1.05e-11
+  ],
+  [
+   2.7908e-09,
+   1e-11
+  ],
+  [
+   2.79085e-09,
+   1e-11
+  ],
+  [
+   2.7909e-09,
+   9.8e-12
+  ],
+  [
+   2.79095e-09,
+   9.8e-12
+  ],
+  [
+   2.791e-09,
+   9.7e-12
+  ],
+  [
+   2.79105e-09,
+   9.6e-12
+  ],
+  [
+   2.7911e-09,
+   9.6e-12
+  ],
+  [
+   2.79115e-09,
+   9.7e-12
+  ],
+  [
+   2.7912e-09,
+   9.8e-12
+  ],
+  [
+   2.79125e-09,
+   9.9e-12
+  ],
+  [
+   2.7913e-09,
+   1e-11
+  ],
+  [
+   2.79135e-09,
+   1e-11
+  ],
+  [
+   2.7914e-09,
+   1.05e-11
+  ],
+  [
+   2.79143e-09,
+   9.5e-12
+  ],
+  [
+   2.79145e-09,
+   1.1e-11
+  ],
+  [
+   2.7915e-09,
+   1.2e-11
+  ],
+  [
+   2.79153e-09,
+   1.25e-11
+  ],
+  [
+   2.79155e-09,
+   1.3e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "BASE Penning-trap ALP search",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis",
+ "notes": "Haloscope-type search using superconducting LC detection circuit of BASE Penning trap. Constrains g_agamma < 1e-11 GeV^-1 (95% CL) for ALP masses 2.7906-2.7914 neV/c^2 (nu_z ~ 674.9 kHz). Local DM density rho_a = 0.4 GeV/cm^3 assumed. Only a single flat coupling bound over the narrow mass band was given in text; detailed exclusion curve in Fig. 3 not numerically tabulated. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 25)) | Vision: Figure 3(a) shows the BASE (dark blue) exclusion region set by this work. The lower boundary is a jagged band near g_agamma ~ 1e-11 GeV^-1, with the paper quoting the limit g_agamma < 1e-11 GeV^-1 for masses around 2.7906-2.7914 neV/c^2. X-axis is linear (neV/c^2). The boundary has some structure/dips reflecting the noise spectrum, sampled here approximately. Edges of the mass range show slightly higher (weaker) limits where the resonance sensitivity falls off. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.03 snapped to identity)",
+ "num_points": 25,
+ "elapsed_s": 175.03908109664917
+}

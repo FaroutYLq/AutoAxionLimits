@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "1902.02788",
+ "paper_title": "DynamicDecoupling",
+ "coupling_type": "ScalarPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [],
+ "data_source": "none",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "WeizmannDD_88Sr",
+ "coupling_convention": "g_phi_gamma in eV^-1 (paper axis); NOT canonical d_e",
+ "notes": "Proof-of-principle dynamic decoupling experiment with a single 88Sr+ ion probing oscillations of alpha and m_e at Hz-MHz frequencies (m_phi ~ 1e-14 to 1e-8 eV). Constrains BOTH scalar-photon coupling g_phi_gamma (alpha variation, ScalarPhoton, sensitive over full range) and scalar-electron coupling g_phi_e (m_e variation, ScalarElectron, only above 50 kHz), plus relaxion sin(theta). Coupling type is therefore ambiguous between ScalarPhoton and ScalarElectron. Paper reports g_phi_gamma in eV^-1 (not the standard dimensionless d_e), and the numerical exclusion curves are only available in Figs 1-3 plots which cannot be read off precisely from the text; no numerical table provided. Local DM density rho_DM_sun = 3.1e-6 eV^4 ~ 0.3 GeV/cm^3 assumed. Also a boson-star (relaxion star around Earth) scenario is considered. Data points not extractable reliably; hence empty. | [VISION GATE B] vision notes assert the plotted axis belongs to ScalarElectron but the declared coupling is ScalarPhoton \u2014 wrong panel/curve traced",
+ "num_points": 0,
+ "elapsed_s": 160.0767560005188
+}

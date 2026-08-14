@@ -1,0 +1,86 @@
+{
+ "arxiv_id": "2405.20444",
+ "paper_title": "DarkEfield2",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.08e-07,
+   6e-15
+  ],
+  [
+   5e-07,
+   1.2e-14
+  ],
+  [
+   1e-06,
+   2e-14
+  ],
+  [
+   1.5e-06,
+   3e-14
+  ],
+  [
+   2e-06,
+   4e-14
+  ],
+  [
+   2.5e-06,
+   5e-14
+  ],
+  [
+   3e-06,
+   6e-14
+  ],
+  [
+   3.5e-06,
+   1e-13
+  ],
+  [
+   4e-06,
+   1.5e-13
+  ],
+  [
+   4.5e-06,
+   2e-13
+  ],
+  [
+   5e-06,
+   2.5e-13
+  ],
+  [
+   6e-06,
+   3.5e-13
+  ],
+  [
+   7e-06,
+   4.5e-13
+  ],
+  [
+   8e-06,
+   5e-13
+  ],
+  [
+   9e-06,
+   5.5e-13
+  ],
+  [
+   1e-05,
+   6e-13
+  ],
+  [
+   1.24e-06,
+   6e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "DarkEfield2",
+ "coupling_convention": "dimensionless kinetic mixing \u03f5",
+ "notes": "New measured exclusion limit on dark photon kinetic mixing \u03f5 from the Dark E-Field Radio (DER) experiment. Mass range 0.21\u20131.24 \u00b5eV (frequency 50\u2013300 MHz). Nine days of integration. Limit varies between 6\u00d710\u207b\u00b9\u2075 and 6\u00d710\u207b\u00b9\u00b3 due to complex resonant mode structure in shielded room cavity. Local dark matter density fixed at \u03c1_DM = 0.45 GeV/cm\u00b3 (from Gaia). Single candidate at 299.97 MHz rejected as internal electronics interference. Systematic uncertainty dominated by ~60% fractional uncertainty on simulated antenna aperture \u27e8Q\u0303A_e\u27e9. Hardware RF injection tests validate detection algorithm. Matched filtering with Rayleigh line shape template improves sensitivity at higher frequencies by factor ~1.8. Data points extracted from Fig. 11 (95% exclusion limit plot) by reading approximate values across frequency span; ragged structure reflects cavity resonance modes. | selector: text (sole candidate)",
+ "num_points": 17,
+ "elapsed_s": 51.46730375289917
+}

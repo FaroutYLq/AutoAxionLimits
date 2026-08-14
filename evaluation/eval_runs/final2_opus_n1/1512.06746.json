@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "1512.06746",
+ "paper_title": "Axion phenomenology and $\u03b8$-dependence from $N_f = 2+1$ lattice QCD",
+ "coupling_type": "AxionMass",
+ "is_new_limit": false,
+ "is_projection": false,
+ "data_points": [],
+ "data_source": "none",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.2,
+ "suggested_experiment_name": "LatticeQCD_Nf2plus1_axion",
+ "coupling_convention": "f_a in GeV vs m_a in eV",
+ "notes": "This lattice QCD paper computes the topological susceptibility and its temperature dependence to predict the axion dark matter window. It reports a value of the axion decay constant fa = 1.0e12 GeV (for post-inflation PQ breaking) as an upper bound assuming axions make up all dark matter, but this is a single cosmological prediction rather than an exclusion curve in the fa-ma plane. There is no mass-dependent exclusion limit or coupling constraint plot; the main results are on the topological susceptibility. No proper (mass, coupling) data points can be extracted for a standard exclusion limit. The single fa value is a cosmological relic-abundance prediction, not an exclusion curve, so no data points are emitted.",
+ "num_points": 0,
+ "elapsed_s": 98.142813205719
+}

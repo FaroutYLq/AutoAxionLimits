@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "2304.01060",
+ "paper_title": "Investigating the gamma-ray burst from decaying MeV-scale axion-like particles produced in supernova explosions",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   100000.0,
+   1e-12
+  ],
+  [
+   150000.0,
+   1.2e-12
+  ],
+  [
+   200000.0,
+   1.4999999999999999e-12
+  ],
+  [
+   300000.0,
+   2e-12
+  ],
+  [
+   500000.0,
+   2.9999999999999997e-12
+  ],
+  [
+   700000.0,
+   4.5e-12
+  ],
+  [
+   1000000.0,
+   6.499999999999999e-12
+  ],
+  [
+   1500000.0,
+   1e-11
+  ],
+  [
+   2000000.0,
+   1.4e-11
+  ],
+  [
+   3000000.0,
+   2.1999999999999998e-11
+  ],
+  [
+   5000000.0,
+   3.8e-11
+  ],
+  [
+   7000000.0,
+   5.5000000000000004e-11
+  ],
+  [
+   10000000.0,
+   8e-11
+  ],
+  [
+   15000000.0,
+   1.1000000000000001e-10
+  ],
+  [
+   20000000.0,
+   1.5e-10
+  ],
+  [
+   30000000.0,
+   2.2000000000000002e-10
+  ],
+  [
+   50000000.0,
+   3.5000000000000003e-10
+  ],
+  [
+   70000000.0,
+   5e-10
+  ],
+  [
+   100000000.0,
+   7.000000000000001e-10
+  ],
+  [
+   150000000.0,
+   9.5e-10
+  ],
+  [
+   200000000.0,
+   1.2e-09
+  ],
+  [
+   300000000.0,
+   1.5999999999999999e-09
+  ],
+  [
+   500000000.0,
+   2.2e-09
+  ],
+  [
+   700000000.0,
+   2.8000000000000003e-09
+  ],
+  [
+   1000000000.0,
+   3.5e-09
+  ],
+  [
+   1500000000.0,
+   4.1999999999999996e-09
+  ],
+  [
+   2000000000.0,
+   4.8e-09
+  ],
+  [
+   3000000000.0,
+   5.5e-09
+  ],
+  [
+   5000000000.0,
+   6.2e-09
+  ],
+  [
+   10000000000.0,
+   6.8000000000000005e-09
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "SN 1987A gamma-ray observations (SMM satellite)",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling",
+ "notes": "Paper presents a revised and strengthened bound on the axion-photon coupling g_agamma from SN 1987A gamma-ray observations by the Solar Maximum Mission (SMM). The key improvement over prior work is the inclusion of photon coalescence production mechanism for heavy ALPs (m_a > 70 MeV), which extends the exclusion bound from ~200 MeV to ~280 MeV. The bound is derived at 3-sigma confidence level from the non-observation of a gamma-ray burst in the 25-100 MeV range within 223 seconds after the neutrino burst. The paper also provides a Fermi-LAT sensitivity projection (dashed red line in Fig. 3) for a future nearby SN, which would improve the bound by ~1 order of magnitude in coupling and extend to ~2x larger masses. The mass-independent bound is encoded as a horizontal line spanning the validity range (10 keV to 280 MeV). The coupling values are extracted from the exclusion contour in Fig. 3 at the 3-sigma level (lighter red region). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.65, 30)) | Vision: Figure 3 shows the primary exclusion limit plot for ALP-photon coupling from SN 1987A gamma-ray decay observations. The solid red region (lighter shade = 3\u03c3, darker shade = 2\u03c3) represents the excluded parameter space. The x-axis is labeled 'm_a [MeV]' spanning 0.1 to 100 MeV, which converts to 1e5 to 1e8 eV. The y-axis is labeled 'g_agamma [GeV^-1]' spanning 1e-13 to 1e-8 GeV^-1. The lower boundary of the exclusion region (the constraint curve) has been traced by sampling densely at the steep lower-left portion and more sparsely along the flatter upper-right portion. The boundary shows a characteristic rise with mass, consistent with the photon coalescence production mechanism becoming more efficient at higher ALP masses. The black dashed line represents the SN 1987A bound from Ref. [19], and the red dashed contours show Case 1 and Case 2 sensitivity estimates. Confidence is moderate (0.65) due to the complexity of reading the exact boundary from the colored exclusion region and the presence of multiple overlapping constraints. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=6.82)",
+ "num_points": 30,
+ "elapsed_s": 347.48172211647034
+}

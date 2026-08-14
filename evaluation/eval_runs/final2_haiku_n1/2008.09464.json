@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "2008.09464",
+ "paper_title": "Limits on axion-like particles from Mrk 421 with 4.5-year period observations by ARGO-YBJ and Fermi-LAT",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-10,
+   6e-10
+  ],
+  [
+   1.5e-10,
+   5.5e-10
+  ],
+  [
+   2e-10,
+   5.200000000000001e-10
+  ],
+  [
+   3e-10,
+   4.8e-10
+  ],
+  [
+   5e-10,
+   4.2e-10
+  ],
+  [
+   7e-10,
+   3.8e-10
+  ],
+  [
+   1e-09,
+   3.2e-10
+  ],
+  [
+   1.5e-09,
+   2.6000000000000003e-10
+  ],
+  [
+   2e-09,
+   2.2000000000000002e-10
+  ],
+  [
+   3e-09,
+   1.6e-10
+  ],
+  [
+   5e-09,
+   1.1000000000000001e-10
+  ],
+  [
+   7e-09,
+   8.499999999999999e-11
+  ],
+  [
+   1e-08,
+   6.2e-11
+  ],
+  [
+   1.5e-08,
+   4.7999999999999996e-11
+  ],
+  [
+   2e-08,
+   4e-11
+  ],
+  [
+   3e-08,
+   3.2e-11
+  ],
+  [
+   5e-08,
+   2.4999999999999998e-11
+  ],
+  [
+   7e-08,
+   2.1999999999999998e-11
+  ],
+  [
+   1e-07,
+   2e-11
+  ],
+  [
+   1.5e-07,
+   1.9e-11
+  ],
+  [
+   2e-07,
+   1.85e-11
+  ],
+  [
+   3e-07,
+   1.8e-11
+  ],
+  [
+   5e-07,
+   1.9e-11
+  ],
+  [
+   7e-07,
+   2.1e-11
+  ],
+  [
+   1e-06,
+   2.4999999999999998e-11
+  ],
+  [
+   1.5e-06,
+   3.2e-11
+  ],
+  [
+   2e-06,
+   4e-11
+  ],
+  [
+   3e-06,
+   5.5000000000000004e-11
+  ],
+  [
+   5e-06,
+   8e-11
+  ],
+  [
+   1e-05,
+   1.2e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "ARGO-YBJ and Fermi-LAT combined Mrk 421 observations",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis",
+ "notes": "Paper reports combined 95% C.L. upper limit on ALP-photon coupling g_agamma from 4.5-year observations of blazar Mrk 421 using ARGO-YBJ and Fermi-LAT data across ten activity phases. The constraint is mass-dependent, spanning the range ~[2\u00d710^-11, 6\u00d710^-11] GeV^-1 for ALP mass ~5\u00d710^-10 eV \u2272 m_a \u2272 5\u00d710^-7 eV. Encoded as a two-point horizontal line connecting the lower and upper bounds of the coupling range at the mass extremes. No significant ALP-photon oscillation effect was detected. The limit extends the excluded region compared to CAST and other astrophysical constraints, particularly for m_a \u2272 2\u00d710^-9 eV and near m_a \u2243 2\u00d710^-7 eV. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 30)) | Vision: Exclusion boundary traced from FIG. 6 (main combined limit plot). The red contour represents the excluded region at 95% C.L. from combined ARGO-YBJ and Fermi-LAT observations of Mrk 421. The boundary shows a characteristic shape with a minimum coupling around 1e-8 eV and rises steeply at lower masses. The CAST limit (g_agamma < 6.6e-11 GeV^-1) is shown as a horizontal line at the top. The plot also shows constraints from H.E.S.S., PKS 2155-304, and NGC 1275 for comparison. Sampling is denser near the minimum (1e-9 to 1e-7 eV) where the boundary changes slope, and sparser in the smooth regions at very low and high masses. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=3.44)",
+ "num_points": 30,
+ "elapsed_s": 440.12076711654663
+}

@@ -1,0 +1,126 @@
+{
+ "arxiv_id": "2211.03414",
+ "paper_title": "Constraints on axionlike particles from a combined analysis of three flaring $\\textit{Fermi}$ flat-spectrum radio quasars",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   6e-09,
+   8e-12
+  ],
+  [
+   7e-09,
+   6.5e-12
+  ],
+  [
+   8e-09,
+   5.8e-12
+  ],
+  [
+   9e-09,
+   5.4e-12
+  ],
+  [
+   1e-08,
+   5.2e-12
+  ],
+  [
+   1.2e-08,
+   5e-12
+  ],
+  [
+   1.5e-08,
+   5e-12
+  ],
+  [
+   1.8e-08,
+   5.1e-12
+  ],
+  [
+   2.2e-08,
+   5.3e-12
+  ],
+  [
+   2.7e-08,
+   5.6e-12
+  ],
+  [
+   3.2e-08,
+   6e-12
+  ],
+  [
+   4e-08,
+   6.8e-12
+  ],
+  [
+   5e-08,
+   7.8e-12
+  ],
+  [
+   6e-08,
+   9e-12
+  ],
+  [
+   7e-08,
+   1.05e-11
+  ],
+  [
+   8.5e-08,
+   1.25e-11
+  ],
+  [
+   1e-07,
+   1.5e-11
+  ],
+  [
+   1.2e-07,
+   1.8e-11
+  ],
+  [
+   1.4e-07,
+   2.2e-11
+  ],
+  [
+   1.6e-07,
+   2.6e-11
+  ],
+  [
+   1.8e-07,
+   3.1e-11
+  ],
+  [
+   2e-07,
+   3.6e-11
+  ],
+  [
+   2.2e-07,
+   4.5e-11
+  ],
+  [
+   2.4e-07,
+   5.8e-11
+  ],
+  [
+   2.6e-07,
+   7.5e-11
+  ],
+  [
+   2.8e-07,
+   9e-11
+  ],
+  [
+   3e-07,
+   1e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "Fermi-LAT combined FSRQ analysis (3C454.3, CTA102, 3C279)",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted",
+ "notes": "Gamma-ray blazar ALP-photon mixing search. Main quoted exclusion: 5 neV <~ m_a <~ 200 neV and g_agamma >~ 5e-12 GeV^-1 at 95% CL. Detailed 2D exclusion contours in Figs 8-9 are not tabulated numerically in the text; data_points encode the horizontal lower-coupling boundary of the excluded region over the stated mass range. Not a DM haloscope, so no local density assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 27)) | Vision: Traced the white 95% exclusion contour from Figure 8 (combined lambda_tot analysis). Excluded region is above the boundary. The text states exclusion covers 5 neV < m_a < 200 neV and g_agamma > 5e-12 GeV^-1. Minimum coupling ~5e-12 GeV^-1 near m_a~15 neV, rising toward higher masses in a diagonal boundary. Consistent with Figure 9 combined contour. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.56 snapped to identity)",
+ "num_points": 27,
+ "elapsed_s": 244.45701098442078
+}

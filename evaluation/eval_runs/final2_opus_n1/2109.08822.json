@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2109.08822",
+ "paper_title": "EotWashDM",
+ "coupling_type": "VectorBL",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   8e-18,
+   1e-25
+  ],
+  [
+   2e-18,
+   3e-25
+  ],
+  [
+   2e-16,
+   3e-24
+  ],
+  [
+   4e-19,
+   5e-24
+  ],
+  [
+   2.07e-16,
+   5e-24
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "EotWashDM",
+ "coupling_convention": "dimensionless g_BL(hbar c)^-1/2",
+ "notes": "Torsion-balance search for B-L coupled ultralight vector dark matter. Best limit g_BL(hbar c)^-1/2 < 1e-25 at m_DM = 8e-18 eV. Mass range 0.4e-18 to 206.8e-18 eV (0.1-50 mHz). Data points approximate from text/Fig 5; exact curve values not tabulated. Limits scale as 1/sqrt(f) below resonance (1.934 mHz) and as f above. The 1e-25 point is the quoted best value; other points are rough estimates of the exclusion curve shape. | selector: text (sole candidate)",
+ "num_points": 5,
+ "elapsed_s": 24.080543041229248
+}

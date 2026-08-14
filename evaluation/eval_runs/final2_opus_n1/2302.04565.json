@@ -1,0 +1,146 @@
+{
+ "arxiv_id": "2302.04565",
+ "paper_title": "QSNET",
+ "coupling_type": "ScalarPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-20,
+   1e-06
+  ],
+  [
+   1.5e-20,
+   1.6e-06
+  ],
+  [
+   2e-20,
+   1.3e-06
+  ],
+  [
+   3e-20,
+   8e-06
+  ],
+  [
+   4e-20,
+   4.9999999999999996e-06
+  ],
+  [
+   5e-20,
+   8e-06
+  ],
+  [
+   6.3e-20,
+   3.2e-06
+  ],
+  [
+   7.9e-20,
+   6.3e-06
+  ],
+  [
+   1e-19,
+   4.9999999999999996e-06
+  ],
+  [
+   1.3e-19,
+   9.999999999999999e-06
+  ],
+  [
+   1.6e-19,
+   6.3e-06
+  ],
+  [
+   2e-19,
+   8e-06
+  ],
+  [
+   2.5e-19,
+   6.3e-06
+  ],
+  [
+   3.2e-19,
+   9.999999999999999e-06
+  ],
+  [
+   4e-19,
+   8e-06
+  ],
+  [
+   5e-19,
+   1.3000000000000001e-05
+  ],
+  [
+   6.3e-19,
+   1.6e-05
+  ],
+  [
+   7.9e-19,
+   1.9999999999999998e-05
+  ],
+  [
+   1e-18,
+   2.5e-05
+  ],
+  [
+   1.3e-18,
+   3.2e-05
+  ],
+  [
+   1.6e-18,
+   3.9999999999999996e-05
+  ],
+  [
+   2e-18,
+   5e-05
+  ],
+  [
+   2.5e-18,
+   6.3e-05
+  ],
+  [
+   3.2e-18,
+   7.999999999999999e-05
+  ],
+  [
+   4e-18,
+   0.0001
+  ],
+  [
+   5e-18,
+   0.00013
+  ],
+  [
+   6.3e-18,
+   0.00015999999999999999
+  ],
+  [
+   7.9e-18,
+   0.0002
+  ],
+  [
+   1e-17,
+   0.00025
+  ],
+  [
+   1.3e-17,
+   0.00031999999999999997
+  ],
+  [
+   1.6e-17,
+   0.0004
+  ],
+  [
+   2e-17,
+   0.0005
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "QSNET Yb+/Sr clock comparison",
+ "coupling_convention": "d_gamma^(1) linear scalar-photon coupling, dimensionless (plotted as log10[d_gamma^(1)])",
+ "notes": " | selector: figure_vision (sole candidate) | Vision: Figure 6 top panel: constraint on linear scalar-photon coupling d_gamma^(1) from Yb+/Sr clock ratio. Lower boundary traced from the Yb+/Sr fit (red) curve; the region above is excluded. X-axis is log10[m_phi/eV] from -20 to ~-16.7. Y-axis log10[d_gamma^(1)] from -8 to -1. The 95% C.L. (light red) line lies slightly above the fit. Coupling identified as ScalarPhoton (variation of alpha, d_gamma). The oscillatory low-mass region introduces bumps in the boundary. Values approximate given noisy red curve. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=19.75)",
+ "num_points": 32,
+ "elapsed_s": 192.53313302993774
+}

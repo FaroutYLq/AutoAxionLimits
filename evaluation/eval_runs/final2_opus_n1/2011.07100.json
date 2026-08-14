@@ -1,0 +1,150 @@
+{
+ "arxiv_id": "2011.07100",
+ "paper_title": "Search of spin-dependent fifth forces with precision magnetometry",
+ "coupling_type": "MonopoleDipole",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.00041,
+   1e-27
+  ],
+  [
+   0.0003,
+   5e-28
+  ],
+  [
+   0.0002,
+   2e-28
+  ],
+  [
+   0.00015,
+   1e-28
+  ],
+  [
+   0.0001,
+   5e-29
+  ],
+  [
+   7e-05,
+   2e-29
+  ],
+  [
+   5e-05,
+   1e-29
+  ],
+  [
+   3e-05,
+   5e-30
+  ],
+  [
+   2e-05,
+   2e-30
+  ],
+  [
+   1.5e-05,
+   1e-30
+  ],
+  [
+   1.24e-05,
+   8e-31
+  ],
+  [
+   1e-05,
+   6.5e-31
+  ],
+  [
+   8e-06,
+   6e-31
+  ],
+  [
+   6e-06,
+   5.8e-31
+  ],
+  [
+   4e-06,
+   5.7e-31
+  ],
+  [
+   2e-06,
+   5.7e-32
+  ],
+  [
+   1.24e-06,
+   5.7e-32
+  ],
+  [
+   8e-07,
+   5.7e-32
+  ],
+  [
+   4e-07,
+   5.7e-32
+  ],
+  [
+   2e-07,
+   5.7e-32
+  ],
+  [
+   1e-07,
+   5.7e-32
+  ],
+  [
+   5e-08,
+   5.7e-32
+  ],
+  [
+   2e-08,
+   5.7e-32
+  ],
+  [
+   1e-08,
+   5.7e-32
+  ],
+  [
+   5e-09,
+   5.7e-32
+  ],
+  [
+   2e-09,
+   5.7e-32
+  ],
+  [
+   1e-09,
+   5.7e-32
+  ],
+  [
+   5e-10,
+   5.7e-32
+  ],
+  [
+   2e-10,
+   5.7e-32
+  ],
+  [
+   1.24e-10,
+   5.7e-32
+  ],
+  [
+   5e-11,
+   6e-32
+  ],
+  [
+   2e-11,
+   7e-32
+  ],
+  [
+   1.24e-11,
+   1e-31
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.72,
+ "suggested_experiment_name": "SQUID magnetometry spin-mass (Crescini et al. This work)",
+ "coupling_convention": "g_p^e g_s^N, dimensionless product of pseudoscalar-electron and scalar-nucleon couplings, as plotted",
+ "notes": "SQUID-magnetometer spin-mass fifth force search. The paper reports g_p^e g_s^N <= 5.7e-32 for lambda >~ 10 cm (electron-nucleon monopole-dipole), and g_p^e g_s^e <= 1.6e-31 for electron-electron. Text gives flat-ish bounds valid over ranges 1cm-10m and 10km-300km; the exact mass-dependent curve is in Fig.4 (not numerically tabulated). Encoded the electron-nucleon limit as a horizontal line spanning roughly the mass range shown on the axis (approx 0.002 to 20 ueV -> ~2e-9 to ~2e-5 eV). Masses given are approximate from lambda = h/mc for cm-to-hundreds-of-km ranges; used representative span. Convention g_p^e g_s^N matches MonopoleDipole g_s*g_p product. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.72, 33)) | Vision: Traced the blue 'This work' (SQUID and paramagnets) lower boundary from Fig.4 upper panel. X-axis converted from lambda[m] to mass[eV] via m=1.240e-6/lambda (Compton wavelength), consistent with the top m[mueV] axis. Text confirms best limit g_p^e g_s^N <= 5.7e-32 for lambda >~ 10 cm (m <~ 1.24e-5 eV). The flat plateau of the excluded boundary is at ~5.7e-32 across the long-lambda (low-mass) region, rising steeply at short lambda (high mass). Note plot y-axis quantity is the product g_p^e g_s^N. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.75 snapped to identity)",
+ "num_points": 33,
+ "elapsed_s": 272.535719871521
+}

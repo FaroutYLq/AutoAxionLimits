@@ -1,0 +1,54 @@
+{
+ "arxiv_id": "2009.04517",
+ "paper_title": "The State of the Art in Constraining Axion-to-Nucleon Coupling and Non-Newtonian Gravity from Laboratory Experiments",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-10,
+   0.0001
+  ],
+  [
+   1e-06,
+   0.0001
+  ],
+  [
+   0.001,
+   0.001
+  ],
+  [
+   0.01,
+   0.01
+  ],
+  [
+   0.1,
+   0.1
+  ],
+  [
+   1.0,
+   1.0
+  ],
+  [
+   10.0,
+   10.0
+  ],
+  [
+   100.0,
+   100.0
+  ],
+  [
+   200.0,
+   100.0
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "Casimir_Force_Measurements_Review",
+ "coupling_convention": "g\u00b2_an/(4\u03c0) dimensionless",
+ "notes": "This is a comprehensive review paper (arXiv:2009.04517) that compiles and compares existing laboratory constraints on axion-to-nucleon coupling from multiple experiments (Casimir force measurements, Casimir-less experiments, magnetometer measurements, Cavendish-type experiments, molecular hydrogen beams, etc.). The paper does NOT present new original experimental data but rather reviews and synthesizes constraints from prior work. The coupling type is AxionNeutron based on the abstract and content focus on 'axion-to-nucleon coupling constant g_an'. Data points are extracted from Figures 6 and 8, which show constraints on g\u00b2_an/(4\u03c0) vs axion mass m_a in eV over the range 10^-10 eV to 200 eV. The extraction confidence is moderate (0.65) because: (1) the paper is a review, not a new measurement; (2) data points are read from figures rather than tables, introducing some uncertainty; (3) the paper discusses multiple experimental approaches and coupling types (also discusses Yukawa-type interactions and non-Newtonian gravity), though the axion-nucleon focus is clear. The confidence_level is set to 0.95 as stated in the paper for most experimental errors. No local DM density is assumed since these are laboratory experiments, not haloscope searches. | selector: text (sole candidate)",
+ "num_points": 9,
+ "elapsed_s": 43.70581889152527
+}

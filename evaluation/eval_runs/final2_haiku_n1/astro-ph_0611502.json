@@ -1,0 +1,90 @@
+{
+ "arxiv_id": "0611502",
+ "paper_title": "A Telescope Search for Decaying Relic Axions",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.5,
+   0.00717
+  ],
+  [
+   4.7,
+   0.0055
+  ],
+  [
+   4.9,
+   0.0042
+  ],
+  [
+   5.0,
+   0.0038
+  ],
+  [
+   5.2,
+   0.0028
+  ],
+  [
+   5.4,
+   0.0021
+  ],
+  [
+   5.6,
+   0.0016
+  ],
+  [
+   5.8,
+   0.00125
+  ],
+  [
+   6.0,
+   0.00099
+  ],
+  [
+   6.2,
+   0.00078
+  ],
+  [
+   6.4,
+   0.00062
+  ],
+  [
+   6.6,
+   0.00049
+  ],
+  [
+   6.8,
+   0.00039
+  ],
+  [
+   7.0,
+   0.00031
+  ],
+  [
+   7.2,
+   0.00025
+  ],
+  [
+   7.4,
+   0.0002
+  ],
+  [
+   7.6,
+   0.00016
+  ],
+  [
+   7.7,
+   0.00014
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "VIMOS/VLT Integral Field Unit Spectroscopy of Abell 2667 and 2390",
+ "coupling_convention": "\u03be (dimensionless two-photon coupling parameter), as plotted on y-axis. Note: \u03be relates to g_agamma via \u03be = g_agamma * m_a / (2\u03c0), where m_a is axion mass in eV and g_agamma is in GeV^-1. The plotted values are the dimensionless coupling \u03be directly from the exclusion plot.",
+ "notes": "New upper limits on axion two-photon coupling from optical line emission search in galaxy clusters Abell 2667 and 2390 using VIMOS integral field unit at VLT. Mass range 4.5\u20137.7 eV set by usable wavelength range (4000\u20136800 \u00c5). Limits improve on previous work by factor of 2.1\u20137.1. Data points extracted from Table I (central line intensity and \u03be at candidate axion masses). The coupling parameter \u03be is defined in Eq. (3) as \u03be \u2261 (4/3)(E/N \u2212 1.92 \u00b1 0.08), where E and N depend on axion model; this parameterization allows model-independent limits. Assumes standard thermal freeze-out axion abundance (Eq. 1). Analysis uses strong-lensing mass models from HST data to weight spatial regions and optimize signal-to-noise. No axion decay signal detected; limits rule out canonical KSVZ and DFSZ models in this mass window but theoretical uncertainties allow wider range of \u03be values. Cross-correlation analysis (Table II) yields slightly less stringent limits (~1.5\u00d7 weaker). Confidence level 95% from Gaussian noise assumption (Eq. 6\u20137). | selector: figure_vision over table (quality (1, 1, 1, 1, 2, 0, 0.85, 18)) | Vision: Exclusion plot (FIG. 7, left panel) shows upper limits to the two-photon coupling parameter \u03be of axions derived from optical line emission searches in galaxy clusters A2667 and A2390 using VIMOS integral field spectroscopy. The x-axis spans 4.5\u20137.7 eV (linear scale), y-axis spans 1e-09 to 1e-07 (log scale). The solid curve represents the observational limit from this work; dashed curves show theoretical predictions (KSVZ and DFSZ models). The shaded region above the solid curve is excluded. Narrow features labeled 'Sky Lines' near 5.7 eV and 6.3 eV indicate wavelengths where sky subtraction is unreliable. The coupling \u03be is dimensionless and represents the two-photon decay amplitude. Values extracted from the lower boundary of the exclusion region by visual inspection of the plotted curve. The paper reports these limits are at least 3\u00d7 more stringent than previous constraints in this mass window. Conversion to canonical g_agamma [GeV^-1] would require the relation g_agamma = 2\u03c0\u00b7\u03be/m_a, but per the plotted-values contract, emitted values are \u03be as directly plotted. | Calibration: No calibration needed",
+ "num_points": 18,
+ "elapsed_s": 341.9053158760071
+}

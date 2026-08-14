@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "2012.10764",
+ "paper_title": "First Results from Axion Haloscope at CAPP around 10.7 $\u03bc$eV",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.016e-05,
+   6.5e-14
+  ],
+  [
+   1.034e-05,
+   6.5e-14
+  ],
+  [
+   1.037e-05,
+   6.5e-14
+  ],
+  [
+   1.071e-05,
+   6.5e-14
+  ],
+  [
+   1.077e-05,
+   6.5e-14
+  ],
+  [
+   1.137e-05,
+   6.5e-14
+  ],
+  [
+   1.07126e-05,
+   7.2e-15
+  ],
+  [
+   1.07186e-05,
+   7.2e-15
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "CAPP-PACE",
+ "coupling_convention": "g_agamma in GeV^-1 (approximate, from KSVZ scaling)",
+ "notes": "Haloscope search near 10.7 ueV. Two sensitivity levels: ~KSVZ over 10.7126-10.7186 ueV and ~9x KSVZ (8-10x) over 10.16-11.37 ueV. KSVZ g_agamma at this mass ~8e-16 to 1e-15 GeV^-1; the paper does not tabulate explicit g_agamma values so the coupling values here are rough estimates from KSVZ scaling (KSVZ ~ 0.8e-15 GeV^-1 near 2.6 GHz, times 9 ~ 7e-15; approximate). Values should be treated as order-of-magnitude only. Actual limit numbers should ideally be read from Fig. 4 which is not numerically available in text. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 14.1 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+ "num_points": 8,
+ "elapsed_s": 104.74598240852356
+}

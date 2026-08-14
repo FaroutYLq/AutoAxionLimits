@@ -1,0 +1,94 @@
+{
+ "arxiv_id": "2204.01454",
+ "paper_title": "New Limit on Axion-Like Dark Matter using Cold Neutrons",
+ "coupling_type": "AxionEDM",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.5e-19,
+   6e-13
+  ],
+  [
+   2e-19,
+   3e-13
+  ],
+  [
+   3e-19,
+   2e-13
+  ],
+  [
+   5e-19,
+   1.5e-13
+  ],
+  [
+   1e-18,
+   1.2e-13
+  ],
+  [
+   3e-18,
+   1.1e-13
+  ],
+  [
+   1e-17,
+   1e-13
+  ],
+  [
+   3e-17,
+   9e-14
+  ],
+  [
+   1e-16,
+   9e-14
+  ],
+  [
+   3e-16,
+   1e-13
+  ],
+  [
+   1e-15,
+   1.2e-13
+  ],
+  [
+   3e-15,
+   1.5e-13
+  ],
+  [
+   1e-14,
+   2e-13
+  ],
+  [
+   3e-14,
+   4e-13
+  ],
+  [
+   1e-13,
+   1e-12
+  ],
+  [
+   3e-13,
+   3e-12
+  ],
+  [
+   1e-12,
+   1e-11
+  ],
+  [
+   2e-12,
+   3e-11
+  ],
+  [
+   4e-12,
+   1e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "Beam EDM (cold neutron ALP search)",
+ "coupling_convention": "C_G/f_a in GeV^-1 as plotted on y-axis (NOT d_n in e cm)",
+ "notes": " | selector: figure_vision (sole candidate) | Vision: The exclusion plot (Fig 4) plots C_G/f_a [GeV^-1] vs mass [eV], NOT d_n in e cm. Per plotted-values contract, emitted values are C_G/f_a as read from the y-axis. The lower boundary of the 'Beam EDM' pink region (solid line, deterministic model) is traced. The best limit C_G/f_a*m_a=2.7e13 GeV^-2 corresponds to the flat minimum around 1e-17 to 2e-14 eV. Coupling type flagged as AxionEDM per hint, but note the plotted quantity is the ALP-gluon coupling C_G/f_a, not neutron EDM directly; confidence lowered accordingly. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=3.00 snapped to identity) | contract: median outside VALID_RANGES after corrections (flagged low confidence) | [CONVENTION REVIEW] declared coupling convention 'C_G/f_a in GeV^-1 as plotted on y-axis (NOT d_n in e cm)' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 19,
+ "elapsed_s": 258.49338603019714
+}

@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2012.09498",
+ "paper_title": "Search for invisible axion dark matter of mass m$_a=43~\u03bc$eV with the QUAX--$a\u03b3$ experiment",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.3e-05,
+   7.66e-14
+  ],
+  [
+   4.3e-05,
+   7.66e-14
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.95,
+ "suggested_experiment_name": "QUAX_a\u03b3_2021",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Haloscope search for axion dark matter at m_a \u2248 43 \u00b5eV (4.3e-5 eV). The paper reports a 90% C.L. upper limit of g_agamma < 0.766 \u00d7 10^-13 GeV^-1 at the cavity resonance frequency \u03bd_c = 10.40176 GHz, corresponding to axion mass m_a = 43.0182 \u00b5eV. The limit is valid in a narrow mass window of \u0394m_a = 3.7 neV around the central mass. Local DM density assumed \u03c1_a \u2248 0.45 GeV/cm\u00b3 (standard galactic halo model). The experiment uses a copper cavity in an 8.1 T magnetic field cooled to ~150-200 mK with a Josephson parametric amplifier at the SQL. Data collected over ~1 hour (4203 s). No signal detected; result interpreted as exclusion limit. The coupling value is encoded as a horizontal line (mass-independent within the narrow search window) at the two endpoints of the mass range. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.95, 2))",
+ "num_points": 2,
+ "elapsed_s": 324.17708015441895
+}

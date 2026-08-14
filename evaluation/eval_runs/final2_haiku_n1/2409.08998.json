@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2409.08998",
+ "paper_title": "Dark Matter Axion Search with HAYSTAC Phase II",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.728e-05,
+   2.75e-10
+  ],
+  [
+   1.844e-05,
+   2.75e-10
+  ],
+  [
+   1.871e-05,
+   2.96e-10
+  ],
+  [
+   1.946e-05,
+   2.96e-10
+  ],
+  [
+   1.696e-05,
+   2.86e-10
+  ],
+  [
+   1.946e-05,
+   2.86e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "HAYSTAC_Phase_IIcd",
+ "coupling_convention": "dimensionless |g_\u03b3| in units of |g_\u03b3^KSVZ|",
+ "notes": "HAYSTAC Phase II (IIc/d) reports exclusion limits on axion-photon coupling |g_\u03b3| expressed as multiples of the KSVZ benchmark value |g_\u03b3^KSVZ| = -0.97. Three distinct exclusion regions are reported: (1) Phase IIc (17.28\u201318.44 \u00b5eV): |g_\u03b3| \u2265 2.75\u00d7|g_\u03b3^KSVZ|; (2) Phase IId (18.71\u201319.46 \u00b5eV): |g_\u03b3| \u2265 2.96\u00d7|g_\u03b3^KSVZ|; (3) Combined Phase II (16.96\u201319.46 \u00b5eV): |g_\u03b3| \u2265 2.86\u00d7|g_\u03b3^KSVZ|. The coupling values are dimensionless ratios to KSVZ. To convert to absolute g_\u03b3 in GeV^-1, multiply by |g_\u03b3^KSVZ| \u2248 0.97 \u00d7 10^-10 GeV^-1 (standard KSVZ value). Data points encode the mass ranges and corresponding coupling limits at 90% CL. Local DM density \u03c1_a = 0.45 GeV/cm\u00b3 is explicitly stated in the signal power formula. The experiment uses a squeezed state receiver to achieve sub-quantum-limited noise and demonstrates a scan rate enhancement E \u2248 1.7 relative to quantum-limited operation. No axion signal was detected; 12 RFI candidates were identified and vetoed. Uncertainty on reported |g_\u03b3| is 9.2%. | selector: text over figure_vision (quality (1, 1, 1, 0, 3, 0, 0.92, 6)) | [CONVENTION REVIEW] declared coupling convention 'dimensionless |g_\u03b3| in units of |g_\u03b3^KSVZ|' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 6,
+ "elapsed_s": 190.9627559185028
+}

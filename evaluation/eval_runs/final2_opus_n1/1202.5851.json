@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1202.5851",
+ "paper_title": "Production of dark matter axions from collapse of string-wall systems",
+ "coupling_type": "AxionMass",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.001,
+   1000000000.0
+  ],
+  [
+   0.01,
+   10000000000.0
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "Hiramatsu2012_StringWall",
+ "coupling_convention": "f_a (F_a) in GeV vs m_a in eV",
+ "notes": "Cosmological bound on the axion decay constant from collapse of string-wall systems. Main result: Fa <= (2.0-3.8)x10^10 GeV (Eq. 96), combined with astrophysical lower bound Fa >~ 10^9 GeV gives allowed window Fa ~ 10^9-10^10 GeV corresponding to m_a ~ 10^-3 to 10^-2 eV. Data points encode this allowed region on the f_a-m_a plane (approximate; the relation is m_a ~ 6e-6 eV / (Fa/10^12 GeV)). No exclusion plot with a coupling constant on the y-axis; primary result is on Fa itself, so AxionMass is appropriate. Confidence limited because the result is a scalar bound rather than a tabulated mass-coupling curve. | selector: text (sole candidate) | Range snap SUPPRESSED (declared convention non-canonical; a decade snap cannot fix a convention mismatch): median mass 1.0e-02 / coupling 1.0e+10 vs windows [1e-24,1e+18] / [1e-12,1e+03] | contract: median outside VALID_RANGES after corrections (flagged low confidence) | [CONVENTION REVIEW] declared coupling convention 'f_a (F_a) in GeV vs m_a in eV' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 2,
+ "elapsed_s": 93.92656111717224
+}

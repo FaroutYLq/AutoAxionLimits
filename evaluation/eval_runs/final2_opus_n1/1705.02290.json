@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "1705.02290",
+ "paper_title": "New CAST Limit on the Axion-Photon Interaction",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0001,
+   6.6e-11
+  ],
+  [
+   0.0003,
+   6.6e-11
+  ],
+  [
+   0.001,
+   6.6e-11
+  ],
+  [
+   0.003,
+   6.6e-11
+  ],
+  [
+   0.006,
+   6.6e-11
+  ],
+  [
+   0.01,
+   6.6e-11
+  ],
+  [
+   0.015,
+   6.7e-11
+  ],
+  [
+   0.02,
+   7e-11
+  ],
+  [
+   0.025,
+   8e-11
+  ],
+  [
+   0.03,
+   1e-10
+  ],
+  [
+   0.033,
+   1.2e-10
+  ],
+  [
+   0.036,
+   1.5e-10
+  ],
+  [
+   0.04,
+   1.7e-10
+  ],
+  [
+   0.043,
+   1.6e-10
+  ],
+  [
+   0.046,
+   1.8e-10
+  ],
+  [
+   0.05,
+   2.1e-10
+  ],
+  [
+   0.055,
+   2.4e-10
+  ],
+  [
+   0.06,
+   2.3e-10
+  ],
+  [
+   0.065,
+   2.5e-10
+  ],
+  [
+   0.07,
+   2.8e-10
+  ],
+  [
+   0.08,
+   3e-10
+  ],
+  [
+   0.09,
+   3.2e-10
+  ],
+  [
+   0.1,
+   3.3e-10
+  ],
+  [
+   0.12,
+   3.4e-10
+  ],
+  [
+   0.15,
+   3.5e-10
+  ],
+  [
+   0.2,
+   3.6e-10
+  ],
+  [
+   0.3,
+   3.7e-10
+  ],
+  [
+   0.5,
+   3.8e-10
+  ],
+  [
+   0.8,
+   3.9e-10
+  ],
+  [
+   1.0,
+   4e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "CAST 2017 (vacuum phase)",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted",
+ "notes": "CAST helioscope solar axion search (2013-2015 vacuum phase). World-leading limit g_agamma < 0.66e-10 GeV^-1 at 95% C.L. for m_a <= 0.02 eV. Limit is essentially flat below ~0.02 eV; encoded as horizontal line from 1e-4 to 0.02 eV where coherence is maintained. Not a DM haloscope (solar axion source), so no DM density assumption. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 30)) | Vision: Red 'This work' line traced. Flat limit ~6.6e-10... corrected: quoted result g_agamma < 0.66e-10 GeV^-1 = 6.6e-11 at low mass. Boundary rises above ~0.02 eV due to loss of coherence. Values converted using y-axis ticks 1e-11,1e-10,1e-9. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.96 snapped to identity)",
+ "num_points": 30,
+ "elapsed_s": 194.7083547115326
+}

@@ -1,0 +1,166 @@
+{
+ "arxiv_id": "1503.06886",
+ "paper_title": "DyDy",
+ "coupling_type": "ScalarPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-24,
+   2.5e-06
+  ],
+  [
+   3.16e-24,
+   1.6e-06
+  ],
+  [
+   1e-23,
+   8e-07
+  ],
+  [
+   3.16e-23,
+   3.2e-07
+  ],
+  [
+   1e-22,
+   1e-07
+  ],
+  [
+   1.6e-22,
+   4.5e-08
+  ],
+  [
+   2.5e-22,
+   4.2e-08
+  ],
+  [
+   4e-22,
+   6e-08
+  ],
+  [
+   6.3e-22,
+   1e-07
+  ],
+  [
+   1e-21,
+   1.6e-07
+  ],
+  [
+   1.6e-21,
+   2.5e-07
+  ],
+  [
+   2.5e-21,
+   4e-07
+  ],
+  [
+   4e-21,
+   6.3e-07
+  ],
+  [
+   6.3e-21,
+   1e-06
+  ],
+  [
+   1e-20,
+   1.6e-06
+  ],
+  [
+   1.6e-20,
+   2.5e-06
+  ],
+  [
+   3.16e-20,
+   4e-06
+  ],
+  [
+   1e-19,
+   5e-06
+  ],
+  [
+   1.6e-19,
+   8e-06
+  ],
+  [
+   3.16e-19,
+   1.6e-05
+  ],
+  [
+   6.3e-19,
+   2.5e-05
+  ],
+  [
+   1e-18,
+   3e-05
+  ],
+  [
+   1.6e-18,
+   2.2e-05
+  ],
+  [
+   2.5e-18,
+   1.6e-05
+  ],
+  [
+   4e-18,
+   1.3e-05
+  ],
+  [
+   6.3e-18,
+   1.4e-05
+  ],
+  [
+   1e-17,
+   1.6e-05
+  ],
+  [
+   1.6e-17,
+   2.2e-05
+  ],
+  [
+   2.5e-17,
+   3.2e-05
+  ],
+  [
+   4e-17,
+   5e-05
+  ],
+  [
+   6.3e-17,
+   8e-05
+  ],
+  [
+   1e-16,
+   0.00013
+  ],
+  [
+   1.6e-16,
+   0.0002
+  ],
+  [
+   2.5e-16,
+   0.00032
+  ],
+  [
+   4e-16,
+   0.00055
+  ],
+  [
+   6.3e-16,
+   0.0009
+  ],
+  [
+   1e-15,
+   0.0015
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.82,
+ "suggested_experiment_name": "Dysprosium spectroscopy (Dy) scalar DM search",
+ "coupling_convention": "d_e, dimensionless (log10 d_e plotted)",
+ "notes": "Scalar dilaton-like coupling d_e to photons inducing alpha oscillations. Paper quotes de ~ 4.2e-8 at most sensitive window m ~ 1e-22 eV, and limits exceed EP tests (de < 3.6e-4) below 3e-18 eV. Main result is in the mphi-de plane (Fig 4), but full curve not tabulated. Data points here are approximate anchor values from text; actual curve spans m < 1e-15 eV with de rising toward higher masses. Local DM density 0.3 GeV/cm^3 assumed (haloscope-like). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.82, 37)) | Vision: Two observed limit curves: LT data (2010-2012) covering low masses ~1e-24 to 1e-20 eV with best sensitivity d_e~4e-8 around 1e-22 eV; ST data (19 Oct 2012) covering higher masses ~1e-18 to 1e-15 eV. Gray region above ~1e-4 excluded by equivalence principle tests. Both axes log10; x in eV, y is d_e coupling to photons (alpha variation). Points converted from log10 values. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.25 snapped to identity)",
+ "num_points": 37,
+ "elapsed_s": 185.96634697914124
+}

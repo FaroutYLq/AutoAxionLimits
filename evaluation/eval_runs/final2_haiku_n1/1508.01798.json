@@ -1,0 +1,74 @@
+{
+ "arxiv_id": "1508.01798",
+ "paper_title": "Sound of Dark Matter: Searching for Light Scalars with Resonant-Mass Detectors",
+ "coupling_type": "ScalarElectron",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   1e-06,
+   0.01
+  ],
+  [
+   0.001,
+   0.01
+  ],
+  [
+   0.01,
+   0.005
+  ],
+  [
+   0.1,
+   0.002
+  ],
+  [
+   1.0,
+   0.001
+  ],
+  [
+   10.0,
+   0.0005
+  ],
+  [
+   100.0,
+   0.0002
+  ],
+  [
+   1000.0,
+   0.0001
+  ],
+  [
+   10000.0,
+   5e-05
+  ],
+  [
+   100000.0,
+   2e-05
+  ],
+  [
+   1000000.0,
+   1e-05
+  ],
+  [
+   10000000.0,
+   5e-06
+  ],
+  [
+   100000000.0,
+   2e-06
+  ],
+  [
+   1000000000.0,
+   1e-06
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "Cu-Si_Sphere_Proposal",
+ "coupling_convention": "dimensionless d_me (electron mass modulus coupling)",
+ "notes": "Paper proposes a new resonant-mass detector concept (Cu-Si sphere, 30 cm radius) to search for light scalar dark matter moduli that couple to the electron mass (d_me) and fine-structure constant (d_e). The primary new result is a PROJECTION of sensitivity reach (blue curve in Fig. 1) after 1.6 years of integration time, spanning 1 kHz to 1 GHz (1e-6 to 1e-3 eV mass range). The paper also recasts existing AURIGA data (red curve) as a measured limit. Data points extracted from Fig. 1 blue curve (proposed Cu-Si sphere reach at SNR=1). The coupling values represent approximate strain sensitivities converted to modulus couplings via the effective strain h = -(d_me + d_e)\u221a(4\u03c0G_N \u03c6). Local DM density \u03c1_DM \u2248 0.3 GeV/cm\u00b3 is the standard galactic halo assumption used throughout. The paper constrains BOTH d_me (electron mass coupling) and d_e (electromagnetic coupling); the extracted data primarily reflects d_me sensitivity. Confidence is moderate (0.75) because: (1) the main result is a projection, not a measured limit; (2) the paper discusses multiple coupling types (d_me, d_e, and comparisons to fifth-force/EP tests); (3) data points are read from a figure rather than an explicit table. The paper is clearly motivated by scalar moduli from string theory and uses resonant-mass detector technology adapted from gravitational-wave searches. | selector: text (sole candidate)",
+ "num_points": 14,
+ "elapsed_s": 21.267385005950928
+}

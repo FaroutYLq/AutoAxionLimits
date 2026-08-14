@@ -1,0 +1,166 @@
+{
+ "arxiv_id": "1301.6557",
+ "paper_title": "SPring-8",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0001,
+   0.01
+  ],
+  [
+   0.0002,
+   0.008
+  ],
+  [
+   0.0003,
+   0.005999999999999999
+  ],
+  [
+   0.0005,
+   0.004
+  ],
+  [
+   0.0008,
+   0.0025
+  ],
+  [
+   0.001,
+   0.0014999999999999998
+  ],
+  [
+   0.0015,
+   0.001
+  ],
+  [
+   0.002,
+   0.0008
+  ],
+  [
+   0.003,
+   0.0005
+  ],
+  [
+   0.005,
+   0.00030000000000000003
+  ],
+  [
+   0.008,
+   0.0002
+  ],
+  [
+   0.01,
+   0.00012
+  ],
+  [
+   0.015,
+   7.999999999999999e-05
+  ],
+  [
+   0.02,
+   6e-05
+  ],
+  [
+   0.03,
+   3.9999999999999996e-05
+  ],
+  [
+   0.05,
+   2.5e-05
+  ],
+  [
+   0.08,
+   1.5e-05
+  ],
+  [
+   0.1,
+   9.999999999999999e-06
+  ],
+  [
+   0.15,
+   8e-06
+  ],
+  [
+   0.2,
+   6e-06
+  ],
+  [
+   0.3,
+   4e-06
+  ],
+  [
+   0.5,
+   2.4999999999999998e-06
+  ],
+  [
+   0.8,
+   1.5e-06
+  ],
+  [
+   1.0,
+   1e-06
+  ],
+  [
+   1.5,
+   8e-07
+  ],
+  [
+   2.0,
+   6e-07
+  ],
+  [
+   3.0,
+   4e-07
+  ],
+  [
+   5.0,
+   2.5e-07
+  ],
+  [
+   8.0,
+   1.5e-07
+  ],
+  [
+   10.0,
+   1e-07
+  ],
+  [
+   15.0,
+   1e-07
+  ],
+  [
+   20.0,
+   1e-07
+  ],
+  [
+   50.0,
+   1e-07
+  ],
+  [
+   100.0,
+   1e-07
+  ],
+  [
+   200.0,
+   1e-07
+  ],
+  [
+   500.0,
+   1e-07
+  ],
+  [
+   1000.0,
+   1e-07
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "SPring-8 Paraphoton Search (Light-Shining-Through-Wall)",
+ "coupling_convention": "kinetic mixing angle \u03c7 (dimensionless), canonical dark photon coupling",
+ "notes": "Mass-independent (flat) bound on paraphoton-photon mixing angle \u03c7 < 8.06 \u00d7 10^-5 (95% C.L.) valid for 0.04 eV < m_\u03b3' < 26 keV. Extracted from abstract and conclusion. Light-Shining-through-a-Wall (LSW) technique using intense X-ray beam at SPring-8 synchrotron. No excess events observed above background. Systematic uncertainty on \u03c7_worst estimated at +0.52% / -0.15%. The limit is approximately constant across the mass range due to smearing effects from beam profile (see Fig. 3, region b). Encoded as horizontal line spanning stated validity range. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 37)) | Vision: Figure 4 shows the 95% C.L. upper limit on paraphoton (dark photon) kinetic mixing \u03c7 as a function of paraphoton mass m_\u03b3'. The exclusion region is above the boundary curve. The plot compares SPring-8 results (labeled 'our experiment') with other LSW experiments (BFRT, BMV, GammeV, LIPSS) and other constraints (Rydberg, Coulomb). The boundary shows a characteristic shape with a steep rise at low masses (below ~0.1 eV), a plateau region around 0.1\u20131 eV where \u03c7 \u2248 1e-5 to 1e-6, and then a gradual decline to ~1e-8 at higher masses (>10 eV). The spiky structure visible in Figure 3 (single-energy measurement at 9.00 keV) is smoothed out in Figure 4 due to the smearing effect described in the text. Data points were extracted by visual inspection of the lower boundary of the shaded exclusion region in Figure 4, sampling more densely in the transition regions (0.1\u20131 eV) and less densely in the flat regions. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=15.00)",
+ "num_points": 37,
+ "elapsed_s": 80.70452809333801
+}

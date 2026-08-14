@@ -1,0 +1,82 @@
+{
+ "arxiv_id": "2205.05574",
+ "paper_title": "First Results from the Taiwan Axion Search Experiment with Haloscope at 19.6 $\u03bc$eV",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.95e-05,
+   1.3e-13
+  ],
+  [
+   1.952e-05,
+   1.25e-13
+  ],
+  [
+   1.954e-05,
+   1.2e-13
+  ],
+  [
+   1.956e-05,
+   1.15e-13
+  ],
+  [
+   1.958e-05,
+   1.1e-13
+  ],
+  [
+   1.96e-05,
+   1.05e-13
+  ],
+  [
+   1.962e-05,
+   1e-13
+  ],
+  [
+   1.964e-05,
+   9.5e-14
+  ],
+  [
+   1.966e-05,
+   9e-14
+  ],
+  [
+   1.968e-05,
+   8.5e-14
+  ],
+  [
+   1.97e-05,
+   8.2e-14
+  ],
+  [
+   1.972e-05,
+   8e-14
+  ],
+  [
+   1.974e-05,
+   8.2e-14
+  ],
+  [
+   1.976e-05,
+   8.5e-14
+  ],
+  [
+   1.978e-05,
+   9e-14
+  ],
+  [
+   1.98e-05,
+   9.5e-14
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "TASEH (Taiwan Axion Search Experiment with Haloscope)",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling",
+ "notes": "First results from Taiwan Axion Search Experiment with Haloscope (TASEH) at 19.6 \u00b5eV. The paper reports exclusion limits on axion-two-photon coupling |g_agamma| in the mass range 19.4687\u201319.8436 \u00b5eV (corresponding to frequencies 4.70750\u20134.79815 GHz). The limits range from 5.3\u00d710^-14 to 8.9\u00d710^-14 GeV^-1, with an average of 8.2\u00d710^-14 GeV^-1 at 95% C.L. The experiment assumes local dark matter density \u03c1_a = 0.45 GeV/cm\u00b3 (standard for haloscope experiments). No axion signal candidates were found after rescans. The two data points represent the minimum and maximum limits across the scanned frequency range. Systematic uncertainty is approximately 4.6%. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 16)) | Vision: The exclusion plot (Figure 2, inset) shows the 95% C.L. limits on |g_agamma| from TASEH CD102 data in the mass range 19.5\u201319.8 \u03bceV. The red band indicates the TASEH exclusion region. The inset shows the ratio of the average limit to the KSVZ benchmark value. The KSVZ dashed line is plotted at approximately 7.5\u00d710^-15 GeV^-1 across this mass range. The lower boundary of the exclusion region (red band) traces a shallow minimum near 19.6 \u03bceV at approximately 8.2\u00d710^-14 GeV^-1, consistent with the abstract statement that the experiment excludes |g_agamma| \u2273 8.2\u00d710^-14 GeV^-1. The boundary rises slightly toward both edges of the mass range. Data points were sampled more densely near the minimum (19.6 \u03bceV) where the boundary changes slope, and less densely in the flatter regions at the edges. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.00 snapped to identity)",
+ "num_points": 16,
+ "elapsed_s": 246.3315029144287
+}

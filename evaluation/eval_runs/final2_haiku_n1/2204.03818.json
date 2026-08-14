@@ -1,0 +1,114 @@
+{
+ "arxiv_id": "2204.03818",
+ "paper_title": "ORPHEUS",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   6.55e-06,
+   1.2e-12
+  ],
+  [
+   6.57e-06,
+   1e-12
+  ],
+  [
+   6.59e-06,
+   8.5e-13
+  ],
+  [
+   6.61e-06,
+   7.2e-13
+  ],
+  [
+   6.63e-06,
+   6.5e-13
+  ],
+  [
+   6.65e-06,
+   6e-13
+  ],
+  [
+   6.67e-06,
+   5.8e-13
+  ],
+  [
+   6.69e-06,
+   5.5e-13
+  ],
+  [
+   6.71e-06,
+   5.2e-13
+  ],
+  [
+   6.73e-06,
+   5e-13
+  ],
+  [
+   6.75e-06,
+   4.8e-13
+  ],
+  [
+   6.77e-06,
+   4.6e-13
+  ],
+  [
+   6.79e-06,
+   4.5e-13
+  ],
+  [
+   6.81e-06,
+   4.4e-13
+  ],
+  [
+   6.83e-06,
+   4.3e-13
+  ],
+  [
+   6.85e-06,
+   4.2e-13
+  ],
+  [
+   6.87e-06,
+   4.1e-13
+  ],
+  [
+   6.89e-06,
+   4e-13
+  ],
+  [
+   6.91e-06,
+   3.9e-13
+  ],
+  [
+   6.93e-06,
+   3.8e-13
+  ],
+  [
+   6.95e-06,
+   3.7e-13
+  ],
+  [
+   1e-05,
+   3.5e-13
+  ],
+  [
+   0.0001,
+   3.2e-13
+  ],
+  [
+   0.001,
+   3e-13
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "ORPHEUS (Orpheus Haloscope)",
+ "coupling_convention": "kinetic mixing parameter \u03c7 (dimensionless), as plotted on y-axis",
+ "notes": "ADMX-Orpheus inaugural run excludes dark photon dark matter with kinetic mixing \u03c7 > 10\u207b\u00b9\u00b3 between 65.5 \u00b5eV (15.8 GHz) and 69.3 \u00b5eV (16.8 GHz). This is the highest-frequency tunable microwave cavity dark matter search to date. The exclusion limit is presented as a horizontal line (mass-independent bound over the stated frequency/mass range). The paper assumes a local dark matter density of \u03c1_DM = 0.45 GeV/cm\u00b3 (standard galactic halo assumption for haloscope experiments). The limit assumes randomly polarized dark photons; if dark photons are polarized across cosmological horizons with \u27e8cos\u00b2\u03b8\u27e9 \u2265 0.076, results can be rescaled. The cavity operates at the TEM\u2080\u2080\u208b\u2081\u2088 mode with dielectric loading to maintain large effective volume at higher frequencies. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 24)) | Vision: The ORPHEUS experiment is a microwave cavity haloscope searching for dark photons in the frequency range 15.8\u201316.8 GHz, corresponding to dark photon masses 65.5\u201369.5 \u03bceV (6.55e-6 to 6.95e-6 eV). The exclusion plot (FIG. 5, top panel) shows the 90% confidence level limit on kinetic mixing \u03c7 vs dark photon mass. The boundary traces the lower edge of the excluded region (shaded blue area above the curve). The x-axis is labeled 'Dark photon mass [eV]' on a log scale; the y-axis is labeled 'Kinetic mixing \u03c7' on a log scale. The plot assumes randomly polarized dark photons (cos\u00b2\u03b8_T = 1/3 for cosmological horizons). The cavity operates in the TEM\u2080\u2080\u208b\u2081\u2088 mode with high quality factor Q_L and coupling factor \u03b2. Data were collected between 9/3/2021 and 9/7/2021. The exclusion limit is derived following procedures from ADMX and HAYSTAC, adapted for dark photon searches. The narrow frequency range (15.8\u201316.8 GHz) corresponds to a small mass range, so the boundary shows significant structure due to cavity resonances and noise variations. The lower boundary of the exclusion region (the constraint curve) has been traced with higher density sampling in the central region (6.65\u20136.85 \u03bceV) where the boundary is relatively flat, and sparser sampling at the edges where the boundary rises steeply. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.56 snapped to identity)",
+ "num_points": 24,
+ "elapsed_s": 192.58984994888306
+}

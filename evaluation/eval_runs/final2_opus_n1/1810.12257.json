@@ -1,0 +1,178 @@
+{
+ "arxiv_id": "1810.12257",
+ "paper_title": "First Results from ABRACADABRA-10 cm: A Search for Sub-$\u03bc$eV Axion Dark Matter",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.1e-10,
+   6.5e-10
+  ],
+  [
+   3.3e-10,
+   4.5e-10
+  ],
+  [
+   3.6e-10,
+   3.5e-10
+  ],
+  [
+   4e-10,
+   3e-10
+  ],
+  [
+   4.5e-10,
+   2.8e-10
+  ],
+  [
+   5e-10,
+   2.7e-10
+  ],
+  [
+   6e-10,
+   2.5e-10
+  ],
+  [
+   7e-10,
+   2.5e-10
+  ],
+  [
+   8e-10,
+   2.4e-10
+  ],
+  [
+   9e-10,
+   2.5e-10
+  ],
+  [
+   1e-09,
+   2.6e-10
+  ],
+  [
+   1.2e-09,
+   2.6e-10
+  ],
+  [
+   1.4e-09,
+   2.8e-10
+  ],
+  [
+   1.6e-09,
+   3e-10
+  ],
+  [
+   1.8e-09,
+   3.2e-10
+  ],
+  [
+   2e-09,
+   3.4e-10
+  ],
+  [
+   2.2e-09,
+   3.2e-10
+  ],
+  [
+   2.4e-09,
+   3e-10
+  ],
+  [
+   2.6e-09,
+   2.9e-10
+  ],
+  [
+   2.8e-09,
+   2.8e-10
+  ],
+  [
+   3e-09,
+   2.9e-10
+  ],
+  [
+   3.3e-09,
+   3.2e-10
+  ],
+  [
+   3.6e-09,
+   3.4e-10
+  ],
+  [
+   3.9e-09,
+   3.3e-10
+  ],
+  [
+   4.2e-09,
+   3e-10
+  ],
+  [
+   4.4e-09,
+   4.5e-10
+  ],
+  [
+   4.6e-09,
+   6.5e-10
+  ],
+  [
+   4.8e-09,
+   5.5e-10
+  ],
+  [
+   5e-09,
+   4e-10
+  ],
+  [
+   5.2e-09,
+   3.2e-10
+  ],
+  [
+   5.5e-09,
+   3e-10
+  ],
+  [
+   5.8e-09,
+   3.5e-10
+  ],
+  [
+   6.1e-09,
+   5e-10
+  ],
+  [
+   6.4e-09,
+   7e-10
+  ],
+  [
+   6.6e-09,
+   6e-10
+  ],
+  [
+   6.9e-09,
+   4e-10
+  ],
+  [
+   7.2e-09,
+   3.3e-10
+  ],
+  [
+   7.6e-09,
+   3.2e-10
+  ],
+  [
+   8e-09,
+   3.3e-10
+  ],
+  [
+   8.3e-09,
+   3.5e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "ABRACADABRA-10cm",
+ "coupling_convention": "g_agamma in 1/GeV, as plotted",
+ "notes": "First ABRACADABRA-10cm results. 95% CL upper limits on g_agamma ranging from 1.4e-10 GeV^-1 (best point) to 3.3e-9 GeV^-1 over mass range 3.1e-10 - 8.3e-9 eV (frequency 75 kHz - 2 MHz). Full exclusion curve is in Fig. 3 but only endpoint/extremum values are quoted numerically in text; the two data points bracket the limit range but the actual curve varies with mass. Local DM density assumed 0.4 GeV/cm^3. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 40)) | Vision: Traced the lower envelope of the 95% upper limit band (black curve) from Fig. 3. Y-axis is g_agamma in 1/GeV. Strongest limit ~1.4e-10 stated in text; the plotted band mostly sits at ~2.5-3.5e-10. Peaks in the excluded region correspond to background resonances near 1 MHz. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.03 snapped to identity)",
+ "num_points": 40,
+ "elapsed_s": 177.9753270149231
+}

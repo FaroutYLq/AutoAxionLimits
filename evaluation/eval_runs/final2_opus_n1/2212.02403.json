@@ -1,0 +1,146 @@
+{
+ "arxiv_id": "2212.02403",
+ "paper_title": "Search for ultralight axion dark matter in a side-band analysis of a 199Hg free-spin precession signal",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.03e-16,
+   3.0000000000000004e-07
+  ],
+  [
+   1.14e-16,
+   3.5000000000000004e-07
+  ],
+  [
+   1.24e-16,
+   4.5000000000000003e-07
+  ],
+  [
+   1.45e-16,
+   6.000000000000001e-07
+  ],
+  [
+   1.65e-16,
+   8e-07
+  ],
+  [
+   1.86e-16,
+   1.0000000000000002e-06
+  ],
+  [
+   2.07e-16,
+   1.3e-06
+  ],
+  [
+   2.48e-16,
+   1.6e-06
+  ],
+  [
+   3.1e-16,
+   2.0000000000000003e-06
+  ],
+  [
+   4.14e-16,
+   2.5e-06
+  ],
+  [
+   5.17e-16,
+   3e-06
+  ],
+  [
+   6.2e-16,
+   3.5e-06
+  ],
+  [
+   8.27e-16,
+   4.5e-06
+  ],
+  [
+   1.03e-15,
+   5.500000000000001e-06
+  ],
+  [
+   1.45e-15,
+   7e-06
+  ],
+  [
+   2.07e-15,
+   8.500000000000002e-06
+  ],
+  [
+   3.1e-15,
+   1e-05
+  ],
+  [
+   4.14e-15,
+   1.1000000000000001e-05
+  ],
+  [
+   5.79e-15,
+   1.4e-05
+  ],
+  [
+   8.27e-15,
+   2e-05
+  ],
+  [
+   1.03e-14,
+   2.5e-05
+  ],
+  [
+   1.45e-14,
+   3.5000000000000004e-05
+  ],
+  [
+   2.07e-14,
+   5e-05
+  ],
+  [
+   2.9e-14,
+   6.5e-05
+  ],
+  [
+   4.14e-14,
+   8e-05
+  ],
+  [
+   5.79e-14,
+   9e-05
+  ],
+  [
+   8.27e-14,
+   0.0001
+  ],
+  [
+   1.03e-13,
+   0.00011000000000000002
+  ],
+  [
+   1.45e-13,
+   0.00013
+  ],
+  [
+   2.07e-13,
+   0.00014000000000000001
+  ],
+  [
+   2.9e-13,
+   0.00014000000000000001
+  ],
+  [
+   3.72e-13,
+   0.00015000000000000001
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "PSI-HgM-sideband (199Hg free-spin precession)",
+ "coupling_convention": "g_aNN in GeV^-1, as plotted",
+ "notes": "Search for axion-wind spin precession modulation of 199Hg FSP signal at PSI. Limit on axion-nucleon coupling g_aNN quoted in GeV^-1 (derivative coupling convention), NOT dimensionless g_an. Mass range 1e-16 to ~1.4e-13 eV (fa up to ~34 Hz). Peak sensitivity g_aNN ~= 3.5e-6 GeV^-1. Exclusion is a varying curve in Fig.4 with dips at multiples of fHg=7.879 Hz and around 4 Hz; only the peak value and mass range are available from text, so data_points are approximate horizontal placeholders at peak sensitivity. Note the y-axis units are GeV^-1, not the dimensionless convention typical for AxionNeutron; downstream conversion should account for this. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 32)) | Vision: Red shaded 'PSI-HgM-sideband' region traced along its lower boundary. X-axis given as Axion Compton frequency (Hz), converted to mass via m[eV]=4.136e-15*f[Hz]. Top axis directly confirms 1e-16 to 1e-13 eV range. Coupling g_aNN in GeV^-1 as plotted (note: this is dimensionful, differs from canonical dimensionless g_an but emitted as plotted per contract). | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.30)",
+ "num_points": 32,
+ "elapsed_s": 222.2092800140381
+}

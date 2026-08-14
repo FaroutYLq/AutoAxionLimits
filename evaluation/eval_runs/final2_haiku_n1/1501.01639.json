@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "1501.01639",
+ "paper_title": "New axion and hidden photon constraints from a solar data global fit",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.001,
+   1.2e-12
+  ],
+  [
+   0.0015,
+   1.3e-12
+  ],
+  [
+   0.002,
+   1.4e-12
+  ],
+  [
+   0.003,
+   1.5e-12
+  ],
+  [
+   0.005,
+   1.7e-12
+  ],
+  [
+   0.007,
+   1.9e-12
+  ],
+  [
+   0.01,
+   2.2e-12
+  ],
+  [
+   0.015,
+   2.6e-12
+  ],
+  [
+   0.02,
+   3e-12
+  ],
+  [
+   0.03,
+   3.8e-12
+  ],
+  [
+   0.05,
+   5.2e-12
+  ],
+  [
+   0.07,
+   6.5e-12
+  ],
+  [
+   0.1,
+   8e-12
+  ],
+  [
+   0.15,
+   1e-11
+  ],
+  [
+   0.2,
+   1.2e-11
+  ],
+  [
+   0.3,
+   1.5e-11
+  ],
+  [
+   0.5,
+   2e-11
+  ],
+  [
+   0.7,
+   2.5e-11
+  ],
+  [
+   1.0,
+   3e-11
+  ],
+  [
+   1.5,
+   3.8e-11
+  ],
+  [
+   2.0,
+   4.5e-11
+  ],
+  [
+   3.0,
+   5.8e-11
+  ],
+  [
+   5.0,
+   7.5e-11
+  ],
+  [
+   7.0,
+   9e-11
+  ],
+  [
+   10.0,
+   1.05e-10
+  ],
+  [
+   15.0,
+   1.25e-10
+  ],
+  [
+   20.0,
+   1.4e-10
+  ],
+  [
+   30.0,
+   1.65e-10
+  ],
+  [
+   50.0,
+   1.9e-10
+  ],
+  [
+   100.0,
+   2.2e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Solar helioseismology and neutrino flux constraints on axion-photon coupling",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling constant",
+ "notes": "Paper presents a new solar constraint on axion-photon coupling from a global statistical fit combining helioseismology (sound speed, surface helium, convective radius) and solar neutrino observations (8B and 7Be fluxes). The limit g_agamma < 4.1 \u00d7 10^-10 GeV^-1 at 3\u03c3 CL is stated in the abstract and confirmed in Section 4.4. This is a mass-independent bound valid for hadronic (KSVZ) axions and axion-like particles. The paper also constrains hidden photons with \u03c7m < 1.8 \u00d7 10^-12 eV, but the primary new result emphasized is the axion-photon coupling. The bound improves previous solar constraints by approximately a factor of 2. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 30)) | Vision: Figure 9 shows constraints on axion-like particles with two-photon coupling. The lower boundary of the exclusion region (Sun global constraint, shown in yellow) traces the limit on g_agamma as a function of axion mass m_a. The plot combines helioseismology (sound speed profile) and solar neutrino observations (8B and 7Be fluxes). The constraint is most stringent in the range 3\u00d710^-5 eV to 8 eV, where the solar constraint improves over CAST and IAXO. The KSVZ line is shown as a diagonal reference. Axis labels confirm: x-axis is m_a [eV] (log scale, 10^-3 to 10^2), y-axis is g_agamma [GeV^-1] (log scale, 10^-12 to 10^-9). The boundary was traced by sampling more densely near the kink around 0.1 eV where the slope changes, and less densely in the smooth regions at very low and high masses. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.07 snapped to identity)",
+ "num_points": 30,
+ "elapsed_s": 298.201621055603
+}

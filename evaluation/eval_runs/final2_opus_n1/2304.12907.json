@@ -1,0 +1,142 @@
+{
+ "arxiv_id": "2304.12907",
+ "paper_title": "HB",
+ "coupling_type": "VectorBL",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0001,
+   3e-12
+  ],
+  [
+   0.001,
+   3e-12
+  ],
+  [
+   0.01,
+   3e-12
+  ],
+  [
+   0.1,
+   3e-12
+  ],
+  [
+   1.0,
+   3e-12
+  ],
+  [
+   10.0,
+   3e-12
+  ],
+  [
+   50.0,
+   3e-12
+  ],
+  [
+   100.0,
+   3e-12
+  ],
+  [
+   300.0,
+   2.8e-12
+  ],
+  [
+   1000.0,
+   2.5000000000000003e-12
+  ],
+  [
+   2000.0,
+   2e-12
+  ],
+  [
+   4000.0,
+   1.2000000000000001e-12
+  ],
+  [
+   6000.0,
+   6.000000000000001e-13
+  ],
+  [
+   8000.0,
+   3.0000000000000003e-13
+  ],
+  [
+   10000.0,
+   1.5000000000000002e-13
+  ],
+  [
+   15000.0,
+   8.000000000000001e-14
+  ],
+  [
+   20000.0,
+   5e-14
+  ],
+  [
+   30000.0,
+   3e-14
+  ],
+  [
+   50000.0,
+   1.5e-14
+  ],
+  [
+   70000.0,
+   8e-15
+  ],
+  [
+   90000.0,
+   5.000000000000001e-15
+  ],
+  [
+   110000.0,
+   3.5000000000000005e-15
+  ],
+  [
+   140000.0,
+   2.5000000000000004e-15
+  ],
+  [
+   170000.0,
+   3.5000000000000005e-15
+  ],
+  [
+   200000.0,
+   6e-15
+  ],
+  [
+   250000.0,
+   1.5e-14
+  ],
+  [
+   300000.0,
+   4.0000000000000006e-14
+  ],
+  [
+   400000.0,
+   2e-13
+  ],
+  [
+   500000.0,
+   1e-12
+  ],
+  [
+   700000.0,
+   8e-12
+  ],
+  [
+   900000.0,
+   5.000000000000001e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "HB star cooling (B-L)",
+ "coupling_convention": "g_Z' (g_BL), dimensionless gauge coupling as plotted",
+ "notes": "Paper derives stellar cooling bounds (Solar, HB, RG) on multiple U(1) models (dark photon, B-L, Lmu-Ltau, Le-Lmu(tau)) in Fig. 4. The title 'HB' points to horizontal branch star bounds. Multiple coupling types are shown across panels (kinetic mixing epsilon for dark photon, g_Z' for B-L/Lmu-Ltau/Le-Lmu). No numerical data table is provided; bounds are only shown graphically. Text states for B-L and Le-Lmu(tau) with mZ' < 10 keV, solar bound gives gZ' below 4.1e-10 and 3.9e-11 respectively (these are solar, not HB, and mass-dependent flat regions). Cannot reliably extract HB curve numerically; coupling type ambiguous across models. Solar B-L flat bound ~4.1e-10 for mZ' below ~10 keV, Le-Lmu ~3.9e-11. | selector: figure_vision (sole candidate) | Vision: Traced the HB (orange) exclusion boundary in the B-L panel (top right) of Fig. 4. The bound is flat at low masses (~3e-11) due to kappa_n != 0, dips to a minimum near m_Z' ~ 1e5 eV before rising steeply. Excluded region is above the boundary. Title hint 'HB' indicates focus on horizontal branch star bounds. Reading precision limited by log-scale plot digitization. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.04) | [CONVENTION REVIEW] declared coupling convention 'g_Z' (g_BL), dimensionless gauge coupling as plotted' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 31,
+ "elapsed_s": 210.1401710510254
+}

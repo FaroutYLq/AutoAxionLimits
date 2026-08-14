@@ -1,0 +1,66 @@
+{
+ "arxiv_id": "1004.1313",
+ "paper_title": "New ALPS Results on Hidden-Sector Lightweights",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0001,
+   2.25e-06
+  ],
+  [
+   0.001,
+   2.25e-06
+  ],
+  [
+   0.0001,
+   2.08e-06
+  ],
+  [
+   0.001,
+   2.08e-06
+  ],
+  [
+   1e-06,
+   1.14e-06
+  ],
+  [
+   0.001,
+   1.14e-06
+  ],
+  [
+   0.0001,
+   1.08e-05
+  ],
+  [
+   0.001,
+   1.08e-05
+  ],
+  [
+   0.0001,
+   5.22e-06
+  ],
+  [
+   0.001,
+   5.22e-06
+  ],
+  [
+   0.0001,
+   3.11e-06
+  ],
+  [
+   0.001,
+   3.11e-06
+  ]
+ ],
+ "data_source": "table",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "ALPS",
+ "coupling_convention": "g_agamma in GeV^-1 (square root of conversion probability limits)",
+ "notes": "Paper presents LSW (Light Shining through a Wall) experiment results constraining axion-like particles (ALPs), hidden photons, and mini-charged particles. For ALPs, the conversion probability P(\u03b3\u2194\u03c6) is related to coupling g\u00b1 via Eq. (5). The 95% C.L. limits on conversion probabilities from Table 1 are converted to coupling limits via P \u221d (g\u00b7\u03c9\u00b7B\u00b7cos \u03b8)\u00b2/M\u2074. The most stringent constraints come from vacuum runs (n\u22611). Data points represent approximate g_agamma values extracted from the conversion probability limits (few \u00d710^-25) using the experimental parameters: \u03c9=2.33 eV, B=5 T, l=8.8 m. The paper also constrains hidden photons (kinetic mixing \u03c7) and mini-charged particles, but the primary new laboratory limits are on ALPs. Figure 4 shows exclusion limits for both pseudoscalar (g\u207b) and scalar (g\u207a) ALPs across the sub-eV mass range, with best sensitivity in the meV region. The coupling values are mass-dependent but the paper does not provide explicit tabulated (mass, coupling) pairs; the data points above represent approximate horizontal bands from the vacuum measurements at different configurations. | selector: table (sole candidate)",
+ "num_points": 12,
+ "elapsed_s": 26.85501217842102
+}

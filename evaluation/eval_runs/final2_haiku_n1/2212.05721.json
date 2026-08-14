@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2212.05721",
+ "paper_title": "YbCs",
+ "coupling_type": "ScalarElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.6e-22,
+   1.6e-06
+  ],
+  [
+   5e-22,
+   1.6e-06
+  ],
+  [
+   1e-21,
+   2e-06
+  ],
+  [
+   5e-21,
+   3e-06
+  ],
+  [
+   1e-20,
+   5e-06
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "YbCs_NMIJ",
+ "coupling_convention": "dimensionless d_me",
+ "notes": "Paper reports new limits on scalar dark matter couplings to electrons (d_me) and gluons (d_g) from 298-day frequency comparison between 171Yb optical lattice clock and 133Cs fountain microwave clock. Main result is improved constraint on d_me by factor ~1000 at m_\u03c6 ~ 5\u00d710^-22 eV/c^2. Data points extracted from Fig. 4(b) and text statements. The coupling d_me is dimensionless and represents the scalar field coupling to electron mass. Local DM density \u03c1_DM = 0.3 GeV/cm^3 is assumed in Eq. (5) for converting amplitude limits to coupling bounds. Limits are at 95% CL and include 3.0\u00d7 rescaling factor to account for interference effects from velocity distribution of scalar fields. ScalarElectron type chosen because paper specifically constrains variations of electron mass m_e induced by scalar field couplings. | selector: text (sole candidate)",
+ "num_points": 5,
+ "elapsed_s": 40.59997916221619
+}

@@ -1,0 +1,134 @@
+{
+ "arxiv_id": "2112.12116",
+ "paper_title": "Emission of Single and Few Electrons in XENON1T and Limits on Light Dark Matter",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   15.0,
+   1.3000000000000001e-12
+  ],
+  [
+   18.0,
+   5e-13
+  ],
+  [
+   20.0,
+   2e-13
+  ],
+  [
+   22.0,
+   8.000000000000001e-14
+  ],
+  [
+   25.0,
+   4.0000000000000006e-14
+  ],
+  [
+   28.0,
+   3e-14
+  ],
+  [
+   30.0,
+   2.5e-14
+  ],
+  [
+   33.0,
+   3e-14
+  ],
+  [
+   36.0,
+   5e-14
+  ],
+  [
+   40.0,
+   8.000000000000001e-14
+  ],
+  [
+   43.0,
+   5e-14
+  ],
+  [
+   46.0,
+   3e-14
+  ],
+  [
+   50.0,
+   2.0000000000000003e-14
+  ],
+  [
+   55.0,
+   1.5e-14
+  ],
+  [
+   60.0,
+   1.3e-14
+  ],
+  [
+   70.0,
+   1.3e-14
+  ],
+  [
+   80.0,
+   1.5e-14
+  ],
+  [
+   90.0,
+   2.0000000000000003e-14
+  ],
+  [
+   100.0,
+   2.5e-14
+  ],
+  [
+   110.0,
+   4.0000000000000006e-14
+  ],
+  [
+   130.0,
+   3e-14
+  ],
+  [
+   150.0,
+   2.5e-14
+  ],
+  [
+   180.0,
+   3e-14
+  ],
+  [
+   200.0,
+   4.0000000000000006e-14
+  ],
+  [
+   230.0,
+   6e-14
+  ],
+  [
+   260.0,
+   1e-13
+  ],
+  [
+   300.0,
+   2e-13
+  ],
+  [
+   350.0,
+   4e-13
+  ],
+  [
+   400.0,
+   7e-13
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "XENON1T SE (This Work)",
+ "coupling_convention": "kinetic mixing epsilon, dimensionless (as plotted)",
+ "notes": "Paper sets 90% CL limits on dark photon dark matter absorption (kinetic mixing chi) and solar dark photons, plus DM-electron scattering, dipole/anapole interactions, and ALPs. The dark photon limits (Figures 15 top and 16) are the claimed 'new parameter space'. However, no numerical values or data tables are present in the provided text \u2014 all limits are shown only in figures. Cannot extract reliable (mass, coupling) pairs. Mass range roughly 30 eV to keV scale for bosonic DM absorption. | selector: figure_vision (sole candidate) | Vision: Traced the dark blue 'XENON1T SE (This Work)' boundary from top panel of Fig. 15 (Dark Photon). X-axis in keV/c^2 converted to eV. The exclusion region spans roughly 15-400 eV in mass. Two dips in the boundary near ~30 eV and ~65 eV with a peak between them. The blue shaded band represents systematic uncertainty; lower boundary traced. Values approximate due to log-log reading. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=11.54)",
+ "num_points": 29,
+ "elapsed_s": 248.18831086158752
+}

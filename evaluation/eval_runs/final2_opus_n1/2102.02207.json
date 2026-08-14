@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "2102.02207",
+ "paper_title": "XMM-Newton",
+ "coupling_type": null,
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [],
+ "data_source": "none",
+ "dm_density_assumed": 0.29,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.15,
+ "suggested_experiment_name": "XMM-Newton_BSO_2021",
+ "coupling_convention": "sin^2(2theta) sterile neutrino mixing angle",
+ "notes": "This paper constrains decaying sterile-neutrino dark matter via the mixing angle sin^2(2theta) as a function of DM mass (5-16 keV), not any of the enumerated axion/dark-photon/scalar couplings. The coupling type does not map to the provided enum (sterile neutrino mixing angle). Limits are presented graphically in Fig. 3 (sin^2(2theta) from ~1e-11 to ~1e-13 over 5-16 keV) but no numerical table of the limit curve is provided in the text, so no reliable data points can be extracted. Local DM density assumed 0.29 GeV/cm^3 (NFW).",
+ "num_points": 0,
+ "elapsed_s": 155.63877391815186
+}

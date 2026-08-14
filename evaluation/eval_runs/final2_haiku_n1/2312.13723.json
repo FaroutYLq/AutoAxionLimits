@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2312.13723",
+ "paper_title": "Ultralight Dark Matter Search with Space-Time Separated Atomic Clocks and Cavities",
+ "coupling_type": "ScalarElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-19,
+   1.5e-05
+  ],
+  [
+   2e-15,
+   1.5e-05
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "PTB_NPL_Cavities_GPS",
+ "coupling_convention": "dimensionless d_me",
+ "notes": "Paper presents NEW measured exclusion limits on scalar dark matter coupling to electron mass (d_me) using space-time separated atomic clocks and optical cavities. Two independent analyses: (1) NPL/PTB cavity comparison over 2220 km fiber link probing spatial fluctuations; (2) GPS satellite microwave clocks probing temporal fluctuations. Mass range: 10^-19 to 2\u00d710^-15 eV. These are stated as 'the first constraints on d_me alone in this mass range.' The coupling values are extracted from Fig. 2 (right panel) which shows the exclusion limits as a roughly horizontal band at log10|d_me| \u2248 -4.8 to -5.0 across the mass range. Converted to linear scale: ~1.3-1.6 \u00d7 10^-5. Used 1.5e-5 as representative value. The paper uses \u03ba = \u221a(4\u03c0)/M_Pl normalization for d_me (dimensionless). DM density of 0.4 GeV/cm\u00b3 is standard assumption stated in text for field amplitude calculation. Confidence level is 95% as stated throughout. Extraction confidence is 0.85 because: coupling type is unambiguous from abstract and text (ScalarElectron/d_me), but the exact numerical limits must be read from Fig. 2 which shows a band rather than discrete points, and the paper emphasizes mass-independent bounds in this range. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 3.1 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 74.06443786621094
+}

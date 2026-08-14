@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "1911.05772",
+ "paper_title": "ADMX SLIC: Results from a Superconducting LC Circuit Investigating Cold Axions",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.7498e-07,
+   2.5e-12
+  ],
+  [
+   1.7519e-07,
+   2.5e-12
+  ],
+  [
+   1.7734e-07,
+   2e-12
+  ],
+  [
+   1.7738e-07,
+   2e-12
+  ],
+  [
+   1.8007e-07,
+   1.5e-12
+  ],
+  [
+   1.8015e-07,
+   1.5e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "ADMX_SLIC",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "ADMX SLIC is a haloscope experiment using a superconducting LC circuit to search for low-mass axions. The paper presents exclusion limits on axion-photon coupling g_agamma in three frequency/mass ranges at different magnetic field strengths (4.5 T, 5.0 T, 7.0 T). The abstract states 'Exclusion results from the search data, for coupling below 10^-12 GeV^-1 are presented.' Figure 4 shows the exclusion limits, with the blue lines representing the actual measured limits (RFI-limited) and orange lines showing estimated limits if RFI were eliminated. The data points are extracted from the three mass ranges covered: (1) 1.7498\u20131.7519 \u00d7 10^-7 eV at 4.5 T, (2) 1.7734\u20131.7738 \u00d7 10^-7 eV at 5.0 T, and (3) 1.8007\u20131.8015 \u00d7 10^-7 eV at 7.0 T. Approximate coupling limits are read from Figure 4a (combined limits). The standard local DM density of 0.3 GeV/cm\u00b3 is assumed for haloscope experiments. Extraction confidence is moderate (0.75) because while the coupling type and experiment are clear, the exact numerical limits from Figure 4 are approximate readings from the plot rather than tabulated values. | selector: text (sole candidate)",
+ "num_points": 6,
+ "elapsed_s": 33.12813687324524
+}

@@ -1,0 +1,154 @@
+{
+ "arxiv_id": "2405.12285",
+ "paper_title": "ParkerSolarProbe",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.8e-10,
+   1e-11
+  ],
+  [
+   3e-10,
+   3e-13
+  ],
+  [
+   3.1e-10,
+   3e-14
+  ],
+  [
+   3.2e-10,
+   1.2e-14
+  ],
+  [
+   3.5e-10,
+   8e-15
+  ],
+  [
+   4e-10,
+   1e-14
+  ],
+  [
+   4.5e-10,
+   6e-15
+  ],
+  [
+   5e-10,
+   8e-15
+  ],
+  [
+   6e-10,
+   7e-15
+  ],
+  [
+   7e-10,
+   6e-15
+  ],
+  [
+   8e-10,
+   6.5e-15
+  ],
+  [
+   1e-09,
+   7e-15
+  ],
+  [
+   1.3e-09,
+   8e-15
+  ],
+  [
+   1.6e-09,
+   1e-14
+  ],
+  [
+   2e-09,
+   1.1e-14
+  ],
+  [
+   2.5e-09,
+   1.3e-14
+  ],
+  [
+   3e-09,
+   1.5e-14
+  ],
+  [
+   4e-09,
+   1.8e-14
+  ],
+  [
+   5e-09,
+   2.2e-14
+  ],
+  [
+   6e-09,
+   2.6e-14
+  ],
+  [
+   8e-09,
+   3.2e-14
+  ],
+  [
+   1e-08,
+   4e-14
+  ],
+  [
+   1.3e-08,
+   5e-14
+  ],
+  [
+   1.6e-08,
+   6e-14
+  ],
+  [
+   2e-08,
+   7.5e-14
+  ],
+  [
+   2.5e-08,
+   9.5e-14
+  ],
+  [
+   3e-08,
+   1.2e-13
+  ],
+  [
+   4e-08,
+   1.6e-13
+  ],
+  [
+   5e-08,
+   2.2e-13
+  ],
+  [
+   6e-08,
+   3e-13
+  ],
+  [
+   7e-08,
+   4.5e-13
+  ],
+  [
+   8e-08,
+   7e-13
+  ],
+  [
+   9e-08,
+   1e-12
+  ],
+  [
+   1e-07,
+   1.5e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "Parker Solar Probe (PSP)",
+ "coupling_convention": "epsilon * (rho_A'/rho_DM)^0.5, dimensionless kinetic mixing",
+ "notes": "PSP in-situ measurement of dark photon dark matter via resonant conversion in solar plasma. Constrains kinetic mixing epsilon for mA' between ~3e-10 and 8e-8 eV (70 kHz to 20 MHz), reaching epsilon ~ 1e-14 to 1e-13. Exact numerical exclusion curve is in Fig. 2 (not tabulated); the two data points here are approximate endpoints of the stated exclusion range from the text. The y-axis is epsilon*(rho_A'/rho_DM)^0.5, assuming DPDM saturates local DM density. Not a lab haloscope so dm_density left null though standard local DM density is implicitly assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 34)) | Vision: Traced lower boundary of PSP (blue) exclusion region in Figure 2. Y-axis is epsilon*(rho_A'/rho_DM)^0.5. Sharp cutoff at low mass ~3e-10 eV from local plasma frequency. Boundary rises toward higher masses. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.67 snapped to identity)",
+ "num_points": 34,
+ "elapsed_s": 144.2688660621643
+}

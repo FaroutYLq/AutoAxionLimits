@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2206.11598",
+ "paper_title": "VISH$\u03bd$: a unified solution to five SM shortcomings with a protected electroweak scale",
+ "coupling_type": "AxionMass",
+ "is_new_limit": false,
+ "is_projection": true,
+ "data_points": [
+  [
+   4e-08,
+   4e-08
+  ],
+  [
+   0.002,
+   0.002
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "VISH\u03bd_Axion_Projection",
+ "coupling_convention": "Axion mass window [m_a in eV, f_a in GeV] \u2014 horizontal line spanning stated validity range",
+ "notes": "This is a theoretical model paper (VISH\u03bd) that projects an axion mass window [40 \u03bceV, ~2 meV] accessible to forthcoming searches, contingent on PQ symmetry restoration during reheating. The paper does NOT present a measured exclusion limit from an experiment, but rather a theoretical prediction of where axion dark matter could be found if the model is correct. The mass window is derived from cosmological constraints (vacuum misalignment, topological defects, astrophysical bounds from stellar cooling). The coupling_type is AxionMass because the primary result concerns the axion mass m_a (and implicitly f_a via m_a \u221d 1/f_a) in the context of dark matter production, not a direct coupling constant like g_agamma. The data_points encode the mass range as a horizontal line: lower bound 40 \u03bceV \u2248 4.0e-8 eV, upper bound ~2 meV = 2.0e-3 eV. Extraction confidence is moderate (0.65) because: (1) the paper is theoretical, not experimental; (2) the mass window depends on several assumptions (reheating scenario, tan \u03b2 constraints, topological defect contributions with large uncertainties); (3) the paper explicitly states 'subject to theoretical uncertainties' for the lower limit. This is a projection/forecast, not a new measured limit.",
+ "num_points": 2,
+ "elapsed_s": 97.06777501106262
+}

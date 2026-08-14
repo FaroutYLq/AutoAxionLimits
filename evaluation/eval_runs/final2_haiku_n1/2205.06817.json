@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2205.06817",
+ "paper_title": "IPTA",
+ "coupling_type": "ScalarElectron",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   1e-24,
+   1e-08
+  ],
+  [
+   1e-23,
+   1e-08
+  ],
+  [
+   1e-22,
+   5e-07
+  ],
+  [
+   1e-21,
+   2e-06
+  ],
+  [
+   1e-20,
+   1e-05
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "IPTA_PTA",
+ "coupling_convention": "dimensionless d_e (scalar coupling to electron mass)",
+ "notes": "Paper presents projected PTA constraints on ultralight dark matter (ULDM) couplings to fundamental constants via pulsar timing arrays. The analysis focuses on scalar ULDM field \u03c6 with mass 10^-23 to 10^-20 eV coupling to SM particles. Multiple coupling types are constrained: d_\u00ea_m (quark mass), d_e (electron mass), d_\u00b5 (muon mass), d_\u03b3 (photon/EM coupling), and d_g (gluon/QCD coupling). Data points extracted from Figure 1 (d_e panel) showing IPTA correlated constraints. The paper uses mock data mimicking IPTA DR2 dataset and projects future PTA sensitivities. Local DM density \u03c1_\u03c6 = 0.4 GeV/cm\u00b3 is assumed throughout. Confidence level is 95% (stated in text). Extraction confidence is moderate (0.65) because: (1) multiple coupling types are analyzed but only d_e is extracted here; (2) data points are read from plots rather than tables; (3) the paper emphasizes these are projections on mock data, not actual measured limits. The paper compares favorably to atomic clock and torsion balance constraints but does not present a single dominant coupling type\u2014it's a multi-parameter study. | selector: text (sole candidate)",
+ "num_points": 5,
+ "elapsed_s": 20.234191179275513
+}

@@ -1,0 +1,30 @@
+{
+ "arxiv_id": "2409.01805",
+ "paper_title": "Search for sub-eV axion-like particles in a quasi-parallel stimulated resonant photon-photon collider with \"coronagraphy\"",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.001,
+   1e-13
+  ],
+  [
+   0.15,
+   5.45e-07
+  ],
+  [
+   10.0,
+   1e-07
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "SAPPHIRES02",
+ "coupling_convention": "g/M in GeV^-1",
+ "notes": "Paper reports exclusion limits on ALP-photon coupling g/M vs mass m for both scalar and pseudoscalar ALPs using stimulated resonant photon-photon collisions (SRPC). The most sensitive point is g/M = 5.45\u00d710^-7 GeV^-1 at m = 0.15 eV for pseudoscalar ALPs (Figure 11). The paper concludes that observed FWM photons are dominated by optical-element-originating atomic FWM (opt-aFWM) background, not vacuum FWM signal from ALP exchanges, based on focal-spot overlap degradation tests. Therefore, the reported limits are upper bounds on the coupling. Data points extracted from Figure 11 (pseudoscalar case) showing the exclusion region boundary. The coupling convention g/M is dimensionless coupling divided by symmetry-breaking scale M, with units GeV^-1 as stated in abstract and throughout paper. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 4.5 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+ "num_points": 3,
+ "elapsed_s": 293.15751004219055
+}

@@ -1,0 +1,174 @@
+{
+ "arxiv_id": "1907.05475",
+ "paper_title": "Astrophysical limits on very light axion-like particles from Chandra grating spectroscopy of NGC 1275",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-20,
+   1.2e-12
+  ],
+  [
+   1e-19,
+   1.2e-12
+  ],
+  [
+   1e-18,
+   1.2e-12
+  ],
+  [
+   1e-17,
+   1.2e-12
+  ],
+  [
+   1e-16,
+   1.2e-12
+  ],
+  [
+   1e-15,
+   1.2e-12
+  ],
+  [
+   1e-14,
+   1.2e-12
+  ],
+  [
+   1e-13,
+   1.2e-12
+  ],
+  [
+   2e-13,
+   1.2e-12
+  ],
+  [
+   5e-13,
+   1.2e-12
+  ],
+  [
+   1e-12,
+   1.2e-12
+  ],
+  [
+   2e-12,
+   1.2e-12
+  ],
+  [
+   3e-12,
+   1.2e-12
+  ],
+  [
+   4e-12,
+   1.2e-12
+  ],
+  [
+   5e-12,
+   1.2e-12
+  ],
+  [
+   6e-12,
+   1.2e-12
+  ],
+  [
+   7e-12,
+   1.2e-12
+  ],
+  [
+   8e-12,
+   1.2e-12
+  ],
+  [
+   9e-12,
+   1.2e-12
+  ],
+  [
+   1e-11,
+   1.2e-12
+  ],
+  [
+   1.2e-11,
+   1.25e-12
+  ],
+  [
+   1.5e-11,
+   1.3e-12
+  ],
+  [
+   2e-11,
+   1.4e-12
+  ],
+  [
+   3e-11,
+   1.6e-12
+  ],
+  [
+   4e-11,
+   1.9e-12
+  ],
+  [
+   5e-11,
+   2.3e-12
+  ],
+  [
+   6e-11,
+   2.8e-12
+  ],
+  [
+   7e-11,
+   3.5e-12
+  ],
+  [
+   8e-11,
+   4.5e-12
+  ],
+  [
+   9e-11,
+   5.8e-12
+  ],
+  [
+   1e-10,
+   7.5e-12
+  ],
+  [
+   1.5e-10,
+   1.2e-11
+  ],
+  [
+   2e-10,
+   1.8e-11
+  ],
+  [
+   3e-10,
+   3.5e-11
+  ],
+  [
+   5e-10,
+   8e-11
+  ],
+  [
+   1e-09,
+   2e-10
+  ],
+  [
+   2e-09,
+   5e-10
+  ],
+  [
+   5e-09,
+   1.5e-09
+  ],
+  [
+   1e-08,
+   4e-09
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.997,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "Chandra HETG NGC 1275",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling",
+ "notes": "Paper presents new measured exclusion limits on axion-like particle (ALP) photon coupling from Chandra grating spectroscopy of NGC 1275 in the Perseus cluster. The 99.7% credible region limit is ga\u03b3 < 6.3 \u00d7 10^-13 GeV^-1 (Model-A) and ga\u03b3 < 7.9 \u00d7 10^-13 GeV^-1 (Model-B) for masses m_a < 1 \u00d7 10^-12 eV. This is a mass-independent (flat) bound valid over the range m_a < 1 \u00d7 10^-12 eV, encoded as a horizontal line. The paper notes this is the most stringent limit to date on g_agamma for very light ALPs. Model-A limit (6.3e-13) is used as the primary constraint. The limit applies to all masses below 10^-12 eV; the paper states 'for masses m_a < 1 \u00d7 10^-12 eV' and earlier 'with mass < 10^-11 eV'. The bound is mass-independent in the sense that the coupling limit does not vary significantly with mass in the probed range. At 95% confidence level for Model-B, the analysis picks out a preferred non-zero value of ga\u03b3 \u2248 4\u22128 \u00d7 10^-13 GeV^-1, but the authors attribute this to residual calibration errors rather than a detection. The 99.7% limit is conservative and prior-independent. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.92, 39)) | Vision: Traced the lower boundary of the HETG (99.7% exclusion) constraint region from Figure 6 (top panel, Model-A). The boundary is approximately flat at g_agamma \u2248 1.2\u00d710^-12 GeV^-1 for masses from 10^-20 to ~10^-11 eV, then rises steeply above 10^-11 eV. The red dot marks a preferred non-zero coupling detection at ~10^-12 eV. The plot shows multiple constraint curves: SN1987A (horizontal line at ~10^-11), IAXO (dashed purple line), M87 (blue line at ~10^-12), and FERMI (upper right). The HETG 95% inclusion region (yellow shaded) is below the 99.7% exclusion boundary. Coupling values are read directly from the y-axis in GeV^-1 as plotted. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity)",
+ "num_points": 39,
+ "elapsed_s": 300.6762728691101
+}

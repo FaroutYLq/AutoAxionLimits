@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2002.08370",
+ "paper_title": "Robust cosmological constraints on axion-like particles",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   10000.0,
+   1e-09
+  ],
+  [
+   100000.0,
+   3e-10
+  ],
+  [
+   1000000.0,
+   1e-10
+  ],
+  [
+   10000000.0,
+   1e-10
+  ],
+  [
+   100000000.0,
+   3e-10
+  ],
+  [
+   1000000000.0,
+   1e-09
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.45,
+ "suggested_experiment_name": "BBN_Planck_ALP_Depta2020",
+ "coupling_convention": "g_agamma in GeV^-1 (approximate lower boundary of BBN+Planck excluded region)",
+ "notes": "Cosmological (BBN + Planck Neff) constraint on ALP-photon coupling g_phi_gamma in the keV-GeV mass range. Main results shown in mphi-tauphi and mphi-gphi_gamma planes (Figs 4-6). Excluded region is a closed 2D region rather than a single line, so extracted values are approximate boundary points read from Fig 6 (right panel) for the standard cosmological scenario. Not a DM haloscope, so no local DM density applies. Lifetime relation tau = 64pi/(m^3 g^2). Data points are rough estimates from the plotted exclusion contour; precise tabulated values are not provided in the text. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.45, 6))",
+ "num_points": 6,
+ "elapsed_s": 129.3389768600464
+}

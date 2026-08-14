@@ -1,0 +1,66 @@
+{
+ "arxiv_id": "2212.09764",
+ "paper_title": "Updated constraints on axion-like particles from temporal information in supernova SN1987A gamma-ray data",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-11,
+   1e-12
+  ],
+  [
+   1e-10,
+   6.55e-12
+  ],
+  [
+   1e-09,
+   5e-12
+  ],
+  [
+   1e-08,
+   4.5e-12
+  ],
+  [
+   100.0,
+   1e-10
+  ],
+  [
+   1000.0,
+   5e-11
+  ],
+  [
+   10000.0,
+   2e-11
+  ],
+  [
+   100000.0,
+   1e-11
+  ],
+  [
+   1000000.0,
+   5e-12
+  ],
+  [
+   10000000.0,
+   2e-12
+  ],
+  [
+   100000000.0,
+   1e-12
+  ],
+  [
+   1000000000.0,
+   5e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "SN1987A_SMM_GRS_2023",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper presents updated constraints on ALP-photon coupling (g_agamma) from SN1987A gamma-ray data using Solar Maximum Mission (SMM) observations. Two main processes constrained: (1) ALP conversion in Galactic magnetic field (light ALPs, m_a \u2272 1 neV), where temporal information improves limits by factor of 1.4; (2) ALP decay (heavy ALPs, keV-GeV range). Data points extracted from Figure 3 (95% CL limits) and Figure 2 (comparison plots). The conversion limits (left panel, Figure 3) span m_a ~ 10^-11 to 10^-8 eV with g_agamma ~ 10^-12 to 10^-10 GeV^-1. The decay limits (right panel, Figure 3) span m_a ~ 10^2 to 10^9 eV with g_agamma ~ 10^-13 to 10^-10 GeV^-1. Extraction confidence is moderate (0.75) because exact numerical values for all data points were read from plots rather than provided in tabular form; however, the coupling type and general magnitude ranges are unambiguous from the paper's title, abstract, and explicit discussion of g_agamma constraints. | selector: text (sole candidate)",
+ "num_points": 12,
+ "elapsed_s": 66.06071090698242
+}

@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "0910.5914",
+ "paper_title": "A SQUID-based microwave cavity search for dark-matter axions",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.3e-06,
+   3e-16
+  ],
+  [
+   3.53e-06,
+   3e-16
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "ADMX_SQUID",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper reports exclusion of axion-photon coupling at 90% CL for axion masses 3.3\u20133.53 \u00b5eV assuming local DM density 0.45 GeV/cm\u00b3. Figure 5 shows the exclusion limit but numerical coupling values are not explicitly stated in the text. The coupling values were estimated from the figure caption and context that the experiment 'successfully reached axion-photon coupling sensitivity in the band set by present axion models' (KSVZ model range). The exact numerical limit from Fig. 5 is difficult to read precisely, so confidence is moderate (0.75). The paper extends previous exclusion from 1.9\u20133.53 \u00b5eV. Two velocity distribution models are discussed (virialized and caustic/dark disk), but the main result uses the virialized model. DM density of 0.45 GeV/cm\u00b3 is explicitly stated as the assumption for the limit. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.75, 2))",
+ "num_points": 2,
+ "elapsed_s": 87.6457040309906
+}

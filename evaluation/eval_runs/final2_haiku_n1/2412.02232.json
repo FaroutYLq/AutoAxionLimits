@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2412.02232",
+ "paper_title": "Searches for signatures of ultra-light axion dark matter in polarimetry data of the European Pulsar Timing Array",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   8e-24,
+   5e-13
+  ],
+  [
+   3e-23,
+   2e-13
+  ],
+  [
+   6e-24,
+   4e-14
+  ],
+  [
+   5e-21,
+   2e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "EPTA_DR2_Polarimetry",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper reports constraints on axion-photon coupling g_a\u03b3 from European Pulsar Timing Array (EPTA) DR2 polarimetry data using 12 millisecond pulsars. Both frequentist (Lomb-Scargle periodogram) and Bayesian analyses performed. Best frequentist sensitivity at m_a \u2248 8\u00d710^-24 eV yields g_a\u03b3 \u2248 5\u00d710^-13 GeV^-1 (95% CL). Best Bayesian conservative limit at m_a \u2248 3\u00d710^-23 eV yields g_a\u03b3 \u2248 2\u00d710^-13 GeV^-1 (95% CL). A statistically significant signal found between 10^-8 and 2\u00d710^-8 Hz (m_a \u2248 5\u00d710^-23 eV) is attributed to residual Faraday rotation in terrestrial ionosphere, not ULDM. Local DM density assumed \u03c1_0 = 0.4 GeV/cm^3 (standard Galactic value). Mass range constrained: 6\u00d710^-24 to 5\u00d710^-21 eV. Data points extracted from Figs. 7 and 10 and text statements of best limits. | [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of the Bayesian constraint region, sampling more densely near the minimum (around 10^-8 Hz / 10^-22 eV) where the slope changes, and less densely in the smooth regions') rather than the paper's own single curve | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.92, 4))",
+ "num_points": 4,
+ "elapsed_s": 183.33997297286987
+}

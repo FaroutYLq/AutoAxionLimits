@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2007.04899",
+ "paper_title": "Searching for vector dark matter with an optomechanical accelerometer",
+ "coupling_type": "VectorBL",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   1.5e-12,
+   1.2e-24
+  ],
+  [
+   4e-12,
+   3e-24
+  ],
+  [
+   1e-11,
+   5e-24
+  ],
+  [
+   3e-11,
+   8e-24
+  ],
+  [
+   1e-10,
+   2e-23
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "Optomechanical_Accelerometer_SiN_Be",
+ "coupling_convention": "dimensionless g_B-L",
+ "notes": "Projection (sensitivity forecast) for a proposed SiN membrane-Be mirror optomechanical accelerometer searching for vector B-L dark photon dark matter. The paper's main exclusion plot (Fig. 2) is gB-L vs mDM in the range ~1e-12 to 1e-10 eV. Data points are approximate reads from Fig. 2 (blue/dashed curves for 1-year and coherence-time scans) and are rough estimates since no numerical table is provided. The stated aim is to exceed Eot-Wash bound (g<~1e-22 for wDM<2pi*10kHz). Fig. 4 shows a corresponding B-coupled projection (different coupling channel). Local DM density 0.4 GeV/cm^3 assumed. Confidence lowered because values are digitized approximations from a plot. | [VISION GATE A] is_projection=true but the vision notes say the traced curve is existing experiment 'microscope' \u2014 not the paper's own projected curve | selector: text (sole candidate)",
+ "num_points": 5,
+ "elapsed_s": 186.35585713386536
+}

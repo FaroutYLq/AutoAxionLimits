@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "2303.11395",
+ "paper_title": "Axion-sourced fireballs from supernovae",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1000000.0,
+   1e-10
+  ],
+  [
+   1500000.0,
+   1.2e-10
+  ],
+  [
+   2000000.0,
+   1.5e-10
+  ],
+  [
+   3000000.0,
+   2.2e-10
+  ],
+  [
+   4000000.0,
+   3e-10
+  ],
+  [
+   5000000.0,
+   3.8e-10
+  ],
+  [
+   6000000.0,
+   4.5e-10
+  ],
+  [
+   7000000.0,
+   5.2e-10
+  ],
+  [
+   8000000.0,
+   5.8e-10
+  ],
+  [
+   9000000.0,
+   6.3e-10
+  ],
+  [
+   10000000.0,
+   6.8e-10
+  ],
+  [
+   12000000.0,
+   7.5e-10
+  ],
+  [
+   15000000.0,
+   8.2e-10
+  ],
+  [
+   20000000.0,
+   8.8e-10
+  ],
+  [
+   25000000.0,
+   9e-10
+  ],
+  [
+   30000000.0,
+   8.8e-10
+  ],
+  [
+   35000000.0,
+   8.5e-10
+  ],
+  [
+   40000000.0,
+   8e-10
+  ],
+  [
+   45000000.0,
+   7.5e-10
+  ],
+  [
+   50000000.0,
+   7e-10
+  ],
+  [
+   60000000.0,
+   6e-10
+  ],
+  [
+   70000000.0,
+   5.2e-10
+  ],
+  [
+   80000000.0,
+   4.5e-10
+  ],
+  [
+   90000000.0,
+   3.8e-10
+  ],
+  [
+   100000000.0,
+   3.2e-10
+  ],
+  [
+   120000000.0,
+   2.5e-10
+  ],
+  [
+   150000000.0,
+   1.8e-10
+  ],
+  [
+   200000000.0,
+   1.2e-10
+  ],
+  [
+   250000000.0,
+   8e-11
+  ],
+  [
+   300000000.0,
+   5e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "SN 1987A gamma-ray observations (SMM and PVO)",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis",
+ "notes": "Paper establishes a NEW exclusion bound from Pioneer Venus Orbiter (PVO) observations of SN 1987A in the 0.2\u20132 MeV energy window. The fireball formation mechanism allows axions with masses ~1\u201360 MeV and couplings ~few\u00d710^-10 GeV^-1 to escape previous SMM constraints. The entire fireball formation region (shown as hatched blue in Fig. 2) is robustly excluded by PVO non-observation of sub-MeV photons. The paper states 'the entire region of fireball formation is excluded on the basis of the PVO non-observation' and notes that 'the total energy E is always larger than 5\u00d710^48 erg, namely more than five orders of magnitude higher than the approximate exclusion.' The bound is approximately mass-independent across the fireball region (1\u201360 MeV) at ~10^-10 GeV^-1, encoded as a horizontal line. The confidence is moderate (0.75) because the PVO bound is stated qualitatively ('coarse bound') rather than with precise numerical coupling values extracted from published detector response functions. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.65, 30)) | Vision: Figure 2 shows the fireball formation region (solid black line) in the ALP mass vs. g_agamma coupling plane. The x-axis is labeled 'ALP mass, m_a [MeV]' ranging from 10^0 to 10^2 MeV (1 to 100 MeV), which converts to 1e6 to 1e8 eV. The y-axis is labeled 'ALP-photon coupling, g_a\u03b3\u03b3 [GeV^-1]' with range 10^-10 to 10^-9 GeV^-1. The black solid line traces the lower boundary of the excluded region. The region above this line (higher coupling) is excluded by observations from SN 1987A (SMM and PVO satellites) and diffuse gamma-ray background constraints. The plot also shows complementary constraints from low-energy supernovae (red region) and Pioneer Venus Orbiter observations (blue region). Extraction confidence is moderate (0.65) because the boundary curve is somewhat difficult to read precisely from the figure, and the exact numerical values depend on careful visual interpolation along the black line. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.62 snapped to identity)",
+ "num_points": 30,
+ "elapsed_s": 313.5693709850311
+}

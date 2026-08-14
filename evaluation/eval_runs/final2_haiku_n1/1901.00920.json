@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "1901.00920",
+ "paper_title": "Piezoelectrically Tuned Multimode Cavity Search for Axion Dark Matter",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.738e-05,
+   1.5e-12
+  ],
+  [
+   1.757e-05,
+   1.5e-12
+  ],
+  [
+   2.103e-05,
+   5e-11
+  ],
+  [
+   2.398e-05,
+   5e-11
+  ],
+  [
+   2.967e-05,
+   2e-10
+  ],
+  [
+   2.979e-05,
+   2e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "ADMX_Sidecar",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "ADMX Sidecar pathfinder experiment reports 90% CL exclusion limits on axion-photon coupling g_agamma in three frequency bands: Run A (4202\u20134249 MHz, 17.38\u201317.57 \u00b5eV, TM010 mode), Run B (5086\u20135799 MHz, 21.03\u201323.98 \u00b5eV, TM010 mode), and Run C (7173\u20137203 MHz, 29.67\u201329.79 \u00b5eV, TM020 mode). Data points extracted from Figure 4 (top panels) showing approximate coupling limits at the edges of each scanned mass range. The experiment assumes dark matter axion density \u03c1_a = 0.45 GeV/cm\u00b3 with isothermal halo distribution. Run B was a low-field commissioning run (0.78 T nominal, 2.55 T for final 3 days); Runs A and C used 3.11 T. The TM020 mode (Run C) suffers from a weaker form factor (~0.04\u20130.046 vs ~0.49 for TM010) leading to ~4\u00d7 loss in expected axion power. Limits exclude previously unexplored parameter space for axion-like particles and improve on solar bounds by ~2 orders of magnitude under 100% dark matter assumption, though do not yet reach DFSZ sensitivity. | selector: text (sole candidate)",
+ "num_points": 6,
+ "elapsed_s": 33.58571481704712
+}

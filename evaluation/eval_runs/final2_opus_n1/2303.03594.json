@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2303.03594",
+ "paper_title": "First results of axion dark matter search with DANCE",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-14,
+   0.0008
+  ],
+  [
+   1e-13,
+   0.0008
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "DANCE_Act-1",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "DANCE Act-1 optical bow-tie cavity polarization-based axion DM search. Main result: g_agamma <~ 8e-4 GeV^-1 for 10^-14 eV < m_a < 10^-13 eV (95% CL). Full spectrum is in Fig. 6 but not tabulated; only the quoted flat-ish bound over the stated mass range is extractable from text. DM density rho_a = 0.4 GeV/cm^3 assumed. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.75, 2))",
+ "num_points": 2,
+ "elapsed_s": 196.1232008934021
+}

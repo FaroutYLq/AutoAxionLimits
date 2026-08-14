@@ -1,0 +1,142 @@
+{
+ "arxiv_id": "2304.07505",
+ "paper_title": "Search for galactic axions with a traveling wave parametric amplifier",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.281775e-05,
+   8e-13
+  ],
+  [
+   4.28178e-05,
+   3e-13
+  ],
+  [
+   4.281785e-05,
+   1.2e-13
+  ],
+  [
+   4.28179e-05,
+   5e-14
+  ],
+  [
+   4.281795e-05,
+   8e-14
+  ],
+  [
+   4.2818e-05,
+   6e-14
+  ],
+  [
+   4.281805e-05,
+   5e-14
+  ],
+  [
+   4.28181e-05,
+   4.5e-14
+  ],
+  [
+   4.281815e-05,
+   6e-14
+  ],
+  [
+   4.28182e-05,
+   4e-14
+  ],
+  [
+   4.281823e-05,
+   2.05e-14
+  ],
+  [
+   4.281828e-05,
+   5e-14
+  ],
+  [
+   4.281832e-05,
+   7e-14
+  ],
+  [
+   4.281838e-05,
+   5e-14
+  ],
+  [
+   4.281843e-05,
+   6e-14
+  ],
+  [
+   4.281848e-05,
+   4.5e-14
+  ],
+  [
+   4.281853e-05,
+   7e-14
+  ],
+  [
+   4.281858e-05,
+   5e-14
+  ],
+  [
+   4.281863e-05,
+   9e-14
+  ],
+  [
+   4.281868e-05,
+   5.5e-14
+  ],
+  [
+   4.281873e-05,
+   8e-14
+  ],
+  [
+   4.281878e-05,
+   6e-14
+  ],
+  [
+   4.281883e-05,
+   5e-14
+  ],
+  [
+   4.281888e-05,
+   7e-14
+  ],
+  [
+   4.281893e-05,
+   6e-14
+  ],
+  [
+   4.281898e-05,
+   8e-14
+  ],
+  [
+   4.281903e-05,
+   7e-14
+  ],
+  [
+   4.281908e-05,
+   9e-14
+  ],
+  [
+   4.281913e-05,
+   1.1e-13
+  ],
+  [
+   4.281918e-05,
+   1.3e-13
+  ],
+  [
+   4.281923e-05,
+   1.5e-13
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "QUAX (TWPA haloscope)",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "QUAX haloscope with TWPA at 10.353 GHz. Mass range 42.8178-42.8190 ueV (from Fig 7 axis). Minimum limit ga\u03b3\u03b3 < 2.05e-14 GeV^-1 stated in text (1.2x KSVZ). Individual per-mass bar values not tabulated; encoded as horizontal line spanning the plotted mass range at the best (minimum) limit. Actual bars vary between ~2e-14 and ~1e-13 across the range. 90% single-sided CL, power-constrained. Local DM density 0.45 GeV/cm^3. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 31)) | Vision: Limit shown as solid blue bars (this work) with narrow mass range 42.8178-42.8190 ueV. Minimum limit stated in text is 2.05e-14 GeV^-1, ~1.2x above KSVZ. The lower boundary of the excluded region traced from the blue bars. KSVZ horizontal line at ~1.7e-14. Bar-like structure makes exact per-mass boundary values approximate. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.97 snapped to identity)",
+ "num_points": 31,
+ "elapsed_s": 270.46521186828613
+}

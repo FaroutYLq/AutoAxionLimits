@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1607.07327",
+ "paper_title": "Search for light scalar Dark Matter candidate with AURIGA detector",
+ "coupling_type": "ScalarPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.52e-12,
+   1e-05
+  ],
+  [
+   3.93e-12,
+   1e-05
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "AURIGA2016",
+ "coupling_convention": "dimensionless d_e",
+ "notes": "AURIGA resonant-mass detector searches for scalar moduli DM. The limit constrains both electromagnetic gauge modulus (d_e, ScalarPhoton) and electron mass modulus (d_me, ScalarElectron) equally - the paper reports a combined limit d_i <~ 1e-5 in the band f=[850,950] Hz. Mass range: f_phi = m_phi/2pi, so f=850Hz -> m~3.52e-12 eV, f=950Hz -> m~3.93e-12 eV (using m[eV]=4.136e-15*f). Central value m_phi=3.6e-12 eV. Only text values available (Fig 5 not numerically readable). Coupling type ambiguous between ScalarPhoton (d_e) and ScalarElectron (d_me); chose ScalarPhoton per hint but limit applies to both. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.6, 2))",
+ "num_points": 2,
+ "elapsed_s": 119.52487397193909
+}

@@ -1,0 +1,94 @@
+{
+ "arxiv_id": "2205.03679",
+ "paper_title": "Search for Dark Photon Dark Matter in the Mass Range $74\\mbox{--}110\\,\u03bc\\mathrm{eV}/c^2$ with a Cryogenic Millimeter-Wave Receiver",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   7.4e-05,
+   1.5e-10
+  ],
+  [
+   7.6e-05,
+   1.4e-10
+  ],
+  [
+   7.8e-05,
+   1.3e-10
+  ],
+  [
+   8e-05,
+   1.2e-10
+  ],
+  [
+   8.2e-05,
+   1.1e-10
+  ],
+  [
+   8.4e-05,
+   1e-10
+  ],
+  [
+   8.6e-05,
+   9.5e-11
+  ],
+  [
+   8.8e-05,
+   9e-11
+  ],
+  [
+   9e-05,
+   8.5e-11
+  ],
+  [
+   9.2e-05,
+   8e-11
+  ],
+  [
+   9.4e-05,
+   7.5e-11
+  ],
+  [
+   9.6e-05,
+   7e-11
+  ],
+  [
+   9.8e-05,
+   6.5e-11
+  ],
+  [
+   0.0001,
+   6e-11
+  ],
+  [
+   0.000102,
+   5.8e-11
+  ],
+  [
+   0.000104,
+   5.6e-11
+  ],
+  [
+   0.000106,
+   5.4e-11
+  ],
+  [
+   0.000108,
+   5.2e-11
+  ],
+  [
+   0.00011,
+   5e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.39,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "DOSUE-RR (Dark Photon Search Using Electromagnetic Receiver - Refined)",
+ "coupling_convention": "kinetic mixing \u03c7 (dimensionless), plotted as \u03c7 \u00d7 10^-10 on y-axis",
+ "notes": "Direct search for dark photon dark matter using cryogenic millimeter-wave receiver. Frequency range 18\u201326.5 GHz corresponds to mass range 74\u2013110 \u00b5eV/c\u00b2. No significant signal observed. Upper bounds \u03c7 < (0.3\u20132.0)\u00d710\u207b\u00b9\u2070 at 95% CL. This is the first exploration of this mass range by direct search and tighter than cosmological constraints. The coupling values represent the approximate range across the mass interval; the paper provides a continuous limit curve in Fig. 5 but the abstract and text quote the range (0.3\u20132.0)\u00d710\u207b\u00b9\u2070. Data points encode this as a two-point horizontal band spanning the mass range. Dark matter density \u03c1 = 0.39 \u00b1 0.03 GeV/cm\u00b3 used in signal power calculation (Eq. 1). Systematic uncertainties total 7.0% (Table I). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 19)) | Vision: The exclusion plot (FIG. 5, bottom panel) shows constraints on kinetic mixing \u03c7 vs dark photon mass m_DP in the range 74\u2013110 \u03bceV/c\u00b2. The y-axis is labeled 'Coupling Constant \u03c7' with tick marks at 0, 2, 4, 6, 8, 10 (\u00d710^-10). The x-axis shows dark photon mass in \u03bceV/c\u00b2 from 74 to 110. The red shaded region labeled 'This work' represents the new experimental constraint from the cryogenic millimeter-wave receiver. The boundary traced is the lower edge of the excluded region (upper limit on \u03c7). The paper reports \u03c7 < (0.3\u20132.0) \u00d7 10^-10 at 95% confidence level. The cosmological limit line is also visible as a diagonal boundary. The constraint is tighter than previous cosmological observations and represents the most stringent direct search constraint in this mass range to date. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.88 snapped to identity)",
+ "num_points": 19,
+ "elapsed_s": 133.3205623626709
+}

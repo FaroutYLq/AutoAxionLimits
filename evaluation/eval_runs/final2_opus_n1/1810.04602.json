@@ -1,0 +1,134 @@
+{
+ "arxiv_id": "1810.04602",
+ "paper_title": "Evidence for light-by-light scattering and searches for axion-like particles in ultraperipheral PbPb collisions at $\\sqrt{s_\\mathrm{NN}} =$ 5.02 TeV",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   5000000000.0,
+   0.0002
+  ],
+  [
+   5500000000.0,
+   0.00011
+  ],
+  [
+   6000000000.0,
+   7.5e-05
+  ],
+  [
+   6500000000.0,
+   5.8e-05
+  ],
+  [
+   7000000000.0,
+   5e-05
+  ],
+  [
+   7500000000.0,
+   5.2e-05
+  ],
+  [
+   8000000000.0,
+   5.5e-05
+  ],
+  [
+   9000000000.0,
+   6.5e-05
+  ],
+  [
+   10000000000.0,
+   7.2e-05
+  ],
+  [
+   11000000000.0,
+   7e-05
+  ],
+  [
+   12000000000.0,
+   7.5e-05
+  ],
+  [
+   14000000000.0,
+   8.2e-05
+  ],
+  [
+   16000000000.0,
+   9e-05
+  ],
+  [
+   18000000000.0,
+   9.5e-05
+  ],
+  [
+   20000000000.0,
+   0.000105
+  ],
+  [
+   25000000000.0,
+   0.00012
+  ],
+  [
+   30000000000.0,
+   0.00014
+  ],
+  [
+   35000000000.0,
+   0.00016
+  ],
+  [
+   40000000000.0,
+   0.00018
+  ],
+  [
+   45000000000.0,
+   0.0002
+  ],
+  [
+   50000000000.0,
+   0.00022
+  ],
+  [
+   55000000000.0,
+   0.00025
+  ],
+  [
+   60000000000.0,
+   0.00028
+  ],
+  [
+   65000000000.0,
+   0.00031
+  ],
+  [
+   70000000000.0,
+   0.00034
+  ],
+  [
+   75000000000.0,
+   0.00038
+  ],
+  [
+   80000000000.0,
+   0.00042
+  ],
+  [
+   85000000000.0,
+   0.00046
+  ],
+  [
+   90000000000.0,
+   0.0005
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "CMS PbPb LbL ALP (5.02 TeV)",
+ "coupling_convention": "g_agamma = 1/Lambda in GeV^-1, as plotted",
+ "notes": "CMS sets new 95% CL exclusion limits on ALP-photon coupling g_agamma vs m_a (5-90 GeV) via gamma gamma -> a -> gamma gamma in ultraperipheral PbPb collisions. The limit is presented in Fig. 7 (g_agamma = 1/Lambda vs m_a plane), which is the correct coupling type (AxionPhoton). However, no numerical table of (m_a, g_agamma) values is provided in the extractable text; the limits exist only as a plot. Cross section limits range 1500-20 nb over 5-90 GeV. Cannot extract reliable numerical (mass, coupling) pairs from the provided content. | selector: figure_vision (sole candidate) | Vision: Traced the lower boundary of the CMS PbPb (5.02 TeV) observed exclusion region from Fig. 7 left panel (aFF/4Lambda operator, photon coupling only). The excluded region is above the observed curve. Minimum coupling reached near m_a ~ 7 GeV at g ~ 5e-5 GeV^-1. Curve rises linearly on log-log toward higher masses. The x-axis is a mixed log|linear scale so mass conversions above ~5 GeV are on the linear portion; converted GeV to eV by x1e9. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.57 snapped to identity)",
+ "num_points": 29,
+ "elapsed_s": 174.43773913383484
+}

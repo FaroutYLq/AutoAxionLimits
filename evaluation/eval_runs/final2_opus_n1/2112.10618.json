@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "2112.10618",
+ "paper_title": "Measuring the stability of fundamental constants with a network of clocks",
+ "coupling_type": "ScalarPhoton",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [],
+ "data_source": "none",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "QSNET",
+ "coupling_convention": "Lambda_gamma in GeV (effective new-physics energy scale, 1/Lambda_gamma = kappa*d_e)",
+ "notes": "Projection paper for the QSNET clock network. Constrains scalar DM coupling to the EM field (Lambda_gamma, corresponds to ScalarPhoton/d_e/alpha variation) and to the electron mass (Lambda_e, ScalarPhoton vs ScalarElectron). Results presented only as exclusion curves in Figs 6-7 over mass range 10^-24 to 10^-10 eV, with y-axis log10(Lambda/GeV) roughly -30 to -15. No numerical table of the sensitivity curve is given, so no reliable data points can be extracted. The paper reports results as energy scales Lambda_gamma (GeV), not directly as dimensionless d_e. Both photon and electron couplings discussed, so coupling_type between ScalarPhoton and ScalarElectron is ambiguous; the photon coupling shown as ScalarPhoton.",
+ "num_points": 0,
+ "elapsed_s": 166.3821370601654
+}

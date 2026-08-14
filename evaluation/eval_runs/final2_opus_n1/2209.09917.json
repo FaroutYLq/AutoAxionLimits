@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2209.09917",
+ "paper_title": "Novel Constraints on Axions Produced in Pulsar Polar-Cap Cascades",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-08,
+   1e-11
+  ],
+  [
+   1e-07,
+   5e-12
+  ],
+  [
+   1e-06,
+   3e-12
+  ],
+  [
+   1e-05,
+   5e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.4,
+ "suggested_experiment_name": "PulsarPolarCap2023",
+ "coupling_convention": "g_agamma in GeV^-1 (approximate, read from Fig. 2 range)",
+ "notes": "Paper derives 95% CL upper limits on axion-photon coupling g_a\u03b3\u03b3 from radio observations of 27 nearby pulsars, using axion production in neutron star polar-cap vacuum gaps (NOT assuming axions are dark matter, so no DM density assumption). Valid for masses 1e-8 to 1e-5 eV. Constraints are order ~1e-11 GeV^-1, with example calculations using g_a\u03b3\u03b3 ~ 1e-11 GeV^-1. Exact limit values are in Fig. 2/S6 which are not machine-readable in this text; data points are approximate estimates spanning the stated mass range. No numerical exclusion table is provided in the text, so extraction confidence is low for the precise coupling values. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.4, 4))",
+ "num_points": 4,
+ "elapsed_s": 162.45484495162964
+}

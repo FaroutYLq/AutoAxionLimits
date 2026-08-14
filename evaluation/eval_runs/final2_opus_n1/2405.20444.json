@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2405.20444",
+ "paper_title": "DarkEfield2",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.1e-07,
+   6e-15
+  ],
+  [
+   1.24e-06,
+   6e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "DarkEfieldRadio2024",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Dark E-Field Radio experiment, 50-300 MHz (0.21-1.24 ueV). 95% exclusion on epsilon ranges between 6e-15 and 6e-13 tracking complex resonant mode structure. Only the overall bounding range is given in text; the detailed mass-dependent curve (Fig 11/12) is not numerically tabulated in the paper, so the two data points represent the stated envelope (mass endpoints and coupling range) rather than a point-by-point curve. Local DM density fixed at 0.45 GeV/cm^3. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.55, 2))",
+ "num_points": 2,
+ "elapsed_s": 216.82068824768066
+}

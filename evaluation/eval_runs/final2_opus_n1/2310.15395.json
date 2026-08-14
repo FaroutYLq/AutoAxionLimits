@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2310.15395",
+ "paper_title": "Hunting Dark Matter Lines in the Infrared Background with the James Webb Space Telescope",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.0,
+   2.4e-11
+  ],
+  [
+   2.15,
+   9.4e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.18,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "JWST_NIRSpec_BlankSky",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Continuum-model 2sigma power-constrained limits on ALP-photon coupling from JWST NIRSpec blank sky observations. Only two explicit numerical (mass, coupling) points quoted in text: g_agamma > 2.4e-11 GeV^-1 at m_a=1 eV and g_agamma > 9.4e-12 GeV^-1 at m_a=2.15 eV. Full curve spans ~0.8-3 eV but only these points are numerically stated. DM density: NFW with rho_s=0.18 GeV/cm^3 (not local density directly; rho_s used). Also constrains decay lifetime tau; ALP coupling is the physics-coupling result. Projections (current, 15-year) also given but excluded as they are forecasts. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.7, 2))",
+ "num_points": 2,
+ "elapsed_s": 126.23801302909851
+}

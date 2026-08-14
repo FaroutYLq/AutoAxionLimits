@@ -1,0 +1,98 @@
+{
+ "arxiv_id": "2209.13588",
+ "paper_title": "Constraints on axion-like dark matter from a SERF comagnetometer",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-11,
+   9.999999999999999e-06
+  ],
+  [
+   1.2e-11,
+   9.5e-06
+  ],
+  [
+   1.5e-11,
+   9e-06
+  ],
+  [
+   2e-11,
+   8.5e-06
+  ],
+  [
+   2.5e-11,
+   8.2e-06
+  ],
+  [
+   3e-11,
+   8e-06
+  ],
+  [
+   3.5e-11,
+   7.899999999999999e-06
+  ],
+  [
+   4e-11,
+   7.8e-06
+  ],
+  [
+   4.5e-11,
+   7.7e-06
+  ],
+  [
+   5e-11,
+   7.6e-06
+  ],
+  [
+   5.5e-11,
+   7.5e-06
+  ],
+  [
+   6e-11,
+   7.4e-06
+  ],
+  [
+   6.5e-11,
+   7.2999999999999996e-06
+  ],
+  [
+   7e-11,
+   7.2e-06
+  ],
+  [
+   7.5e-11,
+   7.1e-06
+  ],
+  [
+   8e-11,
+   7e-06
+  ],
+  [
+   8.5e-11,
+   6.9e-06
+  ],
+  [
+   9e-11,
+   6.799999999999999e-06
+  ],
+  [
+   9.5e-11,
+   6.7e-06
+  ],
+  [
+   1e-10,
+   6.6e-06
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "NASDUCK-SERF (Noble And Alkali Spin Detectors for Ultralight Coherent darK matter - Spin-Exchange Relaxation-Free comagnetometer)",
+ "coupling_convention": "g_an (dimensionless axion-neutron coupling), as plotted on y-axis",
+ "notes": "Paper reports constraints on both ALP-neutron (g_aNN) and ALP-proton (g_aPP) couplings. The primary new result is the first reliable terrestrial bounds on ALP-proton coupling, but the abstract and title emphasize the neutron constraint as well. Figure 2 shows detailed exclusion limits as functions of mass. The bounds are presented as 95% C.L. exclusion regions (bright red bands in Fig. 2). Extracting precise numerical values from the figure is difficult due to finite resolution; the paper states bounds are tabulated in Ref. [57]. The abstract mentions improvements of 'up to two orders of magnitude for neutrons' and 'over two orders of magnitude for protons' in the mass range 1.4\u00d710^-12 to 2\u00d710^-10 eV. The coupling convention in the paper is g_aNN and g_aPP in units of GeV^-1. Since the paper presents both neutron and proton couplings with comparable emphasis, and the pre-analysis hint suggests AxionProton, there is ambiguity. However, the title and abstract lead with 'neutron and proton' couplings equally, and the paper's main innovation is the first reliable proton bounds. Given the coupling_type enum requires a single choice and the paper constrains BOTH, I select AxionNeutron as the primary result (left panel of Fig. 2 is the neutron constraint), but note that AxionProton is equally valid. The extraction confidence is reduced to 0.65 due to this ambiguity and the difficulty in reading precise numerical values from the figure. The data_points represent a rough horizontal bound spanning the mass range; the actual bounds vary significantly with mass as shown in Fig. 2. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.65, 20)) | Vision: The left panel of FIG. 2 shows constraints on ALP-neutron coupling (g_NN) as a function of ALP mass (m_DM). The exclusion region is shown in light transparent red, with the lower boundary (constraint curve) marked by the bright red band. The x-axis spans from 10^-11 to 10^-10 eV in log scale, and the y-axis spans from 10^-7 to 10^-1 GeV^-1 in log scale. The constraint curve shows a relatively flat profile across the mass range, with coupling values hovering around 10^-6 to 10^-7 GeV^-1. The NASDUCK-SERF result (bright red band) represents the main experimental constraint from this work. The curve is smooth with minimal structure, suggesting a relatively uniform sensitivity across the searched mass range. Extraction confidence is moderate (0.65) due to the difficulty in precisely reading the exact boundary position from the plotted band width and the visual representation of the constraint region. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=16.00)",
+ "num_points": 20,
+ "elapsed_s": 162.48645496368408
+}

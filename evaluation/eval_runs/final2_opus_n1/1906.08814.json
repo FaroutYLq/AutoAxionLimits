@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1906.08814",
+ "paper_title": "DM-Pathfinder",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.035e-09,
+   1.5e-09
+  ],
+  [
+   2.035e-09,
+   1.5e-09
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "DM_Radio_Pathfinder",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Fixed-frequency superconducting lumped-element resonator at 492.027 kHz -> hidden photon mass ~2.035 neV. Excludes kinetic mixing eps >~ 1.5e-9 in a narrow band around 2.035 neV. Only the single quoted value is given in text; the exclusion is a narrow band near this mass. Encoded as two-point at the stated mass. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.8, 2))",
+ "num_points": 2,
+ "elapsed_s": 107.13624405860901
+}

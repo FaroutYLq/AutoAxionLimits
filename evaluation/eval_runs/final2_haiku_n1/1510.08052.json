@@ -1,0 +1,146 @@
+{
+ "arxiv_id": "1510.08052",
+ "paper_title": "The PVLAS experiment: measuring vacuum magnetic birefringence and dichroism with a birefringent Fabry-Perot cavity",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0001,
+   9.999999999999999e-06
+  ],
+  [
+   0.00012,
+   9.5e-06
+  ],
+  [
+   0.00015,
+   8.5e-06
+  ],
+  [
+   0.0002,
+   7.000000000000001e-06
+  ],
+  [
+   0.00025,
+   5.5e-06
+  ],
+  [
+   0.0003,
+   4.5e-06
+  ],
+  [
+   0.0004,
+   3.2000000000000003e-06
+  ],
+  [
+   0.0005,
+   2.4999999999999998e-06
+  ],
+  [
+   0.0006,
+   2e-06
+  ],
+  [
+   0.0007,
+   1.8e-06
+  ],
+  [
+   0.0008,
+   1.6000000000000001e-06
+  ],
+  [
+   0.0009,
+   1.4999999999999998e-06
+  ],
+  [
+   0.001,
+   1.4e-06
+  ],
+  [
+   0.0012,
+   1.3e-06
+  ],
+  [
+   0.0015,
+   1.2e-06
+  ],
+  [
+   0.002,
+   1.0999999999999998e-06
+  ],
+  [
+   0.0025,
+   1e-06
+  ],
+  [
+   0.003,
+   9.500000000000001e-07
+  ],
+  [
+   0.0035,
+   9e-07
+  ],
+  [
+   0.004,
+   8.799999999999999e-07
+  ],
+  [
+   0.0045,
+   8.599999999999999e-07
+  ],
+  [
+   0.005,
+   8.5e-07
+  ],
+  [
+   0.0055,
+   8.799999999999999e-07
+  ],
+  [
+   0.006,
+   9.2e-07
+  ],
+  [
+   0.0065,
+   1e-06
+  ],
+  [
+   0.007,
+   1.15e-06
+  ],
+  [
+   0.0075,
+   1.35e-06
+  ],
+  [
+   0.008,
+   1.6000000000000001e-06
+  ],
+  [
+   0.0085,
+   1.95e-06
+  ],
+  [
+   0.009,
+   2.4e-06
+  ],
+  [
+   0.0095,
+   2.9999999999999997e-06
+  ],
+  [
+   0.01,
+   3.8000000000000005e-06
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "PVLAS 2015 (Ellipticity and Rotation measurements)",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling constant",
+ "notes": "Paper presents exclusion limits on axion-like particles (ALPs) from ellipticity and rotation measurements in a Fabry-Perot cavity polarimeter. Figure 14 shows the primary exclusion plot for ALPs in the (mass, coupling) plane at 95% CL. The ellipticity measurement dominates for m \u2265 1 meV with coupling g ~ 10^-5 GeV^-1 at the boundary. The rotation measurement provides complementary constraints at lower masses. The paper also presents limits on milli-charged particles (Figure 15) but the primary new result is the ALP exclusion. Data points extracted from Figure 14 represent approximate boundary values; the actual exclusion region is above these curves. The coupling convention is g_agamma in GeV^-1 as standard for axion-photon interactions. Confidence level is 95% as stated in figure caption. | selector: figure_vision over table (quality (1, 1, 1, 1, 2, 0, 0.85, 32)) | Vision: Figure 14 shows exclusion limits for ALPs from PVLAS 2015 laboratory measurements at 95% CL. The plot displays two PVLAS curves: red (Ellipticity) and blue (Rotation). The x-axis is axion mass m in eV (log scale, range 1e-4 to 0.01 eV). The y-axis is coupling constant g (log scale, range 1e-8 to 1e-3). The excluded region is ABOVE the curves. The ellipticity curve (red) dominates at m \u2265 1 meV and shows a characteristic dip around 0.5-1 meV before rising steeply at higher masses. The rotation curve (blue) provides the best limits at lower masses. The boundary traced follows the lower envelope of the PVLAS 2015 ellipticity measurement, which is the most stringent constraint in the m \u2265 1 meV region. The plot also shows OSQAR 2015 and ALPS 2010 results for comparison. The coupling values are read directly from the plotted curves without any unit conversion, as the y-axis already displays g_agamma in the appropriate units (GeV^-1 implied by the scale). | Calibration: Vision calibration: \u00d71e+2 (factor=1.00e+02, reason=spot-check verify/stage2, raw_ratio=50.00)",
+ "num_points": 32,
+ "elapsed_s": 197.60909414291382
+}

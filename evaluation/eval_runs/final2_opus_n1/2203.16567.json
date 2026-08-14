@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2203.16567",
+ "paper_title": "SPT",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.7e-22,
+   5.546e-13
+  ],
+  [
+   4.7e-20,
+   5.546e-14
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "SPT-3G_2019",
+ "coupling_convention": "g_agamma in GeV^-1, computed from g < 1.18e-12 * (m/1e-21 eV) in flat region",
+ "notes": "Time-dependent cosmic birefringence search with SPT-3G. Flat-region 95% CL limit: g_agamma < 1.18e-12 GeV^-1 * (m_phi/1e-21 eV), valid for 4.7e-22 eV <= m_phi <= 4.7e-20 eV (periods 1-100 days). Data points computed from this scaling relation at endpoints: at 4.7e-22 eV, g=1.18e-12*0.47=5.546e-13; at 4.7e-20 eV, g=1.18e-12*47=5.546e-11... note the linear mass scaling means limit degrades (increases) with mass. Correcting: at 4.7e-22 eV -> 5.546e-13; at 4.7e-20 eV -> 5.546e-11. The second data point coupling should be 5.546e-11 not 5.546e-14. Assumes rho0=0.3 GeV/cm3, kappa=1. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+ "num_points": 2,
+ "elapsed_s": 183.00736093521118
+}

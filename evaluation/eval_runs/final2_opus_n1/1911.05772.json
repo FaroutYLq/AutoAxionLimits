@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "1911.05772",
+ "paper_title": "ADMX SLIC: Results from a Superconducting LC Circuit Investigating Cold Axions",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.7498e-07,
+   1e-12
+  ],
+  [
+   1.7519e-07,
+   1e-12
+  ],
+  [
+   1.7734e-07,
+   1e-12
+  ],
+  [
+   1.7738e-07,
+   1e-12
+  ],
+  [
+   1.8007e-07,
+   1e-12
+  ],
+  [
+   1.8015e-07,
+   1e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "ADMX_SLIC",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "ADMX SLIC LC-circuit haloscope search covering three narrow axion mass windows around 1.75-1.80e-7 eV (42-44 MHz) at 4.5/5.0/7.0 T. The abstract/text quote couplings excluded below 1e-12 GeV^-1, but the exact per-mass limit values are only in Fig. 4 which is not machine-readable here. Data points approximate the coupling ceiling (~1e-12 GeV^-1) over the stated mass windows; actual best limits from the plot may be slightly lower. Confidence lowered because numeric coupling values had to be inferred from the '<1e-12 GeV^-1' statement rather than read from a table. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.5, 6))",
+ "num_points": 6,
+ "elapsed_s": 134.3667230606079
+}

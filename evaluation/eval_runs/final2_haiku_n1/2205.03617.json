@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2205.03617",
+ "paper_title": "Particle dispersion in the classical vector dark matter background",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-20,
+   3.3e-12
+  ],
+  [
+   1e-20,
+   6.6e-39
+  ],
+  [
+   1e-20,
+   9.3e-21
+  ],
+  [
+   1e-20,
+   1.6e-29
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "VectorDarkMatter_DispersionConstraints",
+ "coupling_convention": "dimensionless coupling g_psi (electron/neutrino coupling to dark photon via kinetic mixing)",
+ "notes": "Paper derives NEW constraints on vector dark matter (dark photon and gauged U(1) extensions) from particle dispersion and normalization effects in a classical VDM background. Multiple coupling types are constrained: (1) electron mass measurement gives g_e < 3.3\u00d710^-12 (Eq. 35); (2) electroweak precision tests give g_\u03c8 < 6.6\u00d710^-39 (Eq. 39); (3) neutrino cosmology gives g_\u03bd < 9.3\u00d710^-21 (Eq. 37); (4) solar neutrino MSW effect gives g_\u03bd < 1.6\u00d710^-29 (Eq. 38). All constraints assume local DM density \u03c1_DM = 0.3 GeV/cm\u00b3. The paper examines four models: gauged L_\u03bc\u2212L_\u03c4, L_e\u2212L_\u03bc, L_e\u2212L_\u03c4, B\u2212L, and dark photon. Constraints are presented as exclusion plots (Figs. 3\u20136) comparing against existing bounds from stellar cooling, gravity experiments, neutrino tridents, and black hole superradiance. The coupling_type is classified as DarkPhoton because the paper explicitly discusses kinetic mixing with the SM photon and dark photon scenarios, though it also covers gauged U(1) extensions. Extraction confidence is moderate (0.65) because: (a) multiple coupling types and models are discussed simultaneously, making it unclear which is the 'primary' result; (b) the constraints are derived from theoretical consistency arguments (dispersion, normalization, precision tests) rather than direct experimental measurements; (c) the paper does not present a single canonical exclusion curve but rather multiple bounds from different physical effects. The data_points represent the numerical bounds extracted from Eqs. (35), (37), (38), (39) at a reference mass m_\u03b3' = 10^-20 eV. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 9.1 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | [CONVENTION REVIEW] declared coupling convention 'dimensionless coupling g_psi (electron/neutrino coupling to dark photon via kinetic mixing)' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 4,
+ "elapsed_s": 189.68484687805176
+}

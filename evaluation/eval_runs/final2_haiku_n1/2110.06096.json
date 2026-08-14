@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2110.06096",
+ "paper_title": "Search for \"Invisible\" Axion Dark Matter in the $3.3\\text{-}4.2~\u03bc$eV Mass Range",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.3e-06,
+   2.7e-16
+  ],
+  [
+   3.5e-06,
+   2.5e-16
+  ],
+  [
+   3.7e-06,
+   2.3e-16
+  ],
+  [
+   3.9e-06,
+   2.1e-16
+  ],
+  [
+   4.1e-06,
+   2e-16
+  ],
+  [
+   4.2e-06,
+   1.9e-16
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "ADMX_3.3-4.2uev",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "ADMX haloscope search for axion dark matter in the 3.3\u20134.2 \u00b5eV mass range. The paper reports exclusion of KSVZ model axions in this range and DFSZ model axions in the 3.9\u20134.1 \u00b5eV sub-range. Figure 4 shows the 90% C.L. upper limits on g_agamma vs axion mass. Data points extracted from the red-colored exclusion region in Fig. 4, which represents the new limits from this work. The coupling values are approximate readings from the figure; exact numerical table was not provided in the paper. The local dark matter density assumption of 0.45 GeV/cc is stated in the text (equation 1 and surrounding discussion). The experiment uses a 136-liter cylindrical cavity in a 7.5 T superconducting magnet with a Josephson parametric amplifier for ultra-low-noise detection. No axion-like excess was observed; all candidates were identified as instrumental artifacts or injected synthetic signals. | selector: text (sole candidate)",
+ "num_points": 6,
+ "elapsed_s": 64.01150107383728
+}

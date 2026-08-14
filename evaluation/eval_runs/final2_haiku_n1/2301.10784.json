@@ -1,0 +1,166 @@
+{
+ "arxiv_id": "2301.10784",
+ "paper_title": "Yb",
+ "coupling_type": "AxionMass",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-23,
+   1e-10
+  ],
+  [
+   1.2e-23,
+   1.5e-10
+  ],
+  [
+   1.5e-23,
+   2.5e-10
+  ],
+  [
+   2e-23,
+   4e-10
+  ],
+  [
+   3e-23,
+   8e-10
+  ],
+  [
+   5e-23,
+   2e-09
+  ],
+  [
+   8e-23,
+   5e-09
+  ],
+  [
+   1e-22,
+   1e-08
+  ],
+  [
+   1.5e-22,
+   2e-08
+  ],
+  [
+   2e-22,
+   3.5e-08
+  ],
+  [
+   3e-22,
+   7e-08
+  ],
+  [
+   5e-22,
+   1.5000000000000002e-07
+  ],
+  [
+   8e-22,
+   3.0000000000000004e-07
+  ],
+  [
+   1e-21,
+   5.000000000000001e-07
+  ],
+  [
+   1.5e-21,
+   1.0000000000000002e-06
+  ],
+  [
+   2e-21,
+   1.4999999999999998e-06
+  ],
+  [
+   3e-21,
+   2.9999999999999997e-06
+  ],
+  [
+   5e-21,
+   5.999999999999999e-06
+  ],
+  [
+   8e-21,
+   1.1999999999999999e-05
+  ],
+  [
+   1e-20,
+   1.8e-05
+  ],
+  [
+   1.5e-20,
+   3e-05
+  ],
+  [
+   2e-20,
+   4.4999999999999996e-05
+  ],
+  [
+   3e-20,
+   7.000000000000001e-05
+  ],
+  [
+   5e-20,
+   0.00012
+  ],
+  [
+   8e-20,
+   0.0002
+  ],
+  [
+   1e-19,
+   0.00028000000000000003
+  ],
+  [
+   1.5e-19,
+   0.00045
+  ],
+  [
+   2e-19,
+   0.0006
+  ],
+  [
+   3e-19,
+   0.0009
+  ],
+  [
+   5e-19,
+   0.0015
+  ],
+  [
+   8e-19,
+   0.0025
+  ],
+  [
+   1e-18,
+   0.0034999999999999996
+  ],
+  [
+   1.5e-18,
+   0.005
+  ],
+  [
+   2e-18,
+   0.006500000000000001
+  ],
+  [
+   3e-18,
+   0.0085
+  ],
+  [
+   5e-18,
+   0.0095
+  ],
+  [
+   1e-17,
+   0.01
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.45,
+ "suggested_experiment_name": "Yb+ optical clock (E3/E2 transition)",
+ "coupling_convention": "m_a in eV (y-axis) vs. m_a in eV (x-axis) \u2014 NOTE: This is NOT the standard AxionMass convention. The plot shows m_a on BOTH axes. The y-axis label reads 'Coupling d_q' but the actual plotted quantity is the axion mass m_a in eV, not a coupling constant. This appears to be a non-standard presentation where the vertical axis represents the axion mass constraint rather than the decay constant f_a.",
+ "notes": "Paper constrains QCD axion decay constant f_a and scalar DM couplings (d_g, d_m-hat) using oscillations of nuclear charge radius measured via 171Yb+ optical clock frequency comparisons. Two main results: (1) Scalar DM couplings d_g and d_m-hat vs mass m_phi (Fig. 1a,b) \u2014 these are dimensionless couplings, not AxionMass type. (2) QCD axion coupling 1/f_a vs mass m_a (Fig. 2) \u2014 this is the f_a-m_a plane. Chose AxionMass because Fig. 2 explicitly plots the axion decay constant f_a (y-axis, inverted as 1/f_a) against axion mass m_a (x-axis). The paper states limits are 'largely frequency-independent' for frequencies 1.4\u00d710^-8 Hz to 0.005 Hz, corresponding to DM masses roughly 6\u00d710^-23 eV to 2\u00d710^-17 eV. For the axion case (Fig. 2), the bound on 1/f_a is approximately constant across this mass range (mass-independent limit). Converted frequency range to mass using m[eV] = 4.136e-15 \u00d7 f[Hz]. The actual numerical bound on 1/f_a from Fig. 2 is not explicitly stated in text; visual inspection of the dark-red curve suggests 1/f_a ~ 10^-6 GeV^-1 or f_a ~ 10^6 GeV at the level of the current limit, but this is approximate. Extraction confidence reduced to 0.65 because: (i) the exact numerical value of the f_a bound is not given in the text (only shown in plot), (ii) the paper discusses multiple coupling types (scalar and axion), and (iii) the mass-independent nature of the bound requires careful interpretation. The dm_density_assumed = 0.4 GeV/cm^3 is stated explicitly in the text for the UDM analysis. | selector: figure_vision over text (quality (1, 1, 1, 0, 2, 0, 0.45, 37)) | Vision: CRITICAL ISSUE: The hint stated this should be AxionMass with x=f_a [GeV], y=m_a [eV]. However, the actual plot shows x-axis labeled 'Mass m_a (eV)' with range 10^-23 to 10^-17 eV, and y-axis labeled 'Coupling d_q' with range 10^-8 to 1. This is NOT a standard AxionMass plot (which would have f_a on x-axis in GeV). Instead, this appears to be a constraint on the scalar coupling d_q to quarks as a function of axion mass m_a. The paper discusses UDM (ultralight dark matter) with scalar couplings to the QCD sector. The y-axis represents the coupling strength d_q, not the axion mass. The exclusion region is ABOVE the boundary (higher couplings excluded). Multiple experimental constraints are shown: Yb+ E3/E2 (orange), Rb/Cs (turquoise), H/Si cavity (purple), EP test (blue), Fifth force (light blue), and mass shift/field shift regions (red/pink). The lower boundary traces the most stringent constraint across the mass range. Confidence is reduced to 0.45 because the plot does not match the expected AxionMass format; it appears to be a ScalarNucleon or similar scalar coupling constraint instead. | Calibration: Vision calibration: \u00d71e-2 (factor=1.00e-02, reason=spot-check verify/stage2, raw_ratio=0.01) | [CONVENTION REVIEW] declared coupling convention 'm_a in eV (y-axis) vs. m_a in eV (x-axis) \u2014 NOTE: This is NOT the standard AxionMass convention. The plot shows m_a on BOTH axes. The y-axis label reads 'Coupling d_q' but the actual plotted quantity is the axion mass m_a in eV, not a coupling constant. This appears to be a non-standard presentation where the vertical axis represents the axion mass constraint rather than the decay constant f_a.' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 37,
+ "elapsed_s": 116.79343891143799
+}

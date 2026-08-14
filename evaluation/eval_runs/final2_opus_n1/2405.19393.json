@@ -1,0 +1,146 @@
+{
+ "arxiv_id": "2405.19393",
+ "paper_title": "SN1987A_gamma_ProgenitorBfield",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-12,
+   3.1e-12
+  ],
+  [
+   3e-12,
+   3.1e-12
+  ],
+  [
+   1e-11,
+   3.1e-12
+  ],
+  [
+   3e-11,
+   3e-12
+  ],
+  [
+   1e-10,
+   2.8e-12
+  ],
+  [
+   3e-10,
+   2e-12
+  ],
+  [
+   1e-09,
+   1.2e-12
+  ],
+  [
+   2e-09,
+   1e-12
+  ],
+  [
+   5e-09,
+   9e-13
+  ],
+  [
+   1e-08,
+   8.5e-13
+  ],
+  [
+   3e-08,
+   8e-13
+  ],
+  [
+   1e-07,
+   7.8e-13
+  ],
+  [
+   3e-07,
+   7.8e-13
+  ],
+  [
+   7e-07,
+   8e-13
+  ],
+  [
+   1e-06,
+   8.5e-13
+  ],
+  [
+   2e-06,
+   1e-12
+  ],
+  [
+   4e-06,
+   1.5e-12
+  ],
+  [
+   7e-06,
+   2.5e-12
+  ],
+  [
+   1e-05,
+   3.5e-12
+  ],
+  [
+   2e-05,
+   6e-12
+  ],
+  [
+   4e-05,
+   1.2e-11
+  ],
+  [
+   7e-05,
+   2.5e-11
+  ],
+  [
+   0.0001,
+   4.5e-11
+  ],
+  [
+   0.00015,
+   6e-11
+  ],
+  [
+   0.0002,
+   6e-11
+  ],
+  [
+   0.0004,
+   6e-11
+  ],
+  [
+   0.0007,
+   6e-11
+  ],
+  [
+   0.001,
+   6e-11
+  ],
+  [
+   0.003,
+   6.5e-11
+  ],
+  [
+   0.01,
+   8e-11
+  ],
+  [
+   0.03,
+   3e-10
+  ],
+  [
+   0.1,
+   3e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "SN1987A gamma-ray progenitor B-field (ALP)",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "SN1987A gamma-ray limit on axion-photon coupling extended to higher masses via conversion in progenitor star magnetic field. The ALP SN1987A limit is |g_agamma| <= 2.6e-12 GeV^-1 at low mass (fiducial Unger-Farrar Galactic field + Primakoff + hadronic loop-level couplings, B0=100G conservative). This limit extends up to ma ~ 0.1 eV but only the low-mass plateau value (2.6e-12) is stated explicitly in text; the full mass-dependent curve is only in Fig.1. Encoded as a horizontal plateau over the validity range where mass effects are negligible (ma <~ few x 10^-5 eV for stellar conversion). Actual exclusion extends to higher masses with weakening limits not extractable numerically from text. This is a stellar/astrophysical bound, so no DM density. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 32)) | Vision: Traced the lower boundary of the blue 'ALP SN1987A (excl. 95%)' region in Fig.1. Text confirms low-mass limit ~3.1e-12 GeV^-1 and constraint extends to m_a~1e-3 eV. Boundary dips to minimum ~8e-13 around 1e-7 to 1e-6 eV then rises steeply above ~1e-5 eV. Above ~1e-2 eV the constraint merges with existing CAST/grey region. Values read from log-log plot with some interpolation. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.67 snapped to identity)",
+ "num_points": 32,
+ "elapsed_s": 315.3351728916168
+}

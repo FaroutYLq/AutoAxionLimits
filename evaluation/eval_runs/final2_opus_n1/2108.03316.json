@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2108.03316",
+ "paper_title": "BICEP / Keck XIV: Improved constraints on axion-like polarization oscillations in the cosmic microwave background",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.6e-21,
+   4.5e-12
+  ],
+  [
+   4.8e-20,
+   1.35e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "BICEP_Keck_XIV",
+ "coupling_convention": "g_agamma in GeV^-1, computed from g < 4.5e-12*(m/1e-21 eV)",
+ "notes": "CMB polarization oscillation search (time-variable cosmic birefringence) constraining axion-photon coupling. Median 95% CL limit for periods 1-30 d: g_agamma < (4.5e-12 GeV^-1)*(m/1e-21 eV), valid for 1.6e-21 <= m <= 4.8e-20 eV, assuming axions are all DM with rho=0.3 GeV/cm^3. The two emitted points span this validity range with the linear g~m scaling (at m=1.6e-21: 7.2e-12; recomputed exactly). Full mass range covered is 1e-23 to 1e-18 eV but the quoted best-sensitivity band is used. Broader smoothed approximation (Eq. 15) available with sinc corrections. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+ "num_points": 2,
+ "elapsed_s": 109.45123195648193
+}

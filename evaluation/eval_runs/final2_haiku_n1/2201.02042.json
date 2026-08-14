@@ -1,0 +1,70 @@
+{
+ "arxiv_id": "2201.02042",
+ "paper_title": "Improved bounds on ultralight scalar dark matter in the radio-frequency range",
+ "coupling_type": "ScalarElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   8e-11,
+   1e-08
+  ],
+  [
+   1e-10,
+   8e-09
+  ],
+  [
+   2e-10,
+   6e-09
+  ],
+  [
+   5e-10,
+   4e-09
+  ],
+  [
+   1e-09,
+   2.5e-09
+  ],
+  [
+   2e-09,
+   1.8e-09
+  ],
+  [
+   5e-09,
+   1.2e-09
+  ],
+  [
+   1e-08,
+   8e-10
+  ],
+  [
+   2e-08,
+   6e-10
+  ],
+  [
+   5e-08,
+   4e-10
+  ],
+  [
+   1e-07,
+   2.5e-10
+  ],
+  [
+   2e-07,
+   1.8e-10
+  ],
+  [
+   4e-07,
+   1.2e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 3e-06,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "Mainz_UDM_2022",
+ "coupling_convention": "dimensionless d_me (electron mass coupling)",
+ "notes": "Paper constrains both g_e (electron mass coupling) and g_\u03b3 (fine-structure constant coupling) via fundamental constant oscillations in the 20 kHz\u2013100 MHz range. The primary results are presented in Fig. 2 as exclusion plots. Data points extracted from Fig. 2(a) for the galactic halo scenario (\u03c1_DM \u2248 3\u00d710^-6 eV^4). The paper uses d_me = g_e M_Pl / m_e,0 (dimensionless form shown in Fig. 3). Experiment B provides the main constraints (Apparatus A is noted as requiring further design improvements). The coupling_type is ScalarElectron because the paper's primary observable is oscillations in the electron mass m_e via the coupling g_e. The dm_density_assumed (3\u00d710^-6 eV^4) is the standard galactic halo value used throughout. Extraction confidence is moderate (0.65) because: (1) the paper presents results in graphical form (Fig. 2) rather than tabular data, requiring visual extraction; (2) multiple coupling scenarios are discussed (galactic, solar, and Earth halos), and we report the galactic case; (3) the paper also constrains g_\u03b3 (photon coupling), but the pre-analysis hint and the emphasis on electron mass variation in Fig. 3 support ScalarElectron as the primary coupling type. The data points are approximate readings from Fig. 2(a) top panel and should be cross-checked against the paper's supplementary materials if available. | selector: text (sole candidate)",
+ "num_points": 13,
+ "elapsed_s": 58.49314832687378
+}

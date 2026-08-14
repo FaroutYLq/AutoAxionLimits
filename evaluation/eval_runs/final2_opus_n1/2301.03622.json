@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2301.03622",
+ "paper_title": "LOFAR",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-07,
+   1e-13
+  ],
+  [
+   2e-07,
+   1e-13
+  ],
+  [
+   3e-07,
+   1e-13
+  ],
+  [
+   4e-07,
+   1e-13
+  ],
+  [
+   5e-07,
+   1e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "LOFAR_SolarCorona",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Search for dark photon (and axion) DM resonant conversion in the solar corona using LOFAR radio data at 30-80 MHz (m_A' ~ 1.2e-7 to 3.3e-7 eV). Paper reports epsilon ~ 1e-13 upper limit across the band; precise per-frequency values must be read from Fig. 4 which was not available numerically. Data points here are approximate representative values along the ~1e-13 limit curve spanning the mass range corresponding to 30-80 MHz. The paper also derives an axion-photon coupling limit (Fig. 10) but explicitly states the dark photon case is the main result; that limit is weaker than existing bounds. Masses given as mA' in units of 1e-7 eV (x-axis 1-6). | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 5))",
+ "num_points": 5,
+ "elapsed_s": 183.0980999469757
+}

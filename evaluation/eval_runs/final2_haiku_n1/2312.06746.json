@@ -1,0 +1,46 @@
+{
+ "arxiv_id": "2312.06746",
+ "paper_title": "Constraints on photon mass and dark photon from the Jovian magnetic field",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.2e-18,
+   1.0
+  ],
+  [
+   3.2e-14,
+   1.0
+  ],
+  [
+   2e-15,
+   0.0028
+  ],
+  [
+   1e-17,
+   0.013
+  ],
+  [
+   1e-16,
+   0.013
+  ],
+  [
+   1e-15,
+   0.013
+  ],
+  [
+   1e-14,
+   0.013
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Juno_MAG_2024",
+ "coupling_convention": "dimensionless kinetic mixing parameter \u03b5",
+ "notes": "Paper constrains both SM photon mass (m\u03b3 < 2.5\u00d710\u207b\u00b9\u2078 eV at 95% CL) and dark photon parameters (mX, \u03b5) using Juno magnetometer data from Jupiter's magnetic field. The dark photon constraint is strongest in the mass range 3.2\u00d710\u207b\u00b9\u2078 eV \u2264 mX \u2264 1.8\u00d710\u207b\u00b9\u2075 eV and is independent of dark photon relic density. Main result: \u03b5 \u2264 2.8\u00d710\u207b\u00b3 at mX = 2.0\u00d710\u207b\u00b9\u2075 eV. At \u03b5 = 1, the bounds are mX \u2264 3.2\u00d710\u207b\u00b9\u2078 eV or mX \u2265 3.2\u00d710\u207b\u00b9\u2074 eV. The paper uses Bayesian analysis with Jeffreys prior. Data points extracted from Fig. 7 and text (Section 5). The constraint improves Pioneer 10 limits by ~2 orders of magnitude for photon mass and ~50\u00d7 for dark photon kinetic mixing in the optimal mass range. | selector: text (sole candidate)",
+ "num_points": 7,
+ "elapsed_s": 92.90894794464111
+}

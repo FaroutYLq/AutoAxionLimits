@@ -1,0 +1,122 @@
+{
+ "arxiv_id": "1910.08638",
+ "paper_title": "Extended Search for the Invisible Axion with the Axion Dark Matter Experiment",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.799e-06,
+   3.8e-16
+  ],
+  [
+   2.82e-06,
+   3.6e-16
+  ],
+  [
+   2.84e-06,
+   3.9e-16
+  ],
+  [
+   2.87e-06,
+   3.7e-16
+  ],
+  [
+   2.895e-06,
+   3.5e-16
+  ],
+  [
+   2.92e-06,
+   3.8e-16
+  ],
+  [
+   2.95e-06,
+   3.6e-16
+  ],
+  [
+   2.975e-06,
+   3.9e-16
+  ],
+  [
+   2.999e-06,
+   3.5e-16
+  ],
+  [
+   3.025e-06,
+   3.8e-16
+  ],
+  [
+   3.05e-06,
+   3.6e-16
+  ],
+  [
+   3.075e-06,
+   3.4e-16
+  ],
+  [
+   3.09e-06,
+   2.9e-16
+  ],
+  [
+   3.102e-06,
+   3.7e-16
+  ],
+  [
+   3.12e-06,
+   3.9e-16
+  ],
+  [
+   3.14e-06,
+   3.6e-16
+  ],
+  [
+   3.16e-06,
+   4e-16
+  ],
+  [
+   3.18e-06,
+   3.8e-16
+  ],
+  [
+   3.206e-06,
+   3.9e-16
+  ],
+  [
+   3.23e-06,
+   4.1e-16
+  ],
+  [
+   3.25e-06,
+   3.9e-16
+  ],
+  [
+   3.27e-06,
+   4.2e-16
+  ],
+  [
+   3.29e-06,
+   4.4e-16
+  ],
+  [
+   3.309e-06,
+   4.6e-16
+  ],
+  [
+   3.32e-06,
+   5.5e-16
+  ],
+  [
+   3.33e-06,
+   7e-16
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.78,
+ "suggested_experiment_name": "ADMX 2020 (Extended Search)",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "ADMX cavity haloscope excludes DFSZ axion-photon coupling over mass range 2.81-3.31 ueV (680-790 MHz region; overall DFSZ coverage 2.66-3.31 ueV). The exclusion limit is at DFSZ sensitivity across the band. Numerical g_agamma values are not tabulated; the DFSZ coupling at ~740 MHz corresponds to roughly g_agamma ~ 3-4e-16 GeV^-1. Data points are approximate horizontal band at the DFSZ level spanning the excluded mass range (2.81 ueV = 1.163e-5 eV to 3.31 ueV = 1.37e-5 eV). Actual limit curve is in Fig. 4 which is not numerically available. Two DM density models used: 0.45 GeV/cm^3 (Maxwell-Boltzmann) and 0.63 GeV/cm^3 (N-body). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.78, 26)) | Vision: Green 'This work' region spans ~677-800 MHz. Lower boundary traced along the darker green (MB model) reaching DFSZ sensitivity ~3.5-4e-16, rising sharply near 3.31 ueV (800 MHz) where sensitivity degrades. Frequencies converted to mass using top axis (730 MHz = 3.0 ueV). Note the boundary here is the sensitivity floor of the achieved exclusion, reaching just below DFSZ. Excluded lower masses (blue ADMX 2010, orange ADMX 2018) not traced. White gaps ~3.1 and ~3.15-3.2 ueV are mode-crossing regions with no limit. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=2.70 snapped to identity)",
+ "num_points": 26,
+ "elapsed_s": 268.0440719127655
+}

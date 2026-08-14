@@ -1,0 +1,22 @@
+{
+ "arxiv_id": "1410.5244",
+ "paper_title": "LSW_ADMX",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   5.3e-05,
+   1.7e-07
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "UWA2014_LSW",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "Cryogenic microwave cavity LSW experiment constraining hidden sector photon (dark photon) kinetic mixing. Main LSW result: chi < 1.7e-7 at m=53 ueV (mass range 240 MHz to 24 GHz). The paper also reports CDM haloscope bounds at 53 ueV: chi < 6.14e-14 (homogeneous, rho=0.3 GeV/cm^3) and chi < 5.32e-15 (inhomogeneous), which are DM-search results with local density assumption. The primary/headline LSW result is quoted here as it is mass-independent-detector-based bound; the LSW result does not assume DM density. Only the single explicitly quoted LSW point is given as exclusion contour data is a shaded region in Fig 5.\n\nNote: CDM haloscope bounds at same mass would be [5.3e-5, 6.14e-14] (rho=0.3 GeV/cm^3, homogeneous). | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 1))",
+ "num_points": 1,
+ "elapsed_s": 106.57300114631653
+}

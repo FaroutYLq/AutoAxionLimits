@@ -1,0 +1,62 @@
+{
+ "arxiv_id": "2503.11753",
+ "paper_title": "First constraints on QCD axion dark matter using James Webb Space Telescope observations",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.1,
+   3e-12
+  ],
+  [
+   0.13,
+   2e-12
+  ],
+  [
+   0.17,
+   3e-12
+  ],
+  [
+   0.3,
+   1.5e-12
+  ],
+  [
+   0.5,
+   1e-12
+  ],
+  [
+   0.7,
+   8e-12
+  ],
+  [
+   1.0,
+   5e-12
+  ],
+  [
+   1.5,
+   6e-12
+  ],
+  [
+   2.0,
+   1e-11
+  ],
+  [
+   3.0,
+   2e-11
+  ],
+  [
+   4.0,
+   3e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.18,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "JWST_MIRI_NIRSpec_2025",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Constraints on axion-photon coupling from JWST blank-sky observations (MIRI: 0.1-0.5 eV, NIRSpec: 0.5-4 eV). Only a figure (Fig. 2) shows the exclusion curves; no numerical table of the limit was provided. Data points are approximate estimates read from the figure axis range (y-axis spans 1e-13 to 1e-9 GeV^-1). DM density rho_s = 0.18 GeV/cm^3 (NFW). 95% CL. Values are rough and should be refined from the actual plotted curves. | selector: text (sole candidate)",
+ "num_points": 11,
+ "elapsed_s": 10.389510154724121
+}

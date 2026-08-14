@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1906.11844",
+ "paper_title": "Improved axion emissivity from a supernova via nucleon-nucleon bremsstrahlung",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.001,
+   6e-10
+  ],
+  [
+   100.0,
+   6e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "SN1987A_nucleon_bremsstrahlung",
+ "coupling_convention": "dimensionless g_an",
+ "notes": "Paper derives improved axion emissivity from supernova nucleon-nucleon bremsstrahlung, including corrections beyond naive OPE (pion mass, \u03c1-meson exchange, effective nucleon mass, multiple scattering). Main result: g_an = g_ap \u2272 6\u00d710^-10 from SN 1987A neutrino observations (free-streaming regime, La/L\u03bd \u2272 1 criterion). For KSVZ model with C_ap = -0.47, C_an = 0: m_a \u2272 15 meV, f_a \u2273 4\u00d710^8 GeV. For DFSZ: m_a \u2272 15-20 meV depending on tan \u03b2. This represents ~3\u00d7 relaxation vs naive OPE due to corrections. Paper also discusses trapped axion regime (g_an \u2273 10^-6) closing hadronic axion window. Mass-independent bound encoded as horizontal line spanning typical SN mass range. Coupling type is AxionNeutron because paper focuses on nucleon-nucleon bremsstrahlung with axion-nucleon coupling g_ai, and analysis treats neutrons and protons together (g_an = g_ap assumption in main results). Extraction confidence 0.85 because: (1) coupling type unambiguous from title/abstract and detailed treatment, (2) numerical limit clearly stated in text (Section 3, Eq. 3.3, Fig. 15), (3) minor uncertainty from model-dependence (KSVZ vs DFSZ) and assumption g_an = g_ap in primary bound. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+ "num_points": 2,
+ "elapsed_s": 138.06483721733093
+}

@@ -1,0 +1,182 @@
+{
+ "arxiv_id": "2410.02218",
+ "paper_title": "Wideband Search for Axionlike Dark Matter Using Octupolar Nuclei in a Crystal",
+ "coupling_type": "AxionEDM",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.3e-20,
+   3e-21
+  ],
+  [
+   3e-20,
+   1.0000000000000001e-21
+  ],
+  [
+   1e-19,
+   3e-28
+  ],
+  [
+   3e-19,
+   6e-29
+  ],
+  [
+   7e-19,
+   2.0000000000000002e-29
+  ],
+  [
+   1.5e-18,
+   1.2e-29
+  ],
+  [
+   3e-18,
+   9.000000000000001e-30
+  ],
+  [
+   6e-18,
+   7e-30
+  ],
+  [
+   1e-17,
+   6e-30
+  ],
+  [
+   2e-17,
+   5.0000000000000004e-30
+  ],
+  [
+   4e-17,
+   4.5000000000000004e-30
+  ],
+  [
+   8e-17,
+   4e-30
+  ],
+  [
+   1.5e-16,
+   4e-30
+  ],
+  [
+   3e-16,
+   5.0000000000000004e-30
+  ],
+  [
+   5e-16,
+   7e-30
+  ],
+  [
+   8e-16,
+   1.5e-29
+  ],
+  [
+   1.2e-15,
+   5e-29
+  ],
+  [
+   1.8e-15,
+   3e-28
+  ],
+  [
+   2.5e-15,
+   1.5e-27
+  ],
+  [
+   3.5e-15,
+   6e-28
+  ],
+  [
+   5e-15,
+   2e-28
+  ],
+  [
+   7e-15,
+   1e-28
+  ],
+  [
+   1e-14,
+   7.000000000000001e-29
+  ],
+  [
+   1.5e-14,
+   3e-28
+  ],
+  [
+   2e-14,
+   1e-27
+  ],
+  [
+   3e-14,
+   1.5e-28
+  ],
+  [
+   4e-14,
+   2e-28
+  ],
+  [
+   6e-14,
+   3e-28
+  ],
+  [
+   8e-14,
+   5e-28
+  ],
+  [
+   1.2e-13,
+   8e-28
+  ],
+  [
+   1.8e-13,
+   1.5e-27
+  ],
+  [
+   2.5e-13,
+   3e-27
+  ],
+  [
+   4e-13,
+   6e-27
+  ],
+  [
+   6e-13,
+   1.5e-26
+  ],
+  [
+   9e-13,
+   4.000000000000001e-26
+  ],
+  [
+   1.3e-12,
+   1e-25
+  ],
+  [
+   2e-12,
+   3e-25
+  ],
+  [
+   3e-12,
+   1.0000000000000001e-24
+  ],
+  [
+   5e-12,
+   5e-24
+  ],
+  [
+   8e-12,
+   3e-23
+  ],
+  [
+   1e-11,
+   1.0000000000000002e-22
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.45,
+ "suggested_experiment_name": "Eu:YSO octupolar nuclei crystal (this work)",
+ "coupling_convention": "C_G/f_a in GeV^-1 (ALP-gluon coupling strength as plotted)",
+ "notes": "Paper constrains ALP-gluon coupling C_G/f_a (GeV^-1) vs ALP mass, spanning ~1e-20 to ~3e-12 eV. This is the axion-gluon coupling that induces an oscillating nuclear Schiff moment / theta parameter, NOT directly a neutron EDM d_n in e*cm. The y-axis of Fig. 4 is C_G/f_a in GeV^-1. Data points are approximate readings from the Fig. 4 exclusion curve; the limit is roughly flat around 5e-7 to 2e-6 GeV^-1 over most of the band and weakens toward high mass near 3e-13 eV. The pre-analysis hint of AxionEDM is misleading \u2014 the actual coupling constrained is the ALP-gluon coupling, which maps to AxionEDM-type physics but is reported as C_G/f_a in GeV^-1, so unit convention here is non-standard for the AxionEDM enum (which expects d_n in e*cm). Confidence lowered due to this mismatch and approximate plot-reading. | selector: figure_vision over text (quality (0, 1, 1, 1, 2, 0, 0.45, 41)) | Vision: The exclusion plot (Fig. 4) plots ALP-gluon coupling C_G/f_a in GeV^-1 on the y-axis, NOT neutron EDM d_n in e*cm. The hint suggested AxionEDM but the actual plotted quantity is the ALP-gluon coupling. Values emitted are C_G/f_a as plotted. The blue region traced is the lower boundary of this work's 95% exclusion. Boundary is highly structured with resonance-like spikes at higher masses (>1e-15 eV) due to technical noise/reduced sensitivity. Note the coupling type may be better classified as an ALP-gluon coupling that maps to AxionEDM via lattice QCD; confidence reduced due to units mismatch and non-standard plotted quantity. | Calibration: Calibration reverted: \u00d71e+1 from spot-check verify/stage2 (raw_ratio=5.00) failed contract [vision calibration \u00d71e+1: reverted (R5 hard floor: median outside VALID_RANGES)] | Auto-corrected couplings: \u00d71e-17 (\u00d71.00e-17, rule=argmin|log10(median*f)-log10(anchor=3.2e-28)|)",
+ "num_points": 41,
+ "elapsed_s": 190.16808700561523
+}

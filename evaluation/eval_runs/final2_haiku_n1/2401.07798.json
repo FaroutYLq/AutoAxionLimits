@@ -1,0 +1,46 @@
+{
+ "arxiv_id": "2401.07798",
+ "paper_title": "Constraints on axion-like particles with the Perseus Galaxy Cluster with MAGIC",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4e-09,
+   5e-10
+  ],
+  [
+   1e-06,
+   5e-10
+  ],
+  [
+   4e-09,
+   5e-13
+  ],
+  [
+   1e-06,
+   5e-13
+  ],
+  [
+   5e-08,
+   3e-12
+  ],
+  [
+   4e-08,
+   3e-12
+  ],
+  [
+   2e-07,
+   3e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.99,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "MAGIC_Perseus_NGC1275",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper presents 99% CL exclusion limits on ALP-photon coupling g_agamma from MAGIC observations of NGC 1275 in the Perseus Galaxy Cluster. Abstract states most stringent limits for ALP masses around 50 neV with g_agamma = 3\u00d710^-12 GeV^-1. The parameter space scan covers 154 ALP models logarithmically spaced between 4\u00d710^-9 eV and 1\u00d710^-6 eV in mass, and 5\u00d710^-13 to 5\u00d710^-10 GeV^-1 in coupling. Figure 2 shows the full exclusion region at 99% CL. The strongest constraints occur around ma ~ 40-90 neV. Data points extracted from abstract statement and parameter space bounds; the horizontal line pairs represent the mass range of sensitivity for the coupling limits stated in the abstract and text. | selector: text (sole candidate)",
+ "num_points": 7,
+ "elapsed_s": 16.070839166641235
+}

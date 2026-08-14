@@ -1,0 +1,162 @@
+{
+ "arxiv_id": "2008.08773",
+ "paper_title": "Precision Metrology Meets Cosmology: Improved Constraints on Ultralight Dark Matter from Atom-Cavity Frequency Comparisons",
+ "coupling_type": "ScalarPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   8e-21,
+   2.5e-05
+  ],
+  [
+   1e-20,
+   3e-05
+  ],
+  [
+   1.5e-20,
+   3.9999999999999996e-05
+  ],
+  [
+   2e-20,
+   5e-05
+  ],
+  [
+   3e-20,
+   7e-05
+  ],
+  [
+   4e-20,
+   9e-05
+  ],
+  [
+   5e-20,
+   0.00010999999999999999
+  ],
+  [
+   7e-20,
+   0.00015999999999999999
+  ],
+  [
+   1e-19,
+   0.00021999999999999998
+  ],
+  [
+   1.5e-19,
+   0.00030000000000000003
+  ],
+  [
+   2e-19,
+   0.0004
+  ],
+  [
+   3e-19,
+   0.00055
+  ],
+  [
+   4e-19,
+   0.0006999999999999999
+  ],
+  [
+   5e-19,
+   0.0008500000000000001
+  ],
+  [
+   7e-19,
+   0.001
+  ],
+  [
+   1e-18,
+   0.0012000000000000001
+  ],
+  [
+   1.5e-18,
+   0.0013999999999999998
+  ],
+  [
+   2e-18,
+   0.0016
+  ],
+  [
+   3e-18,
+   0.0019000000000000002
+  ],
+  [
+   4e-18,
+   0.0022
+  ],
+  [
+   5e-18,
+   0.0025
+  ],
+  [
+   7e-18,
+   0.0029999999999999996
+  ],
+  [
+   1e-17,
+   0.0035
+  ],
+  [
+   1.5e-17,
+   0.004200000000000001
+  ],
+  [
+   2e-17,
+   0.0048000000000000004
+  ],
+  [
+   3e-17,
+   0.0058
+  ],
+  [
+   4e-17,
+   0.0065
+  ],
+  [
+   5e-17,
+   0.007200000000000001
+  ],
+  [
+   7e-17,
+   0.008499999999999999
+  ],
+  [
+   1e-16,
+   0.01
+  ],
+  [
+   1.5e-16,
+   0.011999999999999999
+  ],
+  [
+   2e-16,
+   0.014
+  ],
+  [
+   3e-16,
+   0.016999999999999998
+  ],
+  [
+   4e-16,
+   0.02
+  ],
+  [
+   5e-16,
+   0.023
+  ],
+  [
+   7e-16,
+   0.027000000000000003
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "JILA Sr-Si-H atom-cavity comparison (d_e)",
+ "coupling_convention": "d_e, dimensionless electromagnetic gauge modulus, as plotted",
+ "notes": "Paper constrains dilatonic dark matter couplings d_e (electromagnetic gauge modulus / fine-structure constant variation = ScalarPhoton) and d_me (electron mass = ScalarElectron). Main plot Fig 2a is d_e vs mass (1e-16 to 1e-21 eV). Assumes 0.3 GeV/cm^3 local DM density (Eq. 6). 95% CL. Data points are approximate reads from the exclusion curves and dynamical decoupling extension (Fig 3, up to ~1e-14 eV); precise tabulated values not available in text. Note the paper also sets d_me limits (~4e-5 at lowest masses) which correspond to ScalarElectron; if that coupling were the target the values would differ. Given ambiguity between two scalar couplings, confidence limited. | [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of the combined H/Si (blue) and Sr/Si (red) exclusion limits') rather than the paper's own single curve | selector: figure_vision over text (quality (1, 1, 1, 1, 1, 0, 0.75, 36)) | Vision: Traced the lower envelope of the combined H/Si (blue) and Sr/Si (red) exclusion limits from Fig. 2(a), which plots d_e (ScalarPhoton coupling) vs dark matter candidate mass. At lower masses the H/Si limit dominates (more sensitive); at higher masses the Sr/Si limit extends the range. The MICROSCOPE horizontal line at ~2.2e-4 serves as a calibration reference. Values are approximate readings of the noisy lower boundary. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=26.32)",
+ "num_points": 36,
+ "elapsed_s": 270.7982749938965
+}

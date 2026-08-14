@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2101.01241",
+ "paper_title": "Search for axion-like dark matter using solid-state nuclear magnetic resonance",
+ "coupling_type": "AxionEDM",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.62e-07,
+   1e-21
+  ],
+  [
+   1.66e-07,
+   1e-21
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "CASPEr-e_2021",
+ "coupling_convention": "d_n in e*cm",
+ "notes": "CASPEr-electric solid-state NMR search using 207Pb in PMN-PT crystal, mass range 162-166 neV (Compton freq ~39.65 MHz). Primary EDM coupling bound |g_d|<9.5e-4 GeV^-2 corresponds to oscillating nEDM amplitude 1.0e-21 e*cm (95% CL) and theta amplitude 4.3e-6. Gradient coupling bound |g_aNN|<2.8e-1 GeV^-1 also reported (AxionNeutron). Standard halo model with rho_DM=3.6e-42 GeV^4 (~0.4 GeV/cm^3, v0=220 km/s) assumed. The exact per-bin variation over the narrow 162-166 neV range is within line thickness; encoded as flat horizontal bound over stated mass range. Emitted values are the e*cm nEDM amplitude, not raw g_d in GeV^-2. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 18.5 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | [CONVENTION REVIEW] declared coupling convention 'd_n in e*cm' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 2,
+ "elapsed_s": 241.6787941455841
+}

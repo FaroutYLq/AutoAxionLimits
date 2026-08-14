@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "2102.02207",
+ "paper_title": "XMM-Newton",
+ "coupling_type": null,
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [],
+ "data_source": "none",
+ "dm_density_assumed": 0.29,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.25,
+ "suggested_experiment_name": "XMM-Newton_BSO_2021",
+ "coupling_convention": "dimensionless",
+ "notes": "This paper presents a search for decaying dark matter (specifically sterile neutrinos) using XMM-Newton blank-sky observations in the 5-16 keV mass range. The primary result is an upper limit on the sterile neutrino mixing angle sin\u00b2(2\u03b8) as a function of dark matter mass m\u03c7, shown in Figure 3. However, this does not correspond to any of the standard coupling types in the enumeration provided (AxionPhoton, DarkPhoton, AxionElectron, etc.). The paper constrains the LIFETIME of decaying dark matter via the mixing angle sin\u00b2(2\u03b8), which is a model-specific parameter for sterile neutrino dark matter, not a universal coupling constant like g_agamma or g_ae. The coupling_type is therefore null because sterile neutrino decay constraints do not map to the provided coupling enumerations. The local DM density assumed is 0.29 GeV/cm\u00b3 (at solar radius, derived from NFW profile with parameters from Cautun et al. 2020). Extraction confidence is low (0.25) because while the paper clearly presents new experimental limits, the constraint is on a model-specific parameter (sin\u00b2(2\u03b8)) rather than a standard coupling constant that can be canonicalized across experiments. To extract numerical limits, one would need to read values from Figure 3, but without a matching coupling_type, the data cannot be meaningfully encoded in the standard format.",
+ "num_points": 0,
+ "elapsed_s": 169.53374123573303
+}

@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2211.08439",
+ "paper_title": "Towards an electrostatic storage ring for fundamental physics measurements",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   1e-19,
+   1e-11
+  ],
+  [
+   1e-09,
+   1e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "TUM_ElectrostaticStorageRing",
+ "coupling_convention": "dimensionless g_ae (approximate, read from plot axis range)",
+ "notes": "Projection paper (proposal) for an electrostatic storage ring. Fig. 4 shows projected axion-electron coupling sensitivity (left) and axion-nucleon (right), plus kinetically mixed dark photon. The pre-analysis hint of AxionEDM is not the main dark-matter exclusion plot; the primary DM sensitivity curves are for axion-electron and axion-nucleon couplings. No numerical data table is provided; the axis ranges (mass 1e-19 to 1e-9 eV, coupling ~1e-11 to 1e-8) are only rough estimates read from Fig. 4 labels. Actual sensitivity curve values are not extractable with confidence. Multiple coupling types (g_ae, g_an, dark photon chi, EDM) discussed, so coupling type is genuinely ambiguous and data points are unreliable. | [VISION GATE A] is_projection=true but the vision notes say the traced curve is existing experiment 'comagnetometer' \u2014 not the paper's own projected curve ; [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of existing (grey/black) constraints') rather than the paper's own single curve | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 116.33261799812317
+}

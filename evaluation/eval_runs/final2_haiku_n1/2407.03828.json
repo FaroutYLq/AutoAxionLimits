@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "2407.03828",
+ "paper_title": "NuSTAR as an Axion Helioscope",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-11,
+   1.0000000000000001e-11
+  ],
+  [
+   2e-11,
+   1.0000000000000001e-11
+  ],
+  [
+   5e-11,
+   1.0000000000000001e-11
+  ],
+  [
+   1e-10,
+   1.0000000000000001e-11
+  ],
+  [
+   2e-10,
+   1.0000000000000001e-11
+  ],
+  [
+   5e-10,
+   1.0000000000000001e-11
+  ],
+  [
+   1e-09,
+   1.0000000000000001e-11
+  ],
+  [
+   2e-09,
+   1.0000000000000001e-11
+  ],
+  [
+   5e-09,
+   1.0000000000000001e-11
+  ],
+  [
+   1e-08,
+   1.0000000000000001e-11
+  ],
+  [
+   2e-08,
+   1.0000000000000001e-11
+  ],
+  [
+   5e-08,
+   1.0000000000000001e-11
+  ],
+  [
+   1e-07,
+   1.0000000000000001e-11
+  ],
+  [
+   2e-07,
+   1.0000000000000001e-11
+  ],
+  [
+   4e-07,
+   1.2e-11
+  ],
+  [
+   6e-07,
+   1.5e-11
+  ],
+  [
+   8e-07,
+   2.0000000000000002e-11
+  ],
+  [
+   1e-06,
+   2.5000000000000004e-11
+  ],
+  [
+   1.5e-06,
+   3.5e-11
+  ],
+  [
+   2e-06,
+   5.000000000000001e-11
+  ],
+  [
+   3e-06,
+   7e-11
+  ],
+  [
+   5e-06,
+   1.2e-10
+  ],
+  [
+   8e-06,
+   2.0000000000000003e-10
+  ],
+  [
+   1e-05,
+   3e-10
+  ],
+  [
+   2e-05,
+   6e-10
+  ],
+  [
+   5e-05,
+   1.5e-09
+  ],
+  [
+   0.0001,
+   3.5000000000000003e-09
+  ],
+  [
+   0.0002,
+   8e-09
+  ],
+  [
+   0.0005,
+   2e-08
+  ],
+  [
+   0.001,
+   5e-08
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "NuSTAR Solar Axion Helioscope",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling",
+ "notes": "Paper presents a novel helioscope search using NuSTAR X-ray observations of the Sun during solar minimum (Feb 21, 2020). The constraint g_agamma \u2272 7.3\u00d710^-12 GeV^-1 at 95% CL is stated for axion masses m_a \u2272 4\u00d710^-7 eV and remains approximately flat (mass-independent) down to very low masses. The limit weakens for higher masses (m_a \u2273 4\u00d710^-7 eV) due to loss of coherence in the axion-photon conversion probability. The paper explores previously unexplored parameter space up to m_a \u2272 3.4\u00d710^-4 eV. Systematic uncertainties from solar magnetic field modeling, axion flux, and NuSTAR background are combined to give +27.6%/-21.2% total uncertainty. This is a measured exclusion limit from actual NuSTAR observations, not a projection. The two-point encoding represents the flat bound valid from m_a \u2192 0 to m_a \u2248 4\u00d710^-7 eV, where coherence is maintained. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.92, 30)) | Vision: The exclusion plot (FIG. 1) shows NuSTAR's 95% CL constraint on axion-photon coupling g_a\u03b3 versus axion mass m_a. The blue shaded region indicates the excluded parameter space. The boundary is nearly flat at ~1e-10 GeV^-1 for masses m_a \u2272 4\u00d710^-7 eV, then rises steeply at higher masses due to loss of coherence in the conversion probability. The plot compares favorably with CAST (light red), babyIAXO (dashed-dotted), IAXO (dashed), ALPS-II (dotted), and Haloscopes (dark red). The text confirms the main result: g_a\u03b3 \u2272 7.3\u00d710^-12 GeV^-1 at 95% CL for m_a \u2272 4\u00d710^-7 eV. The boundary was traced by reading the lower edge of the blue exclusion region across the mass range, sampling more densely near the transition region (6\u00d710^-7 to 2\u00d710^-6 eV) where the slope changes significantly. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.05)",
+ "num_points": 30,
+ "elapsed_s": 199.8618061542511
+}

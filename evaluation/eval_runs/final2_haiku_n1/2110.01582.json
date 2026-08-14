@@ -1,0 +1,122 @@
+{
+ "arxiv_id": "2110.01582",
+ "paper_title": "LAMPOST",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.40001892932005423,
+   5.319800907802754e-16
+  ],
+  [
+   0.41256237739548335,
+   6.369314470481154e-16
+  ],
+  [
+   0.41530467852939046,
+   1.06160335638731e-15
+  ],
+  [
+   0.500036874699285,
+   5.319800907802754e-16
+  ],
+  [
+   0.6000285145290862,
+   5.319800907802754e-16
+  ],
+  [
+   0.6199602759907485,
+   9.01950513408532e-12
+  ],
+  [
+   0.7000521484926855,
+   5.319800907802754e-16
+  ],
+  [
+   0.8000356410547237,
+   5.319800907802754e-16
+  ],
+  [
+   0.9000291462997844,
+   5.319800907802754e-16
+  ],
+  [
+   1.000055519081836,
+   5.319800907802754e-16
+  ],
+  [
+   1.2398979495040283,
+   9.01950513408532e-12
+  ],
+  [
+   2.0000748132953983,
+   5.319800907802754e-16
+  ],
+  [
+   2.4797509863616716,
+   9.01950513408532e-12
+  ],
+  [
+   3.0001129990076096,
+   5.319800907802754e-16
+  ],
+  [
+   4.000076237781286,
+   5.319800907802754e-16
+  ],
+  [
+   5.000227717862533,
+   5.319800907802754e-16
+  ],
+  [
+   6.000115914772372,
+   5.319800907802754e-16
+  ],
+  [
+   6.199427907885608,
+   9.01950513408532e-12
+  ],
+  [
+   6.9999998449408825,
+   5.319800907802754e-16
+  ],
+  [
+   8.00012983014428,
+   5.319800907802754e-16
+  ],
+  [
+   9.000038678980472,
+   5.319800907802754e-16
+  ],
+  [
+   10.0002743131904,
+   5.319800907802754e-16
+  ],
+  [
+   12.3986312547793,
+   9.01950513408532e-12
+  ],
+  [
+   16.374042409249206,
+   1.06160335638731e-15
+  ],
+  [
+   16.483893970844512,
+   6.369314470481154e-16
+  ],
+  [
+   16.999734565614993,
+   5.319800907802754e-16
+  ]
+ ],
+ "data_source": "vector_trace",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "LAMPOST",
+ "coupling_convention": "canonical",
+ "notes": "LAMPOST (Light A' Multilayer Periodic Optical SNSPD Target) is a proof-of-concept optical haloscope experiment searching for dark photon dark matter via coherent absorption in a multilayer dielectric stack. The paper reports the first experimental constraints on dark photon DM in the 0.7\u20130.8 eV mass range with kinetic mixing \u03f5 \u2273 10^\u221212, improving existing limits by up to a factor of two. The experiment used 180 hours of data collection with superconducting nanowire single-photon detectors (SNSPDs) achieving a dark count rate of ~6\u00d710^\u22126 counts/s. The primary SNSPD registered 4 counts and the reference SNSPD registered 5 counts. A 90% confidence limit was derived using a Poisson statistical treatment that marginalizes over the unknown dark count rate. The local DM density assumed is \u03c1_DM \u2243 0.4 GeV/cm\u00b3 with a standard truncated Maxwell-Boltzmann velocity distribution. The data point represents a mass-independent (flat) bound across the 0.7\u20130.8 eV range; the limit \u03f5 \u2273 10^\u221212 applies throughout this mass interval. Figure 4 shows the exclusion region (magenta shaded) in the m_A'\u2013\u03f5 plane. | vector-trace candidate: kfig3.pdf colour (0.0, 0.0, 0.0), 26 pts (selected among 3) | selector: vector_trace over text (quality (1, 1, 1, 1, 3.5, 0, 0.85, 26))",
+ "num_points": 26,
+ "elapsed_s": 19.87243890762329
+}

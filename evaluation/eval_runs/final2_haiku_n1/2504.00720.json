@@ -1,0 +1,54 @@
+{
+ "arxiv_id": "2504.00720",
+ "paper_title": "Search for QCD coupled axion dark matter with the MICROSCOPE space experiment",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-20,
+   1.7e-16
+  ],
+  [
+   1e-19,
+   1.5e-16
+  ],
+  [
+   1e-18,
+   1.3e-16
+  ],
+  [
+   1e-17,
+   1.2e-16
+  ],
+  [
+   1e-16,
+   1.1e-16
+  ],
+  [
+   1e-15,
+   1e-16
+  ],
+  [
+   1e-14,
+   8e-17
+  ],
+  [
+   1e-13,
+   1.3e-10
+  ],
+  [
+   7.7e-14,
+   1.3e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "MICROSCOPE",
+ "coupling_convention": "1/f_a in GeV^-1",
+ "notes": "Paper constrains axion-gluon coupling (1/f_a) via QCD-coupled axion dark matter through equivalence principle tests. The coupling is to gluons (QCD), not photons, making AxionPhoton technically incorrect; however, the paper's primary result is on the f_a-m_a plane (coupling strength vs mass), and no standard enum value exists for 'AxionGluon' or 'AxionQCD'. The paper explicitly states constraints on '1/f_a' (the Peccei-Quinn scale) as a function of axion mass m_a. Data points extracted from abstract ('10^-17 eV to 10^-13 eV range', '1/f_a ~ 1.7 \u00d7 10^-16 GeV^-1 at 10^-20 eV', '1/f_a ~ 1.3 \u00d7 10^-10 GeV^-1 at m_a ~ 7.7 \u00d7 10^-14 eV') and main text. The constraint shows multiple bands due to resonances and sign changes in the axion field gradient. DM density \u03c1_DM = 0.4 GeV/cm^3 is used in the theoretical model (Eq. 16). Confidence level is 95% as stated in the paper. Extraction confidence is moderate (0.65) because: (1) the coupling type is technically AxionGluon/AxionQCD, not AxionPhoton, but no exact enum match exists; (2) data points are approximate from text rather than a detailed table; (3) the non-linear relationship between \u03b3 and 1/f_a and the presence of resonance bands make precise point extraction difficult. The paper is a genuine new experimental limit from MICROSCOPE final data. | selector: text (sole candidate)",
+ "num_points": 9,
+ "elapsed_s": 38.1918420791626
+}

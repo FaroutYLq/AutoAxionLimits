@@ -1,0 +1,98 @@
+{
+ "arxiv_id": "2307.08577",
+ "paper_title": "Dark matter detection using nuclear magnetization in magnet with hyperfine interaction",
+ "coupling_type": "AxionProton",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   1e-06,
+   1.3000000000000001e-12
+  ],
+  [
+   1.2e-06,
+   1.2e-12
+  ],
+  [
+   1.5e-06,
+   1.1e-12
+  ],
+  [
+   2e-06,
+   1e-12
+  ],
+  [
+   3e-06,
+   8.5e-13
+  ],
+  [
+   5e-06,
+   6.500000000000001e-13
+  ],
+  [
+   8e-06,
+   4.5e-13
+  ],
+  [
+   1e-05,
+   3.2000000000000005e-13
+  ],
+  [
+   1.5e-05,
+   2e-13
+  ],
+  [
+   2e-05,
+   1.5e-13
+  ],
+  [
+   3e-05,
+   1e-13
+  ],
+  [
+   5e-05,
+   6.5e-14
+  ],
+  [
+   8e-05,
+   4.2e-14
+  ],
+  [
+   0.0001,
+   3e-14
+  ],
+  [
+   0.00015,
+   2.1999999999999998e-14
+  ],
+  [
+   0.0002,
+   1.8e-14
+  ],
+  [
+   0.0003,
+   1.4e-14
+  ],
+  [
+   0.0005,
+   1.0999999999999999e-14
+  ],
+  [
+   0.0008,
+   9.5e-15
+  ],
+  [
+   0.001,
+   8.8e-15
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "MnCO\u2083 canted antiferromagnet nuclear magnetization detector",
+ "coupling_convention": "g_app (axion-proton coupling), dimensionless",
+ "notes": "This is a theoretical proposal paper presenting sensitivity projections, NOT measured exclusion limits. The paper proposes using a canted antiferromagnet MnCO3 with strong hyperfine interaction to detect axions and dark photons via nuclear magnon excitation. Primary results are sensitivity projections (Figs. 7\u20139) for: (1) axion-proton coupling g_ap at ~10^\u22126 eV with sensitivity ~10^\u221211 (nuclear-dominated mode, 500\u2013600 MHz); (2) axion-electron coupling g_ae at ~10^\u22126 eV with sensitivity ~10^\u221214; (3) dark photon kinetic mixing \u03f5. The paper explicitly states these are projections for a 1 kg MnCO3 sample at T=0.1K with 1-year observation time. The coupling_type is set to AxionProton because the nuclear spin of 55Mn is primarily sensitive to proton spin (\u03c3_p \u2248 0.1, \u03c3_n \u2248 0) per Appendix A. The data_points represent the approximate mass range (10^\u22126 to 10^\u22125 eV) and sensitivity floor (~10^\u221211) from Fig. 7 for the nuclear-dominated mode. The dm_density_assumed (0.4 GeV/cm\u00b3) is the standard galactic DM density used throughout the paper (Eq. 2.12). Extraction confidence is moderate (0.65) because: (i) the paper discusses multiple coupling types (AxionProton, AxionElectron, DarkPhoton) and the primary focus shifts between them; (ii) the sensitivity curves are projections with several assumptions (relaxation times, sample mass, temperature, readout efficiency); (iii) no actual measured data or exclusion limits are presented. The paper is a well-motivated theoretical proposal but does not report experimental results. | selector: figure_vision (sole candidate) | Vision: Figure 7 shows sensitivity to axion-proton coupling g_app using a 1 kg MnCO\u2083 canted antiferromagnet with two hybridized oscillation modes (nuclear and electron spins). The green vertical band marks the nuclear-dominated mode at \u03c9_n/2\u03c0 = 500\u2013600 MHz with T\u2082n = 1(10) ns. The red band marks the electron-dominated mode at \u03c9_e/2\u03c0 = 45\u201355 GHz. The exclusion boundary (lower edge of the shaded region) traces the sensitivity curve. Gray areas show astrophysical constraints from SN1987A and neutron star cooling. Blue bands show KSVZ and DFSZ theoretical predictions. The plot uses log-log scale with mass range 10\u207b\u2076 to 10\u207b\u00b3 eV and coupling range 10\u207b\u00b9\u2075 to 10\u207b\u00b9\u00b9. Data points sampled more densely at low masses where the boundary has steeper slope, less densely at high masses where it flattens. Total observation time T_total = 1 year assumed. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=13.00)",
+ "num_points": 20,
+ "elapsed_s": 185.02964115142822
+}

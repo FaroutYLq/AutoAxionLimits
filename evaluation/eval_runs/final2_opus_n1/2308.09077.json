@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2308.09077",
+ "paper_title": "Extended Axion Dark Matter Search Using the CAPP18T Haloscope",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.9883e-05,
+   6.5e-16
+  ],
+  [
+   1.9926e-05,
+   6.5e-16
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "CAPP18T_run2",
+ "coupling_convention": "g_agamma in GeV^-1, approximate from ~0.7x KSVZ",
+ "notes": "Haloscope search 4.8077-4.8181 GHz, mass 19.883-19.926 ueV. Best limit ~0.7x|g_KSVZ| or ~1.9x|g_DFSZ| at 90% C.L. (Bayesian). Coupling value estimated: KSVZ g_agamma at ~20 ueV is roughly 9.3e-16 GeV^-1, so 0.7x ~ 6.5e-16 GeV^-1. Exact per-mass values are in Fig.4 exclusion plot (not numerically tabulated in text); emitted as an approximate flat horizontal band across the excluded mass range. Local DM density 0.45 GeV/cm^3. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.6, 2))",
+ "num_points": 2,
+ "elapsed_s": 120.39993071556091
+}

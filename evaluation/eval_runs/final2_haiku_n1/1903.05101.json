@@ -1,0 +1,46 @@
+{
+ "arxiv_id": "1903.05101",
+ "paper_title": "WSi_Nanowire",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.8,
+   2.5e-05
+  ],
+  [
+   1.0,
+   3e-05
+  ],
+  [
+   1.5,
+   4.5e-05
+  ],
+  [
+   2.0,
+   6e-05
+  ],
+  [
+   3.0,
+   9e-05
+  ],
+  [
+   4.0,
+   0.00012
+  ],
+  [
+   5.0,
+   0.00015
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "WSi_Nanowire_2019",
+ "coupling_convention": "dimensionless kinetic mixing \u03ba",
+ "notes": "Paper presents NEW measured exclusion limit from prototype WSi nanowire device (4.3 ng, 10,000 s exposure, 0.8 eV threshold, zero dark counts). Figure 4 shows the 'Bound WSi' curve for dark photon absorption via kinetic mixing \u03ba. Data points extracted from the blue solid curve in Fig. 4 spanning sub-eV to few-eV dark photon masses. The paper explicitly states this bound 'places the strongest terrestrial constraint to date on dark photons with sub-eV masses.' DM density \u03c1_DM = 0.3 GeV/cm\u00b3 is used in the absorption rate calculation (Eq. 8). Extraction confidence is moderate (0.65) because the exact numerical values from Fig. 4 are read from a plot rather than provided in a table; the coupling type (DarkPhoton via kinetic mixing) is unambiguous from the Lagrangian (Eq. 5) and figure labels. | selector: text (sole candidate)",
+ "num_points": 7,
+ "elapsed_s": 20.269383907318115
+}

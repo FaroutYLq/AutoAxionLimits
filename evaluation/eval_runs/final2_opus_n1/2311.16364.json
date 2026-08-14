@@ -1,0 +1,154 @@
+{
+ "arxiv_id": "2311.16364",
+ "paper_title": "The Fermionic Axion Interferometer",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-11,
+   4.5e-05
+  ],
+  [
+   1.1e-11,
+   4e-05
+  ],
+  [
+   1.2e-11,
+   3.8e-05
+  ],
+  [
+   1.4e-11,
+   3.5000000000000004e-05
+  ],
+  [
+   1.6e-11,
+   3.2000000000000005e-05
+  ],
+  [
+   1.8e-11,
+   2.9999999999999997e-05
+  ],
+  [
+   2e-11,
+   2.8e-05
+  ],
+  [
+   2.3e-11,
+   2.5e-05
+  ],
+  [
+   2.6e-11,
+   6e-06
+  ],
+  [
+   2.8e-11,
+   4.000000000000001e-06
+  ],
+  [
+   3e-11,
+   8.000000000000001e-06
+  ],
+  [
+   3.3e-11,
+   1.2e-05
+  ],
+  [
+   3.6e-11,
+   2e-05
+  ],
+  [
+   4e-11,
+   1e-05
+  ],
+  [
+   4.5e-11,
+   1.8e-05
+  ],
+  [
+   5e-11,
+   8.000000000000001e-06
+  ],
+  [
+   5.5e-11,
+   1.4999999999999999e-05
+  ],
+  [
+   6e-11,
+   6e-06
+  ],
+  [
+   6.5e-11,
+   1.3e-05
+  ],
+  [
+   7e-11,
+   5e-06
+  ],
+  [
+   8e-11,
+   1.4999999999999999e-05
+  ],
+  [
+   9e-11,
+   6e-06
+  ],
+  [
+   1e-10,
+   1.2e-05
+  ],
+  [
+   1.2e-10,
+   5e-06
+  ],
+  [
+   1.4e-10,
+   1.4e-05
+  ],
+  [
+   1.6e-10,
+   5e-06
+  ],
+  [
+   1.8e-10,
+   1.2e-05
+  ],
+  [
+   2e-10,
+   5e-06
+  ],
+  [
+   2.3e-10,
+   1.4999999999999999e-05
+  ],
+  [
+   2.6e-10,
+   6e-06
+  ],
+  [
+   2.9e-10,
+   1.8e-05
+  ],
+  [
+   3.1e-10,
+   8.000000000000001e-06
+  ],
+  [
+   3.3e-10,
+   2.9999999999999997e-05
+  ],
+  [
+   3.5e-10,
+   1.2e-08
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "Fermionic Axion Interferometer",
+ "coupling_convention": "|g_p|, dimensionless pseudoscalar axion-electron coupling",
+ "notes": "Radiofrequency fermionic interferometer using NiZn ferrimagnet, sensitive to axion-electron interaction (electron gyromagnetic ratio, electron spin resonance). The minimum measured |gp| = 1.2e-7 at ma ~ 0.36 neV. The exclusion plot (Fig. 5) spans roughly 1e-11 to 1e-8 eV with |gp| values around 1e-7 to 1e-6, but only the minimum point value is explicitly stated in text. Local DM density rho_dm = 0.4 GeV/cm^3 assumed. 90% CL (2 sigma). Coupling labeled gp (pseudoscalar) but experiment probes electron spins, so classified as AxionElectron. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 34)) | Vision: Y-axis is |g_p| pseudoscalar coupling (axion-electron). Exclusion region (green) lies at high coupling ~1e-4 to few e-4 over mass range 1e-11 to ~3.5e-10 eV. Text states minimum measured |g_p| = 1.2e-7 at m_a ~ 0.36 neV, which corresponds to the lowest reach point at the right edge. Boundary is jagged/noisy; sampled the lower envelope of the green shaded region. DFSZ axion band shown far below (~1e-21 at m_a~1e-10). | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.17)",
+ "num_points": 34,
+ "elapsed_s": 169.18067407608032
+}

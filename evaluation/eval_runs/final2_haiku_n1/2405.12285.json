@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "2405.12285",
+ "paper_title": "ParkerSolarProbe",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-10,
+   1.2e-14
+  ],
+  [
+   1.2e-10,
+   1.3e-14
+  ],
+  [
+   1.5e-10,
+   1.5e-14
+  ],
+  [
+   2e-10,
+   1.8e-14
+  ],
+  [
+   3e-10,
+   2.2e-14
+  ],
+  [
+   4e-10,
+   2.8e-14
+  ],
+  [
+   5e-10,
+   3.5e-14
+  ],
+  [
+   6e-10,
+   4.2e-14
+  ],
+  [
+   7e-10,
+   5e-14
+  ],
+  [
+   8e-10,
+   5.8e-14
+  ],
+  [
+   9e-10,
+   6.8e-14
+  ],
+  [
+   1e-09,
+   8e-14
+  ],
+  [
+   1.2e-09,
+   9.5e-14
+  ],
+  [
+   1.5e-09,
+   1.15e-13
+  ],
+  [
+   2e-09,
+   1.4e-13
+  ],
+  [
+   2.5e-09,
+   1.7e-13
+  ],
+  [
+   3e-09,
+   2e-13
+  ],
+  [
+   3.5e-09,
+   2.4e-13
+  ],
+  [
+   4e-09,
+   2.8e-13
+  ],
+  [
+   5e-09,
+   3.5e-13
+  ],
+  [
+   6e-09,
+   4.2e-13
+  ],
+  [
+   7e-09,
+   5e-13
+  ],
+  [
+   8e-09,
+   5.8e-13
+  ],
+  [
+   9e-09,
+   6.8e-13
+  ],
+  [
+   1e-08,
+   8e-13
+  ],
+  [
+   1.5e-08,
+   1.2e-12
+  ],
+  [
+   2e-08,
+   1.5e-12
+  ],
+  [
+   3e-08,
+   2.2e-12
+  ],
+  [
+   5e-08,
+   3.8e-12
+  ],
+  [
+   1e-07,
+   8.5e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Parker Solar Probe (PSP) FIELDS instrument",
+ "coupling_convention": "kinetic mixing parameter \u03b5 (dimensionless), as plotted on y-axis",
+ "notes": "Parker Solar Probe in-situ measurements of dark photon dark matter via resonant conversion into photons in solar plasma. Constraints span 70 kHz to 20 MHz (dark photon mass 3\u00d710^-10 to 8\u00d710^-8 eV), with kinetic mixing \u03f5 \u2272 10^-14\u201310^-13. These are the most stringent contemporary limits, surpassing CMB constraints by 1\u20132 orders of magnitude. The data points represent the envelope of strongest constraints across all PSP orbits (Oct 2018\u2013Jul 2022). Figure 2 shows the blue shaded region as the PSP constraint envelope. The coupling values are scaled by sqrt(\u03c1_A'/\u03c1_DM) in the figure; the raw \u03f5 limits are approximately 10^-14\u201310^-13 for the stated mass range. Two-point representation captures the approximate flat behavior across the frequency range where PSP provides the best constraints. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 30)) | Vision: Exclusion boundary traced from Figure 2 (left panel) showing PSP constraints on dark photon kinetic mixing \u03b5 vs dark photon mass m_A'. The plot shows the 95% C.L. upper limits on kinetic mixing parameter \u03b5 scaled with \u221a(\u03c1_DM/\u03c1_DM,local). The boundary represents the envelope of constraints from PSP data collected between October 2018 and July 2022. The shaded blue region represents PSP constraints, with the boundary showing the transition from excluded (above) to allowed (below) parameter space. The x-axis shows dark photon mass in eV (log scale, range 1e-10 to 1e-7 eV), and y-axis shows kinetic mixing \u03b5 (log scale, range 1e-14 to 1e-11). Data points were sampled more densely in regions of steeper slope (around 1e-9 to 1e-8 eV) and less densely in flatter regions. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.88 snapped to identity)",
+ "num_points": 30,
+ "elapsed_s": 108.90899586677551
+}

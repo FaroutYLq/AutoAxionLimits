@@ -1,0 +1,146 @@
+{
+ "arxiv_id": "0611223",
+ "paper_title": "Particle Physics Implications of a Recent Test of the Gravitational Inverse Square Law",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-06,
+   3e-08
+  ],
+  [
+   1.5e-06,
+   3e-08
+  ],
+  [
+   2e-06,
+   3e-08
+  ],
+  [
+   3e-06,
+   3e-08
+  ],
+  [
+   5e-06,
+   3e-08
+  ],
+  [
+   7e-06,
+   3e-08
+  ],
+  [
+   1e-05,
+   3e-08
+  ],
+  [
+   1.5e-05,
+   3e-08
+  ],
+  [
+   2e-05,
+   3e-08
+  ],
+  [
+   3e-05,
+   3e-08
+  ],
+  [
+   5e-05,
+   3e-08
+  ],
+  [
+   7e-05,
+   3e-08
+  ],
+  [
+   0.0001,
+   3e-08
+  ],
+  [
+   0.00013,
+   3.1e-08
+  ],
+  [
+   0.00016,
+   3.3e-08
+  ],
+  [
+   0.0002,
+   3.7e-08
+  ],
+  [
+   0.00025,
+   4.5e-08
+  ],
+  [
+   0.0003,
+   6e-08
+  ],
+  [
+   0.00035,
+   8.5e-08
+  ],
+  [
+   0.0004,
+   1.3e-07
+  ],
+  [
+   0.00045,
+   2e-07
+  ],
+  [
+   0.0005,
+   3e-07
+  ],
+  [
+   0.0006,
+   7e-07
+  ],
+  [
+   0.0007,
+   1.5e-06
+  ],
+  [
+   0.0008,
+   3e-06
+  ],
+  [
+   0.0009,
+   6e-06
+  ],
+  [
+   0.001,
+   1.1e-05
+  ],
+  [
+   0.0012,
+   3e-05
+  ],
+  [
+   0.0015,
+   9e-05
+  ],
+  [
+   0.002,
+   0.00035
+  ],
+  [
+   0.003,
+   0.0018
+  ],
+  [
+   0.005,
+   0.008
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "Eot-Wash ISL torsion balance (gamma_5 pseudoscalar-neutron)",
+ "coupling_convention": "(g_P^n)^2/(4*pi*hbar*c), dimensionless squared coupling as plotted on y-axis",
+ "notes": "Paper constrains multiple exotic forces from gravitational ISL test: scalar/vector Yukawa (ScalarNucleon/VectorBL), chameleon, dilaton/radion, PVLAS scalar phi-gamma-gamma (g_phigammagamma < 1.6e-17 GeV^-1 for m<20meV), and gamma5 pseudoscalar couplings to neutrons (Fig 5). Fig 5 shows (g_n^P)^2/(4pi) vs pseudoscalar mass but no numerical values are given in text/tables. SN1987a comparison: 8e-14 < (g_n^P)^2/(4pi hbar c) < 8e-8. Related benchmark Gamma=2.56e-10*beta3 with |beta3|<1.3e-4. No extractable numerical (mass,coupling) pairs from the plot. Note ambiguity between ScalarNucleon (Yukawa main result of ref[1]) and pseudoscalar-neutron here; this paper's specific new content is the pseudoscalar-to-neutron gamma5 limits. | selector: figure_vision (sole candidate) | Vision: Figure 5 (page 4). Y-axis is plotted as (g_P^n)^2/(4*pi*hbar*c), the squared pseudoscalar-neutron coupling, NOT g_an directly. Confidence level 68% as stated in caption. Solid curve traced (this work, Ref [1]). X-axis mc^2 in meV converted to eV (x1e-3). Values emitted exactly as plotted (squared coupling), per plotted-values contract. Dashed curve is from Ref [14], dotted horizontal is SN1987a. The identified coupling is neutron pseudoscalar (g_P^n), matching AxionNeutron. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.11 snapped to identity)",
+ "num_points": 32,
+ "elapsed_s": 151.48522520065308
+}

@@ -1,0 +1,90 @@
+{
+ "arxiv_id": "2307.08577",
+ "paper_title": "Dark matter detection using nuclear magnetization in magnet with hyperfine interaction",
+ "coupling_type": "AxionProton",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   1.9e-06,
+   8e-08
+  ],
+  [
+   1.9e-06,
+   1e-08
+  ],
+  [
+   1.9e-06,
+   1e-09
+  ],
+  [
+   1.95e-06,
+   2e-10
+  ],
+  [
+   1.95e-06,
+   5e-11
+  ],
+  [
+   2e-06,
+   1.2e-11
+  ],
+  [
+   2.05e-06,
+   1.5e-11
+  ],
+  [
+   2.1e-06,
+   5e-11
+  ],
+  [
+   2.1e-06,
+   3e-10
+  ],
+  [
+   2.1e-06,
+   1e-09
+  ],
+  [
+   0.00019,
+   8e-08
+  ],
+  [
+   0.00019,
+   3e-08
+  ],
+  [
+   0.000195,
+   1.5e-08
+  ],
+  [
+   0.0002,
+   8e-09
+  ],
+  [
+   0.000205,
+   6e-09
+  ],
+  [
+   0.00021,
+   6e-09
+  ],
+  [
+   0.000215,
+   1e-08
+  ],
+  [
+   0.00022,
+   3e-08
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "MnCO3 canted antiferromagnet (projection)",
+ "coupling_convention": "g_app, dimensionless axion-proton coupling as plotted",
+ "notes": "Projection paper for axion/dark-photon detection using MnCO3 canted antiferromagnet with hyperfine interaction. The nuclear spin is proton-dominated, so it is sensitive to axion-proton coupling gapp (not neutron). Main text states axion of mass ~1e-6 eV with gapp >~ 1e-11 could be probed via nuclear-dominated mode. Also sensitive to gaee (~1e-14 at ~1e-6 eV) and dark photon epsilon. Detailed sensitivity curves are in Figs 7-9 but numerical values not tabulated in provided text; only a single representative point extractable. dm_density = 0.4 GeV/cm^3 (Eq. 2.12). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 18)) | Vision: Figure 7 shows two narrow projected sensitivity regions (V-shapes) for g_app: green nuclear-dominated mode near 2e-6 eV reaching down to ~1e-11, and red/orange electron-dominated mode near 2e-4 eV reaching down to ~6e-9. These are projected sensitivities, not exclusions. Gray region above ~5e-10 is SN1987A/NS cooling astrophysical constraint. KSVZ/DFSZ diagonal blue band shown for reference. | Calibration: No calibration needed",
+ "num_points": 18,
+ "elapsed_s": 189.81953716278076
+}

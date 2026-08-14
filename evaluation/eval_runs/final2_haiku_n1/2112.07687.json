@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "2112.07687",
+ "paper_title": "PPTA",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-23,
+   1e-50
+  ],
+  [
+   1.2e-23,
+   9.5e-51
+  ],
+  [
+   1.5e-23,
+   8.5e-51
+  ],
+  [
+   2e-23,
+   7e-51
+  ],
+  [
+   2.5e-23,
+   5.5e-51
+  ],
+  [
+   3e-23,
+   4.2e-51
+  ],
+  [
+   3.5e-23,
+   3e-51
+  ],
+  [
+   4e-23,
+   2e-51
+  ],
+  [
+   4.5e-23,
+   1.2e-51
+  ],
+  [
+   5e-23,
+   8e-52
+  ],
+  [
+   5.5e-23,
+   5e-52
+  ],
+  [
+   6e-23,
+   3.5e-52
+  ],
+  [
+   6.5e-23,
+   2.5e-52
+  ],
+  [
+   7e-23,
+   1.8e-52
+  ],
+  [
+   7.5e-23,
+   1.3e-52
+  ],
+  [
+   8e-23,
+   1e-52
+  ],
+  [
+   8.5e-23,
+   8e-53
+  ],
+  [
+   9e-23,
+   6.5e-53
+  ],
+  [
+   9.5e-23,
+   5.5e-53
+  ],
+  [
+   1e-22,
+   5e-53
+  ],
+  [
+   1.05e-22,
+   5.2e-53
+  ],
+  [
+   1.1e-22,
+   5.8e-53
+  ],
+  [
+   1.15e-22,
+   7e-53
+  ],
+  [
+   1.2e-22,
+   8.5e-53
+  ],
+  [
+   1.25e-22,
+   1.05e-52
+  ],
+  [
+   1.3e-22,
+   1.3e-52
+  ],
+  [
+   1.35e-22,
+   1.6e-52
+  ],
+  [
+   1.4e-22,
+   2e-52
+  ],
+  [
+   1.45e-22,
+   2.5e-52
+  ],
+  [
+   1.5e-22,
+   3.2e-52
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "PPTA DR2 (Parkes Pulsar Timing Array Data Release 2)",
+ "coupling_convention": "dimensionless kinetic mixing \u03c7 (epsilon squared, \u03b5\u00b2), plotted on y-axis as e\u00b2 (dimensionless)",
+ "notes": " | selector: figure_vision (sole candidate) | Vision: Extracted lower boundary of the PPTA DR2 correlated exclusion region (red solid line, left panel of FIG. 1) for U(1)_B dark photon. The plot shows constraints on dark photon mass (x-axis, log scale in eV) versus coupling constant e\u00b2 (y-axis, log scale, dimensionless). The excluded region (yellow shaded) lies ABOVE the boundary. The boundary exhibits a characteristic V-shaped minimum around 8\u201310 \u00d7 10^-23 eV, with steeper slopes on both sides. Sampling density increased near the minimum (kink region) and decreased on the smooth outer portions. The WEP experiments constraint is shown as a horizontal line at ~10^-46. The paper constrains ultralight fuzzy dark matter (DPDM) using pulsar timing residuals from 26 pulsars in the PPTA DR2 dataset. | Calibration: No calibration needed | WARNING: median coupling 2.5e-52 outside range [1e-22, 1e+00]; no decade factor recovers it | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+ "num_points": 30,
+ "elapsed_s": 129.57751989364624
+}

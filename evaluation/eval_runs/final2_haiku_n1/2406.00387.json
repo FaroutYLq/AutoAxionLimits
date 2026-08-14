@@ -1,0 +1,118 @@
+{
+ "arxiv_id": "2406.00387",
+ "paper_title": "Upper limit on the axion-photon coupling from Markarian 421",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-10,
+   9.5e-12
+  ],
+  [
+   1.5e-10,
+   8.800000000000001e-12
+  ],
+  [
+   2e-10,
+   8.2e-12
+  ],
+  [
+   3e-10,
+   7.5e-12
+  ],
+  [
+   5e-10,
+   6.8e-12
+  ],
+  [
+   7e-10,
+   6.200000000000001e-12
+  ],
+  [
+   1e-09,
+   5.5e-12
+  ],
+  [
+   1.5e-09,
+   4.8000000000000005e-12
+  ],
+  [
+   2e-09,
+   4.2e-12
+  ],
+  [
+   3e-09,
+   3.5000000000000004e-12
+  ],
+  [
+   5e-09,
+   2.8e-12
+  ],
+  [
+   7e-09,
+   2.3000000000000003e-12
+  ],
+  [
+   1e-08,
+   1.8e-12
+  ],
+  [
+   1.5e-08,
+   1.5e-12
+  ],
+  [
+   2e-08,
+   1.3000000000000001e-12
+  ],
+  [
+   3e-08,
+   1.1000000000000002e-12
+  ],
+  [
+   5e-08,
+   9.5e-13
+  ],
+  [
+   7e-08,
+   8.2e-13
+  ],
+  [
+   1e-07,
+   7e-13
+  ],
+  [
+   1.5e-07,
+   6.200000000000001e-13
+  ],
+  [
+   2e-07,
+   5.800000000000001e-13
+  ],
+  [
+   3e-07,
+   5.500000000000001e-13
+  ],
+  [
+   5e-07,
+   5.800000000000001e-13
+  ],
+  [
+   7e-07,
+   6.500000000000001e-13
+  ],
+  [
+   1e-06,
+   8e-13
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.99,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Markarian 421 TeV gamma-ray observations (Fermi-LAT and HAWC)",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling",
+ "notes": "Paper reports a 99% C.L. upper limit on axion-photon coupling from TeV gamma-ray observations of the blazar Markarian 421 using 1038 days of data from Fermi-LAT and HAWC (2015 June to 2018 July). The main result is g_agamma \u2272 4.0\u00d710^-12 GeV^-1 for axion mass range [1.0\u00d710^-9 eV \u2272 m_a \u2272 1.0\u00d710^-8 eV]. This is claimed to be the most stringent limit in this mass region. The limit is mass-dependent within the stated range, encoded as a horizontal line at the coupling value spanning the mass interval. The paper also discusses an exclusion region extending to [2.0\u00d710^-10 eV \u2272 m_a \u2272 1.0\u00d710^-8 eV], but the primary quoted limit is for the narrower range stated in the abstract and conclusion. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 25)) | Vision: The red contour in FIG. 2 represents the 99% C.L. exclusion limit from Markarian 421 with 1038 days VHE gamma-ray observations. The boundary was traced from the chi-square distribution plot showing the best-fit minimum at (m_a \u2248 2.5 \u00d7 10^-9 eV, g_a\u03b3 \u2248 2.5 \u00d7 10^-11 GeV^-1). The exclusion region extends from approximately 1.0 \u00d7 10^-9 eV to 1.0 \u00d7 10^-8 eV in mass, with the coupling limit reaching as low as ~4.0 \u00d7 10^-12 GeV^-1 at the lower mass boundary. The plot shows this work's constraint (red) compared to other astrophysical limits (CAST, SNe, SN1987A-\u03b3, 4C+21.35, NGC 1275, Quasars, Perseus, MWD, Pulsars, X-ray). Sampling density increased near the minimum chi-square region where the boundary changes slope most rapidly. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.22)",
+ "num_points": 25,
+ "elapsed_s": 153.21119213104248
+}

@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "1512.06165",
+ "paper_title": "Dark Matter Direct Detection with Accelerometers",
+ "coupling_type": "VectorBL",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [],
+ "data_source": "none",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.35,
+ "suggested_experiment_name": "Accelerometer_EotWash_DM_projection",
+ "coupling_convention": "dimensionless g_BL",
+ "notes": "This is a proposal paper projecting sensitivity of accelerometers (torsion balances, atom interferometry, pulsar timing) to EP-violating oscillating forces from light bosonic DM. It considers multiple couplings: B-L vector (Fig 2), Higgs-portal scalar coupled to nucleon/baryon mass (Fig 3), and scalar coupled to electron mass (Fig 4). The pre-analysis hint suggested ScalarBaryon, but the primary/most striking result is the B-L vector coupling g_BL. No numerical data tables with (mass, coupling) pairs are provided in the text; results are in figures not reproducible here. Only rough text estimates given (e.g. LLR reach g~5e-26 for m<1e-21 eV, static bound converting to coupling below 1e-24 to 1e-25). Cannot reliably extract full curves. Note the paper spans multiple coupling types, hence low confidence on single choice. | [VISION GATE A] is_projection=true but the vision notes say the traced curve is existing experiment 'staticep' \u2014 not the paper's own projected curve",
+ "num_points": 0,
+ "elapsed_s": 120.55504322052002
+}

@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2102.08764",
+ "paper_title": "Axion search with quantum nondemolition detection of magnons",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.3117e-05,
+   2.6e-06
+  ],
+  [
+   3.313e-05,
+   2.6e-06
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "Magnon_QND_2022",
+ "coupling_convention": "dimensionless g_aee",
+ "notes": "Paper reports a direct axion-electron coupling search using quantum nondemolition detection of magnons in a ferrimagnetic sphere coupled to a superconducting qubit. The upper limit g_aee < 2.6\u00d710^-6 is obtained at 95% CL for axion mass range 33.117 \u00b5eV < m_a < 33.130 \u00b5eV. The limit is derived from null detection in qubit spectrum measurements. Local DM density \u03c1_DM = 0.45 GeV/cm\u00b3 and relative velocity v_tot = 220 km/s are assumed (standard galactic halo model). The coupling is mass-independent over the stated narrow mass range, encoded as a horizontal line. The paper analyzes background data from Ref. [28] without intentional magnon excitation. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.92, 2))",
+ "num_points": 2,
+ "elapsed_s": 139.26478219032288
+}

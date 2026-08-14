@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2503.14582",
+ "paper_title": "Shedding Infrared Light on QCD Axion and ALP Dark Matter with JWST",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.47,
+   1.5e-10
+  ],
+  [
+   0.78,
+   1.2e-10
+  ],
+  [
+   1.5,
+   8e-11
+  ],
+  [
+   2.55,
+   5e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "JWST_NIRSpec_2025",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper presents new exclusion limits on axion-photon coupling g_agamma from JWST NIRSpec IFU spectroscopic observations in the mass range 0.47\u20132.55 eV. Data points extracted from Figures 1 and 2 (combined limits shown as shaded regions). The paper uses 383 JWST observations across three gratings (G395, G235, G140) to search for photon line signatures from decaying ALP dark matter in the Milky Way halo. The limits are derived using a 95% confidence level (\u0394\u03c7\u00b2 = 2.71). The paper claims to probe new parameter space between 0.47\u20130.78 eV and improve upon previous JWST GNz11, WINERED, and globular cluster limits. No local DM density is assumed as this is an indirect detection search using galactic halo DM with NFW profile (\u03c1_s = 0.18 GeV/cm\u00b3, r_s = 24 kpc). Extraction confidence is moderate (0.75) because the exact numerical values from the shaded regions in Figures 1\u20132 are approximate; the paper does not provide a detailed numerical table of limits vs. mass. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.75, 4))",
+ "num_points": 4,
+ "elapsed_s": 143.57287669181824
+}

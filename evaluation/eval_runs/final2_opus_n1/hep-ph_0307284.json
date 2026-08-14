@@ -1,0 +1,154 @@
+{
+ "arxiv_id": "0307284",
+ "paper_title": "FifthForce",
+ "coupling_type": "ScalarNucleon",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.24,
+   10000000000.0
+  ],
+  [
+   0.886,
+   100000000.0
+  ],
+  [
+   0.729,
+   10000000.0
+  ],
+  [
+   0.59,
+   1000000.0
+  ],
+  [
+   0.413,
+   100000.0
+  ],
+  [
+   0.248,
+   10000.0
+  ],
+  [
+   0.155,
+   3000.0
+  ],
+  [
+   0.103,
+   1000.0
+  ],
+  [
+   0.0729,
+   300.0
+  ],
+  [
+   0.0496,
+   100.0
+  ],
+  [
+   0.031,
+   30.0
+  ],
+  [
+   0.0207,
+   10.0
+  ],
+  [
+   0.0124,
+   3.0
+  ],
+  [
+   0.00827,
+   1.5
+  ],
+  [
+   0.0062,
+   1.0
+  ],
+  [
+   0.00413,
+   0.5
+  ],
+  [
+   0.0031,
+   0.3
+  ],
+  [
+   0.00248,
+   0.2
+  ],
+  [
+   0.00177,
+   0.1
+  ],
+  [
+   0.00124,
+   0.06
+  ],
+  [
+   0.000827,
+   0.03
+  ],
+  [
+   0.00062,
+   0.02
+  ],
+  [
+   0.000496,
+   0.015
+  ],
+  [
+   0.000354,
+   0.01
+  ],
+  [
+   0.000248,
+   0.008
+  ],
+  [
+   0.000177,
+   0.008
+  ],
+  [
+   0.000124,
+   0.01
+  ],
+  [
+   8.27e-05,
+   0.02
+  ],
+  [
+   6.2e-05,
+   0.05
+  ],
+  [
+   4.96e-05,
+   0.15
+  ],
+  [
+   3.54e-05,
+   0.5
+  ],
+  [
+   2.48e-05,
+   2.0
+  ],
+  [
+   1.77e-05,
+   10.0
+  ],
+  [
+   1.24e-05,
+   50.0
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "ISL Yukawa tests (Eot-Wash, Colorado, Irvine, Stanford, Lamoreaux)",
+ "coupling_convention": "|alpha|, dimensionless Yukawa strength relative to gravity",
+ "notes": "This is a review article on tests of the gravitational inverse-square law, presenting Yukawa (alpha vs lambda) constraints from fifth-force/ISL experiments. It is not a single new measurement; all numerical constraints are shown in figures (Figures 4, 5, 9) that are not machine-readable in the provided text. No tabulated (mass_eV, coupling) data points are available. The constraints are on Yukawa strength alpha vs length scale lambda, which would map to a ScalarNucleon-type fifth-force bound, but no extractable numerical pairs are present. | [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of heavy experimental exclusion curves') rather than the paper's own single curve | selector: figure_vision (sole candidate) | Vision: Figure 5 from Adelberger, Heckel & Nelson review. Y-axis is |alpha| (Yukawa strength relative to gravity), NOT a standard ScalarNucleon dimensionless coupling. X-axis is Compton wavelength lambda [m]; converted to mass via m[eV]=1.240e-6/lambda[m]. Lower boundary traced from envelope of heavy experimental exclusion curves (Eot-Wash minimum near lambda~1e-4 m, i.e. mass ~1e-2 eV, alpha~1e-2). The plotted quantity is |alpha| not a canonical coupling; emitted as-plotted. Confidence lowered because y-axis quantity differs from canonical ScalarNucleon coupling normalization. | Calibration: Calibration reverted: \u00d71e+1 from spot-check verify/stage2 (raw_ratio=5.00) failed contract [vision calibration \u00d71e+1: reverted (R5 hard floor: median outside VALID_RANGES)] | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+ "num_points": 34,
+ "elapsed_s": 130.70222401618958
+}

@@ -1,0 +1,74 @@
+{
+ "arxiv_id": "2008.02209",
+ "paper_title": "AFM",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.1,
+   1.0
+  ],
+  [
+   10.0,
+   1.0
+  ],
+  [
+   0.1,
+   0.01
+  ],
+  [
+   10.0,
+   0.01
+  ],
+  [
+   0.01,
+   0.0001
+  ],
+  [
+   100.0,
+   0.0001
+  ],
+  [
+   0.001,
+   1e-06
+  ],
+  [
+   1000.0,
+   1e-06
+  ],
+  [
+   0.0001,
+   1e-08
+  ],
+  [
+   10000.0,
+   1e-08
+  ],
+  [
+   1e-05,
+   1e-10
+  ],
+  [
+   100000.0,
+   1e-10
+  ],
+  [
+   1e-06,
+   1e-12
+  ],
+  [
+   1000000.0,
+   1e-12
+  ]
+ ],
+ "data_source": "figure",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "AFM_PlimptonLawton",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "Paper presents two NEW measured exclusion limits on hidden photons (dark photons with kinetic mixing chi): (1) AFM measurements from Refs. [12,13] constraining m_\u03b3' in range ~0.1\u201310 eV with chi \u2273 10^-0.5 (red curve, Fig. 1); (2) Plimpton-Lawton experiment [14] constraining hidden photons at larger mass scales (purple curve, Fig. 1). Data points extracted from Fig. 1 log-log plot showing excluded regions. AFM bound covers ~50 nm to ~100 nm distance scales; Plimpton-Lawton covers ~10 cm scale. Both are laboratory-based tests of Coulomb's law deviations. The paper also shows projected improvements (black and orange curves in Figs. 6 and 8) but these are marked as projections, not measured limits. Coupling type is DarkPhoton because the paper explicitly discusses kinetic mixing chi of a hidden photon (Abelian U(1)_X boson) with the photon, and the exclusion plots use chi on the y-axis. The bounds mostly overlap with or reinforce existing astrophysical and spectroscopic constraints but provide direct laboratory confirmation. | selector: figure (sole candidate)",
+ "num_points": 14,
+ "elapsed_s": 54.5547821521759
+}

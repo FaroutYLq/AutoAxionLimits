@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1708.06367",
+ "paper_title": "Search for axion-like dark matter through nuclear spin precession in electric and magnetic fields",
+ "coupling_type": "AxionEDM",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-24,
+   3.5e-26
+  ],
+  [
+   1e-17,
+   3.5e-26
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.45,
+ "suggested_experiment_name": "nEDM_PSI_ILL_2017",
+ "coupling_convention": "d_n oscillation amplitude in e*cm (limit on dn-(mu_n/mu_Hg)dHg)",
+ "notes": "Paper searches for axion-induced oscillating neutron EDM and axion-wind effect. Main results are limits on CG/fa (axion-gluon, GeV^-1) and CN/fa (axion-nucleon, GeV^-1) over ma 1e-24 to 1e-17 eV. The directly measured quantity is the oscillation amplitude of dn-(mu_n/mu_Hg)dHg, with baseline sensitivity ~3-4e-26 e*cm across the sensitive band (Fig 2). Peak sensitivity fa/CG~1e21 GeV (CG/fa~1e-21 GeV^-1) for ma<1e-23 eV; fa/CN~4e5 GeV (CN/fa~2.5e-6 GeV^-1) for 1e-19-1e-17 eV. Ambiguous coupling type: the gluon coupling maps to nEDM (AxionEDM) but axis is CG/fa in GeV^-1, and there is also an axion-nucleon (AxionNeutron) result. Data extracted from text/figure descriptions only; values approximate. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 6.9 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | [CONVENTION REVIEW] declared coupling convention 'd_n oscillation amplitude in e*cm (limit on dn-(mu_n/mu_Hg)dHg)' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 2,
+ "elapsed_s": 167.94099020957947
+}

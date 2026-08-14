@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "2011.07100",
+ "paper_title": "Search of spin-dependent fifth forces with precision magnetometry",
+ "coupling_type": "MonopoleDipole",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.01,
+   5.7e-32
+  ],
+  [
+   10.0,
+   5.7e-32
+  ],
+  [
+   10000.0,
+   5.7e-32
+  ],
+  [
+   300000.0,
+   5.7e-32
+  ],
+  [
+   0.01,
+   1.6e-31
+  ],
+  [
+   10.0,
+   1.6e-31
+  ],
+  [
+   10000.0,
+   1.6e-31
+  ],
+  [
+   300000.0,
+   1.6e-31
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "QUAX-GPGS",
+ "coupling_convention": "dimensionless g_e_p * g_N_s and g_e_p * g_e_s",
+ "notes": "Paper reports two independent monopole-dipole coupling limits at 95% C.L.: g_e_p * g_N_s \u2264 5.7\u00d710^-32 (electron-nucleon interaction) and g_e_p * g_e_s \u2264 1.6\u00d710^-31 (electron-electron interaction). Both limits are valid over the force range \u03bb from ~1 cm to ~300 km, corresponding to mediator masses from ~2\u00d710^-4 eV to ~2\u00d710^-8 eV (via Compton wavelength \u03bb = h/(m*c)). The paper explicitly states these are the most stringent constraints in the ranges 1 cm to 10 m and 10 km to 300 km, improving previous limits by up to two orders of magnitude. The limits are mass-independent (flat) over the stated range, so encoded as horizontal lines spanning the validity region. The experiment uses precision magnetometry with a SQUID-based detector to search for spin-dependent fifth forces mediated by light pseudo-scalar bosons (axions/ALPs). | selector: text (sole candidate)",
+ "num_points": 8,
+ "elapsed_s": 18.958500146865845
+}

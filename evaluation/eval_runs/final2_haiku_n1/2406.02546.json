@@ -1,0 +1,30 @@
+{
+ "arxiv_id": "2406.02546",
+ "paper_title": "Planck_unWISE",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.5e-13,
+   4e-08
+  ],
+  [
+   5.2e-13,
+   2.08e-08
+  ],
+  [
+   9.7e-12,
+   4e-08
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "Planck_unWISE",
+ "coupling_convention": "dimensionless kinetic mixing parameter \u03b5",
+ "notes": "Paper presents first CMB-LSS cross-correlation constraints on dark photon kinetic mixing using Planck CMB data cross-correlated with unWISE galaxy survey. Main result: \u03b5 < 4\u00d710^-8 (95% CL) over mass range 10^-13 eV \u2272 m_A' \u2272 10^-11 eV, improving previous limits by ~order of magnitude. Data points extracted from Fig. 3 (exclusion plot) and text statements. The constraint is mass-dependent with strongest sensitivity at m_A' \u2243 5\u00d710^-13 eV where \u03b5 < 2.08\u00d710^-8. Three representative points chosen: lower mass bound, peak sensitivity, and upper mass bound. Signal detected via patchy dark screening (resonant photon-to-dark-photon conversion in large-scale structure). Extensive foreground removal (tSZ, CIB, radio) and validation tests performed. No local DM density assumption needed as this is a cosmological/astrophysical bound, not a haloscope experiment. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 2.3 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+ "num_points": 3,
+ "elapsed_s": 226.96053194999695
+}

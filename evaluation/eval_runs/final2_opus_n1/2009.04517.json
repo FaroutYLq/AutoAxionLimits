@@ -1,0 +1,110 @@
+{
+ "arxiv_id": "2009.04517",
+ "paper_title": "The State of the Art in Constraining Axion-to-Nucleon Coupling and Non-Newtonian Gravity from Laboratory Experiments",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-08,
+   2.5e-10
+  ],
+  [
+   3e-08,
+   2.6e-10
+  ],
+  [
+   1e-07,
+   3e-10
+  ],
+  [
+   3e-07,
+   5e-10
+  ],
+  [
+   7e-07,
+   3e-09
+  ],
+  [
+   1e-06,
+   3e-08
+  ],
+  [
+   1.3e-06,
+   1.5e-08
+  ],
+  [
+   1e-05,
+   8e-09
+  ],
+  [
+   0.0001,
+   8e-09
+  ],
+  [
+   0.0003,
+   1e-08
+  ],
+  [
+   0.001,
+   3e-08
+  ],
+  [
+   0.003,
+   1.5e-07
+  ],
+  [
+   0.01,
+   8e-07
+  ],
+  [
+   0.03,
+   3e-06
+  ],
+  [
+   0.1,
+   1.5e-05
+  ],
+  [
+   0.3,
+   5e-05
+  ],
+  [
+   0.4,
+   8e-05
+  ],
+  [
+   0.5,
+   8e-05
+  ],
+  [
+   1.0,
+   8e-05
+  ],
+  [
+   3.0,
+   8e-05
+  ],
+  [
+   10.0,
+   8e-05
+  ],
+  [
+   30.0,
+   8e-05
+  ],
+  [
+   100.0,
+   8e-05
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "Casimir/Cavendish/magnetometer axion-nucleon constraints (Figure 8)",
+ "coupling_convention": "g_an^2/(4pi), dimensionless squared coupling as plotted",
+ "notes": "This is a review paper comparing constraints on axion-to-nucleon coupling (plotted as g_an^2/(4pi) vs axion mass ma) from various Casimir-force, Cavendish, magnetometer and molecular hydrogen experiments. The results are shown only as figures (Figures 6, 8, 10) with no numerical tables and no digitized data points in the text. Therefore no reliable numerical (mass, coupling) pairs can be extracted. The paper reviews existing/prior limits rather than presenting a single new measured limit; the newest content is the SiC Casimir-force constraint (line 'new') covering ma > ~17.8 eV, but no numerical values are given. | selector: figure_vision (sole candidate) | Vision: Figure 8, page 14. Y-axis is g_an^2/(4pi), NOT g_an itself. Values emitted as plotted per contract. Lower boundary is envelope of the most constraining curves: 'm' (magnetometer, K/3He) at low mass, 'gr' (Cavendish) in intermediate range, line 1 (Casimir-less), and 'H2' (molecular hydrogen) flat at ~8e-5 for high mass. The paper constrains axion-to-nucleon (neutron via magnetometer) coupling. | Calibration: No calibration needed",
+ "num_points": 23,
+ "elapsed_s": 213.38266611099243
+}

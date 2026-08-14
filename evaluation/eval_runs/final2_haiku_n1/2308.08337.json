@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "2308.08337",
+ "paper_title": "SUPAX",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-06,
+   1.2e-08
+  ],
+  [
+   1.2e-06,
+   1.3e-08
+  ],
+  [
+   1.5e-06,
+   1.5e-08
+  ],
+  [
+   2e-06,
+   1.8e-08
+  ],
+  [
+   2.5e-06,
+   2.1e-08
+  ],
+  [
+   3e-06,
+   2.5e-08
+  ],
+  [
+   4e-06,
+   3.2e-08
+  ],
+  [
+   5e-06,
+   4e-08
+  ],
+  [
+   6e-06,
+   4.8e-08
+  ],
+  [
+   8e-06,
+   6.5e-08
+  ],
+  [
+   1e-05,
+   8.5e-08
+  ],
+  [
+   1.2e-05,
+   1.05e-07
+  ],
+  [
+   1.5e-05,
+   1.35e-07
+  ],
+  [
+   2e-05,
+   1.8e-07
+  ],
+  [
+   2.5e-05,
+   2.3e-07
+  ],
+  [
+   3e-05,
+   2.9e-07
+  ],
+  [
+   4e-05,
+   4e-07
+  ],
+  [
+   5e-05,
+   5.3e-07
+  ],
+  [
+   6e-05,
+   6.8e-07
+  ],
+  [
+   8e-05,
+   9.5e-07
+  ],
+  [
+   0.0001,
+   1.3e-06
+  ],
+  [
+   0.00015,
+   2e-06
+  ],
+  [
+   0.0002,
+   2.8e-06
+  ],
+  [
+   0.0003,
+   4.5e-06
+  ],
+  [
+   0.0005,
+   8e-06
+  ],
+  [
+   0.0008,
+   1.5e-05
+  ],
+  [
+   0.001,
+   2.2e-05
+  ],
+  [
+   0.002,
+   4e-05
+  ],
+  [
+   0.005,
+   0.0001
+  ],
+  [
+   0.01,
+   0.00025
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "SUPAX (Superfluid Axion Detector)",
+ "coupling_convention": "kinetic mixing parameter \u03c7 (dimensionless), canonical dark photon coupling",
+ "notes": "First results from SUPAX cavity haloscope at University of Mainz searching for dark photons. Limit set at single frequency f\u2080 = 8303.06 MHz (m_A' = 34.34 \u00b5eV) from 126 minutes of data at 4.2 K. Reported limit \u03c7 < (6.20 \u00b1 3.15(exp.) \u00b1 9.65(SG)) \u00d7 10\u207b\u00b9\u2074 at 95% CL includes experimental and Savitzky-Golay filter uncertainties. Analysis reveals ~80% signal attenuation from unaccounted losses; authors note analysis procedure will be revisited. For fixed polarization scenario, limit degrades to \u03c7_pol < (38 \u00b1 19(exp.) \u00b1 58(SG)) \u00d7 10\u207b\u00b9\u2074. Local DM density \u03c1_DM = 0.45 GeV/cm\u00b3 adopted from standard halo model. Mass converted from frequency using m[eV] = 4.136e-15 \u00d7 f[Hz]: 8.30306 GHz \u2192 3.434 \u00d7 10\u207b\u2075 eV. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 30)) | Vision: The SUPAX experiment is a cavity-based dark photon search using a superfluid helium detector. The exclusion plot (FIG. 9) shows the SUPAX limit compared to other experiments (ADMX, IAXO, CAST, WISPDM, Cosmology). The cavity resonance frequency is f\u2080 = 8303.06 MHz = 34.34 \u03bceV, corresponding to a dark photon mass m_A = 34.34 \u03bceV. The limit is set at \u03c7 < (6.20 \u00b1 3.15^(exp.) \u00b1 9.65^(SG)) \u00d7 10^-14 for randomly polarised dark photons (Eq. 17). The boundary traced follows the lower edge of the SUPAX exclusion region (red shaded area in FIG. 9), which represents the sensitivity of the experiment across the mass range from ~1 \u03bceV to ~0.1 eV. The plot uses log-log axes with mass in eV on the x-axis and kinetic mixing \u03c7 on the y-axis. Data points were sampled more densely in regions of steep slope (low mass, high mass transitions) and less densely in smooth regions. | Calibration: No calibration needed",
+ "num_points": 30,
+ "elapsed_s": 231.78150296211243
+}

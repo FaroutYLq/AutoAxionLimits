@@ -1,0 +1,58 @@
+{
+ "arxiv_id": "2008.13662",
+ "paper_title": "SgrA",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-20,
+   1.2e-11
+  ],
+  [
+   3e-19,
+   1e-12
+  ],
+  [
+   5e-19,
+   9.5e-13
+  ],
+  [
+   1e-18,
+   9e-13
+  ],
+  [
+   2e-18,
+   1e-12
+  ],
+  [
+   5e-18,
+   1.5e-12
+  ],
+  [
+   7.9e-18,
+   3.2e-11
+  ],
+  [
+   1e-17,
+   5e-12
+  ],
+  [
+   3e-17,
+   1e-11
+  ],
+  [
+   1e-16,
+   5e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 2000000000.0,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "EHT_SgrA_2015",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper derives 95% CL upper limits on ALP-photon coupling g_agamma from polarimetric observations of Sagittarius A* by Event Horizon Telescope sub-array. Strongest constraints in mass range m_a ~ (10^-19 to 10^-18) eV. Data extracted from Figure 1 (main result). DM density assumed is 2\u00d710^9 GeV/cm^3 from solitonic core + NFW profile. Best-fit parameters (m_a = 7.9\u00d710^-18 eV, g_agamma = 3.2\u00d710^-11 GeV^-1) already excluded by SN1987A and other constraints. Discontinuous jumps in constraint curve due to degeneracy between coupling and background position angle at low masses, and non-significant favored parameter space at high masses. Observation time ~4 hours with ~20 min cadence sensitive to m_a ~ 10^-18 eV. Paper uses solitonic core density profile appropriate for ultralight axion DM. | selector: text (sole candidate)",
+ "num_points": 10,
+ "elapsed_s": 27.258270025253296
+}

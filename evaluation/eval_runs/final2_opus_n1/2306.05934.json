@@ -1,0 +1,30 @@
+{
+ "arxiv_id": "2306.05934",
+ "paper_title": "First results from BRASS-p broadband searches for hidden photon dark matter",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.963e-05,
+   1e-13
+  ],
+  [
+   6.2e-05,
+   1e-13
+  ],
+  [
+   7.444e-05,
+   1e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "BRASS-p",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "First results from BRASS-p broadband hidden photon dark matter search over 49.63-74.44 ueV (12-18 GHz). Record sensitivity (0.3-1.0)x10^-13 to kinetic mixing chi, assuming unpolarized HP DM with rho_DM=0.3 GeV/cm^3. The reported benchmark is chi ~< 10^-13 over the full mass range; data points approximate the flat sensitivity level from the abstract/text and Fig. 12 (1-sigma). Sensitivity varies (0.3-1.0)x10^-13 across the band. Mass range: 12 GHz -> 4.963e-5 eV, 18 GHz -> 7.444e-5 eV. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.8, 3))",
+ "num_points": 3,
+ "elapsed_s": 204.75609493255615
+}

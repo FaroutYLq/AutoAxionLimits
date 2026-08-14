@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "1606.07001",
+ "paper_title": "DARWIN: towards the ultimate dark matter detector",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": false,
+ "is_projection": true,
+ "data_points": [
+  [
+   1e-05,
+   2e-12
+  ],
+  [
+   1000.0,
+   2e-12
+  ],
+  [
+   1.0,
+   7.7e-12
+  ],
+  [
+   10000.0,
+   7.7e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "DARWIN",
+ "coupling_convention": "dimensionless g_ae (axion-electron coupling)",
+ "notes": "Paper presents DARWIN as a future detector concept (not yet built/operational). Section 3.2.1 discusses sensitivity projections to solar axions and galactic axion-like particles (ALPs) via the axio-electric effect. XENON100 results are cited as current limits: g_ae \u2273 2\u00d710^-12 (90% CL) for galactic ALPs in 1 < m_A < 40 keV/c^2, and g_ae > 7.7\u00d710^-12 (90% CL) for solar axions in 10^-5 < m_A < 1 keV/c^2. DARWIN projects ~two orders of magnitude improvement for galactic ALPs and ~one order of magnitude for solar axions with 200 t\u00d7y exposure. The paper does not provide explicit numerical DARWIN exclusion limits on a mass-coupling plane; instead it discusses qualitative sensitivity improvements. Figure 4 shows projected sensitivity curves but exact numerical values are not tabulated. The coupling type is AxionPhoton because the paper discusses axion-electron coupling (g_ae or g_ALP_Ae) via the axio-electric effect, which is the coupling of axions to electrons. Confidence is moderate (0.65) because: (1) this is a projection, not a measured limit; (2) exact numerical data points are not clearly extracted from Figure 4; (3) the paper cites XENON100 results rather than presenting new DARWIN data. The data_points encode the XENON100 bounds (current state) as horizontal lines spanning the stated mass ranges, following the mass-independent bound convention. | [CONVENTION REVIEW] declared coupling convention 'dimensionless g_ae (axion-electron coupling)' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 4,
+ "elapsed_s": 131.69068884849548
+}

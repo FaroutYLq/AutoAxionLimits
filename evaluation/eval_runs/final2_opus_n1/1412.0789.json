@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1412.0789",
+ "paper_title": "Axion dark matter from topological defects",
+ "coupling_type": "AxionMass",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0,
+   8e-05
+  ],
+  [
+   0.0,
+   0.00013
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.4,
+ "suggested_experiment_name": "KawasakiSaikawaSekiguchi2015",
+ "coupling_convention": "m_a in eV (lower bound), NDW=1 model",
+ "notes": "This is a cosmological/theoretical paper computing axion dark matter abundance from topological defects (strings and domain walls) for post-inflationary PQ breaking. The main result is a lower bound on the axion mass m_a >= (0.8-1.3)x10^-4 eV for NDW=1 (Eq 4.6), corresponding to the requirement that axions not overclose the universe. It is not a haloscope exclusion limit with a coupling on the y-axis; the primary result is on the f_a-m_a (Fa vs bias) plane. Data points here encode the stated m_a mass-range bound (in eV). No standard coupling constant (g_agamma etc.) is constrained. Confidence is low because this is a mass/f_a abundance bound rather than a coupling exclusion, and does not map cleanly onto the standard AxionMass f_a-vs-m_a plane convention. | selector: text (sole candidate) | [CONVENTION REVIEW] declared coupling convention 'm_a in eV (lower bound), NDW=1 model' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 2,
+ "elapsed_s": 210.29785299301147
+}
