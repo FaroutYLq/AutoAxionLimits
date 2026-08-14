@@ -158,14 +158,66 @@ def _call_with_deadline(fn, timeout_s: float, label: str = "arXiv fetch"):
     return box.get("result")
 
 
-def _fetch_paper_metadata(arxiv_id: str, cache_path: Path) -> tuple[str, str]:
-    """Fetch real title and abstract from arXiv API. Cache results."""
+def _load_metadata_cache(cache_path: Path) -> dict:
+    """Load the metadata cache, degrading a corrupt file to an empty cache.
+
+    2026-08-05 incident: concurrent workers' unsynchronised read-modify-write
+    left one malformed entry in the cache, and the previous unguarded
+    ``json.load`` then raised on EVERY subsequent extraction — one bad entry
+    killed the whole run with a misleading JSON error. A corrupt cache must
+    degrade to a re-fetch, never poison extraction.
+    """
     import json as _json
-    if cache_path.exists():
+    if not cache_path.exists():
+        return {}
+    try:
         with open(cache_path) as f:
             cache = _json.load(f)
-    else:
-        cache = {}
+        if not isinstance(cache, dict):
+            raise ValueError(f"expected dict, got {type(cache).__name__}")
+        return cache
+    except Exception as e:
+        logger.warning(
+            "metadata cache %s is corrupt (%s); ignoring it and re-fetching "
+            "(a backup is left at %s.corrupt)", cache_path, e, cache_path,
+        )
+        try:
+            os.replace(cache_path, str(cache_path) + ".corrupt")
+        except OSError:
+            pass
+        return {}
+
+
+# Serialises the cache read-modify-write across the thread-pool workers that
+# call run_extraction() concurrently (extract_driver, parallel_extract).
+import threading as _threading
+_METADATA_CACHE_LOCK = _threading.Lock()
+
+
+def _save_metadata_cache(cache_path: Path, arxiv_id: str, title: str, abstract: str):
+    """Merge one entry into the cache atomically (temp file + rename)."""
+    import json as _json
+    with _METADATA_CACHE_LOCK:
+        cache = _load_metadata_cache(cache_path)
+        cache[arxiv_id] = {"title": title, "abstract": abstract}
+        cache_path.parent.mkdir(parents=True, exist_ok=True)
+        fd, tmp = tempfile.mkstemp(dir=str(cache_path.parent), suffix=".tmp")
+        try:
+            with os.fdopen(fd, "w") as f:
+                _json.dump(cache, f, indent=2)
+            os.replace(tmp, cache_path)
+        except Exception:
+            try:
+                os.unlink(tmp)
+            except OSError:
+                pass
+            raise
+
+
+def _fetch_paper_metadata(arxiv_id: str, cache_path: Path) -> tuple[str, str]:
+    """Fetch real title and abstract from arXiv API. Cache results."""
+    with _METADATA_CACHE_LOCK:
+        cache = _load_metadata_cache(cache_path)
     if arxiv_id in cache:
         return cache[arxiv_id]["title"], cache[arxiv_id]["abstract"]
     # Fetch from arXiv. The metadata API (export.arxiv.org) is aggressively
@@ -213,10 +265,7 @@ def _fetch_paper_metadata(arxiv_id: str, cache_path: Path) -> tuple[str, str]:
                            arxiv_id, e, wait)
             time.sleep(wait)
     if result:
-        cache[arxiv_id] = {"title": result.title, "abstract": result.summary}
-        cache_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(cache_path, "w") as f:
-            _json.dump(cache, f, indent=2)
+        _save_metadata_cache(cache_path, arxiv_id, result.title, result.summary)
         return result.title, result.summary
     logger.warning("No arXiv metadata for %s; using ground-truth title fallback", arxiv_id)
     return "", ""
