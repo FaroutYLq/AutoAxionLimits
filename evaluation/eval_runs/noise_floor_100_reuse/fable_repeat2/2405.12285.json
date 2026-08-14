@@ -1,0 +1,46 @@
+{
+ "arxiv_id": "2405.12285",
+ "paper_title": "In Situ Measurements of Dark Photon Dark Matter Using Parker Solar Probe: Going beyond the Radio Window",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3e-10,
+   1e-13
+  ],
+  [
+   5e-10,
+   4e-14
+  ],
+  [
+   1e-09,
+   2e-14
+  ],
+  [
+   3e-09,
+   1e-14
+  ],
+  [
+   1e-08,
+   2e-14
+  ],
+  [
+   3e-08,
+   5e-14
+  ],
+  [
+   8e-08,
+   1e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "ParkerSolarProbe",
+ "coupling_convention": "dimensionless kinetic mixing epsilon (scaled by sqrt(rho_A'/rho_DM)=1)",
+ "notes": "Paper sets new 95% C.L. upper limits on dark photon kinetic mixing epsilon using in-situ Parker Solar Probe FIELDS/RFS radio data, via resonant DPDM-to-photon conversion in solar wind plasma. Mass range 3e-10 to 8e-8 eV (70 kHz - 20 MHz), with epsilon <~ 1e-14 to 1e-13. No numerical table is provided; data_points are an approximate reconstruction of the Fig. 2 exclusion envelope based on the stated endpoints and depth quoted in text/abstract (limit ~1e-13 at both mass edges, dipping to ~1e-14 near a few 1e-9 eV). The limit is quoted as epsilon*(rho_A'/rho_DM)^0.5, i.e., assumes DPDM is all of local DM (standard 0.3 GeV/cm^3 halo density implied via v0=220 km/s Maxwellian). STEREO limits (weaker) also presented but not extracted. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+ "num_points": 7,
+ "elapsed_s": 39.94130992889404
+}

@@ -28,6 +28,11 @@ ARMS = {
               BASE / "opus_repeat2/metrics_noproj.json"),
     "haiku": (REPO / "evaluation/eval_runs/final2_haiku_n1/metrics_noproj.json",
               BASE / "haiku_repeat2/metrics_noproj.json"),
+    # Production arm. repeat-1 is the definitive Fable benchmark run itself, so the
+    # pairing is code-matched (both at worktree 92820cdc) and transport-matched
+    # (both claude-cli subscription, N=1) by construction.
+    "fable": (REPO / "evaluation/eval_runs/final347_fable/metrics_noproj.json",
+              BASE / "fable_repeat2/metrics_noproj.json"),
 }
 
 
@@ -43,6 +48,14 @@ def per_paper_residuals(metrics_path):
         if med is not None and math.isfinite(med):
             out[pid] = float(med)
     return out
+
+
+def per_paper_channels(metrics_path):
+    """id -> winning data_source, frozen-100 only. Channel routing is the stated
+    mechanism behind the floor, so it is measured, not asserted."""
+    m = json.load(open(metrics_path))
+    return {p.get("arxiv_id") or p.get("id"): (p.get("data_source") or "none")
+            for p in m["per_paper"] if (p.get("arxiv_id") or p.get("id")) in FROZEN}
 
 
 def median(xs):
@@ -81,6 +94,10 @@ def analyze_arm(name, r1_path, r2_path):
     med_r2 = median([r2[i] for i in shared])
     lo, hi, boot_med = bootstrap_read_selection(pairs)
 
+    # (mechanism) channel routing flips between the two reads, over the paired set
+    c1, c2 = per_paper_channels(r1_path), per_paper_channels(r2_path)
+    flips = [i for i in shared if c1.get(i) != c2.get(i)]
+
     # histogram bins for per-paper std
     bins = [0, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0, 2.0, 1e9]
     hist = [0] * (len(bins) - 1)
@@ -109,6 +126,10 @@ def analyze_arm(name, r1_path, r2_path):
         "aggregate_floor_boot_median_dex": round(boot_med, 4),
         "aggregate_floor_ci95_dex": [round(lo, 4), round(hi, 4)],
         "aggregate_floor_ci_halfwidth_dex": round((hi - lo) / 2, 4),
+        # mechanism
+        "channel_flips": len(flips),
+        "channel_flip_frac": round(len(flips) / len(pairs), 4) if pairs else None,
+        "channel_flip_ids": {i: f"{c1.get(i)}->{c2.get(i)}" for i in flips},
         "_pairs": pairs,  # kept for paired-delta stage; stripped before dumping
     }
 
@@ -130,6 +151,62 @@ def paired_delta_noise(res_opus, res_haiku):
     }
 
 
+def analyze_fable_multi():
+    """Multi-read extension (repeats 3+, 2026-08-10): with k reads per paper the
+    whole-run pool median's spread is MEASURED, not just bootstrap-approximated
+    (the n=2 caveat in the README). Auto-detects available fable_repeat* dirs."""
+    read_paths = [REPO / "evaluation/eval_runs/final347_fable/metrics_noproj.json"]
+    read_names = ["repeat1(benchmark)"]
+    for k in range(2, 10):
+        p = BASE / f"fable_repeat{k}/metrics_noproj.json"
+        if p.exists():
+            read_paths.append(p)
+            read_names.append(f"repeat{k}")
+    if len(read_paths) < 3:
+        return {"status": f"needs >=3 scored reads, have {len(read_paths)}"}
+
+    reads = [per_paper_residuals(p) for p in read_paths]
+    chans = [per_paper_channels(p) for p in read_paths]
+    shared = sorted(set.intersection(*[set(r) for r in reads]))
+    k = len(reads)
+
+    # per-paper std across k reads (ddof=1) + routing instability
+    stds, flip_frac = [], []
+    for i in shared:
+        vals = [r[i] for r in reads]
+        stds.append(statistics.stdev(vals))
+        cs = [c.get(i) for c in chans]
+        flip_frac.append(1 - max(cs.count(x) for x in set(cs)) / k)
+    n_route_unstable = sum(1 for f in flip_frac if f > 0)
+
+    # whole-run pool medians: the directly realized run-to-run distribution
+    run_meds = [median([r[i] for i in shared]) for r in reads]
+
+    # read-selection bootstrap generalized to k reads
+    import random
+    rng = random.Random(BOOT_SEED)
+    meds = []
+    for _ in range(BOOT_N):
+        meds.append(median([reads[rng.randrange(k)][i] for i in shared]))
+    meds.sort()
+    lo, hi = meds[int(0.025 * BOOT_N)], meds[int(0.975 * BOOT_N)]
+
+    return {
+        "n_reads": k,
+        "read_names": read_names,
+        "n_shared_papers": len(shared),
+        "per_read_pool_median_dex": [round(m, 4) for m in run_meds],
+        "pool_median_spread_dex": round(max(run_meds) - min(run_meds), 4),
+        "pool_median_std_dex": round(statistics.stdev(run_meds), 4),
+        "per_paper_std_median_dex": round(median(stds), 4),
+        "per_paper_std_p90_dex": round(sorted(stds)[int(0.9 * len(stds))], 4),
+        "n_route_unstable_papers": n_route_unstable,
+        "route_unstable_frac": round(n_route_unstable / len(shared), 4),
+        "kread_floor_ci95_dex": [round(lo, 4), round(hi, 4)],
+        "kread_floor_ci_halfwidth_dex": round((hi - lo) / 2, 4),
+    }
+
+
 def main():
     results = {}
     for name, (r1p, r2p) in ARMS.items():
@@ -145,6 +222,8 @@ def main():
 
     if all("_pairs" in results[a] for a in ("opus", "haiku") if a in results):
         summary["paired_delta_noise"] = paired_delta_noise(results["opus"], results["haiku"])
+
+    summary["fable_multi"] = analyze_fable_multi()
 
     out = BASE / "noise_floor_results.json"
     json.dump(summary, open(out, "w"), indent=2)

@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2012.10764",
+ "paper_title": "First Results from Axion Haloscope at CAPP around 10.7 $\u03bc$eV",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.016e-05,
+   3.6e-14
+  ],
+  [
+   1.077e-05,
+   3.9e-14
+  ],
+  [
+   1.137e-05,
+   4.1e-14
+  ],
+  [
+   1.07126e-05,
+   4.2e-15
+  ],
+  [
+   1.07186e-05,
+   4.2e-15
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "CAPP_PACE",
+ "coupling_convention": "g_agamma in GeV^-1, reconstructed from stated multiples of the KSVZ coupling (g_KSVZ ~ 3.96e-16 GeV^-1 * m_a/ueV)",
+ "notes": "CAPP-PACE pilot haloscope (IBS, Korea) first results. Two exclusion regions at 90% CL assuming virialized axion line shape and rho_a = 0.45 GeV/cm^3: (1) narrow KSVZ run 10.7126-10.7186 ueV at near-KSVZ sensitivity (~1x KSVZ, g ~ 4.2e-15 GeV^-1), and (2) wide 9KSVZ runs 10.16-11.37 ueV at 8-10x KSVZ coupling (~3.6-4.1e-14 GeV^-1). No numerical table given; coupling values computed from the stated KSVZ multiples using g_KSVZ = (alpha*g_gamma/pi/f_a) with g_gamma = 0.97 and m_a*f_a relation, so values are approximate (~10-20% uncertainty). Exclusion plot is Fig. 4 (not machine-readable here). | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+ "num_points": 5,
+ "elapsed_s": 40.63858389854431
+}

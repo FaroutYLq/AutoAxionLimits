@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "1910.08638",
+ "paper_title": "Extended Search for the Invisible Axion with the Axion Dark Matter Experiment",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.81e-06,
+   4.1e-16
+  ],
+  [
+   2.95e-06,
+   4.3e-16
+  ],
+  [
+   3.1e-06,
+   4.6e-16
+  ],
+  [
+   3.31e-06,
+   4.9e-16
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "ADMX_2019_RunB",
+ "coupling_convention": "g_agamma in GeV^-1 (DFSZ-level coupling values inferred from stated DFSZ exclusion; not digitized from Fig. 4)",
+ "notes": "ADMX Run 1B (arXiv:1910.08638). Cavity haloscope search 680-790 MHz (2.81-3.31 ueV) with JPA first-stage amplifier, excluding DFSZ axion-photon coupling for 100% DM. Combined with previous run, DFSZ excluded over 2.66-3.31 ueV. No numerical limit table in text; limit is only shown in Fig. 4, so emitted points are the DFSZ benchmark coupling g_DFSZ ~ 1.47e-16 GeV^-1 * (m_a/ueV), which the paper states is fully excluded across the scanned range (approximate representation of the actual limit curve). Assumes local DM density 0.45 GeV/cm^3 (Maxwell-Boltzmann halo); N-body model with 0.63 GeV/cm^3 also analyzed. Gaps at 5 mode crossings (Table I: 704.659, 715.064, 717.025, 726.624, 753.844 MHz) where no limit was set. 90% CL. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.6, 4))",
+ "num_points": 4,
+ "elapsed_s": 116.42623901367188
+}

@@ -1,0 +1,30 @@
+{
+ "arxiv_id": "1905.05579",
+ "paper_title": "Direct Searches for Hidden-Photon Dark Matter with the SHUKET Experiment",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.08e-05,
+   5e-12
+  ],
+  [
+   2.83e-05,
+   5e-12
+  ],
+  [
+   2.62e-05,
+   2.3e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "SHUKET",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "SHUKET dish-antenna hidden-photon search, 5-6.8 GHz (20.8-28.3 ueV). Paper states chi < ~5e-12 at 95% CL across the wide band (encoded as flat two-point line); exact frequency-dependent limit only in Fig. 5 (not tabulated). Third point is the narrow-band 22.2 h run at 6.331525 GHz (power limit 2.1e-21 W vs ~1e-18 W average), converted via chi ~ sqrt(P) scaling of Eq. 2, giving chi ~ 2.3e-13 at m = 2.62e-5 eV. Assumes HP constitute all local DM with rho = 0.3 GeV/cm^3. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.75, 3))",
+ "num_points": 3,
+ "elapsed_s": 151.5650234222412
+}

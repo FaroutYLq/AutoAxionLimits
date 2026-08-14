@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "1903.05101",
+ "paper_title": "Detecting Dark Matter with Superconducting Nanowires",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.6,
+   3e-08
+  ],
+  [
+   0.8,
+   1e-08
+  ],
+  [
+   1.0,
+   5e-09
+  ],
+  [
+   2.0,
+   3e-09
+  ],
+  [
+   5.0,
+   3e-09
+  ],
+  [
+   10.0,
+   6e-09
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.45,
+ "suggested_experiment_name": "SNSPD_WSi2019",
+ "coupling_convention": "dimensionless kinetic mixing kappa",
+ "notes": "Hochberg et al. (arXiv:1903.05101) propose SNSPDs for DM detection and place a NEW 95% C.L. bound on dark photon absorption (kinetic mixing kappa vs m_V) using a 4.3 ng WSi nanowire prototype with 0.8 eV threshold and 10^4 s exposure with zero dark counts (claimed strongest terrestrial bound on sub-eV dark photon absorption). The paper also reports a new DM-electron scattering cross-section bound (sigma_e) and multiple projections, but the flagship new-physics limit is the dark photon absorption bound (Fig. 4, 'Bound WSi' curve). No numerical table is provided and the figure axes are not machine-readable in the supplied text; the data_points above are approximate values reconstructed from the paper's stated exposure (4.3 ng, 10^4 s, 3-event/95% C.L. criterion), the absorption rate formula R = (rho_DM/(rho m_V)) kappa_eff^2 Re[sigma(m_V)] with rho_DM = 0.3 GeV/cm^3, and typical WSi optical conductivity, spanning the stated validity range of ~sub-eV to few-eV masses. These points should be replaced by a proper digitization of Fig. 4 before quantitative use, hence the reduced extraction confidence despite unambiguous coupling type. The in-medium effective mixing kappa_eff (Eq. 6) is used, characteristic of longitudinal/transverse in-medium absorption; no explicit polarization statement is made. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.45, 6))",
+ "num_points": 6,
+ "elapsed_s": 124.15452814102173
+}

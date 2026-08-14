@@ -1,0 +1,158 @@
+{
+ "arxiv_id": "1903.05101",
+ "paper_title": "Detecting Dark Matter with Superconducting Nanowires",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.8,
+   9.5e-09
+  ],
+  [
+   0.81,
+   9.1e-09
+  ],
+  [
+   0.82,
+   8.8e-09
+  ],
+  [
+   0.83,
+   8.6e-09
+  ],
+  [
+   0.85,
+   8.3e-09
+  ],
+  [
+   0.88,
+   8e-09
+  ],
+  [
+   0.9,
+   7.8e-09
+  ],
+  [
+   0.92,
+   7.7e-09
+  ],
+  [
+   0.96,
+   7.4e-09
+  ],
+  [
+   1.0,
+   7.2e-09
+  ],
+  [
+   1.05,
+   7e-09
+  ],
+  [
+   1.1,
+   6.8e-09
+  ],
+  [
+   1.15,
+   6.7e-09
+  ],
+  [
+   1.2,
+   6.6e-09
+  ],
+  [
+   1.26,
+   6.4e-09
+  ],
+  [
+   1.3,
+   6.3e-09
+  ],
+  [
+   1.35,
+   6.2e-09
+  ],
+  [
+   1.4,
+   6.1e-09
+  ],
+  [
+   1.45,
+   6e-09
+  ],
+  [
+   1.5,
+   5.9e-09
+  ],
+  [
+   1.55,
+   5.8e-09
+  ],
+  [
+   1.65,
+   5.7e-09
+  ],
+  [
+   1.75,
+   5.6e-09
+  ],
+  [
+   1.85,
+   5.5e-09
+  ],
+  [
+   1.95,
+   5.4e-09
+  ],
+  [
+   2.05,
+   5.3e-09
+  ],
+  [
+   2.15,
+   5.2e-09
+  ],
+  [
+   2.2,
+   5.1e-09
+  ],
+  [
+   2.3,
+   5e-09
+  ],
+  [
+   2.45,
+   4.8e-09
+  ],
+  [
+   2.5,
+   4.7e-09
+  ],
+  [
+   2.6,
+   4.6e-09
+  ],
+  [
+   2.75,
+   4.5e-09
+  ],
+  [
+   2.9,
+   4.3e-09
+  ],
+  [
+   3.0,
+   4.2e-09
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "WSi SNSPD prototype (superconducting nanowire)",
+ "coupling_convention": "kinetic mixing kappa (dimensionless), exactly as plotted on the y-axis of Fig. 4",
+ "notes": "Paper (Hochberg et al., arXiv:1903.05101) presents a NEW measured 95% C.L. bound on dark photon kinetic mixing kappa from absorption in a 4.3 ng WSi superconducting nanowire prototype (0.8 eV threshold, 10^4 s exposure, zero dark counts), claimed as the strongest terrestrial constraint on sub-eV dark photon absorption. The limit is shown only in Fig. 4 ('Bound WSi' curve, kappa vs m_V in eV); the figure axis labels/values are garbled in the provided text and NO numerical values for the exclusion curve are given in text or tables, so no data points could be reliably extracted. The paper also sets new (non-competitive) DM-electron scattering bounds (sigma_e vs mass, Fig. 3) and multiple projections (NbN/WSi kg-yr etc.), but the headline new limit is the dark photon absorption bound. DM density explicitly stated as rho_DM = 0.3 GeV/cm^3. To recover data points, digitization of Fig. 4 from the original PDF (or the AxionLimits repository entry for this SNSPD result) is required. | selector: figure_vision (sole candidate) | Vision: Traced the solid blue 'Bound WSi' curve in Fig. 4, the new 95% C.L. bound on relic dark photon absorption from the 4.3 ng WSi prototype (0.8 eV threshold, 10^4 s, no dark counts). Curve begins at the 0.8 eV threshold near kappa~1e-8 and declines smoothly to ~4e-9 at ~3 eV; excluded region above. Other curves (NbN 177ug-yr magenta, WSi kg-yr black, dotted material projections) are projections, not bounds, and were excluded. Stellar/SuperCDMS/DAMIC/SENSEI shaded regions are external constraints. rho_DM = 0.3 GeV/cm^3 stated in Appendix. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.49 snapped to identity)",
+ "num_points": 35,
+ "elapsed_s": 157.29125094413757
+}

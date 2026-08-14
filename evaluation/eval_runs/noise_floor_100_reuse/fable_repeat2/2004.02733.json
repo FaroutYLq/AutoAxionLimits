@@ -1,0 +1,186 @@
+{
+ "arxiv_id": "2004.02733",
+ "paper_title": "Searching for solar axions using data from the Sudbury Neutrino Observatory",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-22,
+   2e-05
+  ],
+  [
+   1e-21,
+   2e-05
+  ],
+  [
+   1e-20,
+   2e-05
+  ],
+  [
+   1e-19,
+   2e-05
+  ],
+  [
+   1e-18,
+   2e-05
+  ],
+  [
+   1e-17,
+   2e-05
+  ],
+  [
+   1e-16,
+   2e-05
+  ],
+  [
+   1e-15,
+   2e-05
+  ],
+  [
+   1e-14,
+   2e-05
+  ],
+  [
+   1e-13,
+   2e-05
+  ],
+  [
+   1e-12,
+   2e-05
+  ],
+  [
+   1e-11,
+   2e-05
+  ],
+  [
+   1e-10,
+   2e-05
+  ],
+  [
+   1e-09,
+   2e-05
+  ],
+  [
+   1e-08,
+   2e-05
+  ],
+  [
+   1e-07,
+   2e-05
+  ],
+  [
+   1e-06,
+   2e-05
+  ],
+  [
+   1e-05,
+   2e-05
+  ],
+  [
+   0.0001,
+   2e-05
+  ],
+  [
+   0.001,
+   2e-05
+  ],
+  [
+   0.01,
+   2e-05
+  ],
+  [
+   0.1,
+   2e-05
+  ],
+  [
+   1.0,
+   2e-05
+  ],
+  [
+   10.0,
+   2e-05
+  ],
+  [
+   100.0,
+   2e-05
+  ],
+  [
+   1000.0,
+   2e-05
+  ],
+  [
+   10000.0,
+   2e-05
+  ],
+  [
+   30000.0,
+   2e-05
+  ],
+  [
+   100000.0,
+   2e-05
+  ],
+  [
+   300000.0,
+   2e-05
+  ],
+  [
+   600000.0,
+   2.1e-05
+  ],
+  [
+   1000000.0,
+   2.3e-05
+  ],
+  [
+   1500000.0,
+   2.7e-05
+  ],
+  [
+   2000000.0,
+   3.5e-05
+  ],
+  [
+   2500000.0,
+   4.5e-05
+  ],
+  [
+   3000000.0,
+   6e-05
+  ],
+  [
+   3500000.0,
+   9e-05
+  ],
+  [
+   4000000.0,
+   0.00015
+  ],
+  [
+   4500000.0,
+   0.00025
+  ],
+  [
+   5000000.0,
+   0.0005
+  ],
+  [
+   5300000.0,
+   0.00075
+  ],
+  [
+   5500000.0,
+   0.001
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "SNO solar axions (deuteron dissociation)",
+ "coupling_convention": "|g_aN^3| isovector axion-nucleon coupling in GeV^-1, exactly as plotted on the y-axis",
+ "notes": "Paper derives a model-independent 95% CL exclusion on the isovector axion-nucleon coupling |g3_aN| > 2e-5 GeV^-1 from axion-induced deuteron dissociation using the full SNO dataset. The bound is essentially mass-independent for axion masses up to ~5.5 MeV (encoded as a flat two-point line from 1e-22 eV, the lower edge of the paper's Fig. 1 axis, to 5.5e6 eV). The exclusion has an upper ceiling of ~1e-3 GeV^-1 due to solar trapping (couplings above this escape the bound). Coupling type set to AxionNeutron per the generic-nucleon convention, since the paper constrains the isovector combination of g_an and g_ap; absent fine-tuned cancellation it applies to both g_an and g_ap individually. Values are emitted in GeV^-1 as quoted; multiply by m_n \u2248 0.939 GeV to obtain the dimensionless pseudoscalar coupling. Not a dark-matter search (solar axion flux), so no DM density assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 42)) | Vision: Paper's main result is the blue SNO region: model-independent exclusion of the isovector axion-nucleon coupling |g_aN^3| between 2e-5 and 1e-3 GeV^-1 for axion masses up to ~5.5 MeV (values stated explicitly in text and confirmed on Fig. 1). Boundary is mass-independent (flat at 2e-5 GeV^-1) until the deuteron-dissociation kinematic endpoint near 5.5 MeV, where it rises steeply to the solar trapping ceiling of 1e-3 GeV^-1; the shape of this upturn is read approximately from the right edge of the plot. Coupling is the ISOVECTOR nucleon combination g_aN^3 = g_ap - g_an (plotted alongside g_an constraints from other experiments); classified as AxionNeutron per the generic-nucleon rule, but note it is not a pure neutron coupling. Not a dark-matter search (solar axion flux), so no DM density assumption. The QCD axion band (yellow) crosses roughly (1e-2 eV, ~1e-10 GeV^-1) to (1e6 eV, ~1e-2 GeV^-1). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity)",
+ "num_points": 42,
+ "elapsed_s": 99.6905448436737
+}

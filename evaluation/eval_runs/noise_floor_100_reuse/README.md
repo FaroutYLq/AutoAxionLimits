@@ -3,10 +3,31 @@
 Directly measured, CI-bearing run-to-run noise floor for the extraction pipeline,
 replacing the manuscript's prior n=2 / 30-paper-probe estimate ("up to ~0.07 dex").
 
-**Status: PLAN B (Opus-only, partial n=57).** A planned 100-paper Opus re-read was
-truncated at 58/100 by API credit exhaustion (clean #648 fail-fast, 0 error stubs).
-Haiku arm deferred (user decision). The full-100 + Haiku run remains resumable with
-zero re-spend (`run_repeat2.sh opus|haiku`, skip-existing).
+**Status: FABLE (production) arm COMPLETE, n=96 paired, 2026-08-05.** Opus arm
+remains Plan B (partial n=57: a planned 100-paper re-read was truncated at 58/100
+by API credit exhaustion, clean #648 fail-fast, 0 error stubs). Haiku arm deferred
+(user decision), still resumable with zero re-spend (`run_repeat2.sh haiku`).
+
+The **production floor is now measured directly** rather than inherited from Opus:
+
+| arm | n paired | aggregate floor 95% CI | half-width | per-paper std (median) | channel flips |
+|---|---|---|---|---|---|
+| **fable (production)** | **96** | **[0.161, 0.205]** | **±0.022 dex** | 0.017 dex | 12/96 = 12.5% |
+| fable, restricted to Opus's 57 | 57 | [0.117, 0.182] | ±0.033 dex | 0.013 dex | -- |
+| opus 4.8 | 57 | [0.159, 0.276] | ±0.059 dex | 0.024 dex | 11/57 = 19.3% |
+
+The Fable arm is more reproducible than Opus on **identical papers** (±0.033 vs
+±0.059 on the same 57), so the improvement is not a sample-size artifact. The
+Opus paired set is a strict subset of the Fable one, which makes the restriction
+exact rather than approximate.
+
+### CAVEAT: the bootstrap CI is NOT the whole-run shift
+The read-selection bootstrap mixes reads per paper, but a real run is all-repeat-1
+or all-repeat-2. The realized whole-run pool medians are **0.164 (r1) vs 0.199 (r2)
+= 0.035 dex**, which is LARGER than the ±0.022 bootstrap half-width. The Opus arm
+hid this because its two medians were identical (realized shift 0.000). At n=2
+reads the whole-run median's sampling distribution is not estimable; quote the
+bootstrap CI and the realized shift together, never the CI alone.
 
 ## Design (reuse: benchmark run == "repeat 1")
 
@@ -82,6 +103,31 @@ arm deferred). Requires the Haiku re-read.
 - Keep the two floors **distinctly labeled**: the per-paper 0.02 dex ("wobble") must NOT
   be placed next to the ~0.2–0.3-class headline as "the floor" — that revives the
   "headline sits at the noise floor" misreading.
+
+## Fable arm provenance (2026-08-05)
+- repeat-1 = `final347_fable` (the definitive production benchmark arm itself), so
+  the pairing is code-matched (both at pinned worktree `92820cdc`) and
+  transport-matched (both `AAL_BACKEND=claude-cli`, N=1, 2 workers) **by
+  construction** — a stronger provenance claim than the Opus arm, which had to
+  argue a code match across `final2` and a separate driver run.
+- Scored from the MAIN repo (current scorer, #744/#745), matching how repeat-1's
+  `metrics_noproj.json` was produced. Scoring with the pinned worktree's older
+  scorer would compare scorers, not reads.
+- **Collected in two batches.** The first pass banked 72/100 and then failed on
+  every remaining paper in 0-2s. Cause was NOT model flakiness and NOT arXiv rate
+  limiting (both were hypothesised and both were wrong): `evaluation/results/
+  metadata_cache.json` had one malformed entry (`2504.07559`, unescaped quote in
+  the abstract), and `_fetch_paper_metadata` loads it with an unguarded
+  `json.load` that runs before every extraction — so one bad entry killed every
+  subsequent paper with a misleading JSON error. Cache repaired by dropping that
+  entry (backup: `metadata_cache.json.corrupt.bak`); the remaining 28 then
+  extracted clean (0 errors, 0 husks). Extraction code stayed pinned throughout;
+  only a data file changed, so the pairing is still code-matched.
+- Two follow-ups this exposed, both open: (1) guard the cache load and write it
+  atomically/under a lock — concurrent workers do an unsynchronised
+  read-modify-write on it; (2) husk predicates MUST exclude records carrying
+  `status == "error"`, or genuine errors get silently delete-and-retried forever
+  (this cost ~3h of no-op attempts here).
 
 ## Files
 - `frozen_ids.json` — seed 701, the 100 ids (58 processed in Plan B)

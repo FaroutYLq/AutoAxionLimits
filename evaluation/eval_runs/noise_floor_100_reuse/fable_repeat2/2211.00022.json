@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2211.00022",
+ "paper_title": "$A'$ view of the sunrise: Boosting helioscopes with angular information",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.0,
+   1e-09
+  ],
+  [
+   15.0,
+   1.2e-10
+  ],
+  [
+   400.0,
+   6.1e-11
+  ],
+  [
+   1.0,
+   4e-08
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "HinodeXRT_DarkPhoton",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Paper derives new 90% CL exclusion limits on dark photon kinetic mixing from Hinode XRT calibration darks (helioscope-style, sensitive ~1e-2 eV to keV, kink at ~3e-2 eV) and a 2012 solar eclipse image (light-shining-through-the-Moon, extends sensitivity down to ~2e-6 eV kink mass). Full limit curves are shown only in figures 5 and 8; no numerical table is provided. Extracted points come from text: Table 1 quotes darks sensitivity eps~1e-9 and eclipse eps~4e-8 at m=1 eV; benchmark points near the exclusion limit (radial+spectral analysis, no background subtraction) are eps=6.1e-11 at 400 eV, eps=1.2e-10 at 15 eV. The best (data-driven background subtracted) darks limit is somewhat stronger than these benchmarks. Fourth data point [1 eV, 4e-8] is the ECLIPSE limit (separate curve from darks). No DM density assumed - constraint from solar dark photon production, not a DM halo search. Data points are approximate; digitization of figure 5/8 recommended for precise curves. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 4))",
+ "num_points": 4,
+ "elapsed_s": 211.52281188964844
+}

@@ -1,0 +1,22 @@
+{
+ "arxiv_id": "2110.14406",
+ "paper_title": "The Grenoble Axion Haloscope platform (GrAHal): development plan and first results",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.637e-05,
+   2.2e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "GrAHal",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "GrAHal pathfinder haloscope run (July 2021) at liquid He temperature. New measured exclusion limit g_agamma <= 2.2e-13 GeV^-1 (22x KSVZ) at m_a ~ 26.37 ueV (6.375 GHz TM010 cavity), 95% CL. The limit spans only a very narrow frequency band (a few He-gas tuning steps around 6.375 GHz shown in Fig. 4, not tabulated), so a single representative point is given from the explicit text value. Paper assumes axions constitute all of the local DM density but does not quote the numeric value; 0.45 GeV/cm^3 is the standard haloscope convention (as used by ADMX/HAYSTAC analyses it follows) and is entered as the assumed density. The broader Fig. 2 dashed region is a future sensitivity projection, not extracted here. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 1))",
+ "num_points": 1,
+ "elapsed_s": 148.11891102790833
+}

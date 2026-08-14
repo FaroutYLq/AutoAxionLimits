@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "1907.12449",
+ "paper_title": "First results from the WISPDMX radio frequency cavity searches for hidden photon dark matter",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2e-07,
+   1e-12
+  ],
+  [
+   2.07e-06,
+   1e-12
+  ],
+  [
+   8.602e-07,
+   1e-13
+  ],
+  [
+   8.646e-07,
+   1e-13
+  ],
+  [
+   1.3088e-06,
+   1e-13
+  ],
+  [
+   1.3358e-06,
+   1e-13
+  ],
+  [
+   1.882e-06,
+   1e-13
+  ],
+  [
+   1.8977e-06,
+   1e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "WISPDMX",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "WISPDMX first science run: haloscope-type search for hidden photon dark matter using tunable 208 MHz HERA RF cavity (no magnetic field). New 95% CL exclusion limits on kinetic mixing chi. Paper states limits at level ~1e-13 within resonant tuning ranges of four modes (TM010: 0.8602-0.8646 ueV; TE111: 1.3088-1.3358 ueV; TM020: 1.8820-1.8977 ueV) and ~1e-12 for broadband range 0.2-2.07 ueV, steadily increasing at masses below 0.2 ueV (search extends down to 0.4 neV, but no numerical values given for that region so it is not encoded). Data points are order-of-magnitude values from the abstract/text since the full exclusion curve is only shown in figures (Figs. 18-19) without tabulated data. Assumes rho_DM = 0.3 GeV/cm^3, vesc = 530 km/s, cavity volume 447 L. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+ "num_points": 8,
+ "elapsed_s": 50.99067687988281
+}

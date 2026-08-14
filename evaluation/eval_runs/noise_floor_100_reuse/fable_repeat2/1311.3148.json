@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1311.3148",
+ "paper_title": "Constraints on axionlike particles with H.E.S.S. from the irregularity of the PKS 2155-304 energy spectrum",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.5e-08,
+   2.1e-11
+  ],
+  [
+   6e-08,
+   2.1e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "HESS_PKS2155",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "H.E.S.S. constraint on ALP-photon coupling from spectral irregularity of PKS 2155-304. The robust/conservative limit is g_gamma-a < 2.1e-11 GeV^-1 for ALP masses 15-60 neV (1.5e-8 to 6e-8 eV), derived assuming a 1 uG galaxy cluster magnetic field over 370 kpc with 10 kpc coherence length. An additional optimistic IGMF-based bound of ~5e-11 GeV^-1 near 1 neV exists but depends on an assumed 1 nG IGMF and is not included in the emitted data. This is an astrophysical bound (not a DM haloscope), so no local DM density is assumed. Full exclusion contours are shown in Fig. 7 but only the explicitly quoted flat text values were extracted. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+ "num_points": 2,
+ "elapsed_s": 141.39046502113342
+}

@@ -1,0 +1,30 @@
+{
+ "arxiv_id": "2208.06519",
+ "paper_title": "One-Electron Quantum Cyclotron as a Milli-eV Dark-Photon Detector",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.000612273,
+   3.2e-11
+  ],
+  [
+   0.0006122764,
+   3.2e-11
+  ],
+  [
+   0.0006122798,
+   3.2e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "QuantumCyclotron",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Proof-of-principle DPDM search with a one-electron quantum cyclotron in a Penning trap. Sets epsilon < 3.2e-11 (90% CL) at m_A' = 0.61227643 meV (148.048 GHz), ~75x better than XENON1T/cosmology bounds in this narrow band. The limit applies over a narrow bandwidth (~33 kHz detector bandwidth broadening the ~100-150 kHz DM linewidth, corresponding to ~\u00b13e-10 eV around the central mass); encoded as a short flat segment spanning roughly the sensitive band. The 20-200 GHz (0.1-1 meV) coverage at epsilon ~ 8e-11 is a future projection only (Fig 5b), not included in data_points. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 3))",
+ "num_points": 3,
+ "elapsed_s": 108.21478605270386
+}

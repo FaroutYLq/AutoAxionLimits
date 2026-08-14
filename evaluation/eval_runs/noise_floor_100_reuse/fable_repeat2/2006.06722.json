@@ -1,0 +1,170 @@
+{
+ "arxiv_id": "2006.06722",
+ "paper_title": "Search for Axionlike-Particle-Induced Prompt Gamma-Ray Emission from Extragalactic Core-Collapse Supernovae with the Fermi Large Area Telescope",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-10,
+   2.6e-11
+  ],
+  [
+   1.2e-10,
+   2.6e-11
+  ],
+  [
+   1.4e-10,
+   2.6e-11
+  ],
+  [
+   1.7e-10,
+   2.6e-11
+  ],
+  [
+   2e-10,
+   2.6e-11
+  ],
+  [
+   2.4e-10,
+   2.6e-11
+  ],
+  [
+   2.8e-10,
+   2.6e-11
+  ],
+  [
+   3e-10,
+   2.6e-11
+  ],
+  [
+   3.5e-10,
+   2.62e-11
+  ],
+  [
+   4e-10,
+   2.65e-11
+  ],
+  [
+   4.5e-10,
+   2.68e-11
+  ],
+  [
+   5e-10,
+   2.72e-11
+  ],
+  [
+   5.5e-10,
+   2.76e-11
+  ],
+  [
+   6e-10,
+   2.8e-11
+  ],
+  [
+   6.5e-10,
+   2.85e-11
+  ],
+  [
+   7e-10,
+   2.9e-11
+  ],
+  [
+   8e-10,
+   3e-11
+  ],
+  [
+   9e-10,
+   3.15e-11
+  ],
+  [
+   1e-09,
+   3.3e-11
+  ],
+  [
+   1.1e-09,
+   3.5e-11
+  ],
+  [
+   1.2e-09,
+   3.7e-11
+  ],
+  [
+   1.35e-09,
+   4e-11
+  ],
+  [
+   1.5e-09,
+   4.4e-11
+  ],
+  [
+   1.65e-09,
+   4.7e-11
+  ],
+  [
+   1.8e-09,
+   5.1e-11
+  ],
+  [
+   2e-09,
+   5.6e-11
+  ],
+  [
+   2.2e-09,
+   6.2e-11
+  ],
+  [
+   2.5e-09,
+   7e-11
+  ],
+  [
+   2.7e-09,
+   7.6e-11
+  ],
+  [
+   3e-09,
+   8.5e-11
+  ],
+  [
+   3.2e-09,
+   9.2e-11
+  ],
+  [
+   3.5e-09,
+   1e-10
+  ],
+  [
+   4e-09,
+   1.15e-10
+  ],
+  [
+   4.5e-09,
+   1.35e-10
+  ],
+  [
+   5e-09,
+   1.55e-10
+  ],
+  [
+   5.5e-09,
+   1.75e-10
+  ],
+  [
+   6e-09,
+   1.9e-10
+  ],
+  [
+   6.3e-09,
+   2e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Fermi-LAT extragalactic SNe (stacked ALP limit)",
+ "coupling_convention": "g_agamma in GeV^-1 (plot axis labeled g_agamma in units of 10^-11 GeV^-1; axis multiplier applied)",
+ "notes": "Fermi-LAT search for ALP-induced prompt gamma-ray bursts from 20 extragalactic core-collapse SNe (type Ib/c). No signal found; combined 95% CL limit excludes g_agamma > 2.6e-11 GeV^-1 (with 95% spread +2.0/-0.7e-11) for m_a < 3e-10 eV, assuming 10 Msun progenitors, NiCo light-curve model, and JF12 GMF model. Paper states limits extend to arbitrarily low masses (conversion probability mass-independent for m_a < 0.5 neV), so encoded as a flat bound down to 1e-12 eV. Limit valid under assumption at least one SN was in LAT field of view (probability 88.5%). Not a dark-matter search, so no local DM density assumed. Limits degrade above ~1 neV but numerical values there are only available from Fig. 2, not extractable from text. For 40 Msun progenitors the limit improves to 7.9e-12 GeV^-1; fiducial conservative 10 Msun value reported here. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 38)) | Vision: Traced the blue solid 'Observed' combined 95% CL upper limit in Fig. 2 (10 M_sun progenitors, NiCo optical model, JF12 GMF). Flat plateau anchored by text: g_agamma > 2.6e-11 GeV^-1 excluded for m_a < 3e-10 eV; limit degrades roughly linearly (log-log slope ~1) above ~1 neV, reaching the plot top (~2e-10 GeV^-1) near 6 neV. Systematic spread quoted in paper: (2.1-3.2)e-11 GeV^-1 for the plateau depending on model assumptions. Limits do not assume ALPs are dark matter (SN Primakoff production + GMF conversion). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.86 snapped to identity)",
+ "num_points": 38,
+ "elapsed_s": 127.91330599784851
+}

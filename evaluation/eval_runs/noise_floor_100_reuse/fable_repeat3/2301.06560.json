@@ -1,0 +1,146 @@
+{
+ "arxiv_id": "2301.06560",
+ "paper_title": "Probing the Blue Axion with Cosmic Optical Background Anisotropies",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   5.0,
+   2.6e-24
+  ],
+  [
+   5.5,
+   3.2e-24
+  ],
+  [
+   6.0,
+   3.7999999999999995e-24
+  ],
+  [
+   6.5,
+   4.400000000000001e-24
+  ],
+  [
+   7.0,
+   5.2e-24
+  ],
+  [
+   7.5,
+   6.2e-24
+  ],
+  [
+   8.0,
+   7.2e-24
+  ],
+  [
+   8.5,
+   8.5e-24
+  ],
+  [
+   9.0,
+   1e-23
+  ],
+  [
+   9.5,
+   1.1999999999999998e-23
+  ],
+  [
+   10.0,
+   1.4000000000000002e-23
+  ],
+  [
+   10.5,
+   1.6499999999999998e-23
+  ],
+  [
+   11.0,
+   1.9e-23
+  ],
+  [
+   12.0,
+   2.4999999999999998e-23
+  ],
+  [
+   12.5,
+   2.9e-23
+  ],
+  [
+   13.0,
+   3.2999999999999996e-23
+  ],
+  [
+   13.5,
+   3.8e-23
+  ],
+  [
+   14.0,
+   4.4e-23
+  ],
+  [
+   15.0,
+   5.600000000000001e-23
+  ],
+  [
+   16.0,
+   7.2e-23
+  ],
+  [
+   17.0,
+   9.3e-23
+  ],
+  [
+   17.5,
+   1.05e-22
+  ],
+  [
+   18.0,
+   1.2e-22
+  ],
+  [
+   19.0,
+   1.5e-22
+  ],
+  [
+   20.0,
+   1.8e-22
+  ],
+  [
+   21.0,
+   2.2e-22
+  ],
+  [
+   22.0,
+   2.7999999999999995e-22
+  ],
+  [
+   22.5,
+   3.0999999999999997e-22
+  ],
+  [
+   23.0,
+   3.4e-22
+  ],
+  [
+   24.0,
+   4.2e-22
+  ],
+  [
+   24.5,
+   4.600000000000001e-22
+  ],
+  [
+   25.0,
+   5.0000000000000005e-22
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "HST COB anisotropy 606 nm (blue axion, CDM)",
+ "coupling_convention": "decay rate Gamma_{a->gamma gamma} in s^-1, exactly as plotted on the y-axis of Fig. 8 (CDM panel); NOT converted to g_agamma (conversion Gamma = g^2 m_a^3 / 64 pi would be applied downstream)",
+ "notes": "Paper recomputes the HST 606 nm COB anisotropy bound on decaying axion-like dark matter ('blue axion', ma ~ 5-25 eV) with improved analysis, and forecasts 438/336 nm sensitivities. Main exclusion results are lifetime/decay-rate curves (Gamma_a->gg vs m_a) shown only in figures (Figs. 1, 6, 8, 9) and are not tabulated. The only explicit numerical limit in the text is from the Note Added: for ma = 4.2 eV (MUSE filter gap), Gamma >= 3.03e-25 s^-1 is excluded, corresponding to g_agamma >= 2.33e-11 GeV^-1 \u2014 emitted as the single data point. The full 5-25 eV exclusion curve (rising from ~few x 1e-26 s^-1 in rate) could not be reliably digitized from text alone. Cosmological (not local) DM density assumed (Omega_CDM h^2 = 0.12), so dm_density_assumed is null. Bound applies equally to g_agamma (a->2gamma) and g_agammachi (dark portal a->chi+gamma). HB star bound ga\u03b3\u03b3 < 0.65e-10 GeV^-1 quoted is from prior literature, not new. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 32)) | Vision: Traced the solid blue 'HST 606 nm, likelihood 95% C.L.' line in the CDM panel (upper-left) of Fig. 8, the strongest COB anisotropy bound and the lower boundary of the HST exclusion region; excluded region lies above it. The plotted y-variable is the two-photon decay rate Gamma_{a->gamma gamma} [s^-1], not g_agamma directly (paper relates them via Gamma = g^2 m_a^3 / 64 pi); per the plotted-values contract I emit raw s^-1 values. For m_a < ~7.7 eV the VIMOS bound (yellow) extends lower (down to ~1e-26 s^-1 at 5 eV), but the HST line is this paper's constraint. Assumes axions are all of cosmological CDM (Omega_CDM), not a local halo density. Other panels (freeze-out, hot relic, domain walls) show weaker/alternative-scenario bounds. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=5.26)",
+ "num_points": 32,
+ "elapsed_s": 172.37550973892212
+}

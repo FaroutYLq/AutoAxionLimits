@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2303.03594",
+ "paper_title": "First results of axion dark matter search with DANCE",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-14,
+   0.0008
+  ],
+  [
+   1e-13,
+   0.0008
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "DANCE_Act1",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "First results of DANCE Act-1 bow-tie cavity polarization search (24-hour observation, no external magnetic field). The paper's Fig. 6 shows the full mass-dependent exclusion curve, but only the summary value g_agamma <~ 8e-4 GeV^-1 over 1e-14 eV < m_a < 1e-13 eV is given numerically in the text/abstract; encoded as a two-point flat bound over the stated validity range. This is a measured limit, not a projection (design/projected sensitivities in the paper are separate). DM density assumed rho_a = 0.4 GeV/cm^3; 95% CL frequentist upper limit accounting for stochastic axion field amplitude. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.75, 2))",
+ "num_points": 2,
+ "elapsed_s": 123.32826375961304
+}

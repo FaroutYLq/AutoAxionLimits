@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2303.11792",
+ "paper_title": "Searching for Time-Dependent Axion Dark Matter Signals in Pulsars",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.9e-06,
+   5.5e-11
+  ],
+  [
+   4.7e-06,
+   5.5e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "MeerKAT_PSRJ2144",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "First time-domain search for axion DM conversion signals in a neutron star magnetosphere, using MeerKAT (MeerTIME) data on PSR J2144-3933. Null result gives 2-sigma (~95% CL) upper limit g_agamma < 5.5e-11 GeV^-1 over m_a = 3.9-4.7 ueV using the parallax distance D = 0.165 kpc (abstract v2 quotes 5.5e-11 scaled by D/0.165 kpc; older abstract text shows 4e-11). A weaker limit of 9.6e-11 GeV^-1 applies if D = 0.29 kpc from electron-density models. Encoded as a flat bound across the stated mass range. Assumes all Galactic halo DM is axions with local density 0.45 GeV/cm^3 extrapolated via NFW profile; limit relies on excluding aligned-rotator geometries (alpha > 20 deg, |beta| < 4 deg). Projections for SKA1-mid (1.6e-11) and GCM (4e-12) are discussed but not the main result. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+ "num_points": 2,
+ "elapsed_s": 138.78670501708984
+}

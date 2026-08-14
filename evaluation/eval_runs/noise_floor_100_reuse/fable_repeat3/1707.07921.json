@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "1707.07921",
+ "paper_title": "Limits on Axion Couplings from the first 80-day data of PandaX-II Experiment",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.01,
+   4.35e-12
+  ],
+  [
+   1000.0,
+   4.35e-12
+  ],
+  [
+   1000.0,
+   4e-13
+  ],
+  [
+   25000.0,
+   4e-13
+  ],
+  [
+   10000.0,
+   6e-14
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "PandaX-II",
+ "coupling_convention": "dimensionless g_Ae",
+ "notes": "PandaX-II Run 9 (80 days, 2.7e4 kg-day) axioelectric-effect search. Three distinct 90% CL results encoded: (1) solar CBRD axion flat bound g_Ae < 4.35e-12 for 1e-5 to 1 keV/c^2 (1e-2 to 1e3 eV), rows 1-2; (2) galactic ALP DM flat bound g_Ae ~< 4e-13 for 1-25 keV/c^2 (1e3 to 2.5e4 eV), rows 3-4, which is the DM-halo search assuming rho_DM = 0.3 GeV/cm^3 (density applies ONLY to these points, not the solar bounds); (3) 57Fe 14.4 keV solar axion best point g_Ae = 6e-14 at 10 keV/c^2 (row 5), which assumes DFSZ g_AN. Note the paper text contains internal typos (4.35e-11 and 4.3e-14 in summary vs 4.35e-12 and ~4e-13 in abstract/results); abstract/results values used. Values are approximate flat representations of mildly mass-dependent curves in Figs. 3-4. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+ "num_points": 5,
+ "elapsed_s": 40.92870306968689
+}

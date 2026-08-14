@@ -1,0 +1,182 @@
+{
+ "arxiv_id": "2504.12377",
+ "paper_title": "Search for Axions in Magnetic White Dwarf Polarization at Lick and Keck Observatories",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-14,
+   1.7e-12
+  ],
+  [
+   3e-14,
+   1.7e-12
+  ],
+  [
+   1e-13,
+   1.7e-12
+  ],
+  [
+   3e-13,
+   1.7e-12
+  ],
+  [
+   1e-12,
+   1.7e-12
+  ],
+  [
+   3e-12,
+   1.7e-12
+  ],
+  [
+   1e-11,
+   1.7e-12
+  ],
+  [
+   3e-11,
+   1.7e-12
+  ],
+  [
+   1e-10,
+   1.7e-12
+  ],
+  [
+   3e-10,
+   1.7e-12
+  ],
+  [
+   1e-09,
+   1.7e-12
+  ],
+  [
+   3e-09,
+   1.7e-12
+  ],
+  [
+   1e-08,
+   1.7e-12
+  ],
+  [
+   2e-08,
+   1.7e-12
+  ],
+  [
+   3e-08,
+   1.7e-12
+  ],
+  [
+   5e-08,
+   1.7e-12
+  ],
+  [
+   7e-08,
+   1.8e-12
+  ],
+  [
+   9e-08,
+   1.9e-12
+  ],
+  [
+   1.1e-07,
+   2.1e-12
+  ],
+  [
+   1.3e-07,
+   2.4e-12
+  ],
+  [
+   1.5e-07,
+   2.7e-12
+  ],
+  [
+   1.7e-07,
+   2.9e-12
+  ],
+  [
+   2e-07,
+   3.4e-12
+  ],
+  [
+   2.3e-07,
+   4e-12
+  ],
+  [
+   2.6e-07,
+   4.6e-12
+  ],
+  [
+   3e-07,
+   5.5e-12
+  ],
+  [
+   3.5e-07,
+   6.9e-12
+  ],
+  [
+   4e-07,
+   8.5e-12
+  ],
+  [
+   4.5e-07,
+   1e-11
+  ],
+  [
+   5e-07,
+   1.2e-11
+  ],
+  [
+   5.7e-07,
+   1.5e-11
+  ],
+  [
+   6.5e-07,
+   2e-11
+  ],
+  [
+   7.3e-07,
+   2.4e-11
+  ],
+  [
+   8e-07,
+   2.9e-11
+  ],
+  [
+   9e-07,
+   3.6e-11
+  ],
+  [
+   1e-06,
+   4.4e-11
+  ],
+  [
+   1.1e-06,
+   5.3e-11
+  ],
+  [
+   1.2e-06,
+   6.3e-11
+  ],
+  [
+   1.3e-06,
+   7.4e-11
+  ],
+  [
+   1.4e-06,
+   8.5e-11
+  ],
+  [
+   1.5e-06,
+   1e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "MWD Polarization Lick/Keck (J033320+000720)",
+ "coupling_convention": "|g_agamma| in GeV^-1, 95% CL one-sided upper limit",
+ "notes": "Paper presents a new measured (not projected) 95% CL upper limit on the axion-photon coupling from spectropolarimetry of magnetic white dwarfs at Lick and Keck Observatories. The best limit comes from SDSS J033320+000720 (Lick/Kast): |g_agamma| < 1.7e-12 GeV^-1, approximately mass-independent for m_a << 1e-6 eV; paper states validity for m_a <~ 2e-7 eV, encoded as a flat two-point bound spanning the Fig. 1 mass range floor (1e-14 eV) up to 2e-7 eV. Above this mass, the limit weakens (curve visible in Fig. 1 but no tabulated values available). This is an astrophysical photon-to-axion conversion bound with no dark matter density assumption. Other MWDs give weaker limits (4.2e-12, 5.7e-12, 1.0e-11, 1.6e-11 GeV^-1). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 41)) | Vision: Main result is the red curve for SDSS J033320+000720 (Kast/Lick). Flat plateau value of 1.7e-12 GeV^-1 is explicitly quoted in abstract and text for m_a <~ 2e-7 eV; the high-mass rise (approx g \u221d m_a^2 above the knee near 2e-7 eV) was traced from the plot, exiting the frame at ~1.5e-6 eV. Limit does not assume axion dark matter (photon-to-axion conversion in MWD magnetosphere), so no DM density assumption. Other dashed/dotted curves for the three other MWDs lie above the red curve and are not traced. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.93 snapped to identity)",
+ "num_points": 41,
+ "elapsed_s": 114.753338098526
+}

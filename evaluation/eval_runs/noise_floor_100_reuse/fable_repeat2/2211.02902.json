@@ -1,0 +1,186 @@
+{
+ "arxiv_id": "2211.02902",
+ "paper_title": "Search for Dark Matter Axions with CAST-CAPP",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.974e-05,
+   1.5e-12
+  ],
+  [
+   1.975e-05,
+   4e-13
+  ],
+  [
+   1.978e-05,
+   2.5e-13
+  ],
+  [
+   1.98e-05,
+   3e-13
+  ],
+  [
+   1.985e-05,
+   4e-13
+  ],
+  [
+   1.99e-05,
+   3.5e-13
+  ],
+  [
+   1.995e-05,
+   5e-13
+  ],
+  [
+   2e-05,
+   4e-13
+  ],
+  [
+   2.005e-05,
+   3e-13
+  ],
+  [
+   2.01e-05,
+   2.5e-13
+  ],
+  [
+   2.015e-05,
+   3.5e-13
+  ],
+  [
+   2.02e-05,
+   4e-13
+  ],
+  [
+   2.03e-05,
+   3e-13
+  ],
+  [
+   2.04e-05,
+   3.5e-13
+  ],
+  [
+   2.05e-05,
+   3e-13
+  ],
+  [
+   2.06e-05,
+   4e-13
+  ],
+  [
+   2.07e-05,
+   3e-13
+  ],
+  [
+   2.08e-05,
+   3.5e-13
+  ],
+  [
+   2.09e-05,
+   2.8e-13
+  ],
+  [
+   2.1e-05,
+   3e-13
+  ],
+  [
+   2.11e-05,
+   2.5e-13
+  ],
+  [
+   2.12e-05,
+   2.8e-13
+  ],
+  [
+   2.13e-05,
+   2.2e-13
+  ],
+  [
+   2.14e-05,
+   2.5e-13
+  ],
+  [
+   2.15e-05,
+   2e-13
+  ],
+  [
+   2.16e-05,
+   2.3e-13
+  ],
+  [
+   2.17e-05,
+   1.8e-13
+  ],
+  [
+   2.18e-05,
+   2e-13
+  ],
+  [
+   2.185e-05,
+   1.5e-13
+  ],
+  [
+   2.19e-05,
+   1.2e-13
+  ],
+  [
+   2.195e-05,
+   1e-13
+  ],
+  [
+   2.2e-05,
+   8e-14
+  ],
+  [
+   2.205e-05,
+   9e-14
+  ],
+  [
+   2.21e-05,
+   1e-13
+  ],
+  [
+   2.215e-05,
+   8.5e-14
+  ],
+  [
+   2.22e-05,
+   1.2e-13
+  ],
+  [
+   2.225e-05,
+   1.5e-13
+  ],
+  [
+   2.23e-05,
+   2e-13
+  ],
+  [
+   2.235e-05,
+   2.5e-13
+  ],
+  [
+   2.24e-05,
+   3e-13
+  ],
+  [
+   2.245e-05,
+   5e-13
+  ],
+  [
+   2.247e-05,
+   1e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "CAST-CAPP",
+ "coupling_convention": "|g_agamma| in GeV^-1 as plotted on y-axis",
+ "notes": "CAST-CAPP haloscope search at CERN (4124 h, 2019-2021), scanning 4.774-5.434 GHz (19.74-22.47 ueV). Paper reports exclusion of axion-photon couplings for virialized galactic axions down to g_agamma = 8e-14 GeV^-1 at 90% CL. The actual exclusion curve (Fig. 5) varies with mass and is deepest near ~22 ueV where phase-matching was predominantly used; no numerical table is provided, so the two data points encode the best quoted limit across the stated mass range as a flat approximation. Assumes local DM density 0.45 GeV/cm^3 and standard Maxwell-Boltzmann virialized halo lineshape (~7 kHz lab-frame linewidth). Overall systematic uncertainty ~10%. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 42)) | Vision: Left panel of Fig. 5 (page fig_00.png): CAST-CAPP 90% CL exclusion on axion-photon coupling for 19.74-22.47 ueV. Boundary is highly jagged (frequency-scan haloscope); traced envelope of the lower edge. Deepest sensitivity ~8e-14 GeV^-1 near 22 ueV confirmed by text ('we exclude ... down to g_agamma = 8e-14 GeV^-1 at 90% CL'), attributed to phase-matching around 22 ueV. KSVZ line read slightly below 1e-14, DFSZ near 3e-15. Blue region is ADMX-Sidecar (not traced). Virialized galactic axions assumed (standard halo, rho ~0.45 GeV/cm^3 typical for CAST-CAPP). | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.01 snapped to identity)",
+ "num_points": 42,
+ "elapsed_s": 100.54542589187622
+}

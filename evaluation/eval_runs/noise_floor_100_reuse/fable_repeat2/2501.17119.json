@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2501.17119",
+ "paper_title": "First Axion-Like Particle Results from a Broadband Search for Wave-Like Dark Matter in the 44 to 52 $\u03bc$eV Range with a Coaxial Dish Antenna",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.4e-05,
+   5e-11
+  ],
+  [
+   5.2e-05,
+   5e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.45,
+ "suggested_experiment_name": "GigaBREAD_ALP",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "First ALP (axion-photon) search with a dish antenna (BREAD coaxial reflector in a 3.9 T solenoid at Argonne), covering 44-52 ueV (10.7-12.5 GHz), 90% CL. Coupling type is unambiguous (g_agamma, Eq. 1-2; DM density benchmark 0.45 GeV/cm^3). However, the paper provides NO numerical limit values in the text or tables - the exclusion is only shown graphically in Fig. 3 (not machine-readable here). The emitted flat value ~5e-11 GeV^-1 spanning the 44-52 ueV band is an ESTIMATE inferred from the claim of 'most stringent laboratory constraint in this mass range' (i.e., slightly below CAST's ~6.6e-11 GeV^-1) and from the apparatus sensitivity (T_sys ~400-600 K, ~1 month integration, 3.9 T, injected test signal ~1e-20 W recovered). Actual limit varies with frequency and should be replaced by digitized Fig. 3 data (e.g., from AxionLimits repository) when available. | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 117.37859034538269
+}

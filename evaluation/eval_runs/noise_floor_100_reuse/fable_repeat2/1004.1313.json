@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "1004.1313",
+ "paper_title": "New ALPS Results on Hidden-Sector Lightweights",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-05,
+   6.5e-08
+  ],
+  [
+   0.0001,
+   6.5e-08
+  ],
+  [
+   0.0003,
+   7e-08
+  ],
+  [
+   0.0005,
+   8e-08
+  ],
+  [
+   0.0007,
+   1.1e-07
+  ],
+  [
+   0.001,
+   1.8e-07
+  ],
+  [
+   0.0015,
+   4e-07
+  ],
+  [
+   0.002,
+   8e-07
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "ALPS",
+ "coupling_convention": "g_agamma (g-) in GeV^-1, pseudoscalar ALP-photon coupling",
+ "notes": "ALPS-I LSW experiment at DESY (2010). Paper reports 95% CL limits on photon-WISP-photon conversion probability (Table 1: e.g. 2.25e-25 for magnet on, parallel polarization, vacuum). No numerical table of g vs mass is given; exclusion curves are in Fig. 4. Data points above are reconstructed: the low-mass plateau g- ~ 6.5e-8 GeV^-1 was computed from the quoted probability limit via P_total = (g*B*l/2)^4 with B=5 T, l=4.3 m, omega=2.33 eV; the high-mass shape (coherence loss beyond ~5e-4 eV, gaps filled by Ar gas runs with n-1 ~ 5e-8) is approximate from Fig. 4 envelope. Paper also sets limits on scalar ALPs (g+), hidden photon kinetic mixing chi (Fig. 5), and minicharged particles Q (Fig. 6) \u2014 only the pseudoscalar ALP-photon limit is extracted here per the hint. Pure laboratory bound, no DM density assumption. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+ "num_points": 8,
+ "elapsed_s": 53.005688190460205
+}

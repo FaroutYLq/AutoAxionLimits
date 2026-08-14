@@ -1,0 +1,142 @@
+{
+ "arxiv_id": "1707.07921",
+ "paper_title": "Limits on Axion Couplings from the first 80-day data of PandaX-II Experiment",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.01,
+   4.35e-12
+  ],
+  [
+   0.02,
+   4.35e-12
+  ],
+  [
+   0.05,
+   4.35e-12
+  ],
+  [
+   0.1,
+   4.35e-12
+  ],
+  [
+   0.3,
+   4.35e-12
+  ],
+  [
+   1.0,
+   4.35e-12
+  ],
+  [
+   3.0,
+   4.35e-12
+  ],
+  [
+   10.0,
+   4.35e-12
+  ],
+  [
+   30.0,
+   4.35e-12
+  ],
+  [
+   100.0,
+   4.35e-12
+  ],
+  [
+   120.0,
+   4.35e-12
+  ],
+  [
+   138.0,
+   4.35e-12
+  ],
+  [
+   160.0,
+   3.75e-12
+  ],
+  [
+   200.0,
+   3e-12
+  ],
+  [
+   250.0,
+   2.4e-12
+  ],
+  [
+   300.0,
+   2e-12
+  ],
+  [
+   400.0,
+   1.5e-12
+  ],
+  [
+   500.0,
+   1.2e-12
+  ],
+  [
+   700.0,
+   8.6e-13
+  ],
+  [
+   1000.0,
+   6e-13
+  ],
+  [
+   1500.0,
+   4e-13
+  ],
+  [
+   2000.0,
+   3e-13
+  ],
+  [
+   3000.0,
+   2e-13
+  ],
+  [
+   4000.0,
+   1.5e-13
+  ],
+  [
+   5000.0,
+   1.2e-13
+  ],
+  [
+   6000.0,
+   1e-13
+  ],
+  [
+   7000.0,
+   8.6e-14
+  ],
+  [
+   8000.0,
+   7.5e-14
+  ],
+  [
+   9000.0,
+   6.7e-14
+  ],
+  [
+   9500.0,
+   6.3e-14
+  ],
+  [
+   10000.0,
+   6e-14
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "PandaX-II",
+ "coupling_convention": "canonical g_Ae (axion-electron coupling), dimensionless, as plotted on Fig. 3 y-axis",
+ "notes": "Paper reports three limits: (1) galactic ALP dark matter: gAe <~ 4e-13 (90% CL) roughly flat over 1-25 keV/c^2 (assumes local DM density 0.3 GeV/cm^3) - this is the limit encoded in data_points as a two-point flat bound (1 keV = 1e3 eV to 25 keV = 2.5e4 eV); actual curve varies, weakened near 4-6 keV due to 127Xe background, no numerical table available. (2) Solar CBRD axion: gAe < 4.35e-12 for 1e-5 to 1 keV/c^2 (not a DM-density-dependent bound). (3) 57Fe 14.4 keV solar axion: best limit gAe = 6e-14 at mA = 10 keV/c^2. Note: paper text contains internal typos (summary quotes 4.35e-11 and 4.3e-14, abstract/body quote 4.35e-12 and ~4e-13); abstract values used. Extraction limited to text values since no table is provided. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 31)) | Vision: Traced the combined PandaX-II lower boundary in Fig. 3 (solar axions): flat solid-red CBRD limit at g_Ae = 4.35e-12 for 1e-5 < m_A < ~0.14 keV/c^2 (abstract value; mass-independent since solar flux is mass-independent), joined to the 57Fe 14.4 keV solar axion limit (red dashed) which falls as ~1/m_A (DFSZ g_AN^eff proportional to m_A) reaching its best value 6e-14 at m_A = 10 keV/c^2 as explicitly stated in the text. Beyond ~10 keV the Fe limit rises steeply (kinematic k_A^3 suppression toward 14.4 keV) but that region is outside the calibrated x-range. Masses converted keV -> eV (x1000). Fig. 4 (galactic ALPs, 1-25 keV, limit ~4e-13, rho_DM = 0.3 GeV/cm^3) was not traced since the calibration corresponds to Fig. 3. DFSZ benchmark reading is approximate (slope +1 line crossing ~1e-13 near 0.3 eV). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=2.17 snapped to identity)",
+ "num_points": 31,
+ "elapsed_s": 170.83572387695312
+}

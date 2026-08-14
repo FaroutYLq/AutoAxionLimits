@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2303.03594",
+ "paper_title": "First results of axion dark matter search with DANCE",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-14,
+   0.0008
+  ],
+  [
+   1e-13,
+   0.0008
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "DANCE",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "First results from DANCE Act-1 bow-tie optical cavity axion DM search (24-hour observation, May 2021). Paper sets 95% CL upper limit g_agamma <~ 8e-4 GeV^-1 over 1e-14 eV < ma < 1e-13 eV, quoted as approximately flat in text/abstract; the full mass-dependent limit is only shown in Fig. 6 (not tabulated), so a two-point flat bound over the stated validity range is emitted. This is a measured limit (not projection); design-sensitivity projections (e.g. 3e-16 GeV^-1) also discussed but not emitted. DM density assumed rho_a = 0.4 GeV/cm^3. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.8, 2))",
+ "num_points": 2,
+ "elapsed_s": 107.46423888206482
+}

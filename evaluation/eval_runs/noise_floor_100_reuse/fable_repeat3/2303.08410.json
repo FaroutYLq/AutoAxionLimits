@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2303.08410",
+ "paper_title": "Constraints on axion-like polarization oscillations in the cosmic microwave background with POLARBEAR",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   9.6e-22,
+   2.304e-11
+  ],
+  [
+   1e-21,
+   2.4e-11
+  ],
+  [
+   3e-21,
+   7.2e-11
+  ],
+  [
+   5e-21,
+   1.2e-10
+  ],
+  [
+   1e-20,
+   2.4e-10
+  ],
+  [
+   2.2e-20,
+   5.28e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "POLARBEAR",
+ "coupling_convention": "g_phigamma in GeV^-1",
+ "notes": "POLARBEAR CMB birefringence oscillation search over two seasons (2012-2014). No signal detected; median 95% CL upper limit of 0.65 deg on sinusoid amplitude for f = 0.02-0.45 /day, corresponding to axion masses 9.6e-22 to 2.2e-20 eV. Primary (stochastic) result: g_phigamma < 2.4e-11 GeV^-1 x (m_phi/1e-21 eV), a limit linear in mass. Data points generated from this analytic median-limit formula evaluated across the stated mass validity range (the exact bound oscillates around this median but is only shown in Fig. 5). Deterministic-case limit (1.1e-11 GeV^-1 x m/1e-21 eV) also reported but the stochastic result is the paper's primary constraint. Assumes rho_0 = 0.3 GeV/cm^3 and kappa = 1. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+ "num_points": 6,
+ "elapsed_s": 38.759649991989136
+}

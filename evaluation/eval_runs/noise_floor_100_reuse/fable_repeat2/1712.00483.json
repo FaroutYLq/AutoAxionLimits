@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1712.00483",
+ "paper_title": "MICROSCOPE mission: first constraints on the violation of the weak equivalence principle by a light scalar dilaton",
+ "coupling_type": "ScalarPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-18,
+   1e-11
+  ],
+  [
+   1e-12,
+   1e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "MICROSCOPE2017_WEP",
+ "coupling_convention": "dimensionless Yukawa strength alpha (relative to gravity) for coupling to baryon number B, alpha_ij = alpha*(B/mu)_i*(B/mu)_j",
+ "notes": "Paper uses MICROSCOPE's first Eotvos parameter measurement (eta = (-1 +/- 27)e-15 at 2-sigma) to constrain several scalar-field couplings: (1) Yukawa alpha with charge q=B: |alpha| < 1e-11 for m_phi < 1e-12 eV (extracted here, flat bound; lower mass edge set to 1e-18 eV as an approximate span since the bound saturates for light fields and no explicit lower limit is given); (2) q=B-L: |alpha| < 1e-12 (would map to VectorBL-like charge but as a scalar); (3) generic dilaton parameters (D_m, D_e); (4) electromagnetic-only dilaton d_e ~< 1e-4 for 1e-18 < m/eV < 1e-11 (ScalarPhoton-type). ScalarBaryon (q=B) chosen per the primary result and hint, but multiple coupling types are constrained, hence confidence <= 0.55. Not a dark-matter search; no DM density assumed. Values from abstract/text, not a table; figure-level detail (Figs 1-2) not digitized. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 8.2 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | coupling type ScalarBaryon -> ScalarPhoton by axis read-back '|d_e| (dimensionless dilaton coupling to the electromagnetic sector, absolute value of linear coupling \u2014 not squared)' (same confusable family, #625 Phase 3)",
+ "num_points": 2,
+ "elapsed_s": 231.472097158432
+}

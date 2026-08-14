@@ -1,0 +1,178 @@
+{
+ "arxiv_id": "1301.6557",
+ "paper_title": "Results of a Search for Paraphotons with Intense X-ray Beams at SPring-8",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.00054,
+   1.0
+  ],
+  [
+   0.0008,
+   0.46
+  ],
+  [
+   0.0012,
+   0.2
+  ],
+  [
+   0.002,
+   0.073
+  ],
+  [
+   0.003,
+   0.032
+  ],
+  [
+   0.005,
+   0.0117
+  ],
+  [
+   0.008,
+   0.0046
+  ],
+  [
+   0.012,
+   0.002
+  ],
+  [
+   0.02,
+   0.00073
+  ],
+  [
+   0.03,
+   0.00032
+  ],
+  [
+   0.045,
+   0.000144
+  ],
+  [
+   0.06,
+   8.1e-05
+  ],
+  [
+   0.07,
+   6e-05
+  ],
+  [
+   0.08,
+   4.6e-05
+  ],
+  [
+   0.09,
+   4e-05
+  ],
+  [
+   0.1,
+   3.8e-05
+  ],
+  [
+   0.13,
+   4.5e-05
+  ],
+  [
+   0.16,
+   3.8e-05
+  ],
+  [
+   0.2,
+   5e-05
+  ],
+  [
+   0.25,
+   4e-05
+  ],
+  [
+   0.3,
+   5.5e-05
+  ],
+  [
+   0.4,
+   4.2e-05
+  ],
+  [
+   0.5,
+   6e-05
+  ],
+  [
+   0.7,
+   4.5e-05
+  ],
+  [
+   0.9,
+   5.5e-05
+  ],
+  [
+   1.1,
+   4.2e-05
+  ],
+  [
+   1.39,
+   8e-05
+  ],
+  [
+   1.7,
+   4.5e-05
+  ],
+  [
+   2.2,
+   5.5e-05
+  ],
+  [
+   3.0,
+   4.5e-05
+  ],
+  [
+   4.0,
+   5e-05
+  ],
+  [
+   5.0,
+   4.2e-05
+  ],
+  [
+   7.0,
+   3.8e-05
+  ],
+  [
+   10.0,
+   3.8e-05
+  ],
+  [
+   20.0,
+   3.8e-05
+  ],
+  [
+   50.0,
+   3.8e-05
+  ],
+  [
+   100.0,
+   3.8e-05
+  ],
+  [
+   300.0,
+   3.8e-05
+  ],
+  [
+   1000.0,
+   3.8e-05
+  ],
+  [
+   2000.0,
+   3.8e-05
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "SPring-8 X-ray LSW paraphoton search",
+ "coupling_convention": "kinetic mixing angle chi (dimensionless), plotted directly on y-axis",
+ "notes": "Light-shining-through-wall paraphoton search using intense X-ray beams at SPring-8 BL19LXU. Final combined 95% C.L. limit is chi < 8.06e-5, valid over 0.04 eV < m_gamma' < 26 keV (encoded as a flat two-point bound over the stated mass range). Below ~5 eV the limit has oscillatory (spiky) structure per measurement, but the combined result quoted by the authors is the mass-independent value chi_worst + Delta_chi = 8.06e-5. No DM density assumption (laboratory LSW experiment, not a haloscope). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 40)) | Vision: Figure 4 shows the 95% C.L. upper limit on paraphoton kinetic mixing chi vs mass (blue 'our experiment' curve, hatched side excluded). The limit descends approximately as chi ~ m^-2 from chi~1 at m~5e-4 eV to a knee at ~0.08 eV, oscillates between ~3.5e-5 and the quoted worst value 8.01e-5 (at 1.39 eV) in the 0.1-5 eV region, then is flat at ~3.8e-5 (smoothed by beam-profile smearing) up to the plot edge; the paper states validity up to 26 keV with chi < 8.06e-5 (95% C.L.) as the conservative worst-case bound. Oscillatory fine structure in 0.1-5 eV is approximated by representative samples. Not a dark-matter search (LSW), so no DM density assumption. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.73 snapped to identity)",
+ "num_points": 40,
+ "elapsed_s": 97.82388305664062
+}

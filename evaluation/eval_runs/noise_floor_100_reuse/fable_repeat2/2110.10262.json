@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2110.10262",
+ "paper_title": "Dark Matter Axion Search Using a Josephson Traveling Wave Parametric Amplifier",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.9835e-05,
+   1e-13
+  ],
+  [
+   1.9847e-05,
+   1e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "ADMX_Sidecar_JTWPA",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "First axion dark matter search using a JTWPA, run on the ADMX 'sidecar' cavity. The paper excludes axion-like particle dark matter with axion-photon couplings above 1e-13 GeV^-1 over 4796.7-4799.5 MHz (axion masses ~19.835-19.847 ueV, centered at 19.84 ueV). Encoded as an approximately flat bound at g_agamma = 1e-13 GeV^-1 across the covered mass range; the actual exclusion (Fig. 7) varies somewhat with frequency due to cavity drift and RFI masking, but no numerical table is provided. Assumes axions constitute all local dark matter at 0.45 GeV/cm^3 with a Maxwell-Boltzmann line shape. Confidence level not explicitly stated; 90% assumed per standard ADMX practice. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.75, 2))",
+ "num_points": 2,
+ "elapsed_s": 175.21280980110168
+}

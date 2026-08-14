@@ -1,0 +1,178 @@
+{
+ "arxiv_id": "2409.10514",
+ "paper_title": "Constraints on axions from patchy screening of the cosmic microwave background",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.65e-13,
+   6e-11
+  ],
+  [
+   1.7e-13,
+   4.5e-11
+  ],
+  [
+   1.75e-13,
+   3.3e-11
+  ],
+  [
+   1.8e-13,
+   2.5e-11
+  ],
+  [
+   1.87e-13,
+   1.7e-11
+  ],
+  [
+   1.95e-13,
+   1.2e-11
+  ],
+  [
+   2e-13,
+   9e-12
+  ],
+  [
+   2.1e-13,
+   6e-12
+  ],
+  [
+   2.2e-13,
+   4e-12
+  ],
+  [
+   2.3e-13,
+   3e-12
+  ],
+  [
+   2.4e-13,
+   2.3e-12
+  ],
+  [
+   2.5e-13,
+   1.8e-12
+  ],
+  [
+   2.6e-13,
+   1.5e-12
+  ],
+  [
+   2.8e-13,
+   1.25e-12
+  ],
+  [
+   3e-13,
+   1.12e-12
+  ],
+  [
+   3.2e-13,
+   1.07e-12
+  ],
+  [
+   3.5e-13,
+   1.05e-12
+  ],
+  [
+   3.8e-13,
+   1.08e-12
+  ],
+  [
+   4.2e-13,
+   1.15e-12
+  ],
+  [
+   4.7e-13,
+   1.25e-12
+  ],
+  [
+   5.3e-13,
+   1.35e-12
+  ],
+  [
+   6e-13,
+   1.45e-12
+  ],
+  [
+   7e-13,
+   1.6e-12
+  ],
+  [
+   8e-13,
+   1.72e-12
+  ],
+  [
+   9e-13,
+   1.85e-12
+  ],
+  [
+   1e-12,
+   1.95e-12
+  ],
+  [
+   1.15e-12,
+   2.15e-12
+  ],
+  [
+   1.3e-12,
+   2.4e-12
+  ],
+  [
+   1.45e-12,
+   2.7e-12
+  ],
+  [
+   1.6e-12,
+   3e-12
+  ],
+  [
+   1.8e-12,
+   3.6e-12
+  ],
+  [
+   2e-12,
+   4.3e-12
+  ],
+  [
+   2.2e-12,
+   5.5e-12
+  ],
+  [
+   2.4e-12,
+   7e-12
+  ],
+  [
+   2.6e-12,
+   9.5e-12
+  ],
+  [
+   2.8e-12,
+   1.35e-11
+  ],
+  [
+   3e-12,
+   2e-11
+  ],
+  [
+   3.2e-12,
+   3e-11
+  ],
+  [
+   3.35e-12,
+   4.5e-11
+  ],
+  [
+   3.45e-12,
+   6e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "unWISE Blue x Planck patchy screening",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted on the y-axis of Fig. 3",
+ "notes": "First measurement of cross-correlation between axion-induced CMB patchy screening (Planck NPIPE NILC maps) and unWISE Blue galaxies. No signal detected (PTE 0.61); 95% CL one-tailed upper limit g_agamma <~ 2e-12 GeV^-1 for 1e-13 eV <~ m_a <~ 1e-12 eV, quoted as approximately mass-independent in text/abstract; encoded as a flat two-point bound over the stated validity range. The actual exclusion curve (Fig. 3) has mass dependence not tabulated in the paper text. Not a dark-matter density-dependent bound (CMB photons are the source), so no rho_DM assumption. Profiled over masses up to 4e-12 eV with uniform prior on g >= 0. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 40)) | Vision: Fig. 3 of arXiv:2409.10514: 95% CL upper limit on g_agamma from cross-correlation of axion-induced CMB patchy screening (Planck) with unWISE Blue galaxies. Boundary traced from red 'This work' region; axis calibration as provided (x: 1e-13 to 4e-12 eV, y: 5e-13 to 1.5e-10 GeV^-1). Constraint does not assume axion dark matter (CMB photon conversion), hence dm_density_assumed = null. Minimum g ~ 1.05e-12 GeV^-1 at m_a ~ 3.5e-13 eV; consistent with abstract's g < 2e-12 GeV^-1 over 1e-13 to 1e-12 eV. Region terminates where it merges with CAST (~6.6e-11 GeV^-1) at both mass ends. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.11 snapped to identity)",
+ "num_points": 40,
+ "elapsed_s": 152.0116400718689
+}

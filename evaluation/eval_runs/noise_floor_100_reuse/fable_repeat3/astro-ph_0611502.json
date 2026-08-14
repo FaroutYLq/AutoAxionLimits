@@ -1,0 +1,46 @@
+{
+ "arxiv_id": "astro-ph/0611502",
+ "paper_title": "A Telescope Search for Decaying Relic Axions",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.5,
+   4.93e-12
+  ],
+  [
+   5.0,
+   6.88e-12
+  ],
+  [
+   6.0,
+   5.25e-12
+  ],
+  [
+   6.5,
+   4.57e-12
+  ],
+  [
+   7.0,
+   3.65e-12
+  ],
+  [
+   7.5,
+   3.38e-12
+  ],
+  [
+   7.65,
+   2.89e-12
+  ]
+ ],
+ "data_source": "table",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "Grin2007_VIMOS_ClusterTelescope",
+ "coupling_convention": "g_agamma in GeV^-1, converted from the paper's xi = (4/3)(E/N - 1.92) via g = (alpha/(2pi f_a))*(3/4)*xi with f_a = 5.7e6 GeV / m_a[eV]",
+ "notes": "Telescope search for optical line emission from two-photon decay of thermal relic axions in galaxy clusters A2667 and A2390 (VIMOS IFU at VLT). Table I gives 95% CL upper limits on the dimensionless two-photon coupling parameter xi = (4/3)(E/N - 1.92) over 4.5-7.7 eV: xi = 7.17e-3 (4.5 eV), 9.00e-3 (5 eV), 5.72e-3 (6 eV), 4.60e-3 (6.5 eV), 3.41e-3 (7 eV), 2.95e-3 (7.5 eV), 2.47e-3 (7.65 eV). I converted these to g_agamma using the standard QCD axion m_a-f_a relation (m_a*f_a = 5.7e6 eV*GeV); if downstream prefers raw xi values, divide out the factor 1.528e-10 * m_a[eV]. Limits assume the standard thermal freeze-out abundance Omega_a h^2 = m_a,eV/130 (cosmological abundance, not a local halo DM density). Gaps near m_a = 5.43 and 4.83 eV (sky lines at 5577 A and 6300 A) where no useful limits exist. Table II cross-correlation limits are ~1.5x weaker and not used. The RDCS 1252 discussion (8-14 eV) is only a projection and was excluded. Sterile neutrino constraints on parameter B were not extracted. | selector: table (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+ "num_points": 7,
+ "elapsed_s": 64.68649172782898
+}

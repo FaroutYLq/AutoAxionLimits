@@ -1,0 +1,170 @@
+{
+ "arxiv_id": "2207.11968",
+ "paper_title": "Search for dark matter particle interactions with electron final states with DarkSide-50",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   15000000.0,
+   1e-35
+  ],
+  [
+   15500000.0,
+   5e-36
+  ],
+  [
+   16000000.0,
+   2.5e-36
+  ],
+  [
+   16500000.0,
+   1.5e-36
+  ],
+  [
+   17000000.0,
+   9e-37
+  ],
+  [
+   18000000.0,
+   4.5e-37
+  ],
+  [
+   19000000.0,
+   2.5e-37
+  ],
+  [
+   20000000.0,
+   1.5e-37
+  ],
+  [
+   22000000.0,
+   7e-38
+  ],
+  [
+   24000000.0,
+   4e-38
+  ],
+  [
+   26000000.0,
+   2.6e-38
+  ],
+  [
+   28000000.0,
+   1.8e-38
+  ],
+  [
+   30000000.0,
+   1.2e-38
+  ],
+  [
+   33000000.0,
+   8.5e-39
+  ],
+  [
+   36000000.0,
+   6e-39
+  ],
+  [
+   40000000.0,
+   4.2e-39
+  ],
+  [
+   45000000.0,
+   3e-39
+  ],
+  [
+   50000000.0,
+   2.3e-39
+  ],
+  [
+   55000000.0,
+   1.85e-39
+  ],
+  [
+   60000000.0,
+   1.55e-39
+  ],
+  [
+   70000000.0,
+   1.2e-39
+  ],
+  [
+   80000000.0,
+   1e-39
+  ],
+  [
+   90000000.0,
+   8.8e-40
+  ],
+  [
+   100000000.0,
+   8e-40
+  ],
+  [
+   120000000.0,
+   7.3e-40
+  ],
+  [
+   140000000.0,
+   7e-40
+  ],
+  [
+   160000000.0,
+   7e-40
+  ],
+  [
+   180000000.0,
+   7.2e-40
+  ],
+  [
+   200000000.0,
+   7.5e-40
+  ],
+  [
+   250000000.0,
+   8.6e-40
+  ],
+  [
+   300000000.0,
+   1e-39
+  ],
+  [
+   350000000.0,
+   1.15e-39
+  ],
+  [
+   400000000.0,
+   1.3e-39
+  ],
+  [
+   500000000.0,
+   1.6e-39
+  ],
+  [
+   600000000.0,
+   1.85e-39
+  ],
+  [
+   700000000.0,
+   2.1e-39
+  ],
+  [
+   800000000.0,
+   2.3e-39
+  ],
+  [
+   1000000000.0,
+   2.7e-39
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "DarkSide-50 (2022)",
+ "coupling_convention": "DM-electron scattering reference cross section sigma_bar_e in cm^2 for F_DM = 1 (heavy mediator), exactly as plotted on the y-axis; NOT a dimensionless g_ae",
+ "notes": "DarkSide-50 sets new 90% C.L. observed exclusion limits on the axioelectric coupling g_Ae for galactic ALP dark matter absorbed by argon electrons, with newly excluded parameter space strongest for masses 0.03-0.2 keV (30-200 eV); the assumed local DM density is 0.3 GeV/cm^3 (Standard Halo Model, v_esc=544 km/s, v_0=238 km/s). However, all numerical limit values appear only in Fig. 2 (a plot), with no table or explicit coupling numbers in the text, so no reliable (mass, g_Ae) pairs could be extracted. The paper also constrains dark photon kinetic mixing kappa, DM-electron cross section sigma_e, and sterile neutrino mixing |Ue4|^2; AxionElectron chosen per the g_Ae result and pre-analysis hint. Actual curve data would need digitization of Fig. 2 (arXiv:2207.11968). | selector: figure_vision (sole candidate) | Vision: Followed the mandated axis calibration (x: 5-1000 MeV/c^2, y: 1e-40 to 1e-35), which corresponds to the F_DM=1 LDM-electron cross section panel of Fig. 2, NOT the ALP g_Ae panel suggested by the text hint. Traced the solid red DarkSide-50 (2022) observed 90% C.L. limit. Minimum ~7e-40 cm^2 near 140-160 MeV/c^2; steep threshold rise below ~16 MeV/c^2, consistent with the paper's quoted best-limit range 16-56 MeV/c^2. Masses converted MeV -> eV (x1e6). Coupling_type set per hint, but the plotted quantity is a cross section in cm^2 (see coupling_convention); confidence reduced accordingly. If the g_Ae ALP panel is desired instead, its DarkSide-50 (2022) boundary spans ~0.03-20 keV/c^2 with g_Ae from ~6e-13 at 0.03 keV, dip to ~8e-14 at 0.27 keV, rising to ~1.2e-12 near 1.5 keV, dip ~4e-13 at 3.5 keV, up to ~5e-12 at 20 keV. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.58 snapped to identity) | Range snap SUPPRESSED (declared convention non-canonical; a decade snap cannot fix a convention mismatch): median mass 6.0e+07 / coupling 2.3e-39 vs windows [1e-24,1e+09] / [1e-20,1e+00] | contract: median outside VALID_RANGES after corrections (flagged low confidence) | [CONVENTION REVIEW] declared coupling convention 'DM-electron scattering reference cross section sigma_bar_e in cm^2 for F_DM = 1 (heavy mediator), exactly as plotted on the y-axis; NOT a dimensionless g_ae' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 38,
+ "elapsed_s": 125.81510210037231
+}

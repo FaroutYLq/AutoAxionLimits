@@ -1,0 +1,146 @@
+{
+ "arxiv_id": "2009.09059",
+ "paper_title": "Constraints on Axion-like Particles from a Hard $X$-ray Observation of Betelgeuse",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-12,
+   1.8e-12
+  ],
+  [
+   2e-12,
+   1.8e-12
+  ],
+  [
+   3e-12,
+   1.8e-12
+  ],
+  [
+   5e-12,
+   1.8e-12
+  ],
+  [
+   7e-12,
+   1.8e-12
+  ],
+  [
+   1e-11,
+   1.8e-12
+  ],
+  [
+   1.5e-11,
+   1.8e-12
+  ],
+  [
+   2e-11,
+   1.8e-12
+  ],
+  [
+   2.5e-11,
+   1.8e-12
+  ],
+  [
+   3e-11,
+   1.8e-12
+  ],
+  [
+   3.5e-11,
+   1.8e-12
+  ],
+  [
+   4e-11,
+   1.82e-12
+  ],
+  [
+   5e-11,
+   1.9e-12
+  ],
+  [
+   6e-11,
+   1.95e-12
+  ],
+  [
+   7e-11,
+   2e-12
+  ],
+  [
+   8e-11,
+   2.1e-12
+  ],
+  [
+   9e-11,
+   2.2000000000000003e-12
+  ],
+  [
+   1e-10,
+   2.3000000000000003e-12
+  ],
+  [
+   1.2e-10,
+   2.6000000000000002e-12
+  ],
+  [
+   1.4e-10,
+   2.9e-12
+  ],
+  [
+   1.6e-10,
+   3.2e-12
+  ],
+  [
+   1.8e-10,
+   3.5000000000000004e-12
+  ],
+  [
+   2e-10,
+   3.9e-12
+  ],
+  [
+   2.2e-10,
+   4.3e-12
+  ],
+  [
+   2.5e-10,
+   4.9000000000000005e-12
+  ],
+  [
+   2.8e-10,
+   5.6e-12
+  ],
+  [
+   3e-10,
+   6.200000000000001e-12
+  ],
+  [
+   3.3e-10,
+   7.000000000000001e-12
+  ],
+  [
+   3.6e-10,
+   7.9e-12
+  ],
+  [
+   4e-10,
+   9.000000000000001e-12
+  ],
+  [
+   4.3e-10,
+   9.700000000000001e-12
+  ],
+  [
+   4.5e-10,
+   1.0000000000000001e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "NuSTAR Betelgeuse",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted on the y-axis of Fig. 3 (95% C.L. upper limit)",
+ "notes": "First hard X-ray (NuSTAR, 50 ks) search for ALPs produced in Betelgeuse's core and reconverted in the Galactic magnetic field. The 95% C.L. limit depends on the stellar model (time to core collapse tcc) and assumed transverse Galactic B-field (0.4-3.0 uG): g_agamma < 1.8e-11 GeV^-1 for m_a < 3.5e-11 eV (most conservative: tcc=1.55e5 yr, BT=0.4 uG), down to g_agamma < 5.2e-12 GeV^-1 for m_a < 5.5e-11 eV (most optimistic: tcc=3.6 yr, BT=3.0 uG). I encode the CONSERVATIVE mass-independent bound as a flat line spanning ~1e-14 eV (low-mass edge of Fig. 1/3 plots) up to the stated validity mass 3.5e-11 eV; the limit weakens at higher masses but no numerical values are tabulated. Not a dark-matter haloscope, so no local DM density assumed. Model-independent alternative also quoted: g_agamma*sqrt(BT) < 1.2e-11 GeV^-1 sqrt(uG) (conservative). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 32)) | Vision: Traced the CONSERVATIVE (upper solid red) NuSTAR Betelgeuse limit from Fig. 3 / Fig. 1: flat at g_agamma = 1.8e-11 GeV^-1 for m_a < 3.5e-11 eV (value quoted explicitly in text for t_cc=1.55e5 yr, B_T=0.4 uG), rising steeply above ~1e-10 eV and exiting the y-range (1e-10 GeV^-1) near m_a ~ 4.5e-10 eV. The paper also reports an optimistic limit (lower dotted line) of 5.2e-12 GeV^-1 for m_a < 5.5e-11 eV; the band between reflects stellar-model and B-field uncertainty. Not a DM search (stellar ALP flux converted in Galactic B-field), so no DM density assumed. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.25)",
+ "num_points": 32,
+ "elapsed_s": 219.0748291015625
+}

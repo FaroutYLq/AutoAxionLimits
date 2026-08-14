@@ -1,0 +1,182 @@
+{
+ "arxiv_id": "2208.07293",
+ "paper_title": "First Search for Axion-Like Particles in a Storage Ring Using a Polarized Deuteron Beam",
+ "coupling_type": "AxionEDM",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.9632e-10,
+   6.5e-23
+  ],
+  [
+   4.964e-10,
+   5.5e-23
+  ],
+  [
+   4.9653e-10,
+   5.6e-23
+  ],
+  [
+   4.9665e-10,
+   6e-23
+  ],
+  [
+   4.9673e-10,
+   5.8e-23
+  ],
+  [
+   4.9686e-10,
+   5.5e-23
+  ],
+  [
+   4.9698e-10,
+   5.8e-23
+  ],
+  [
+   4.9715e-10,
+   5e-23
+  ],
+  [
+   4.9723e-10,
+   5.5e-23
+  ],
+  [
+   4.9735e-10,
+   6.3e-23
+  ],
+  [
+   4.9748e-10,
+   5e-23
+  ],
+  [
+   4.9756e-10,
+   4.3e-23
+  ],
+  [
+   4.9768e-10,
+   4e-23
+  ],
+  [
+   4.9781e-10,
+   4.2e-23
+  ],
+  [
+   4.9789e-10,
+   4.3e-23
+  ],
+  [
+   4.9797e-10,
+   4.5e-23
+  ],
+  [
+   4.981e-10,
+   4.7e-23
+  ],
+  [
+   4.9818e-10,
+   6e-23
+  ],
+  [
+   4.9831e-10,
+   6.2e-23
+  ],
+  [
+   4.9839e-10,
+   6e-23
+  ],
+  [
+   4.9859e-10,
+   6.1e-23
+  ],
+  [
+   4.988e-10,
+   6.2e-23
+  ],
+  [
+   4.9901e-10,
+   6.3e-23
+  ],
+  [
+   4.9922e-10,
+   6.4e-23
+  ],
+  [
+   4.9942e-10,
+   6.3e-23
+  ],
+  [
+   4.9955e-10,
+   6e-23
+  ],
+  [
+   4.9967e-10,
+   4.5e-23
+  ],
+  [
+   4.9979e-10,
+   4e-23
+  ],
+  [
+   4.9988e-10,
+   4.3e-23
+  ],
+  [
+   4.9996e-10,
+   5.5e-23
+  ],
+  [
+   5.0004e-10,
+   6.3e-23
+  ],
+  [
+   5.0025e-10,
+   6.5e-23
+  ],
+  [
+   5.0046e-10,
+   7e-23
+  ],
+  [
+   5.0066e-10,
+   6.6e-23
+  ],
+  [
+   5.0087e-10,
+   6.3e-23
+  ],
+  [
+   5.0108e-10,
+   6.4e-23
+  ],
+  [
+   5.0128e-10,
+   6.3e-23
+  ],
+  [
+   5.0149e-10,
+   6.4e-23
+  ],
+  [
+   5.017e-10,
+   6.3e-23
+  ],
+  [
+   5.019e-10,
+   6.4e-23
+  ],
+  [
+   5.0211e-10,
+   8e-23
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.55,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "JEDI (COSY storage ring, polarized deuteron beam)",
+ "coupling_convention": "|d_AC^d|, amplitude of the oscillating deuteron EDM in e*cm (plot y-axis is |d_AC^d| in units of 1e-23 e*cm; emitted values include this multiplier)",
+ "notes": "First storage-ring search for ALP dark matter using a polarized deuteron beam at COSY (JEDI collaboration). No resonance observed; 90% CL upper limit |d_d_AC| < 6.4e-23 e*cm quoted as the average over the scanned range, valid over the narrow frequency window 120.0-121.4 kHz corresponding to ALP mass 0.495-0.502 neV (4.95e-10 to 5.02e-10 eV), encoded as a flat two-point bound. Note this constrains the DEUTERON (not neutron) oscillating EDM; the paper also derives bounds on g_adgamma, ALP-gluon coupling C_G^d/f_a, and axion-wind coupling C_d/f_a, but the primary quoted numerical result is the oscillating EDM. The experiment assumes ALPs constitute the local galactic dark matter (density value not explicitly stated in the provided text, so left null). Detailed frequency-dependent exclusion curve (Fig. 17) not extractable from text; only the average bound is used. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 41)) | Vision: Fig. 17 shows the 90% CL upper limit on the ALP-induced oscillating deuteron EDM over f_AC = 120.0-121.4 kHz (m_a = 0.495-0.502 neV). The boundary is extremely jagged (many narrow spikes up to ~12.5e-23); I traced the local baseline/lower envelope of the darker limit curve. Green region (below ~120.25 kHz) used ramp rate dp=0.112 MeV/c, blue region dp=0.138 MeV/c. Average limit quoted in text: |d_AC^d| < 6.4e-23 e*cm, consistent with the trace. Note this is a deuteron (not neutron) oscillating EDM; the paper also converts to |g_ad_gamma| < 1.7e-7 GeV^-2 (Fig. 19), but the primary plotted limit emitted here is d_AC^d in e*cm. | Calibration: No calibration needed",
+ "num_points": 41,
+ "elapsed_s": 157.4570333957672
+}

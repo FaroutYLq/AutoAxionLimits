@@ -1,0 +1,186 @@
+{
+ "arxiv_id": "2310.06017",
+ "paper_title": "Riding the dark matter wave: Novel limits on general dark photons from LISA Pathfinder",
+ "coupling_type": "VectorBL",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4e-19,
+   2e-25
+  ],
+  [
+   5e-19,
+   2.4e-25
+  ],
+  [
+   6.3e-19,
+   2.7e-25
+  ],
+  [
+   8e-19,
+   2.8e-25
+  ],
+  [
+   1e-18,
+   2.6e-25
+  ],
+  [
+   1.3e-18,
+   1.8e-25
+  ],
+  [
+   1.6e-18,
+   1e-25
+  ],
+  [
+   2e-18,
+   5e-26
+  ],
+  [
+   2.5e-18,
+   2e-26
+  ],
+  [
+   3.2e-18,
+   8e-27
+  ],
+  [
+   4e-18,
+   3.5e-27
+  ],
+  [
+   5e-18,
+   2.2e-27
+  ],
+  [
+   6e-18,
+   2e-27
+  ],
+  [
+   7e-18,
+   2.5e-27
+  ],
+  [
+   8e-18,
+   3.5e-27
+  ],
+  [
+   1e-17,
+   7e-27
+  ],
+  [
+   1.3e-17,
+   1.5e-26
+  ],
+  [
+   1.6e-17,
+   3e-26
+  ],
+  [
+   2e-17,
+   7e-26
+  ],
+  [
+   2.5e-17,
+   1.5e-25
+  ],
+  [
+   3.2e-17,
+   3.5e-25
+  ],
+  [
+   4e-17,
+   8e-25
+  ],
+  [
+   5e-17,
+   1.6e-24
+  ],
+  [
+   6.3e-17,
+   3e-24
+  ],
+  [
+   8e-17,
+   7e-24
+  ],
+  [
+   1e-16,
+   1.5e-23
+  ],
+  [
+   1.3e-16,
+   3e-23
+  ],
+  [
+   1.6e-16,
+   5e-23
+  ],
+  [
+   2e-16,
+   8e-23
+  ],
+  [
+   2.5e-16,
+   1.1e-22
+  ],
+  [
+   3.2e-16,
+   1.4e-22
+  ],
+  [
+   4e-16,
+   1.6e-22
+  ],
+  [
+   5e-16,
+   1.8e-22
+  ],
+  [
+   6.3e-16,
+   2e-22
+  ],
+  [
+   8e-16,
+   2.2e-22
+  ],
+  [
+   1e-15,
+   2.4e-22
+  ],
+  [
+   1.3e-15,
+   2.2e-22
+  ],
+  [
+   1.6e-15,
+   2e-22
+  ],
+  [
+   2e-15,
+   2.2e-22
+  ],
+  [
+   2.5e-15,
+   2.4e-22
+  ],
+  [
+   3.2e-15,
+   2.6e-22
+  ],
+  [
+   4.4e-15,
+   2.8e-22
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "LISA Pathfinder (relative acceleration, SC-TM auxiliary channels)",
+ "coupling_convention": "gauge coupling g_{B-L} (dimensionless, = epsilon_{B-L} * e) exactly as plotted on the y-axis of Fig. 5",
+ "notes": "Paper derives new B-L (and B) dark photon dark matter limits from LISA Pathfinder SC-TM auxiliary channel (relative acceleration) data from the April 2016 noise run. World-leading in 4e-19 eV < m < 3e-17 eV, peak sensitivity ~5e-18 eV. No numerical table is provided; data points are reconstructed from the paper's stated formulas (eq. 8, SNR=1 criterion), charge-to-mass ratios (Table 1: Delta(q/M)_{B-L} = 0.018 GeV^-1), the noise ASDs of fig. 2, and the qualitative shape of figs. 3 & 5 -- values are approximate (~factor 2-3 uncertainty). The limit criterion is SNR<=1, not a formal CL, so the 0.95 CL entry is nominal. Paper also constrains gauged B (weaker, ~3 orders of magnitude) and gives rescalings to other gauge groups; only B-L values are emitted. Paper additionally contains LPF/LISA projections (dashed/dotted curves) which are NOT included in data_points. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.65, 42)) | Vision: Traced the lower boundary of the solid blue 'LISA Pathfinder (relative acceleration)' region in Fig. 5, which is this paper's main B-L result. Boundary spans ~4e-19 eV (1e-4 Hz cut) to ~4.4e-15 eV (1 Hz cut). Minimum g_BL ~ 2e-27 at ~5e-18 eV, consistent with text stating peak sensitivity at ~5e-18 eV and >2 orders of magnitude below current MICROSCOPE limits (~4.5e-25). High-mass plateau ~2e-22 read from plot; small wiggles there smoothed. Values are pixel-read estimates from a log-log plot, so ~30-50% uncertainty on couplings. The paper also gives B (baryon) limits in Fig. 4 (epsilon_B), not extracted here; the hinted VectorBL corresponds to Fig. 5. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.62 snapped to identity)",
+ "num_points": 42,
+ "elapsed_s": 274.5610399246216
+}

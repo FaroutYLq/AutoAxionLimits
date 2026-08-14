@@ -1,0 +1,162 @@
+{
+ "arxiv_id": "2104.12772",
+ "paper_title": "No evidence for axions from Chandra observation of magnetic white dwarf",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-11,
+   5.5e-13
+  ],
+  [
+   1e-10,
+   5.5e-13
+  ],
+  [
+   1e-09,
+   5.5e-13
+  ],
+  [
+   1e-08,
+   5.5e-13
+  ],
+  [
+   1e-07,
+   5.5e-13
+  ],
+  [
+   3e-07,
+   5.5e-13
+  ],
+  [
+   1e-06,
+   5.5e-13
+  ],
+  [
+   2e-06,
+   5.6e-13
+  ],
+  [
+   3e-06,
+   6e-13
+  ],
+  [
+   4e-06,
+   6.5e-13
+  ],
+  [
+   5e-06,
+   7.5e-13
+  ],
+  [
+   6e-06,
+   9e-13
+  ],
+  [
+   8e-06,
+   1.2e-12
+  ],
+  [
+   1e-05,
+   1.5e-12
+  ],
+  [
+   1.2e-05,
+   1.8e-12
+  ],
+  [
+   1.5e-05,
+   2e-12
+  ],
+  [
+   2e-05,
+   2.3e-12
+  ],
+  [
+   2.5e-05,
+   3e-12
+  ],
+  [
+   3e-05,
+   4.5e-12
+  ],
+  [
+   4e-05,
+   7e-12
+  ],
+  [
+   5e-05,
+   9e-12
+  ],
+  [
+   7e-05,
+   1.2e-11
+  ],
+  [
+   0.0001,
+   1.4e-11
+  ],
+  [
+   0.00015,
+   1.6e-11
+  ],
+  [
+   0.0002,
+   1.8e-11
+  ],
+  [
+   0.0003,
+   2e-11
+  ],
+  [
+   0.0004,
+   2.2e-11
+  ],
+  [
+   0.0005,
+   2.5e-11
+  ],
+  [
+   0.0007,
+   3.2e-11
+  ],
+  [
+   0.001,
+   4e-11
+  ],
+  [
+   0.0015,
+   5e-11
+  ],
+  [
+   0.002,
+   6e-11
+  ],
+  [
+   0.003,
+   7.5e-11
+  ],
+  [
+   0.005,
+   9.5e-11
+  ],
+  [
+   0.007,
+   1.1e-10
+  ],
+  [
+   0.01,
+   1.2e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "Chandra MWD RE J0317-853",
+ "coupling_convention": "|g_agamma| in GeV^-1 as plotted on the y-axis, for the C_aee = C_agammagamma scenario (this-work dashed limit line)",
+ "notes": "Chandra X-ray observation of magnetic white dwarf RE J0317-853. Primary model-independent result is on the product g_aee*g_agamma < 1.3e-25 GeV^-1 (95% CL) for m_a << 1e-5 eV. Emitted values are the translated limit g_agamma < 5.5e-13 GeV^-1, valid for m_a <~ 5e-6 eV, under the DFSZ-like assumption C_aee = C_agamma (as shown in the paper's Fig. 1). For the conservative W-phobic loop-induced C_aee = 1.6e-4*C_agamma the limit weakens to g_agamma <~ 4.4e-11 GeV^-1. Limit is flat at low mass and degrades above ~5e-6 eV (no tabulated high-mass values available). Not a dark-matter search, so no local DM density assumption. Lower mass endpoint 1e-11 eV taken from the paper's Fig. 1 plot range. | selector: figure_vision over text (quality (1, 1, 1, 0, 2, 0, 0.7, 36)) | Vision: Limit derived from non-observation of X-rays from magnetic white dwarf RE J0317-853. The underlying constraint is on the product g_agamma*g_aee < 1.3e-25 GeV^-1; the plotted band assumes C_aee = C_agammagamma, giving flat limit 5.5e-13 GeV^-1 for m_a < ~5e-6 eV (matches abstract). The rise above ~5e-6 eV includes resonance-related oscillatory structure (~4e-6 to 2e-5 eV) that is only approximately captured; high-mass rise calibrated so that the parallel one-loop W-phobic line (factor ~82 higher, 4.4e-11 flat) reaches ~1e-8 GeV^-1 at 1e-2 eV as seen in the figure. The alternative red line (loop-induced C_aee = 1.5e-4*C_agamma, conservative W-phobic) sits at 4.4e-11 GeV^-1 flat with the same mass dependence shifted up by factor ~81.6. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.96 snapped to identity) | [CONVENTION REVIEW] declared coupling convention '|g_agamma| in GeV^-1 as plotted on the y-axis, for the C_aee = C_agammagamma scenario (this-work dashed limit line)' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 36,
+ "elapsed_s": 216.72716283798218
+}

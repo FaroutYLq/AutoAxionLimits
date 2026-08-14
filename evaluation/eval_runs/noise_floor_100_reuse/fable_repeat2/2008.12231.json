@@ -1,0 +1,22 @@
+{
+ "arxiv_id": "2008.12231",
+ "paper_title": "Searching for Dark Matter with a Superconducting Qubit",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.486e-05,
+   1.68e-15
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Dixit2020_QubitPhotonCounting",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Dixit et al. (arXiv:2008.12231) hidden photon dark matter search using a superconducting transmon qubit as a QND single-photon counter coupled to a 6.011 GHz (24.86 ueV) storage cavity. Excludes kinetic mixing epsilon > 1.68e-15 at 90% CL on resonance, assuming rho_DM = 0.4 GeV/cm^3. The limit is a very narrow band: sensitivity falls to -3 dB at ~3 kHz detuning from cavity resonance (QDM ~ 1e6 lineshape), with additional weaker sidebands at odd multiples of 2chi (~6.000-6.022 GHz shown in figure inset), but only the on-resonance numerical value is stated explicitly in the text, so a single data point is provided. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 1))",
+ "num_points": 1,
+ "elapsed_s": 122.37810516357422
+}

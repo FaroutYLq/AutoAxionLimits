@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1504.00118",
+ "paper_title": "Experimental Search for Hidden Photon CDM in the eV mass range with a Dish Antenna",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.9,
+   6e-12
+  ],
+  [
+   4.3,
+   6e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "Tokyo_DishAntenna",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "First dish-antenna search for hidden photon CDM (Suzuki et al., U. Tokyo, arXiv:1504.00118). Upper limit chi ~ 6e-12 (95% CL) quoted for m_gamma' = 3.1 +/- 1.2 eV; encoded as a flat bound over the stated validity range 1.9-4.3 eV (set by PMT sensitivity 300-650 nm). Exact curve shown in Fig. 5 has mild sqrt(m) dependence per eq. (1.1), but only the single representative value is given numerically in text. Assumes DM entirely composed of hidden photons with rho = 0.3 GeV/cm^3. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.75, 2))",
+ "num_points": 2,
+ "elapsed_s": 67.68961715698242
+}

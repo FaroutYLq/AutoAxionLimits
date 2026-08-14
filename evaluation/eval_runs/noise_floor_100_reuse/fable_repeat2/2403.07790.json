@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2403.07790",
+ "paper_title": "RADES axion search results with a High-Temperature Superconducting cavity in an 11.7 T magnet",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.65676e-05,
+   6.3e-13
+  ],
+  [
+   3.65699e-05,
+   1.59e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "RADES_HTS_2024",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "RADES haloscope search with HTS (ReBCO) coated cavity in 11.7 T dipole magnet at CERN SM18. Mass range 36.5676-36.5699 ueV (554 kHz around 8.842 GHz). Limit varies between g_agamma ~ 6.3e-13 GeV^-1 (low-mass side, less data) and 1.59e-13 GeV^-1 (best sensitivity); encoded as two endpoint values spanning the probed mass range \u2014 the actual limit fluctuates within this band bin-by-bin (no numerical table provided). Assumes local DM density 0.45 GeV/cm^3, standard isothermal halo lineshape, 95% credibility (Bayesian). | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+ "num_points": 2,
+ "elapsed_s": 93.1419050693512
+}

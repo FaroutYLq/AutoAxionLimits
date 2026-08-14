@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "2111.08025",
+ "paper_title": "Strong constraints on decay and annihilation of dark matter from heating of gas-rich dwarf galaxies",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   27.0,
+   1e-13
+  ],
+  [
+   35.0,
+   2e-14
+  ],
+  [
+   50.0,
+   6e-15
+  ],
+  [
+   100.0,
+   2e-15
+  ],
+  [
+   200.0,
+   1.5e-15
+  ],
+  [
+   400.0,
+   2e-15
+  ],
+  [
+   700.0,
+   3e-15
+  ],
+  [
+   1000.0,
+   4e-15
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.45,
+ "suggested_experiment_name": "LeoT_GasHeating",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper (Wadekar & Wang, arXiv:2111.08025) derives new bounds on DM decay/annihilation from gas heating of the Leo T dwarf galaxy, and recasts the chi->gamma-gamma decay lifetime bound into the ALP-photon coupling g_agamma (Fig. 4), stated to be the strongest limit for ma ~ 30 eV - 1 keV (valid above ~26.2 eV where decay photons exceed the H ionization threshold). Exact numerical curve values are in figures/GitHub data files not reproduced in the text; the data_points above were reconstructed from the paper's stated cooling rate (7e-30 GeV cm^-3 s^-1), the Leo T DM density profile, the opacity curve description, and Gamma_a = m_a^3 g^2/(64 pi), so they are approximate (factor ~2-3 uncertainty). This is an astrophysical DM-decay bound (assumes ALPs are all of the halo DM in Leo T), not a haloscope, so no local DM density is set. No formal confidence level is quoted (bound is heating < cooling); 0.95 entered as placeholder. The paper also constrains Higgs-portal scalars, sterile neutrinos, and dark baryons, but the AxionPhoton result is the relevant enum match. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.45, 8))",
+ "num_points": 8,
+ "elapsed_s": 190.74269104003906
+}

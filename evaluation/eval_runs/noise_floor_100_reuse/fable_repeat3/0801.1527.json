@@ -1,0 +1,174 @@
+{
+ "arxiv_id": "0801.1527",
+ "paper_title": "Helioscope Bounds on Hidden Sector Photons",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   6.3e-05,
+   0.01
+  ],
+  [
+   0.0001,
+   0.0045
+  ],
+  [
+   0.000316,
+   0.00045000000000000004
+  ],
+  [
+   0.001,
+   4.5e-05
+  ],
+  [
+   0.00316,
+   4.5e-06
+  ],
+  [
+   0.0063,
+   1.1e-06
+  ],
+  [
+   0.01,
+   4.5e-07
+  ],
+  [
+   0.0126,
+   5e-07
+  ],
+  [
+   0.0158,
+   3.2e-07
+  ],
+  [
+   0.0316,
+   1.3999999999999998e-07
+  ],
+  [
+   0.1,
+   4.5e-08
+  ],
+  [
+   0.316,
+   1.4e-08
+  ],
+  [
+   1.0,
+   4.5e-09
+  ],
+  [
+   2.0,
+   2.2e-09
+  ],
+  [
+   2.8,
+   1.4000000000000001e-09
+  ],
+  [
+   4.0,
+   3.2e-10
+  ],
+  [
+   6.3,
+   4e-11
+  ],
+  [
+   10.0,
+   1e-11
+  ],
+  [
+   12.6,
+   5e-12
+  ],
+  [
+   20.0,
+   3.5e-12
+  ],
+  [
+   40.0,
+   1.6e-12
+  ],
+  [
+   79.0,
+   5e-13
+  ],
+  [
+   126.0,
+   2e-13
+  ],
+  [
+   200.0,
+   1.3e-13
+  ],
+  [
+   251.0,
+   1.4e-13
+  ],
+  [
+   316.0,
+   5e-13
+  ],
+  [
+   355.0,
+   1.3000000000000001e-12
+  ],
+  [
+   500.0,
+   1.8e-12
+  ],
+  [
+   1000.0,
+   3.2e-12
+  ],
+  [
+   2000.0,
+   8e-12
+  ],
+  [
+   4000.0,
+   2.4999999999999998e-11
+  ],
+  [
+   7900.0,
+   9.999999999999999e-11
+  ],
+  [
+   12600.0,
+   5e-10
+  ],
+  [
+   14800.0,
+   1.2999999999999999e-09
+  ],
+  [
+   20000.0,
+   4e-09
+  ],
+  [
+   31600.0,
+   2.5e-08
+  ],
+  [
+   50000.0,
+   4e-07
+  ],
+  [
+   70800.0,
+   1.6e-05
+  ],
+  [
+   100000.0,
+   0.0032
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "CAST helioscope + solar lifetime (Redondo)",
+ "coupling_convention": "kinetic mixing parameter chi, dimensionless (plot y-axis is Log10 chi; emitted values are chi itself)",
+ "notes": "Redondo (arXiv:0801.1527): combined exclusion envelope on kinetic mixing chi vs hidden photon mass, from (i) reinterpretation of CAST 2007 helioscope data (dominant for ~3 meV - 1 eV, slope -2 below m~0.01 eV where oscillations incomplete, slope -1 up to ~1 eV) and (ii) solar luminosity/lifetime argument (dominant 1 eV - 40 keV, reaching chi ~ 1e-14 at m ~ 295 eV where resonant production occurs at solar core; degrades above 295 eV to bulk-emission plateau, cutoff ~40 keV). No numeric table is given; data points are approximate reconstructions of Fig. 6 using scaling relations and normalizations stated in text (e.g. W = 8e43 + 1.4e43 chi^2 (m/eV)^4 W vs L_sun = 3.83e26 W; CAST flux limit 1e-5 /cm^2/s/keV with F1 fit). Values in the 1 eV - 40 keV lifetime region are less reliable (~factor few). Not a dark matter search, so no local DM density assumption. Paper does not state a formal CL; CAST underlying result was 95%. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 39)) | Vision: Figure 6 shows several bounds: Helioscope (CAST), Gas, L-Lifetime, T-Lifetime, and m.f.p.=R_sun curves. I traced the combined lower envelope: the CAST helioscope line dominates for m < ~3 eV (slope -2 below 0.01 eV, slope -1 from 0.01 to ~1 eV as described in the text), the T-Lifetime solar energy-loss bound dominates for ~3 eV to ~15 keV with minimum chi ~1.3e-14 at m ~200 eV (consistent with abstract's 'down to 10^-14'), and the rising CAST/blue branch above ~15 keV (dashed vertical line marks the CAST energy-window limitation at ~15 keV; text notes bounds become indeterminate for m > 40 keV). Note text warns the CAST bound is 'not consistent' in the 1-10^4 eV range where energy loss already excludes it, hence the envelope uses T-Lifetime there. Not a dark-matter search (solar production), so no DM density assumed. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=11.43)",
+ "num_points": 39,
+ "elapsed_s": 210.7237160205841
+}

@@ -1,0 +1,92 @@
+{
+  "n_papers": 100,
+  "gt_exclusions": {
+    "n_entries": 0,
+    "n_papers_fully_excluded": 0
+  },
+  "status_counts": {
+    "compared": 95,
+    "convention_mismatch": 4,
+    "no_comparable_gt": 1
+  },
+  "classification_accuracy": {
+    "coupling_type": 0.99,
+    "is_new_limit": 1.0,
+    "is_projection": 1.0,
+    "data_source": 0.75
+  },
+  "coupling_type_confusion": {
+    "matrix": {
+      "AxionElectron": {
+        "AxionElectron": 4
+      },
+      "AxionMass": {
+        "AxionMass": 1
+      },
+      "AxionNeutron": {
+        "AxionNeutron": 4
+      },
+      "AxionPhoton": {
+        "AxionPhoton": 55
+      },
+      "AxionProton": {
+        "AxionProton": 1
+      },
+      "DarkPhoton": {
+        "DarkPhoton": 29
+      },
+      "ScalarPhoton": {
+        "ScalarPhoton": 3,
+        "ScalarNucleon": 1
+      },
+      "VectorBL": {
+        "VectorBL": 2
+      }
+    },
+    "confusions": [
+      {
+        "gt": "ScalarPhoton",
+        "predicted": "ScalarNucleon",
+        "count": 1
+      }
+    ],
+    "n_graded": 100,
+    "n_correct": 99,
+    "n_skipped": 0,
+    "accuracy": 0.99
+  },
+  "interpolation": {
+    "n_finite": 95,
+    "n_zero_overlap": 0,
+    "median_median_residual_dex": 0.13539679146898642,
+    "mean_frac_within_0_3dex": 0.659089459452515,
+    "median_median_residual_dex_reverse": 0.12009576038907355
+  },
+  "symmetric": {
+    "median_area_between_log": 0.1614415509219481,
+    "median_mass_jaccard": 0.9476496334411852
+  },
+  "per_type_aggregate": {
+    "n_types": 8,
+    "n_papers_compared": 95,
+    "micro_median_residual_dex": 0.13539679146898642,
+    "macro_median_residual_dex": 0.7420575989655989,
+    "macro_minus_micro_dex": 0.6066608074966124,
+    "per_type_n": {
+      "AxionPhoton": 53,
+      "DarkPhoton": 29,
+      "AxionNeutron": 4,
+      "AxionElectron": 3,
+      "ScalarPhoton": 2,
+      "VectorBL": 2,
+      "AxionProton": 1,
+      "AxionMass": 1
+    }
+  },
+  "calibration": {
+    "noise_floor_residual_dex": 0.32,
+    "top_bin_mean_confidence": 0.9,
+    "top_bin_actual_accuracy": 0.875,
+    "overconfidence_gap": 0.025000000000000022
+  }
+}

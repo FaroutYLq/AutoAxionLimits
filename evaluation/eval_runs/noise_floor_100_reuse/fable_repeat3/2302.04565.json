@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2302.04565",
+ "paper_title": "Analysis of atomic-clock data to constrain variations of fundamental constants",
+ "coupling_type": "ScalarNucleon",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.034e-20,
+   2.8e-07
+  ],
+  [
+   4.136e-20,
+   1.12e-06
+  ],
+  [
+   4.136e-19,
+   1.12e-05
+  ],
+  [
+   4.136e-18,
+   0.000112
+  ],
+  [
+   4.136e-17,
+   0.00112
+  ],
+  [
+   7.03e-17,
+   0.0019
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "NPL_YbSr_Clocks2023",
+ "coupling_convention": "dimensionless d_gamma^(1) (Damour-Donoghue linear scalar-photon coupling d_e, gravitational normalization kappa=1/(sqrt(2)M_P))",
+ "notes": "Paper (NPL Sr/Yb+/Cs clock comparison, arXiv:2302.04565) constrains several couplings: d_gamma^(1), d_gamma^(2), d_me-d_g, d_q-d_g, Higgs A, and axion-gluon 1/fa. The flagship NEW exclusion is on the linear scalar-photon coupling d_gamma^(1) from the Yb+/Sr ratio, improving previous bounds by ~1 order of magnitude for 1e-20 eV < m_phi < 1e-17 eV. Data points computed from the paper's formula d^(1) = zeta_f^(1) * A_alpha(f) with zeta_f^(1) = 2.0e16 * (f/Hz) and the flat amplitude bound A_alpha(f) <= 5.6e-18 (1-sigma global WFM bound; the plotted 95% C.L. curve in Fig. 6 is only slightly higher, exact digitized values not available in text). Mass conversion m = 4.136e-15 * f[Hz] over the valid range 2.5e-6 Hz to 1.7e-2 Hz. Stochastic degradation factor ~3 already included in zeta^(1) per the paper. Assumes scalar field saturates local DM density rho_DM = 0.3 GeV/cm^3. Values are approximate (formula-derived, not from a table), hence moderate extraction confidence. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c) | coupling type ScalarPhoton -> ScalarNucleon by axis read-back 'd_gamma^(1), dimensionless dilaton-like photon coupling (axis shows log10 of the coupling)' (same confusable family, #625 Phase 3) | [CONVENTION REVIEW] declared coupling convention 'dimensionless d_gamma^(1) (Damour-Donoghue linear scalar-photon coupling d_e, gravitational normalization kappa=1/(sqrt(2)M_P))' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 6,
+ "elapsed_s": 77.76882791519165
+}

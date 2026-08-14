@@ -1,0 +1,182 @@
+{
+ "arxiv_id": "2005.14184",
+ "paper_title": "The first search for bosonic super-WIMPs with masses up to 1 MeV/c$^2$ with GERDA",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   60000.0,
+   1.1e-12
+  ],
+  [
+   65000.0,
+   1e-12
+  ],
+  [
+   70000.0,
+   1.2e-12
+  ],
+  [
+   75000.0,
+   1.25e-12
+  ],
+  [
+   80000.0,
+   1.3e-12
+  ],
+  [
+   87000.0,
+   1.5e-12
+  ],
+  [
+   90000.0,
+   1.4e-12
+  ],
+  [
+   100000.0,
+   1.6e-12
+  ],
+  [
+   110000.0,
+   1.8e-12
+  ],
+  [
+   120000.0,
+   2e-12
+  ],
+  [
+   130000.0,
+   2.2e-12
+  ],
+  [
+   140000.0,
+   2.6e-12
+  ],
+  [
+   150000.0,
+   3e-12
+  ],
+  [
+   160000.0,
+   3e-12
+  ],
+  [
+   175000.0,
+   3.2e-12
+  ],
+  [
+   190000.0,
+   3.4e-12
+  ],
+  [
+   200000.0,
+   3.8e-12
+  ],
+  [
+   210000.0,
+   4e-12
+  ],
+  [
+   230000.0,
+   4.2e-12
+  ],
+  [
+   240000.0,
+   4.6e-12
+  ],
+  [
+   260000.0,
+   4.2e-12
+  ],
+  [
+   280000.0,
+   4.4e-12
+  ],
+  [
+   300000.0,
+   4.6e-12
+  ],
+  [
+   330000.0,
+   4.8e-12
+  ],
+  [
+   350000.0,
+   5.3e-12
+  ],
+  [
+   380000.0,
+   5e-12
+  ],
+  [
+   400000.0,
+   5.2e-12
+  ],
+  [
+   450000.0,
+   5.6e-12
+  ],
+  [
+   500000.0,
+   6.5e-12
+  ],
+  [
+   520000.0,
+   6.8e-12
+  ],
+  [
+   550000.0,
+   6e-12
+  ],
+  [
+   600000.0,
+   6.5e-12
+  ],
+  [
+   610000.0,
+   7e-12
+  ],
+  [
+   650000.0,
+   7e-12
+  ],
+  [
+   700000.0,
+   7.5e-12
+  ],
+  [
+   750000.0,
+   8e-12
+  ],
+  [
+   800000.0,
+   8.5e-12
+  ],
+  [
+   850000.0,
+   9e-12
+  ],
+  [
+   900000.0,
+   1e-11
+  ],
+  [
+   950000.0,
+   1e-11
+  ],
+  [
+   1000000.0,
+   1.2e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "GERDA",
+ "coupling_convention": "coupling squared, g^2 (axis read-back)",
+ "notes": "GERDA search for bosonic super-WIMPs (keV-scale DM) absorbed via axioelectric effect in HPGe detectors, mass range 60 keV to 1 MeV. Paper sets 90% credible interval upper limits on both g_ae (ALPs) and alpha'/alpha (dark photons); AxionElectron chosen as primary per the g_ae result. Full exclusion curve is only in Fig. 3 (not tabulated); the only explicit numerical value in text is g_ae < 3e-12 at 150 keV/c^2 (the dark photon counterpart is alpha'/alpha < 6.5e-24 at the same mass). Limits weaken toward 1 MeV due to falling photoelectric cross section; curve spans roughly 1e-12 to 1e-10 over 60 keV-1 MeV per Fig. 3 but points were not digitized. Assumes super-WIMPs constitute all local DM with density 0.3 GeV/cm^3. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 41)) | declaration reconciled to axis read-back: 'coupling squared, g^2 (axis read-back)' (model declared 'canonical g_ae (dimensionless pseudoscalar-electron coupling), 90% c.i. upper limit as plotted' \u2014 axis unit wins, #594 contract) | Vision: Fig. 3 top panel: 90% C.I. upper limits on g_ae for pseudoscalar super-WIMPs from GERDA (light blue curve), mass range 60 keV/c^2 to 1 MeV/c^2. Text anchor: g_ae < 3e-12 at 150 keV/c^2 confirms calibration. Step feature near 200 keV/c^2 from lower exposure below that mass. Curve has strong fluctuations/spikes at known background gamma lines (238.6, 242, 295.2, 352, 511/514, 609.3, 911.2, 969 keV); traced points follow the lower envelope with modest allowance for spikes. Bottom panel is the vector (dark photon alpha'/alpha) result, not extracted per hint. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.95 snapped to identity)",
+ "num_points": 41,
+ "elapsed_s": 91.13392400741577
+}

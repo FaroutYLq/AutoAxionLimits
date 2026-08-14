@@ -1,0 +1,182 @@
+{
+ "arxiv_id": "0801.1527",
+ "paper_title": "Helioscope Bounds on Hidden Sector Photons",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0001,
+   0.07100000000000001
+  ],
+  [
+   0.000316,
+   0.0071
+  ],
+  [
+   0.001,
+   0.00063
+  ],
+  [
+   0.00316,
+   4.9999999999999996e-05
+  ],
+  [
+   0.0079,
+   6.3e-06
+  ],
+  [
+   0.01,
+   4e-06
+  ],
+  [
+   0.0316,
+   1.0999999999999998e-06
+  ],
+  [
+   0.1,
+   3.5e-07
+  ],
+  [
+   0.316,
+   1.0999999999999999e-07
+  ],
+  [
+   1.0,
+   3.1999999999999995e-08
+  ],
+  [
+   1.41,
+   2.2e-08
+  ],
+  [
+   2.0,
+   1e-08
+  ],
+  [
+   3.16,
+   3.9999999999999994e-09
+  ],
+  [
+   5.0,
+   6.3e-10
+  ],
+  [
+   7.9,
+   1.3e-10
+  ],
+  [
+   10.0,
+   5.6e-11
+  ],
+  [
+   12.6,
+   4.5e-11
+  ],
+  [
+   20.0,
+   2.8e-11
+  ],
+  [
+   31.6,
+   2.0000000000000002e-11
+  ],
+  [
+   63.0,
+   7.9e-12
+  ],
+  [
+   100.0,
+   4e-12
+  ],
+  [
+   158.0,
+   1.6e-12
+  ],
+  [
+   200.0,
+   1.2599999999999999e-12
+  ],
+  [
+   251.0,
+   1.4e-12
+  ],
+  [
+   282.0,
+   5.0000000000000005e-12
+  ],
+  [
+   316.0,
+   1.0999999999999999e-11
+  ],
+  [
+   398.0,
+   1.6e-11
+  ],
+  [
+   631.0,
+   2.0000000000000002e-11
+  ],
+  [
+   1000.0,
+   2.5e-11
+  ],
+  [
+   1580.0,
+   4.0000000000000004e-11
+  ],
+  [
+   2510.0,
+   7.9e-11
+  ],
+  [
+   3980.0,
+   2e-10
+  ],
+  [
+   6310.0,
+   6.3e-10
+  ],
+  [
+   10000.0,
+   2.5e-09
+  ],
+  [
+   12600.0,
+   6.3e-09
+  ],
+  [
+   15800.0,
+   1.4000000000000001e-08
+  ],
+  [
+   20000.0,
+   4e-08
+  ],
+  [
+   31600.0,
+   6.3e-07
+  ],
+  [
+   50000.0,
+   3.2e-05
+  ],
+  [
+   71000.0,
+   0.001
+  ],
+  [
+   100000.0,
+   0.063
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "CAST helioscope + solar lifetime (hidden photon)",
+ "coupling_convention": "kinetic mixing parameter chi, dimensionless (plot shows Log10 chi; values emitted as linear chi)",
+ "notes": "Redondo (arXiv:0801.1527): combined solar-lifetime and CAST helioscope bounds on hidden-photon kinetic mixing chi vs m_gamma'. Not a dark-matter search (solar emission), so no DM density assumed. Paper provides no numerical table; data points are a reconstruction of the combined exclusion envelope (Fig. 6) using explicit formulas in the text: CAST bound chi*m^2 < ~7e-12 eV^2 for m<0.01 eV, chi*m < ~1e-9 eV for 0.01<m<1 eV; luminosity bound W = 9.4e43 chi^2 (m/eV)^4 W < L_sun below 1 eV; resonant lifetime bound reaching stated chi ~ 1e-14 near m ~ 295 eV; bulk-emission plateau chi ~ 1e-11 for 0.3-10 keV, bound vanishing near 40 keV. The best limits claimed for 3 meV < m < 40 keV. Values approximate (order-of-magnitude reliable, factor ~2-3 uncertainty); the 'Gas'-filled CAST curve is a projection and was excluded. Confidence level not explicitly stated (CAST result used 95% CL). | [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of the combined constraints') rather than the paper's own single curve | selector: figure_vision over text (quality (1, 1, 1, 1, 1, 0, 0.8, 41)) | Vision: Figure 6 shows upper limits on kinetic mixing chi vs hidden photon mass. Traced the lower envelope of the combined constraints: Helioscope (CAST) line (slope -2 below ~0.01 eV, kink at m~0.01 eV where oscillations become incoherent, slope -1 up to ~1 eV) dominates for m < ~1.5 eV; the black T-Lifetime solar energy-loss bound dominates from ~1.5 eV to ~15 keV with minimum chi~1e-14 at m~200 eV (resonance feature causes sharp jump at ~250-300 eV); above ~16 keV the boundary rises steeply. Paper notes bounds become indeterminate above 40 keV. The 'Gas' line (prospective) and L-Lifetime were not included in the envelope since they are prospective/weaker. Points read from log-log plot pixel positions; ~0.1-0.2 decade uncertainty in chi. | Calibration: Vision calibration: \u00d71e+2 (factor=1.00e+02, reason=spot-check verify/stage2, raw_ratio=37.50)",
+ "num_points": 41,
+ "elapsed_s": 213.1916148662567
+}

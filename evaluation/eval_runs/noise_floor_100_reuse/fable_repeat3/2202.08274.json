@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2202.08274",
+ "paper_title": "Extraterrestrial Axion Search with the Breakthrough Listen Galactic Center Survey",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.5e-05,
+   3e-11
+  ],
+  [
+   1.7e-05,
+   2e-11
+  ],
+  [
+   2e-05,
+   1.5e-11
+  ],
+  [
+   2.5e-05,
+   1.2e-11
+  ],
+  [
+   3e-05,
+   1e-11
+  ],
+  [
+   3.5e-05,
+   1.5e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.346,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "BreakthroughListen_GBT_GC",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Foster et al. (arXiv:2202.08274): search for axion DM conversion to photons in Galactic Center neutron star magnetospheres using Breakthrough Listen GBT C-band (4-8 GHz) data. New observed 95% CL median upper limit on |g_agamma| over ma in (15, 35) microeV, excluding down to ~1e-11 GeV^-1. No numerical table provided; data_points are approximate values reconstructed from the abstract/text description of Fig. 1 (limit reaches ~1e-11 GeV^-1 near the middle of the band, weakening toward the edges). Assumes NFW profile normalized to local DM density 0.346 GeV/cm^3; limit is the median over 100 MC realizations of the NS population conditioned on the GC magnetar. An SKA Phase 2 projection (~few x 1e-13 GeV^-1, 10-sigma discovery) is also discussed but the primary result is the observed limit. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+ "num_points": 6,
+ "elapsed_s": 39.097975969314575
+}

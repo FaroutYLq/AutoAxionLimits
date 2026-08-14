@@ -1,0 +1,182 @@
+{
+ "arxiv_id": "1705.02290",
+ "paper_title": "New CAST Limit on the Axion-Photon Interaction",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0001,
+   6.6e-11
+  ],
+  [
+   0.0003,
+   6.6e-11
+  ],
+  [
+   0.001,
+   6.6e-11
+  ],
+  [
+   0.003,
+   6.6e-11
+  ],
+  [
+   0.006,
+   6.6e-11
+  ],
+  [
+   0.01,
+   6.6e-11
+  ],
+  [
+   0.015,
+   6.6e-11
+  ],
+  [
+   0.02,
+   6.6e-11
+  ],
+  [
+   0.022,
+   7e-11
+  ],
+  [
+   0.025,
+   8e-11
+  ],
+  [
+   0.028,
+   9.5e-11
+  ],
+  [
+   0.03,
+   1.05e-10
+  ],
+  [
+   0.033,
+   1.2e-10
+  ],
+  [
+   0.036,
+   1.35e-10
+  ],
+  [
+   0.04,
+   1.5e-10
+  ],
+  [
+   0.043,
+   1.65e-10
+  ],
+  [
+   0.045,
+   1.55e-10
+  ],
+  [
+   0.05,
+   1.7e-10
+  ],
+  [
+   0.055,
+   1.9e-10
+  ],
+  [
+   0.06,
+   2.1e-10
+  ],
+  [
+   0.065,
+   2e-10
+  ],
+  [
+   0.07,
+   2.1e-10
+  ],
+  [
+   0.08,
+   2.3e-10
+  ],
+  [
+   0.09,
+   2.2e-10
+  ],
+  [
+   0.1,
+   2.1e-10
+  ],
+  [
+   0.12,
+   2e-10
+  ],
+  [
+   0.15,
+   2e-10
+  ],
+  [
+   0.18,
+   2.1e-10
+  ],
+  [
+   0.2,
+   2.1e-10
+  ],
+  [
+   0.25,
+   2e-10
+  ],
+  [
+   0.3,
+   2.2e-10
+  ],
+  [
+   0.35,
+   2.2e-10
+  ],
+  [
+   0.4,
+   2.3e-10
+  ],
+  [
+   0.5,
+   2.4e-10
+  ],
+  [
+   0.6,
+   2.5e-10
+  ],
+  [
+   0.7,
+   2.7e-10
+  ],
+  [
+   0.8,
+   2.9e-10
+  ],
+  [
+   0.9,
+   3.1e-10
+  ],
+  [
+   1.0,
+   3.3e-10
+  ],
+  [
+   1.1,
+   3.6e-10
+  ],
+  [
+   1.17,
+   4e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.9,
+ "suggested_experiment_name": "CAST",
+ "coupling_convention": "|g_agamma| in GeV^-1, as plotted on the y-axis",
+ "notes": "CAST final vacuum-phase solar axion result (2013-2015 data): g_agamma < 0.66e-10 GeV^-1 at 95% C.L., mass-independent for m_a <~ 0.02 eV (encoded as a flat line from 1e-4 eV, the lower edge of the paper's Fig. 2 exclusion plot, up to 0.02 eV where vacuum coherence is lost; bound actually extends to arbitrarily low masses). Solar axion helioscope search, so no local DM density assumption applies. Above 0.02 eV the limit degrades (shown in Fig. 2 red curve) but no numerical values are given in text for that region. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.9, 41)) | Vision: Fig. 2 of the CAST 2017 Nature Physics paper. The flat portion at 6.6e-11 GeV^-1 for m_a < 0.02 eV is the paper's headline result (Eq. 6, 95% C.L., red line 'This work'). The rising wiggly section (0.02-0.1 eV) is the vacuum-phase coherence loss region; beyond ~0.1 eV the boundary follows the CAST 2003-2011 buffer-gas-phase envelope (noisy black line ~2e-10) up to ~1.2 eV. This is a solar axion helioscope limit, so no DM density assumption applies. KSVZ green diagonal line used for y-scale calibration (g ~ 3.9e-10 * m_a/eV). | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.98 snapped to identity)",
+ "num_points": 41,
+ "elapsed_s": 119.91415309906006
+}

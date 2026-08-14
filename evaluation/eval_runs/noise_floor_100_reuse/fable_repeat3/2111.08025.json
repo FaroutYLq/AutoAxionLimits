@@ -1,0 +1,170 @@
+{
+ "arxiv_id": "2111.08025",
+ "paper_title": "Strong constraints on decay and annihilation of dark matter from heating of gas-rich dwarf galaxies",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   28.0,
+   1e-09
+  ],
+  [
+   28.0,
+   3e-10
+  ],
+  [
+   28.0,
+   1e-10
+  ],
+  [
+   28.0,
+   3e-11
+  ],
+  [
+   28.0,
+   1e-11
+  ],
+  [
+   28.0,
+   3e-12
+  ],
+  [
+   28.2,
+   1e-12
+  ],
+  [
+   28.5,
+   5e-13
+  ],
+  [
+   29.0,
+   3.5e-13
+  ],
+  [
+   30.0,
+   2.4e-13
+  ],
+  [
+   32.0,
+   1.8e-13
+  ],
+  [
+   35.0,
+   1.4e-13
+  ],
+  [
+   40.0,
+   1e-13
+  ],
+  [
+   45.0,
+   7.8e-14
+  ],
+  [
+   50.0,
+   6.4e-14
+  ],
+  [
+   60.0,
+   4.4e-14
+  ],
+  [
+   70.0,
+   3.3e-14
+  ],
+  [
+   80.0,
+   2.6e-14
+  ],
+  [
+   90.0,
+   2.2e-14
+  ],
+  [
+   100.0,
+   1.9e-14
+  ],
+  [
+   115.0,
+   1.6e-14
+  ],
+  [
+   130.0,
+   1.3e-14
+  ],
+  [
+   150.0,
+   1.1e-14
+  ],
+  [
+   180.0,
+   8.9e-15
+  ],
+  [
+   210.0,
+   7.5e-15
+  ],
+  [
+   250.0,
+   6.4e-15
+  ],
+  [
+   300.0,
+   5.5e-15
+  ],
+  [
+   350.0,
+   5e-15
+  ],
+  [
+   420.0,
+   4.5e-15
+  ],
+  [
+   500.0,
+   4.1e-15
+  ],
+  [
+   600.0,
+   3.8e-15
+  ],
+  [
+   700.0,
+   3.6e-15
+  ],
+  [
+   850.0,
+   3.4e-15
+  ],
+  [
+   1000.0,
+   3.3e-15
+  ],
+  [
+   1300.0,
+   3.2e-15
+  ],
+  [
+   1700.0,
+   3.1e-15
+  ],
+  [
+   2200.0,
+   3e-15
+  ],
+  [
+   3000.0,
+   3e-15
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "Leo T gas heating (Wadekar & Wang)",
+ "coupling_convention": "g_agamma in GeV^-1, ALP-photon coupling as plotted on y-axis of Fig. 4",
+ "notes": "Paper (Wadekar & Wang, arXiv:2111.08025) sets new observed limits from gas heating of the Leo T dwarf galaxy on DM decay/annihilation, translated to ALP-photon coupling g_agamma in Fig. 4 (mass range ~5 eV-1 keV; strongest, world-leading region ~26.2 eV-1 keV). No numerical table is present in the provided text; the data_points above are RECONSTRUCTED from the paper's stated decay rate formula Gamma = m^3 g^2/(64pi), the cooling rate C_dot = 7e-30 GeV/cm^3/s, the FSM13 DM density profile, and the described photon opacity of Leo T (opaque for 13.6 < E_gamma < ~200 eV, sigma_PE ~ E^-3.5). They approximate the black 'Leo T gas temp.' curve of Fig. 4 (which dips to ~1e-15 GeV^-1 near a few hundred eV) but are not digitized figure values; treat as approximate (factor ~2-3 uncertainty). Limit rises steeply near the 2x13.6 eV=27.2 eV ionization threshold. The paper also constrains DM decay/annihilation to e+e-, Higgs-portal scalar mixing, sterile neutrino mixing, and dark neutron mixing (not encoded here; AxionPhoton chosen per Fig. 4, matching the pre-analysis hint). Not a haloscope; DM density is Leo T's halo profile, so dm_density_assumed is null. No explicit confidence level stated (conservative calorimetric bound); 0.95 assumed. Exact curve data are available in the authors' public GitHub repository (JayWadekar/Gas_rich_dwarfs) and Ciaran O'Hare's AxionLimits repo. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 38)) | Vision: Traced the SOLID black 'Leo T gas temp.' curve in Fig. 4 (page 8, left panel), which is the paper's main ALP-photon exclusion (assumes ALP is all of DM, decaying a->2gamma heats Leo T gas; T_gas=6100 K estimate). The dashed curve (conservative T_gas=7552 K) lies ~30-50% higher. The boundary is nearly vertical at m_a\u224828-30 eV (photon energy threshold ~13.6 eV) \u2014 several points sample this vertical edge \u2014 then falls smoothly to a plateau of ~3e-15 GeV^-1 for m_a \u2273 1 keV up to the plot edge at 3 keV. The blue G33.4-8.0 MW gas cloud curve is weaker and was not traced. QCD axion band position (g\u22482e-10 \u00d7 m_a[eV]) is consistent with my axis calibration. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.53 snapped to identity)",
+ "num_points": 38,
+ "elapsed_s": 246.96523594856262
+}
