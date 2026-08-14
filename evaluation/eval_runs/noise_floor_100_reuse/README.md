@@ -16,8 +16,8 @@ The **production floor is now measured directly** rather than inherited from Opu
 | fable, restricted to Opus's 56 | 56 | -- | ±0.036 dex | -- | -- |
 | opus 4.8 | 56 | [0.160, 0.261] | ±0.050 dex | 0.022 dex | 10/56 = 17.9% |
 
-The Fable arm is more reproducible than Opus on **identical papers** (±0.033 vs
-±0.059 on the same 57), so the improvement is not a sample-size artifact. The
+The Fable arm is more reproducible than Opus on **identical papers** (±0.036 vs
+±0.050 on the same 56), so the improvement is not a sample-size artifact. The
 Opus paired set is a strict subset of the Fable one, which makes the restriction
 exact rather than approximate.
 
