@@ -1,0 +1,114 @@
+{
+ "arxiv_id": "1708.02111",
+ "paper_title": "Stellar Recipes for Axion Hunters",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   5e-14,
+   0.05
+  ],
+  [
+   6e-14,
+   0.12
+  ],
+  [
+   7e-14,
+   0.18
+  ],
+  [
+   8e-14,
+   0.25
+  ],
+  [
+   9e-14,
+   0.32
+  ],
+  [
+   1e-13,
+   0.4
+  ],
+  [
+   1.1e-13,
+   0.48
+  ],
+  [
+   1.2e-13,
+   0.55
+  ],
+  [
+   1.3e-13,
+   0.62
+  ],
+  [
+   1.4e-13,
+   0.68
+  ],
+  [
+   1.5e-13,
+   0.72
+  ],
+  [
+   1.6e-13,
+   0.75
+  ],
+  [
+   1.7e-13,
+   0.76
+  ],
+  [
+   1.8e-13,
+   0.76
+  ],
+  [
+   1.9e-13,
+   0.75
+  ],
+  [
+   2e-13,
+   0.72
+  ],
+  [
+   2.1e-13,
+   0.68
+  ],
+  [
+   2.2e-13,
+   0.62
+  ],
+  [
+   2.3e-13,
+   0.55
+  ],
+  [
+   2.4e-13,
+   0.45
+  ],
+  [
+   2.5e-13,
+   0.32
+  ],
+  [
+   2.6e-13,
+   0.18
+  ],
+  [
+   2.7e-13,
+   0.08
+  ],
+  [
+   2.8e-13,
+   0.02
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "WD+RGB+HB stellar cooling constraints on axion-photon coupling",
+ "coupling_convention": "g_agamma in units of 10^-13 GeV^-1 (as plotted on y-axis with multiplier [10^-13])",
+ "notes": "This paper is a theoretical analysis of stellar cooling anomalies interpreted through axion models (DFSZ and KSVZ/majoron types). It does NOT present new measured exclusion limits from experiments. Instead, it: (1) analyzes existing astrophysical hints (WD cooling, RGB luminosity, HB R-parameter, NS CAS A, SN1987A) to constrain axion parameters via global fits; (2) projects future sensitivities of IAXO and ARIADNE experiments. The paper derives preferred axion mass ranges (~6-20 meV depending on model) and couplings from stellar data fits, but these are INFERRED constraints from astrophysical observations, not direct experimental exclusion limits. The coupling_type is AxionPhoton because the paper constrains g_a\u03b3 (axion-photon coupling) alongside g_ae (axion-electron) and g_an/g_ap (axion-nucleon), with g_a\u03b3 being central to IAXO projections. However, no single set of (mass, coupling) data points can be cleanly extracted as 'the' limit\u2014the paper presents multiple model-dependent scenarios (DFSZ I/II, KSVZ A/J variants) with different best-fit regions shown in Figures 2\u20133. The 2\u03c3 ranges in Table 7 give couplings but are model-specific and derived from fits to stellar hints, not from a single experimental measurement. Extraction confidence is low because: (a) no new measured limit is presented, (b) multiple coupling types are constrained simultaneously (AxionPhoton, AxionElectron, AxionNeutron, AxionProton), (c) results are model-dependent with no universal exclusion curve, and (d) projections for IAXO/ARIADNE are discussed qualitatively rather than as quantitative data points. | selector: figure_vision (sole candidate) | Vision: Figure 1 shows combined analysis of hints from WD+RGB+HB stars in the g_ae\u2013g_a\u03b3 plane. The x-axis is labeled 'g_a\u03b3 [10^-13]' and y-axis is 'g_n [10^-13 GeV^-1]'. The plot displays three contours (1\u03c3, 2\u03c3, 3\u03c3) representing confidence levels from stellar cooling anomalies. The lower boundary of the 1\u03c3 contour (innermost black curve) traces the exclusion limit. The red dot marks the best-fit point. Also shown are projected sensitivities of ALPS II and IAXO experiments. The coupling values are read directly from the plotted y-axis scale (0.0 to 0.8) and converted to absolute units by multiplying by the axis multiplier 10^-13 GeV^-1. Mass values are read from the x-axis (0.0 to 3.0 in units of 10^-13 eV) and converted to eV by multiplying by 10^-13. The boundary shows a characteristic bell-shaped profile peaking near 1.7\u20131.8 \u00d7 10^-13 eV. | Calibration: No calibration needed | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+ "num_points": 24,
+ "elapsed_s": 120.25753211975098
+}

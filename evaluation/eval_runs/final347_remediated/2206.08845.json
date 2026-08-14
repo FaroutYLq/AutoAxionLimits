@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2206.08845",
+  "paper_title": "Searching for Invisible Axion Dark Matter with an 18T Magnet Haloscope",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.9764e-05,
+      1.16e-14
+    ],
+    [
+      1.9771e-05,
+      1.16e-14
+    ],
+    [
+      1.9772e-05,
+      2.09e-14
+    ],
+    [
+      1.9863e-05,
+      2.1e-14
+    ],
+    [
+      1.9863e-05,
+      1.32e-14
+    ],
+    [
+      1.989e-05,
+      1.32e-14
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.72,
+  "suggested_experiment_name": "CAPP18T",
+  "coupling_convention": "g_agamma in GeV^-1 (converted from stated KSVZ coupling multiples using g_KSVZ \u2248 3.91e-16 * m_a[ueV] GeV^-1)",
+  "notes": "CAPP18T haloscope, 18T HTS magnet, TM010 cavity, scan 4.7789-4.8094 GHz. Limits quoted only as multiples of KSVZ coupling: 1.5x KSVZ over 19.764-19.771 ueV, 2.7x KSVZ over 19.772-19.863 ueV (shallow scan), 1.7x KSVZ over 19.863-19.890 ueV. Converted to g_agamma in GeV^-1 using KSVZ relation (E/N=0, C_agamma=-1.92; f_a from m_a f_a = 5.7e12 GeV*ueV). Values approximate due to conversion; 90% CL. Local DM density 0.45 GeV/cm^3. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 6,
+  "elapsed_s": 51.728787899017334
+}

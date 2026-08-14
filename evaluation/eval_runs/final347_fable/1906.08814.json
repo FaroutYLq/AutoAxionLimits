@@ -1,0 +1,146 @@
+{
+  "arxiv_id": "1906.08814",
+  "paper_title": "DM-Pathfinder",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.0295e-09,
+      5.1e-09
+    ],
+    [
+      2.0298e-09,
+      4.98e-09
+    ],
+    [
+      2.03e-09,
+      4.82e-09
+    ],
+    [
+      2.0305e-09,
+      4.43e-09
+    ],
+    [
+      2.031e-09,
+      4.04e-09
+    ],
+    [
+      2.0315e-09,
+      3.66e-09
+    ],
+    [
+      2.032e-09,
+      3.28e-09
+    ],
+    [
+      2.0325e-09,
+      2.92e-09
+    ],
+    [
+      2.033e-09,
+      2.57e-09
+    ],
+    [
+      2.0335e-09,
+      2.24e-09
+    ],
+    [
+      2.034e-09,
+      1.95e-09
+    ],
+    [
+      2.0343e-09,
+      1.8e-09
+    ],
+    [
+      2.0345e-09,
+      1.72e-09
+    ],
+    [
+      2.0348e-09,
+      1.61e-09
+    ],
+    [
+      2.035e-09,
+      1.56e-09
+    ],
+    [
+      2.0352e-09,
+      1.52e-09
+    ],
+    [
+      2.0355e-09,
+      1.5e-09
+    ],
+    [
+      2.0358e-09,
+      1.52e-09
+    ],
+    [
+      2.036e-09,
+      1.56e-09
+    ],
+    [
+      2.0362e-09,
+      1.61e-09
+    ],
+    [
+      2.0365e-09,
+      1.72e-09
+    ],
+    [
+      2.0368e-09,
+      1.83e-09
+    ],
+    [
+      2.037e-09,
+      1.95e-09
+    ],
+    [
+      2.0375e-09,
+      2.24e-09
+    ],
+    [
+      2.038e-09,
+      2.57e-09
+    ],
+    [
+      2.0385e-09,
+      2.92e-09
+    ],
+    [
+      2.039e-09,
+      3.28e-09
+    ],
+    [
+      2.0395e-09,
+      3.66e-09
+    ],
+    [
+      2.04e-09,
+      4.04e-09
+    ],
+    [
+      2.0403e-09,
+      4.27e-09
+    ],
+    [
+      2.0405e-09,
+      4.43e-09
+    ],
+    [
+      2.0408e-09,
+      4.66e-09
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "DM Radio Pathfinder (test resonator)",
+  "coupling_convention": "kinetic mixing angle epsilon, dimensionless (axis plotted as 10^-9 * epsilon; multiplier applied)",
+  "notes": "Fixed-frequency superconducting lumped-element resonator (DM Radio test device). Excludes kinetic mixing eps >~ 1.5e-9 at 90% C.L. in a narrow band around m = 2.035 neV (resonant frequency 492.027 kHz, analysis band +/-1.5 kHz, converted via m[eV]=4.136e-15*f[Hz]). Paper states out-of-band sensitivity is not significantly degraded within the analysis band, so a roughly flat eps~1.5e-9 line across the ~3 kHz band is used. Only the text value eps ~ 1.5e-9 is given; the exclusion curve in Fig. 3a is not tabulated. rho_DM = 0.45 GeV/cm^3 assumed (paper writes GeV/c^2, evidently a typo for GeV/cm^3). First direct-detection limit in this mass range. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 32)) | Vision: Fig. 3a of Phipps et al. Linear-linear plot: x = hidden photon mass 2.029-2.041 neV (top axis: 491-493 kHz), y = kinetic mixing angle in units of 10^-9. U-shaped 90% C.L. exclusion from a single fixed-frequency resonator at 492.027 kHz; minimum epsilon ~1.5e-9 at ~2.0355 neV, consistent with text 'excluding epsilon >~ 1.5e-9 in a band around 2.035 neV'. Boundary traced from the solid 'Limit' line (not the +/-1sigma band). Curve is smooth/resonance-shaped, sampled densest near the minimum. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.96 snapped to identity)",
+  "num_points": 32,
+  "elapsed_s": 132.60260319709778
+}

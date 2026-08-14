@@ -1,0 +1,30 @@
+{
+  "arxiv_id": "2307.01365",
+  "paper_title": "LIDA",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.97e-09,
+      3.2e-10
+    ],
+    [
+      1.985e-09,
+      1.51e-10
+    ],
+    [
+      2.01e-09,
+      3.2e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "LIDA",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "First observing run of LIDA laser-interferometric axion detector (85 h). Peak sensitivity g_agamma = 1.51e-10 GeV^-1 at m_a = 1.985 neV (480.0 kHz), average 3.2e-10 GeV^-1 over 1.97-2.01 neV, all at 95% CL. This is a galactic-halo DM search assuming the standard coherent axion field (rho_DM appears in signal model) but the paper does not state the numerical local DM density value, so dm_density_assumed is left null. Full sensitivity curve is only in Fig. 2; emitted points reconstruct the band from explicit numbers in the text (peak plus average as band endpoints), so the shape is approximate. Future projections (1e-13 GeV^-1 at 1e-14 eV) mentioned but not the primary result. | selector: text (sole candidate)",
+  "num_points": 3,
+  "elapsed_s": 29.673593997955322
+}

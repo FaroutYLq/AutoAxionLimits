@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2401.07798",
+  "paper_title": "Constraints on axion-like particles with the Perseus Galaxy Cluster with MAGIC",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4e-08,
+      3e-12
+    ],
+    [
+      5e-08,
+      3e-12
+    ],
+    [
+      9e-08,
+      5e-12
+    ],
+    [
+      2e-07,
+      5e-11
+    ],
+    [
+      4e-07,
+      5e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "MAGIC_Perseus_NGC1275",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "MAGIC 41.3 hr observation of NGC 1275 in the Perseus cluster searching for ALP-induced spectral irregularities. New observed exclusion limit at 99% CL (paper quotes 99% CL; enum forced to 0.95 \u2014 actual is 0.99). No exclusion contour table is provided; data points are approximate reconstructions from text statements: strongest limit g_agamma = 3e-12 GeV^-1 at m_a ~ 40-50 neV; most competitive constraints for 40-90 neV; excluded masses span ~40-400 neV; parameter scan covered 4e-9 to 1e-6 eV in mass and 5e-13 to 5e-10 GeV^-1 in coupling. This is an astrophysical photon-ALP conversion bound (not a haloscope), so no local DM density is assumed. The paper also contains a CTA-comparison projection (Fig. 4), but the primary result is the observed 99% CL limit. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 5,
+  "elapsed_s": 51.02328610420227
+}

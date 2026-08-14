@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2504.16044",
+ "paper_title": "Search for Axionlike Dark Matter Using Liquid-State Nuclear Magnetic Resonance",
+ "coupling_type": "AxionProton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   5.576741e-09,
+   0.03
+  ],
+  [
+   5.577733e-09,
+   0.03
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "CASPEr-Gradient-LF",
+ "coupling_convention": "dimensionless g_ap in GeV^-1",
+ "notes": "This is a commissioning/proof-of-principle measurement of the CASPEr-Gradient Low-Field apparatus searching for ALP-proton gradient coupling. The paper reports a narrow-bandwidth search over 240 Hz centered at 1.348570 MHz, corresponding to ALP masses 5.576741\u20135.577733 neV/c\u00b2. No signal was detected; the resulting upper limit is |g_ap| \u2264 3\u00d710^\u22122 GeV^\u22121 at 95% confidence level. The measurement used thermally-polarized liquid methanol with 7.2\u00d710^22 protons. The paper explicitly states the local DM density assumption \u03c1_DM \u2248 0.3 GeV/cm\u00b3 following the standard halo model. The coupling constant is reported in GeV^\u22121 as stated in the abstract and main text. The data point is encoded as a horizontal line spanning the narrow mass range searched, following the convention for mass-dependent bounds. Future measurements with hyperpolarized samples are projected to reach sensitivities of 10^\u22126 GeV^\u22121 or better over a much wider mass range (4.1 peV to 17 neV), but those are projections, not measured limits. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.92, 2))",
+ "num_points": 2,
+ "elapsed_s": 223.46264004707336
+}

@@ -1,0 +1,78 @@
+{
+ "arxiv_id": "2307.01365",
+ "paper_title": "First results of the Laser-Interferometric Detector for Axions (LIDA)",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.00197,
+   1.51e-10
+  ],
+  [
+   0.001975,
+   1.48e-10
+  ],
+  [
+   0.00198,
+   1.45e-10
+  ],
+  [
+   0.001985,
+   1.42e-10
+  ],
+  [
+   0.00199,
+   1.39e-10
+  ],
+  [
+   0.001995,
+   1.36e-10
+  ],
+  [
+   0.002,
+   1.33e-10
+  ],
+  [
+   0.002005,
+   1.3e-10
+  ],
+  [
+   0.00201,
+   1.27e-10
+  ],
+  [
+   0.002015,
+   1.24e-10
+  ],
+  [
+   0.00202,
+   1.21e-10
+  ],
+  [
+   0.002025,
+   1.18e-10
+  ],
+  [
+   0.00203,
+   1.15e-10
+  ],
+  [
+   0.002035,
+   1.12e-10
+  ],
+  [
+   0.00204,
+   1.09e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "LIDA (Laser-Interferometric Detector for Axions)",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling",
+ "notes": "First observing run of laser-interferometric detector for axions (LIDA). Peak sensitivity of 1.51\u00d710^-10 GeV^-1 achieved at 1.985 neV (480.0 kHz) over 85 hours of measurement time. The detector is sensitive to polarization rotation of linearly polarized laser light induced by axion-photon coupling. Measurement band: 475.4\u2013505.1 kHz corresponding to axion mass range 1.97\u20132.01 neV. Average sensitivity across the range: 3.2\u00d710^-10 GeV^-1. No significant evidence for axions or ALPs detected. The standard local DM density of 0.3 GeV/cm^3 is assumed in the coherent field amplitude calculation (Eq. 1). This is the first detector of its kind collecting scientific data. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 15)) | Vision: Figure 2 shows the sensitivity curve for LIDA's first observing run. The plot displays g_agamma (axion-photon coupling strength) vs. axion mass in meV. The x-axis spans 1.97\u20132.04 meV (linear scale), and the y-axis spans 1e-11 to 1e-8 GeV^-1 (log scale). The blue shaded region represents the 95% confidence level sensitivity band from the full data. The boundary traced represents the lower edge of the exclusion region (best sensitivity limit). The peak sensitivity of 1.51\u00d710^-10 GeV^-1 is explicitly stated in the text and occurs near 1.985 meV. The curve shows a gentle downward trend across the measured mass range, indicating slightly improving sensitivity at higher masses within this narrow band. The CAST constraint line is also shown for comparison but is not traced here. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.16 snapped to identity)",
+ "num_points": 15,
+ "elapsed_s": 115.32347702980042
+}

@@ -1,0 +1,17 @@
+{
+  "arxiv_id": "2402.00741",
+  "paper_title": "Axion Dark Matter from Cosmic String Network",
+  "coupling_type": "AxionMass",
+  "is_new_limit": false,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.2,
+  "suggested_experiment_name": "KAIST_AxionStringLattice2024",
+  "coupling_convention": "m_a in eV (lower bound only)",
+  "notes": "This is a theoretical/cosmological lattice-simulation paper estimating axion dark matter abundance radiated from global cosmic strings in the post-inflationary scenario. It derives a conservative LOWER BOUND on the QCD axion mass (upper bound on f_a), not an experimental exclusion limit or coupling constraint. The provided excerpt does not contain the explicit numerical value of the derived lower bound (uses xi_star=13.4/16.6, log_star~64-70, Omega_a h^2~0.12(28ueV/m_a)^7/6 reference), so no reliable (mass, coupling) data points can be extracted. Not a haloscope/DM-search coupling limit; no local DM density applies. Not a coupling-constant exclusion plot, so treated as AxionMass hint but with no extractable data. | [CONVENTION REVIEW] declared coupling convention 'm_a in eV (lower bound only)' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 0,
+  "elapsed_s": 51.739258766174316
+}

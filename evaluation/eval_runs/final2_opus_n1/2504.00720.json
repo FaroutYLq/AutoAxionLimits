@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2504.00720",
+ "paper_title": "Search for QCD coupled axion dark matter with the MICROSCOPE space experiment",
+ "coupling_type": "AxionCPV",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-20,
+   1.7e-16
+  ],
+  [
+   7.7e-14,
+   1.3e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "MICROSCOPE_QCDaxion",
+ "coupling_convention": "1/f_a in GeV^-1 (axion-gluon coupling)",
+ "notes": "Paper constrains the axion-gluon (QCD) coupling 1/f_a via UFF/equivalence-principle violation from MICROSCOPE. Only two anchor points of the exclusion curve are given explicitly in the text: 1/f_a ~ 1.7e-16 GeV^-1 at m_a=1e-20 eV and 1/f_a ~ 1.3e-10 GeV^-1 at m_a~7.7e-14 eV. The full exclusion curve (Fig 2) contains multiple bands and could not be read numerically. Coupling is the QCD axion-gluon coupling (CP-violating, strong-CP related), best matched to AxionCPV among the enum; y-axis is 1/f_a in GeV^-1, NOT the standard dimensionless form, so declared as raw variable. Mass range spans 1e-20 to ~1e-13 eV. Local DM density assumed rho_DM=0.4 GeV/cm^3. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.55, 2))",
+ "num_points": 2,
+ "elapsed_s": 188.6412968635559
+}

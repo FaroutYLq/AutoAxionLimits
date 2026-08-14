@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "1906.11844",
+  "paper_title": "SN1987A",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-06,
+      6e-10
+    ],
+    [
+      0.1,
+      6e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "SN1987A_NNbrems",
+  "coupling_convention": "dimensionless g_an (with g_an = g_ap assumed)",
+  "notes": "SN1987A axion energy-loss bound from improved NN bremsstrahlung calculation. Main free-streaming result: g_an = g_ap <= 6e-10 (vs 2e-10 for naive OPE). General constraint g_an^2 + 0.61 g_ap^2 + 0.53 g_an g_ap <= 8.26e-19. KSVZ case gives g_ap <= 1.2e-9, m_a <= 15 meV. Encoded as flat coupling bound valid for free-streaming axions (m_a below ~0.1 eV, above which axions are trapped). Coupling type ambiguous between neutron/proton since g_an=g_ap assumed for the main bound; KSVZ uses proton coupling only. Chose AxionNeutron per generic-nucleon convention. Not a DM haloscope, no local density. | selector: text over figure_vision (quality (1, 1, 1, 0, 1, 0, 0.55, 2)) | [CONVENTION REVIEW] declared coupling convention 'dimensionless g_an (with g_an = g_ap assumed)' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 2,
+  "elapsed_s": 151.00294518470764
+}

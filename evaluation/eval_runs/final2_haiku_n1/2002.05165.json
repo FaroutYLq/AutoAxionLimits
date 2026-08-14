@@ -1,0 +1,58 @@
+{
+ "arxiv_id": "2002.05165",
+ "paper_title": "COBEFIRAS",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-16,
+   1e-09
+  ],
+  [
+   1e-15,
+   3e-07
+  ],
+  [
+   2e-15,
+   6e-06
+  ],
+  [
+   4e-15,
+   6e-06
+  ],
+  [
+   1e-14,
+   2e-05
+  ],
+  [
+   1e-13,
+   0.0001
+  ],
+  [
+   1e-12,
+   0.0005
+  ],
+  [
+   1e-11,
+   0.002
+  ],
+  [
+   1e-10,
+   0.01
+  ],
+  [
+   1e-09,
+   0.1
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "COBE_FIRAS",
+ "coupling_convention": "dimensionless kinetic mixing \u03b5",
+ "notes": "Paper presents NEW measured exclusion limits from COBE/FIRAS CMB spectrum data on dark photon kinetic mixing \u03b5 as a function of dark photon mass m_A'. Left panel of Fig. 3 shows 95% CL constraints derived from \u03b3\u2192A' oscillations in the inhomogeneous early Universe. Data points extracted from the log-normal PDF curve (red solid line, more conservative). The paper's main innovation is accounting for plasma mass inhomogeneities, which extends constraints to previously inaccessible parameter space (m_A' \u2272 10^-14 eV) and modifies constraints at higher masses compared to homogeneous approximation. Constraints are derived from fitting FIRAS monopole data (43 frequency points, \u03bd\u2080 = 2.27\u201321.33 cm\u207b\u00b9) to a Planckian spectrum with spectral distortions from dark photon conversion. The paper also presents constraints from dark photon dark matter heating (right panel, Fig. 3), but the primary NEW measured limit is from FIRAS. Extraction confidence is 0.75 because data points are read from a figure rather than provided in tabular form, introducing modest digitization uncertainty. | selector: text (sole candidate)",
+ "num_points": 10,
+ "elapsed_s": 109.23835015296936
+}

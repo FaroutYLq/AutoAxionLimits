@@ -1,0 +1,170 @@
+{
+ "arxiv_id": "2203.04332",
+ "paper_title": "Constraining Axion-Like Particles with HAWC Observations of TeV Blazars",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-11,
+   2.9e-11
+  ],
+  [
+   1.5e-11,
+   2.9e-11
+  ],
+  [
+   2.5e-11,
+   2.9e-11
+  ],
+  [
+   4e-11,
+   2.9e-11
+  ],
+  [
+   6e-11,
+   2.9e-11
+  ],
+  [
+   1e-10,
+   2.9e-11
+  ],
+  [
+   1.5e-10,
+   2.9e-11
+  ],
+  [
+   2.5e-10,
+   2.9e-11
+  ],
+  [
+   4e-10,
+   2.9e-11
+  ],
+  [
+   6e-10,
+   2.9e-11
+  ],
+  [
+   1e-09,
+   2.9e-11
+  ],
+  [
+   1.5e-09,
+   2.9e-11
+  ],
+  [
+   2.5e-09,
+   2.9e-11
+  ],
+  [
+   4e-09,
+   2.9e-11
+  ],
+  [
+   6e-09,
+   2.9e-11
+  ],
+  [
+   1e-08,
+   2.9e-11
+  ],
+  [
+   1.3e-08,
+   2.85e-11
+  ],
+  [
+   1.6e-08,
+   2.6e-11
+  ],
+  [
+   1.8e-08,
+   2.4e-11
+  ],
+  [
+   2e-08,
+   2.9e-11
+  ],
+  [
+   2.3e-08,
+   3.4e-11
+  ],
+  [
+   2.6e-08,
+   3e-11
+  ],
+  [
+   3e-08,
+   3.1e-11
+  ],
+  [
+   3.5e-08,
+   2.9e-11
+  ],
+  [
+   4.5e-08,
+   2.9e-11
+  ],
+  [
+   6e-08,
+   2.9e-11
+  ],
+  [
+   8e-08,
+   2.9e-11
+  ],
+  [
+   1e-07,
+   2.9e-11
+  ],
+  [
+   1.3e-07,
+   3e-11
+  ],
+  [
+   1.6e-07,
+   3.2e-11
+  ],
+  [
+   1.9e-07,
+   3.5e-11
+  ],
+  [
+   2.1e-07,
+   3.3e-11
+  ],
+  [
+   2.3e-07,
+   3.8e-11
+  ],
+  [
+   2.6e-07,
+   4.5e-11
+  ],
+  [
+   3e-07,
+   5.5e-11
+  ],
+  [
+   3.5e-07,
+   7e-11
+  ],
+  [
+   4e-07,
+   9e-11
+  ],
+  [
+   4.5e-07,
+   1e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "HAWC TeV Blazars ALP",
+ "coupling_convention": "g_agamma in 10^-11 GeV^-1 as plotted, emitted in absolute GeV^-1",
+ "notes": "ALP-photon conversion limit from HAWC TeV blazar observations. Paper reports exclusion at >3 sigma for g_agamma > ~3e-11 GeV^-1 for ALP masses below ~200-300 neV (300 neV = 3e-7 eV). The exclusion is approximately a horizontal band at 3e-11 GeV^-1 up to a mass cutoff; encoded as a two-point line spanning the stated mass range (from lowest masses ~1e-11 eV up to 3e-7 eV). Detailed contour shape in Fig. 3/4 not extractable numerically from text. This is an astrophysical (LSW-type) bound, not a DM haloscope, so no local DM density applies. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 38)) | Vision: Traced from Fig. 3, the combined >3sigma exclusion boundary. X-axis given in neV converted to eV. Boundary flat at ~2.9e-11 GeV^-1 across most masses with a dip near 15-20 neV and sharp rise above ~200 neV, consistent with text stating exclusion for g_agamma >~ 3e-11 GeV^-1 and masses up to 200-300e-9 eV. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.34 snapped to identity)",
+ "num_points": 38,
+ "elapsed_s": 144.12398481369019
+}

@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "0801.1527",
+  "paper_title": "Helioscope Bounds on Hidden Sector Photons",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.001,
+      0.0022
+    ],
+    [
+      0.01,
+      2.2e-05
+    ],
+    [
+      0.1,
+      2.2e-07
+    ],
+    [
+      1.0,
+      2.2e-09
+    ],
+    [
+      10.0,
+      1e-11
+    ],
+    [
+      100.0,
+      3e-13
+    ],
+    [
+      295.0,
+      1e-14
+    ],
+    [
+      1000.0,
+      1e-08
+    ],
+    [
+      10000.0,
+      1e-07
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.42,
+  "suggested_experiment_name": "CAST_Helioscope_HiddenPhoton_Redondo2008",
+  "coupling_convention": "dimensionless kinetic mixing chi",
+  "notes": "Solar/stellar bound (NOT a DM haloscope), so no local DM density. Constrains kinetic mixing chi of hidden (dark) photon vs mass m\u03b3' from solar energy-loss (lifetime) argument and CAST helioscope non-observation. Main result in Fig. 6 (plot, no numerical table). Low-mass lifetime bound points computed from W\u03b3'=8e43 \u03c7\u00b2(m\u03b3'/eV)\u2074 W set to L_sun=3.83e26 W (chi=2.19e-9*(m/eV)^-2 for m<1 eV); resonant region (1-295 eV) reaches chi~1e-14 at solar core; higher-mass points are rough envelope reads. Best limits quoted over 3 meV < m\u03b3' < 40 keV, chi down to ~1e-14. Point values are approximate. | [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of the strongest real constraints') rather than the paper's own single curve | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.42, 9))",
+  "num_points": 9,
+  "elapsed_s": 147.32618117332458
+}

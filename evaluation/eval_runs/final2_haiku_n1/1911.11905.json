@@ -1,0 +1,78 @@
+{
+ "arxiv_id": "1911.11905",
+ "paper_title": "Constraints on dark photons and axion-like particles from SuperCDMS Soudan",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   40.0,
+   1.2e-12
+  ],
+  [
+   50.0,
+   1e-12
+  ],
+  [
+   60.0,
+   8.5e-13
+  ],
+  [
+   70.0,
+   7.2e-13
+  ],
+  [
+   80.0,
+   6e-13
+  ],
+  [
+   90.0,
+   5.2e-13
+  ],
+  [
+   100.0,
+   4.5e-13
+  ],
+  [
+   120.0,
+   3.5e-13
+  ],
+  [
+   150.0,
+   2.5e-13
+  ],
+  [
+   186.0,
+   1.8e-13
+  ],
+  [
+   200.0,
+   1.6e-13
+  ],
+  [
+   250.0,
+   1.2e-13
+  ],
+  [
+   300.0,
+   9.5e-14
+  ],
+  [
+   400.0,
+   6.5e-14
+  ],
+  [
+   500.0,
+   4.8e-14
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "SuperCDMS_Soudan",
+ "coupling_convention": "dimensionless g_ae",
+ "notes": "Paper presents NEW measured exclusion limits on axioelectric coupling g_ae of axion-like particles (ALPs) from electron recoil data in SuperCDMS Soudan cryogenic germanium detectors. Mass range 40 eV to 500 keV covered by CDMSlite (40 eV\u201325 keV) and iZIP (3\u2013500 keV) modes. Abstract states 'values below 10^-12 are reached for particles with masses in the range of a few-hundred eV/c^2', consistent with extracted data. Local dark matter density \u03c1_\u03c7 = 0.3 GeV/(c^2 cm^3) assumed throughout. Data points extracted from Fig. 12 (corrected axioelectric coupling limit plot). The paper also constrains dark photon kinetic mixing (DarkPhoton coupling type), but pre-analysis hint and abstract emphasis indicate AxionElectron is the primary result. Confidence level is 90% (Poisson upper limit method stated in text). Extraction confidence 0.85 due to approximate reading from figure; exact tabulated values not provided in paper. | selector: text (sole candidate)",
+ "num_points": 15,
+ "elapsed_s": 56.480855226516724
+}

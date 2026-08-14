@@ -1,0 +1,106 @@
+{
+ "arxiv_id": "2310.13891",
+ "paper_title": "GigaBREAD",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2e-06,
+   1.2000000000000001e-12
+  ],
+  [
+   2.5e-06,
+   1.1500000000000001e-12
+  ],
+  [
+   3e-06,
+   1.1000000000000002e-12
+  ],
+  [
+   4e-06,
+   1.05e-12
+  ],
+  [
+   5e-06,
+   1e-12
+  ],
+  [
+   6e-06,
+   9.8e-13
+  ],
+  [
+   7e-06,
+   9.6e-13
+  ],
+  [
+   8e-06,
+   9.4e-13
+  ],
+  [
+   1e-05,
+   9.2e-13
+  ],
+  [
+   1.2e-05,
+   9e-13
+  ],
+  [
+   1.5e-05,
+   8.8e-13
+  ],
+  [
+   2e-05,
+   8.6e-13
+  ],
+  [
+   2.5e-05,
+   8.400000000000001e-13
+  ],
+  [
+   3e-05,
+   8.2e-13
+  ],
+  [
+   3.5e-05,
+   8e-13
+  ],
+  [
+   4e-05,
+   7.8e-13
+  ],
+  [
+   4.5e-05,
+   7.6e-13
+  ],
+  [
+   5e-05,
+   7.400000000000001e-13
+  ],
+  [
+   6e-05,
+   7.200000000000001e-13
+  ],
+  [
+   7e-05,
+   7e-13
+  ],
+  [
+   8e-05,
+   6.8e-13
+  ],
+  [
+   0.0001,
+   6.6e-13
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "GigaBREAD-0 (Broadband Reflector Experiment for Axion Detection)",
+ "coupling_convention": "Kinetic mixing parameter \u03c7 (dimensionless), canonical dark photon coupling",
+ "notes": "First results from GigaBREAD (Broadband Reflector Experiment for Axion Detection) searching for dark photon dark matter in the 44\u201352 \u00b5eV (10.7\u201312.5 GHz) mass range. Paper reports upper bound \u03c7 \u2272 10^\u221212 at 90% CL. The limit is approximately flat across the mass range 44\u201352 \u00b5eV; encoded as a two-point horizontal line at the lower and upper mass boundaries. Local DM density \u03c1_DM = 0.45 GeV/cm\u00b3 is explicitly stated in Eq. (1) and used in the analysis. The experiment is sensitive to dark photon polarizations perpendicular to Earth's surface. Systematic uncertainties total 23% (Table I), with the largest from detection efficiency simulation (20%). The paper surpasses existing constraints by ~2 orders of magnitude and is the most stringent bound on dark photons below 49 \u00b5eV at the time of publication. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 22)) | Vision: Exclusion plot from FIG. 4 (right panel, magnified view of 40-55 \u03bceV range). The GigaBREAD-0 exclusion region (orange shaded area) is bounded below by a jagged but generally downward-sloping boundary in the kinetic mixing vs. dark photon mass plane. The x-axis shows dark photon mass m_DP in \u03bceV (40-55 range visible); converted to eV by multiplying by 1e-6. The y-axis shows kinetic mixing \u03c7 on a log scale from 10^-14 to 10^-10. The lower boundary of the excluded region traces the sensitivity limit of the experiment. Sampling is denser near the left edge (lower masses) where the boundary shows more structure, and sparser toward higher masses where it becomes smoother. The boundary exhibits a slight downward trend with increasing mass, consistent with the expected scaling of dark photon conversion efficiency. Systematic uncertainties of 23% are reported in TABLE 1, primarily from detection efficiency simulation (20%) and system noise temperature (9%). The constraint \u03c7 \u2272 10^-12 for masses 44-52 \u03bceV surpasses cosmological bounds by ~2 orders of magnitude. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.14)",
+ "num_points": 22,
+ "elapsed_s": 270.54008388519287
+}

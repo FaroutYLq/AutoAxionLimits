@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2112.09620",
+  "paper_title": "Earth as a transducer for axion dark-matter detection",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2e-18,
+      3e-10
+    ],
+    [
+      1e-17,
+      1.2e-10
+    ],
+    [
+      3e-17,
+      6.5e-11
+    ],
+    [
+      4e-17,
+      6.5e-11
+    ],
+    [
+      7e-17,
+      6e-11
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "SuperMAG_Axion",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Search for axion-photon coupling via oscillating terrestrial magnetic field in SuperMAG magnetometer network data. Mass range 2e-18 to 7e-17 eV. Strongest 95%-credible limit g_agamma <= 6.5e-11 GeV^-1 for ~3-4e-17 eV, comparable to CAST. Only Fig.1 exclusion curve available (no data table); data points approximated from text statements and figure - limit improves with increasing mass. rho_dm = 0.3 GeV/cm^3 assumed. For axion (not dark photon), so polarization not applicable. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 5,
+  "elapsed_s": 33.05175495147705
+}

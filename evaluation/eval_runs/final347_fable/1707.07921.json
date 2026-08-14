@@ -1,0 +1,162 @@
+{
+  "arxiv_id": "1707.07921",
+  "paper_title": "Limits on Axion Couplings from the first 80-day data of PandaX-II Experiment",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.01,
+      4.35e-11
+    ],
+    [
+      0.03,
+      4.35e-11
+    ],
+    [
+      0.1,
+      4.35e-11
+    ],
+    [
+      0.3,
+      4.35e-11
+    ],
+    [
+      1.0,
+      4.35e-11
+    ],
+    [
+      3.0,
+      4.35e-11
+    ],
+    [
+      10.0,
+      4.35e-11
+    ],
+    [
+      30.0,
+      4.35e-11
+    ],
+    [
+      60.0,
+      4.35e-11
+    ],
+    [
+      85.0,
+      4.3200000000000003e-11
+    ],
+    [
+      100.0,
+      3.67e-11
+    ],
+    [
+      130.0,
+      2.82e-11
+    ],
+    [
+      150.0,
+      2.44e-11
+    ],
+    [
+      200.0,
+      1.83e-11
+    ],
+    [
+      300.0,
+      1.22e-11
+    ],
+    [
+      400.0,
+      9.2e-12
+    ],
+    [
+      500.0,
+      7.3e-12
+    ],
+    [
+      700.0,
+      5.2000000000000005e-12
+    ],
+    [
+      1000.0,
+      3.7e-12
+    ],
+    [
+      1500.0,
+      2.4500000000000003e-12
+    ],
+    [
+      2000.0,
+      1.8599999999999997e-12
+    ],
+    [
+      3000.0,
+      1.2599999999999999e-12
+    ],
+    [
+      4000.0,
+      9.700000000000001e-13
+    ],
+    [
+      5000.0,
+      8.1e-13
+    ],
+    [
+      6000.0,
+      7e-13
+    ],
+    [
+      7000.0,
+      6.400000000000001e-13
+    ],
+    [
+      8000.0,
+      6.1e-13
+    ],
+    [
+      9000.0,
+      5.9e-13
+    ],
+    [
+      10000.0,
+      6e-13
+    ],
+    [
+      11000.0,
+      6.400000000000001e-13
+    ],
+    [
+      12000.0,
+      7.4e-13
+    ],
+    [
+      13000.0,
+      1e-12
+    ],
+    [
+      13500.0,
+      1.3000000000000001e-12
+    ],
+    [
+      14000.0,
+      2.3e-12
+    ],
+    [
+      14200.0,
+      3.8e-12
+    ],
+    [
+      14350.0,
+      1.0999999999999999e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "PandaX-II",
+  "coupling_convention": "canonical g_Ae, dimensionless axion-electron coupling as plotted on y-axis",
+  "notes": "PandaX-II 80-day (Run 9, 2.7e4 kg-day) axioelectric search. Primary DM result extracted: galactic ALP dark matter limit g_Ae <~ 4e-13 (90% CL), approximately flat over 1-25 keV/c^2 (slightly weakened near 4-6 keV due to 127Xe background); assumes local DM density 0.3 GeV/cm^3. Paper also reports a solar axion (CBRD flux) limit g_Ae ~ 4.35e-12 for 1e-2 eV < m_A < 1 keV (no DM density assumption; abstract value used, as text contains inconsistent typos 4e-13 / 4.35e-11), and a 57Fe 14.4 keV solar axion limit reaching g_Ae = 6e-14 at m_A = 10 keV (DFSZ g_AN benchmark). Values taken from text; full exclusion curves only in figures. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 36)) | Vision: Traced from Fig. 3 (solar axion limits, g_Ae vs m_A, x-axis in keV/c^2 converted to eV). The boundary is the lower envelope of two PandaX-II curves: (1) the solar CBRD limit (solid red), flat at g_Ae ~ 4.35e-12 for 1e-5 < m_A < ~0.09 keV/c^2 (value quoted in abstract/text); (2) the 57Fe 14.4 keV solar-axion limit (thick red dashed) with a slope ~ -1 (from linear m_A dependence of g_AN^eff in DFSZ), reaching the text-quoted minimum of 6e-14 at m_A = 10 keV/c^2, then rising steeply near the kinematic endpoint m_A -> 14.4 keV/c^2 due to the (k_A/k_gamma)^3 momentum factor. Points between anchors interpolated with these known scalings; anchors (4.35e-12 flat, 6e-14 at 10 keV) are explicit in the text. This is a solar axion flux limit, so no DM density is assumed for Fig. 3. Fig. 4 shows a separate galactic ALP limit (~4.3e-14 to 3e-13 for 1-25 keV/c^2, rho=0.3 GeV/cm^3) not traced here. DFSZ benchmark reading is approximate from the plotted gray line. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=11.76)",
+  "num_points": 36,
+  "elapsed_s": 322.2137453556061
+}

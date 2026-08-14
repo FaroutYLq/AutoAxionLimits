@@ -1,0 +1,186 @@
+{
+  "arxiv_id": "2310.00904",
+  "paper_title": "Exclusion of ALP Cogenesis Dark Matter in a Mass Window Above 100 $\u03bc$eV",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.00010741,
+      5e-12
+    ],
+    [
+      0.00010743,
+      4.5e-12
+    ],
+    [
+      0.00010745,
+      4.3e-12
+    ],
+    [
+      0.00010749,
+      4.4e-12
+    ],
+    [
+      0.00010754,
+      5.2e-12
+    ],
+    [
+      0.00010758,
+      5.6e-12
+    ],
+    [
+      0.00010762,
+      5.5e-12
+    ],
+    [
+      0.00010766,
+      4.6e-12
+    ],
+    [
+      0.00010774,
+      4.3e-12
+    ],
+    [
+      0.00010787,
+      4.4e-12
+    ],
+    [
+      0.00010795,
+      4.2e-12
+    ],
+    [
+      0.00010807,
+      4.5e-12
+    ],
+    [
+      0.0001082,
+      4.3e-12
+    ],
+    [
+      0.00010836,
+      4.4e-12
+    ],
+    [
+      0.00010853,
+      4.2e-12
+    ],
+    [
+      0.00010869,
+      4.5e-12
+    ],
+    [
+      0.00010878,
+      4.3e-12
+    ],
+    [
+      0.0001089,
+      4.6e-12
+    ],
+    [
+      0.00010902,
+      4.2e-12
+    ],
+    [
+      0.00010919,
+      4.4e-12
+    ],
+    [
+      0.00010931,
+      4.7e-12
+    ],
+    [
+      0.00010944,
+      4.3e-12
+    ],
+    [
+      0.0001096,
+      4.2e-12
+    ],
+    [
+      0.00010973,
+      4.5e-12
+    ],
+    [
+      0.00010985,
+      4.3e-12
+    ],
+    [
+      0.00011002,
+      4.4e-12
+    ],
+    [
+      0.00011014,
+      4.8e-12
+    ],
+    [
+      0.00011027,
+      4.3e-12
+    ],
+    [
+      0.00011043,
+      4.2e-12
+    ],
+    [
+      0.00011056,
+      4.4e-12
+    ],
+    [
+      0.00011068,
+      4.6e-12
+    ],
+    [
+      0.00011085,
+      4.3e-12
+    ],
+    [
+      0.00011097,
+      4.9e-12
+    ],
+    [
+      0.00011109,
+      4.4e-12
+    ],
+    [
+      0.00011126,
+      4.2e-12
+    ],
+    [
+      0.00011138,
+      4.4e-12
+    ],
+    [
+      0.00011151,
+      4.3e-12
+    ],
+    [
+      0.00011167,
+      4.4e-12
+    ],
+    [
+      0.0001118,
+      4.5e-12
+    ],
+    [
+      0.00011188,
+      4.3e-12
+    ],
+    [
+      0.00011192,
+      4.6e-12
+    ],
+    [
+      0.00011196,
+      5.5e-12
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "ORGAN Phase 1b",
+  "coupling_convention": "|g_agammagamma| in GeV^-1, exactly as plotted on the y-axis of Fig. 5",
+  "notes": "ORGAN Phase 1b microwave cavity haloscope (UWA) using a tunable rectangular cavity. Excludes g_agamma >= 4e-12 GeV^-1 at 95% CL over 107.42-111.93 ueV (25.97-27.07 GHz), assuming axions constitute 100% of local DM density 0.45 GeV/cm^3. Detailed frequency-dependent limits are shown in Fig. 5 but no numerical table is provided; encoded as flat bound over stated mass range per abstract. Excludes ALP cogenesis model in this window. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 42)) | Vision: Exclusion plot is Fig. 5 (fig_02.png). X-axis is frequency 25.5-27.5 GHz (linear), with top axis giving m_a in ueV (105.5-113.7). Masses converted via m[eV]=4.136e-15*f[Hz]. Blue ORGAN Phase 1b exclusion spans 25.97-27.07 GHz (107.42-111.93 ueV). The jagged lower boundary sits at ~4-4.7e-12 GeV^-1, consistent with the abstract's quoted g_agamma >= 4e-12 GeV^-1 exclusion at 95% CL. A 'notch' at ~26 GHz (insufficient integration time) raises the limit locally to ~5.6e-12, still below the ALP cogenesis band (~6e-12). CAST limit (grey) sits at ~6.3e-11. DM density assumed 0.45 GeV/cm^3 per text. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.05 snapped to identity)",
+  "num_points": 42,
+  "elapsed_s": 140.72913217544556
+}

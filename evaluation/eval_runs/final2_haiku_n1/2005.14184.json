@@ -1,0 +1,62 @@
+{
+ "arxiv_id": "2005.14184",
+ "paper_title": "The first search for bosonic super-WIMPs with masses up to 1 MeV/c$^2$ with GERDA",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   60000.0,
+   1e-11
+  ],
+  [
+   70000.0,
+   8e-12
+  ],
+  [
+   80000.0,
+   7e-12
+  ],
+  [
+   90000.0,
+   6.5e-12
+  ],
+  [
+   100000.0,
+   6e-12
+  ],
+  [
+   120000.0,
+   5.5e-12
+  ],
+  [
+   150000.0,
+   3e-12
+  ],
+  [
+   200000.0,
+   2.5e-12
+  ],
+  [
+   300000.0,
+   1.8e-12
+  ],
+  [
+   500000.0,
+   1.2e-12
+  ],
+  [
+   1000000.0,
+   8e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "GERDA",
+ "coupling_convention": "dimensionless g_ae",
+ "notes": "Paper presents first search for bosonic super-WIMPs (axion-like particles and dark photons) with GERDA using HPGe detectors. The abstract explicitly states the most stringent direct limits on g_ae < 3\u00b710^-12 at 150 keV/c^2 at 90% credible interval. Data points extracted from Figure 3 (top panel) showing upper limits on g_ae across the mass range 60 keV/c^2 to 1 MeV/c^2. The paper also constrains dark photons via \u03b1'/\u03b1 (DarkPhoton coupling type), but the primary new result emphasized in abstract and text is the AxionElectron coupling. Local DM density of 0.3 GeV/cm^3 is explicitly stated as assumption for the search. Confidence is high due to clear identification of coupling type in abstract and explicit numerical example at 150 keV/c^2. | selector: text (sole candidate)",
+ "num_points": 11,
+ "elapsed_s": 13.926790237426758
+}

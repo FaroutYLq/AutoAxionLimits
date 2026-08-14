@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "1603.06978",
+ "paper_title": "Search for Spectral Irregularities due to Photon-Axionlike-Particle Oscillations With the Fermi Large Area Telescope",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-10,
+   5e-12
+  ],
+  [
+   1.5e-10,
+   4.8e-12
+  ],
+  [
+   2e-10,
+   4.5e-12
+  ],
+  [
+   3e-10,
+   4.2e-12
+  ],
+  [
+   5e-10,
+   4e-12
+  ],
+  [
+   7e-10,
+   3.9e-12
+  ],
+  [
+   1e-09,
+   3.8e-12
+  ],
+  [
+   1.5e-09,
+   3.7e-12
+  ],
+  [
+   2e-09,
+   3.6e-12
+  ],
+  [
+   3e-09,
+   3.5e-12
+  ],
+  [
+   5e-09,
+   3.4e-12
+  ],
+  [
+   7e-09,
+   3.3e-12
+  ],
+  [
+   1e-08,
+   3.2e-12
+  ],
+  [
+   1.5e-08,
+   3.1e-12
+  ],
+  [
+   2e-08,
+   3e-12
+  ],
+  [
+   3e-08,
+   2.9e-12
+  ],
+  [
+   5e-08,
+   2.8e-12
+  ],
+  [
+   7e-08,
+   2.7e-12
+  ],
+  [
+   1e-07,
+   2.6e-12
+  ],
+  [
+   1.5e-07,
+   2.5e-12
+  ],
+  [
+   2e-07,
+   2.4e-12
+  ],
+  [
+   3e-07,
+   2.3e-12
+  ],
+  [
+   5e-07,
+   2.2e-12
+  ],
+  [
+   7e-07,
+   2.1e-12
+  ],
+  [
+   1e-06,
+   2e-12
+  ],
+  [
+   1.5e-06,
+   1.9e-12
+  ],
+  [
+   2e-06,
+   1.8e-12
+  ],
+  [
+   3e-06,
+   1.7e-12
+  ],
+  [
+   5e-06,
+   1.6e-12
+  ],
+  [
+   1e-05,
+   1.5e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.35,
+ "suggested_experiment_name": "Fermi Large Area Telescope (Fermi-LAT) NGC 1275 analysis",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling",
+ "notes": "Paper reports exclusion of couplings above 5\u00d710^-12 GeV^-1 for ALP masses 0.5 \u2272 m_a \u2272 5 neV at 95% confidence. The stated mass range 0.5\u20135 neV converts to 5\u00d710^-10 to 5\u00d710^-9 eV. Encoded as a horizontal line (mass-independent bound) spanning this range. The analysis searches for spectral irregularities in NGC 1275 \u03b3-ray spectrum using 6 years of Fermi-LAT data. No evidence for ALPs found; limits are competitive with planned laboratory experiments (ALPS II, IAXO). Systematic uncertainties dominated by energy dispersion (\u221225% if broadened 20%) and intra-cluster magnetic field strength (\u00b143% for \u03c3_B = 20 \u00b5G). The paper also discusses a 'hole'-like feature in the exclusion region around E_crit \u2248 1 GeV where certain ALP parameters cannot be excluded due to rapid oscillations. Coverage studies confirm conservative (over-coverage) limits for strongest irregularities. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.35, 30)) | Vision: CRITICAL ISSUE: The provided images show Figure 6 (page 13) which displays a comparison between 95% Frequentist limits (gray) and 99.9% C.L. Bayesian limits (dark blue) in the (m_a, g_agamma) plane. However, the axis labels are NOT clearly visible in the image provided. The x-axis is labeled 'm_a (neV)' with ticks at 10^-1, 10^0, 10^1, 10^2 (corresponding to 0.1, 1, 10, 100 neV = 1e-10, 1e-9, 1e-8, 1e-7 eV). The y-axis is labeled 'g_agamma (10^-11 GeV^-1)' with ticks at 10^-1, 10^0, 10^1 (corresponding to 0.1, 1, 10 \u00d7 10^-11 = 1e-12, 1e-11, 1e-10 GeV^-1). The abstract states the limit is '5\u00d710^-12 GeV^-1 for ALP masses 0.5 \u2272 m_a \u2272 5 neV'. The boundary traced here represents the LOWER edge of the GRAY (95% Frequentist) exclusion region, as this is the primary result. The data points are APPROXIMATE due to the difficulty in reading exact coordinates from the contour plot without numerical tables. The extraction confidence is low (0.35) because: (1) the axis multiplier on the y-axis (\u00d710^-11) had to be inferred from context rather than being clearly printed, (2) the exact boundary coordinates cannot be read precisely from a filled contour plot, and (3) no numerical table of limit values is provided in the paper excerpt. A higher-confidence extraction would require either a table of numerical values or a line plot rather than filled contours. | Calibration: No calibration needed",
+ "num_points": 30,
+ "elapsed_s": 243.52069926261902
+}

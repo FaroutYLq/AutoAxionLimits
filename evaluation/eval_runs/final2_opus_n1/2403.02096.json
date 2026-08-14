@@ -1,0 +1,162 @@
+{
+ "arxiv_id": "2403.02096",
+ "paper_title": "Exploration of the polarization angle variability of the Crab Nebula with POLARBEAR and its application to the search for axion-like particles",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-22,
+   2.1e-12
+  ],
+  [
+   1.3e-22,
+   2.7000000000000002e-12
+  ],
+  [
+   1.7e-22,
+   3.5e-12
+  ],
+  [
+   2.2e-22,
+   4.5e-12
+  ],
+  [
+   3e-22,
+   5.9999999999999995e-12
+  ],
+  [
+   4e-22,
+   8e-12
+  ],
+  [
+   5.5e-22,
+   1.0999999999999999e-11
+  ],
+  [
+   7e-22,
+   1.4e-11
+  ],
+  [
+   9e-22,
+   1.8e-11
+  ],
+  [
+   1.2e-21,
+   2.3999999999999998e-11
+  ],
+  [
+   1.6e-21,
+   3.2e-11
+  ],
+  [
+   2e-21,
+   4e-11
+  ],
+  [
+   2.7e-21,
+   5.3999999999999994e-11
+  ],
+  [
+   3.5e-21,
+   7e-11
+  ],
+  [
+   4.5e-21,
+   9e-11
+  ],
+  [
+   6e-21,
+   1.2e-10
+  ],
+  [
+   8e-21,
+   1.6e-10
+  ],
+  [
+   1e-20,
+   1.9999999999999998e-10
+  ],
+  [
+   1.3e-20,
+   2.6000000000000003e-10
+  ],
+  [
+   1.7e-20,
+   3.3999999999999996e-10
+  ],
+  [
+   2.2e-20,
+   4.4000000000000003e-10
+  ],
+  [
+   3e-20,
+   6e-10
+  ],
+  [
+   4e-20,
+   7.8e-10
+  ],
+  [
+   5.5e-20,
+   1.0499999999999999e-09
+  ],
+  [
+   7e-20,
+   1.35e-09
+  ],
+  [
+   9e-20,
+   1.7000000000000001e-09
+  ],
+  [
+   1.2e-19,
+   2.3e-09
+  ],
+  [
+   1.6e-19,
+   3e-09
+  ],
+  [
+   2e-19,
+   3.8e-09
+  ],
+  [
+   2.7e-19,
+   5.1e-09
+  ],
+  [
+   3.5e-19,
+   6.7e-09
+  ],
+  [
+   4.5e-19,
+   9e-09
+  ],
+  [
+   6e-19,
+   1.3e-08
+  ],
+  [
+   7.5e-19,
+   2e-08
+  ],
+  [
+   8.5e-19,
+   3e-08
+  ],
+  [
+   9e-19,
+   3.8e-08
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "POLARBEAR Tau A (stochastic)",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted",
+ "notes": "Bound from polarization angle oscillation of Crab Nebula (Tau A) at 150 GHz. Stochastic bound: g_agamma <= 2.16e-12 GeV^-1 * (m_a/1e-21 eV) over mass range 9.9e-23 to 7.7e-19 eV (with sinc rolloff at high mass, ignored here for linear approximation). Endpoints computed from linear relation: at 9.9e-23 eV -> 2.14e-14, at 7.7e-19 eV -> 1.66e-10 (before sinc suppression). Local DM density 0.3 GeV/cm^3, kappa=1. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 36)) | Vision: Traced the black solid 'Smoothed stochastic (This work)' curve which represents the primary smoothed stochastic bound (Eq. 47: g_agamma <= 2.16e-12 GeV^-1 * (m_a/1e-21 eV)). This linear scaling on log-log gives the smooth boundary. The red jagged curve is the individual-frequency bound scattering above/below this. Mass range 1e-22 to ~9e-19 eV. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=5.00)",
+ "num_points": 36,
+ "elapsed_s": 292.792044878006
+}

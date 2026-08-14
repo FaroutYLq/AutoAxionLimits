@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2008.05355",
+  "paper_title": "Measurement of light-by-light scattering and search for axion-like particles with 2.2 nb$^{-1}$ of Pb+Pb data with the ATLAS detector",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      6000000000.0,
+      0.0003
+    ],
+    [
+      100000000000.0,
+      6e-05
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "ATLAS_PbPb_LbyL",
+  "coupling_convention": "1/Lambda_a converted from TeV^-1 to GeV^-1 (equivalent to g_agamma in GeV^-1 in the ALP-photon convention used by the paper)",
+  "notes": "ATLAS Run 2 Pb+Pb (2.2 nb^-1) light-by-light scattering measurement with ALP search via gamma gamma -> a -> gamma gamma. The paper sets 95% CL upper limits on the ALP-photon coupling 1/Lambda_a ranging from 0.3 TeV^-1 (at m_a ~ 6 GeV) to 0.06 TeV^-1 (at m_a ~ 100 GeV), the most stringent limits to date in the 6-100 GeV mass range. Only the endpoint values quoted in the text were extractable; the full observed limit curve (Figure 9, right) with fine structure (e.g., discontinuity at 70 GeV from bin-width change) is available in HepData but not in the text. Assumes 100% ALP branching fraction into photons. Not a dark matter search, so no local DM density assumption. Cross-section limits (2-70 nb) were also set but the coupling limit is the relevant exclusion. Confidence limited because data points are only the two text-quoted endpoints, not the full digitized curve. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 3.2 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 2,
+  "elapsed_s": 138.46483302116394
+}

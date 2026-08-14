@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2205.01079",
+ "paper_title": "Anisotropic cosmic optical background bound for decaying dark matter in light of the LORRI anomaly",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   5.0,
+   1e-12
+  ],
+  [
+   10.0,
+   5e-12
+  ],
+  [
+   15.0,
+   1e-11
+  ],
+  [
+   20.0,
+   5e-11
+  ],
+  [
+   25.0,
+   1e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "HST_COB_Anisotropy",
+ "coupling_convention": "g_\u03c7\u03b3\u03b3 in GeV^-1 (approximate from Figure 3 exclusion bounds)",
+ "notes": "Paper derives exclusion limits on decaying dark matter (ALP) from cosmic optical background (COB) anisotropy measurements by HST. The primary result is Figure 3, which translates constraints on decay rate \u0393\u0302 into ALP-photon coupling g_\u03c7\u03b3\u03b3 for the mass range 5\u201325 eV. The bounds exclude decay rates larger than 10^\u221224\u201310^\u221223 s^\u22121 in the 5\u201320 eV mass range. Data points are approximate readings from Figure 3's exclusion boundary. The paper uses Eq. (3): \u0393 = g\u00b2_\u03c7\u03b3\u03b3 m\u00b3_\u03c7 / (64\u03c0) to convert between decay rate and coupling. Confidence is moderate (0.65) because: (1) exact numerical values are read from a figure rather than a table, (2) the paper's primary focus is on decay rate \u0393\u0302 rather than coupling g_\u03c7\u03b3\u03b3, and (3) the conversion involves model assumptions (R=1, q_\u03b3=2 for ALP). The 95% CL is stated in the text. This is a cosmological/astrophysical bound, not a haloscope experiment, so dm_density_assumed is null. | selector: text (sole candidate)",
+ "num_points": 5,
+ "elapsed_s": 22.544592142105103
+}

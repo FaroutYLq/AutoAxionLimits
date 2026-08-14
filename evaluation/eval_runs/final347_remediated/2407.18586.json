@@ -1,0 +1,154 @@
+{
+  "arxiv_id": "2407.18586",
+  "paper_title": "Near-quantum-limited axion dark matter search with the ORGAN experiment around 26 $\u03bc$eV",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.5455e-05,
+      1e-11
+    ],
+    [
+      2.546e-05,
+      3.5e-13
+    ],
+    [
+      2.5468e-05,
+      2.5e-13
+    ],
+    [
+      2.5478e-05,
+      2.4e-13
+    ],
+    [
+      2.549e-05,
+      2.5e-13
+    ],
+    [
+      2.551e-05,
+      2.6e-13
+    ],
+    [
+      2.554e-05,
+      2.7e-13
+    ],
+    [
+      2.556e-05,
+      3.3e-13
+    ],
+    [
+      2.558e-05,
+      2.7e-13
+    ],
+    [
+      2.56e-05,
+      2.6e-13
+    ],
+    [
+      2.563e-05,
+      2.7e-13
+    ],
+    [
+      2.566e-05,
+      2.9e-13
+    ],
+    [
+      2.569e-05,
+      2.7e-13
+    ],
+    [
+      2.572e-05,
+      2.8e-13
+    ],
+    [
+      2.575e-05,
+      2.8e-13
+    ],
+    [
+      2.578e-05,
+      2.9e-13
+    ],
+    [
+      2.581e-05,
+      2.9e-13
+    ],
+    [
+      2.584e-05,
+      3e-13
+    ],
+    [
+      2.587e-05,
+      2.9e-13
+    ],
+    [
+      2.59e-05,
+      3e-13
+    ],
+    [
+      2.593e-05,
+      3.2e-13
+    ],
+    [
+      2.5942e-05,
+      4e-13
+    ],
+    [
+      2.596e-05,
+      3e-13
+    ],
+    [
+      2.599e-05,
+      3e-13
+    ],
+    [
+      2.602e-05,
+      3.1e-13
+    ],
+    [
+      2.605e-05,
+      3e-13
+    ],
+    [
+      2.608e-05,
+      3.1e-13
+    ],
+    [
+      2.611e-05,
+      3.2e-13
+    ],
+    [
+      2.614e-05,
+      3.2e-13
+    ],
+    [
+      2.617e-05,
+      3.2e-13
+    ],
+    [
+      2.62e-05,
+      3.3e-13
+    ],
+    [
+      2.623e-05,
+      3.4e-13
+    ],
+    [
+      2.625e-05,
+      3.7e-13
+    ],
+    [
+      2.627e-05,
+      1e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "ORGAN-Q",
+  "coupling_convention": "canonical g_agamma in GeV^-1",
+  "notes": "ORGAN-Q axion haloscope covering 25.45-26.27 ueV (6.15-6.35 GHz). Quoted exclusion |g_agamma| >~ 2.8e-13 GeV^-1 at 95% CL, assuming axions are 100% of local DM at 0.45 GeV/cm^3. The limit varies bin-by-bin across the range but the paper only quotes the single best value ~2.8e-13; encoded as a two-point line spanning the scanned mass range. Full curve is in Fig. 4 but only text value available. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 34)) | Vision: ORGAN-Q near-quantum-limited haloscope, Fig 4(a). X-axis linear in mass 25.45-26.27 ueV (top axis 6.15-6.35 GHz). Y-axis log g_agamma from 1e-13 to 1e-11. Boundary is a noisy near-flat baseline around 2.5-3.5e-13 with narrow upward spikes; text states exclusion |g_agamma| >~ 2.8e-13 at 95% CL, consistent. Steep vertical rises at both mass edges represent plot frame, not physical cutoff. Assumed rho_a=0.45 GeV/cm^3. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity)",
+  "num_points": 34,
+  "elapsed_s": 89.36034679412842
+}

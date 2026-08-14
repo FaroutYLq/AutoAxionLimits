@@ -1,0 +1,186 @@
+{
+  "arxiv_id": "2504.07559",
+  "paper_title": "Axion dark matter search from terrestrial magnetic fields at extremely low frequencies",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5.5e-17,
+      4.5e-09
+    ],
+    [
+      8e-17,
+      2.6e-09
+    ],
+    [
+      1.2e-16,
+      1.4e-09
+    ],
+    [
+      1.8e-16,
+      7.5e-10
+    ],
+    [
+      2.6e-16,
+      4.2e-10
+    ],
+    [
+      4e-16,
+      2.2e-10
+    ],
+    [
+      6e-16,
+      1.1e-10
+    ],
+    [
+      8e-16,
+      6.5e-11
+    ],
+    [
+      1e-15,
+      4e-11
+    ],
+    [
+      1.1e-15,
+      3e-11
+    ],
+    [
+      1.3e-15,
+      2.5e-11
+    ],
+    [
+      1.8e-15,
+      1.8e-11
+    ],
+    [
+      2.4e-15,
+      1.3e-11
+    ],
+    [
+      3.2e-15,
+      1e-11
+    ],
+    [
+      4.1e-15,
+      8e-12
+    ],
+    [
+      5.5e-15,
+      6e-12
+    ],
+    [
+      7e-15,
+      4.8e-12
+    ],
+    [
+      9e-15,
+      3.8e-12
+    ],
+    [
+      1.1e-14,
+      3e-12
+    ],
+    [
+      1.4e-14,
+      2.3e-12
+    ],
+    [
+      1.7e-14,
+      1.8e-12
+    ],
+    [
+      2e-14,
+      1.4e-12
+    ],
+    [
+      2.4e-14,
+      1e-12
+    ],
+    [
+      2.8e-14,
+      7e-13
+    ],
+    [
+      3.1e-14,
+      5e-13
+    ],
+    [
+      3.4e-14,
+      4.2e-13
+    ],
+    [
+      3.8e-14,
+      4.5e-13
+    ],
+    [
+      4.3e-14,
+      5.2e-13
+    ],
+    [
+      5e-14,
+      6e-13
+    ],
+    [
+      6e-14,
+      7e-13
+    ],
+    [
+      7e-14,
+      7.5e-13
+    ],
+    [
+      8e-14,
+      8e-13
+    ],
+    [
+      9e-14,
+      7.5e-13
+    ],
+    [
+      1e-13,
+      8e-13
+    ],
+    [
+      1.1e-13,
+      1.5e-12
+    ],
+    [
+      1.2e-13,
+      5e-12
+    ],
+    [
+      1.3e-13,
+      1.2e-11
+    ],
+    [
+      1.4e-13,
+      8e-12
+    ],
+    [
+      1.5e-13,
+      5e-12
+    ],
+    [
+      1.6e-13,
+      8e-12
+    ],
+    [
+      1.7e-13,
+      2e-11
+    ],
+    [
+      1.8e-13,
+      6e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.65,
+  "suggested_experiment_name": "Eskdalemuir terrestrial magnetic field ELF axion search",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on the y-axis of FIG. 6",
+  "notes": "Paper places a new 95% CL upper limit on the axion-photon coupling g_agamma using ~10 years of terrestrial magnetic field data (0.3-30 Hz, Eskdalemuir observatory, UK), exploiting axion-induced EM waves in the geomagnetic field / Schumann resonance cavity. Limit spans 0.43-43.9 Hz (m_a ~ 1.8e-15 to 1.8e-13 eV). Only two explicit numerical values appear in the text: g_agamma < 4e-13 GeV^-1 at the best point m_a ~ 3e-14 eV (first Schumann resonance, f ~ 7.8 Hz), and g_agamma < 1.3e-11 GeV^-1 at f = 0.2630 Hz (m_a ~ 1.09e-15 eV). The full exclusion curve is only in Fig. 6 (no numerical table), so the emitted points are sparse anchors, not the full curve. Local DM density assumed rho_DM = 0.3 GeV/cm^3. 342 frequencies with SNR>2 candidates were excluded from the limit. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.65, 42)) | Vision: Constraint (95% CL) on g_agamma from long-term ELF geomagnetic monitoring at Eskdalemuir observatory (FIG. 6, 'This work' blue region). Boundary is highly jagged with many narrow spikes (excluded signal-candidate frequencies), so the trace is a smoothed envelope of the lower boundary. Text anchors used: minimum ~4e-13 GeV^-1 at m_a~3e-14 eV (~2 orders below CAST 6.6e-11), g<~1.3e-11 GeV^-1 at 0.263 Hz (m~1.1e-15 eV), main search band 0.43-43.9 Hz (1.8e-15 to 1.8e-13 eV) with weakened limit extending down to ~0.01 Hz (~5e-17 eV). Large spike near m~1.3e-13 eV where the limit degrades before closing the window to the Planck x unWISE region. Point-by-point values in the jagged region are approximate (factor ~2 uncertainty on spikes). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.43 snapped to identity)",
+  "num_points": 42,
+  "elapsed_s": 210.45668506622314
+}

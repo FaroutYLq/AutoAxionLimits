@@ -1,0 +1,17 @@
+{
+  "arxiv_id": "1708.08464",
+  "paper_title": "Probing axions with neutron star inspirals and other stellar processes",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.2,
+  "suggested_experiment_name": "AdvLIGO_NS_inspiral_axion",
+  "coupling_convention": "f_a in GeV (y-axis Log10[GeV/Fa]) vs m_a in eV",
+  "notes": "Theory/proposal paper (Hook & Huang 2017) on QCD axions sourced by neutron stars. Main result plotted in Figure 6 on the m_a (eV) vs GeV/Fa plane (i.e., f_a-m_a plane, hence AxionMass). Constraints shown are from Earth, Sun, white dwarf, neutron star, SN1987A, superradiance, pulsar binaries, BBN, plus projected Advanced LIGO NS-merger reach. No numerical table is provided and the figure curves cannot be reliably digitized from the text, so no data points are extracted. Combination of derived constraints and future projections; not a single haloscope DM search, so no DM density assumed. | [VISION GATE A] is_projection=true but the vision notes say the traced curve is existing experiment 'pulsar' \u2014 not the paper's own projected curve ; [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of the truly-excluded shaded regions') rather than the paper's own single curve",
+  "num_points": 0,
+  "elapsed_s": 265.9039590358734
+}

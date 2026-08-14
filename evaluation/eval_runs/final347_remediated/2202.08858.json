@@ -1,0 +1,122 @@
+{
+  "arxiv_id": "2202.08858",
+  "paper_title": "Xray_1loop",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      3000.0,
+      1.1e-12
+    ],
+    [
+      4000.0,
+      1.1e-12
+    ],
+    [
+      5000.0,
+      9e-13
+    ],
+    [
+      6000.0,
+      7e-13
+    ],
+    [
+      8000.0,
+      4e-13
+    ],
+    [
+      10000.0,
+      2e-13
+    ],
+    [
+      13000.0,
+      9e-14
+    ],
+    [
+      16000.0,
+      5e-14
+    ],
+    [
+      20000.0,
+      2.5e-14
+    ],
+    [
+      26000.0,
+      1.0999999999999999e-14
+    ],
+    [
+      32000.0,
+      6e-15
+    ],
+    [
+      40000.0,
+      3e-15
+    ],
+    [
+      50000.0,
+      1.6000000000000002e-15
+    ],
+    [
+      65000.0,
+      7e-16
+    ],
+    [
+      80000.0,
+      4.0000000000000004e-16
+    ],
+    [
+      100000.0,
+      2.0000000000000002e-16
+    ],
+    [
+      130000.0,
+      9e-17
+    ],
+    [
+      160000.0,
+      5.0000000000000005e-17
+    ],
+    [
+      200000.0,
+      2.5000000000000003e-17
+    ],
+    [
+      260000.0,
+      1.1e-17
+    ],
+    [
+      320000.0,
+      6e-18
+    ],
+    [
+      400000.0,
+      3e-18
+    ],
+    [
+      500000.0,
+      1.6e-18
+    ],
+    [
+      650000.0,
+      7e-19
+    ],
+    [
+      800000.0,
+      4e-19
+    ],
+    [
+      1000000.0,
+      2e-19
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "X-ray and gamma-ray limits on ALP lifetime (NuSTAR/XMM-Newton/INTEGRAL)",
+  "coupling_convention": "canonical |g_ae|, dimensionless",
+  "notes": "This is a theoretical/phenomenological reinterpretation paper, NOT a new experimental measurement. It argues that keV-MeV ALPs coupled to electrons decay radiatively (a->gamma-gamma via electron loop), making them unstable on cosmological scales and excluded by X-ray/gamma-ray astronomy (NuSTAR, XMM-Newton, INTEGRAL), thereby invalidating direct-detection DM limits (GERDA, EDELWEISS-III, SuperCDMS, Majorana). No numerical table or explicit X-ray exclusion values are provided; the main result is Fig. 2 (not machine-readable). The data_points I emit are the cosmological lifetime-boundary curve computed from Eq. (5) (g_ae = 1.095e-6*(100 keV/m_a)^3.5), which bounds the dark-grey 'unstable' region \u2014 this is the only quantitatively specified curve. The actual X-ray/gamma-ray exclusion (stronger, light-grey region) is not numerically tabulated. Coupling type is unambiguously the ALP-electron coupling g_ae. Confidence low because this is a recast, not a primary limit, and values are derived rather than directly reported. | selector: figure_vision (sole candidate) | Vision: Figure 2 of Ferreira, Marsh & Muller (arXiv:2202.08858). Plot shows |g_ae| vs m_a (MeV). The lowest exclusion boundary is the light-grey 'X-ray and gamma-ray limits on lifetime' region, which reaches the lowest coupling values at each mass. This boundary follows a power law of roughly slope -3 on log-log (consistent with constant X-ray signal g_ae^2 m_a^6 = const), flattening near the direct-detection floor (~1e-13) at low mass. Above this, direct-detection experiments (LUX, XENON1T, PandaX, XMASS, SuperCDMS, EDELWEISS-III, GERDA, Majorana) and the dark-grey 'Lifetime < 13.8 Gyr' region provide weaker (higher-coupling) constraints. Values read from log-log plot; some reading uncertainty on the jagged curve. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=7.14)",
+  "num_points": 26,
+  "elapsed_s": 153.43456101417542
+}

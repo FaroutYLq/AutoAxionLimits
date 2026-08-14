@@ -1,0 +1,82 @@
+{
+ "arxiv_id": "2009.09059",
+ "paper_title": "Constraints on Axion-like Particles from a Hard $X$-ray Observation of Betelgeuse",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-12,
+   5.2e-12
+  ],
+  [
+   2e-12,
+   5.2e-12
+  ],
+  [
+   4e-12,
+   5.2e-12
+  ],
+  [
+   7e-12,
+   5.2e-12
+  ],
+  [
+   1e-11,
+   5.2e-12
+  ],
+  [
+   1.5e-11,
+   5.3e-12
+  ],
+  [
+   2e-11,
+   5.4e-12
+  ],
+  [
+   2.5e-11,
+   5.6e-12
+  ],
+  [
+   3e-11,
+   5.9e-12
+  ],
+  [
+   3.5e-11,
+   6.5e-12
+  ],
+  [
+   4e-11,
+   7.5e-12
+  ],
+  [
+   4.5e-11,
+   9.5e-12
+  ],
+  [
+   5e-11,
+   1.4e-11
+  ],
+  [
+   5.5e-11,
+   2.5e-11
+  ],
+  [
+   6e-11,
+   5e-11
+  ],
+  [
+   6.5e-11,
+   8e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "NuSTAR Betelgeuse",
+ "coupling_convention": "canonical g_agamma in GeV^-1, as plotted (lower dashed edge of red band, most optimistic model)",
+ "notes": "Astrophysical ALP-photon conversion bound from NuSTAR hard X-ray observation of Betelgeuse. 95% C.L. upper limit g_agamma < (0.5-1.8)e-11 GeV^-1 for m_a < (5.5-3.5)e-11 eV, depending on Galactic magnetic field model and stellar model. Conservative: g<1.8e-11 for m_a<3.5e-11 eV; optimistic: g<5.2e-12 for m_a<5.5e-11 eV. Limit is approximately flat below the turnover mass. Not a DM haloscope, so no local density assumption. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 16)) | Vision: Fig. 3 shows NuSTAR Betelgeuse red band. Text states 95% C.L. limits g_agamma < 5.2e-12 GeV^-1 (optimistic, tcc=3.6yr, BT=3.0uG) for m_a<5.5e-11 eV, and < 1.8e-11 GeV^-1 (conservative, BT=0.4uG) for m_a<3.5e-11 eV. I traced the lower (optimistic) boundary of the excluded red band. The boundary is a plateau at low mass then rises steeply near 5.5e-11 eV. X-axis log spans 1e-12 to 1 eV; the entire constraint is confined to the leftmost decades near 1e-12 to 1e-10 eV. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.85 snapped to identity)",
+ "num_points": 16,
+ "elapsed_s": 249.09489703178406
+}

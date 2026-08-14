@@ -1,0 +1,142 @@
+{
+  "arxiv_id": "1410.7267",
+  "paper_title": "Stronger limits on hypothetical Yukawa interactions in the 40--8000 nm range",
+  "coupling_type": "ScalarNucleon",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.155,
+      3.1999999999999997e-16
+    ],
+    [
+      0.177,
+      4.5e-16
+    ],
+    [
+      0.207,
+      6.5e-16
+    ],
+    [
+      0.248,
+      9.999999999999999e-16
+    ],
+    [
+      0.31,
+      1.8e-15
+    ],
+    [
+      0.413,
+      3.7999999999999994e-15
+    ],
+    [
+      0.496,
+      6e-15
+    ],
+    [
+      0.62,
+      1e-14
+    ],
+    [
+      0.827,
+      2.1999999999999998e-14
+    ],
+    [
+      1.03,
+      4e-14
+    ],
+    [
+      1.24,
+      6.5e-14
+    ],
+    [
+      1.55,
+      1.2e-13
+    ],
+    [
+      1.77,
+      1.8e-13
+    ],
+    [
+      2.07,
+      3e-13
+    ],
+    [
+      2.48,
+      5.5e-13
+    ],
+    [
+      3.1,
+      1.2e-12
+    ],
+    [
+      3.54,
+      1.9e-12
+    ],
+    [
+      4.13,
+      3.2999999999999997e-12
+    ],
+    [
+      4.96,
+      6.999999999999999e-12
+    ],
+    [
+      6.2,
+      1.9e-11
+    ],
+    [
+      6.89,
+      3.2e-11
+    ],
+    [
+      8.27,
+      8e-11
+    ],
+    [
+      10.3,
+      3.5e-10
+    ],
+    [
+      12.4,
+      1.1e-09
+    ],
+    [
+      13.8,
+      3.9999999999999994e-09
+    ],
+    [
+      15.5,
+      1e-08
+    ],
+    [
+      17.7,
+      3.4999999999999996e-08
+    ],
+    [
+      20.7,
+      1.6e-07
+    ],
+    [
+      24.8,
+      1.4999999999999998e-06
+    ],
+    [
+      27.6,
+      8e-06
+    ],
+    [
+      31.0,
+      5.9999999999999995e-05
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "IUPUI Casimir-less (Decca et al. 2016)",
+  "coupling_convention": "|alpha|, dimensionless strength of Yukawa-type correction to Newtonian gravity (relative to gravity), exactly as plotted on the y-axis of Fig. 4",
+  "notes": "Decca et al. 'Casimir-less' isoelectronic differential force measurement (IUPUI, arXiv:1410.7267) setting 95% CL limits on Yukawa corrections to Newtonian gravity, V = -(Gm1m2/r) alpha e^{-r/lambda}, over lambda = 30-8000 nm (Fig. 4). This is a fifth-force / Yukawa nucleon-coupled scalar constraint (ScalarNucleon). No numerical table is provided; the exclusion curve exists only as Fig. 4 (log-log, alpha from 1e-1 to 1e19). The emitted data points are order-of-magnitude reconstructions of the limit curve computed from the paper's Eq. (2) with the stated geometry (R=149.3 um, film thicknesses, densities) and the reported force sensitivity (~0.1-0.2 fN at tau=3000 s), consistent with the stated factor-1e3 improvement at lambda=300 nm. Mass conversion uses the paper's relation lambda = hbar/(m c), i.e. m[eV] = 197.33/lambda[nm]. Values are approximate (factor ~few uncertainty); alpha is relative-to-gravity strength, not a dimensionless g^2 coupling - downstream conversion to particle couplings requires alpha -> g via G m_n^2. Not a DM haloscope, so no local DM density assumption. | selector: figure_vision over text (quality (0, 1, 1, 1, 2, 0, 0.6, 31)) | Vision: Fig. 4 of Chen et al., 'Stronger limits on hypothetical Yukawa interactions in the 40-8000 nm range' (PRL 2016). Red solid curve = this work's 95% CL limit from Casimir-less differential force measurements with Au/Si rotating source mass. X-axis is interaction range lambda in meters (40 nm - 8000 nm), converted to mass via m[eV]=1.240e-6/lambda[m] as instructed. Excluded region is above the curve. Boundary values cross-checked against Eq. (2) sensitivity estimates (F_min ~ 0.1-0.4 fN) since the small plot limits pixel precision; curve is very steep below lambda ~ 100 nm (mass > 12 eV), where values are uncertain by up to an order of magnitude. Improvement of up to 10^3 over prior limits at lambda = 300 nm (mass ~ 4.1 eV) as stated in text. Other curves (Riverside, IUPUI 2005-2007, IUPUI 2014, Yale, Stanford, Washington) are previous limits; dashed lines are theoretical predictions (gauged baryons, moduli, dilaton, radion). | Calibration: No calibration needed | Auto-corrected couplings: \u00d71e-20 (\u00d71.00e-20, rule=argmin|log10(median*f)-log10(anchor=1.0e-15)|)",
+  "num_points": 31,
+  "elapsed_s": 301.53125619888306
+}

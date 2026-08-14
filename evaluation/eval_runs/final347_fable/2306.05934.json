@@ -1,0 +1,30 @@
+{
+  "arxiv_id": "2306.05934",
+  "paper_title": "First results from BRASS-p broadband searches for hidden photon dark matter",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.963e-05,
+      1e-13
+    ],
+    [
+      6e-05,
+      3e-14
+    ],
+    [
+      7.444e-05,
+      1e-13
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "BRASS-p",
+  "coupling_convention": "dimensionless kinetic mixing chi",
+  "notes": "First science run (SR1) of BRASS-p dish-antenna-style broadband HP search, 12-18 GHz (49.63-74.44 ueV). No signal candidate found; paper reports measured 1-sigma detection sensitivity of chi ~ (0.3-1.0)e-13 across the band (Figs. 11-12), assuming rho_DM = 0.3 GeV/cm^3 and unpolarized HP DM. No numerical table given; data_points approximate the stated envelope: ~1e-13 near band edges with best sensitivity ~3e-14 mid-band. Quoted as 1-sigma sensitivity rather than a formal 90/95% CL exclusion; a dedicated signal search is deferred to future work. Fig. 13 projections with other receivers are not included here. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.6, 3))",
+  "num_points": 3,
+  "elapsed_s": 178.07841205596924
+}

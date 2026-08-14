@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "1903.12190",
+ "paper_title": "Gas-rich dwarf galaxies as a new probe of dark matter interactions with ordinary matter",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-23,
+   5e-16
+  ],
+  [
+   1e-20,
+   5e-15
+  ],
+  [
+   1e-16,
+   3e-14
+  ],
+  [
+   1e-13,
+   3e-13
+  ],
+  [
+   1e-10,
+   1e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.4,
+ "suggested_experiment_name": "LeoT_HPDM_Wadekar2020",
+ "coupling_convention": "dimensionless kinetic mixing g (chi)",
+ "notes": "Paper derives constraints on ultra-light hidden-photon dark matter (HPDM) with kinetic mixing parameter g (labeled chi in Fig. 2) from heating of gas in the Leo T dwarf galaxy, over mass range 10^-23 to 10^-10 eV. Coupling type is clearly DarkPhoton (hidden photon kinetic mixing). Numerical data points are only available in Fig. 2 (log-log plot) and could not be read precisely; the emitted points are rough estimates reflecting the increasing trend of the exclusion with mass (bound on g scales roughly with mass since heating rate ~ m^2 g^2/omega_p^2 for m << omega_p). DM density is set by the Leo T Burkert halo model (astrophysical, spatially varying), so no single haloscope density is quoted. This is a DM-search-like astrophysical bound. Data quality is low; treat data_points as approximate. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 6.9 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+ "num_points": 5,
+ "elapsed_s": 216.69801807403564
+}

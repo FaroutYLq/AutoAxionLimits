@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "0810.5501",
+ "paper_title": "Crab",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-08,
+   0.0343
+  ],
+  [
+   1e-07,
+   0.0343
+  ],
+  [
+   1e-06,
+   0.0343
+  ],
+  [
+   1e-05,
+   0.0343
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.683,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Crab_VHE_2008",
+ "coupling_convention": "dimensionless kinetic mixing \u03c7",
+ "notes": "Paper derives constraints on hidden photon (dark photon) mixing angle \u03c7 and mass \u00b5 using VHE \u03b3-ray observations from the Crab Nebula. The main result is a mass-independent bound \u03c7_fit \u2248 0.0343 (68.3% C.L.) valid for masses \u00b5 \u2272 10^-5 eV, obtained by fitting the oscillation signature to combined HEGRA, H.E.S.S., MAGIC, and Whipple data. The bound is encoded as a horizontal line spanning the stated validity range (1e-8 to 1e-5 eV). This represents the first astronomical constraints on hidden photon oscillations using TeV-scale energies and kpc-scale distances. The paper explicitly states this is the best constraint on hidden photon parameters using oscillation effects directly (though Coulomb law tests provide stronger overall limits). | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.85, 4))",
+ "num_points": 4,
+ "elapsed_s": 90.20883202552795
+}

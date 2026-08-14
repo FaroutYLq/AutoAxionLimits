@@ -1,0 +1,146 @@
+{
+ "arxiv_id": "2209.13588",
+ "paper_title": "Constraints on axion-like dark matter from a SERF comagnetometer",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.4e-12,
+   8e-07
+  ],
+  [
+   1.6e-12,
+   7.5e-07
+  ],
+  [
+   2e-12,
+   6.8e-07
+  ],
+  [
+   2.5e-12,
+   6.2e-07
+  ],
+  [
+   3e-12,
+   6e-07
+  ],
+  [
+   3.5e-12,
+   5.8e-07
+  ],
+  [
+   4e-12,
+   5.7e-07
+  ],
+  [
+   4.5e-12,
+   5.8e-07
+  ],
+  [
+   5e-12,
+   6e-07
+  ],
+  [
+   6e-12,
+   6.3e-07
+  ],
+  [
+   7e-12,
+   6.6e-07
+  ],
+  [
+   8e-12,
+   7e-07
+  ],
+  [
+   1e-11,
+   7.8e-07
+  ],
+  [
+   1.3e-11,
+   9e-07
+  ],
+  [
+   1.6e-11,
+   1.05e-06
+  ],
+  [
+   2e-11,
+   1.25e-06
+  ],
+  [
+   2.5e-11,
+   1.5e-06
+  ],
+  [
+   3e-11,
+   1.8e-06
+  ],
+  [
+   3.5e-11,
+   2.1e-06
+  ],
+  [
+   4e-11,
+   2.4e-06
+  ],
+  [
+   4.5e-11,
+   2.7e-06
+  ],
+  [
+   5e-11,
+   3e-06
+  ],
+  [
+   6e-11,
+   3.6e-06
+  ],
+  [
+   7e-11,
+   4.2e-06
+  ],
+  [
+   8e-11,
+   4.9e-06
+  ],
+  [
+   9e-11,
+   5.5e-06
+  ],
+  [
+   1e-10,
+   6.2e-06
+  ],
+  [
+   1.2e-10,
+   7.5e-06
+  ],
+  [
+   1.4e-10,
+   9e-06
+  ],
+  [
+   1.6e-10,
+   1.05e-05
+  ],
+  [
+   1.8e-10,
+   1.2e-05
+  ],
+  [
+   2e-10,
+   1.4e-05
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "NASDUCK-SERF",
+ "coupling_convention": "canonical g_aNN in GeV^-1, as plotted",
+ "notes": "NASDUCK-SERF comagnetometer (3He + 39K SERF) constrains both ALP-neutron (g_aNN) and ALP-proton (g_aPP) couplings, both in GeV^-1, over mass range 1.4e-12 to 2e-10 eV. The paper is one of the first terrestrial ALP-proton bounds. Reported g_aNN neutron bound extracted here (AxionNeutron per hint). Precise tabulated bounds available at github.com/ItayBM/NASDUCKSERF; the y-axis values here are approximate reads off Fig. 2 (mean/best exclusion line). The proton bound g_aPP reaches ~5e-6 to 2e-5 GeV^-1 in similar mass range. Data points are approximate from the exclusion plot, not tabulated values. 95% C.L. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 32)) | Vision: Left panel of Fig. 2 for ALP-neutron coupling g_aNN [GeV^-1]. Boundary traced along the lower edge of the bright red exclusion band (mean bound). Minimum sensitivity ~5.7e-7 GeV^-1 near 4e-12 eV, rising to ~1.4e-5 GeV^-1 at high mass end. Narrow spikes ignored; smooth envelope traced. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity)",
+ "num_points": 32,
+ "elapsed_s": 209.21770882606506
+}

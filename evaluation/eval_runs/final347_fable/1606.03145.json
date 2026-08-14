@@ -1,0 +1,138 @@
+{
+  "arxiv_id": "1606.03145",
+  "paper_title": "The topological susceptibility in finite temperature QCD and axion cosmology",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      100000000000.0,
+      2101.0
+    ],
+    [
+      110000000000.0,
+      2069.0
+    ],
+    [
+      120000000000.0,
+      2040.0
+    ],
+    [
+      150000000000.0,
+      1968.0
+    ],
+    [
+      180000000000.0,
+      1911.0
+    ],
+    [
+      220000000000.0,
+      1850.0
+    ],
+    [
+      250000000000.0,
+      1813.0
+    ],
+    [
+      270000000000.0,
+      1790.0
+    ],
+    [
+      330000000000.0,
+      1733.0
+    ],
+    [
+      400000000000.0,
+      1681.0
+    ],
+    [
+      450000000000.0,
+      1649.0
+    ],
+    [
+      500000000000.0,
+      1621.0
+    ],
+    [
+      600000000000.0,
+      1574.0
+    ],
+    [
+      720000000000.0,
+      1529.0
+    ],
+    [
+      800000000000.0,
+      1503.0
+    ],
+    [
+      870000000000.0,
+      1483.0
+    ],
+    [
+      1000000000000.0,
+      1450.0
+    ],
+    [
+      1200000000000.0,
+      1408.0
+    ],
+    [
+      1500000000000.0,
+      1358.0
+    ],
+    [
+      1800000000000.0,
+      1319.0
+    ],
+    [
+      2200000000000.0,
+      1277.0
+    ],
+    [
+      2700000000000.0,
+      1236.0
+    ],
+    [
+      3000000000000.0,
+      1215.0
+    ],
+    [
+      3300000000000.0,
+      1196.0
+    ],
+    [
+      4000000000000.0,
+      1160.0
+    ],
+    [
+      5000000000000.0,
+      1119.0
+    ],
+    [
+      6000000000000.0,
+      1087.0
+    ],
+    [
+      7200000000000.0,
+      1055.0
+    ],
+    [
+      8700000000000.0,
+      1024.0
+    ],
+    [
+      10000000000000.0,
+      1001.0
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "HotQCD lattice topological susceptibility (HISQ) axion cosmology",
+  "coupling_convention": "T_osc in MeV (axion oscillation temperature, lower edge of 'this work' band); x-axis is f_a in GeV. Values emitted exactly as plotted on the T_osc [MeV] vs f_a [x10^12 GeV] plane.",
+  "notes": "Lattice QCD calculation (HISQ, 2+1 flavor) of the topological susceptibility above Tc, used to derive a cosmological bound on the QCD axion decay constant assuming post-inflationary misalignment (theta^2 = pi^2/3) and axions saturating the dark matter abundance (Planck Omega_DM h^2 = 0.1199). Main result: f_a <= 1.2e12 GeV with ~10% uncertainty (K-factor variation shifts it by ~20%). The paper's exclusion is on the T_osc-f_a plane; no explicit m_a values are given, so the mass entry was inferred from the standard zero-temperature relation m_a ~ 5.7 ueV * (1e12 GeV / f_a). This is a cosmological/relic-abundance bound, not a haloscope search, so no local DM density assumption applies. The stated CL is not given by the paper; 0.95 used as default. Extraction confidence reduced because the bound is a single derived value and the mass coordinate was inferred rather than quoted. | selector: figure_vision over text (quality (0, 1, 1, 1, 2, 0, 0.5, 30)) | Vision: Paper's cosmology plot (Fig. 6) is on the (f_a, T_osc) plane, not directly (f_a, m_a); per the plotted-values contract I emit T_osc in MeV. The 'this work' dark-orange band is the lattice-favored DIGA prediction (K=1.90(35)); its intersection with the Omega_a=Omega_DM dashed line (near f_a ~ 1.5-2 x10^12 GeV, T_osc ~ 1250-1300 MeV) gives the upper bound on f_a if axions are all of DM. Coupling type set to AxionMass per hint since the primary result constrains f_a from QCD topological susceptibility, but confidence is limited to 0.5 because the plotted y-variable is T_osc rather than m_a. x-values converted from f_a [x10^12 GeV] to GeV. Excluded/disallowed region is above the traced band boundary (larger T_osc than the band is inconsistent with the lattice chi_t for given f_a). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.05 snapped to identity) | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+  "num_points": 30,
+  "elapsed_s": 130.6846902370453
+}

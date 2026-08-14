@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2409.03814",
+ "paper_title": "POLONAISE",
+ "coupling_type": "VectorBL",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.1036e-13,
+   2.98e-21
+  ],
+  [
+   1.10485e-13,
+   2.98e-21
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "POLONAISE",
+ "coupling_convention": "dimensionless g_BL",
+ "notes": "First experimental search for ultralight dark matter using magnetically levitated particle. Constrains B\u2212L gauge coupling in mass range (1.10360\u20131.10485)\u00d710^\u221213 eV/c\u00b2. Best limit g_BL \u2272 2.98\u00d710^\u221221 at m_DM \u2248 1.1042\u00d710^\u221213 eV/c\u00b2 (f_DM \u2248 26.6995 Hz). No signal detected; 90% CL limit derived from force power spectral density analysis. Local DM density \u03c1_DM \u2248 0.4 GeV/c\u00b2 cm\u00b3 used in theoretical calculations. Paper also proposes POLONAISE upgrades with projected sensitivities shown in Fig. 4 (marked as projections, not included in data_points). The coupling is to baryon minus lepton number difference, making VectorBL the appropriate type. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 2.1 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 196.68252301216125
+}

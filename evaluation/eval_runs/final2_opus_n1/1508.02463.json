@@ -1,0 +1,106 @@
+{
+ "arxiv_id": "1508.02463",
+ "paper_title": "Short-range spin-dependent interactions of electrons: a probe for exotic pseudo-Goldstone bosons",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-08,
+   8e-17
+  ],
+  [
+   3e-08,
+   8e-17
+  ],
+  [
+   1e-07,
+   8e-17
+  ],
+  [
+   3e-07,
+   8e-17
+  ],
+  [
+   1e-06,
+   8e-17
+  ],
+  [
+   3e-06,
+   8e-17
+  ],
+  [
+   1e-05,
+   8e-17
+  ],
+  [
+   3e-05,
+   8e-17
+  ],
+  [
+   6e-05,
+   8e-17
+  ],
+  [
+   0.0001,
+   9e-17
+  ],
+  [
+   0.00015,
+   1.1e-16
+  ],
+  [
+   0.0002,
+   1.5e-16
+  ],
+  [
+   0.00025,
+   2.5e-16
+  ],
+  [
+   0.0003,
+   5e-16
+  ],
+  [
+   0.00035,
+   1.2e-15
+  ],
+  [
+   0.0004,
+   3e-15
+  ],
+  [
+   0.00045,
+   8e-15
+  ],
+  [
+   0.0005,
+   2.5e-14
+  ],
+  [
+   0.00055,
+   8e-14
+  ],
+  [
+   0.0006,
+   2.5e-13
+  ],
+  [
+   0.0007,
+   2e-12
+  ],
+  [
+   0.0008,
+   1.5e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "Eot-Wash spin-pendulum (Terrano 2015)",
+ "coupling_convention": "(g_p^e)^2/(hbar c), dimensionless squared coupling",
+ "notes": "Torsion pendulum measuring electron spin-dependent dipole-dipole interaction from pseudoscalar exchange. The paper's primary Vdd result is a constraint on (g_p^e)^2/(hbar c) < 5.5e-17 for m_b < 30 ueV, valid up to m_b <= 500 ueV. This is the SQUARE of the pseudoscalar electron coupling, NOT the dimensionless g_ae directly - downstream conversion needed (sqrt gives g_p^e ~ 7.4e-9, and relation to g_ae involves factors). Emitted value is the raw (g_p^e)^2/(hbar c) as quoted. Horizontal line spanning mass validity range. Paper also reports monopole-dipole (MonopoleDipole) limits |g_p^e g_s^N|/hbar c at 10^-28 level for 1.5-400 ueV - a separate result not encoded here. Confidence lowered due to coupling being squared and mixed monopole/dipole content. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.5, 22)) | Vision: Bottom panel of Fig.4 plots g_p^2/(hbar c) (squared coupling) vs m_b in micro-eV; the 'this work' lower boundary is a plateau near 8e-17 to 1e-16 up to ~100 ueV then rises steeply near 500 ueV. Coupling is electron pseudoscalar squared, NOT canonical g_ae. Values emitted are the plotted squared quantity per plotted-values contract. Coupling identification (electron pseudoscalar g_p^e squared) mapped to AxionElectron with reduced confidence since it is a squared spin-spin coupling. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.67 snapped to identity)",
+ "num_points": 22,
+ "elapsed_s": 147.1762318611145
+}

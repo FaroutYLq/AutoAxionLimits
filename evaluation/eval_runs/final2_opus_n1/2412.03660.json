@@ -1,0 +1,142 @@
+{
+ "arxiv_id": "2412.03660",
+ "paper_title": "NuSTAR bounds on radiatively decaying particles from M82",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   10000.0,
+   4.8e-12
+  ],
+  [
+   12000.0,
+   4.2e-12
+  ],
+  [
+   15000.0,
+   3.6e-12
+  ],
+  [
+   20000.0,
+   3e-12
+  ],
+  [
+   25000.0,
+   2.6e-12
+  ],
+  [
+   30000.0,
+   2.3e-12
+  ],
+  [
+   35000.0,
+   2.1e-12
+  ],
+  [
+   40000.0,
+   1.9e-12
+  ],
+  [
+   50000.0,
+   1.5e-12
+  ],
+  [
+   60000.0,
+   1.2e-12
+  ],
+  [
+   70000.0,
+   1e-12
+  ],
+  [
+   80000.0,
+   8.5e-13
+  ],
+  [
+   90000.0,
+   7.5e-13
+  ],
+  [
+   100000.0,
+   6.8e-13
+  ],
+  [
+   110000.0,
+   6.4e-13
+  ],
+  [
+   120000.0,
+   6.2e-13
+  ],
+  [
+   130000.0,
+   6.2e-13
+  ],
+  [
+   140000.0,
+   6.3e-13
+  ],
+  [
+   150000.0,
+   6.5e-13
+  ],
+  [
+   170000.0,
+   7.2e-13
+  ],
+  [
+   200000.0,
+   8.5e-13
+  ],
+  [
+   230000.0,
+   1.05e-12
+  ],
+  [
+   260000.0,
+   1.3e-12
+  ],
+  [
+   300000.0,
+   1.7e-12
+  ],
+  [
+   330000.0,
+   2.3e-12
+  ],
+  [
+   360000.0,
+   3.2e-12
+  ],
+  [
+   400000.0,
+   5e-12
+  ],
+  [
+   430000.0,
+   7e-12
+  ],
+  [
+   460000.0,
+   9.5e-12
+  ],
+  [
+   480000.0,
+   1.2e-11
+  ],
+  [
+   500000.0,
+   1.4e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "NuSTAR M82",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Astrophysical bound from NuSTAR observations of M82 constraining axion-photon coupling for masses 30-500 keV. The exclusion region in Fig. 2 spans g_agamma ~ 1e-10 to 1e-12 GeV^-1. Exact numerical contour points not tabulated in the text; data_points are approximate bracket values inferred from the abstract/text (g12=0.75 benchmark at ma=316 keV implies ~7.5e-13 GeV^-1). Only rough endpoints could be extracted from text, so confidence is moderate. Not a DM haloscope, so no local density assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 31)) | Vision: Lower boundary of red excluded region from NuSTAR M82 observations. X-axis in keV converted to eV. Boundary dips to minimum ~6e-13 near 120 keV then rises steeply toward 500 keV. Note top of plot cut off at 1e-10; near 10 keV boundary starts ~5e-12. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.97 snapped to identity)",
+ "num_points": 31,
+ "elapsed_s": 192.7338056564331
+}

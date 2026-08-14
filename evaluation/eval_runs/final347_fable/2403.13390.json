@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2403.13390",
+  "paper_title": "Search for Dark Matter Axions with Tunable TM_020 mode",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.138e-05,
+      1e-13
+    ],
+    [
+      2.179e-05,
+      1.02e-13
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "CAPP_TM020",
+  "coupling_convention": "g_agamma in GeV^-1 (converted from the paper's stated 12.0 x g_KSVZ using g_KSVZ = 2.23e-3/f_a with m_a = 5.7 ueV x (1e12 GeV/f_a))",
+  "notes": "CAPP (IBS, Korea) cavity haloscope using auxetic-tuned TM020 mode. Excludes g_agamma > 12.0 x g_KSVZ (frequentist; 10.9 x g_KSVZ from Bayesian analysis) at 90% CL over 21.38-21.79 ueV (5.17-5.27 GHz), assuming KSVZ axions constitute all local DM with rho = 0.45 GeV/cm^3. Absolute coupling values (~1.0e-13 GeV^-1, matching the abstract's 'approximately 10^-13 GeV^-1') were computed from the stated KSVZ multiple; the actual limit curve in Fig. 6 has fine frequency-dependent structure not captured by these two endpoint values. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.8, 2))",
+  "num_points": 2,
+  "elapsed_s": 123.00427484512329
+}

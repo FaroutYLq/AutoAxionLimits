@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2305.09711",
+ "paper_title": "SHANHE",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   5.37e-06,
+   2.2e-16
+  ],
+  [
+   5.37e-06,
+   2.2e-16
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "SHANHE",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Tunable SRF cavity scan for dark photon dark matter over 1.37 MHz centered at 1.3 GHz (m ~ 5.37e-6 eV using m=4.136e-15*f). Best limit epsilon < 2.2e-16 at 90% CL. Only the best-limit value is quoted numerically in text; the exclusion curve (Fig. 3) covering the 1.37 MHz band is not tabulated. Mass computed from 1.299 GHz center: 4.136e-15*1.299e9 = 5.37e-6 eV. Local DM density 0.45 GeV/cm^3. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.7, 2))",
+ "num_points": 2,
+ "elapsed_s": 212.73857307434082
+}

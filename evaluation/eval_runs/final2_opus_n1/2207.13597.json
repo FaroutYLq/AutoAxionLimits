@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2207.13597",
+ "paper_title": "Near-Quantum-Noise Axion Dark Matter Search at CAPP around 9.5 $\u03bc$eV",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   9.3906e-06,
+   3e-15
+  ],
+  [
+   9.513e-06,
+   3e-15
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "CAPP-PACE_JPA_9.5ueV",
+ "coupling_convention": "g_agamma in GeV^-1 (approximate, ~2.7x KSVZ level)",
+ "notes": "CAPP haloscope search over 9.39-9.51 ueV (2.2704-2.3000 GHz). Excludes coupling 2.7x above KSVZ level at 90% CL, assuming rho_a=0.45 GeV/cm^3. Exclusion limit shown in Fig.4 but no numerical table of g_agamma values provided. KSVZ at ~9.5 ueV corresponds to g_agamma ~ 1.1e-15 GeV^-1; 2.7x gives ~3e-15 GeV^-1 (approximate estimate). Data points are horizontal-line approximation spanning the mass range; actual limit has some mass dependence not tabulated in text. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.55, 2))",
+ "num_points": 2,
+ "elapsed_s": 101.98861908912659
+}

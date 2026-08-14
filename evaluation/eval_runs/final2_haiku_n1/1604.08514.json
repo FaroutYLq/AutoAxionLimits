@@ -1,0 +1,30 @@
+{
+ "arxiv_id": "1604.08514",
+ "paper_title": "RbCs",
+ "coupling_type": "ScalarPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-24,
+   0.00053
+  ],
+  [
+   1.4e-23,
+   3.8e-09
+  ],
+  [
+   1e-18,
+   1e-05
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "FO2_RbCs_2016",
+ "coupling_convention": "dimensionless d_e + 0.043(d_m\u0302 - d_g)",
+ "notes": "Paper constrains oscillating massive scalar field dark matter via Rb/Cs hyperfine frequency ratio. Primary result is a mass-dependent coupling limit on the linear combination d_e + 0.043(d_m\u0302 - d_g), where d_e couples to electromagnetism (fine structure constant \u03b1), d_m\u0302 to quark mass, and d_g to QCD scale. Classified as ScalarPhoton because the dominant constraint is on d_e (coupling to \u03b1), with the paper stating that when only d_e \u2260 0 is assumed, limits improve Dy results by >1 order of magnitude. The coupling convention reflects the actual linear combination constrained. Data points extracted from Fig. 3: most stringent limit 3.8\u00d710^-9 at m_\u03d5 = 1.4\u00d710^-23 eV, flat bound ~5.3\u00d710^-4 across lower masses, and approximate intermediate value. DM density of 0.4 GeV/cm\u00b3 is the galactic value used in Eq. (8) to relate oscillation amplitude to coupling. Confidence 0.75 reflects clear coupling type (scalar to fundamental constants) but the specific linear combination of couplings makes direct comparison to canonical ScalarPhoton conventions less straightforward. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 5.9 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | [CONVENTION REVIEW] declared coupling convention 'dimensionless d_e + 0.043(d_m\u0302 - d_g)' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 3,
+ "elapsed_s": 138.7712790966034
+}

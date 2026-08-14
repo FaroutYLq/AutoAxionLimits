@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2201.09890",
+  "paper_title": "Low-Energy Supernovae Severely Constrain Radiative Particle Decays",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1000000.0,
+      1e-09
+    ],
+    [
+      10000000.0,
+      2.5e-10
+    ],
+    [
+      30000000.0,
+      1.2e-10
+    ],
+    [
+      60000000.0,
+      1e-10
+    ],
+    [
+      100000000.0,
+      1.3e-10
+    ],
+    [
+      200000000.0,
+      2e-10
+    ],
+    [
+      500000000.0,
+      1e-09
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "LESN_RadiativeDecay2022",
+  "coupling_convention": "G_agamma in GeV^-1",
+  "notes": "Astrophysical bound from low-energy supernovae calorimetry constraining ALP-photon coupling via a->2gamma radiative decays depositing energy in the progenitor star (Emantle < 0.1 B, R*=5e13 cm reference contour, Fig. 2). Excluded region spans ma ~1-500 MeV, G_agamma ~1e-10 to 1e-8 GeV^-1. Data points are approximate lower (weakest-coupling) boundary of the closed exclusion contour read from Fig. 2; the region is bounded above near the trapping regime (~1e-8 to 1e-7). Not a DM haloscope, so no local density. This is a stellar/astrophysical bound, not a coupling-in-fa-plane result, hence AxionPhoton not AxionMass. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.5, 7))",
+  "num_points": 7,
+  "elapsed_s": 101.81682205200195
+}

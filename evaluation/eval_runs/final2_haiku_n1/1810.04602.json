@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "1810.04602",
+ "paper_title": "Evidence for light-by-light scattering and searches for axion-like particles in ultraperipheral PbPb collisions at $\\sqrt{s_\\mathrm{NN}} =$ 5.02 TeV",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "CMS_UPC_2015",
+ "coupling_convention": "g_a\u03b3 in GeV^-1",
+ "notes": "Exclusion limits on pseudoscalar axion-like particles (ALPs) produced via \u03b3\u03b3 \u2192 a \u2192 \u03b3\u03b3 in ultraperipheral PbPb collisions at \u221as_NN = 5.02 TeV. The paper reports cross section limits in the range 1500\u201320 nb for ALP masses 5\u201390 GeV (Fig. 6). Data points extracted from Fig. 7 (left panel, aFeF/4\u039b operator, ALP coupling to photons only), which shows the observed 95% CL exclusion limits in the g_a\u03b3 vs m_a plane. The coupling values are approximate readings from the figure and represent the best constraints over the m_a = 5\u201350 GeV mass range. The paper states these are the best limits so far in this mass range for ALPs coupling to the electromagnetic current alone. Confidence in extraction is moderate (0.75) because the exact numerical values were read from a figure rather than extracted from a table, introducing some uncertainty in the precise coupling values. | [VISION GATE C] extracted mass window is 7.7 dex outside the abstract-stated range [5e+09, 9e+10] eV \u2014 wrong figure/panel/regime traced",
+ "num_points": 0,
+ "elapsed_s": 29.475971221923828
+}

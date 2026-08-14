@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2203.16567",
+  "paper_title": "SPT",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.7e-22,
+      5.5e-13
+    ],
+    [
+      1e-21,
+      1.18e-12
+    ],
+    [
+      1e-20,
+      1.18e-11
+    ],
+    [
+      4.7e-20,
+      5.55e-11
+    ],
+    [
+      1e-19,
+      1.32e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "SPT-3G_2019",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Cosmic birefringence (AC oscillation effect) search with SPT-3G 2019 data. Limit on axion-photon coupling scales linearly with mass: g_phigamma < 1.18e-12 GeV^-1 * (m/1e-21 eV) in flat region (periods 1-100 days, 4.7e-22 to 4.7e-20 eV). Smoothed form Eq.22 includes sinc(m/1.72e-19 eV)^-1 factor increasing limit at higher masses; the 1e-19 eV point applied this. Assumes axions are 100% of local DM with rho=0.3 GeV/cm^3. Data computed from stated formulas since only formulaic limits given. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 5,
+  "elapsed_s": 42.389098167419434
+}

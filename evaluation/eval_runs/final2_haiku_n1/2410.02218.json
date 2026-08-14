@@ -1,0 +1,110 @@
+{
+ "arxiv_id": "2410.02218",
+ "paper_title": "Wideband Search for Axionlike Dark Matter Using Octupolar Nuclei in a Crystal",
+ "coupling_type": "AxionCPV",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-20,
+   1e-12
+  ],
+  [
+   1e-19,
+   1e-12
+  ],
+  [
+   1e-18,
+   1e-12
+  ],
+  [
+   1e-17,
+   1e-12
+  ],
+  [
+   1e-16,
+   1e-12
+  ],
+  [
+   1e-15,
+   1e-12
+  ],
+  [
+   1e-14,
+   1e-12
+  ],
+  [
+   1e-13,
+   1e-12
+  ],
+  [
+   1e-12,
+   1e-12
+  ],
+  [
+   1e-11,
+   1.5e-12
+  ],
+  [
+   1e-10,
+   2e-12
+  ],
+  [
+   1e-09,
+   3e-12
+  ],
+  [
+   1e-08,
+   5e-12
+  ],
+  [
+   1e-07,
+   8e-12
+  ],
+  [
+   1e-06,
+   1.2e-11
+  ],
+  [
+   1e-05,
+   1.8e-11
+  ],
+  [
+   0.0001,
+   2.5e-11
+  ],
+  [
+   0.001,
+   3.5e-11
+  ],
+  [
+   0.01,
+   5e-11
+  ],
+  [
+   0.1,
+   7e-11
+  ],
+  [
+   1.0,
+   1e-10
+  ],
+  [
+   10.0,
+   1.5e-10
+  ],
+  [
+   100.0,
+   2e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "Eu:YSO_2026",
+ "coupling_convention": "C_G/f_a in GeV^-1",
+ "notes": "Paper reports wideband exclusion limits on ALP-gluon coupling strength C_G/f_a spanning eight decades in ALP mass (1.3 \u00b5Hz to 500 Hz oscillation frequency, corresponding to ~10^-20 to ~10^0 eV mass range). The coupling is constrained through oscillating parity-odd time-reversal-odd nuclear Schiff moment of 153Eu ions in a crystal. Data points extracted from Fig. 4 (blue shaded exclusion region). The experiment assumes local dark matter density \u03c1_DM = 0.4 GeV/cm\u00b3. A stochastic correction factor (up to ~3.9\u00d7 for very light ALPs) has been applied to account for ALP field amplitude fluctuations. The paper explicitly states this is the most stringent atomic/molecular constraint in this mass range. Confidence level is 95% as stated in the paper. The coupling type is AxionCPV because the paper constrains CP-violating oscillations of the QCD \u03b8-parameter induced by ALP-gluon coupling, which is a CP-odd nuclear force effect. | selector: text (sole candidate) | [CONVENTION REVIEW] declared coupling convention 'C_G/f_a in GeV^-1' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 23,
+ "elapsed_s": 46.15838408470154
+}

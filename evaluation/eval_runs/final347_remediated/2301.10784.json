@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2301.10784",
+  "paper_title": "Yb",
+  "coupling_type": "ScalarNucleon",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5.8e-23,
+      1.9e-06
+    ],
+    [
+      2e-17,
+      0.62
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "Yb171_OpticalClock_ChargeRadius",
+  "coupling_convention": "dimensionless d_g (linear scalar-gluon coupling); values DERIVED from text amplitude limit, not read from figure",
+  "notes": "Optical-clock (171Yb+ E3/E2 frequency ratio) search for oscillating nuclear charge radius from ultralight DM. Paper reports NEW 95% CL limits on scalar UDM-nuclear couplings d_g (gluon) and d_mhat (quark mass), plus QCD axion 1/f_a. No numeric exclusion table given; only figures (Fig.1, Fig.2) and a text statement that relative-amplitude limits are below ~2e-17 over frequency range 1.4e-8 Hz to 0.005 Hz (masses ~6e-23 to 2e-17 eV), with limits weakened by factor 3 for stochastic amplitude. The two data points are ROUGH derivations of the d_g bound at the two mass endpoints using Eq.(10) with K=2.4e-3, alpha=-1.1, rho_DM=0.4 GeV/cm^3; the bound rises ~linearly in mass. Coupling type is ambiguous between ScalarNucleon (d_g), ScalarBaryon, or the quark-mass coupling d_mhat, and the paper also gives an AxionMass/1-over-f_a plot \u2014 hence low confidence. Values are dimensionless d_g, NOT converted to canonical form. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 11.0 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | [COUPLING REVIEW] axis 'GeV^-1 (inverse axion decay constant 1/f_a)' implies AxionMass but classified ScalarNucleon (cross-family contradiction \u2014 flagged, not overridden) | [CONVENTION REVIEW] declared coupling convention 'dimensionless d_g (linear scalar-gluon coupling); values DERIVED from text amplitude limit, not read from figure' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 2,
+  "elapsed_s": 188.72631573677063
+}

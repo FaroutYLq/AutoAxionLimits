@@ -1,0 +1,22 @@
+{
+ "arxiv_id": "1906.08814",
+ "paper_title": "DM-Pathfinder",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.035e-09,
+   1.5e-09
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "DM-Pathfinder",
+ "coupling_convention": "dimensionless kinetic mixing angle \u03b5",
+ "notes": "Fixed-frequency superconducting lumped-element resonator test device. Exclusion limit \u03b5 \u2273 1.5 \u00d7 10^-9 at hidden photon mass m \u2248 2.035 neV (frequency 492.027 kHz). Based on 5.14 hours integrated observation. Local DM density normalized to \u03c1_DM = 0.45 GeV/cm\u00b3. Limit assumes effective hidden-photon current points along longitudinal axis; field misalignment would weaken constraint. Single-bin excess power of 3.34\u03c3 corrected by factor 0.86 (windowing/filtering effects) and 0.45 (halo model directional correction) to yield 8.63\u03c3 at 90% CL. This is a pathfinder measurement for the tunable DM Radio experiment; not competitive with larger axion haloscopes but first direct detection limit in this mass regime. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.92, 1))",
+ "num_points": 1,
+ "elapsed_s": 110.38108420372009
+}

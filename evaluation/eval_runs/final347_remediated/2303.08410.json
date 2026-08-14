@@ -1,0 +1,90 @@
+{
+  "arxiv_id": "2303.08410",
+  "paper_title": "POLARBEAR",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      9e-22,
+      2.16e-11
+    ],
+    [
+      1e-21,
+      2.4e-11
+    ],
+    [
+      1.2e-21,
+      2.88e-11
+    ],
+    [
+      1.5e-21,
+      3.6e-11
+    ],
+    [
+      1.8e-21,
+      4.32e-11
+    ],
+    [
+      2.2e-21,
+      5.28e-11
+    ],
+    [
+      2.7e-21,
+      6.48e-11
+    ],
+    [
+      3.3e-21,
+      7.92e-11
+    ],
+    [
+      4e-21,
+      9.6e-11
+    ],
+    [
+      5e-21,
+      1.2e-10
+    ],
+    [
+      6e-21,
+      1.44e-10
+    ],
+    [
+      7.5e-21,
+      1.8e-10
+    ],
+    [
+      9e-21,
+      2.16e-10
+    ],
+    [
+      1.1e-20,
+      2.64e-10
+    ],
+    [
+      1.3e-20,
+      3.12e-10
+    ],
+    [
+      1.6e-20,
+      3.84e-10
+    ],
+    [
+      1.9e-20,
+      4.56e-10
+    ],
+    [
+      2.2e-20,
+      5.28e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.9,
+  "suggested_experiment_name": "POLARBEAR",
+  "coupling_convention": "g_agamma (g_phi_gamma) in GeV^-1, as plotted",
+  "notes": "Median 95% upper limit on CMB polarization oscillation amplitude of 0.65deg translated to axion-photon coupling g_phigamma < (2.4e-11 GeV^-1) x (m_phi/10^-21 eV), valid over 9.6e-22 to 2.2e-20 eV. Endpoints computed from the linear relation. Stochastic (Rayleigh) treatment; deterministic case would give 1.1e-11 prefactor. DM density 0.3 GeV/cm^3 assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.9, 18)) | Vision: Figure 5. Excluded region is above the thick solid red line, which is the median 95% upper limit (primary stochastic result, Eq. 28): g_phigamma < 2.4e-11 GeV^-1 x (m_phi/1e-21 eV). Traced along this analytic straight line (slope 1 on log-log) over the plotted mass range ~9e-22 to 2.2e-20 eV. The lighter jagged red curve is the exact oscillating bound; the median line traces its lower envelope well. Dashed red is the deterministic POLARBEAR median (~1.1e-11 x m/1e-21). x-axis has top axis in oscillation period (days). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity)",
+  "num_points": 18,
+  "elapsed_s": 99.50593709945679
+}

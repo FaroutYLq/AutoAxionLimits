@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "2309.07995",
+ "paper_title": "HeLIOS: The Superfluid Helium Ultralight Dark Matter Detector",
+ "coupling_type": "VectorBL",
+ "is_new_limit": false,
+ "is_projection": true,
+ "data_points": [],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.35,
+ "suggested_experiment_name": "HeLIOS",
+ "coupling_convention": "dimensionless g_B-L",
+ "notes": "Projected (not measured) sensitivity for prototype HeLIOS superfluid helium optomechanical detector after 1 hr integration. Paper presents BOTH scalar (d_me, ScalarElectron) and vector (g_B-L, VectorBL) UDM projections in Fig. 1. Chose VectorBL per hint. Mass range ~1-10 peV (Compton freq ~0.3-10 kHz) for the odd modes coupling to vector UDM. Data points are approximate estimates read from the discrete mode sensitivities in the exclusion plot Fig. 1 (right); precise numerical values are not tabulated. Prototype could not observe thermal motion; the projections assume quantum/thermal-limited readout. Values are rough estimates from the plot axes (g_B-L axis spans 1e-26 to 1e-16). Low confidence due to reliance on reading discrete-mode sensitivity islands from a plot rather than tabulated values. | [VISION GATE A] is_projection=true but the vision notes say the traced curve is existing constraint \u2014 not the paper's own projected curve ; [VISION GATE D] vision notes admit tracing a compilation envelope ('combined Eot-Wash and LIGO/Virgo bounds') rather than the paper's own single curve",
+ "num_points": 0,
+ "elapsed_s": 171.41506695747375
+}

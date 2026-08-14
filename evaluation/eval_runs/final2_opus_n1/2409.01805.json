@@ -1,0 +1,174 @@
+{
+ "arxiv_id": "2409.01805",
+ "paper_title": "Search for sub-eV axion-like particles in a quasi-parallel stimulated resonant photon-photon collider with \"coronagraphy\"",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.012,
+   0.1
+  ],
+  [
+   0.014,
+   0.05
+  ],
+  [
+   0.016,
+   0.02
+  ],
+  [
+   0.018,
+   0.01
+  ],
+  [
+   0.02,
+   0.005
+  ],
+  [
+   0.023,
+   0.002
+  ],
+  [
+   0.026,
+   0.001
+  ],
+  [
+   0.03,
+   0.0005
+  ],
+  [
+   0.035,
+   0.0002
+  ],
+  [
+   0.04,
+   0.0001
+  ],
+  [
+   0.046,
+   5e-05
+  ],
+  [
+   0.052,
+   3e-05
+  ],
+  [
+   0.06,
+   2e-05
+  ],
+  [
+   0.07,
+   1.2e-05
+  ],
+  [
+   0.08,
+   7e-06
+  ],
+  [
+   0.09,
+   4e-06
+  ],
+  [
+   0.1,
+   2.5e-06
+  ],
+  [
+   0.11,
+   1.5e-06
+  ],
+  [
+   0.12,
+   1e-06
+  ],
+  [
+   0.13,
+   7.5e-07
+  ],
+  [
+   0.14,
+   6e-07
+  ],
+  [
+   0.15,
+   5.45e-07
+  ],
+  [
+   0.16,
+   6e-07
+  ],
+  [
+   0.18,
+   8e-07
+  ],
+  [
+   0.2,
+   1.2e-06
+  ],
+  [
+   0.23,
+   2e-06
+  ],
+  [
+   0.26,
+   3.5e-06
+  ],
+  [
+   0.3,
+   6e-06
+  ],
+  [
+   0.34,
+   1.2e-05
+  ],
+  [
+   0.38,
+   2.5e-05
+  ],
+  [
+   0.42,
+   6e-05
+  ],
+  [
+   0.46,
+   0.00015
+  ],
+  [
+   0.5,
+   0.0004
+  ],
+  [
+   0.54,
+   0.001
+  ],
+  [
+   0.58,
+   0.003
+  ],
+  [
+   0.62,
+   0.01
+  ],
+  [
+   0.66,
+   0.03
+  ],
+  [
+   0.7,
+   0.08
+  ],
+  [
+   0.72,
+   0.1
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "SAPPHIRES02",
+ "coupling_convention": "g/M in GeV^-1 (ALP-photon coupling), as plotted",
+ "notes": "Laboratory light-by-light (stimulated resonant photon-photon collider) ALP search, model-independent. Most sensitive point g/M = 5.45e-7 GeV^-1 at m=0.15 eV for pseudoscalar ALPs. The paper presents exclusion contours (Figs 10, 11) for both scalar and pseudoscalar cases spanning roughly m ~ 1e-3 to ~1 eV, but only the single most-sensitive numerical value is given in text; the full curve is only shown in figures without tabulated points. Confidence lowered because only one extractable data point available. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 39)) | Vision: Traced the lower (V-shaped) boundary of the red SAPPHIRES02 exclusion region in Fig. 11 (pseudoscalar ALP-photon coupling g/M). The minimum coupling of 5.45e-7 GeV^-1 at m=0.15 eV is confirmed in the conclusion text. The region is excluded ABOVE the boundary. Y-axis is g/M in GeV^-1. The V-shape has two arms rising steeply at low and high mass around the sensitivity tip near 0.15 eV. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.73 snapped to identity)",
+ "num_points": 39,
+ "elapsed_s": 314.44258093833923
+}

@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1906.11844",
+ "paper_title": "Improved axion emissivity from a supernova via nucleon-nucleon bremsstrahlung",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.015,
+   6e-10
+  ],
+  [
+   0.01,
+   6e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "SN1987A_bremsstrahlung_improved",
+ "coupling_convention": "dimensionless g_an",
+ "notes": "SN1987A energy-loss bound on axion-nucleon coupling from improved NN bremsstrahlung emissivity. Main result: gan=gap <~ 6e-10 (complete calc), assuming gan=gap. This is a mass-independent coupling bound derived from SN cooling; the corresponding axion mass bound for KSVZ is ma <~ 15 meV. The constraint g2an+0.61g2ap+0.53gangap <~ 8.26e-19 was also given. Encoded as a near-flat horizontal line near the QCD axion mass region (~10-15 meV); could alternatively be considered mass-independent. Note ambiguity between AxionNeutron and AxionProton since gan=gap assumed; paper hint and reference bound (gan<2.8e-10 from HESS) favor AxionNeutron labeling. | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 137.31755685806274
+}

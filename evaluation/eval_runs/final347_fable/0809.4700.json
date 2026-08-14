@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "0809.4700",
+  "paper_title": "Limits on new long range nuclear spin-dependent forces set with a K-3He co-magnetometer",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-10,
+      8.54e-05
+    ],
+    [
+      4e-07,
+      8.54e-05
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "K3He_Comagnetometer",
+  "coupling_convention": "dimensionless g_an, converted from the paper's (g_p^n)^2/(4pi) < 5.8e-10 via g = sqrt(4*pi*5.8e-10)",
+  "notes": "K-3He co-magnetometer search for anomalous neutron spin-dependent forces from a 3He spin source (Vasilakis et al., Princeton, 2008/2009). The paper's Fig. 4 shows (g_p^n)^2/4pi vs boson mass from ~1e-7 meV to 1 meV, but the only explicit numerical value in text is the massless-boson limit (g_p^n)^2/4pi < 5.8e-10 (a factor 500 better than the 3He-129Xe maser). This flat bound is encoded as a horizontal line up to m ~ hbar*c/(50 cm) ~ 4e-7 eV, where the Yukawa suppression from the 48.7 cm source-detector distance sets in; above this the actual limit weakens (rises), so the full mass-dependent curve from Fig. 4 is not captured. This is a fifth-force-type laboratory limit, NOT a dark matter search, so no local DM density is assumed. Note: the quoted bound is a 1-sigma (~68% CL) limit per the paper; 0.90 is the closest allowed enum value. The paper also constrains vector boson couplings (g_A^2/4pi < 1.2e-41, etc.), unparticles, and Lorentz-violating Goldstone bosons (Table I), but the primary pseudoscalar result is the AxionNeutron-type coupling. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 5.0 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 2,
+  "elapsed_s": 140.93837094306946
+}

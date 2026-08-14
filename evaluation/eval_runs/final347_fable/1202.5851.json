@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "1202.5851",
+  "paper_title": "Kawasaki12",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.00016,
+      3.8e-05
+    ],
+    [
+      0.00031,
+      2e-05
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "Kawasaki2012_StringWall",
+  "coupling_convention": "f_a in GeV (axion decay constant); mass column is m_a in eV computed via m_a = sqrt(c0)*Lambda^2/F_a with c0=1.46e-3, Lambda=400 MeV",
+  "notes": "Cosmological bound on the axion decay constant from field-theoretic lattice simulations of string-wall network collapse (NDW=1, post-inflationary PQ breaking). Total relic abundance Omega_a h^2 = (8.4 +/- 3.0)(Fa/10^12 GeV)^1.19 combined with Omega_CDM h^2 = 0.11 gives Fa < (2.0-3.8)x10^10 GeV (Eq. 96), corresponding to m_a ~ 1.6e-4 to 3.1e-4 eV. The two emitted points span the quoted uncertainty range of the single bound (not a mass scan). Not a haloscope; no local DM density assumption. The quoted range reflects the +/-1 sigma uncertainty on the scaling parameters, not a formal 95% CL. | selector: text (sole candidate) | Auto-corrected couplings: \u00d71e-15 (\u00d71.00e-15, rule=argmin|log10(median*f)-log10(anchor=3.2e-05)|)",
+  "num_points": 2,
+  "elapsed_s": 96.15567207336426
+}

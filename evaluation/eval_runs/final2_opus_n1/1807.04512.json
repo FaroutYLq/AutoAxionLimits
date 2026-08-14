@@ -1,0 +1,118 @@
+{
+ "arxiv_id": "1807.04512",
+ "paper_title": "EotWashEP",
+ "coupling_type": "ScalarNucleon",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-24,
+   0.00031600000000000004
+  ],
+  [
+   1e-23,
+   0.00031600000000000004
+  ],
+  [
+   1e-22,
+   0.00031600000000000004
+  ],
+  [
+   1e-21,
+   0.00031600000000000004
+  ],
+  [
+   1e-20,
+   0.00031600000000000004
+  ],
+  [
+   1e-19,
+   0.00031600000000000004
+  ],
+  [
+   1e-18,
+   0.00031600000000000004
+  ],
+  [
+   1e-17,
+   0.00031600000000000004
+  ],
+  [
+   1e-16,
+   0.00031600000000000004
+  ],
+  [
+   1e-15,
+   0.00031600000000000004
+  ],
+  [
+   1e-14,
+   0.00031600000000000004
+  ],
+  [
+   1e-13,
+   0.00034999999999999994
+  ],
+  [
+   1e-12,
+   0.00045000000000000004
+  ],
+  [
+   3e-12,
+   0.0006000000000000001
+  ],
+  [
+   1e-11,
+   0.001
+  ],
+  [
+   3e-11,
+   0.002
+  ],
+  [
+   1e-10,
+   0.005
+  ],
+  [
+   3e-10,
+   0.015
+  ],
+  [
+   1e-09,
+   0.05
+  ],
+  [
+   3e-09,
+   0.2
+  ],
+  [
+   1e-08,
+   1.0
+  ],
+  [
+   3e-08,
+   5.0
+  ],
+  [
+   1e-07,
+   30.0
+  ],
+  [
+   3e-07,
+   200.0
+  ],
+  [
+   1e-06,
+   1000.0
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "Eot-Wash Be/Ti UFF (d_mhat - d_g)",
+ "coupling_convention": "|d_mhat^(1) - d_g^(1)|, dimensionless (plotted as log10 on y-axis)",
+ "notes": "Paper derives MRA (95% CL) limits on multiple scalar-matter coupling coefficients d_e (photon/alpha, ScalarPhoton), d_me-d_g (electron mass, ScalarElectron), and d_mhat-d_g (quark/nucleon mass, ScalarNucleon) from EotWash torsion balance, MICROSCOPE, and atomic clock (Cs/Rb, Dy) data, for both linear and quadratic couplings. Limits shown only in Figs. 3 and 4 as curves versus scalar mass (10^-24 to ~eV); no numerical tables of the coupling limit curves are provided (Table II lists only measured Eotvos parameters, not derived couplings). Cannot extract reliable (mass,coupling) points. DM density 0.4 GeV/cm^3 and v=1e-3 c assumed for clock-based (DM-dependent) constraints; UFF constraints in linear case are DM-independent. Coupling type is ambiguous across multiple sectors so confidence kept low. | selector: figure_vision (sole candidate) | Vision: Fig. 3 middle panel constrains |d_mhat^(1) - d_g^(1)|, the nucleon-mass minus gravitational scalar coupling difference (ScalarNucleon-type). Traced the lower boundary of the Eot-Wash Be/Ti orange exclusion curve, which is flat at ~10^-4.5 for low masses (below Earth-radius interaction length) and rises steeply above ~10^-11 eV. UFF constraints are independent of DM density assumption. Multiple curves exist (SYRTE, MICROSCOPE); this traces the composition-dependent UFF (Eot-Wash) boundary. Note this is a combination d_mhat-d_g not pure nucleon coupling, so type identification carries some uncertainty. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=22.22) | [CONVENTION REVIEW] declared coupling convention '|d_mhat^(1) - d_g^(1)|, dimensionless (plotted as log10 on y-axis)' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 25,
+ "elapsed_s": 242.6973578929901
+}

@@ -1,0 +1,22 @@
+{
+  "arxiv_id": "2208.03183",
+  "paper_title": "Deepest sensitivity to wavelike dark photon dark matter with superconducting radio frequency cavities",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5.354e-06,
+      1.5e-16
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.9,
+  "suggested_experiment_name": "SQMS_SERAPH",
+  "coupling_convention": "dimensionless kinetic mixing chi",
+  "notes": "Proof-of-concept SRF cavity (nontunable, 1.3 GHz) dark photon haloscope. Excludes chi > 1.5e-16 at m_A' = 5.354 ueV (90% CL). Single narrow-band measurement; exclusion covers only a few peV around 5.354 ueV. Local DM density 0.45 GeV/cm^3, QDM~1e6 assumed. Reported as deepest wavelike dark photon exclusion. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.9, 1))",
+  "num_points": 1,
+  "elapsed_s": 203.4995629787445
+}

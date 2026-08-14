@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "1902.02788",
+  "paper_title": "Constraining Rapidly Oscillating Scalar Dark Matter Using Dynamic Decoupling",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-09,
+      2e-20
+    ],
+    [
+      1e-08,
+      2e-19
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "WeizmannDynamicDecoupling2019",
+  "coupling_convention": "g_phi_gamma in eV^-1 (Lagrangian (g_phi_gamma/4) phi F F); NOT converted to dimensionless d_e",
+  "notes": "Paper proposes/demonstrates a dynamic-decoupling method with a trapped 88Sr+ ion + ULE cavity to constrain oscillating scalar DM coupling to photon (g_phi_gamma, Fig 2b/3a) and electron (g_phi_e, Fig 2a) independently, plus relaxion mixing sin(theta) (Fig 2c). Pre-analysis hint ScalarPhoton corresponds to the g_phi_gamma bound (alpha variation). Coupling values are only shown in plots (no tables) and are given in eV^-1, differing from the standard d_e convention; emitted values are ROUGH estimates derived from Eq.4 (g_phi_gamma <= d_alpha*m_phi/sqrt(2 rho_DM)) assuming delta f/f0 ~ 1e-13, so numbers are unreliable. Both a photon and an electron coupling are constrained, lowering confidence. Local DM density rho_DM = 3.1e-6 eV^4 ~ 0.4 GeV/cm^3 (sun's location). Bounds at 95% CL over m_phi ~ 1e-14 to 1e-8 eV (~Hz to MHz). Alternative interpretation as ScalarElectron (g_phi_e, Fig 2a) is equally valid. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 3.0 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 2,
+  "elapsed_s": 231.53717374801636
+}

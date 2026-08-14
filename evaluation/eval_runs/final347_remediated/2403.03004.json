@@ -1,0 +1,142 @@
+{
+  "arxiv_id": "2403.03004",
+  "paper_title": "Ultralight vector dark matter search using data from the KAGRA O3GK run",
+  "coupling_type": "VectorBL",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5.79e-14,
+      1.5e-19
+    ],
+    [
+      6.62e-14,
+      1.2e-19
+    ],
+    [
+      7.44e-14,
+      1.1e-19
+    ],
+    [
+      8.27e-14,
+      1e-19
+    ],
+    [
+      1.03e-13,
+      1e-19
+    ],
+    [
+      1.24e-13,
+      1.1e-19
+    ],
+    [
+      1.45e-13,
+      1.3e-19
+    ],
+    [
+      1.65e-13,
+      1.4e-19
+    ],
+    [
+      1.86e-13,
+      1.5e-19
+    ],
+    [
+      2.07e-13,
+      1.6e-19
+    ],
+    [
+      2.27e-13,
+      1.5e-19
+    ],
+    [
+      2.48e-13,
+      1.4e-19
+    ],
+    [
+      2.9e-13,
+      1.5e-19
+    ],
+    [
+      3.31e-13,
+      1.5e-19
+    ],
+    [
+      3.72e-13,
+      1.5e-19
+    ],
+    [
+      4.14e-13,
+      1.5e-19
+    ],
+    [
+      4.96e-13,
+      1.6e-19
+    ],
+    [
+      6.2e-13,
+      1.7e-19
+    ],
+    [
+      7.44e-13,
+      1.8e-19
+    ],
+    [
+      8.27e-13,
+      1.8e-19
+    ],
+    [
+      1.03e-12,
+      2e-19
+    ],
+    [
+      1.24e-12,
+      2.2e-19
+    ],
+    [
+      1.45e-12,
+      2.5e-19
+    ],
+    [
+      1.65e-12,
+      2.8e-19
+    ],
+    [
+      1.86e-12,
+      3e-19
+    ],
+    [
+      2.07e-12,
+      3.2e-19
+    ],
+    [
+      2.48e-12,
+      3.5e-19
+    ],
+    [
+      2.9e-12,
+      4e-19
+    ],
+    [
+      3.31e-12,
+      4.3e-19
+    ],
+    [
+      3.72e-12,
+      4.7e-19
+    ],
+    [
+      4.14e-12,
+      5e-19
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "KAGRA O3GK",
+  "coupling_convention": "epsilon_{B-L}^{95%}, dimensionless gauge coupling g_BL as plotted",
+  "notes": "Search for U(1)_{B-L} gauge boson (vector) dark matter using KAGRA auxiliary length channels (MICH, PRCL) during O3GK. 95% upper limits on the B-L coupling epsilon_{B-L} vs DM mass are shown only in Fig. 5 (no numerical table). Text states the limit is 'at best O(10^-20)', weaker at lower masses due to line artifacts; target mass range O(10^-14-10^-11) eV (frequencies ~10-1000 Hz). Data points are rough estimates from the text; actual curve is not numerically tabulated. Limits are weaker than Eot-Wash/MICROSCOPE. Local DM density not explicitly stated in excerpt. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 31)) | Vision: Fig. 5 of paper (fig_06.png): 95% upper limit on B-L gauge coupling epsilon_{B-L} vs Frequency[Hz] (bottom axis) and m_A[eV/c^2] (top axis). X converted via m=4.136e-15*f. Two noisy curves (MICH-blue, PRCL-orange); traced the lower envelope (minimum of the two). Floor ~1e-19 at low freq (blue dominates), rising to ~5e-19 near 1000 Hz (orange dominates). Spikes above the floor omitted since exclusion boundary is the lower envelope. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.67 snapped to identity)",
+  "num_points": 31,
+  "elapsed_s": 141.06973314285278
+}

@@ -1,0 +1,126 @@
+{
+  "arxiv_id": "2004.02733",
+  "paper_title": "SNO",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-22,
+      2e-05
+    ],
+    [
+      1e-20,
+      2e-05
+    ],
+    [
+      1e-18,
+      2e-05
+    ],
+    [
+      1e-16,
+      2e-05
+    ],
+    [
+      1e-14,
+      2e-05
+    ],
+    [
+      1e-12,
+      2e-05
+    ],
+    [
+      1e-10,
+      2e-05
+    ],
+    [
+      1e-08,
+      2e-05
+    ],
+    [
+      1e-06,
+      2e-05
+    ],
+    [
+      0.0001,
+      2e-05
+    ],
+    [
+      0.01,
+      2e-05
+    ],
+    [
+      1.0,
+      2e-05
+    ],
+    [
+      100.0,
+      2e-05
+    ],
+    [
+      1000.0,
+      2e-05
+    ],
+    [
+      10000.0,
+      2e-05
+    ],
+    [
+      100000.0,
+      2e-05
+    ],
+    [
+      500000.0,
+      2e-05
+    ],
+    [
+      1000000.0,
+      2e-05
+    ],
+    [
+      2000000.0,
+      2e-05
+    ],
+    [
+      3000000.0,
+      2e-05
+    ],
+    [
+      4000000.0,
+      2.05e-05
+    ],
+    [
+      5000000.0,
+      2.1e-05
+    ],
+    [
+      5300000.0,
+      2.5e-05
+    ],
+    [
+      5500000.0,
+      4e-05
+    ],
+    [
+      5500000.0,
+      0.0001
+    ],
+    [
+      5500000.0,
+      0.0003
+    ],
+    [
+      5500000.0,
+      0.001
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "SNO axion-induced deuteron dissociation",
+  "coupling_convention": "|g^3_aN| / |g_an| in GeV^-1 (as plotted on y-axis), not dimensionless",
+  "notes": "SNO solar axion search via axiodissociation a+d->n+p. Excludes isovector axion-nucleon coupling |g3_aN|=(gan-gap)/2 between 2e-5 and 1e-3 GeV^-1 for axion masses up to ~5.5 MeV at 95% CL. The lower exclusion boundary (the sensitivity limit) is 2e-5 GeV^-1, encoded as a mass-independent horizontal line up to 5.5 MeV; the 1e-3 GeV^-1 upper edge is a solar-trapping cutoff. Coupling is quoted in GeV^-1 (derivative coupling), NOT the dimensionless form; would need multiplication by ~2*m_N to convert. Paper interprets result as limit on both gan and gap absent cancellation, hence AxionNeutron chosen per hint, but it is fundamentally isovector. Not a dark-matter haloscope, so no local density assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 27)) | Vision: SNO constraint (blue) on the isovector axion-nucleon coupling from axion-induced deuterium dissociation. Y-axis is plotted in GeV^-1 (|g^3_aN|, |g_an|), NOT the dimensionless g_an; values emitted as plotted per contract. Lower boundary is ~2e-5 GeV^-1 flat (text: excluded between 2e-5 and 1e-3 GeV^-1) up to axion masses ~5.5 MeV = 5.5e6 eV, where a solar-trapping upper bound of ~1e-3 GeV^-1 caps the region and the right vertical edge closes it. Coupling type flagged AxionNeutron per hint, but the plotted quantity is a GeV^-1 isovector combination, hence reduced confidence. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity)",
+  "num_points": 27,
+  "elapsed_s": 91.81605982780457
+}

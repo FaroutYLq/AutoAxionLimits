@@ -1,0 +1,162 @@
+{
+  "arxiv_id": "2110.03679",
+  "paper_title": "3D template-based $Fermi$-LAT constraints on the diffuse supernova axion-like particle background",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-12,
+      3.76e-11
+    ],
+    [
+      2e-12,
+      3.76e-11
+    ],
+    [
+      3e-12,
+      3.76e-11
+    ],
+    [
+      5e-12,
+      3.76e-11
+    ],
+    [
+      7e-12,
+      3.76e-11
+    ],
+    [
+      1e-11,
+      3.76e-11
+    ],
+    [
+      1.5e-11,
+      3.76e-11
+    ],
+    [
+      2e-11,
+      3.76e-11
+    ],
+    [
+      3e-11,
+      3.76e-11
+    ],
+    [
+      5e-11,
+      3.76e-11
+    ],
+    [
+      7e-11,
+      3.76e-11
+    ],
+    [
+      1e-10,
+      3.76e-11
+    ],
+    [
+      1.3e-10,
+      3.76e-11
+    ],
+    [
+      1.6e-10,
+      3.8e-11
+    ],
+    [
+      2e-10,
+      3.9e-11
+    ],
+    [
+      2.5e-10,
+      4.1e-11
+    ],
+    [
+      3e-10,
+      4.4e-11
+    ],
+    [
+      3.5e-10,
+      4.7e-11
+    ],
+    [
+      4e-10,
+      5.1e-11
+    ],
+    [
+      5e-10,
+      5.9e-11
+    ],
+    [
+      6e-10,
+      6.9e-11
+    ],
+    [
+      7e-10,
+      7.9e-11
+    ],
+    [
+      8e-10,
+      9e-11
+    ],
+    [
+      1e-09,
+      1.15e-10
+    ],
+    [
+      1.2e-09,
+      1.4e-10
+    ],
+    [
+      1.5e-09,
+      1.75e-10
+    ],
+    [
+      2e-09,
+      2.4e-10
+    ],
+    [
+      2.5e-09,
+      3e-10
+    ],
+    [
+      3e-09,
+      3.7e-10
+    ],
+    [
+      4e-09,
+      4.9e-10
+    ],
+    [
+      5e-09,
+      6.1e-10
+    ],
+    [
+      6e-09,
+      7.2e-10
+    ],
+    [
+      7e-09,
+      8.2e-10
+    ],
+    [
+      8e-09,
+      9.1e-10
+    ],
+    [
+      9e-09,
+      9.7e-10
+    ],
+    [
+      1e-08,
+      1e-09
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "Fermi-LAT DSNALPB (diffuse SN ALP background)",
+  "coupling_convention": "g_agamma in GeV^-1, 95% CL observed upper limit (solid red line, benchmark DSNALPB scenario)",
+  "notes": "Template-based analysis of 12 years of Fermi-LAT data constraining the diffuse supernova ALP background. Benchmark result: g_agamma < 3.76e-11 GeV^-1 at 95% CL for m_a << 1e-11 eV (mass-independent in this regime), encoded as a flat line up to the stated validity mass 1e-11 eV. Systematic variations shift the bound within [2.38, 7.04]e-11 GeV^-1. Not a DM search (relies on SN ALP production and Galactic B-field conversion), so no local DM density assumption. Only the flat text value is available; the exclusion plot's mass-dependent shape near/above 1e-11 eV was not tabulated in the text. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 36)) | Vision: Fig. 10 (page 16): 95% CL upper limit on ALP-photon coupling from 3D template-based Fermi-LAT analysis of the diffuse SN ALP background, assuming Jansson12c GMF and f_fail-CC = 20%. Flat plateau value 3.76e-11 GeV^-1 for m_a << 1e-11 eV is quoted explicitly in the text; rising part above ~2e-10 eV traced from the plot, exiting at the plot top (1e-9 GeV^-1) near 1e-8 eV. Not a DM search (no DM density assumption); signal is astrophysical ALP flux. Systematic band spans [2.38, 7.04]e-11 GeV^-1 for massless ALPs. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.78 snapped to identity)",
+  "num_points": 36,
+  "elapsed_s": 132.93202686309814
+}

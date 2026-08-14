@@ -1,0 +1,126 @@
+{
+ "arxiv_id": "2006.02828",
+ "paper_title": "Tokyo-Tomita",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-06,
+   1.8000000000000002e-11
+  ],
+  [
+   1e-05,
+   1.8000000000000002e-11
+  ],
+  [
+   0.0001,
+   1.8000000000000002e-11
+  ],
+  [
+   0.0002,
+   1.9e-11
+  ],
+  [
+   0.0005,
+   2.2e-11
+  ],
+  [
+   0.001,
+   2.8000000000000003e-11
+  ],
+  [
+   0.002,
+   3.8e-11
+  ],
+  [
+   0.005,
+   6.500000000000001e-11
+  ],
+  [
+   0.01,
+   1.2e-10
+  ],
+  [
+   0.015,
+   1.8e-10
+  ],
+  [
+   0.02,
+   2.5e-10
+  ],
+  [
+   0.03,
+   4.2000000000000005e-10
+  ],
+  [
+   0.05,
+   7.5e-10
+  ],
+  [
+   0.07,
+   1.1e-09
+  ],
+  [
+   0.1,
+   1.5e-09
+  ],
+  [
+   0.15,
+   1.8e-09
+  ],
+  [
+   0.2,
+   1.9e-09
+  ],
+  [
+   0.3,
+   1.85e-09
+  ],
+  [
+   0.5,
+   1.7000000000000001e-09
+  ],
+  [
+   0.7,
+   1.5e-09
+  ],
+  [
+   1.0,
+   1.2e-09
+  ],
+  [
+   1.5,
+   8.000000000000001e-10
+  ],
+  [
+   2.0,
+   5e-10
+  ],
+  [
+   3.0,
+   2.0000000000000003e-10
+  ],
+  [
+   5.0,
+   8.000000000000001e-11
+  ],
+  [
+   7.0,
+   5.000000000000001e-11
+  ],
+  [
+   10.0,
+   3e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.39,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Tokyo-Tomita HP-CDM search (K-band, cryogenic receiver)",
+ "coupling_convention": "kinetic mixing parameter \u03c7 (dimensionless), canonical dark photon coupling",
+ "notes": "First cryogenic receiver search for hidden-photon CDM using K-band (28 GHz) spectroscopy with planar aluminum plate converter. Mass range 115.79\u2013115.85 \u00b5eV. No signal detected. Limits \u03c7 < 1.8\u20134.3 \u00d7 10^\u221210 at 95% CL. Data extracted from abstract and Figure 7. The coupling values span the narrow mass range; encoded as two-point horizontal line per mass-independent convention. DM density 0.39 GeV/cm\u00b3 from Catena & Ullio (ref. 13) used in sensitivity formula (eq. 1.3). Systematic uncertainty 11.3% included in limit calculation. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 27)) | Vision: Figure 7 (top panel) shows the kinetic mixing parameter \u03c7 as a function of hidden photon (dark photon) mass. The exclusion region is shaded above the red boundary curve labeled 'This result'. The paper reports upper limits \u03c7 < 1.8\u20134.3 \u00d7 10\u207b\u00b9\u2070 at 95% CL in the mass range 115.79\u2013115.85 \u03bceV. The bottom panel is an expanded linear-scale view of the same region. The x-axis label is 'hidden photon mass [eV]' with tick labels in \u03bceV (1 \u03bceV = 1e-6 eV). The y-axis label is 'mixing parameter' with ticks at 10\u207b\u2078, 10\u207b\u2079, 10\u207b\u00b9\u2070. The boundary traced is the lower edge of the red exclusion curve. The paper uses a metal plate as a photon converter and cryogenic receiver in the K-band (28 GHz \u2248 115.8 \u03bceV). Comparison lines from Kirck et al. (2018), Suzuki et al. (2015), DAMIC (2019), FUNK (2020), and other constraints are also shown. The most stringent limits are obtained in the narrow mass range searched (115.79\u2013115.85 \u03bceV). | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.23)",
+ "num_points": 27,
+ "elapsed_s": 198.4570381641388
+}

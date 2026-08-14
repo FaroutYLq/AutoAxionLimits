@@ -1,0 +1,186 @@
+{
+  "arxiv_id": "2309.07995",
+  "paper_title": "HeLIOS: The Superfluid Helium Ultralight Dark Matter Detector",
+  "coupling_type": "VectorBL",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      1e-12,
+      2e-18
+    ],
+    [
+      1.5e-12,
+      4e-19
+    ],
+    [
+      2e-12,
+      6e-20
+    ],
+    [
+      2.8e-12,
+      5e-21
+    ],
+    [
+      3.6e-12,
+      2e-22
+    ],
+    [
+      4e-12,
+      5e-24
+    ],
+    [
+      4.4e-12,
+      3e-22
+    ],
+    [
+      5e-12,
+      4e-22
+    ],
+    [
+      6e-12,
+      4e-22
+    ],
+    [
+      6.5e-12,
+      7e-24
+    ],
+    [
+      7e-12,
+      4e-22
+    ],
+    [
+      7.5e-12,
+      5e-22
+    ],
+    [
+      8.5e-12,
+      5e-22
+    ],
+    [
+      9e-12,
+      1e-23
+    ],
+    [
+      9.6e-12,
+      5e-22
+    ],
+    [
+      1.05e-11,
+      6e-22
+    ],
+    [
+      1.2e-11,
+      6e-22
+    ],
+    [
+      1.25e-11,
+      1.5e-23
+    ],
+    [
+      1.32e-11,
+      7e-22
+    ],
+    [
+      1.45e-11,
+      8e-22
+    ],
+    [
+      1.65e-11,
+      8e-22
+    ],
+    [
+      1.7e-11,
+      2e-23
+    ],
+    [
+      1.78e-11,
+      9e-22
+    ],
+    [
+      1.9e-11,
+      1e-21
+    ],
+    [
+      2.15e-11,
+      1.1e-21
+    ],
+    [
+      2.2e-11,
+      3e-23
+    ],
+    [
+      2.3e-11,
+      1.2e-21
+    ],
+    [
+      2.5e-11,
+      1.5e-21
+    ],
+    [
+      2.75e-11,
+      1.6e-21
+    ],
+    [
+      2.8e-11,
+      4e-23
+    ],
+    [
+      2.9e-11,
+      1.8e-21
+    ],
+    [
+      3.2e-11,
+      2e-21
+    ],
+    [
+      3.55e-11,
+      2.4e-21
+    ],
+    [
+      3.6e-11,
+      6e-23
+    ],
+    [
+      3.7e-11,
+      2.6e-21
+    ],
+    [
+      4e-11,
+      3e-21
+    ],
+    [
+      4.45e-11,
+      3.5e-21
+    ],
+    [
+      4.5e-11,
+      8e-23
+    ],
+    [
+      4.6e-11,
+      3.6e-21
+    ],
+    [
+      4.9e-11,
+      4e-21
+    ],
+    [
+      5.35e-11,
+      4.5e-21
+    ],
+    [
+      5.4e-11,
+      1e-22
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "HeLIOS",
+  "coupling_convention": "g_{B-L}, dimensionless vector coupling, as plotted on y-axis",
+  "notes": "HeLIOS is a superfluid helium optomechanical UDM detector. This is a PROJECTION/sensitivity paper (prototype demonstration, no actual exclusion limit set - thermal-noise-limited readout not yet achieved). Fig. 1 shows projected sensitivity for BOTH scalar UDM coupling to electron mass (d_me, ScalarElectron) and vector UDM coupling to B-L number (g_B-L, VectorBL). Per hint chose VectorBL, but paper equally covers ScalarElectron. No numerical table of the projected exclusion curves is provided - only figure axis ranges: vector panel spans g_B-L ~1e-26 to 1e-16 over mass ~1-50 peV (1e-12 to 5e-11 eV); scalar panel spans d_me ~1e-7 to 1e7 over 3-50 peV. Curve values cannot be reliably digitized from text alone, so no data points extracted. Local DM density assumed 0.4 GeV/cm^3. | selector: figure_vision (sole candidate) | Vision: Right panel of Figure 1 is the VectorBL (g_{B-L}) sensitivity plot (x = vector boson mass in peV, y = g_{B-L}, 1e-26 to 1e-16). Provided axis calibration (y 1e-7 to 1e7, x 3-55 peV) matches the LEFT scalar (d_me) panel, not the vector panel; I used the actual right-panel axes per the VectorBL hint. This is a projected sensitivity (tabletop proposal, tau=1hr) not an exclusion. The traced lower boundary is the envelope of the HeLIOS red + pressurize region, with sharp resonance dips (deepest ~5e-24 near 4 peV) at the ten lowest mechanical modes rising to off-resonance humps. 1 kHz Compton frequency corresponds to ~4.14 peV. Point values are approximate reads from a jagged, partly log-narrow feature; hence lower extraction confidence. | Calibration: No calibration needed | [COUPLING REVIEW] axis 'dimensionless scalar coupling d_me' implies ScalarElectron but classified VectorBL (cross-family contradiction \u2014 flagged, not overridden)",
+  "num_points": 42,
+  "elapsed_s": 179.70326566696167
+}

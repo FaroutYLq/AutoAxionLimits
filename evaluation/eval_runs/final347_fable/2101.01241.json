@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2101.01241",
+  "paper_title": "Search for axion-like dark matter using solid-state nuclear magnetic resonance",
+  "coupling_type": "AxionEDM",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.62e-07,
+      1e-21
+    ],
+    [
+      1.66e-07,
+      1e-21
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.47,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "CASPEr_Electric_PhaseI",
+  "coupling_convention": "d_n in e*cm (amplitude of oscillating neutron EDM)",
+  "notes": "CASPEr-electric solid-state NMR search (207Pb in PMN-PT) for axion-like dark matter in the 162-166 neV mass range (39.1-40.2 MHz Compton frequency, 1 MHz band around 39.65 MHz). The paper reports flat 95% CL upper bounds over this range: |g_d| < 9.5e-4 GeV^-2, equivalent to oscillating neutron EDM amplitude d_n < 1.0e-21 e*cm (emitted here as a two-point flat bound), oscillating theta_QCD amplitude < 4.3e-6, and gradient coupling |g_aNN| < 2.8e-1 GeV^-1 (AxionNeutron-type, not emitted). DM density assumption: rho_DM = 3.6e-42 GeV^4 \u2248 0.47 GeV/cm^3. The paper also contains a secondary gradient-coupling limit and future sensitivity projections (Fig. S9), but the primary extracted result is the measured EDM-coupling bound. Detailed per-frequency limit curve (Fig. 3a) not available numerically; the quoted range-wide bound is used. Theoretical uncertainty in effective electric field E* is ~50%. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 18.6 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | [COUPLING REVIEW] axis 'EDM coupling g_d in GeV^-2 (left axis; right axis shows gradient coupling g_aNN in GeV^-1)' implies AxionNeutron but classified AxionEDM (cross-family contradiction \u2014 flagged, not overridden)",
+  "num_points": 2,
+  "elapsed_s": 130.05721187591553
+}

@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2308.09077",
+  "paper_title": "CAPP-7",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.9883e-05,
+      5.5e-15
+    ],
+    [
+      1.9926e-05,
+      5.5e-15
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "CAPP18T_run2",
+  "coupling_convention": "g_agamma in GeV^-1 (computed from ~0.7x KSVZ at m_a~19.9 ueV)",
+  "notes": "CAPP18T haloscope axion-photon search, run 2. Scan 4.8077-4.8181 GHz, mass 19.883-19.926 ueV. Excludes couplings above ~0.7x|g_KSVZ| (~1.9x|g_DFSZ|) at 90% C.L. (Bayesian). KSVZ at m_a=19.9 ueV computed as g~7.8e-15 GeV^-1 (E/N=0, |E/N-1.92|=1.92, f_a~2.86e11 GeV), so limit ~5.5e-15 GeV^-1. Only the anchor coupling value from KSVZ scaling is given in text; the exclusion is roughly flat across the narrow mass band. rho_a=0.45 GeV/cc assumed. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 14.5 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 2,
+  "elapsed_s": 114.19682812690735
+}

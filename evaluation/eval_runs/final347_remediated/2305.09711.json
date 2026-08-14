@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2305.09711",
+  "paper_title": "First Scan Search for Dark Photon Dark Matter with a Tunable Superconducting Radio-Frequency Cavity",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5.367e-06,
+      2.2e-16
+    ],
+    [
+      5.373e-06,
+      2.2e-16
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.83,
+  "suggested_experiment_name": "SHANHE_SRF",
+  "coupling_convention": "dimensionless kinetic mixing epsilon",
+  "notes": "Tunable niobium SRF cavity dark photon DM scan search. Scanned 1.37 MHz centered at 1.3 GHz (f_max=1.299164 GHz). Best limit epsilon<2.2e-16 at 90% CL. Mass converted from frequency via m=4.136e-15*f: ~5.37e-6 eV over the narrow scanned band. Only overall best value quoted in text (no per-bin table available), so the two points approximate the flat exclusion across the scan range. rho_A'=0.45 GeV/cm^3. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.83, 2))",
+  "num_points": 2,
+  "elapsed_s": 125.06153130531311
+}

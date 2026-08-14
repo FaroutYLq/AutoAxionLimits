@@ -1,0 +1,138 @@
+{
+  "arxiv_id": "1606.07494",
+  "paper_title": "Borsanyi16",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-12,
+      5e-05
+    ],
+    [
+      2e-12,
+      7e-05
+    ],
+    [
+      5e-12,
+      0.00012
+    ],
+    [
+      1e-11,
+      0.0002
+    ],
+    [
+      2e-11,
+      0.0003
+    ],
+    [
+      5e-11,
+      0.0004
+    ],
+    [
+      1e-10,
+      0.00055
+    ],
+    [
+      2e-10,
+      0.0007
+    ],
+    [
+      5e-10,
+      0.001
+    ],
+    [
+      1e-09,
+      0.0014
+    ],
+    [
+      2e-09,
+      0.002
+    ],
+    [
+      5e-09,
+      0.003
+    ],
+    [
+      1e-08,
+      0.0045
+    ],
+    [
+      2e-08,
+      0.007
+    ],
+    [
+      5e-08,
+      0.012
+    ],
+    [
+      1e-07,
+      0.019
+    ],
+    [
+      2e-07,
+      0.03
+    ],
+    [
+      5e-07,
+      0.055
+    ],
+    [
+      1e-06,
+      0.085
+    ],
+    [
+      2e-06,
+      0.14
+    ],
+    [
+      5e-06,
+      0.27
+    ],
+    [
+      1e-05,
+      0.45
+    ],
+    [
+      2e-05,
+      0.8
+    ],
+    [
+      3e-05,
+      1.2
+    ],
+    [
+      5e-05,
+      1.7
+    ],
+    [
+      7e-05,
+      2.0
+    ],
+    [
+      0.0001,
+      2.15
+    ],
+    [
+      0.0002,
+      2.2
+    ],
+    [
+      0.0005,
+      2.2
+    ],
+    [
+      0.001,
+      2.2
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "Borsanyi et al. 2016 lattice QCD axion mass (misalignment)",
+  "coupling_convention": "theta_0 initial misalignment angle (dimensionless), as plotted on the y-axis vs m_A",
+  "notes": "Lattice QCD calculation of topological susceptibility chi(T=0)=[75.6(1.8)(0.9) MeV]^4, used to predict the post-inflation dark-matter axion mass via m_A = sqrt(chi)/f_A. Paper reports strict lower bound m_A = 28(2) ueV (post-inflation, theta0=2.155), m_A=50(4) ueV for 50% misalignment contribution, and final estimate m_A = 50-1500 ueV. This is a theoretical prediction on the f_A-m_A plane (Figure 3), hence AxionMass. Data points are constructed from the quoted mass values using the standard relation m_A ~ 5.7 ueV x (1e12 GeV/f_A); f_A values are derived, not directly tabulated. No coupling-constant exclusion is presented. Not a haloscope, so no local DM density assumed. Errors are 1-sigma statistical/systematic, not a formal confidence level. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.55, 30)) | Vision: Figure 3: relation between axion mass m_A [\u03bceV] (bottom axis; f_A [GeV] on top axis, ranging 1e9-1e19 GeV) and initial misalignment angle \u03b8\u2080 (y-axis, log scale). The plotted y-quantity is \u03b8\u2080, NOT a coupling; emitted values are \u03b8\u2080 exactly as plotted per the plotted-values contract. x converted from \u03bceV to eV (\u00d71e-6). Blue curve rises smoothly on log-log; slight bend near m_A~1e-5 \u03bceV (QCD transition, per text) and plateau at \u03b8\u2080\u22482.155 (post-inflation value) above m_A~30-70 \u03bceV. Post-inflation predicted mass range m_A=50-1500 \u03bceV. Note: this is labeled AxionMass but the actual plotted axes are \u03b8\u2080 vs m_A, not m_a vs f_a; downstream conversion may be needed. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=2.37 snapped to identity)",
+  "num_points": 30,
+  "elapsed_s": 195.69311094284058
+}

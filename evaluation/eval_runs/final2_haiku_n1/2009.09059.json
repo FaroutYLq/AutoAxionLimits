@@ -1,0 +1,146 @@
+{
+ "arxiv_id": "2009.09059",
+ "paper_title": "Constraints on Axion-like Particles from a Hard $X$-ray Observation of Betelgeuse",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-14,
+   1.2e-10
+  ],
+  [
+   1.5e-14,
+   1.15e-10
+  ],
+  [
+   2e-14,
+   1.1000000000000001e-10
+  ],
+  [
+   3e-14,
+   1.05e-10
+  ],
+  [
+   5e-14,
+   9.8e-11
+  ],
+  [
+   7e-14,
+   9.199999999999999e-11
+  ],
+  [
+   1e-13,
+   8.499999999999999e-11
+  ],
+  [
+   1.5e-13,
+   7.8e-11
+  ],
+  [
+   2e-13,
+   7.2e-11
+  ],
+  [
+   3e-13,
+   6.500000000000001e-11
+  ],
+  [
+   5e-13,
+   5.8000000000000007e-11
+  ],
+  [
+   7e-13,
+   5.3e-11
+  ],
+  [
+   1e-12,
+   4.7999999999999996e-11
+  ],
+  [
+   1.5e-12,
+   4.3e-11
+  ],
+  [
+   2e-12,
+   3.9e-11
+  ],
+  [
+   3e-12,
+   3.4e-11
+  ],
+  [
+   5e-12,
+   2.8e-11
+  ],
+  [
+   7e-12,
+   2.3999999999999998e-11
+  ],
+  [
+   1e-11,
+   2e-11
+  ],
+  [
+   1.5e-11,
+   1.7e-11
+  ],
+  [
+   2e-11,
+   1.5e-11
+  ],
+  [
+   3e-11,
+   1.2999999999999999e-11
+  ],
+  [
+   5e-11,
+   1.1499999999999999e-11
+  ],
+  [
+   7e-11,
+   1.0800000000000001e-11
+  ],
+  [
+   1e-10,
+   1.05e-11
+  ],
+  [
+   1.5e-10,
+   1.0800000000000001e-11
+  ],
+  [
+   2e-10,
+   1.12e-11
+  ],
+  [
+   3e-10,
+   1.1999999999999999e-11
+  ],
+  [
+   5e-10,
+   1.3499999999999999e-11
+  ],
+  [
+   1e-09,
+   1.6e-11
+  ],
+  [
+   3e-09,
+   2e-11
+  ],
+  [
+   1e-08,
+   2.4999999999999998e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.82,
+ "suggested_experiment_name": "NuSTAR Betelgeuse",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling",
+ "notes": "Paper presents a novel astrophysical search for axion-like particles using hard X-ray observations of Betelgeuse by NuSTAR. The limit is mass-dependent and varies with magnetic field model assumptions (BT = 0.4\u20133.0 \u00b5G) and stellar evolutionary stage (tcc = 1.4\u20131.55\u00d710^5 yr). The two data points represent the extremes: conservative scenario (tcc=1.55\u00d710^5 yr, BT=0.4 \u00b5G) yields g_agamma < 1.8\u00d710^-11 GeV^-1 for m_a < 3.5\u00d710^-11 eV; optimistic scenario (tcc=3.6 yr, BT=3.0 \u00b5G) yields g_agamma < 5.2\u00d710^-12 GeV^-1 for m_a < 5.5\u00d710^-11 eV. The constraint is derived from non-detection of excess X-ray events above background in the 3\u201379 keV range. The paper emphasizes that the uncertainty is dominated by the transverse Galactic magnetic field strength (B_T^2 scaling in conversion probability), with secondary uncertainty from stellar model choice. This is a mass-dependent bound in the low-mass ALP regime (m_a < 10^-10 eV), competitive with CAST and comparable to projected sensitivities of ALPS-II and BabyIAXO. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.82, 32)) | Vision: Exclusion limit plot extracted from Figure 3 of the paper. The red band labeled 'NuSTAR Betelgeuse' represents the 95% C.L. upper limit on g_agamma as a function of ALP mass m_a. The constraint is derived from the non-observation of excess hard X-rays from Betelgeuse that would result from ALP-photon conversion in the Galactic magnetic field. The width of the red band reflects uncertainty in the choice of stellar model and transverse magnetic field strength (B_T). The lower boundary of the exclusion region (upper limit on coupling) was traced by sampling densely at the steep portions (low and high mass) and more sparsely in the relatively flat middle region around 1e-11 eV. The plot shows the NuSTAR constraint is competitive with or exceeds previous astrophysical bounds from supernovae (SN 1987A) and galaxy clusters (Fermi-LAT, CAST) in the low-mass ALP regime (m_a < 5.5 \u00d7 10^-11 eV). | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=6.43)",
+ "num_points": 32,
+ "elapsed_s": 151.417888879776
+}

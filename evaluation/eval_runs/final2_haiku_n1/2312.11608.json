@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "2312.11608",
+ "paper_title": "Inhomogeneous Energy Injection in the 21-cm Power Spectrum: Sensitivity to Dark Matter Decay",
+ "coupling_type": null,
+ "is_new_limit": false,
+ "is_projection": true,
+ "data_points": [],
+ "data_source": "none",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.2,
+ "suggested_experiment_name": "HERA_21cm",
+ "coupling_convention": "dimensionless (\u03c3^DM_decay / M_Pl)",
+ "notes": "This paper develops a simulation framework (DM21cm) for modeling inhomogeneous energy injection from decaying dark matter in 21-cm cosmology and forecasts HERA sensitivity to DM decay. However, it does NOT present measured exclusion limits or coupling constraints in the standard format (mass vs. coupling). Instead, it presents PROJECTED sensitivities as 95th percentile lower limits on DM LIFETIME (\u03c4 in seconds) vs. DM mass. The paper forecasts that HERA will constrain lifetimes of ~10^28 s for sub-GeV DM decaying to e+e\u2212, and sub-keV DM decaying to photons. Figure 8 shows projected limits but these are on lifetime \u03c4, not on standard coupling constants (g_agamma, g_ae, etc.). The paper does not provide explicit numerical (mass, coupling) pairs in a standard exclusion-limit format. The coupling type cannot be determined because the paper does not report results in terms of standard coupling constants. This is a theoretical/simulation paper forecasting future experimental sensitivity, not a measurement of actual exclusion limits.",
+ "num_points": 0,
+ "elapsed_s": 279.65113496780396
+}

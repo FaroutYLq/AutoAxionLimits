@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2104.12772",
+  "paper_title": "No evidence for axions from Chandra observation of magnetic white dwarf",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-11,
+      5.5e-13
+    ],
+    [
+      5e-06,
+      5.5e-13
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.82,
+  "suggested_experiment_name": "Chandra_REJ0317-853_MWD",
+  "coupling_convention": "g_agamma in GeV^-1 (Caee=Caggamma scenario)",
+  "notes": "Astrophysical (stellar) bound from non-observation of X-rays from magnetic white dwarf RE J0317-853 with Chandra. Fundamental measured limit is g_aee*g_agamma < 1.3e-25 GeV^-1 for m_a << 5e-6 eV (95% CL). Translated to g_agamma <= 5.5e-13 sqrt(Caggamma/Caee) GeV^-1 for m_a <= 5e-6 eV; here I emit the Caee=Caggamma case (5.5e-13). For the conservative W-phobic loop-induced case Caee~1.5e-4 Caggamma the bound is g_agamma ~ 4.4e-11 GeV^-1. Not a DM search, so no local density. Limit is flat below ~5e-6 eV then weakens; horizontal line encodes the flat portion. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.82, 2))",
+  "num_points": 2,
+  "elapsed_s": 123.24020600318909
+}

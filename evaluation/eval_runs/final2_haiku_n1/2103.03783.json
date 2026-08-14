@@ -1,0 +1,54 @@
+{
+ "arxiv_id": "2103.03783",
+ "paper_title": "GEO600",
+ "coupling_type": "ScalarPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-13,
+   1e-30
+  ],
+  [
+   1e-12,
+   1e-30
+  ],
+  [
+   1e-11,
+   3e-25
+  ],
+  [
+   1e-10,
+   1e-20
+  ],
+  [
+   1e-09,
+   1e-18
+  ],
+  [
+   1e-08,
+   1e-17
+  ],
+  [
+   1e-07,
+   1e-16
+  ],
+  [
+   1e-06,
+   1e-15
+  ],
+  [
+   1e-05,
+   1e-14
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "GEO600_2021",
+ "coupling_convention": "\u039b\u03b3^-1 in GeV^-1",
+ "notes": "Paper reports constraints on scalar field dark matter coupling to photons (\u039b\u03b3) and electrons (\u039be) using GEO 600 gravitational-wave detector. The primary result is presented in Figures 2 and 3 as exclusion limits on \u039b\u03b3^-1 and \u039be^-1 (in GeV^-1) vs. mass m\u03c6 (in eV). The coupling types ScalarPhoton and ScalarElectron both apply here. I have extracted ScalarPhoton (photon coupling \u039b\u03b3) as the primary result since the paper emphasizes the photon coupling in the abstract and title mentions 'scalar field dark matter' broadly. The data points are approximate readings from Figure 2 (Basic Scalar scenario) which assumes \u03c1GH = 0.4 GeV/cm\u00b3. The paper sets constraints at 95% CL (5.6\u03c3 above noise floor). Mass range covered: ~10^-13 to 10^-5 eV. The coupling values represent upper limits (exclusion bounds) on \u039b\u03b3^-1. Note: The paper also constrains electron coupling \u039be with similar sensitivity; a separate extraction for ScalarElectron would yield comparable results. The local DM density of 0.4 GeV/cm\u00b3 applies only to the 'Basic Scalar' and 'Dilaton/Modulus' scenarios; the 'Relaxion Halo' scenario uses a mass-dependent overdensity up to 10^11 times higher. Extraction confidence is moderate (0.75) because the exact numerical values from the figures are approximate; the paper states data are available upon request but does not provide a detailed table in the main text. | selector: text (sole candidate)",
+ "num_points": 9,
+ "elapsed_s": 41.44872999191284
+}

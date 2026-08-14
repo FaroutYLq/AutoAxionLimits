@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2208.13794",
+ "paper_title": "Seeking dark matter with $\u03b3$-ray attenuation",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   8.0,
+   1.26e-11
+  ],
+  [
+   25.0,
+   1.26e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "GammaRayAttenuation_EBL",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper reports strongest 3\u03c3 bound on axion-photon coupling over 8-25 eV mass range from \u03b3-ray attenuation measurements. Best-fit parameters: m_a c^2 = 9.1 eV, g_a\u03b3 = 2.1 \u00d7 10^-11 GeV^-1 (2.1\u03c3 preference over null). The bound is mass-independent (flat) over the stated 8-25 eV range, so encoded as horizontal line. Paper uses 739 blazars from Fermi-LAT and 38 from ground-based Cherenkov telescopes. This is an astrophysical/cosmological bound (not a haloscope), so no local DM density is set. Confidence level set to 0.95 as standard for 3\u03c3 exclusion limits. | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 169.7941210269928
+}

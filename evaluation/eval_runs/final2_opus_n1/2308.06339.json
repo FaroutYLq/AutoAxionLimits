@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2308.06339",
+ "paper_title": "Search for axion-like particles through nuclear Primakoff production using the GlueX detector",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   200000000.0,
+   0.002
+  ],
+  [
+   250000000.0,
+   0.0015
+  ],
+  [
+   300000000.0,
+   0.0015
+  ],
+  [
+   360000000.0,
+   0.0005
+  ],
+  [
+   400000000.0,
+   0.0015
+  ],
+  [
+   450000000.0,
+   0.002
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "GlueX_Primakoff_ALP",
+ "coupling_convention": "1/Lambda = g_agamma in GeV^-1, from L = (1/4Lambda) a F Ftilde",
+ "notes": "First GlueX nuclear Primakoff ALP search on 12C, mass region 200-450 MeV via a->gamma gamma. Y-axis is 1/Lambda (=g_agamma) in GeV^-1, scale O(1 TeV) i.e. ~1e-3 GeV^-1. Data points read approximately from Fig 7/8 observed (full-data) 95% CL curve; the strong dip near 360 MeV is a background fluctuation. Background-subtracted limits are somewhat weaker (~2-3e-3). Values are collider/fixed-target production bounds, not a DM haloscope, so no DM density. Extraction from figures only, hence moderate confidence. | selector: text over figure_vision (quality (0, 1, 1, 1, 3, 0, 0.6, 6)) | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+ "num_points": 6,
+ "elapsed_s": 144.37173295021057
+}

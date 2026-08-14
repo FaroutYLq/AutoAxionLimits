@@ -1,0 +1,90 @@
+{
+ "arxiv_id": "2102.06722",
+ "paper_title": "The search for low-mass axion dark matter with ABRACADABRA-10cm",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.5004241273824844e-10,
+   0.00011836801779466074
+  ],
+  [
+   3.6203428811787684e-10,
+   0.00011836801779466074
+  ],
+  [
+   4.0004685195201975e-10,
+   8.639996251277947e-06
+  ],
+  [
+   5.000551516704252e-10,
+   8.639996251277947e-06
+  ],
+  [
+   6.000628742512841e-10,
+   8.639996251277947e-06
+  ],
+  [
+   7.000700790977215e-10,
+   8.639996251277947e-06
+  ],
+  [
+   8.000768509679605e-10,
+   8.639996251277947e-06
+  ],
+  [
+   9.000832059988278e-10,
+   8.639996251277947e-06
+  ],
+  [
+   1.0000892373145438e-09,
+   8.639996251277947e-06
+  ],
+  [
+   2.0001363434639316e-09,
+   8.639996251277947e-06
+  ],
+  [
+   3.0001678070332625e-09,
+   8.639996251277947e-06
+  ],
+  [
+   4.0001888375807765e-09,
+   8.639996251277947e-06
+  ],
+  [
+   5.000201402659342e-09,
+   8.639996251277947e-06
+  ],
+  [
+   6.000208607974875e-09,
+   8.639996251277947e-06
+  ],
+  [
+   7.000209916706394e-09,
+   8.639996251277947e-06
+  ],
+  [
+   8.000208335183663e-09,
+   8.639996251277947e-06
+  ],
+  [
+   8.702081973537348e-09,
+   0.00011836801779466074
+  ],
+  [
+   9.00020094076091e-09,
+   8.639996251277947e-06
+  ]
+ ],
+ "data_source": "vector_trace",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "ABRACADABRA-10cm_Run3",
+ "coupling_convention": "canonical",
+ "notes": "ABRACADABRA-10cm broadband search, Run 3. 95% upper limits on axion-photon coupling over 0.41-8.27 neV mass range. Best limit g_agamma < 3.2e-11 GeV^-1 at ma ~2.99 neV. Data points approximated from Fig. 4 exclusion curve (only best-limit value given precisely in text); other points estimated from plot shape. Local DM density 0.4 GeV/cm^3, Standard Halo Model with v0=220 km/s, vsun=232 km/s. | vector-trace candidate: MaskingFraction.pdf colour (0.0, 0.0, 0.0), 18 pts (selected among 1) | selector: vector_trace over text (quality (1, 1, 1, 1, 3.5, 0, 0.85, 18))",
+ "num_points": 18,
+ "elapsed_s": 33.27679896354675
+}

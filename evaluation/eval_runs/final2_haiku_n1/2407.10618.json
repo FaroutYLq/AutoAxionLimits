@@ -1,0 +1,66 @@
+{
+ "arxiv_id": "2407.10618",
+ "paper_title": "Novel bounds on decaying axionlike particle dark matter from the cosmic background",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.5,
+   1e-12
+  ],
+  [
+   1.0,
+   8e-13
+  ],
+  [
+   2.0,
+   5e-13
+  ],
+  [
+   5.0,
+   2e-13
+  ],
+  [
+   10.0,
+   1e-13
+  ],
+  [
+   30.0,
+   3e-14
+  ],
+  [
+   100.0,
+   5e-15
+  ],
+  [
+   1000.0,
+   5e-16
+  ],
+  [
+   10000.0,
+   5e-17
+  ],
+  [
+   100000.0,
+   5e-18
+  ],
+  [
+   1000000.0,
+   5e-19
+  ],
+  [
+   10000000.0,
+   5e-20
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.42,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "CosmicBackground_Decay_2024",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper constrains axion-photon coupling g_agamma through cosmic background (CB) measurements spanning optical to x-ray wavelengths (0.5 eV to 10^7 eV). Main results from Fig. 3 show exclusion limits at 2\u03c3 confidence level. Data points extracted from the overall constraint curve (white line in Fig. 3) which combines COB, CUB, and CXB measurements. The paper improves previous limits by ~1 order of magnitude and reaches the QCD axion band (KSVZ/DFSZ models) between 2-30 eV. Local Milky Way halo contribution included with \u03c1\u2299 = 0.42 GeV/cm\u00b3 (NFW profile). The paper also analyzes New Horizons/LORRI measurements but finds the tentative excess is ruled out by other experiments. Confidence level is 2\u03c3 (95% CL). Data points are approximate readings from Fig. 3 constraint curve; exact numerical table not provided in paper. | selector: text (sole candidate)",
+ "num_points": 12,
+ "elapsed_s": 71.56302118301392
+}

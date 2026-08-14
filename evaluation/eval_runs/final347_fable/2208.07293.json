@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2208.07293",
+  "paper_title": "First Search for Axion-Like Particles in a Storage Ring Using a Polarized Deuteron Beam",
+  "coupling_type": "AxionEDM",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.95e-10,
+      6.4e-23
+    ],
+    [
+      5.02e-10,
+      6.4e-23
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "JEDI_COSY",
+  "coupling_convention": "oscillating deuteron EDM amplitude d_AC in e*cm",
+  "notes": "First storage-ring search for ALP-induced oscillating EDM using a polarized deuteron beam at COSY (JEDI collaboration). Scan covered spin-precession frequencies 119.997-121.457 kHz, corresponding to ALP masses 0.495-0.502 neV (4.95e-10 to 5.02e-10 eV). No resonance observed; the average 90% CL upper limit is |d^d_AC| < 6.4e-23 e*cm, encoded here as a flat bound over the scanned mass range (actual limit fluctuates point-to-point, with values above ~1e-22 e*cm excluded everywhere in the range). The paper also derives bounds on g_adgamma, the ALP-gluon coupling C_G^d/f_a, and the axion-wind coupling C_d/f_a, but the primary directly measured quantity is the oscillating EDM. Note this is a DEUTERON EDM, not neutron, though AxionEDM is the closest enum. The analysis assumes ALPs constitute the local galactic dark matter (oscillating classical field), but the assumed local density value is not explicitly stated in the provided content, so dm_density_assumed is left null. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.8, 2)) | [COUPLING REVIEW] axis 'ALP-nucleon-photon (EDM operator) coupling |g_an\u03b3| in GeV^-2' implies AxionNeutron but classified AxionEDM (cross-family contradiction \u2014 flagged, not overridden)",
+  "num_points": 2,
+  "elapsed_s": 219.56034111976624
+}

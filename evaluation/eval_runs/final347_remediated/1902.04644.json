@@ -1,0 +1,142 @@
+{
+  "arxiv_id": "1902.04644",
+  "paper_title": "Constraints on bosonic dark matter from ultralow-field nuclear magnetic resonance",
+  "coupling_type": "AxionProton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.86e-16,
+      8e-05
+    ],
+    [
+      2.2e-16,
+      9.1e-05
+    ],
+    [
+      2.6e-16,
+      0.000104
+    ],
+    [
+      3e-16,
+      0.000117
+    ],
+    [
+      4e-16,
+      0.000148
+    ],
+    [
+      5e-16,
+      0.000178
+    ],
+    [
+      6.5e-16,
+      0.000221
+    ],
+    [
+      8e-16,
+      0.000261
+    ],
+    [
+      8.7e-16,
+      0.00056
+    ],
+    [
+      1e-15,
+      0.000314
+    ],
+    [
+      1.3e-15,
+      0.000389
+    ],
+    [
+      1.6e-15,
+      0.00046
+    ],
+    [
+      2e-15,
+      0.000552
+    ],
+    [
+      2.6e-15,
+      0.000685
+    ],
+    [
+      3.3e-15,
+      0.000833
+    ],
+    [
+      4e-15,
+      0.000974
+    ],
+    [
+      5e-15,
+      0.00117
+    ],
+    [
+      6.5e-15,
+      0.00145
+    ],
+    [
+      7e-15,
+      0.003
+    ],
+    [
+      8e-15,
+      0.00171
+    ],
+    [
+      8.9e-15,
+      0.0038
+    ],
+    [
+      1e-14,
+      0.00206
+    ],
+    [
+      1.3e-14,
+      0.00255
+    ],
+    [
+      1.6e-14,
+      0.00302
+    ],
+    [
+      2e-14,
+      0.00362
+    ],
+    [
+      2.6e-14,
+      0.0045
+    ],
+    [
+      3.3e-14,
+      0.00547
+    ],
+    [
+      4e-14,
+      0.0064
+    ],
+    [
+      5e-14,
+      0.00767
+    ],
+    [
+      6.5e-14,
+      0.00951
+    ],
+    [
+      7.85e-14,
+      0.011
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "CASPEr-ZULF",
+  "coupling_convention": "g_aNN (ALP wind\u2013nucleon linear coupling) in GeV^-1, plotted exactly as on the y-axis",
+  "notes": "CASPEr-ZULF (Cosmic Axion Spin Precession Experiment, zero-to-ultralow-field NMR on 13C-formic acid). Main result Fig.3 constrains the ALP wind-nucleon linear coupling g_aNN with y-axis in GeV^-1 (a dimensionful derivative coupling, NOT the standard dimensionless g_an), assuming g_app = g_ann = g_aNN. Mass range 1.8e-16 to 7.8e-14 eV (45 mHz to 19 Hz). Coupling limit worsens ~linearly with frequency since sideband amplitude ~ B/omega. Coupling type ambiguous: paper treats both proton (1H) and neutron (13C) equally; hint says AxionProton and 1H proton spin dominates sensitivity, but it is genuinely a nucleon coupling. Data points are approximate readings from Fig.3 (log-log plot); paper also reports quadratic wind (Fig.4) and dark-photon dEDM/dMDM (Fig.5, DarkPhoton) couplings. 90% CL. Values are in GeV^-1 as plotted; downstream should note this is the dimensionful convention, not dimensionless g_an. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.5, 31)) | Vision: Figure 3 (linear ALP wind-nucleon coupling) is the plot matching the provided axis calibration (y: 1e-10 to 1e-2 GeV^-1, x: ~4e-20 to 4e-14 eV). The red 'CASPEr-ZULF' region is this work's 90% CL exclusion; I traced its lower (sloped, jagged) boundary. The plotted quantity is g_aNN in GeV^-1 (a generic nucleon coupling). Coupling type is ambiguous between proton/neutron; text hint suggests AxionProton (1H-rich formic-acid sample) but the y-axis is labeled g_aNN, so confidence is reduced to 0.5. Upward spikes near ~8.7e-16, ~7e-15, ~8.9e-15 eV (0.21, 1.69, 2.16 Hz J-coupling peaks) included. Left edge is vertical at 1.86e-16 eV; right edge at 7.85e-14 eV. Values read approximately from the log-log plot. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.03 snapped to identity)",
+  "num_points": 31,
+  "elapsed_s": 223.4907341003418
+}

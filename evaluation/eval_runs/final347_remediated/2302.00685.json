@@ -1,0 +1,150 @@
+{
+  "arxiv_id": "2302.00685",
+  "paper_title": "Axinovae",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-20,
+      5e-16
+    ],
+    [
+      3.16e-20,
+      8.9e-16
+    ],
+    [
+      1e-19,
+      1.6e-15
+    ],
+    [
+      3.16e-19,
+      2.8e-15
+    ],
+    [
+      1e-18,
+      5e-15
+    ],
+    [
+      3.16e-18,
+      8.9e-15
+    ],
+    [
+      1e-17,
+      1.6e-14
+    ],
+    [
+      3.16e-17,
+      2.8e-14
+    ],
+    [
+      1e-16,
+      5e-14
+    ],
+    [
+      3.16e-16,
+      8.9e-14
+    ],
+    [
+      1e-15,
+      1.6e-13
+    ],
+    [
+      3.16e-15,
+      2.8e-13
+    ],
+    [
+      1e-14,
+      5e-13
+    ],
+    [
+      3.16e-14,
+      8.9e-13
+    ],
+    [
+      1e-13,
+      1.6e-12
+    ],
+    [
+      3.16e-13,
+      2.8e-12
+    ],
+    [
+      1e-12,
+      5e-12
+    ],
+    [
+      3.16e-12,
+      8.9e-12
+    ],
+    [
+      1e-11,
+      1.6e-11
+    ],
+    [
+      3.16e-11,
+      2.8e-11
+    ],
+    [
+      1e-10,
+      5e-11
+    ],
+    [
+      3.16e-10,
+      8.9e-11
+    ],
+    [
+      1e-09,
+      1.6e-10
+    ],
+    [
+      3.16e-09,
+      2.8e-10
+    ],
+    [
+      1e-08,
+      5e-10
+    ],
+    [
+      3.16e-08,
+      8.9e-10
+    ],
+    [
+      1e-07,
+      1.6e-09
+    ],
+    [
+      3.16e-07,
+      2.8e-09
+    ],
+    [
+      1e-06,
+      5e-09
+    ],
+    [
+      3.16e-06,
+      8.9e-09
+    ],
+    [
+      1e-05,
+      1.6e-08
+    ],
+    [
+      3.16e-05,
+      2.8e-08
+    ],
+    [
+      0.0001,
+      5e-08
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "Axinovae (recurrent axion star collapse, M* ~ t^0.2, T_osc-independent exclusion)",
+  "coupling_convention": "f_a^-1 in GeV^-1 (inverse decay constant, plotted on y-axis vs m_a on x-axis)",
+  "notes": "Theory/cosmology paper (Fox, Weiner, Xiao) placing new bounds on axion-like DM in the m_a-f_a plane from recurrent 'axinovae' converting DM to dark radiation, constrained by decaying-DM cosmological limit (f_dDM < 2.62% at 2 sigma). This is an AxionMass-type bound (m_a vs f_a plane), NOT AxionPhoton; the constraint is explicitly independent of SM couplings and depends only on the axion self-coupling/f_a and gravity. Exclusion regions shown only as Figs. 1 & 2 (x: m_a = 1e-20 to 1e-4 eV; y: 1/f_a = 1e-17 to 1e-7 GeV^-1, i.e. f_a ~ 1e7-1e17 GeV). No numerical table or digitizable boundary values are provided, so no data points could be reliably extracted. | selector: figure_vision (sole candidate) | Vision: Figure 2 exclusion plot. Axes: x = m_a [eV] (1e-20 to 1e-4), y = f_a^-1 [GeV^-1] (1e-17 to 1e-7). This is NOT the standard AxionMass (f_a-m_a) plane orientation: here mass m_a is on the x-axis and the plotted coupling is the inverse decay constant f_a^-1 on the y-axis. The excluded (orange) region lies ABOVE the traced straight lower boundary, which follows f_a^-1 ~ m_a^{~0.5} on log-log. Values emitted as [m_a_eV, f_a^-1_GeV^-1] exactly as plotted; no conversion applied. Gray regions (black hole superradiance) and dashed relic-abundance curves (b=10, 1e3, 1e5) were NOT traced. Because the plotted y-quantity is f_a^-1 rather than m_a, coupling_type mapping is uncertain; confidence capped at 0.5. | Calibration: Calibration reverted: \u00d71e-2 from spot-check verify/stage2 (raw_ratio=0.02) failed contract [vision calibration \u00d71e-2: reverted (R5 hard floor: median outside VALID_RANGES)]",
+  "num_points": 33,
+  "elapsed_s": 157.8788537979126
+}

@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2402.12892",
+  "paper_title": "Extensive search for axion dark matter over 1\\,GHz with CAPP's Main Axion eXperiment",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.24e-06,
+      6.5e-16
+    ],
+    [
+      4.91e-06,
+      7.5e-16
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "CAPP_MAX_2024",
+  "coupling_convention": "g_agamma in GeV^-1 (approximate, estimated at near-DFSZ sensitivity)",
+  "notes": "CAPP-MAX cavity haloscope search for axion dark matter over 1.025-1.185 GHz (4.24-4.91 ueV). Constrains axion-photon coupling at ~90% CL assuming 100% local DM at 0.45 GeV/cm3. Paper reports reaching at or near DFSZ sensitivity over the range but provides NO explicit numerical table of the limit; exclusion is shown only in Fig. 22 (not extractable numerically). The data_points are approximate estimates placed at the near-DFSZ level (g_agamma ~ 6-8e-16 GeV^-1 for m_a ~ 4.2-4.9 ueV), and should be treated as rough. The paper expresses limits in terms of g_gamma (model-dependent coefficient, DFSZ=0.36) but the exclusion plot is on axion-photon coupling. Low extraction confidence due to lack of tabulated values. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.4, 2))",
+  "num_points": 2,
+  "elapsed_s": 128.2184977531433
+}

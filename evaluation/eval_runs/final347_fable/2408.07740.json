@@ -1,0 +1,154 @@
+{
+  "arxiv_id": "2408.07740",
+  "paper_title": "Constraining Light QCD Axions with Isolated Neutron Star Cooling",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      9e-09,
+      1.4999999999999999e-12
+    ],
+    [
+      9.2e-09,
+      6e-13
+    ],
+    [
+      9.5e-09,
+      2.5e-13
+    ],
+    [
+      1e-08,
+      1e-13
+    ],
+    [
+      1.05e-08,
+      6e-14
+    ],
+    [
+      1.2e-08,
+      6.6e-14
+    ],
+    [
+      2e-08,
+      1.11e-13
+    ],
+    [
+      3e-08,
+      1.66e-13
+    ],
+    [
+      5e-08,
+      2.7700000000000003e-13
+    ],
+    [
+      1e-07,
+      5.53e-13
+    ],
+    [
+      2e-07,
+      1.11e-12
+    ],
+    [
+      5e-07,
+      2.7699999999999997e-12
+    ],
+    [
+      1e-06,
+      5.529999999999999e-12
+    ],
+    [
+      2e-06,
+      1.1099999999999999e-11
+    ],
+    [
+      5e-06,
+      2.7700000000000002e-11
+    ],
+    [
+      1e-05,
+      5.53e-11
+    ],
+    [
+      2e-05,
+      1.11e-10
+    ],
+    [
+      5e-05,
+      2.7699999999999997e-10
+    ],
+    [
+      0.0001,
+      5.53e-10
+    ],
+    [
+      0.0002,
+      1.11e-09
+    ],
+    [
+      0.0005,
+      2.77e-09
+    ],
+    [
+      0.001,
+      5.53e-09
+    ],
+    [
+      0.002,
+      1.11e-08
+    ],
+    [
+      0.005,
+      2.7700000000000003e-08
+    ],
+    [
+      0.01,
+      5.53e-08
+    ],
+    [
+      0.02,
+      1.11e-07
+    ],
+    [
+      0.05,
+      2.77e-07
+    ],
+    [
+      0.1,
+      5.53e-07
+    ],
+    [
+      0.2,
+      1.11e-06
+    ],
+    [
+      0.5,
+      2.77e-06
+    ],
+    [
+      1.0,
+      5.53e-06
+    ],
+    [
+      2.0,
+      1.1099999999999999e-05
+    ],
+    [
+      5.0,
+      2.7700000000000002e-05
+    ],
+    [
+      10.0,
+      5.53e-05
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.65,
+  "suggested_experiment_name": "NS cooling (light QCD axion, this work)",
+  "coupling_convention": "1/f_a in GeV^-1, exactly as plotted on the y-axis of Fig. 5 (x-axis is m_a in eV). To obtain f_a [GeV], take the reciprocal; NO conversion was applied.",
+  "notes": "Paper presents a new astrophysical exclusion of light QCD axions (mass lighter than standard QCD prediction at given f_a) from isolated neutron star cooling. The main result (Fig. 5) is an excluded region in the (m_a [eV], 1/f_a [GeV^-1]) plane, so AxionMass is the correct coupling type; the pre-analysis hint is confirmed. However, no numerical table is given: the exclusion is a 2D band bounded by the epsilon = 0.1 line (right edge, where the new ground state of nuclear matter ceases to exist), a roughly vertical line at low m_a (need for large effective gravity g_a), and diagonals set by NGS formation vs envelope density. The emitted points trace the epsilon = 0.1 right boundary computed from Eq. (13) [(m_a)_vac = sqrt(eps)*m_pi*f_pi*sqrt(beta)/(2 f_a), giving m_a ~ 1.8e-6 eV at f_a = 1e12 GeV] over the f_a range ~1e12-1e17 GeV shown in Figs. 2-4; the full excluded band extends to smaller epsilon (smaller m_a at fixed f_a), roughly down to m_a ~ 1e-12 eV. Values are approximate reconstructions, not digitized from the figure - treat as indicative. No CL is quoted (exclusion criterion is L_gamma(1e5 yr) < 5e30 erg/s, i.e. (g+g_a)_14 > 50-100); 0.95 is a placeholder. Bound does NOT assume the axion is dark matter, so no DM density. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.65, 34)) | Vision: Fig. 5 plots m_a [eV] vs 1/f_a [GeV^-1]; the bright-red 'Neutron stars (this work)' band is the exclusion. Its lower boundary is a rounded tip near m_a ~ 1e-8 eV (vertical edge set by (g+g_a)_14 > 100 surface-gravity requirement) joining a straight diagonal edge parallel to and ~0.5 decade above the QCD-axion line (m_a*f_a = 5.7e6 eV*GeV), corresponding to the epsilon = 0.1 NGS condition: 1/f_a = 5.5e-7 * m_a[eV]. The diagonal was traced with this calibrated relation, consistent with pixel positions of the band's lower edge; it exits the plot at the right edge (m_a = 10 eV). The dashed (g+g_a)_14 > 50 contour extends the tip slightly further left (to m_a ~ 4e-9 eV) but the solid conservative limit was traced. Boundary is smooth/straight on log-log, so uniform log sampling suffices except near the tip. No CL stated in the paper (astrophysical cooling argument); 0.95 is nominal. Note: y values are 1/f_a, not a canonical coupling; f_a spans ~1e5-2e14 GeV along this boundary. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=7.22)",
+  "num_points": 34,
+  "elapsed_s": 325.45875787734985
+}

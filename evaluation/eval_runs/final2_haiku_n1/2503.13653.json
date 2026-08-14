@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2503.13653",
+ "paper_title": "Energy transfer by feebly interacting particles in supernovae: the trapping regime",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   10000000.0,
+   1e-12
+  ],
+  [
+   10000000.0,
+   0.0001
+  ],
+  [
+   100.0,
+   1e-12
+  ],
+  [
+   100.0,
+   0.0001
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "SN1987A_LESN_EnergyDeposition",
+ "coupling_convention": "g_a\u03b3 in GeV^-1",
+ "notes": "Paper presents NEW constraints on axion-photon coupling from supernova energy deposition, extending previous work to the 'trapping regime' where diffusive heat transport dominates over ballistic transport at large couplings. Figure 3 shows exclusion limits for two progenitor scenarios: Rprog = 5\u00d710^13 cm (0.1 B explosion) and Rprog = 3\u00d710^12 cm (1 B explosion). The main novel result is that at sufficiently large couplings (small mean free paths), the energy deposited saturates and decreases as g_a\u03b3^-2 due to diffusive transport, rather than continuing to increase as predicted by previous ballistic-only calculations. The paper derives constraints from SN 1987A X/\u03b3-ray observations and low-energy supernovae (LESNe). Data points extracted from Figure 3 represent approximate bounds at the edges of the constrained region: lower coupling limit ~1e-12 GeV^-1 and upper coupling limit ~1e-4 GeV^-1, spanning axion masses from ~1 MeV to ~1 GeV. The exact numerical values from Figure 3 are difficult to read precisely, so confidence is moderate (0.75). The paper also discusses implications for dark photons and sterile neutrinos but focuses primarily on axion-photon coupling. Cooling bounds are also shown but energy deposition bounds are the main new result. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 4.0 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+ "num_points": 4,
+ "elapsed_s": 164.0920970439911
+}

@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "1903.03586",
+ "paper_title": "Photoproduction of axion-like particles",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "PrimEx_GlueX_ALP",
+ "coupling_convention": "c\u03b3 / \u039b in GeV^-1",
+ "notes": "Paper presents both NEW MEASURED limits from PrimEx published diphoton spectrum (Fig. 2 of Ref. [30], digitized in supplemental Fig. S2) and PROJECTIONS for future GlueX running. The measured limits from PrimEx are world-leading at a few masses (0.11\u20130.15 GeV). The coupling_type is AxionPhoton because the paper constrains g_agamma (denoted c\u03b3/\u039b) via the a\u2192\u03b3\u03b3 decay width in Primakoff production. Two scenarios studied: (1) ALP-photon coupling dominant (c\u03b3=1, cg=0) shown in Fig. 2; (2) ALP-gluon coupling dominant (c\u03b3=0, cg=1) shown in Fig. 3. Data points extracted primarily from Fig. 2 (photon coupling case) which is the main result. The mass range 0.03 \u2272 ma \u2272 0.3 GeV is where PrimEx provides best sensitivity. Extracted approximate coupling values from the figure; exact numerical values require reading from published plots. The paper uses a data-driven normalization method eliminating need for form factors or flux knowledge. Confidence level 0.95 is standard for bump-hunt exclusion limits. Extraction confidence 0.75 reflects that numerical values are approximate from figure reading rather than explicit table. | [VISION GATE C] extracted mass window is 10.9 dex outside the abstract-stated range [3e+07, 3e+08] eV \u2014 wrong figure/panel/regime traced",
+ "num_points": 0,
+ "elapsed_s": 42.69707202911377
+}

@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2306.05934",
+ "paper_title": "First results from BRASS-p broadband searches for hidden photon dark matter",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.968e-05,
+   1e-13
+  ],
+  [
+   7.444e-05,
+   3e-14
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "BRASS-p",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "BRASS-p achieved record sensitivity of (0.3\u20131.0)\u00d710^-13 to kinetic mixing chi in the mass range 49.63\u201374.44 \u03bceV (12\u201318 GHz). The paper reports measurements from first science run (SR1) consisting of SR1a (12\u201316 GHz) and SR1b (14\u201318 GHz) with total measurement times of ~126 hours combined. The sensitivity varies across the frequency range; Figure 11 shows chi \u2272 10^-13 over the full range. The lower bound (3.0e-14) represents the best sensitivity achieved at higher frequencies (around 18 GHz / 74.44 \u03bceV), while 1.0e-13 represents the sensitivity at lower frequencies (around 12 GHz / 49.63 \u03bceV). The experiment assumes unpolarized hidden photon dark matter with local DM density \u03c1_DM = 0.3 GeV/cm\u00b3 (standard halo model). No signal candidates were found; limits are derived from cumulative noise spectra reaching \u03c3_det \u2248 10^-23 W. The paper explicitly states these are measured exclusion sensitivities, not projections. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.92, 2))",
+ "num_points": 2,
+ "elapsed_s": 204.6070818901062
+}

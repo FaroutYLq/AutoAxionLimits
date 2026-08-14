@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "1202.5851",
+  "paper_title": "Kawasaki12",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.00016,
+      38000000000.0
+    ],
+    [
+      0.00031,
+      20000000000.0
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "Kawasaki2012_StringWall",
+  "coupling_convention": "f_a (F_a) in GeV; masses computed from QCD axion relation m_a(0)=sqrt(c0)*Lambda^2/F_a",
+  "notes": "Cosmological/theoretical paper computing cold dark matter axion abundance from collapse of string-wall systems (misalignment + string decay + domain-wall decay). Main result (Eq. 96): upper bound on the axion decay constant F_a <= (2.0-3.8)x10^10 GeV, corresponding to a lower bound on the axion mass. Combined with astrophysical lower bound F_a >~ 1e9 GeV, allowed window is F_a ~ 1e9-1e10 GeV, m_a ~ 1e-3-1e-2 eV. This is an f_a-vs-m_a cosmological bound (AxionMass), not a coupling-constant exclusion curve. Emitted data points pair the two quoted F_a bound values (2.0e10 and 3.8e10 GeV) with masses computed from the paper's QCD axion mass relation (c0=1.46e-3, Lambda=400 MeV). Not a haloscope, so no DM density. | selector: text (sole candidate) | Range snap SUPPRESSED (declared convention non-canonical; a decade snap cannot fix a convention mismatch): median mass 3.1e-04 / coupling 3.8e+10 vs windows [1e-24,1e+18] / [1e-12,1e+03] | contract: median outside VALID_RANGES after corrections (flagged low confidence) | [CONVENTION REVIEW] declared coupling convention 'f_a (F_a) in GeV; masses computed from QCD axion relation m_a(0)=sqrt(c0)*Lambda^2/F_a' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 2,
+  "elapsed_s": 99.44560718536377
+}

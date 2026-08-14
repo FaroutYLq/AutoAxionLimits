@@ -1,0 +1,58 @@
+{
+ "arxiv_id": "2211.00022",
+ "paper_title": "HINODE",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-06,
+   1.5e-08
+  ],
+  [
+   0.0001,
+   4e-08
+  ],
+  [
+   0.001,
+   3e-08
+  ],
+  [
+   0.01,
+   5e-09
+  ],
+  [
+   0.1,
+   1.5e-09
+  ],
+  [
+   1.0,
+   1e-09
+  ],
+  [
+   15.0,
+   1.2e-10
+  ],
+  [
+   200.0,
+   6e-11
+  ],
+  [
+   400.0,
+   6.1e-11
+  ],
+  [
+   1000.0,
+   2e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "Hinode_XRT",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Solar dark photon helioscope search using Hinode X-Ray Telescope calibration darks and a solar eclipse image. This is a production-based (helioscope) constraint, NOT a DM haloscope, so no local DM density applies. Coupling is kinetic mixing epsilon vs dark photon mass. Data points are approximate values read from figure 5/8 exclusion curves (darks optimistic + eclipse for low mass), supplemented by benchmark values in text (m=15 eV, eps=1.2e-10; m=400 eV, eps=6.1e-11; m=200 eV eps~2e-11 near limit; m=1 eV sensitivity ~1e-9). The resonant bump structure spans ~5-300 eV. Values are approximate; the actual limit curve is complex. Table 1 gives sensitivity to eps at m=1 eV: darks ~1e-9, eclipse ~4e-8. | selector: text (sole candidate)",
+ "num_points": 10,
+ "elapsed_s": 34.6898398399353
+}

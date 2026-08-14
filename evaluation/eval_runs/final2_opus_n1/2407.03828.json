@@ -1,0 +1,126 @@
+{
+ "arxiv_id": "2407.03828",
+ "paper_title": "NuSTAR as an Axion Helioscope",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-11,
+   7.3e-12
+  ],
+  [
+   1e-10,
+   7.3e-12
+  ],
+  [
+   1e-09,
+   7.3e-12
+  ],
+  [
+   1e-08,
+   7.3e-12
+  ],
+  [
+   1e-07,
+   7.3e-12
+  ],
+  [
+   2e-07,
+   7.4e-12
+  ],
+  [
+   4e-07,
+   7.6e-12
+  ],
+  [
+   7e-07,
+   8.5e-12
+  ],
+  [
+   1e-06,
+   1e-11
+  ],
+  [
+   1.5e-06,
+   1.3e-11
+  ],
+  [
+   2e-06,
+   1.6e-11
+  ],
+  [
+   3e-06,
+   2e-11
+  ],
+  [
+   4e-06,
+   2.4e-11
+  ],
+  [
+   6e-06,
+   2.9e-11
+  ],
+  [
+   1e-05,
+   3.4e-11
+  ],
+  [
+   1.5e-05,
+   3.9e-11
+  ],
+  [
+   2e-05,
+   4.2e-11
+  ],
+  [
+   3e-05,
+   4.6e-11
+  ],
+  [
+   5e-05,
+   5e-11
+  ],
+  [
+   8e-05,
+   5.4e-11
+  ],
+  [
+   0.0001,
+   5.6e-11
+  ],
+  [
+   0.00015,
+   5.9e-11
+  ],
+  [
+   0.0002,
+   6.1e-11
+  ],
+  [
+   0.0003,
+   6.3e-11
+  ],
+  [
+   0.0005,
+   6.5e-11
+  ],
+  [
+   0.0008,
+   6.6e-11
+  ],
+  [
+   0.001,
+   6.7e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "NuSTAR Axion Helioscope",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted",
+ "notes": "Solar axion helioscope using NuSTAR X-ray observations. Flat limit g_agamma < 7.3e-12 GeV^-1 for m_a < 4e-7 eV, weakening at higher masses up to 3.4e-4 eV. The point at 3.4e-4 eV is approximate (weakening tail); the exact coupling there is not stated numerically so 1e-10 estimated from the edge of the plot. Not a dark matter search \u2014 no DM density assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 27)) | Vision: Blue 'This work' boundary traced. Flat at ~7.3e-12 GeV^-1 for m_a < 4e-7 eV (consistent with abstract), then rises with mass due to loss of coherence. Constraint is a helioscope (solar axion) limit, does not assume DM. CAST, haloscopes, and future projections (ALPS-II, babyIAXO, IAXO) also shown but not traced. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.69 snapped to identity)",
+ "num_points": 27,
+ "elapsed_s": 178.98440098762512
+}

@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2405.19393",
+  "paper_title": "SN1987A_gamma_ProgenitorBfield",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-11,
+      2.6e-12
+    ],
+    [
+      1e-09,
+      2.6e-12
+    ],
+    [
+      1e-05,
+      3e-12
+    ],
+    [
+      0.0001,
+      3e-11
+    ],
+    [
+      0.001,
+      1e-09
+    ],
+    [
+      0.01,
+      1e-08
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "SN1987A_gamma_ProgenitorBfield",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Paper presents a NEW 95% CL exclusion on g_agamma from non-observation of gamma-rays by SMM coincident with SN1987A, extending prior limits to higher axion masses (up to ~1e-1 eV) via axion-photon conversion in the progenitor star's magnetic field (conservative 100 G surface field). Explicit text values: |g_agamma| < 2.6e-12 GeV^-1 at low mass (ALP model, hadronic + Primakoff production, updated Galactic B-field); Primakoff-only weakens this to 3.1e-12. The high-mass shape of the blue exclusion in Fig. 1 is not tabulated; intermediate points ([1e-5,3e-12] through [1e-2,1e-8]) are approximate interpolations informed by the stated degradation scale (ma >~ 5e-5 eV for stellar-field conversion) and the stated validity ceiling |g_agamma| <~ 1e-8 GeV^-1 at ma ~ 1e-2 eV; treat them as indicative only. Paper also contains GALAXIS/Fermi-LAT projections for future Galactic SN and NS mergers (is_projection reflects only the main SN1987A result, which is an observed limit). Not a DM haloscope: no local DM density assumed. The 'ALP SN1987A' limit (loop-induced hadronic couplings) is the more conservative/model-independent-ish result; a stronger 'KSVZ-like' limit assuming QCD-axion hadronic coupling ratios is also given. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 6))",
+  "num_points": 6,
+  "elapsed_s": 193.5020251274109
+}

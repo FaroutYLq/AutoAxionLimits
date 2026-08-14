@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "1912.07751",
+  "paper_title": "UPconversion Loop Oscillator Axion Detection experiment: A precision frequency interferometric axion dark matter search with a Cylindrical Microwave Cavity",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      7.44e-09,
+      0.003
+    ],
+    [
+      1.938e-08,
+      0.003
+    ],
+    [
+      7.44e-05,
+      0.01
+    ],
+    [
+      7.45e-05,
+      0.01
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "UPLOAD-CMC",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Corrected/erratum version of UPLOAD-CMC upconversion axion haloscope. Measured 95% CL exclusion: g_agamma > 3e-3 1/GeV between 7.44-19.38 neV (upconversion) and > 1e-2 1/GeV between 74.4-74.5 ueV (downconversion). Values are the corrected limits after the sign-error erratum. DM density taken as rho_DM = 8e-22 kg/m^3 = 0.45 GeV/cm^3. Limits given as flat horizontal bounds over the stated mass ranges. Projections (UPLOAD-CMC-II/III) not included as they are sensitivity forecasts. | selector: text over figure_vision (quality (0, 1, 1, 1, 3, 0, 0.85, 4)) | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+  "num_points": 4,
+  "elapsed_s": 155.80436611175537
+}

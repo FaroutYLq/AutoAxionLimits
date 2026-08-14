@@ -1,0 +1,158 @@
+{
+ "arxiv_id": "2006.13929",
+ "paper_title": "XENON1T_Solar_S2",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0012,
+   5.5e-10
+  ],
+  [
+   0.002,
+   1.5e-10
+  ],
+  [
+   0.003,
+   8e-11
+  ],
+  [
+   0.005,
+   4e-11
+  ],
+  [
+   0.008,
+   2.1999999999999998e-11
+  ],
+  [
+   0.012,
+   1.4e-11
+  ],
+  [
+   0.02,
+   8.5e-12
+  ],
+  [
+   0.03,
+   5.9999999999999995e-12
+  ],
+  [
+   0.05,
+   4e-12
+  ],
+  [
+   0.08,
+   2.8e-12
+  ],
+  [
+   0.12,
+   2.1e-12
+  ],
+  [
+   0.2,
+   1.4999999999999999e-12
+  ],
+  [
+   0.3,
+   1.2e-12
+  ],
+  [
+   0.5,
+   9e-13
+  ],
+  [
+   0.8,
+   6.500000000000001e-13
+  ],
+  [
+   1.2,
+   5e-13
+  ],
+  [
+   2.0,
+   3.8e-13
+  ],
+  [
+   3.0,
+   3e-13
+  ],
+  [
+   5.0,
+   2.3e-13
+  ],
+  [
+   8.0,
+   1.9e-13
+  ],
+  [
+   12.0,
+   1.6000000000000003e-13
+  ],
+  [
+   18.0,
+   1.3e-13
+  ],
+  [
+   25.0,
+   1.15e-13
+  ],
+  [
+   35.0,
+   1.05e-13
+  ],
+  [
+   50.0,
+   1e-13
+  ],
+  [
+   70.0,
+   1.05e-13
+  ],
+  [
+   100.0,
+   1.2e-13
+  ],
+  [
+   130.0,
+   1.5e-13
+  ],
+  [
+   160.0,
+   2.2000000000000002e-13
+  ],
+  [
+   190.0,
+   4e-13
+  ],
+  [
+   210.0,
+   8e-13
+  ],
+  [
+   230.0,
+   2.9999999999999997e-12
+  ],
+  [
+   250.0,
+   2e-11
+  ],
+  [
+   270.0,
+   1.9999999999999998e-10
+  ],
+  [
+   290.0,
+   1e-09
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "XENON1T Solar Dark Photon (S2)",
+ "coupling_convention": "kinetic mixing epsilon, dimensionless",
+ "notes": "Paper constrains dark photon kinetic mixing epsilon from solar emission (XENON1T S2-only data), overriding the AxionElectron hint. The solar dark photon exclusion (left panel of Fig.1) spans mV from ~1e-3 to ~1e3 eV with epsilon limits around 1e-14 to 5e-14; values here are approximate reads from the figure since no table is provided. A separate dark photon dark matter analysis (right panel) gives epsilon<1e-15 for keV masses with rho_dm=0.3 GeV/cm^3, and a best-fit to the XENON1T excess at mA'=2.8 keV, epsilon=8.4e-16. Data points given are the solar S2 exclusion line (90% C.L.); coordinates are approximate. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 35)) | Vision: Traced the red solid line (XENON1T S2) in the left panel of Fig. 1, representing solar dark photon constraints at 90% C.L. The boundary decreases from low mass, reaches minimum epsilon ~1e-14 near 30-70 eV, then rises steeply near 200-300 eV. Solid line applies to hard Stuckelberg mass case. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=13.33)",
+ "num_points": 35,
+ "elapsed_s": 169.06572580337524
+}

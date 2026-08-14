@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2010.08107",
+ "paper_title": "Searching for Scalar Dark Matter via Coupling to Fundamental Constants with Photonic, Atomic and Mechanical Oscillators",
+ "coupling_type": "ScalarPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.4e-19,
+   0.159
+  ],
+  [
+   6.8e-14,
+   0.159
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "UWA_OscillatorScalarDM2021",
+ "coupling_convention": "dimensionless d_e",
+ "notes": "Paper constrains both d_e (ScalarPhoton, alpha variation) and |d_me - d_g| across mass band 4.4e-19 to 6.8e-14 eV. Most sensitive limits quoted as d_e >~ 1.59e-1 and |d_me-dg| >~ 6.97e-1 at 95% CL via coefficient separation. Only the single best (most sensitive) values are given in text; full mass-dependent curve is in Fig. 3 but not numerically tabulated. I encoded the d_e best limit as an approximate horizontal band over the stated mass range - this is a rough representation, actual limit varies with mass. The |d_me-dg| combination would be ScalarElectron-related but paper's primary hint and the alpha/d_e constraint is ScalarPhoton. Density 0.45 GeV/cm^3 assumed. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.55, 2))",
+ "num_points": 2,
+ "elapsed_s": 177.09236407279968
+}

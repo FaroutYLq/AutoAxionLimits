@@ -1,0 +1,178 @@
+{
+  "arxiv_id": "1905.13650",
+  "paper_title": "Stochastic fluctuations of bosonic dark matter",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-22,
+      0.001
+    ],
+    [
+      1.8e-22,
+      0.0009
+    ],
+    [
+      3.2e-22,
+      0.0008
+    ],
+    [
+      5.6e-22,
+      0.00074
+    ],
+    [
+      1e-21,
+      0.0007
+    ],
+    [
+      1.8e-21,
+      0.00063
+    ],
+    [
+      3.2e-21,
+      0.00055
+    ],
+    [
+      5e-21,
+      0.00045
+    ],
+    [
+      7e-21,
+      0.00035
+    ],
+    [
+      1e-20,
+      0.00025
+    ],
+    [
+      1.5e-20,
+      0.00016
+    ],
+    [
+      2e-20,
+      0.00011
+    ],
+    [
+      3e-20,
+      7e-05
+    ],
+    [
+      4e-20,
+      5.5e-05
+    ],
+    [
+      6e-20,
+      4.2e-05
+    ],
+    [
+      1e-19,
+      3.2e-05
+    ],
+    [
+      1.8e-19,
+      2.8e-05
+    ],
+    [
+      3.2e-19,
+      2.6e-05
+    ],
+    [
+      5.6e-19,
+      2.5e-05
+    ],
+    [
+      1e-18,
+      2.5e-05
+    ],
+    [
+      1.8e-18,
+      2.6e-05
+    ],
+    [
+      3.2e-18,
+      2.8e-05
+    ],
+    [
+      5.6e-18,
+      3e-05
+    ],
+    [
+      1e-17,
+      3.3e-05
+    ],
+    [
+      2e-17,
+      3.7e-05
+    ],
+    [
+      4e-17,
+      4.5e-05
+    ],
+    [
+      6.3e-17,
+      5.5e-05
+    ],
+    [
+      1.3e-16,
+      0.00063
+    ],
+    [
+      2e-16,
+      0.0009
+    ],
+    [
+      3.2e-16,
+      0.0014
+    ],
+    [
+      5e-16,
+      0.0022
+    ],
+    [
+      1e-15,
+      0.004
+    ],
+    [
+      1.8e-15,
+      0.0065
+    ],
+    [
+      3.2e-15,
+      0.011
+    ],
+    [
+      5.6e-15,
+      0.018
+    ],
+    [
+      1e-14,
+      0.028
+    ],
+    [
+      1.8e-14,
+      0.045
+    ],
+    [
+      3.2e-14,
+      0.079
+    ],
+    [
+      5.6e-14,
+      0.09
+    ],
+    [
+      1e-13,
+      0.1
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "CASPEr-ZULF (stochastic reanalysis)",
+  "coupling_convention": "g_aNN in GeV^-1 (axion-nucleon gradient coupling), values as plotted on the log10 g_aNN [GeV^-1] axis",
+  "notes": "This is a theoretical/methodological paper, not a new experimental search. It shows that previous bosonic DM constraints (nEDM, CASPEr-ZULF-Comagnetometer, CASPEr-ZULF-Sidebands for axion-nucleon coupling gaNN; and dilaton/scalar clock-comparison experiments for d_e) were overestimated by factors ~3-10 because they neglected stochastic amplitude fluctuations of the virialized ultralight field when T << tau_c. The paper rescales existing published limits (correction factor ~8.4 for pseudoscalar wind-type couplings, ~2.7-3.0 for scalar couplings) rather than presenting new experimental data. No numerical table of limits is provided; the revised exclusion curves (Figs. 3-4) are rescaled versions of prior experiments' results. The pre-analysis hint of AxionEDM is incorrect - the plots show gaNN (axion-nucleon gradient coupling, GeV^-1) and dilaton d_e, but since multiple coupling types are corrected and no new limit is derived here, coupling_type is set to null. rho_DM = 0.4 GeV/cm^3 is the assumed local density in the underlying analyses. | selector: figure_vision (sole candidate) | Vision: Paper: Centers et al., 'Stochastic fluctuations of bosonic dark matter'. Fig. 3 shows the corrected (stochastic, green) constraint on g_aNN vs the original deterministic (gray) constraint. Traced the GREEN stochastic boundary: CASPEr-ZULF Comagnetometer segment (1e-22 to ~1e-16.2 eV, factor ~8.4 weaker than deterministic, with MC roll-off below ~1e-21 eV) and CASPEr-ZULF Sidebands segment (~1e-16 to 1e-13 eV, rising ~linearly with mass on log-log). Hint suggested AxionEDM (d_n in e cm), but the plotted y-axis is clearly log10 g_aNN [GeV^-1] (nucleon coupling), so AxionNeutron was chosen and values emitted as plotted per the plotted-values contract; confidence reduced accordingly. The horizontal black 'New Force' line at ~1e-4 GeV^-1 (K-3He comagnetometer) calibrates the y-scale and matches the text statement 'new force constraint at \u22481e-4 GeV^-1'. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.92 snapped to identity)",
+  "num_points": 40,
+  "elapsed_s": 191.51060485839844
+}

@@ -1,0 +1,142 @@
+{
+ "arxiv_id": "1207.2442",
+ "paper_title": "Torsion-balance tests of the weak equivalence principle",
+ "coupling_type": "ScalarNucleon",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.001973,
+   3e-05
+  ],
+  [
+   0.00039,
+   9.999999999999999e-06
+  ],
+  [
+   0.00015,
+   3e-06
+  ],
+  [
+   4.9e-05,
+   1e-06
+  ],
+  [
+   1.97e-05,
+   4e-07
+  ],
+  [
+   7.6e-06,
+   2e-07
+  ],
+  [
+   3.5e-06,
+   1e-07
+  ],
+  [
+   1.97e-06,
+   6e-08
+  ],
+  [
+   9.9e-07,
+   3e-08
+  ],
+  [
+   4.9e-07,
+   1.5e-08
+  ],
+  [
+   2.8e-07,
+   1e-08
+  ],
+  [
+   1.97e-07,
+   9e-09
+  ],
+  [
+   1.5e-07,
+   8e-09
+  ],
+  [
+   9.9e-08,
+   6e-09
+  ],
+  [
+   4.9e-08,
+   3.5e-09
+  ],
+  [
+   3.9e-08,
+   3e-09
+  ],
+  [
+   1.97e-08,
+   2e-09
+  ],
+  [
+   9.9e-09,
+   1e-09
+  ],
+  [
+   4.9e-09,
+   5e-10
+  ],
+  [
+   2.8e-09,
+   3.5000000000000003e-10
+  ],
+  [
+   1.97e-09,
+   3e-10
+  ],
+  [
+   1.4e-09,
+   2.5e-10
+  ],
+  [
+   9.9e-10,
+   1.9999999999999998e-10
+  ],
+  [
+   4.9e-10,
+   1.5e-10
+  ],
+  [
+   2.8e-10,
+   1.3000000000000002e-10
+  ],
+  [
+   1.97e-10,
+   1.2e-10
+  ],
+  [
+   1.4e-10,
+   1.15e-10
+  ],
+  [
+   9.9e-11,
+   1.1000000000000001e-10
+  ],
+  [
+   4.9e-11,
+   9.999999999999999e-11
+  ],
+  [
+   1.97e-11,
+   9.999999999999999e-11
+  ],
+  [
+   1.97e-13,
+   9.999999999999999e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.4,
+ "suggested_experiment_name": "Eot-Wash torsion balance (WEP Yukawa, EW curve)",
+ "coupling_convention": "|alpha-tilde|, dimensionless Yukawa strength for B-L vector coupling as plotted (EW curve)",
+ "notes": "Review of Eot-Wash torsion-balance WEP tests (Be-Ti, Be-Al). Constraints are given as Yukawa strength alpha-tilde vs range lambda (fifth-force / dilaton couplings D_mhat, D_e), not as standard DM coupling vs mass. Data appear only in figures (Fig 6, 7) as plots not extractable to numerical points here. This is a review summarizing prior published results rather than a new limit. No clean (mass_eV, coupling) table extractable; would map to ScalarNucleon/fifth-force but conversion not reliable. | selector: figure_vision (sole candidate) | Vision: Figure 6 left panel plots Yukawa strength |alpha-tilde| vs range lambda [m], for a vector B-L coupling (not strictly ScalarNucleon; paper labels it as vector Yukawa coupled to q=B-L). X-axis converted from lambda to mass via m[eV]=1.973e-7/lambda[m]. Lowest boundary is the 'EW' curve. Note larger lambda corresponds to smaller mass, so mass ordering is reversed relative to plot x-axis. Coupling type assignment is uncertain: this is a vector B-L Yukawa, so VectorBL may be more appropriate than ScalarNucleon; confidence reduced accordingly. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=3.33)",
+ "num_points": 31,
+ "elapsed_s": 199.0280179977417
+}

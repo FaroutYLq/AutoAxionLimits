@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2208.12670",
+ "paper_title": "Search for galactic axions with a high-Q dielectric cavity",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.2821e-05,
+   7.31e-14
+  ],
+  [
+   4.282233e-05,
+   7.31e-14
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.95,
+ "suggested_experiment_name": "QUAX_a\u03b3_2022",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "QUAX\u2013a\u03b3 haloscope search for galactic axions at mass ~42.8 \u00b5eV using high-Q dielectric cavity. The paper reports an exclusion limit g_agamma < 0.731 \u00d7 10^-13 GeV^-1 at 90% CL in the mass range 42.8210\u201342.8223 \u00b5eV (width ~1.32 neV). The limit is encoded as a horizontal line spanning the stated mass range. Local DM density \u03c1_a = 0.45 GeV/cm\u00b3 is used in the haloscope signal calculation (Eq. 4). The measurement includes efficiency correction (factor ~3) from Monte Carlo simulation of the Savitzky-Golay filter. System noise temperature was 17.3 \u00b1 1 K due to cryo HEMT malfunction. No signal excess above 5\u03c3 was observed. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.95, 2))",
+ "num_points": 2,
+ "elapsed_s": 137.71958303451538
+}

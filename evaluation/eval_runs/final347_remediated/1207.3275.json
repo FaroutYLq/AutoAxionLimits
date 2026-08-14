@@ -1,0 +1,110 @@
+{
+  "arxiv_id": "1207.3275",
+  "paper_title": "A microwave paraphoton and axion detection experiment with 300 dB electromagnetic shielding at 3 GHz",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-09,
+      1.0
+    ],
+    [
+      3.16e-09,
+      0.099
+    ],
+    [
+      1e-08,
+      0.0098
+    ],
+    [
+      3.16e-08,
+      0.00097
+    ],
+    [
+      1e-07,
+      9.5e-05
+    ],
+    [
+      3.16e-07,
+      9.4e-06
+    ],
+    [
+      1e-06,
+      9.3e-07
+    ],
+    [
+      3.16e-06,
+      9.2e-08
+    ],
+    [
+      5e-06,
+      3.7e-08
+    ],
+    [
+      7e-06,
+      1.9e-08
+    ],
+    [
+      9e-06,
+      1.1e-08
+    ],
+    [
+      1.1e-05,
+      7.6e-09
+    ],
+    [
+      1.2e-05,
+      4.7e-08
+    ],
+    [
+      1.3e-05,
+      3e-07
+    ],
+    [
+      1.4e-05,
+      9.5e-07
+    ],
+    [
+      1.5e-05,
+      3.5e-06
+    ],
+    [
+      1.6e-05,
+      1.4e-05
+    ],
+    [
+      1.7e-05,
+      4.5e-05
+    ],
+    [
+      1.8e-05,
+      0.00014
+    ],
+    [
+      2e-05,
+      0.0011
+    ],
+    [
+      2.2e-05,
+      0.0072
+    ],
+    [
+      2.5e-05,
+      0.093
+    ],
+    [
+      2.8e-05,
+      0.87
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.72,
+  "suggested_experiment_name": "CERN Microwave LSW (Betz & Caspers 2012)",
+  "coupling_convention": "kinetic mixing chi, dimensionless (as plotted Log10 chi)",
+  "notes": "Microwave light-shining-through-wall experiment at CERN searching for paraphotons (hidden/dark photons) via photon-paraphoton kinetic mixing at 2.9565 GHz. Only a single representative exclusion point is quoted in text/Fig.2: chi = 7.6e-9 at m_gamma' = 1.1e-5 eV/c^2. The full exclusion is a curve but only this point is given numerically. Not a DM haloscope, so no local density assumed. This is an LSW result, not stellar/cosmological. Confidence level not explicitly stated; assumed 95%. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.72, 23)) | Vision: Paraphoton (hidden photon) LSW experiment; kinetic mixing chi vs hidden photon mass. Figure 2 shows a downward-pointing cyan triangle with apex at the labeled best limit m_gamma=1.1e-5 eV, chi=7.6e-9. Lower boundary is the V-shape: left arm follows chi ~ m^-2 (slope -2 on log-log) up to chi=1 near m=1e-9 eV; right arm is a steep near-vertical cutoff at the ~2.9565 GHz (1.2e-5 eV) resonance. Right-arm mass values are approximate due to the steep, nearly-vertical slope. Text also notes a prior Coulomb-law limit chi<3e-8. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity)",
+  "num_points": 23,
+  "elapsed_s": 147.97365403175354
+}

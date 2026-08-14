@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "1903.03586",
+  "paper_title": "Photoproduction of axion-like particles",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      110000000.0,
+      0.0015
+    ],
+    [
+      115000000.0,
+      0.0004
+    ],
+    [
+      120000000.0,
+      0.0006
+    ],
+    [
+      125000000.0,
+      0.0007
+    ],
+    [
+      130000000.0,
+      0.00075
+    ],
+    [
+      135000000.0,
+      0.0008
+    ],
+    [
+      140000000.0,
+      0.00085
+    ],
+    [
+      145000000.0,
+      0.0009
+    ],
+    [
+      150000000.0,
+      0.001
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "PrimEx_ALP2019",
+  "coupling_convention": "c_gamma/Lambda in GeV^-1 (equivalent to g_agamma for c_gamma=1)",
+  "notes": "Paper sets world-leading limits on ALP-photon coupling (c_gamma/Lambda, GeV^-1) from a bump hunt of a published PrimEx carbon-target diphoton mass spectrum (Fig. S2), and separately on ALP-gluon coupling (c_g/Lambda) from GlueX data (Fig. S4). The requested/new observed AxionPhoton limit spans ~0.11-0.15 GeV with best (world-leading) sensitivity near 115 and 160 MeV; values digitized approximately from Fig. S2 with the text anchor Lambda~0.6 TeV (c_gamma/Lambda~1.7e-3) at m_a=0.11 GeV. y-axis c_gamma/Lambda equals g_agamma for c_gamma=1. Fig. 2 also contains PrimEx/GlueX projections which are NOT included here (those are projections). 95% CL. Not a DM haloscope, so no local density. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 9))",
+  "num_points": 9,
+  "elapsed_s": 156.82079005241394
+}

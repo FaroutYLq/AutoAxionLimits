@@ -1,0 +1,178 @@
+{
+  "arxiv_id": "2407.03828",
+  "paper_title": "NuSTAR as an Axion Helioscope",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-11,
+      7.3e-12
+    ],
+    [
+      3e-11,
+      7.3e-12
+    ],
+    [
+      1e-10,
+      7.3e-12
+    ],
+    [
+      3e-10,
+      7.3e-12
+    ],
+    [
+      1e-09,
+      7.3e-12
+    ],
+    [
+      3e-09,
+      7.3e-12
+    ],
+    [
+      1e-08,
+      7.3e-12
+    ],
+    [
+      3e-08,
+      7.3e-12
+    ],
+    [
+      1e-07,
+      7.3e-12
+    ],
+    [
+      2e-07,
+      7.3e-12
+    ],
+    [
+      3e-07,
+      7.3e-12
+    ],
+    [
+      4e-07,
+      7.3e-12
+    ],
+    [
+      5e-07,
+      7.5e-12
+    ],
+    [
+      7e-07,
+      7.8e-12
+    ],
+    [
+      1e-06,
+      8.2e-12
+    ],
+    [
+      1.5e-06,
+      8.8e-12
+    ],
+    [
+      2e-06,
+      9.3e-12
+    ],
+    [
+      3e-06,
+      1e-11
+    ],
+    [
+      4e-06,
+      1.08e-11
+    ],
+    [
+      5e-06,
+      1.12e-11
+    ],
+    [
+      7e-06,
+      1.17e-11
+    ],
+    [
+      1e-05,
+      1.25e-11
+    ],
+    [
+      1.3e-05,
+      1.35e-11
+    ],
+    [
+      1.7e-05,
+      1.45e-11
+    ],
+    [
+      2e-05,
+      1.52e-11
+    ],
+    [
+      2.5e-05,
+      1.62e-11
+    ],
+    [
+      3e-05,
+      1.72e-11
+    ],
+    [
+      4e-05,
+      1.9e-11
+    ],
+    [
+      5e-05,
+      2.1e-11
+    ],
+    [
+      7e-05,
+      2.5e-11
+    ],
+    [
+      0.0001,
+      3e-11
+    ],
+    [
+      0.00013,
+      3.5e-11
+    ],
+    [
+      0.00017,
+      4.1e-11
+    ],
+    [
+      0.0002,
+      4.6e-11
+    ],
+    [
+      0.00025,
+      5.2e-11
+    ],
+    [
+      0.0003,
+      5.8e-11
+    ],
+    [
+      0.0004,
+      6.7e-11
+    ],
+    [
+      0.0005,
+      7.5e-11
+    ],
+    [
+      0.0007,
+      9e-11
+    ],
+    [
+      0.001,
+      1.05e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "NuSTAR solar axion helioscope",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on the y-axis of Fig. 1",
+  "notes": "New observed 95% CL limit from NuSTAR quiet-Sun observations (Feb 2020 solar minimum): solar-core Primakoff axions reconverting to X-rays in the solar atmospheric magnetic field. The limit is mass-independent at g_agamma <= 7.3e-12 GeV^-1 for m_a <~ 4e-7 eV (encoded here as a flat line from 1e-12 eV, the lower edge of the paper's exclusion plots, to 4e-7 eV). Above 4e-7 eV the bound gradually weakens due to loss of coherence, remaining competitive up to m_a ~ 3.4e-4 eV; numerical values for this rising tail are only shown graphically in Fig. 1 and are not extracted here. Not a dark-matter search (helioscope-type flux from the Sun), so no local DM density assumed. Systematic uncertainty on the bound is +27.6%/-21.2%, dominated by coronal magnetic field modeling. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 40)) | Vision: Fig. 1 shows the NuSTAR 95% CL exclusion (blue line) in the m_a - g_agamma plane. Text explicitly states g_agamma < 7.3e-12 GeV^-1 for m_a <~ 4e-7 eV, anchoring the flat portion of the boundary. Above ~4e-7 eV the limit weakens due to loss of coherence in the conversion probability, rising smoothly to ~1e-10 GeV^-1 near m_a = 1e-3 eV where it merges with the CAST bound (~6e-11 GeV^-1 shown as light-red shaded region). This is a helioscope-type bound: no dark-matter density assumption. Comparison lines: ALPS-II (~1.9e-11), babyIAXO (~1.5e-11), IAXO (~4.5e-12) are projections, not traced. Points in the rising portion (m_a > 4e-7 eV) are read from the plot with ~10-20% uncertainty. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.11 snapped to identity)",
+  "num_points": 40,
+  "elapsed_s": 100.80132722854614
+}

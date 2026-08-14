@@ -1,0 +1,166 @@
+{
+  "arxiv_id": "2412.03655",
+  "paper_title": "Stepping Up Superradiance Constraints on Axions",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.2e-13,
+      1e-18
+    ],
+    [
+      2.2e-13,
+      1e-17
+    ],
+    [
+      2.2e-13,
+      1e-16
+    ],
+    [
+      2.2e-13,
+      1e-15
+    ],
+    [
+      2.3e-13,
+      1e-14
+    ],
+    [
+      2.4e-13,
+      3e-14
+    ],
+    [
+      2.5e-13,
+      6e-14
+    ],
+    [
+      3e-13,
+      1.5e-13
+    ],
+    [
+      3.5e-13,
+      2.5e-13
+    ],
+    [
+      4e-13,
+      3.5e-13
+    ],
+    [
+      5e-13,
+      5e-13
+    ],
+    [
+      6e-13,
+      6.5e-13
+    ],
+    [
+      7e-13,
+      8e-13
+    ],
+    [
+      8e-13,
+      9e-13
+    ],
+    [
+      1e-12,
+      1.1e-12
+    ],
+    [
+      1.2e-12,
+      1.3e-12
+    ],
+    [
+      1.5e-12,
+      1.6e-12
+    ],
+    [
+      1.8e-12,
+      2e-12
+    ],
+    [
+      2.2e-12,
+      2.5e-12
+    ],
+    [
+      2.6e-12,
+      3e-12
+    ],
+    [
+      3e-12,
+      3.5e-12
+    ],
+    [
+      3.2e-12,
+      3.2e-12
+    ],
+    [
+      3.4e-12,
+      2.2e-12
+    ],
+    [
+      3.6e-12,
+      1.4e-12
+    ],
+    [
+      3.9e-12,
+      8e-13
+    ],
+    [
+      4.2e-12,
+      5.5e-13
+    ],
+    [
+      4.5e-12,
+      4.5e-13
+    ],
+    [
+      4.8e-12,
+      6e-13
+    ],
+    [
+      5.2e-12,
+      9e-13
+    ],
+    [
+      5.6e-12,
+      1.1e-12
+    ],
+    [
+      6e-12,
+      1.2e-12
+    ],
+    [
+      6.5e-12,
+      1.1e-12
+    ],
+    [
+      7e-12,
+      8e-13
+    ],
+    [
+      7e-12,
+      1e-13
+    ],
+    [
+      7e-12,
+      1e-14
+    ],
+    [
+      7e-12,
+      1e-16
+    ],
+    [
+      7e-12,
+      1e-18
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "Black hole superradiance (Cyg X-1 + GRS 1915+105)",
+  "coupling_convention": "y-axis plotted as 1/f_a in GeV^-1 (inverse axion decay constant); x-axis is m_a in eV. Values emitted exactly as plotted, no inversion to f_a performed.",
+  "notes": "Paper (arXiv:2412.03655, Witte & Mummery) derives new 95% CI (2-sigma) black hole superradiance constraints on the axion decay constant f_a vs axion mass m_a using spins of solar-mass black holes (Cyg X-1 conservative + GRS 1915+105), evolving all superradiant states with n<=5 with fully relativistic self-interaction rates. Primary result is Fig. 1 in the f_a-m_a plane, hence AxionMass. The paper claims ~1 order of magnitude improvement in f_a sensitivity over prior limits (Ref. [44]) and extension to higher masses via m=2 spin-down. The exclusion is an astrophysical (not DM haloscope) bound, so no local DM density assumed. IMPORTANT CAVEAT: no numerical table of the exclusion boundary is provided in the text; the data_points above are approximate reconstructions of the Fig. 1 dark-blue fiducial exclusion boundary based on the stated black hole masses (M~22 M_sun, alpha~0.1-0.5 implying m_a ~ few x 1e-13 to ~1e-11 eV, with example mu=2e-12 eV) and stated order-of-magnitude improvement over previous f_a ~ 1e15 GeV limits. These points should be replaced by a proper digitization of Fig. 1 before quantitative use. | selector: figure_vision over text (quality (0, 1, 1, 1, 2, 0, 0.65, 37)) | Vision: Fig. 1: superradiance limits at 2-sigma using Cyg X-1 (conservative spin) and GRS 1915+105, n<=5 levels. The fiducial dark-blue excluded region is BELOW/INSIDE the traced envelope (superradiance excludes weak self-interactions, i.e., small 1/f_a, large f_a); I traced the full outline: left vertical edge (~2.2e-13 eV), upper envelope (peak ~3.5e-12 GeV^-1 at ~3e-12 eV, dip at ~4.5e-12 eV), and right vertical edge (~7e-12 eV). The lighter shaded blue extension to ~1e-11 eV (m>2 spin-down, uncertain) was NOT included. Constraints stated at 2-sigma (~0.95). Y-axis is 1/f_a rather than f_a; downstream should invert if canonical f_a-m_a plane is needed. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.80 snapped to identity) | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+  "num_points": 37,
+  "elapsed_s": 152.59537291526794
+}

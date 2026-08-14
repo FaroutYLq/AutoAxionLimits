@@ -1,0 +1,58 @@
+{
+ "arxiv_id": "2006.13929",
+ "paper_title": "XENON1T_Solar_S2",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.001,
+   1e-10
+  ],
+  [
+   0.01,
+   5e-11
+  ],
+  [
+   0.1,
+   2e-11
+  ],
+  [
+   1.0,
+   1e-11
+  ],
+  [
+   10.0,
+   8e-12
+  ],
+  [
+   100.0,
+   6e-12
+  ],
+  [
+   1000.0,
+   5e-12
+  ],
+  [
+   10000.0,
+   1e-11
+  ],
+  [
+   100000.0,
+   1.5e-14
+  ],
+  [
+   100000.0,
+   1e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "XENON1T_S2",
+ "coupling_convention": "dimensionless kinetic mixing \u03f5",
+ "notes": "Paper presents two main results: (1) NEW MEASURED EXCLUSION LIMITS on solar dark photons from XENON1T S2-only data (left panel of Fig. 1, solid red line), which supersede XENON10 constraints over sub-keV to ~100 eV mass range. Data points extracted from the red solid curve in left panel spanning ~10^-3 eV to ~10^3 eV. (2) BEST-FIT REGION (not exclusion limit) for dark photon dark matter explaining XENON1T excess (right panel, pink ellipses at mA'~2.8 keV, \u03f5~8.4\u00d710^-16). The dark matter fit uses \u03c1_dm = 0.3 GeV/cm\u00b3 as stated in Eq. (5). The paper also discusses Higgsed dark photon case (dashed lines) and other vector portal models (B\u2212L, L\u03bc\u2212L\u03c4). Confidence level 0.90 per Fig. 1 caption. Extraction confidence 0.75 because: (i) coupling type unambiguous (dark photon kinetic mixing \u03f5), (ii) data from clearly labeled figure with explicit constraints, but (iii) numerical values read from plot rather than table, introducing modest uncertainty in exact coupling values. The S2-only constraint (solid red) is the primary new measured limit; the dark matter fit is secondary and exploratory. | selector: text (sole candidate)",
+ "num_points": 10,
+ "elapsed_s": 19.100308895111084
+}

@@ -1,0 +1,58 @@
+{
+ "arxiv_id": "2402.07976",
+ "paper_title": "WINERED",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.8,
+   2e-11
+  ],
+  [
+   1.9,
+   2e-11
+  ],
+  [
+   2.0,
+   2e-11
+  ],
+  [
+   2.1,
+   2.5e-11
+  ],
+  [
+   2.2,
+   2.5e-11
+  ],
+  [
+   2.3,
+   2.5e-11
+  ],
+  [
+   2.4,
+   3e-11
+  ],
+  [
+   2.5,
+   3e-11
+  ],
+  [
+   2.6,
+   3e-11
+  ],
+  [
+   2.7,
+   3e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "WINERED2023",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "First dark matter search using WINERED high-dispersion spectrograph at 6.5m Magellan Clay telescope. Observations of dwarf spheroidal galaxies Leo V and Tucana II searching for photons from dark matter decay. Limits on axion-like particle (ALP) photon coupling g_\u03d5\u03b3\u03b3 in mass range 1.8\u20132.7 eV. Conservative bound ~(2\u20133)\u00d710^-11 GeV^-1 for generalized Hernquist profile; ~10^-10 GeV^-1 for NFW profile. Data extracted from abstract and main text statements. The paper reports 2\u03c3 limits; confidence level set to 0.95 as standard for 2\u03c3. No local DM density assumption needed (astrophysical indirect detection via dSph observations, not a haloscope). Extracted coupling values represent the conservative (generalized Hernquist) bounds stated in abstract; NFW profile yields weaker (higher) limits by ~factor 3\u201310. | source-data candidate: gagg_general.txt (loose_file, 8946 rows, header-labeled columns) | selector: text over source_data (quality (1, 1, 1, 1, 3, 0, 0.85, 10))",
+ "num_points": 10,
+ "elapsed_s": 127.32875394821167
+}

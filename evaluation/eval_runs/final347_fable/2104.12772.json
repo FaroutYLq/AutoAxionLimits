@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2104.12772",
+  "paper_title": "No evidence for axions from Chandra observation of magnetic white dwarf",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-11,
+      5.5e-13
+    ],
+    [
+      5e-06,
+      5.5e-13
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "MWDXrays_Chandra2021",
+  "coupling_convention": "g_agamma in GeV^-1 (assuming Caee = Cagamma)",
+  "notes": "Chandra X-ray observation (~40 ks) of magnetic white dwarf RE J0317-853. The primary model-independent result is on the coupling product g_aee*g_agamma < 1.3e-25 GeV^-1 (95% CL) for m_a << 1e-5 eV. Translated to g_agamma alone: <= 5.5e-13 GeV^-1 for Caee = Cagamma (values emitted here), or <= 4.4e-11 GeV^-1 for the conservative W-phobic loop-induced Caee = 1.6e-4*Cagamma. Limit stated flat for m_a <~ 5e-6 eV; lower mass edge 1e-11 eV taken from Fig. 1 plot range. Limit degrades at higher masses (up to ~1e-2 eV) but no numerical values are given in the text for that region. This is a stellar (axion production + magnetosphere conversion) bound, NOT a dark-matter haloscope, so no local DM density is assumed. SM contains Chandra 400 ks and Lynx projections, but the headline result is a measured limit. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.7, 2))",
+  "num_points": 2,
+  "elapsed_s": 132.79333090782166
+}

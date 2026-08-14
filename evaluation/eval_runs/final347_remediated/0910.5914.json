@@ -1,0 +1,106 @@
+{
+  "arxiv_id": "0910.5914",
+  "paper_title": "A SQUID-based microwave cavity search for dark-matter axions",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      3.375e-06,
+      1.5e-15
+    ],
+    [
+      3.383e-06,
+      1.5e-15
+    ],
+    [
+      3.392e-06,
+      1.45e-15
+    ],
+    [
+      3.4e-06,
+      1.45e-15
+    ],
+    [
+      3.408e-06,
+      1.5e-15
+    ],
+    [
+      3.417e-06,
+      1.6e-15
+    ],
+    [
+      3.425e-06,
+      1.5e-15
+    ],
+    [
+      3.433e-06,
+      1.45e-15
+    ],
+    [
+      3.442e-06,
+      1.5e-15
+    ],
+    [
+      3.45e-06,
+      1.6e-15
+    ],
+    [
+      3.458e-06,
+      1.7e-15
+    ],
+    [
+      3.466e-06,
+      1.6e-15
+    ],
+    [
+      3.474e-06,
+      1.5e-15
+    ],
+    [
+      3.483e-06,
+      1.5e-15
+    ],
+    [
+      3.491e-06,
+      1.6e-15
+    ],
+    [
+      3.499e-06,
+      1.7e-15
+    ],
+    [
+      3.508e-06,
+      1.9e-15
+    ],
+    [
+      3.516e-06,
+      1.8e-15
+    ],
+    [
+      3.524e-06,
+      1.6e-15
+    ],
+    [
+      3.532e-06,
+      1.6e-15
+    ],
+    [
+      3.541e-06,
+      1.7e-15
+    ],
+    [
+      3.549e-06,
+      1.7e-15
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "ADMX (SQUID)",
+  "coupling_convention": "|g_agamma| in GeV^-1, as plotted on y-axis",
+  "notes": "ADMX first SQUID-amplifier run. Excludes KSVZ axion dark matter (rho=0.45 GeV/cm^3) at 90% CL over 3.3-3.53 ueV. Paper does not tabulate g_agamma; the reported result is exclusion of realistic KSVZ models over this mass band (Fig. 5). Data points are the KSVZ coupling values at the band endpoints, computed via g_agamma = g_gamma*alpha/(pi*f_a) with g_gamma~0.97 and m_a-f_a relation; treat as approximate KSVZ-level limit endpoints. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 22)) | Vision: Figure 5, ADMX SQUID search. X-axis Frequency 815-860 MHz converted to axion mass via m=4.136e-15*f. Top axis confirms 3.35-3.5 ueV. Exclusion at 90% CL for rho=0.45 GeV/cm^3. The excluded (hatched) region is a jagged step-like band just above the KSVZ line (~1e-15 GeV^-1). Lower boundary traced ~1.4-1.9e-15. Fine step structure is not fully resolvable at image resolution; values are approximate. DFSZ line lies below at ~4e-16. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.33 snapped to identity)",
+  "num_points": 22,
+  "elapsed_s": 112.15160322189331
+}

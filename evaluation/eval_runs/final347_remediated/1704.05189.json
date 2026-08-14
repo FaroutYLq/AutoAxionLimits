@@ -1,0 +1,126 @@
+{
+  "arxiv_id": "1704.05189",
+  "paper_title": "CIBER",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.8e-09,
+      8.800000000000001e-10
+    ],
+    [
+      1.9e-09,
+      6e-10
+    ],
+    [
+      2e-09,
+      3.9999999999999996e-10
+    ],
+    [
+      2.2e-09,
+      2.5e-10
+    ],
+    [
+      2.4e-09,
+      1.5e-10
+    ],
+    [
+      2.7e-09,
+      9e-11
+    ],
+    [
+      3e-09,
+      6.500000000000001e-11
+    ],
+    [
+      3.5e-09,
+      4.9999999999999995e-11
+    ],
+    [
+      4e-09,
+      4.5e-11
+    ],
+    [
+      5e-09,
+      4.2e-11
+    ],
+    [
+      6e-09,
+      4e-11
+    ],
+    [
+      8e-09,
+      3.9e-11
+    ],
+    [
+      1e-08,
+      4e-11
+    ],
+    [
+      1.3e-08,
+      4.2e-11
+    ],
+    [
+      1.6e-08,
+      4.5999999999999996e-11
+    ],
+    [
+      2e-08,
+      5.5000000000000004e-11
+    ],
+    [
+      2.4e-08,
+      7e-11
+    ],
+    [
+      2.8e-08,
+      9.5e-11
+    ],
+    [
+      3.2e-08,
+      1.3000000000000002e-10
+    ],
+    [
+      3.6e-08,
+      1.6e-10
+    ],
+    [
+      4e-08,
+      1.9e-10
+    ],
+    [
+      4.4e-08,
+      2.1e-10
+    ],
+    [
+      4.8e-08,
+      2.6000000000000003e-10
+    ],
+    [
+      5.2e-08,
+      3.5000000000000003e-10
+    ],
+    [
+      5.6e-08,
+      5e-10
+    ],
+    [
+      6e-08,
+      7.5e-10
+    ],
+    [
+      6.3e-08,
+      8.800000000000001e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.45,
+  "suggested_experiment_name": "CIBER (axion-photon conversion, TeV gamma-ray transparency)",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted",
+  "notes": "This paper does NOT set an exclusion limit; it identifies a FAVORED/ALLOWED region in the (m_a, g_agamma) plane where axion-photon conversion resolves the tension between CIBER cosmic IR background data and TeV gamma-ray observations. Allowed region: m_a ~ 7e-10 to 5e-8 eV, g_agamma ~ 1.5e-11 to 8.8e-10 GeV^-1 at 95% C.L. (from combined H2356-309 and 1ES1101-232 fits). The two points given represent the corners of the allowed parameter box, not an exclusion boundary. Not a DM haloscope, so no local density assumed. | selector: figure_vision (sole candidate) | Vision: Figure 5 shows CLOSED allowed-region contours (tension-solving region), not a standard exclusion. Traced lower boundary of the outer blue 'CIBER only' contour. The excluded/allowed interpretation is inverted vs standard limits. CAST horizontal bound at 8.8e-11 GeV^-1. Reading is approximate due to complex closed-contour geometry; confidence reduced accordingly. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=4.76)",
+  "num_points": 27,
+  "elapsed_s": 104.74078917503357
+}

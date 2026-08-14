@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2304.01060",
+ "paper_title": "Investigating the gamma-ray burst from decaying MeV-scale axion-like particles produced in supernova explosions",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   10000.0,
+   5.3e-12
+  ],
+  [
+   50000000.0,
+   1.5e-12
+  ],
+  [
+   200000000.0,
+   1.5e-12
+  ],
+  [
+   280000000.0,
+   3e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.45,
+ "suggested_experiment_name": "SN1987A_SMM_ALPdecay",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "SN 1987A gamma-ray decay bound on ALP-photon coupling from SMM non-observation, extended to ma~280 MeV via photon coalescence. This is a stellar/SN bound (not a DM haloscope), so no local DM density applies. The exclusion is a 2D region in the (g_agamma, ma) plane; exact numerical points are not tabulated in the text so the data points here are rough reads of the exclusion boundary from the described figure (roughly g_agamma ~ 1e-11 to few-e-12 GeV^-1 over ma ~ 10 keV to 280 MeV). Values are approximate; the paper's primary result is a figure (Fig. 3) without a data table. Confidence lowered accordingly due to lack of tabulated boundary values. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.45, 4))",
+ "num_points": 4,
+ "elapsed_s": 229.88103771209717
+}

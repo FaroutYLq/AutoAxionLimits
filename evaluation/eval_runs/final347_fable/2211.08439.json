@@ -1,0 +1,150 @@
+{
+  "arxiv_id": "2211.08439",
+  "paper_title": "Towards an electrostatic storage ring for fundamental physics measurements",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      2.3e-19,
+      1e-05
+    ],
+    [
+      2.3e-19,
+      1e-06
+    ],
+    [
+      2.3e-19,
+      1e-07
+    ],
+    [
+      2.3e-19,
+      1e-08
+    ],
+    [
+      2.3e-19,
+      1e-09
+    ],
+    [
+      2.3e-19,
+      3e-10
+    ],
+    [
+      4e-19,
+      3e-10
+    ],
+    [
+      1e-18,
+      3e-10
+    ],
+    [
+      3e-18,
+      3e-10
+    ],
+    [
+      1e-17,
+      3e-10
+    ],
+    [
+      2e-17,
+      3e-10
+    ],
+    [
+      2.8e-17,
+      3e-10
+    ],
+    [
+      3.5e-17,
+      3e-10
+    ],
+    [
+      5e-17,
+      3.5e-10
+    ],
+    [
+      1e-16,
+      4.9e-10
+    ],
+    [
+      3e-16,
+      8.2e-10
+    ],
+    [
+      1e-15,
+      1.45e-09
+    ],
+    [
+      3e-15,
+      2.4e-09
+    ],
+    [
+      1e-14,
+      4.3e-09
+    ],
+    [
+      3e-14,
+      7.2e-09
+    ],
+    [
+      1e-13,
+      1.26e-08
+    ],
+    [
+      3e-13,
+      2.1e-08
+    ],
+    [
+      1e-12,
+      3.7e-08
+    ],
+    [
+      3e-12,
+      6.3e-08
+    ],
+    [
+      1e-11,
+      1.1e-07
+    ],
+    [
+      1.5e-11,
+      1.3e-07
+    ],
+    [
+      3e-11,
+      2.7e-07
+    ],
+    [
+      1e-10,
+      9.4e-07
+    ],
+    [
+      3e-10,
+      2.9e-06
+    ],
+    [
+      1e-09,
+      1e-05
+    ],
+    [
+      3e-09,
+      3.2e-05
+    ],
+    [
+      1e-08,
+      0.00011
+    ],
+    [
+      1.2e-08,
+      0.00013
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "Electrostatic storage ring (table-top frozen-spin ring, TUM/EPFL)",
+  "coupling_convention": "g_aee in GeV^-1 (derivative axion-electron coupling as plotted on y-axis; NOT the dimensionless g_ae)",
+  "notes": "Concept/proposal paper for a table-top electrostatic storage ring for polarized ions. Presents projected sensitivities (not measured limits) for axion-electron coupling (demonstrator, Fig. 4 left) and axion-nucleon coupling (final stage with polarized Xe sample, Fig. 4 right), spanning masses ~1e-19 to 1e-10 eV. Also mentions sensitivity to dark photon DM and EDMs, so multiple coupling types are discussed. No numerical sensitivity values are given in text or tables \u2014 projections appear only in a figure whose curves cannot be read from the provided content, hence data_points is empty and extraction confidence is low. Pre-analysis hint of AxionEDM appears incorrect: the shown sensitivity plots are for g_ae and g_aN, not d_n. | selector: figure_vision (sole candidate) | Vision: Figure 4 left panel shows projected sensitivity (not existing exclusion) for axion-electron coupling g_aee [GeV^-1] vs m_a [eV]. Traced the red 'Projected Sensitivity 5h' curve (strongest projection, stated to approach astrophysical bounds). Structure: vertical low-mass cutoff at ~2.3e-19 eV, flat floor at ~3e-10 GeV^-1 up to ~3.5e-17 eV, then rising with slope ~0.5 (decades/decade) to a kink at ~1.5e-11 eV (~1.3e-7 GeV^-1), then rising with slope ~1 to ~1.3e-4 GeV^-1 at ~1.2e-8 eV. The blue 'Demonstrator (1s)' curve has a flat floor at ~3e-6 GeV^-1. The dashed purple line is the spin-projection-noise limit. Right panel shows axion-nucleon coupling g_aNN (not extracted). Values emitted exactly as plotted (GeV^-1); no conversion to dimensionless g_ae applied per contract. Axion assumed to be dark matter (axion wind), density not explicitly stated. | Calibration: No calibration needed | [CONVENTION REVIEW] declared coupling convention 'g_aee in GeV^-1 (derivative axion-electron coupling as plotted on y-axis; NOT the dimensionless g_ae)' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 33,
+  "elapsed_s": 204.91357111930847
+}

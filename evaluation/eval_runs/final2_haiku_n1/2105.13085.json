@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2105.13085",
+ "paper_title": "LIGO-O1",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.31e-13,
+   2.65e-46
+  ],
+  [
+   5.7e-13,
+   2.4e-47
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "LIGO_Virgo_O3",
+ "coupling_convention": "\u03b5\u00b2 (dimensionless, squared coupling)",
+ "notes": "Paper presents upper limits on dark photon/baryon coupling (U(1)_B) from LIGO-Virgo O3 data (2019-2020). Two independent analysis methods used: cross-correlation and BSD (Band Sampled Data). Best constraints reported as squared coupling \u03b5\u00b2 at specific masses. Cross-correlation method gives \u03b5\u00b2 \u2248 2.65\u00d710\u207b\u2074\u2076 at m_A \u2248 4.31\u00d710\u207b\u00b9\u00b3 eV; BSD method gives \u03b5\u00b2 \u2248 2.4\u00d710\u207b\u2074\u2077 at m_A \u2248 5.7\u00d710\u207b\u00b9\u00b3 eV. BSD limits are more stringent overall due to optimized coherence time and full sensitivity to finite light-travel-time effect. Mass range: 10\u207b\u00b9\u2074 to 10\u207b\u00b9\u00b9 eV (10\u20132000 Hz). Improves O1 limits by ~100\u00d7 in mass range 2\u20134\u00d710\u207b\u00b9\u00b3 eV. DM density of 0.3 GeV/cm\u00b3 is standard galactic halo assumption used in dark photon coupling calculations (equation 5). No evidence of signal found; limits are 95% CL using Feldman-Cousins approach. Note: paper also discusses baryon-minus-lepton coupling (U(1)_{B-L}), which would require multiplying limits by 4. | selector: text (sole candidate) | WARNING: median coupling 2.7e-46 outside range [1e-22, 1e+00]; no decade factor recovers it | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+ "num_points": 2,
+ "elapsed_s": 165.10564994812012
+}

@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1311.3148",
+ "paper_title": "Constraints on axionlike particles with H.E.S.S. from the irregularity of the PKS 2155-304 energy spectrum",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.5e-08,
+   2.1e-11
+  ],
+  [
+   6e-08,
+   2.1e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.82,
+ "suggested_experiment_name": "HESS_PKS2155",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "H.E.S.S. spectral irregularity search on PKS 2155-304. Conservative galaxy cluster magnetic field limit g_agamma < 2.1e-11 GeV^-1 for ALP mass ~15-60 neV (abstract states 15-60 neV; text mentions peak around 20-25 neV). Encoded as horizontal line spanning 15-60 neV. An optimistic IGMF limit of ~5e-11 GeV^-1 near 1 neV is also quoted but with large uncertainty. Not a DM haloscope, so no local DM density. Limits also apply to scalar bosons. | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 157.00995111465454
+}

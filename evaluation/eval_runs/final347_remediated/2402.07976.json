@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2402.07976",
+  "paper_title": "First Result for Dark Matter Search by WINERED",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.8,
+      2.5e-11
+    ],
+    [
+      2.0,
+      2.5e-11
+    ],
+    [
+      2.2,
+      3e-11
+    ],
+    [
+      2.4,
+      2.5e-11
+    ],
+    [
+      2.7,
+      3e-11
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "WINERED_dSph_2024",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Indirect detection of decaying ALP dark matter (mass 1.8-2.7 eV) into two photons using WINERED spectrograph on dSphs Leo V and Tucana II. Primary decay-rate limit q*Gamma_phi translated to g_phi_gamma_gamma for ALP (q=2). Text states conservative bound g ~ (2-3)e-11 GeV^-1 for NFW profile, ~1e-10 GeV^-1 for generalized Hernquist. Data points approximate the NFW main-result band (bottom panel Fig.1, after spline continuous-spectrum subtraction) which ranges ~1e-12 to 5e-11 across mass. This is a decaying-DM D-factor analysis, not a local-halo haloscope, so no local DM density assumed. 2-sigma limit taken as ~95% CL. | source-data candidate: gagg_general.txt (loose_file, 8946 rows, header-labeled columns) | selector: text over source_data (quality (1, 1, 1, 1, 3, 0, 0.7, 5)) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 5,
+  "elapsed_s": 40.81022834777832
+}

@@ -1,0 +1,17 @@
+{
+  "arxiv_id": "2011.08693",
+  "paper_title": "Superradiance Exclusions in the Landscape of Type IIB String Theory",
+  "coupling_type": "AxionMass",
+  "is_new_limit": false,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.15,
+  "suggested_experiment_name": "BHSR_TypeIIB_Landscape",
+  "coupling_convention": "fraction (dimensionless, excluded fraction of CY_3 manifolds)",
+  "notes": "This paper uses black hole superradiance to statistically exclude Type IIB string compactifications (Calabi-Yau manifolds). The main result (Fig. 3) is the FRACTION of excluded CY3 manifolds versus Hodge number h^1,1, not a coupling-vs-mass exclusion curve. Fig. 2 shows example per-black-hole exclusion functions in the (m_a, f_pert) plane, but these are illustrative example regions for individual BHs, not a single extractable exclusion limit on a standard coupling. There is no clean (mass_eV, coupling) exclusion contour to extract. The constraint is on axion mass and self-interaction (parameterized by perturbative decay constant f_pert), roughly in the 1e-13 to 1e-11 eV (stellar BH) and 1e-20 to 1e-17 eV (SMBH) mass ranges, but the paper's deliverable is a landscape exclusion fraction rather than a coupling bound. Not suitable for standard mass-coupling extraction. | Coupling from pre-classifier (AxionMass, conf=0.85)",
+  "num_points": 0,
+  "elapsed_s": 70.04146575927734
+}

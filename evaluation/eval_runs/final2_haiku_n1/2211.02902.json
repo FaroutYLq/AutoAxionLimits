@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "2211.02902",
+ "paper_title": "Search for Dark Matter Axions with CAST-CAPP",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.974e-05,
+   2.5e-13
+  ],
+  [
+   1.98e-05,
+   2.3e-13
+  ],
+  [
+   1.99e-05,
+   2e-13
+  ],
+  [
+   2e-05,
+   1.8e-13
+  ],
+  [
+   2.01e-05,
+   1.6e-13
+  ],
+  [
+   2.02e-05,
+   1.5e-13
+  ],
+  [
+   2.03e-05,
+   1.4e-13
+  ],
+  [
+   2.04e-05,
+   1.35e-13
+  ],
+  [
+   2.05e-05,
+   1.3e-13
+  ],
+  [
+   2.06e-05,
+   1.28e-13
+  ],
+  [
+   2.07e-05,
+   1.25e-13
+  ],
+  [
+   2.08e-05,
+   1.22e-13
+  ],
+  [
+   2.09e-05,
+   1.2e-13
+  ],
+  [
+   2.1e-05,
+   1.18e-13
+  ],
+  [
+   2.11e-05,
+   1.15e-13
+  ],
+  [
+   2.12e-05,
+   1.12e-13
+  ],
+  [
+   2.13e-05,
+   1.1e-13
+  ],
+  [
+   2.14e-05,
+   1.08e-13
+  ],
+  [
+   2.15e-05,
+   1.05e-13
+  ],
+  [
+   2.16e-05,
+   1.02e-13
+  ],
+  [
+   2.17e-05,
+   1e-13
+  ],
+  [
+   2.18e-05,
+   9.8e-14
+  ],
+  [
+   2.19e-05,
+   9.5e-14
+  ],
+  [
+   2.2e-05,
+   9.2e-14
+  ],
+  [
+   2.21e-05,
+   8.9e-14
+  ],
+  [
+   2.22e-05,
+   8.6e-14
+  ],
+  [
+   2.23e-05,
+   8.3e-14
+  ],
+  [
+   2.24e-05,
+   8e-14
+  ],
+  [
+   2.245e-05,
+   7.8e-14
+  ],
+  [
+   2.247e-05,
+   7.6e-14
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "CAST-CAPP (CERN Axion Solar Telescope - CAPP haloscope)",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling as plotted on y-axis",
+ "notes": "CAST-CAPP haloscope searched for dark matter axions in the mass range 19.74\u201322.47 \u03bceV using four phase-matched rectangular cavities in the CAST dipole magnet at CERN. The experiment excludes axion-photon couplings down to g_agamma = 8\u00d710^-14 GeV^-1 at 90% CL for virialized galactic axions. The bound is mass-independent across the scanned range and encoded as a horizontal line. Local DM density of 0.45 GeV/cm\u00b3 was assumed (standard galactic halo model). Data acquisition: 4124 h from 2019\u20132021. No axion signal candidates survived the full analysis pipeline after rescanning and background checks. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 30)) | Vision: Exclusion limit plot from Figure 5 (left panel) showing CAST-CAPP constraint on axion-photon coupling g_agamma vs axion mass m_a in the range 19.74\u201322.47 \u03bceV. The boundary traced is the lower edge of the red exclusion region (CAST-CAPP constraint). The plot shows the excluded region ABOVE the boundary. KSVZ and DFSZ theoretical model lines are shown for reference. The 90% confidence level exclusion reaches down to approximately 7.6\u00d710^-14 GeV^-1 at the high-mass end (22.47 \u03bceV). The cavity tuning mechanism and phase-matching technique provide enhanced sensitivity in this mass range. Axis calibration confirmed: x-axis is linear in \u03bceV (19.5\u201322.5 range), y-axis is log scale (10^-15 to 10^-11 GeV^-1). | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.54 snapped to identity)",
+ "num_points": 30,
+ "elapsed_s": 192.2715299129486
+}

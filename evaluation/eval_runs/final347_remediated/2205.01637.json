@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "2205.01637",
+  "paper_title": "Novel cosmological bounds on thermally-produced axion-like particles",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.0001,
+      3.5e-08
+    ],
+    [
+      0.001,
+      3.5e-08
+    ],
+    [
+      0.01,
+      3.4e-08
+    ],
+    [
+      0.1,
+      3.2e-08
+    ],
+    [
+      1.0,
+      1.5e-08
+    ],
+    [
+      3.0,
+      8e-09
+    ],
+    [
+      10.0,
+      6e-09
+    ],
+    [
+      30.0,
+      1.5e-08
+    ],
+    [
+      100.0,
+      8e-09
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "Planck2018_BAO_ThermalALP",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Cosmological bound (CMB Planck 2018 + BAO) on thermally-produced ALP axion-photon coupling g_agamma vs axion mass, from Fig. 7 (blue diamonds, Planck+BAO, 95% CL). Marginalised overall bound g_agamma < 3.16e-8 GeV^-1. Fixed-mass grid: ma in {1e-4,1e-3,1e-2,0.1,1,3,10,30,100} eV. Numerical per-point values are read/estimated from the figure since exact table values are not given (only anchors: Planck+BAO+ACT gives 2.19e-8 at 1e-4 eV, factor ~1.6 tighter than Planck+BAO). Paper also constrains axion-gluon coupling Cg/fa and EDM coupling gd (AxionEDM), but pre-analysis hint of AxionPhoton matches Fig. 7. Not a DM haloscope, so no local DM density. Forecast CMB-S4 numbers mentioned but main result is observed limit. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 9))",
+  "num_points": 9,
+  "elapsed_s": 98.11632895469666
+}

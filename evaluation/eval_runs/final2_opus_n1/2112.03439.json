@@ -1,0 +1,150 @@
+{
+ "arxiv_id": "2112.03439",
+ "paper_title": "A Model-Independent Radio Telescope Dark Matter Search in the L and S Bands",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   5.45e-06,
+   8e-17
+  ],
+  [
+   5.55e-06,
+   1.5e-16
+  ],
+  [
+   5.65e-06,
+   3.0000000000000002e-15
+  ],
+  [
+   5.75e-06,
+   2e-14
+  ],
+  [
+   5.85e-06,
+   5e-14
+  ],
+  [
+   5.95e-06,
+   1e-13
+  ],
+  [
+   6.05e-06,
+   3e-14
+  ],
+  [
+   6.15e-06,
+   5e-14
+  ],
+  [
+   6.25e-06,
+   8e-15
+  ],
+  [
+   6.62e-06,
+   4e-15
+  ],
+  [
+   6.9e-06,
+   1e-15
+  ],
+  [
+   7.1e-06,
+   6.0000000000000005e-15
+  ],
+  [
+   7.3e-06,
+   3e-14
+  ],
+  [
+   7.45e-06,
+   8e-15
+  ],
+  [
+   7.6e-06,
+   1.5000000000000001e-15
+  ],
+  [
+   7.86e-06,
+   2e-15
+  ],
+  [
+   8.1e-06,
+   5e-14
+  ],
+  [
+   8.3e-06,
+   1e-14
+  ],
+  [
+   8.5e-06,
+   6.0000000000000005e-15
+  ],
+  [
+   8.7e-06,
+   3e-14
+  ],
+  [
+   8.9e-06,
+   2e-15
+  ],
+  [
+   9.1e-06,
+   1e-15
+  ],
+  [
+   9.35e-06,
+   5e-14
+  ],
+  [
+   9.55e-06,
+   8e-15
+  ],
+  [
+   9.75e-06,
+   5.000000000000001e-13
+  ],
+  [
+   9.9e-06,
+   1e-14
+  ],
+  [
+   1.01e-05,
+   8e-15
+  ],
+  [
+   1.03e-05,
+   2e-15
+  ],
+  [
+   1.06e-05,
+   3e-13
+  ],
+  [
+   1.08e-05,
+   5e-12
+  ],
+  [
+   1.09e-05,
+   2.0000000000000004e-12
+  ],
+  [
+   1.1e-05,
+   8e-13
+  ],
+  [
+   1.11e-05,
+   2e-15
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.471,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "GBT L/S band model-independent DM decay search",
+ "coupling_convention": "decay rate lambda in s^-1 (as plotted on y-axis of Fig 9a)",
+ "notes": "This is a model-independent radio telescope search for dark matter decay/annihilation to a radio line, using Breakthrough Listen GBT data over 1020-2700 MHz. The limits are reported on the decay constant lambda (s^-1) vs frequency (Fig. 8, 9a) and annihilation cross section <sigma v> (cm^3/s) vs frequency (Fig. 9b), NOT on a standard particle-physics coupling such as g_agamma, kinetic mixing, etc. The paper explicitly assumes two-photon final states for simplicity but frames results generically. Since the y-axis is a decay rate/cross section rather than any of the enumerated coupling types, no coupling_type applies and no data points in the required units can be extracted. Local density assumptions: rho_NFW(r_s)=0.471 GeV/cm^3, rho_Bur=0.487 GeV/cm^3. Approximate limits: decay lambda ~ 10^-32 s^-1, annihilation <sigma v> ~ 10^-30 cm^3/s across 1020-2700 MHz. | selector: figure_vision (sole candidate) | Vision: The exclusion plot (Fig 9a) reports the dark matter DECAY RATE lambda [s^-1] on the y-axis, NOT the axion-photon coupling g_agamma [GeV^-1]. This is a model-independent radio search. The plotted quantity is a decay rate, so emitted values are lambda in s^-1, NOT g_agamma. X-axis is frequency (MHz) converted to mass via m=4.136e-15*f[Hz]; 1317-2690 MHz corresponds to ~5.45e-6 to 1.11e-5 eV. Red shaded regions (1517-1650, 1890-1960, 2170-2260, 2300-2520 MHz) are excluded from analysis due to high noise/damping. The lower boundary traced is the envelope of the solid-line limit. Confidence low because plotted quantity is not the canonical coupling type - downstream conversion from lambda to g_agamma is nontrivial and requires particle physics model input. | Calibration: Calibration reverted: \u00d71e-1 from spot-check verify/stage2 (raw_ratio=0.20) failed contract [vision calibration \u00d71e-1: reverted (R5 hard floor: median outside VALID_RANGES)] | Auto-corrected couplings: \u00d71e+18 (\u00d71.00e+18, rule=argmin|log10(median*f)-log10(anchor=1.0e-14)|)",
+ "num_points": 33,
+ "elapsed_s": 253.4630138874054
+}

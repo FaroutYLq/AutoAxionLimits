@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2306.01048",
+ "paper_title": "Getting the most on supernova axions",
+ "coupling_type": "AxionProton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1000.0,
+   6e-10
+  ],
+  [
+   1000000.0,
+   6e-10
+  ],
+  [
+   10000000.0,
+   6e-10
+  ],
+  [
+   100000000.0,
+   7e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "SN1987A_axion_trapping_2024",
+ "coupling_convention": "dimensionless g_ap (lower edge of excluded band)",
+ "notes": "SN 1987A bounds on ALP-proton coupling gap (KSVZ benchmark with gan=0). The exclusion is a band; extracted lower edge of cooling bound: 6e-10 for ma<=10 MeV rising to 7e-10 at ~100 MeV. Upper edge of band reaches gap~2.5e-6 (ma<10MeV) and 3.5e-7 (ma~100MeV); KII event bound gap>=3e-7. Combined result excludes gap>=6e-10 for ma<=1 MeV. Pre-analysis hint suggested AxionNeutron but paper clearly constrains proton coupling (gap) with neutron coupling set to zero. Main results from text (Fig.3 described); no numerical table of curve provided. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.75, 4))",
+ "num_points": 4,
+ "elapsed_s": 186.4652271270752
+}

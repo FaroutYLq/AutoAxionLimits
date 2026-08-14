@@ -1,0 +1,114 @@
+{
+  "arxiv_id": "2503.11753",
+  "paper_title": "JWST_Pinetti",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.1,
+      9e-13
+    ],
+    [
+      0.12,
+      8e-13
+    ],
+    [
+      0.15,
+      7e-13
+    ],
+    [
+      0.18,
+      8e-13
+    ],
+    [
+      0.22,
+      7e-13
+    ],
+    [
+      0.28,
+      6.5e-13
+    ],
+    [
+      0.35,
+      6e-13
+    ],
+    [
+      0.42,
+      6e-13
+    ],
+    [
+      0.48,
+      6e-13
+    ],
+    [
+      0.5,
+      6e-13
+    ],
+    [
+      0.55,
+      5.5e-13
+    ],
+    [
+      0.6,
+      5e-13
+    ],
+    [
+      0.7,
+      5e-13
+    ],
+    [
+      0.85,
+      5e-13
+    ],
+    [
+      1.0,
+      4.5e-13
+    ],
+    [
+      1.2,
+      4e-13
+    ],
+    [
+      1.5,
+      3.5e-13
+    ],
+    [
+      1.8,
+      3e-13
+    ],
+    [
+      2.2,
+      2.7e-13
+    ],
+    [
+      2.6,
+      2.5e-13
+    ],
+    [
+      3.0,
+      2.3e-13
+    ],
+    [
+      3.4,
+      2.1e-13
+    ],
+    [
+      3.7,
+      2e-13
+    ],
+    [
+      4.0,
+      2e-13
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.18,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.68,
+  "suggested_experiment_name": "JWST blank-sky (MIRI + NIRSpec)",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis (lower envelope of jagged exclusion region)",
+  "notes": "JWST MIRI (0.1-0.5 eV) and NIRSpec (0.5-4 eV) blank-sky search for axion DM decay to two photons, constraining g_agamma. No numerical table for the exclusion curve is provided (Tables I/II list target D-factors only); data_points are approximate readings from Fig. 2 (y-axis 1e-13 to 1e-9 GeV^-1). DM modeled with NFW profile (rs=24 kpc, rho_s=0.18 GeV/cm^3), not a single local density, so dm_density_assumed left null. 95% CL (Delta chi^2<3.84). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.68, 24)) | Vision: Fig. 2 of Pinetti JWST paper. 95% CL constraints on g_agamma vs axion mass assuming axions are all of DM (NFW, rho_s=0.18 GeV/cm^3, sigma_v=160 km/s). Red=MIRI (0.1-0.5 eV), blue=NIRSpec (0.5-4 eV). Constraint is highly jagged/spiky; I traced the lower envelope (deepest-reaching spikes = strongest limit) since the excluded region lies above. Values are approximate reads on log axes. Yellow band = QCD axion, dotted line ~4e-11 (stellar bound), grey = existing limits (MUSE/WINERED/CAST). | Calibration: No calibration needed",
+  "num_points": 24,
+  "elapsed_s": 107.37413024902344
+}

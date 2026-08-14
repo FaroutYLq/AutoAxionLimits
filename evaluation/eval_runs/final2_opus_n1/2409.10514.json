@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "2409.10514",
+ "paper_title": "Constraints on axions from patchy screening of the cosmic microwave background",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.5e-13,
+   6.5e-11
+  ],
+  [
+   1.6e-13,
+   3.5e-11
+  ],
+  [
+   1.7e-13,
+   2e-11
+  ],
+  [
+   1.8e-13,
+   1.2e-11
+  ],
+  [
+   1.9e-13,
+   8e-12
+  ],
+  [
+   2e-13,
+   5.5e-12
+  ],
+  [
+   2.2e-13,
+   3.8e-12
+  ],
+  [
+   2.5e-13,
+   2.8e-12
+  ],
+  [
+   2.8e-13,
+   2.3e-12
+  ],
+  [
+   3.2e-13,
+   1.9e-12
+  ],
+  [
+   3.6e-13,
+   1.7e-12
+  ],
+  [
+   4e-13,
+   1.6e-12
+  ],
+  [
+   4.5e-13,
+   1.55e-12
+  ],
+  [
+   5e-13,
+   1.5e-12
+  ],
+  [
+   5.5e-13,
+   1.55e-12
+  ],
+  [
+   6e-13,
+   1.6e-12
+  ],
+  [
+   7e-13,
+   1.8e-12
+  ],
+  [
+   8e-13,
+   2.1e-12
+  ],
+  [
+   9e-13,
+   2.5e-12
+  ],
+  [
+   1e-12,
+   2.9e-12
+  ],
+  [
+   1.2e-12,
+   3.8e-12
+  ],
+  [
+   1.4e-12,
+   4.8e-12
+  ],
+  [
+   1.6e-12,
+   6e-12
+  ],
+  [
+   1.8e-12,
+   7.5e-12
+  ],
+  [
+   2e-12,
+   1e-11
+  ],
+  [
+   2.3e-12,
+   1.5e-11
+  ],
+  [
+   2.6e-12,
+   2.3e-11
+  ],
+  [
+   2.9e-12,
+   3.5e-11
+  ],
+  [
+   3.2e-12,
+   5e-11
+  ],
+  [
+   3.5e-12,
+   6.5e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "unWISE Blue x Planck patchy screening",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Constraint on axion-photon coupling from resonant CMB photon-axion conversion (patchy screening) cross-correlated with unWISE galaxies. Paper states g_agamma < 2e-12 GeV^-1 at 95% CL for 1e-13 eV < m_a < 1e-12 eV. This is an astrophysical/cosmological bound, not a DM haloscope, so no local DM density applies. Detailed mass-dependent exclusion curve is in Fig. 3 but only the flat-value statement is quantitatively given in text; encoded as horizontal line over stated mass range. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 30)) | Vision: Red exclusion region from cross-correlation of axion screening map with unWISE Blue galaxies. Lower boundary traced; excluded region is above. Minimum around g_agamma ~ 1.5e-12 GeV^-1 near m_a ~ 5e-13 eV. Upper part of region merges into CAST band at ~7e-11 GeV^-1. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.75 snapped to identity)",
+ "num_points": 30,
+ "elapsed_s": 264.28310084342957
+}

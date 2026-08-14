@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "0802.2350",
+  "paper_title": "Improved constraints on non-Newtonian forces at 10 microns",
+  "coupling_type": "ScalarNucleon",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.31,
+      31000000.0
+    ],
+    [
+      0.2067,
+      460000.0
+    ],
+    [
+      0.124,
+      14000.0
+    ],
+    [
+      0.06889,
+      1100.0
+    ],
+    [
+      0.03647,
+      250.0
+    ],
+    [
+      0.01879,
+      150.0
+    ]
+  ],
+  "data_source": "table",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "Stanford_Microcantilever_2008",
+  "coupling_convention": "alpha (Yukawa strength relative to Newtonian gravity), from Table V; masses converted from Yukawa range lambda via m[eV] = 1.240e-6/lambda[m]",
+  "notes": "Stanford cryogenic micro-cantilever test of Yukawa-type deviations from Newtonian gravity at 5-66 micron ranges ('Stanford 3' result). Table V lists 95% CL exclusion values of |alpha| at six explicit lambda values (4, 6, 10, 18, 34, 66 microns). Best bound in 5-15 micron range: |alpha| > 14,000 excluded at lambda = 10 microns. Coupling emitted is the raw Yukawa strength alpha relative to gravity (fifth-force / ISL test convention), not a dimensionless particle coupling g; downstream conversion needed if canonical g_N is required. Not a dark matter search, so no DM density assumption. | selector: table over figure_vision (quality (0, 1, 1, 0, 4, 0, 0.9, 6)) | Range snap SUPPRESSED (declared convention non-canonical; a decade snap cannot fix a convention mismatch): median mass 1.2e-01 / coupling 1.4e+04 vs windows [1e-24,1e+09] / [1e-30,1e+00] | contract: median outside VALID_RANGES after corrections (flagged low confidence) | [CONVENTION REVIEW] declared coupling convention 'alpha (Yukawa strength relative to Newtonian gravity), from Table V; masses converted from Yukawa range lambda via m[eV] = 1.240e-6/lambda[m]' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 6,
+  "elapsed_s": 110.0758650302887
+}

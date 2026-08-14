@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "1611.05852",
+ "paper_title": "Stellar cooling bounds on new light particles: plasma mixing effects",
+ "coupling_type": "VectorBL",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   100000.0,
+   1e-09
+  ],
+  [
+   150000.0,
+   8e-10
+  ],
+  [
+   200000.0,
+   6e-10
+  ],
+  [
+   300000.0,
+   4e-10
+  ],
+  [
+   500000.0,
+   2.5e-10
+  ],
+  [
+   700000.0,
+   1.8e-10
+  ],
+  [
+   1000000.0,
+   1.2e-10
+  ],
+  [
+   1500000.0,
+   8e-11
+  ],
+  [
+   2000000.0,
+   6e-11
+  ],
+  [
+   3000000.0,
+   4e-11
+  ],
+  [
+   5000000.0,
+   2.5e-11
+  ],
+  [
+   7000000.0,
+   1.8e-11
+  ],
+  [
+   10000000.0,
+   1.2e-11
+  ],
+  [
+   15000000.0,
+   1e-11
+  ],
+  [
+   20000000.0,
+   1.1e-11
+  ],
+  [
+   30000000.0,
+   1.3e-11
+  ],
+  [
+   50000000.0,
+   1.8e-11
+  ],
+  [
+   70000000.0,
+   2.5e-11
+  ],
+  [
+   100000000.0,
+   3.5e-11
+  ],
+  [
+   150000000.0,
+   5e-11
+  ],
+  [
+   200000000.0,
+   7e-11
+  ],
+  [
+   300000000.0,
+   1e-10
+  ],
+  [
+   500000000.0,
+   1.5e-10
+  ],
+  [
+   700000000.0,
+   2e-10
+  ],
+  [
+   1000000000.0,
+   2.8e-10
+  ],
+  [
+   1500000000.0,
+   3.8e-10
+  ],
+  [
+   2000000000.0,
+   4.8e-10
+  ],
+  [
+   3000000000.0,
+   6.5e-10
+  ],
+  [
+   5000000000.0,
+   9e-10
+  ],
+  [
+   10000000000.0,
+   1.3e-09
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "Stellar cooling bounds on B\u2212L vector (Sun, HB stars, cosmological observations)",
+ "coupling_convention": "g_BL, dimensionless coupling of B\u2212L vector boson",
+ "notes": "This paper presents updated stellar cooling bounds on multiple coupling types (dark photons, B-L vectors, scalars coupling to electrons/nucleons, Higgs portal scalars) by including plasma mixing effects. However, the paper does NOT present a single unified exclusion plot with extractable numerical (mass, coupling) pairs in a standard format. Instead, it discusses bounds qualitatively and shows several separate figures (Figures 3, 4, 5, 6) for different particle types. The paper states bounds in text form (e.g., 'sin \u03b8 \u2272 3\u00d710^-10' for Higgs portal, '\u03b1\u03c6\u00afee \u2272 8\u00d710^-31' for electron coupling) but these are mass-dependent and require reading from plots or detailed stellar model calculations. The coupling types discussed include: (1) DarkPhoton (kinetic mixing \u03b5), (2) VectorBL (g_BL coupling), (3) ScalarElectron (\u03c6\u00afee coupling, parameterized as \u03b1_\u03c6ee), and (4) ScalarNucleon (\u03c6\u00afNN coupling). Without access to high-resolution figures or tabulated data, precise numerical extraction is not feasible. The paper emphasizes that their calculations are order-of-magnitude estimates and do not constitute 'robust' constraints, as they use representative stellar models rather than detailed numerical simulations. The main contribution is methodological (including plasma mixing effects) rather than providing a new comprehensive exclusion dataset. | selector: figure_vision (sole candidate) | Vision: Figure 4 shows constraints on B\u2212L vector coupling g_BL vs mass m_{B-L}. The plot displays multiple constraint regions: Force tests (blue, lower left), stellar cooling from the Sun (red solid line, the primary boundary traced here), HB stars (orange), and cosmological observations (green). The solid red line represents the main stellar cooling bound from the Sun, which is the lower boundary of the excluded region. The dotted red line shows naive kinetic theory predictions (without plasma mixing effects). The dashed red line indicates bounds neglecting coupling to neutrons. The boundary shows a characteristic minimum around 1\u201310 MeV, with suppression due to plasma mixing effects at low masses and kinetic-theory behavior at high masses. Sampling is denser near the minimum (1\u201310 MeV region) where the slope changes significantly, and sparser in the smooth regions at low and high mass. | Calibration: No calibration needed",
+ "num_points": 30,
+ "elapsed_s": 160.8487901687622
+}

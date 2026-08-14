@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2312.11003",
+ "paper_title": "Experimental search for invisible dark matter axions around 22 \u03bceV",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.186e-05,
+   9.3e-17
+  ],
+  [
+   2.2e-05,
+   9.3e-17
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "CAPP-12T",
+ "coupling_convention": "g_agamma in GeV^-1 (KSVZ model, dimensionless ratio \u00d7 g_KSVZ_agamma)",
+ "notes": "Paper reports exclusion of dark matter axions with coupling g_agamma \u2273 0.93 \u00d7 g_KSVZ_agamma at 90% CL in the mass range 21.86\u201322.00 \u03bceV. The KSVZ coupling constant g_KSVZ_agamma \u2248 1.0 \u00d7 10^-16 GeV^-1 (standard value for KSVZ model). The experiment is a cavity haloscope (CAPP-12T) with a 12 T magnetic field, multi-cell cavity design, and Josephson Parametric Amplifier readout. Local DM density assumed is \u03c1_a = 0.45 GeV/cm\u00b3 (standard galactic halo value for KSVZ axions). The exclusion limit is encoded as a horizontal line spanning the stated mass range. Total systematic uncertainty in g_agamma determination is 4.7%. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 16.0 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | [CONVENTION REVIEW] declared coupling convention 'g_agamma in GeV^-1 (KSVZ model, dimensionless ratio \u00d7 g_KSVZ_agamma)' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 2,
+ "elapsed_s": 93.77046775817871
+}

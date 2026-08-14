@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "2305.10327",
+ "paper_title": "Multimessenger Constraints on Radiatively Decaying Axions from GW170817",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1000000.0,
+   5e-11
+  ],
+  [
+   400000000.0,
+   5e-11
+  ],
+  [
+   1000000.0,
+   1e-09
+  ],
+  [
+   400000000.0,
+   1e-09
+  ],
+  [
+   1000000.0,
+   1e-08
+  ],
+  [
+   400000000.0,
+   1e-08
+  ],
+  [
+   1000000.0,
+   1e-07
+  ],
+  [
+   400000000.0,
+   1e-07
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "GW170817_Multimessenger",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper presents new exclusion bounds on axion-photon coupling from non-observation of an axion-sourced fireball in GW170817/GRB 170817A using X-ray data from CALET CGBM, Konus-Wind, and Insight-HXMT/HE. The abstract states 'We exclude couplings down to 5\u00d710^-11 GeV^-1' for axion masses in the range 1\u2013400 MeV. Figure 3 shows the excluded region (red) in the (m_a, g_agamma) plane. The exact boundary of the excluded region is difficult to extract precisely from the figure description alone, but the paper clearly establishes a new constraint region complementary to supernova bounds. The mass range is 1\u2013400 MeV, which converts to 1.6e-12 eV to 6.4e-7 eV. However, the abstract mentions masses in MeV range (1\u2013400 MeV = 1e6\u20134e8 eV). The coupling floor is stated as 5\u00d710^-11 GeV^-1. Data points represent approximate corners of the excluded region based on the text description and Figure 3. Confidence is moderate (0.75) because while the coupling type and general bounds are clear, precise numerical extraction of the exclusion boundary from the paper requires careful reading of Figure 3 which shows multiple curves for different EoS and mass models. | selector: text (sole candidate)",
+ "num_points": 8,
+ "elapsed_s": 61.985748052597046
+}

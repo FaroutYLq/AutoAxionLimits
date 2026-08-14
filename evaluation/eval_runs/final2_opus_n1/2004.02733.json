@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2004.02733",
+ "paper_title": "Searching for solar axions using data from the Sudbury Neutrino Observatory",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-22,
+   2e-05
+  ],
+  [
+   300000.0,
+   2e-05
+  ],
+  [
+   300000.0,
+   0.001
+  ],
+  [
+   5500000.0,
+   0.001
+  ],
+  [
+   1e-22,
+   0.001
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "SNO_axiodissociation",
+ "coupling_convention": "isovector g^3_aN in GeV^-1, taken equal to g_an assuming no cancellation",
+ "notes": "SNO solar axion axiodissociation search constrains the isovector axion-nucleon coupling |g^3_aN| = (1/2)|g_an - g_ap| between 2e-5 and 1e-3 GeV^-1 for axion masses up to ~5.5 MeV. Note this coupling is in GeV^-1 (derivative coupling), NOT the standard dimensionless g_an convention. Absent cancellation, the same limit applies to g_an and g_ap individually. Values read from text; the exclusion region is a band bounded below by 2e-5 GeV^-1 (solar production cutoff) and above by ~1e-3 GeV^-1 (solar trapping), extending in mass up to 5.5 MeV. Points sketch the excluded region boundary. The coupling type is AxionNeutron per the hint and gan constraint, but is fundamentally an isovector nucleon coupling in GeV^-1 units, not dimensionless. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 5))",
+ "num_points": 5,
+ "elapsed_s": 59.09404277801514
+}

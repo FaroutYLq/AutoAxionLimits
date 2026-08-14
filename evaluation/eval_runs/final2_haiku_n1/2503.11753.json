@@ -1,0 +1,78 @@
+{
+ "arxiv_id": "2503.11753",
+ "paper_title": "First constraints on QCD axion dark matter using James Webb Space Telescope observations",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.1,
+   1.3e-12
+  ],
+  [
+   0.15,
+   8e-13
+  ],
+  [
+   0.2,
+   5e-13
+  ],
+  [
+   0.25,
+   3.5e-13
+  ],
+  [
+   0.3,
+   2.5e-13
+  ],
+  [
+   0.35,
+   2e-13
+  ],
+  [
+   0.4,
+   1.5e-13
+  ],
+  [
+   0.5,
+   1e-13
+  ],
+  [
+   0.6,
+   8e-14
+  ],
+  [
+   0.8,
+   5e-14
+  ],
+  [
+   1.0,
+   3e-14
+  ],
+  [
+   1.5,
+   1.5e-14
+  ],
+  [
+   2.0,
+   1e-14
+  ],
+  [
+   3.0,
+   5e-15
+  ],
+  [
+   4.0,
+   3e-15
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.18,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "JWST_MIRI_NIRSpec",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "New constraints on QCD axion dark matter from JWST blank-sky observations using MIRI (0.1-0.5 eV) and NIRSpec (0.5-4 eV) spectrographs. Data points extracted from Figure 2 by visual inspection of the exclusion curve. The paper reports 95% confidence limits derived from \u03c7\u00b2 analysis with \u2206\u03c7\u00b2 \u2264 3.84. DM density profile assumed: NFW with rs=24 kpc, \u03c1s=0.18 GeV/cm\u00b3. Constraints improve over previous studies by >2 orders of magnitude in some mass ranges. Systematic uncertainties discussed in appendices include background subtraction (up to 7% variation with polynomial order), DM profile choice (up to 36% in 0.8-1.5 eV range), and Galactic plane contamination (up to 64% in 0.8-1.5 eV range). Analysis uses 15,419 MIRI and 3,639 NIRSpec blank-sky observations. Extraction confidence reduced from 0.9 to 0.75 due to data points being read from figure rather than provided in tabular form. | selector: text (sole candidate)",
+ "num_points": 15,
+ "elapsed_s": 16.96529197692871
+}

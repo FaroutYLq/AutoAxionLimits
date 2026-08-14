@@ -1,0 +1,150 @@
+{
+  "arxiv_id": "2401.16747",
+  "paper_title": "eROSITA",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1800.0,
+      4e-18
+    ],
+    [
+      1950.0,
+      8e-18
+    ],
+    [
+      2050.0,
+      1e-17
+    ],
+    [
+      2150.0,
+      4.5e-18
+    ],
+    [
+      2350.0,
+      7e-18
+    ],
+    [
+      2550.0,
+      4e-18
+    ],
+    [
+      2800.0,
+      3e-18
+    ],
+    [
+      3000.0,
+      2.5e-18
+    ],
+    [
+      3200.0,
+      2.6e-18
+    ],
+    [
+      3450.0,
+      6e-18
+    ],
+    [
+      3650.0,
+      3e-18
+    ],
+    [
+      3900.0,
+      1.9e-18
+    ],
+    [
+      4050.0,
+      1.7e-18
+    ],
+    [
+      4300.0,
+      5e-18
+    ],
+    [
+      4700.0,
+      2.6e-18
+    ],
+    [
+      5100.0,
+      3e-18
+    ],
+    [
+      5600.0,
+      2.5e-18
+    ],
+    [
+      6100.0,
+      3e-18
+    ],
+    [
+      6600.0,
+      2.6e-18
+    ],
+    [
+      7100.0,
+      2.9e-18
+    ],
+    [
+      7700.0,
+      3e-18
+    ],
+    [
+      8400.0,
+      3e-18
+    ],
+    [
+      9200.0,
+      2.9e-18
+    ],
+    [
+      10200.0,
+      3.8e-18
+    ],
+    [
+      11200.0,
+      5e-18
+    ],
+    [
+      12200.0,
+      6e-18
+    ],
+    [
+      13000.0,
+      7e-18
+    ],
+    [
+      13800.0,
+      5e-18
+    ],
+    [
+      14800.0,
+      9e-18
+    ],
+    [
+      15300.0,
+      4.5e-18
+    ],
+    [
+      16200.0,
+      5.5e-18
+    ],
+    [
+      17300.0,
+      7e-18
+    ],
+    [
+      18000.0,
+      9e-18
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "eROSITA eFEDS ALP",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis",
+  "notes": "Paper searches for decaying DM X-ray lines in eROSITA eFEDS data (mass range 1.8-18 keV). Reports a 95% upper limit on ALP-photon coupling g_agamma (figure 7), using Ca\u03b3\u03b3\u22480.75 (DFSZ). Primary model-independent result is a DM decay rate limit (~1e-27 s^-1, figure 4); ALP coupling limit is derived from it. NFW profile with rho_sun=0.4 GeV/cm^3. Data points are approximate readings from figure 7 (no numerical table given); the observed eFEDS limit is the new result while MW-center and all-sky curves are projections. Sterile-neutrino mixing-angle limits (figure 6) also presented but ALP g_agamma is the AxionPhoton-relevant result. Values should be treated as rough. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.55, 33)) | Vision: AxionPhoton plot is Figure 7 (right panel), not matching the provided calibration (1e-14 to 1e-08) which corresponds to Figure 6 (sin^2 2theta sterile-neutrino plot). Traced the gold 'eFEDS limit (this work)' line in Fig 7. Y-axis actually spans ~1e-19 to ~3e-17 GeV^-1. Gold line is highly jagged; values are visual estimates. Black segments indicate where limit exceeds 2sigma lower containment. DFSZ C_agamma=0.75 assumed by authors; no benchmark model line plotted. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.80 snapped to identity)",
+  "num_points": 33,
+  "elapsed_s": 137.04472494125366
+}

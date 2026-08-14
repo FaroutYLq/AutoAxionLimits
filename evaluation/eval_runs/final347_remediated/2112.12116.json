@@ -1,0 +1,138 @@
+{
+  "arxiv_id": "2112.12116",
+  "paper_title": "Emission of Single and Few Electrons in XENON1T and Limits on Light Dark Matter",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      12.0,
+      1.5e-13
+    ],
+    [
+      13.0,
+      4e-14
+    ],
+    [
+      15.0,
+      1e-14
+    ],
+    [
+      17.0,
+      5e-15
+    ],
+    [
+      19.0,
+      6e-15
+    ],
+    [
+      21.0,
+      1e-14
+    ],
+    [
+      24.0,
+      5e-15
+    ],
+    [
+      27.0,
+      3.2e-15
+    ],
+    [
+      31.0,
+      1.3e-14
+    ],
+    [
+      35.0,
+      6e-15
+    ],
+    [
+      40.0,
+      3.5e-15
+    ],
+    [
+      45.0,
+      6e-15
+    ],
+    [
+      48.0,
+      9e-15
+    ],
+    [
+      53.0,
+      5e-15
+    ],
+    [
+      60.0,
+      2.9e-15
+    ],
+    [
+      70.0,
+      2.6e-15
+    ],
+    [
+      80.0,
+      2.7e-15
+    ],
+    [
+      90.0,
+      3e-15
+    ],
+    [
+      100.0,
+      3.5e-15
+    ],
+    [
+      120.0,
+      4.5e-15
+    ],
+    [
+      150.0,
+      5.5e-15
+    ],
+    [
+      180.0,
+      6e-15
+    ],
+    [
+      200.0,
+      5.5e-15
+    ],
+    [
+      240.0,
+      4.2e-15
+    ],
+    [
+      270.0,
+      5e-15
+    ],
+    [
+      300.0,
+      7e-15
+    ],
+    [
+      350.0,
+      1.3e-14
+    ],
+    [
+      400.0,
+      3e-14
+    ],
+    [
+      450.0,
+      7e-14
+    ],
+    [
+      480.0,
+      1.3e-13
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.72,
+  "suggested_experiment_name": "XENON1T SE (This Work)",
+  "coupling_convention": "kinetic mixing epsilon (chi), dimensionless, plotted directly",
+  "notes": "XENON1T single/few-electron S2-only analysis setting 90% CL limits on several light DM models: DM-electron scattering (heavy/light mediator), electric/magnetic dipole and anapole interactions, bosonic dark photon and ALP absorption, and solar dark photons. The pre-analysis hint (DarkPhoton) matches the highlighted new parameter space for dark photons/solar dark photons (kinetic mixing chi). However, the paper text and provided excerpt contain only figure descriptions (Figs 13-16) with NO numerical tabulated values or explicit coupling numbers, so no (mass, coupling) data points could be extracted. Data would need to be read from exclusion plots not available here. Multiple coupling types are constrained in this single paper (also AxionPhoton for ALPs, AxionElectron for DM-electron scattering), lowering confidence in a single coupling assignment. | selector: figure_vision (sole candidate) | Vision: Top panel of Fig. 15, Dark Photon exclusion. Dark blue 'XENON1T SE (This Work)' curve traced as lower boundary of excluded region (above = excluded). X-axis m_A in keV/c^2 (0.01-100 keV) converted to eV; y-axis kinetic mixing epsilon (1e-16 to 1e-13, log). Curve is confined to ~0.012-0.5 keV with several kinks/oscillations near its global minimum ~2.5e-15 around 0.06-0.08 keV, then rises steeply to ~1e-13 near 0.5 keV. Blue shaded band indicates systematic uncertainty; I traced the lower edge of the solid curve. Values estimated from plot reading. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.15 snapped to identity)",
+  "num_points": 30,
+  "elapsed_s": 162.48165202140808
+}

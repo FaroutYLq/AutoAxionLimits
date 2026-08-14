@@ -1,0 +1,166 @@
+{
+  "arxiv_id": "2201.09890",
+  "paper_title": "Low-Energy Supernovae Severely Constrain Radiative Particle Decays",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1000000.0,
+      6e-09
+    ],
+    [
+      1300000.0,
+      4.6e-09
+    ],
+    [
+      1700000.0,
+      3.5e-09
+    ],
+    [
+      2200000.0,
+      2.7e-09
+    ],
+    [
+      3000000.0,
+      2e-09
+    ],
+    [
+      4000000.0,
+      1.5e-09
+    ],
+    [
+      5000000.0,
+      1.2e-09
+    ],
+    [
+      7000000.0,
+      8.6e-10
+    ],
+    [
+      10000000.0,
+      6e-10
+    ],
+    [
+      13000000.0,
+      4.6e-10
+    ],
+    [
+      17000000.0,
+      3.5e-10
+    ],
+    [
+      22000000.0,
+      2.8e-10
+    ],
+    [
+      30000000.0,
+      2.1e-10
+    ],
+    [
+      40000000.0,
+      1.9e-10
+    ],
+    [
+      50000000.0,
+      1.85e-10
+    ],
+    [
+      60000000.0,
+      1.8e-10
+    ],
+    [
+      80000000.0,
+      1.75e-10
+    ],
+    [
+      100000000.0,
+      1.7e-10
+    ],
+    [
+      120000000.0,
+      1.72e-10
+    ],
+    [
+      140000000.0,
+      1.8e-10
+    ],
+    [
+      160000000.0,
+      1.9e-10
+    ],
+    [
+      180000000.0,
+      2e-10
+    ],
+    [
+      200000000.0,
+      2.2e-10
+    ],
+    [
+      220000000.0,
+      2.6e-10
+    ],
+    [
+      240000000.0,
+      3.2e-10
+    ],
+    [
+      260000000.0,
+      4.2e-10
+    ],
+    [
+      280000000.0,
+      6e-10
+    ],
+    [
+      300000000.0,
+      1e-09
+    ],
+    [
+      320000000.0,
+      1.8e-09
+    ],
+    [
+      340000000.0,
+      3.5e-09
+    ],
+    [
+      355000000.0,
+      6e-09
+    ],
+    [
+      370000000.0,
+      1.2e-08
+    ],
+    [
+      385000000.0,
+      2.5e-08
+    ],
+    [
+      395000000.0,
+      5e-08
+    ],
+    [
+      405000000.0,
+      1e-07
+    ],
+    [
+      415000000.0,
+      2e-07
+    ],
+    [
+      420000000.0,
+      3.5e-07
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "Low-Energy Supernovae (radiative decay, E_mantle < 0.1 B)",
+  "coupling_convention": "G_agamma in GeV^-1, as plotted on y-axis of Fig. 2",
+  "notes": "Paper (Caputo, Janka, Raffelt, Vitagliano, arXiv:2201.09890) presents a new astrophysical bound on ALP-photon coupling from low-energy supernovae, requiring radiative decay energy deposition in the progenitor mantle < 0.1 B. Coupling type is unambiguous (G_agamma, a->2gamma). No numerical table is provided; the exclusion region is shown in Fig. 2 (red-shaded, R*=5e13 cm, 0.1 B). Data points are an approximate reconstruction of the LOWER boundary of the excluded band based on the abstract (couplings 1e-10 to 1e-8 GeV^-1 excluded for 1-500 MeV masses) and the stated scaling G \u221d 1/m_a at low masses with coalescence-driven minimum near m_a ~ 100-200 MeV and Boltzmann-suppression rise toward 500 MeV. The excluded region is a closed band (upper boundary at \u03bb\u2248R_NS not extracted). Not a dark-matter search, so no local DM density assumed. Bound is calorimetric/energetic, not a formal statistical CL. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 37)) | Vision: Traced the thick black boundary of the red-shaded region in Fig. 2 (E_mantle < 0.1 B, R* = 5e13 cm), which is the paper's main new constraint. Low-mass branch follows G_agamma ~ 1/m_a exactly as stated in the text ('lower parts of the curves for small masses obey G ~ m_a^-1'). Plateau minimum ~1.7e-10 GeV^-1 near 100 MeV, steep closure near m_a ~ 400 MeV due to Boltzmann suppression/gravitational trapping. Excluded region is above/inside this boundary; not a DM search, so no DM density assumption. Values digitized from log-log plot; ~20-30% reading uncertainty on couplings. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.16 snapped to identity)",
+  "num_points": 37,
+  "elapsed_s": 151.56187915802002
+}

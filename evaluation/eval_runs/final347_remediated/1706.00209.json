@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "1706.00209",
+  "paper_title": "The ORGAN Experiment: An axion haloscope above 15 GHz",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.00011,
+      2.02e-12
+    ],
+    [
+      0.00011,
+      2.02e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.82,
+  "suggested_experiment_name": "ORGAN_Pathfinder",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "ORGAN pathfinding run, static TM020 cavity at 26.531 GHz (110 ueV). Limit g_agamma = 2.02e-12 GeV^-1 at 90% CL over a ~2.5 neV Lorentzian span. Note the abstract/conclusion typographically write 'eV^-1' but the exclusion plot (Fig. 3) y-axis is GeV^-1, and '50x KSVZ' cross-check confirms GeV^-1. Very narrow single-mass limit; encoded as a two-point near-degenerate line at 1.1e-4 eV. DM density 0.45 GeV/cm^3 was used for the projections (Stage I); pathfinder assumed standard halo. Figs 4-5 are projections, not extracted. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.82, 2))",
+  "num_points": 2,
+  "elapsed_s": 130.44841408729553
+}

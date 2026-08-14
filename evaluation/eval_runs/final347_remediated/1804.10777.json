@@ -1,0 +1,122 @@
+{
+  "arxiv_id": "1804.10777",
+  "paper_title": "Constraints on hidden photons produced in nuclear reactors",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.01,
+      0.79
+    ],
+    [
+      0.0178,
+      0.5
+    ],
+    [
+      0.0316,
+      0.2
+    ],
+    [
+      0.056,
+      0.1
+    ],
+    [
+      0.1,
+      0.05
+    ],
+    [
+      0.178,
+      0.025
+    ],
+    [
+      0.316,
+      0.0126
+    ],
+    [
+      0.56,
+      0.0063
+    ],
+    [
+      1.0,
+      0.00316
+    ],
+    [
+      1.78,
+      0.00158
+    ],
+    [
+      3.16,
+      0.00079
+    ],
+    [
+      5.6,
+      0.0004
+    ],
+    [
+      10.0,
+      0.0002
+    ],
+    [
+      14.1,
+      0.00013
+    ],
+    [
+      20.0,
+      0.0001
+    ],
+    [
+      31.6,
+      0.0001
+    ],
+    [
+      50.0,
+      0.0001
+    ],
+    [
+      100.0,
+      0.0001
+    ],
+    [
+      316.0,
+      0.0001
+    ],
+    [
+      1000.0,
+      0.0001
+    ],
+    [
+      3162.0,
+      0.0001
+    ],
+    [
+      10000.0,
+      0.0001
+    ],
+    [
+      31623.0,
+      0.0001
+    ],
+    [
+      100000.0,
+      0.0001
+    ],
+    [
+      316228.0,
+      0.0001
+    ],
+    [
+      1000000.0,
+      0.0001
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "TEXONO reactor hidden photon (revised)",
+  "coupling_convention": "kinetic mixing epsilon (chi), dimensionless, plotted as Log10 epsilon",
+  "notes": "Reactor-production hidden photon (dark photon) search, not a DM haloscope, so no local DM density applies. Limits are on kinetic mixing epsilon vs mX from reanalysis of TEXONO data (Fig. 1), 95% CL. No numerical table is provided; the exclusion curve was reconstructed approximately from the text: for mX >~ 20 eV the limit is ~1.4e-5 (slightly weaker than Park's ~1e-5 due to a factor-4 signal correction and eps^4 dependence), and for mX < 20 eV sensitivity degrades roughly as eps ~ 1.4e-5*(20 eV/mX)^2 since the production and detection probabilities each scale as (mX/mgamma)^4, becoming insensitive below ~0.05 eV. Values are order-of-magnitude estimates from the discussion, not read from a table. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 26)) | Vision: TEXONO black solid line is the paper's own 95% CL result on the hidden photon (dark photon) mixing epsilon vs mass m_X. Line descends diagonally from top-left, kinks near log10(m)=1.3 (m~20 eV, epsilon~1e-4) then runs flat at epsilon~1e-4 to log10(m)=6. Note sensitivity drops sharply below m_gamma~20 eV per text; diagonal portion traced from the plotted black line. Other regions (CAST, Solar Lifetime, HB, Rydberg, EW, dDM) are external constraints, not extracted. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.77 snapped to identity)",
+  "num_points": 26,
+  "elapsed_s": 113.93475699424744
+}

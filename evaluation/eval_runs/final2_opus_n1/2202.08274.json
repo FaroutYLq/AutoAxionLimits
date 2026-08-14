@@ -1,0 +1,166 @@
+{
+ "arxiv_id": "2202.08274",
+ "paper_title": "Extraterrestrial Axion Search with the Breakthrough Listen Galactic Center Survey",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.55e-05,
+   9e-11
+  ],
+  [
+   1.6e-05,
+   6e-11
+  ],
+  [
+   1.65e-05,
+   3e-11
+  ],
+  [
+   1.68e-05,
+   8e-12
+  ],
+  [
+   1.7e-05,
+   6e-12
+  ],
+  [
+   1.72e-05,
+   7e-12
+  ],
+  [
+   1.75e-05,
+   6.5e-12
+  ],
+  [
+   1.8e-05,
+   6e-12
+  ],
+  [
+   1.85e-05,
+   6e-12
+  ],
+  [
+   1.9e-05,
+   6.5e-12
+  ],
+  [
+   1.95e-05,
+   6e-12
+  ],
+  [
+   2e-05,
+   6e-12
+  ],
+  [
+   2.05e-05,
+   6.5e-12
+  ],
+  [
+   2.1e-05,
+   7e-12
+  ],
+  [
+   2.15e-05,
+   7e-12
+  ],
+  [
+   2.2e-05,
+   7.5e-12
+  ],
+  [
+   2.25e-05,
+   8e-12
+  ],
+  [
+   2.3e-05,
+   8e-12
+  ],
+  [
+   2.35e-05,
+   8.5e-12
+  ],
+  [
+   2.4e-05,
+   9e-12
+  ],
+  [
+   2.45e-05,
+   9.5e-12
+  ],
+  [
+   2.5e-05,
+   1e-11
+  ],
+  [
+   2.55e-05,
+   1.1e-11
+  ],
+  [
+   2.6e-05,
+   1.3e-11
+  ],
+  [
+   2.65e-05,
+   1.5e-11
+  ],
+  [
+   2.7e-05,
+   1.7e-11
+  ],
+  [
+   2.75e-05,
+   2e-11
+  ],
+  [
+   2.8e-05,
+   2.3e-11
+  ],
+  [
+   2.85e-05,
+   2.7e-11
+  ],
+  [
+   2.9e-05,
+   3.2e-11
+  ],
+  [
+   2.95e-05,
+   3.8e-11
+  ],
+  [
+   3e-05,
+   4.5e-11
+  ],
+  [
+   3.05e-05,
+   5e-11
+  ],
+  [
+   3.1e-05,
+   5.5e-11
+  ],
+  [
+   3.15e-05,
+   6.5e-11
+  ],
+  [
+   3.2e-05,
+   8e-11
+  ],
+  [
+   3.25e-05,
+   9.5e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.346,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "Breakthrough Listen GBT Galactic Center Axion Search",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted",
+ "notes": "Neutron star magnetosphere axion-photon conversion search using GBT Breakthrough Listen data. Limit g_agamma ~ 1e-11 GeV^-1 over mass range 15-35 ueV. Exact mass-dependent curve is only shown in Fig. 1 (not numerically tabulated); the emitted points represent the approximate flat exclusion level quoted in abstract/text. Local DM density 0.346 GeV/cm^3 (NFW normalization). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 37)) | Vision: Traced red median 95% CL limit from Fig. 1 (Population I fiducial). Boundary dips to ~6e-12 GeV^-1 around 17-25 ueV and rises toward higher mass. Vertical spikes (RFI/line vetoes) excluded from smooth boundary trace. Mass converted from ueV to eV. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.48 snapped to identity)",
+ "num_points": 37,
+ "elapsed_s": 311.99086713790894
+}

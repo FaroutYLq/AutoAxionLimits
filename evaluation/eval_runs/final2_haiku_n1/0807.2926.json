@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "0807.2926",
+ "paper_title": "Solar neutrino limit on axions and keV-mass bosons",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   100000.0,
+   1e-11
+  ],
+  [
+   150000.0,
+   9.8e-12
+  ],
+  [
+   200000.0,
+   9.5e-12
+  ],
+  [
+   300000.0,
+   9e-12
+  ],
+  [
+   500000.0,
+   8.2e-12
+  ],
+  [
+   700000.0,
+   7.5e-12
+  ],
+  [
+   1000000.0,
+   6.5e-12
+  ],
+  [
+   1500000.0,
+   5.2e-12
+  ],
+  [
+   2000000.0,
+   4e-12
+  ],
+  [
+   3000000.0,
+   2.5e-12
+  ],
+  [
+   4000000.0,
+   1.8e-12
+  ],
+  [
+   5000000.0,
+   1.3e-12
+  ],
+  [
+   7000000.0,
+   8e-13
+  ],
+  [
+   10000000.0,
+   4.5e-13
+  ],
+  [
+   15000000.0,
+   2.2e-13
+  ],
+  [
+   20000000.0,
+   1.2e-13
+  ],
+  [
+   30000000.0,
+   5.5e-14
+  ],
+  [
+   50000000.0,
+   2e-14
+  ],
+  [
+   70000000.0,
+   1e-14
+  ],
+  [
+   100000000.0,
+   4.5e-15
+  ],
+  [
+   150000000.0,
+   2e-15
+  ],
+  [
+   200000000.0,
+   1e-15
+  ],
+  [
+   300000000.0,
+   3.5e-16
+  ],
+  [
+   500000000.0,
+   1e-16
+  ],
+  [
+   700000000.0,
+   4e-17
+  ],
+  [
+   1000000000.0,
+   1.5e-17
+  ],
+  [
+   1500000000.0,
+   5e-18
+  ],
+  [
+   2000000000.0,
+   2e-18
+  ],
+  [
+   3000000000.0,
+   5e-19
+  ],
+  [
+   5000000000.0,
+   1e-19
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "SNO (Sudbury Neutrino Observatory) solar neutrino flux measurement",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis",
+ "notes": "Solar neutrino flux constraint from SNO all-flavor measurement of 8B neutrino flux. The limit g_a\u03b3 < 7\u00d710^-10 GeV^-1 (Eq. 4) is derived from the requirement that anomalous energy losses via axion Primakoff production do not exceed ~10% of the Sun's photon luminosity (L_a < 0.1 L_\u2299). This is a mass-independent bound valid for sub-keV axions (m_a << 1 keV, the solar core temperature). The paper also derives limits on Yukawa couplings of keV-scale pseudoscalar, scalar, and vector bosons to electrons (Fig. 1), but the primary new result highlighted in the abstract and title is the axion-photon coupling. The bound supersedes earlier helioseismological arguments and is complementary to direct detection experiments like CAST. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 30)) | Vision: Figure 1 shows mass dependence of solar g_a\u03b3\u03b3 limit for three boson types: PS (pseudoscalar, red), S (scalar, green), and V (vector, blue). The plot displays constraints on Yukawa coupling to electrons for keV-scale masses. The x-axis is labeled m_\u03c7 [keV] spanning 0.1 to 100 keV; converted to eV by multiplying by 1000. The y-axis shows g_a\u03b3\u03b3 in units of GeV^-1 on a log scale from 10^-13 to 10^-7. The PS curve (red) provides the most restrictive constraint and was traced as the primary exclusion boundary. The abstract states g_a\u03b3 < 7\u00d710^-10 GeV^-1 for m_\u03c7 = 0, which is consistent with the low-mass limit shown in the plot. Sampling was denser in the steep transition region (1\u201310 keV) and sparser in the flat low-mass region and asymptotic high-mass region. | Calibration: No calibration needed",
+ "num_points": 30,
+ "elapsed_s": 58.44689202308655
+}

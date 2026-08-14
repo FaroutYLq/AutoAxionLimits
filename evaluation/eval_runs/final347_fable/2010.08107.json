@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2010.08107",
+  "paper_title": "Searching for Scalar Dark Matter via Coupling to Fundamental Constants with Photonic, Atomic and Mechanical Oscillators",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.4e-19,
+      0.159
+    ],
+    [
+      6.8e-14,
+      0.159
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "UWA_OscillatorComparison",
+  "coupling_convention": "dimensionless d_e",
+  "notes": "Paper compares CSO, H-maser and quartz BAW oscillators to constrain scalar DM couplings via coefficient separation (not MRA). It constrains both d_e (ScalarPhoton) and the combination |d_me - d_g| (best limits d_e ~ 1.59e-1 and |d_me-d_g| ~ 6.97e-1) over 4.4e-19 to 6.8e-14 eV. Full mass-dependent exclusion is shown only in Fig. 3 with no numerical table; the emitted two-point line uses the paper's stated most-sensitive d_e value across the stated mass band, so it OVERSTATES sensitivity away from the best-sensitivity mass. The actual limit varies substantially with mass. Assumes local DM density 0.45 GeV/cm^3 and Maxwell-Boltzmann DM lineshape (deterministic amplitude phi_0). Projections for a future 5-year run with improved oscillators are also presented (green curve in Fig. 3) but the primary result is a measured limit. Confidence reduced because two coupling types are constrained and data points are only the text-quoted best values, not a digitized curve. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.5, 2))",
+  "num_points": 2,
+  "elapsed_s": 136.67701315879822
+}

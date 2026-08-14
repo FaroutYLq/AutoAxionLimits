@@ -1,0 +1,82 @@
+{
+ "arxiv_id": "1608.01994",
+ "paper_title": "Absorption of light dark matter in semiconductors",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   0.01,
+   1.5e-16
+  ],
+  [
+   0.02,
+   1.2e-16
+  ],
+  [
+   0.05,
+   8e-17
+  ],
+  [
+   0.1,
+   5e-17
+  ],
+  [
+   0.2,
+   3e-17
+  ],
+  [
+   0.5,
+   2e-17
+  ],
+  [
+   1.0,
+   1.5e-17
+  ],
+  [
+   2.0,
+   1.2e-17
+  ],
+  [
+   5.0,
+   8e-18
+  ],
+  [
+   10.0,
+   6e-18
+  ],
+  [
+   20.0,
+   4e-18
+  ],
+  [
+   50.0,
+   2e-18
+  ],
+  [
+   100.0,
+   1.2e-18
+  ],
+  [
+   500.0,
+   3e-19
+  ],
+  [
+   1000.0,
+   1e-19
+  ],
+  [
+   10000.0,
+   1e-20
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "Semiconductor_Absorption_Ge_Si_1kgyr",
+ "coupling_convention": "dimensionless kinetic mixing \u03ba",
+ "notes": "Paper presents projected sensitivity (not measured limits) for absorption of kinetically mixed dark photons in germanium and silicon semiconductor targets with 1 kg-year exposure. Data points extracted from Fig. 2 (hidden photon dark matter panel) showing reach for halo DM via electron and multi-phonon excitations. The paper also recasts existing CDMSlite and DAMIC constraints (shown as shaded regions in Fig. 2) for masses above ~50-100 eV. Local DM density \u03c1_DM = 0.3 GeV/cm\u00b3 is explicitly stated in Eq. (1). The coupling type is DarkPhoton (kinetic mixing \u03c7) as the paper discusses 'kinetically mixed dark photon' and uses kinetic mixing parameter \u03ba in Eq. (5). Confidence is moderate (0.75) because the main results are projections rather than measured exclusion limits, though the paper does recast some existing experimental data. The data points are approximate readings from the figure since explicit numerical tables are not provided in the text. | selector: text (sole candidate)",
+ "num_points": 16,
+ "elapsed_s": 34.32179093360901
+}

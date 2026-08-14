@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2304.07505",
+ "paper_title": "Search for galactic axions with a traveling wave parametric amplifier",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.28178e-05,
+   2.05e-14
+  ],
+  [
+   4.2819e-05,
+   2.05e-14
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "QUAX_TWPA_2023",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "QUAX haloscope search for axion dark matter using a traveling wave parametric amplifier (TWPA) at 10.353 GHz. The paper reports an upper limit on the axion-photon coupling constant g_agamma < 2.05\u00d710^-14 GeV^-1 in the mass range 42.8178\u201342.8190 \u00b5eV (corresponding to frequencies 10.353 GHz). This is 1.2 times larger than the KSVZ benchmark model. The limit is derived from a 17-hour search with no dark matter signal detected. The local dark matter density of 0.45 GeV/cm^3 is explicitly stated in Eq. (10) and is the standard galactic halo model assumption used in the analysis. The mass range is very narrow (12 \u00b5eV span) due to the cavity tuning via sapphire rods. The data point is encoded as a horizontal line spanning the stated mass range per the mass-independent convention, though this is technically a very narrow mass window rather than a true mass-independent bound. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.92, 2))",
+ "num_points": 2,
+ "elapsed_s": 281.872838973999
+}

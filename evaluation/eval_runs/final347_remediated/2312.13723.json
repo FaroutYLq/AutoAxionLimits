@@ -1,0 +1,134 @@
+{
+  "arxiv_id": "2312.13723",
+  "paper_title": "Ultralight Dark Matter Search with Space-Time Separated Atomic Clocks and Cavities",
+  "coupling_type": "ScalarElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-19,
+      251.0
+    ],
+    [
+      1.12e-19,
+      141.0
+    ],
+    [
+      1.585e-19,
+      112.0
+    ],
+    [
+      3.16e-19,
+      100.0
+    ],
+    [
+      6.31e-19,
+      100.0
+    ],
+    [
+      1e-18,
+      100.0
+    ],
+    [
+      2e-18,
+      112.0
+    ],
+    [
+      3.16e-18,
+      126.0
+    ],
+    [
+      3.98e-18,
+      158.0
+    ],
+    [
+      4.47e-18,
+      251.0
+    ],
+    [
+      5.01e-18,
+      355.0
+    ],
+    [
+      5.37e-18,
+      100.0
+    ],
+    [
+      6.31e-18,
+      141.0
+    ],
+    [
+      1e-17,
+      126.0
+    ],
+    [
+      1.585e-17,
+      126.0
+    ],
+    [
+      2.51e-17,
+      126.0
+    ],
+    [
+      3.16e-17,
+      126.0
+    ],
+    [
+      5.01e-17,
+      141.0
+    ],
+    [
+      7.08e-17,
+      200.0
+    ],
+    [
+      7.94e-17,
+      316.0
+    ],
+    [
+      7.94e-17,
+      20000.0
+    ],
+    [
+      1e-16,
+      25100.0
+    ],
+    [
+      1.26e-16,
+      31600.0
+    ],
+    [
+      1.585e-16,
+      40000.0
+    ],
+    [
+      1.78e-16,
+      50000.0
+    ],
+    [
+      2.24e-16,
+      79000.0
+    ],
+    [
+      2.51e-16,
+      100000.0
+    ],
+    [
+      2.82e-16,
+      200000.0
+    ],
+    [
+      3.16e-16,
+      630000.0
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "Space-time separated clocks/cavities (GPS + Cavities, this work)",
+  "coupling_convention": "|d_me| dimensionless, emitted as absolute values (y-axis plots log10|d_me|)",
+  "notes": "Paper presents first constraints on scalar DM coupling to electrons d_me alone for masses 1e-19 to 2e-15 eV, using NPL/PTB cavity-cavity fiber-link comparison (spatial term) and GPS Rb microwave clocks vs H-maser (temporal term). The dark-matter-induced signal amplitude is noted to be approximately mass-independent (flat in mass) because phi0 ~ 1/m and signal ~ omega*phi0. Numerical limit values are only shown in Fig. 2 (log10|dme| vs log10 mass), not tabulated; the emitted d_me values are rough order-of-magnitude estimates and are NOT reliably digitized \u2014 treat data_points as placeholder. Local DM density assumed 0.4 GeV/cm^3. Stochastic correction xi~1/3 applied. 95% CL. | selector: figure_vision over text (quality (0, 1, 1, 1, 2, 0, 0.72, 29)) | Vision: Figure with log10|d_me| vs log10(m_phi/eV). Both axes are log10; values converted to absolute. Lower boundary of the 'this work' exclusion region traced: dominated by GPS constraint (log10|d_me|~2, i.e. |d_me|~100) from ~1e-19 to ~8e-17 eV, with a kink/notch near 5e-18 eV; beyond ~8e-17 eV only the Cavities constraint remains (log10|d_me|~4-6). Space Clocks (spatial/temporal) dashed/dotted lines are projections, not included. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.79 snapped to identity) | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+  "num_points": 29,
+  "elapsed_s": 141.59079098701477
+}

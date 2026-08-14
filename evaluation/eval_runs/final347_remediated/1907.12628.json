@@ -1,0 +1,134 @@
+{
+  "arxiv_id": "1907.12628",
+  "paper_title": "Constraints on Light Dark Matter Particles Interacting with Electrons from DAMIC at SNOLAB",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.2,
+      1.6e-11
+    ],
+    [
+      1.4,
+      1e-11
+    ],
+    [
+      1.6,
+      7.5e-12
+    ],
+    [
+      1.8,
+      6e-12
+    ],
+    [
+      2.0,
+      5.5e-12
+    ],
+    [
+      2.3,
+      5e-12
+    ],
+    [
+      2.7,
+      4.2e-12
+    ],
+    [
+      3.0,
+      3.6e-12
+    ],
+    [
+      3.3,
+      3.2e-12
+    ],
+    [
+      3.6,
+      3e-12
+    ],
+    [
+      4.0,
+      2.3e-12
+    ],
+    [
+      4.5,
+      1.7e-12
+    ],
+    [
+      5.0,
+      1.3e-12
+    ],
+    [
+      5.5,
+      1e-12
+    ],
+    [
+      6.0,
+      8e-13
+    ],
+    [
+      7.0,
+      5e-13
+    ],
+    [
+      8.0,
+      3.2e-13
+    ],
+    [
+      9.0,
+      2.1e-13
+    ],
+    [
+      10.0,
+      1.4e-13
+    ],
+    [
+      11.0,
+      9e-14
+    ],
+    [
+      12.0,
+      6e-14
+    ],
+    [
+      14.0,
+      3.2e-14
+    ],
+    [
+      16.0,
+      1.9e-14
+    ],
+    [
+      18.0,
+      1.1e-14
+    ],
+    [
+      20.0,
+      8e-15
+    ],
+    [
+      21.0,
+      7e-15
+    ],
+    [
+      23.0,
+      9e-15
+    ],
+    [
+      26.0,
+      1.3e-14
+    ],
+    [
+      30.0,
+      2e-14
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.72,
+  "suggested_experiment_name": "DAMIC at SNOLAB (hidden-photon DM)",
+  "coupling_convention": "kinetic mixing parameter kappa (chi), dimensionless, as plotted",
+  "notes": "Paper presents 90% C.L. limits on hidden-photon (dark photon) DM kinetic mixing kappa vs mass mV over 1.2-30 eV (Fig. 4), and DM-electron scattering cross section (Fig. 2). Coupling type is clearly DarkPhoton (kinetic mixing kappa/epsilon). However, no numerical limit values are given in the text or any table - the kappa vs mV limits only appear in Fig. 4, so no data points could be reliably extracted. Local DM density rho=0.3 GeV/cm^3 assumed. | selector: figure_vision (sole candidate) | Vision: Traced the DAMIC-at-SNOLAB solid blue curve in Fig. 4 (kinetic mixing kappa vs m_V in eV). The provided axis calibration (0.5-100 MeV, 1e-36..1e-27) corresponds to Fig. 3 (DM-electron cross section, not DarkPhoton) and was NOT used; per the hint (DarkPhoton, chi vs mass in eV) I used Fig. 4 axes. Mass axis is in eV directly. Excluded region is above the curve. The curve has a broad minimum near m_V~20 eV (kappa~7e-15) then rises. Text states best hidden-photon constraints in mass range 1.2-9 eV. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.37 snapped to identity)",
+  "num_points": 29,
+  "elapsed_s": 109.6519980430603
+}

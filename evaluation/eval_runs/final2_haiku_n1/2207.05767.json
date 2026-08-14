@@ -1,0 +1,126 @@
+{
+ "arxiv_id": "2207.05767",
+ "paper_title": "FAST",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.8823653028474236e-07,
+   0.10957514100790207
+  ],
+  [
+   2.9800249905508383e-07,
+   0.21916056793656943
+  ],
+  [
+   3.050069030895336e-07,
+   0.10957514100790207
+  ],
+  [
+   3.294453369313257e-07,
+   0.10957514100790207
+  ],
+  [
+   3.706641280635281e-07,
+   0.10957514100790207
+  ],
+  [
+   4.1186861844377937e-07,
+   0.10957514100790207
+  ],
+  [
+   8.242140982261445e-07,
+   0.10957514100790207
+  ],
+  [
+   1.2367082018268763e-06,
+   0.10957514100790207
+  ],
+  [
+   1.6492906760780275e-06,
+   0.10957514100790207
+  ],
+  [
+   2.062038230810794e-06,
+   0.10957514100790207
+  ],
+  [
+   2.4747105281165046e-06,
+   0.10957514100790207
+  ],
+  [
+   2.8876477798348872e-06,
+   0.10957514100790207
+  ],
+  [
+   3.3004905504202357e-06,
+   0.10957514100790207
+  ],
+  [
+   3.7134342016793456e-06,
+   0.10957514100790207
+  ],
+  [
+   4.126234233449801e-06,
+   0.10957514100790207
+  ],
+  [
+   8.25724494405452e-06,
+   0.10957514100790207
+  ],
+  [
+   1.2389745053843835e-05,
+   0.10957514100790207
+  ],
+  [
+   1.6523130489555072e-05,
+   0.10957514100790207
+  ],
+  [
+   2.0658169755230063e-05,
+   0.10957514100790207
+  ],
+  [
+   2.4792455067520358e-05,
+   0.10957514100790207
+  ],
+  [
+   2.8928996093378124e-05,
+   0.10957514100790207
+  ],
+  [
+   3.306493927339266e-05,
+   0.10957514100790207
+  ],
+  [
+   3.720032524487838e-05,
+   0.10957514100790207
+  ],
+  [
+   4.133795677053525e-05,
+   0.10957514100790207
+  ],
+  [
+   7.816990516355461e-05,
+   0.10957514100790207
+  ],
+  [
+   8.00072508262128e-05,
+   0.21916056793656943
+  ],
+  [
+   8.272376584294531e-05,
+   0.10957514100790207
+  ]
+ ],
+ "data_source": "vector_trace",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "FAST",
+ "coupling_convention": "canonical",
+ "notes": "FAST 19-beam L-band (1\u20131.5 GHz) observation from December 14, 2020 (110 minutes). Measured exclusion limit \u03f5 \u223c 10^\u221212 at 1\u20131.5 GHz, approximately one order of magnitude stronger than CMB constraints. Data points represent the frequency range 1\u20131.5 GHz (converted to eV: 1 GHz \u2248 4.136e-6 eV, so 1\u20131.5 GHz \u2248 4.136e-6 to 6.204e-6 eV; used 1e-9 and 1.5e-9 eV as representative masses for the 1\u20131.5 GHz band). The paper reports O(10%) uncertainty in the FAST limits due to interference between reflector and feed signals. Local DM density \u03c1_DM = 0.3 GeV/cm\u00b3 (conservative Standard Halo Model value). Randomized polarization scheme averages over all possible dark photon polarization directions. | vector-trace candidate: Cdish.pdf colour (0.4, 0.4, 0.4), 27 pts (selected among 5) | selector: vector_trace over text (quality (1, 1, 1, 1, 3.5, 0, 0.85, 27))",
+ "num_points": 27,
+ "elapsed_s": 84.56044411659241
+}

@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2205.03679",
+  "paper_title": "DOSUE-RR",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      7.4e-05,
+      2e-10
+    ],
+    [
+      0.00011,
+      2e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.39,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "DOSUE-RR",
+  "coupling_convention": "dimensionless kinetic mixing chi",
+  "notes": "DOSUE-RR cryogenic mm-wave receiver search for dark photon dark matter in 18-26.5 GHz (74-110 ueV/c^2). Observed limit chi < (0.3-2.0)e-10 at 95% CL. The paper only quotes the range of the limit in text; the frequency dependence of chi within the band is shown in Fig. 5 but no numerical table is provided. The emitted two points are a conservative flat envelope at the worst-case value 2.0e-10 spanning the mass range; the best limit reaches 3e-11 at some frequencies. Uses rho = 0.39 GeV/cm^3 and random DPDM polarization (alpha = sqrt(2/3)). | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.6, 2))",
+  "num_points": 2,
+  "elapsed_s": 77.54369616508484
+}

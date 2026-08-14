@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "1810.12257",
+  "paper_title": "ABRACADABRA",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      3.1e-10,
+      3.3e-09
+    ],
+    [
+      1e-09,
+      1e-09
+    ],
+    [
+      3e-09,
+      4e-10
+    ],
+    [
+      8.3e-09,
+      1.4e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "ABRACADABRA_10cm",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "First results from ABRACADABRA-10cm broadband haloscope search for axion dark matter, mass range 3.1e-10 to 8.3e-9 eV (75 kHz - 2 MHz). Paper states 95% C.L. upper limits between 1.4e-10 GeV^-1 (strongest, at high-frequency end) and 3.3e-9 GeV^-1 (weakest) over the full mass range. No numerical table provided; the endpoints are the explicitly quoted values, and intermediate points are approximate interpolations of the Fig. 3 exclusion curve (limit improves with increasing mass as low-frequency vibrational noise subsides). Assumes Standard Halo Model with rho_DM = 0.4 GeV/cm^3, v0 = 220 km/s. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.7, 4))",
+  "num_points": 4,
+  "elapsed_s": 117.35953998565674
+}

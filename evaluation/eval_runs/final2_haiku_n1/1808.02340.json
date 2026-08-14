@@ -1,0 +1,106 @@
+{
+ "arxiv_id": "1808.02340",
+ "paper_title": "Searches for electron interactions induced by new physics in the EDELWEISS-III germanium bolometers",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-05,
+   1.3e-11
+  ],
+  [
+   2e-05,
+   1.25e-11
+  ],
+  [
+   5e-05,
+   1.2e-11
+  ],
+  [
+   0.0001,
+   1.15e-11
+  ],
+  [
+   0.0002,
+   1.1e-11
+  ],
+  [
+   0.0005,
+   1.05e-11
+  ],
+  [
+   0.001,
+   1e-11
+  ],
+  [
+   0.002,
+   9.8e-12
+  ],
+  [
+   0.005,
+   9.5e-12
+  ],
+  [
+   0.01,
+   9.2e-12
+  ],
+  [
+   0.02,
+   8.8e-12
+  ],
+  [
+   0.05,
+   8.2e-12
+  ],
+  [
+   0.1,
+   7.5e-12
+  ],
+  [
+   0.2,
+   6.8e-12
+  ],
+  [
+   0.3,
+   6.2e-12
+  ],
+  [
+   0.4,
+   5.8e-12
+  ],
+  [
+   0.5,
+   5.5e-12
+  ],
+  [
+   0.6,
+   5.3e-12
+  ],
+  [
+   0.7,
+   5.2e-12
+  ],
+  [
+   0.8,
+   5.1e-12
+  ],
+  [
+   0.9,
+   5e-12
+  ],
+  [
+   1.0,
+   4.95e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "EDELWEISS-III",
+ "coupling_convention": "g_ae, dimensionless axion-electron coupling constant",
+ "notes": "Paper presents three main results: (1) Solar axion CBRD search: g_ae < 1.1\u00d710^-11 at 90% C.L. in massless limit (Eq. 11, Fig. 3). This is a mass-independent bound valid for m_a well below solar core temperature (~keV). (2) Solar axion 57Fe line search: g_ae \u00d7 g_aN^eff < 3.5\u00d710^-17 at 90% C.L. (Eq. 12, Fig. 4), shown as function of axion mass. (3) Bosonic dark matter absorption: bounds on g_ae and \u03ba (kinetic mixing) in mass range 0.8\u2013500 keV/c^2 (Fig. 5). Primary AxionElectron coupling type identified from CBRD signal proportional to g_ae^2 and direct electron absorption cross section. DM density \u03c1_DM \u2243 0.3 GeV/cm^3 used for dark matter absorption calculations (Eq. 3). The CBRD bound (Eq. 11) is mass-independent and encoded as horizontal line. The 57Fe and DM absorption results are mass-dependent and would require digitization of figures for precise extraction; only the primary CBRD limit is extracted as text value. Paper also reports electron decay lifetime \u03c4_e > 1.2\u00d710^24 years but this is not a coupling constraint. Confidence reflects clear identification of AxionElectron coupling from CBRD physics and explicit numerical value in text. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 22)) | Vision: FIG. 3 shows the 90% C.L. limit on axion-electron coupling g_ae as a function of axion mass m_a. The x-axis is labeled 'm_a (keV/c\u00b2)' and ranges from 10^-5 to 10^0 keV/c\u00b2 on a log scale. The y-axis is labeled 'g_ae' and ranges from 10^-13 to 10^-10 on a log scale. The EDELWEISS-III constraint (solid red line) forms the lower boundary of the excluded region (shaded pink area above). The boundary shows a relatively flat profile at ~1.1\u00d710^-11 for low masses (below ~0.1 keV/c\u00b2), then gradually decreases as mass increases. The plot also shows constraints from EDELWEISS-II (dashed red), XENON100, PandaX-II, and LUX experiments, as well as theoretical predictions (DFSZ and KSVZ models shown as shaded regions). The text confirms g_ae < 1.1\u00d710^-11 at 90% C.L. in the massless limit. Mass values have been converted from keV/c\u00b2 to eV by multiplying by 1000 (1 keV = 1000 eV). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.43 snapped to identity)",
+ "num_points": 22,
+ "elapsed_s": 147.85323810577393
+}

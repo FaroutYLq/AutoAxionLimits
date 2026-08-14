@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "1412.0789",
+ "paper_title": "Axion dark matter from topological defects",
+ "coupling_type": "AxionMass",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   10000000.0,
+   1e-45
+  ],
+  [
+   15000000.0,
+   1e-45
+  ],
+  [
+   20000000.0,
+   1e-45
+  ],
+  [
+   30000000.0,
+   1e-45
+  ],
+  [
+   50000000.0,
+   1e-45
+  ],
+  [
+   70000000.0,
+   1e-45
+  ],
+  [
+   100000000.0,
+   1e-45
+  ],
+  [
+   150000000.0,
+   1e-46
+  ],
+  [
+   200000000.0,
+   1e-46
+  ],
+  [
+   300000000.0,
+   1e-46
+  ],
+  [
+   500000000.0,
+   1e-47
+  ],
+  [
+   700000000.0,
+   1e-47
+  ],
+  [
+   1000000000.0,
+   1e-48
+  ],
+  [
+   1500000000.0,
+   1e-49
+  ],
+  [
+   2000000000.0,
+   1e-49
+  ],
+  [
+   3000000000.0,
+   1e-50
+  ],
+  [
+   5000000000.0,
+   1e-50
+  ],
+  [
+   7000000000.0,
+   1e-51
+  ],
+  [
+   10000000000.0,
+   1e-51
+  ],
+  [
+   15000000000.0,
+   1e-51
+  ],
+  [
+   20000000000.0,
+   1e-52
+  ],
+  [
+   30000000000.0,
+   1e-52
+  ],
+  [
+   50000000000.0,
+   1e-52
+  ],
+  [
+   70000000000.0,
+   1e-52
+  ],
+  [
+   100000000000.0,
+   1e-52
+  ],
+  [
+   150000000000.0,
+   1e-52
+  ],
+  [
+   200000000000.0,
+   1e-52
+  ],
+  [
+   300000000000.0,
+   1e-52
+  ],
+  [
+   500000000000.0,
+   1e-52
+  ],
+  [
+   1000000000000.0,
+   1e-52
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "ADMX, IAXO, CAST",
+ "coupling_convention": "Axion mass m_a in eV (y-axis) vs axion decay constant F_a in GeV (x-axis). The plotted region shows the constraint boundary from dark matter abundance (\u03a9_a h\u00b2 \u2264 \u03a9_CDM h\u00b2) for the N_DW = 3 model with exact scaling assumption.",
+ "notes": "This is a theoretical cosmology paper studying axion dark matter production from topological defects (strings and domain walls) when the Peccei-Quinn symmetry is broken after inflation. The paper does NOT present new experimental exclusion limits or measured constraints. Instead, it provides theoretical predictions for axion mass ranges consistent with cold dark matter abundance via numerical simulations. The main results are: (1) For NDW=1 (short-lived domain walls): m_a = (0.8-1.3)\u00d710^-4 eV with f_a ~ 10^10 GeV; (2) For NDW>1 (long-lived domain walls): m_a ~ O(10^-4 to 10^-2) eV with f_a ~ O(10^8-10^10) GeV with mild parameter tuning. These are theoretical predictions/projections of viable parameter space, not measured exclusion limits from experiments. The paper also discusses observational constraints from SN1987A and neutron EDM, but these are used to constrain the bias parameter \u039e, not to set direct limits on the axion coupling. The data_points represent the approximate viable mass ranges mentioned in abstract and conclusions, encoded as horizontal bands in the f_a-m_a plane. Confidence is moderate (0.75) because while the coupling type (AxionMass) is clear, this is a theoretical study without new experimental data. | selector: figure_vision (sole candidate) | Vision: This paper investigates axion dark matter production from topological defects (strings and domain walls) in the post-inflationary Peccei-Quinn symmetry breaking scenario. Figure 7(a) shows observational constraints on the (F_a, \u039e) parameter space for the N_DW = 3 model with exact scaling. The blue/cyan solid line represents the dark matter abundance constraint from Eq. (4.1), which sets an upper bound on the axion decay constant F_a and lower bound on axion mass m_a. The excluded region (above the boundary) corresponds to parameter space where the total axion abundance exceeds the observed cold dark matter density. The plot also shows constraints from SN1987A (green region, left side), NEDM measurements (purple lines), and CP violation constraints. The white region is not excluded by these constraints. The relationship between F_a and m_a follows from the QCD axion mass formula m_a \u2248 (\u039b_QCD / F_a) with \u039b_QCD = 400 MeV. The boundary traced represents the lower limit of the excluded region where \u03a9_a h\u00b2 = \u03a9_CDM h\u00b2. Data points were extracted by reading the blue constraint curve at regular intervals along the F_a axis, with denser sampling near the steep transition region (around 10^9-10^10 GeV) and sparser sampling in the flat regions. | Calibration: Calibration reverted: \u00d71e+1 from spot-check verify/stage2 (raw_ratio=5.00) failed contract [vision calibration \u00d71e+1: reverted (R5 hard floor: median outside VALID_RANGES)] | WARNING: median coupling 1.0e-49 outside range [1e-12, 1e+03]; no decade factor recovers it | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+ "num_points": 30,
+ "elapsed_s": 298.82589888572693
+}

@@ -1,0 +1,134 @@
+{
+ "arxiv_id": "2210.10961",
+ "paper_title": "Axion Dark Matter Search around 4.55 $\u03bc$eV with Dine-Fischler-Srednicki-Zhitnitskii Sensitivity",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.55e-06,
+   3.5e-16
+  ],
+  [
+   2.6e-06,
+   3.4e-16
+  ],
+  [
+   2.65e-06,
+   3.4e-16
+  ],
+  [
+   2.7e-06,
+   3.5e-16
+  ],
+  [
+   2.75e-06,
+   3.5e-16
+  ],
+  [
+   2.8e-06,
+   3.5e-16
+  ],
+  [
+   2.85e-06,
+   3.6e-16
+  ],
+  [
+   2.9e-06,
+   3.6e-16
+  ],
+  [
+   2.95e-06,
+   3.6e-16
+  ],
+  [
+   3e-06,
+   3.7e-16
+  ],
+  [
+   3.1e-06,
+   3.7e-16
+  ],
+  [
+   3.2e-06,
+   3.8e-16
+  ],
+  [
+   3.3e-06,
+   3.9e-16
+  ],
+  [
+   3.4e-06,
+   4e-16
+  ],
+  [
+   3.5e-06,
+   4.1e-16
+  ],
+  [
+   3.6e-06,
+   4.3e-16
+  ],
+  [
+   3.7e-06,
+   4.5e-16
+  ],
+  [
+   3.8e-06,
+   4.7e-16
+  ],
+  [
+   3.9e-06,
+   4.9e-16
+  ],
+  [
+   4e-06,
+   5.2e-16
+  ],
+  [
+   4.05e-06,
+   5.4e-16
+  ],
+  [
+   4.1e-06,
+   5.6e-16
+  ],
+  [
+   4.15e-06,
+   5.8e-16
+  ],
+  [
+   4.2e-06,
+   6e-16
+  ],
+  [
+   4.51e-06,
+   6.2e-16
+  ],
+  [
+   4.53e-06,
+   6.2e-16
+  ],
+  [
+   4.55e-06,
+   6.2e-16
+  ],
+  [
+   4.57e-06,
+   6.2e-16
+  ],
+  [
+   4.59e-06,
+   6.2e-16
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "CAPP-12TB",
+ "coupling_convention": "|g_agamma| in units of 10^-16 GeV^-1, emitted as absolute GeV^-1",
+ "notes": "CAPP-12TB haloscope excludes g_agamma down to ~6.2e-16 GeV^-1 over 4.51-4.59 ueV at 90% CL assuming rho_a=0.45 GeV/cm^3. The exclusion limit varies slightly across the mass range (Fig. 4 shows |g_agamma| roughly 2-6 x10^-16 GeV^-1), but only the quoted best-sensitivity value 6.2e-16 is given numerically; encoded as a two-point line spanning the stated mass range. Detailed per-mass values would require reading Fig. 4. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 29)) | Vision: The main Fig. 4 shows g_gamma/g_gamma^DFSZ ratio, not absolute coupling. The inset shows absolute |g_agamma| in 10^-16 GeV^-1 combining ADMX (red) and this work (blue, ~4.5 ueV). Data points traced from the dashed DFSZ sensitivity line/lower boundary of exclusion in the inset. This work's exclusion is narrow, 4.51-4.59 ueV, reaching ~6.2e-16 GeV^-1. ADMX portion covers 2.5-4.2 ueV. The DFSZ dashed line trends upward with mass. Values approximate due to small inset. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.98 snapped to identity)",
+ "num_points": 29,
+ "elapsed_s": 188.54456973075867
+}

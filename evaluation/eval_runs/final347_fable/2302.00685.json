@@ -1,0 +1,158 @@
+{
+  "arxiv_id": "2302.00685",
+  "paper_title": "Recurrent Axinovae and their Cosmological Constraints",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-20,
+      2e-16
+    ],
+    [
+      3.16e-20,
+      3.6e-16
+    ],
+    [
+      1e-19,
+      6.5e-16
+    ],
+    [
+      3.16e-19,
+      1.17e-15
+    ],
+    [
+      1e-18,
+      2.1e-15
+    ],
+    [
+      3.16e-18,
+      3.8e-15
+    ],
+    [
+      1e-17,
+      6.9e-15
+    ],
+    [
+      3.16e-17,
+      1.24e-14
+    ],
+    [
+      1e-16,
+      2.24e-14
+    ],
+    [
+      3.16e-16,
+      4e-14
+    ],
+    [
+      1e-15,
+      7.2e-14
+    ],
+    [
+      3.16e-15,
+      1.31e-13
+    ],
+    [
+      1e-14,
+      2.35e-13
+    ],
+    [
+      3.16e-14,
+      4.25e-13
+    ],
+    [
+      1e-13,
+      7.7e-13
+    ],
+    [
+      3.16e-13,
+      1.38e-12
+    ],
+    [
+      1e-12,
+      2.5e-12
+    ],
+    [
+      3.16e-12,
+      4.5e-12
+    ],
+    [
+      1e-11,
+      8.1e-12
+    ],
+    [
+      3.16e-11,
+      1.46e-11
+    ],
+    [
+      1e-10,
+      2.6e-11
+    ],
+    [
+      3.16e-10,
+      4.75e-11
+    ],
+    [
+      1e-09,
+      8.5e-11
+    ],
+    [
+      3.16e-09,
+      1.54e-10
+    ],
+    [
+      1e-08,
+      2.8e-10
+    ],
+    [
+      3.16e-08,
+      5e-10
+    ],
+    [
+      1e-07,
+      9.1e-10
+    ],
+    [
+      3.16e-07,
+      1.6e-09
+    ],
+    [
+      1e-06,
+      2.9e-09
+    ],
+    [
+      3.16e-06,
+      5.3e-09
+    ],
+    [
+      1e-05,
+      9.6e-09
+    ],
+    [
+      3.16e-05,
+      1.7e-08
+    ],
+    [
+      0.0001,
+      3.1e-08
+    ],
+    [
+      0.000316,
+      5.6e-08
+    ],
+    [
+      0.00063,
+      8e-08
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "Recurrent Axinovae cosmological constraint (T_osc-independent, M* ~ t^0.2)",
+  "coupling_convention": "f_a^{-1} in GeV^-1 (inverse axion decay constant), exactly as plotted on the y-axis; x-axis is m_a in eV. Values NOT inverted or converted to f_a.",
+  "notes": "Paper places new cosmological exclusion limits directly on the (m_a, f_a) plane from recurrent axion star explosions (axinovae) converting DM to dark radiation, using the decaying-DM bound f_dDM <= 2.62% (2-sigma, from Nygaard et al.). Coupling type is clearly AxionMass: constraints are independent of non-gravitational SM couplings and shown in Fig. 1 as exclusion regions spanning m_a ~ 1e-20 to 1e-4 eV with y-axis apparently 1/f_a in GeV^-1 (~1e-17 to 1e-7, i.e., f_a ~ 1e7-1e17 GeV). However, no numerical table or explicit limit values are given in the text; the exclusion contours exist only as unreadable figure regions, so no data points could be extracted. Bound assumes post-inflationary PQ breaking, axions comprising the DM, and white-noise isocurvature spectrum. The 2.62% constraint is quoted at 2-sigma (~95% CL). | selector: figure_vision (sole candidate) | Vision: Traced Fig. 2 (page 11): orange 'T_osc independent exclusion' region from recurrent axinovae converting axion DM to dark radiation. The plot axes are m_a [eV] (x) vs f_a^{-1} [GeV^-1] (y); excluded region lies ABOVE the boundary (large f_a^{-1} = small f_a = strong self-coupling). The boundary is a straight line on log-log with slope ~0.51 (approximately constant confinement scale Lambda = sqrt(m_a f_a)), so points are sampled uniformly. Gray regions (black-hole superradiance) are pre-existing limits and were not traced. Fig. 1 (page 6) shows alternative assumptions (green/red/blue regions); the blue optimized bound is similar to this Fig. 2 line. Assumes axions constitute the full DM relic abundance with post-inflationary (isocurvature) fluctuations. Per the plotted-values contract, emitted couplings are f_a^{-1} in GeV^-1 as plotted, not converted to f_a in GeV despite the AxionMass canonical convention. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.44 snapped to identity)",
+  "num_points": 35,
+  "elapsed_s": 209.56615900993347
+}

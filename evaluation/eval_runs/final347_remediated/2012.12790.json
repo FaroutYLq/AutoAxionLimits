@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2012.12790",
+  "paper_title": "Properties of Ultralight Bosons from Spins of Heavy Quasars via Superradiance",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      3e-21,
+      0.0003
+    ],
+    [
+      1e-20,
+      0.001
+    ],
+    [
+      1e-19,
+      0.0003
+    ],
+    [
+      1e-18,
+      9.999999999999999e-05
+    ],
+    [
+      1e-17,
+      2.9999999999999997e-05
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.35,
+  "suggested_experiment_name": "QuasarSpin_Superradiance_Unal2025",
+  "coupling_convention": "f_a in GeV (upper bound on axion decay constant vs boson mass)",
+  "notes": "Paper uses black-hole superradiance from heavy quasar (AGN) spins to constrain ultralight bosons (scalar/axion, vector, tensor). Primary particle-physics results: (1) exclusion of boson mass ranges via spin depletion (scalar 2.9e-21-1.7e-17 eV, vector 6.4e-22-1.7e-17 eV, tensor 2.6e-23-1.7e-17 eV) assuming negligible self-interaction; (2) upper bounds on the axion decay constant f_a vs mass mu (Fig. 6), which is the f_a-m_a plane => AxionMass. The emitted data_points are approximate readings of the upper-bound boundary curve of Fig. 6 (mu in eV vs f_a in GeV) and are UNCERTAIN because they were read off a rainbow-colored region plot with no numeric table. This is an observational/derived astrophysical bound, not a DM haloscope, so no local DM density assumed. Confidence is 0.95 (2-sigma spin bounds) per the paper's stated confidence. | selector: text over figure_vision (quality (0, 1, 1, 1, 1, 0, 0.35, 5)) | Auto-corrected couplings: \u00d71e-20 (\u00d71.00e-20, rule=argmin|log10(median*f)-log10(anchor=3.2e-05)|)",
+  "num_points": 5,
+  "elapsed_s": 145.79793405532837
+}

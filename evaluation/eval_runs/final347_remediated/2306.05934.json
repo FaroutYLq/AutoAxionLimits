@@ -1,0 +1,30 @@
+{
+  "arxiv_id": "2306.05934",
+  "paper_title": "First results from BRASS-p broadband searches for hidden photon dark matter",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.963e-05,
+      1e-13
+    ],
+    [
+      6e-05,
+      5e-14
+    ],
+    [
+      7.444e-05,
+      1e-13
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.82,
+  "suggested_experiment_name": "BRASS-p_2023",
+  "coupling_convention": "dimensionless kinetic mixing chi",
+  "notes": "Hidden photon (dark photon) DM search via conversion at conducting surface. Mass range 49.63-74.44 ueV (12-18 GHz). Reported record 1-sigma detection sensitivity chi ~ (0.3-1.0)x10^-13 over the range; the exclusion is essentially a broadband band near 1e-13. Values are approximate reads from text/Fig.11-12 (only endpoints and best value quoted). Result is a 1-sigma sensitivity rather than a formal 90/95% CL exclusion. rho_DM = 0.3 GeV/cm^3 assumed. Fig.13 shows projections for other receivers (not extracted here). | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.82, 3))",
+  "num_points": 3,
+  "elapsed_s": 218.7553563117981
+}

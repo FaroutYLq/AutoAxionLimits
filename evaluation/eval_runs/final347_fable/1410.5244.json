@@ -1,0 +1,170 @@
+{
+  "arxiv_id": "1410.5244",
+  "paper_title": "Cryogenic resonant microwave cavity searches for hidden sector photons",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5.5e-06,
+      0.0001
+    ],
+    [
+      6.5e-06,
+      7e-05
+    ],
+    [
+      7.4e-06,
+      5.4e-05
+    ],
+    [
+      8.6e-06,
+      3.8e-05
+    ],
+    [
+      1e-05,
+      2.7e-05
+    ],
+    [
+      1.15e-05,
+      1.9e-05
+    ],
+    [
+      1.32e-05,
+      1.4e-05
+    ],
+    [
+      1.55e-05,
+      9.7e-06
+    ],
+    [
+      1.77e-05,
+      6.9e-06
+    ],
+    [
+      2e-05,
+      5.1e-06
+    ],
+    [
+      2.2e-05,
+      4.2e-06
+    ],
+    [
+      2.4e-05,
+      3.4e-06
+    ],
+    [
+      2.6e-05,
+      2.9e-06
+    ],
+    [
+      2.87e-05,
+      2.5e-06
+    ],
+    [
+      3e-05,
+      2.2e-06
+    ],
+    [
+      3.15e-05,
+      2e-06
+    ],
+    [
+      3.3e-05,
+      1.9e-06
+    ],
+    [
+      3.45e-05,
+      2.1e-06
+    ],
+    [
+      3.6e-05,
+      2.9e-06
+    ],
+    [
+      3.7e-05,
+      4.5e-06
+    ],
+    [
+      3.8e-05,
+      7e-06
+    ],
+    [
+      3.9e-05,
+      1.1e-05
+    ],
+    [
+      4e-05,
+      1.5e-05
+    ],
+    [
+      4.3e-05,
+      8e-06
+    ],
+    [
+      4.6e-05,
+      4e-06
+    ],
+    [
+      4.8e-05,
+      2e-06
+    ],
+    [
+      5e-05,
+      1e-06
+    ],
+    [
+      5.1e-05,
+      5e-07
+    ],
+    [
+      5.2e-05,
+      2.5e-07
+    ],
+    [
+      5.28e-05,
+      1.8e-07
+    ],
+    [
+      5.3e-05,
+      1.7e-07
+    ],
+    [
+      5.32e-05,
+      2e-07
+    ],
+    [
+      5.36e-05,
+      5e-07
+    ],
+    [
+      5.4e-05,
+      1.5e-06
+    ],
+    [
+      5.45e-05,
+      5e-06
+    ],
+    [
+      5.5e-05,
+      2e-05
+    ],
+    [
+      5.55e-05,
+      6e-05
+    ],
+    [
+      5.6e-05,
+      0.0001
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "UWA cryogenic cavity LSW (UWA 2013)",
+  "coupling_convention": "kinetic mixing parameter chi, dimensionless, as plotted on y-axis of Fig. 5",
+  "notes": "Primary result is a cryogenic microwave-cavity light-shining-through-wall (LSW) limit: chi < 1.7e-7 at m = 53 ueV (12.76 GHz, TM020 mode); LSW bounds do not assume a local DM density. The same paper also reports separate cold-dark-matter hidden-photon (haloscope-style) limits at the same 53 ueV mass with rho = 0.3 GeV/cm^3: chi < 6.14e-14 assuming a homogeneous hidden-photon field (cos^2(theta) = 0.0025, conservative) and chi < 5.32e-15 assuming a random/inhomogeneous field (<cos^2(theta)> = 1/3). Only the LSW point is emitted as the main data set; the CDM points would carry dm_density_assumed = 0.3 and the respective polarization assumptions. Confidence level not explicitly stated in the paper; 0.95 assumed. Full exclusion region shown in Fig. 5 (240 MHz - 24 GHz) but numerical values only given at 53 ueV. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 38)) | Vision: Fig. 5 shows chi vs paraphoton mass (1e-6 to 1e-4 eV, corresponding to 240 MHz - 24 GHz). This work's exclusion is the black region (UWA 2013): a broad wedge with minimum ~2e-6 near 3.3e-5 eV and a narrow resonant notch anchored at the text-quoted bound chi < 1.7e-7 at 53 ueV (5.3e-5 eV), with vertical cutoff just above the cavity frequency mass. Other shaded regions (ADMX 2010, UWA 2010, CROWS 2013, Coulomb) were excluded from tracing. The fine structure between the broad dip and the resonant spike is read from a low-resolution plot and is approximate; the spike tip is anchored to the quoted value. The CDM limits quoted in text (6.14e-14 / 5.32e-15 at 53 ueV) are single-mass haloscope-mode results, not the plotted LSW exclusion, so no DM density assumption applies to the traced curve. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.44 snapped to identity)",
+  "num_points": 38,
+  "elapsed_s": 300.34191727638245
+}

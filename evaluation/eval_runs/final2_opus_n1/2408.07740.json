@@ -1,0 +1,110 @@
+{
+ "arxiv_id": "2408.07740",
+ "paper_title": "NeutronStarCooling",
+ "coupling_type": "AxionMass",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3e-11,
+   1e-13
+  ],
+  [
+   1e-10,
+   3e-13
+  ],
+  [
+   3e-10,
+   1e-12
+  ],
+  [
+   1e-09,
+   2.9999999999999997e-12
+  ],
+  [
+   3e-09,
+   1.0000000000000001e-11
+  ],
+  [
+   1e-08,
+   3e-11
+  ],
+  [
+   3e-08,
+   1e-10
+  ],
+  [
+   1e-07,
+   3e-10
+  ],
+  [
+   3e-07,
+   9.999999999999999e-10
+  ],
+  [
+   1e-06,
+   3e-09
+  ],
+  [
+   3e-06,
+   1e-08
+  ],
+  [
+   1e-05,
+   3e-08
+  ],
+  [
+   3e-05,
+   1.0000000000000001e-07
+  ],
+  [
+   0.0001,
+   3e-07
+  ],
+  [
+   0.0003,
+   1e-06
+  ],
+  [
+   0.001,
+   2.9999999999999997e-06
+  ],
+  [
+   0.003,
+   9.999999999999999e-06
+  ],
+  [
+   0.01,
+   2.9999999999999997e-05
+  ],
+  [
+   0.03,
+   9.999999999999999e-05
+  ],
+  [
+   0.1,
+   0.00030000000000000003
+  ],
+  [
+   0.3,
+   0.001
+  ],
+  [
+   1.0,
+   0.003
+  ],
+  [
+   3.0,
+   0.008
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "Neutron Star Cooling (this work)",
+ "coupling_convention": "1/f_a in GeV^-1, plotted directly on y-axis",
+ "notes": "Paper constrains light QCD axions via isolated NS cooling, presenting an excluded region in the (m_a, 1/f_a) plane (Fig. 5). The exclusion is a triangular/band region defined by (g+ga)14 > 100 (solid) or > 50 (dashed) boundaries, roughly spanning m_a ~ 1e-14 to 1e-2 eV and 1/f_a ~ 1e-17 to 1e-11 GeV^-1. No numerical table of the exclusion contour is provided; only qualitative axis ranges from the figure, so no reliable (mass, coupling) pairs could be extracted. This is a AxionMass-type bound (f_a vs m_a plane for light QCD axion with tunable mass parameter epsilon). | selector: figure_vision (sole candidate) | Vision: Figure 5 plots 1/f_a [GeV^-1] vs m_a [eV]. The requested AxionMass convention normally expects m_a on y-axis and f_a on x-axis, but this plot uses inverse axes. Emitted values are 1/f_a plotted on the y-axis exactly as shown, traced along the lower diagonal boundary of the red 'Neutron stars' exclusion band, which follows the QCD axion line. The exclusion band is a diagonal running roughly parallel to the QCD axion line. Coupling values here are 1/f_a in GeV^-1, not m_a in eV; downstream code should account for this axis convention. | Calibration: Vision calibration: \u00d71e+2 (factor=1.00e+02, reason=spot-check verify/stage2, raw_ratio=33.33)",
+ "num_points": 23,
+ "elapsed_s": 176.01939702033997
+}

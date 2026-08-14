@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2303.07370",
+  "paper_title": "Exotic energy injection in the early universe II: CMB spectral distortions and constraints on light dark matter",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      27.2,
+      8e-13
+    ],
+    [
+      50.0,
+      3.3e-13
+    ],
+    [
+      100.0,
+      1.1e-13
+    ],
+    [
+      300.0,
+      2.2e-14
+    ],
+    [
+      1000.0,
+      3.6e-15
+    ],
+    [
+      3000.0,
+      7e-16
+    ],
+    [
+      10000.0,
+      1.15e-16
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.45,
+  "suggested_experiment_name": "DarkHistory_CMB_anisotropy_2023",
+  "coupling_convention": "g_agamma in GeV^-1 (estimated from decay-lifetime constraint tau~1e25 s via Gamma=g^2 m_a^3/64pi)",
+  "notes": "Paper recasts CMB anisotropy (Planck 2015-based) constraints on decaying DM (chi->gamma gamma) into a bound on the ALP-photon coupling g_agamma (Fig. 10, 'CMB anisotropy our work'). Constraint applies for ALP mass from ~2R=27.2 eV up to ~10 keV. The plotted curve is derived from the minimum-lifetime constraint (Fig. 9, tau ~ 1e25 s). Data points here are ESTIMATED by converting the approximate lifetime bound to g_agamma using Gamma = g^2 m_a^3/(64pi); exact plot digitization not available, so values approximate. This is a cosmological (not haloscope) bound, so no local DM density applies. Not a projection - based on existing Planck data (though PIXIE-related spectral-distortion parts are projections, the g_agamma limit itself is an observed constraint). | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.45, 7))",
+  "num_points": 7,
+  "elapsed_s": 106.81982684135437
+}

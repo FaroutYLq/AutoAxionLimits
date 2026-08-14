@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2104.13798",
+  "paper_title": "First results of the CAST-RADES haloscope search for axions at 34.67 $\u03bc$eV",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      3.46738e-05,
+      4e-13
+    ],
+    [
+      3.46771e-05,
+      4e-13
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "CAST_RADES",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "First results of CAST-RADES haloscope at CERN. New measured exclusion limit on axion-photon coupling g_agamma >~ 4e-13 GeV^-1 (95% credibility level, Bayesian) over the narrow mass range 34.6738-34.6771 ueV (cavity resonance at 8.384 GHz). Assumes local DM density 0.45 GeV/cm^3 and standard isothermal halo (Maxwell-Boltzmann line shape, <v^2>^1/2 ~ 270 km/s). The stated limit is quoted as a single value across the narrow band; encoded as a flat two-point line. Detailed frequency-dependent limit curve (Fig. 8/9) not tabulated in the text. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+  "num_points": 2,
+  "elapsed_s": 84.44610404968262
+}

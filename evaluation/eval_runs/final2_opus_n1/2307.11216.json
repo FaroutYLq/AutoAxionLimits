@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2307.11216",
+ "paper_title": "Spectra of axions emitted from main sequence stars",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1000.0,
+   6.6e-11
+  ],
+  [
+   4500.0,
+   5e-11
+  ],
+  [
+   10000.0,
+   4e-11
+  ],
+  [
+   30000.0,
+   3e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.4,
+ "suggested_experiment_name": "StAB_NuSTAR_CXB",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper computes stellar axion background from main sequence stars and derives 95% CL exclusion limits on the axion-photon coupling g_agamma vs axion mass from fitting the NuSTAR cosmic X-ray background (Fig. 7). The excluded region lies slightly below the globular cluster/CAST cooling bound (~6.6e-11 GeV^-1) for ma ~ 0.5-30 keV. Exact limit curve is only shown in Fig. 7 which I cannot read precisely; the data points given are rough estimates read off the discussion (limits lie just below the ~10^-11 to 6.6e-11 GeV^-1 band). Astrophysical bound, not a haloscope, so no DM density. Values are approximate and should be verified against Fig. 7. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.4, 4))",
+ "num_points": 4,
+ "elapsed_s": 141.88129901885986
+}

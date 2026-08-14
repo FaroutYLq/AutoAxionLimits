@@ -1,0 +1,146 @@
+{
+  "arxiv_id": "1905.13650",
+  "paper_title": "Stochastic fluctuations of bosonic dark matter",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-22,
+      0.001
+    ],
+    [
+      3.16e-22,
+      0.00045
+    ],
+    [
+      1e-21,
+      0.0002
+    ],
+    [
+      1.78e-21,
+      0.000105
+    ],
+    [
+      3.16e-21,
+      6.3e-05
+    ],
+    [
+      6.3e-21,
+      4e-05
+    ],
+    [
+      1e-20,
+      3.2e-05
+    ],
+    [
+      3.16e-20,
+      1.9e-05
+    ],
+    [
+      1e-19,
+      1.2e-05
+    ],
+    [
+      2e-19,
+      8.9e-06
+    ],
+    [
+      3.16e-19,
+      7.4e-06
+    ],
+    [
+      6.3e-19,
+      7.9e-06
+    ],
+    [
+      1e-18,
+      1e-05
+    ],
+    [
+      1.78e-18,
+      1.5e-05
+    ],
+    [
+      3.16e-18,
+      3e-05
+    ],
+    [
+      5e-18,
+      5e-05
+    ],
+    [
+      7e-18,
+      7e-05
+    ],
+    [
+      5e-17,
+      0.0001
+    ],
+    [
+      7e-17,
+      0.00015
+    ],
+    [
+      1e-16,
+      0.00022
+    ],
+    [
+      1.78e-16,
+      0.0004
+    ],
+    [
+      3.16e-16,
+      0.00071
+    ],
+    [
+      5.6e-16,
+      0.00115
+    ],
+    [
+      1e-15,
+      0.0018
+    ],
+    [
+      1.78e-15,
+      0.003
+    ],
+    [
+      3.16e-15,
+      0.005
+    ],
+    [
+      5.6e-15,
+      0.0083
+    ],
+    [
+      1e-14,
+      0.014
+    ],
+    [
+      1.78e-14,
+      0.024
+    ],
+    [
+      3.16e-14,
+      0.04
+    ],
+    [
+      5.6e-14,
+      0.068
+    ],
+    [
+      1e-13,
+      0.12
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "Stochastic bosonic DM correction to g_aNN constraints (CASPEr / comagnetometer compilation)",
+  "coupling_convention": "g_aNN in GeV^-1, plotted as log10 g_aNN; emitted as absolute GeV^-1 values",
+  "notes": "This is a methodology/theory paper showing that constraints from experiments operating in the T<<tau_c regime were overestimated by factors of ~3-10. It does not present a new independent measurement; instead it applies stochastic correction factors to previously published limits (CASPEr-ZULF, nEDM for axion-nucleon g_aNN in Fig.3; and dilaton/scalar couplings in Fig.4). The corrected exclusion curves are shown only as plots (log10 g_aNN vs log10 m_phi over ~1e-22 to 1e-13 eV) with no numerical tables. No extractable (mass,coupling) data points are provided. Uses rho_DM ~ 0.4 GeV/cm^3. Correction factors: ~2.7-3.0 (scalar/amplitude only), ~8.4 (pseudoscalar wind, incl. velocity+phase), ~10-13 with uniform prior. Coupling type ambiguous between AxionNeutron (main Fig.3 g_aNN) and scalar/dilaton (Fig.4). | selector: figure_vision (sole candidate) | Vision: Figure 3. Y-axis is log10 g_aNN [GeV^-1], x-axis log10 m_phi [eV/c^2]. Traced the GREEN 'Stochastic' line, which is the paper's modified (relaxed) constraint and forms the lower boundary of the green excluded region. A lower gray 'Deterministic' line (previous constraints) sits below it. The constraint has two disconnected segments: a bowl-shaped low-mass branch (10^-22 to ~7e-18 eV, minimum g_aNN~7e-6 near 3e-19 eV) and a rising diagonal branch (5e-17 to 1e-13 eV). Values plotted in GeV^-1 (not the dimensionless g_an), emitted as plotted per the plotted-values contract. Coupling labeled generically as axion-nucleon g_aNN; mapped to AxionNeutron per instructions. Blue vertical bands mark regions not covered by the green segments. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.43 snapped to identity)",
+  "num_points": 32,
+  "elapsed_s": 160.34848809242249
+}

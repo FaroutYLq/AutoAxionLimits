@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2302.09096",
+  "paper_title": "Using the Sun and the Moon as Source masses and the Earth's Rotation as a Modulation to Search for Exotic Spin-Dependent Interactions at Astronomical Distances",
+  "coupling_type": "MonopoleDipole",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.973e-21,
+      1.6e-35
+    ],
+    [
+      1.973e-19,
+      1.6e-35
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "Wu2023_SunMoon_Comagnetometer",
+  "coupling_convention": "dimensionless product g_S^N*g_P^n; mass in eV converted from interaction range via m=hbar*c/lambda (hbar*c=1.973e-7 eV*m)",
+  "notes": "Paper derives limits on exotic spin-dependent interactions using Sun/Moon as sources. Primary scalar-pseudoscalar (SP) result g_S^N*g_P^n < 1.6e-35 (95% C.L.) for lambda > 1e12 m (mass < ~2e-19 eV), spanning ranges 2e10 to 1e14 m. This maps to MonopoleDipole (g_s*g_p product). Only one explicit numeric value given in text; plots (Figs 2-4) show lambda-dependent curves not readable numerically. Paper also reports VA (g_V^N*g_A^n < 7.1e-59) and AA (g_A^N*g_A^n < 8.1e-31) couplings which are different (velocity-dependent) types. Emitted a horizontal line over the flat large-lambda region for the SP/monopole-dipole bound. | selector: text over figure_vision (quality (1, 1, 1, 0, 1, 0, 0.55, 2)) | [CONVENTION REVIEW] declared coupling convention 'dimensionless product g_S^N*g_P^n; mass in eV converted from interaction range via m=hbar*c/lambda (hbar*c=1.973e-7 eV*m)' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 2,
+  "elapsed_s": 157.19807267189026
+}

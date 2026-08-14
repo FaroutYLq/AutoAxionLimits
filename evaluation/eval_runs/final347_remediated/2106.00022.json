@@ -1,0 +1,134 @@
+{
+  "arxiv_id": "2106.00022",
+  "paper_title": "Earth as a transducer for dark-photon dark-matter detection",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      3e-18,
+      0.0105
+    ],
+    [
+      3.3e-18,
+      0.0075
+    ],
+    [
+      3.7e-18,
+      0.0055
+    ],
+    [
+      4.2e-18,
+      0.0042
+    ],
+    [
+      4.8e-18,
+      0.0031
+    ],
+    [
+      5.5e-18,
+      0.0023
+    ],
+    [
+      6.3e-18,
+      0.0018
+    ],
+    [
+      7.2e-18,
+      0.00135
+    ],
+    [
+      8.2e-18,
+      0.0011
+    ],
+    [
+      9.5e-18,
+      0.00085
+    ],
+    [
+      1.1e-17,
+      0.00068
+    ],
+    [
+      1.3e-17,
+      0.00052
+    ],
+    [
+      1.5e-17,
+      0.00038
+    ],
+    [
+      1.7e-17,
+      0.00029
+    ],
+    [
+      2e-17,
+      0.00021
+    ],
+    [
+      2.3e-17,
+      0.00015
+    ],
+    [
+      2.6e-17,
+      0.00011
+    ],
+    [
+      3e-17,
+      8e-05
+    ],
+    [
+      3.4e-17,
+      5.8e-05
+    ],
+    [
+      3.8e-17,
+      4.3e-05
+    ],
+    [
+      4.2e-17,
+      3.3e-05
+    ],
+    [
+      4.6e-17,
+      2.7e-05
+    ],
+    [
+      5e-17,
+      2.3e-05
+    ],
+    [
+      5.3e-17,
+      2.1e-05
+    ],
+    [
+      5.6e-17,
+      2.2e-05
+    ],
+    [
+      5.9e-17,
+      3e-05
+    ],
+    [
+      6.1e-17,
+      5e-05
+    ],
+    [
+      6.3e-17,
+      0.00012
+    ],
+    [
+      6.5e-17,
+      0.00028
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "SuperMAG (Earth-transducer dark-photon search)",
+  "coupling_convention": "kinetic mixing epsilon (chi), dimensionless, as plotted",
+  "notes": "Paper proposes using Earth as transducer for kinetically-mixed dark-photon dark matter and summarizes a search in SuperMAG data (companion paper arXiv:2108.08852). Constrains kinetic mixing epsilon over mass range 2e-18 eV to 7e-17 eV (freq 6e-4 to 2e-2 Hz), assuming dark photon is all of DM, at 95% credible level. Actual numeric limits are only shown as a band in Fig. 4; no numerical table or explicit coupling values are provided in the text, so no reliable (mass, coupling) pairs could be extracted. Coupling type (DarkPhoton) is unambiguous. Local DM density value not explicitly stated in this paper. | selector: figure_vision (sole candidate) | Vision: Figure 4: 95%-credible upper limit on kinetic mixing epsilon vs m_A'. Lower boundary of exclusion traced from the smoothed cyan 'This signal, smoothed' line. X-axis log from 3e-18 to ~6.5e-17 eV (top axis in Hz). Limit has minimum ~2e-5 near 5.3e-17 eV and rises sharply at both edges. Other lines (orange, green, red, purple) are external astrophysical constraints, not this measurement. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.95 snapped to identity)",
+  "num_points": 29,
+  "elapsed_s": 161.90202498435974
+}

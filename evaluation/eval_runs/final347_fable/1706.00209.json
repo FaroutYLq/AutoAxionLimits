@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "1706.00209",
+  "paper_title": "The ORGAN Experiment: An axion haloscope above 15 GHz",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.000109727,
+      2.02e-12
+    ],
+    [
+      0.000109977,
+      2.02e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "ORGAN_Pathfinder",
+  "coupling_convention": "g_agamma in GeV^-1 (abstract's 'eV^-1' is a typo; '~50 times KSVZ' and Fig. 3 axis confirm GeV^-1)",
+  "notes": "ORGAN pathfinding run: single fixed-frequency TM020 cavity at 26.531 GHz (~109.85 ueV), 7 T magnet, 4 K HEMT readout. Best limit g_agamma < 2.02e-12 GeV^-1 at 90% CL over a narrow 2.5 neV span shaped by the Lorentzian resonance; encoded as two points spanning that ~2.5 neV window centered at m = 4.136e-15 * 26.531e9 Hz \u2248 1.0985e-4 eV. Abstract quotes 'eV^-1' but the figure axis (GeV^-1) and the '~50x KSVZ' statement confirm units are GeV^-1. DM density 0.45 GeV/cm^3 stated for projections and assumed for the run. Paper also contains projections (Stages I, II-A..G) which are NOT included in data_points. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+  "num_points": 2,
+  "elapsed_s": 87.75976395606995
+}

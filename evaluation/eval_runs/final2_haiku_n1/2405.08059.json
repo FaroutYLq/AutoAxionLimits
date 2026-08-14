@@ -1,0 +1,118 @@
+{
+ "arxiv_id": "2405.08059",
+ "paper_title": "Axion-Induced Patchy Screening of the Cosmic Microwave Background",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   1e-14,
+   1.2e-08
+  ],
+  [
+   1.5e-14,
+   1.15e-08
+  ],
+  [
+   2e-14,
+   1.1e-08
+  ],
+  [
+   3e-14,
+   1.05e-08
+  ],
+  [
+   5e-14,
+   9.8e-09
+  ],
+  [
+   7e-14,
+   9.5e-09
+  ],
+  [
+   1e-13,
+   9e-09
+  ],
+  [
+   1.5e-13,
+   8.2e-09
+  ],
+  [
+   2e-13,
+   7.5e-09
+  ],
+  [
+   3e-13,
+   6.5e-09
+  ],
+  [
+   5e-13,
+   5.2e-09
+  ],
+  [
+   7e-13,
+   4.5e-09
+  ],
+  [
+   1e-12,
+   3.8e-09
+  ],
+  [
+   1.5e-12,
+   3.2e-09
+  ],
+  [
+   2e-12,
+   2.8e-09
+  ],
+  [
+   3e-12,
+   2.3e-09
+  ],
+  [
+   5e-12,
+   1.8e-09
+  ],
+  [
+   7e-12,
+   1.5e-09
+  ],
+  [
+   1e-11,
+   1.2e-09
+  ],
+  [
+   1.5e-11,
+   1e-09
+  ],
+  [
+   2e-11,
+   8.5e-10
+  ],
+  [
+   3e-11,
+   7e-10
+  ],
+  [
+   5e-11,
+   5.5e-10
+  ],
+  [
+   7e-11,
+   4.5e-10
+  ],
+  [
+   1e-10,
+   3.8e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.68,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "CMB-S4 / Planck axion-photon coupling constraint from CMB spectral distortions",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis (canonical axion-photon coupling)",
+ "notes": "This is a PROJECTION paper forecasting sensitivity, not a measured exclusion limit. The paper forecasts that Planck+unWISE could probe g_agamma \u2272 3\u00d710^-12 GeV^-1 for axion masses 2\u00d710^-13 to 3\u00d710^-12 eV via CMB temperature-LSS cross-correlation \u27e8T^a g\u27e9. CMB-S4 could extend reach by ~order of magnitude. The data_points encode the mass range and best projected sensitivity as a horizontal line. The paper uses halo model to compute photon-axion conversion in magnetized plasma within large-scale structure, producing anisotropic CMB temperature and polarization distortions. Key observables: temperature auto-correlation \u27e8T^a T^a\u27e9, polarization auto-correlation \u27e8B^a B^a\u27e9, temperature-galaxy cross-correlation \u27e8T^a g\u27e9 (most sensitive), and polarization-galaxy bispectrum \u27e8B^a B^a g\u27e9. Confidence level 0.68 (1-\u03c3) from Bayesian posterior. No local DM density assumption needed\u2014this is a cosmological/astrophysical bound, not a haloscope experiment. | selector: figure_vision (sole candidate) | Vision: Figure 2 shows the exclusion region (blue shaded area) for axion-photon coupling g_agamma vs axion mass m_a. The plot displays existing constraints from CAST, FIRAS, SN1987A-gamma, Star Clusters, and NGC 1275. The blue shaded region at the top represents the parameter space excluded at 99% CL from requiring CMB spectral distortions from photon-axion conversion to be compatible with COBE/FIRAS measurements. The lower boundary of this exclusion region (the constraint curve) has been traced. The x-axis spans from ~10^-14 eV to ~10^-10 eV in axion mass, and the y-axis spans from ~10^-13 to ~10^-8 GeV^-1 in coupling. The boundary shows a general downward trend (decreasing coupling with increasing mass) with some curvature. Confidence is moderate (0.65) because the exact boundary is somewhat difficult to read precisely from the figure due to the shading and the presence of multiple overlapping constraints, though the overall trend is clear. | Calibration: No calibration needed",
+ "num_points": 25,
+ "elapsed_s": 201.01268911361694
+}

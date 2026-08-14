@@ -1,0 +1,102 @@
+{
+ "arxiv_id": "2212.01139",
+ "paper_title": "Millimeter-wave WISP search with coherent Light-Shining-Through-a-Wall towards the STAX project",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   3.2e-06,
+   1.7e-07
+  ],
+  [
+   4e-06,
+   1.3e-07
+  ],
+  [
+   5e-06,
+   9.5e-08
+  ],
+  [
+   6e-06,
+   7.5e-08
+  ],
+  [
+   8e-06,
+   5.5e-08
+  ],
+  [
+   1e-05,
+   4.3e-08
+  ],
+  [
+   1.3e-05,
+   3.3e-08
+  ],
+  [
+   1.6e-05,
+   2.8e-08
+  ],
+  [
+   2e-05,
+   2.4e-08
+  ],
+  [
+   2.5e-05,
+   2e-08
+  ],
+  [
+   3e-05,
+   1.7e-08
+  ],
+  [
+   3.5e-05,
+   3.5e-08
+  ],
+  [
+   3.8e-05,
+   6.5e-08
+  ],
+  [
+   4e-05,
+   3e-08
+  ],
+  [
+   4.3e-05,
+   2.5e-08
+  ],
+  [
+   4.8e-05,
+   2.2e-08
+  ],
+  [
+   5.5e-05,
+   2e-08
+  ],
+  [
+   6.5e-05,
+   1.9e-08
+  ],
+  [
+   7.5e-05,
+   1.8e-08
+  ],
+  [
+   8.5e-05,
+   1.8e-08
+  ],
+  [
+   9.5e-05,
+   1.8e-08
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "STAX proto (Stage A projection)",
+ "coupling_convention": "kinetic mixing chi, dimensionless",
+ "notes": "LSW (light-shining-through-wall) projection for dark photon kinetic mixing in mass range 1e-4 to 1e-3 eV. This is a proposal/projection paper. The only explicit numerical sensitivity given in text is Stage A low-power reaching chi ~ 1e-8 around m_gamma' ~ 1e-4 eV (Eq. 16 context). Detailed exclusion curves (Stages A, B, C) are shown only in Figures 6 and 7 with no tabulated values, so precise data points cannot be reliably extracted. The two-point line encodes the stated Stage A sensitivity chi~1e-8 across the target mass range as an approximation. LSW so density-independent (dm_density null). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 21)) | Vision: Figure 7 is a projection plot (2 sigma expected limits), not a measured exclusion. Traced the Stage A (green, low-power search) curve, which is the most conservative of the three projected sensitivity curves. Stage B (blue) and Stage C (red) reach lower chi values. The green curve shows a resonance peak near 3.8e-5 eV and levels around chi~1.8e-8 at high mass. X-axis range extends slightly below 1e-5 tick to ~3e-6. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.76 snapped to identity)",
+ "num_points": 21,
+ "elapsed_s": 313.4428668022156
+}

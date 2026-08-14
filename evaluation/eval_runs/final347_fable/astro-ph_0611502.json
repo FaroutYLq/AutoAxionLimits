@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "astro-ph/0611502",
+  "paper_title": "A Telescope Search for Decaying Relic Axions",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.5,
+      0.00717
+    ],
+    [
+      5.0,
+      0.009
+    ],
+    [
+      6.0,
+      0.00572
+    ],
+    [
+      6.5,
+      0.0046
+    ],
+    [
+      7.0,
+      0.00341
+    ],
+    [
+      7.5,
+      0.00295
+    ],
+    [
+      7.65,
+      0.00247
+    ]
+  ],
+  "data_source": "table",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "VIMOS_A2667_A2390",
+  "coupling_convention": "dimensionless xi = (4/3)(E/N - 1.92), the paper's two-photon coupling parameter (NOT converted to g_agamma in GeV^-1)",
+  "notes": "Telescope search for optical line emission from two-photon decay of thermal relic axions in galaxy clusters Abell 2667 and Abell 2390 using the VLT VIMOS IFU. New 95% CL upper limits on the model-independent two-photon coupling parameter xi in the mass window 4.5-7.7 eV, taken from Table I (limits derived directly from sky-subtracted flux; Table II cross-correlation limits are ~1.5x weaker). Values are the raw dimensionless xi from the paper; conversion to g_agamma [GeV^-1] requires g = (alpha/2pi)(3 xi/4)/f_a with f_a set by m_a. Limits assume thermal freeze-out relic abundance Omega_a h^2 = m_a,eV/130 and cluster axion mass fraction x_a = Omega_a/Omega_m (cosmological abundance assumption, not a local halo DM density). Masses near 5.43 eV and 4.83 eV (night-sky lines at 5577 A and 6300 A) are excluded from useful limits. Paper also discusses a projection for RDCS 1252 (8-14 eV window) and sterile-neutrino constraints, not encoded here. | selector: table over figure_vision (quality (0, 1, 1, 1, 4, 0, 0.85, 7)) | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+  "num_points": 7,
+  "elapsed_s": 149.52417612075806
+}

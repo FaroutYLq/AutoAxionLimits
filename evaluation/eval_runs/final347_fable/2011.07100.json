@@ -1,0 +1,138 @@
+{
+  "arxiv_id": "2011.07100",
+  "paper_title": "Search of spin-dependent fifth forces with precision magnetometry",
+  "coupling_type": "MonopoleDipole",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.97e-12,
+      5.7e-32
+    ],
+    [
+      6.58e-12,
+      5.7e-32
+    ],
+    [
+      1.97e-11,
+      5.7e-32
+    ],
+    [
+      6.58e-11,
+      5.7e-32
+    ],
+    [
+      1.97e-10,
+      5.7e-32
+    ],
+    [
+      6.58e-10,
+      5.7e-32
+    ],
+    [
+      1.97e-09,
+      5.7e-32
+    ],
+    [
+      6.58e-09,
+      5.7e-32
+    ],
+    [
+      1.97e-08,
+      5.7e-32
+    ],
+    [
+      3.95e-08,
+      5.7e-32
+    ],
+    [
+      9.87e-08,
+      5.7e-32
+    ],
+    [
+      1.97e-07,
+      5.8e-32
+    ],
+    [
+      3.95e-07,
+      6e-32
+    ],
+    [
+      6.58e-07,
+      6.2e-32
+    ],
+    [
+      9.87e-07,
+      6.5e-32
+    ],
+    [
+      1.32e-06,
+      7e-32
+    ],
+    [
+      1.97e-06,
+      7.7e-32
+    ],
+    [
+      2.82e-06,
+      8.8e-32
+    ],
+    [
+      3.59e-06,
+      9.8e-32
+    ],
+    [
+      4.93e-06,
+      1.2e-31
+    ],
+    [
+      6.58e-06,
+      1.55e-31
+    ],
+    [
+      8.97e-06,
+      2.2e-31
+    ],
+    [
+      1.16e-05,
+      3.3e-31
+    ],
+    [
+      1.52e-05,
+      5.7e-31
+    ],
+    [
+      1.97e-05,
+      1.15e-30
+    ],
+    [
+      2.47e-05,
+      2.4e-30
+    ],
+    [
+      3.29e-05,
+      8.5e-30
+    ],
+    [
+      3.95e-05,
+      2.3e-29
+    ],
+    [
+      4.93e-05,
+      1e-28
+    ],
+    [
+      6.58e-05,
+      1.2e-27
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "QUAX-gpgs SQUID magnetometry (Crescini et al.)",
+  "coupling_convention": "g_p^e * g_s^N (electron pseudoscalar x nucleon scalar coupling product), dimensionless, as plotted on y-axis",
+  "notes": "Crescini et al. (QUAX-gpgs upgraded setup, SQUID magnetometer with GSO paramagnetic crystals) searching for monopole-dipole spin-mass forces. Flat limit g_p^e g_s^N <= 5.7e-32 at 95% CL stated valid for lambda >~ 10 cm; encoded as mass-independent bound from m ~ 4.1e-12 eV (lambda ~ 300 km, upper edge of quoted improvement range) to m = 1.24e-5 eV (lambda = 10 cm). Paper also quotes electron-electron coupling g_p^e g_s^e <= 1.6e-31, not encoded here. Full lambda-dependent exclusion curve only shown in Fig. 4 (not numerically extractable from text); the flat value is the paper's headline number. Not a DM haloscope, so no local DM density assumption. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 30)) | Vision: Fig. 4 upper panel: limits on g_p^e g_s^N vs lambda [m] (bottom axis, 0.001-1e5 m) / mass m [ueV] (top axis: 20, 0.2, 0.002, 2e-5 ueV). Traced the 'This work' teal boundary (SQUID and paramagnets region). Floor anchored to the explicit text value 5.7e-32 for lambda >~ 10 cm (95% CL), flat out to the plot edge (~1e5 m; text quotes validity up to ~300 km). Steep short-range rise below 10 cm modeled from the plotted curve with the expected exponential e^(d/lambda) degradation (d ~ 3 cm), matching the pixel-read curve crossing 1e-31 near lambda ~ 0.1 m and reaching the plot top near lambda ~ 3 mm. Mass conversion m[eV] = 1.973e-7/lambda[m]. The lower inset (g_p^e g_s^e, floor 1.6e-31) was not traced; the electron-nucleon product was chosen as the primary result. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.81 snapped to identity)",
+  "num_points": 30,
+  "elapsed_s": 264.8135795593262
+}

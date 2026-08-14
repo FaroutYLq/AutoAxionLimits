@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2111.09892",
+  "paper_title": "Upper Limit on the QCD Axion Mass from Isolated Neutron Star Cooling",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.0,
+      1.3e-09
+    ],
+    [
+      0.0,
+      1.3e-09
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "NSCooling_M7_Buschmann2021",
+  "coupling_convention": "dimensionless g_ann (axion-neutron coupling g_aNN = C_N m_N / f_a)",
+  "notes": "Paper constrains QCD axion via isolated neutron star (Magnificent Seven + PSR J0659) cooling. Primary result: m_a <~ 16 meV (95% CL) for KSVZ axion; phenomenological limits |g_ann| < 1.3e-9 and |g_app| < 1.5e-9 at 95% CL. Reported here is the mass-independent axion-neutron coupling bound (valid for axion masses well below NS core temperature; no explicit mass range stated, hence mass=0 sentinel). The paper also excludes a 2D region in the (g_ann, g_app) plane (Fig. S5, not numerically extractable) and provides DFSZ limits vs tan(beta). This is an astrophysical cooling bound, not a DM haloscope, so no local DM density assumed. If AxionProton is preferred downstream, the corresponding flat bound is g_app < 1.5e-9. | selector: text over figure_vision (quality (1, 1, 1, 0, 1, 0, 0.75, 2)) | [CONVENTION REVIEW] declared coupling convention 'dimensionless g_ann (axion-neutron coupling g_aNN = C_N m_N / f_a)' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 2,
+  "elapsed_s": 132.6102740764618
+}

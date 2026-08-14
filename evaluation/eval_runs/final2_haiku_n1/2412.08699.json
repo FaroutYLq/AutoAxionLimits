@@ -1,0 +1,46 @@
+{
+ "arxiv_id": "2412.08699",
+ "paper_title": "Axion mass prediction from adaptive mesh refinement cosmological lattice simulations",
+ "coupling_type": "AxionMass",
+ "is_new_limit": false,
+ "is_projection": true,
+ "data_points": [
+  [
+   1e-06,
+   4.5e-05
+  ],
+  [
+   1e-06,
+   6.5e-05
+  ],
+  [
+   1e-06,
+   5.6e-05
+  ],
+  [
+   1e-06,
+   8.9e-05
+  ],
+  [
+   1e-06,
+   0.00015
+  ],
+  [
+   1e-06,
+   0.00028
+  ],
+  [
+   1e-06,
+   0.0003
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "Benabou_et_al_2024_AMR_Cosmology",
+ "coupling_convention": "m_a in eV (axion mass prediction ranges)",
+ "notes": "This paper presents COSMOLOGICAL PREDICTIONS for the QCD axion mass based on lattice simulations of axion-string network evolution, NOT experimental exclusion limits. The paper predicts m_a \u2208 (45, 65) \u00b5eV accounting for axion production from strings prior to the QCD phase transition. With post-t* string production included: m_a \u2208 (56, 89) \u00b5eV. Including domain wall production: m_a up to ~280\u2013300 \u00b5eV. These are theoretical mass predictions derived from cosmological simulations assuming Ndw=1 and post-inflationary PQ symmetry breaking, not measured exclusion limits from experiments. The coupling_type 'AxionMass' is appropriate because the paper's primary result is a prediction of the axion mass itself (in eV) based on cosmological abundance matching, not a constraint on a coupling constant (g_agamma, g_ae, etc.). The data_points encode the predicted mass ranges as horizontal bands at arbitrary mass scale (1 \u00b5eV chosen as placeholder). Extraction confidence is moderate (0.75) because while the coupling type is clear, the paper presents multiple overlapping predictions with different assumptions (string-only vs. including domain walls), and these are projections/predictions rather than experimental limits. | [CONVENTION REVIEW] declared coupling convention 'm_a in eV (axion mass prediction ranges)' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 7,
+ "elapsed_s": 113.18036603927612
+}

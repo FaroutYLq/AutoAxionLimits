@@ -1,0 +1,134 @@
+{
+ "arxiv_id": "2310.00904",
+ "paper_title": "Exclusion of ALP Cogenesis Dark Matter in a Mass Window Above 100 $\u03bc$eV",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.00010742,
+   6.5e-12
+  ],
+  [
+   0.00010745,
+   5.5e-12
+  ],
+  [
+   0.0001075,
+   4.8e-12
+  ],
+  [
+   0.00010755,
+   4.5e-12
+  ],
+  [
+   0.0001076,
+   4.3e-12
+  ],
+  [
+   0.0001077,
+   4.2e-12
+  ],
+  [
+   0.00010785,
+   4.1e-12
+  ],
+  [
+   0.000108,
+   4e-12
+  ],
+  [
+   0.0001082,
+   4e-12
+  ],
+  [
+   0.0001084,
+   4e-12
+  ],
+  [
+   0.0001086,
+   4e-12
+  ],
+  [
+   0.0001088,
+   4e-12
+  ],
+  [
+   0.000109,
+   4e-12
+  ],
+  [
+   0.0001092,
+   4e-12
+  ],
+  [
+   0.0001094,
+   4e-12
+  ],
+  [
+   0.0001096,
+   4e-12
+  ],
+  [
+   0.0001098,
+   4e-12
+  ],
+  [
+   0.00011,
+   4e-12
+  ],
+  [
+   0.0001102,
+   4e-12
+  ],
+  [
+   0.0001104,
+   4e-12
+  ],
+  [
+   0.0001106,
+   4e-12
+  ],
+  [
+   0.0001108,
+   4e-12
+  ],
+  [
+   0.000111,
+   4e-12
+  ],
+  [
+   0.0001112,
+   4e-12
+  ],
+  [
+   0.0001114,
+   4e-12
+  ],
+  [
+   0.0001116,
+   4.1e-12
+  ],
+  [
+   0.0001118,
+   4.2e-12
+  ],
+  [
+   0.0001119,
+   4.3e-12
+  ],
+  [
+   0.00011193,
+   4.5e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "ORGAN Phase 1b",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted",
+ "notes": "ORGAN Phase 1b microwave cavity haloscope, mass range 107.42-111.93 ueV (25.97-27.07 GHz), excludes g_agamma >= 4e-12 GeV^-1 at 95% CL. The limit is approximately flat around 4e-12 across the range; only the overall bound is quoted in text, no per-frequency table provided. Represented as two-point horizontal line spanning the searched mass range. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 29)) | Vision: Exclusion region shaded blue, lower boundary ~4e-12 GeV^-1 with a notch near 26 GHz rising to ~6.5e-12. Mass range 107.42-111.93 ueV corresponds to 25.97-27.07 GHz. Frequency converted to mass via top axis calibration (105.5 ueV at 25.5 GHz, 113.7 ueV at 27.5 GHz). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.50 snapped to identity)",
+ "num_points": 29,
+ "elapsed_s": 220.71986365318298
+}

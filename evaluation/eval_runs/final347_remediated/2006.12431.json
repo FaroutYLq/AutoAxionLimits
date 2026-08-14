@@ -1,0 +1,134 @@
+{
+  "arxiv_id": "2006.12431",
+  "paper_title": "XENON1T_S2_SolarAxionBasin",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      200.0,
+      7e-12
+    ],
+    [
+      210.0,
+      4.5e-12
+    ],
+    [
+      230.0,
+      3.5e-12
+    ],
+    [
+      280.0,
+      3.1e-12
+    ],
+    [
+      350.0,
+      3e-12
+    ],
+    [
+      450.0,
+      3e-12
+    ],
+    [
+      600.0,
+      3e-12
+    ],
+    [
+      680.0,
+      3e-12
+    ],
+    [
+      710.0,
+      1.5e-12
+    ],
+    [
+      800.0,
+      1.35e-12
+    ],
+    [
+      1000.0,
+      1.3e-12
+    ],
+    [
+      1300.0,
+      1.3e-12
+    ],
+    [
+      1700.0,
+      1.3e-12
+    ],
+    [
+      2200.0,
+      1.3e-12
+    ],
+    [
+      3000.0,
+      1.35e-12
+    ],
+    [
+      4000.0,
+      1.4e-12
+    ],
+    [
+      5000.0,
+      1.45e-12
+    ],
+    [
+      6500.0,
+      1.5e-12
+    ],
+    [
+      8000.0,
+      1.5e-12
+    ],
+    [
+      10000.0,
+      1.6e-12
+    ],
+    [
+      12000.0,
+      2e-12
+    ],
+    [
+      14000.0,
+      2.8e-12
+    ],
+    [
+      17000.0,
+      4.5e-12
+    ],
+    [
+      20000.0,
+      7e-12
+    ],
+    [
+      24000.0,
+      1.3e-11
+    ],
+    [
+      28000.0,
+      2.5e-11
+    ],
+    [
+      32000.0,
+      5e-11
+    ],
+    [
+      36000.0,
+      8e-11
+    ],
+    [
+      40000.0,
+      1e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "XENON1T S2 Solar Axion Basin",
+  "coupling_convention": "g_aee (pseudoscalar-electron coupling), dimensionless, as plotted",
+  "notes": "Paper introduces 'stellar basin' phenomenon and recasts XENON1T S2-only DM axion-electron absorption limit into a DM-assumption-independent Solar Axion Basin limit on gaee (Fig. 3, conservative blue curve, Eq. 9 ejection time). Coupling is axion-electron (gaee), definitively AxionElectron. Data points read approximately from Fig. 3 conservative curve; masses converted from keV to eV. Limit is independent of local DM density, so dm_density_assumed is null. The paper also shows fiducial/optimistic curves and cooling bounds (WD/RG) not extracted here. Plot reading is approximate hence moderate confidence. | selector: figure_vision over plot (quality (1, 1, 1, 1, 2, 0, 0.7, 29)) | Vision: Figure 3: Solar Axion Basin Limit on g_aee vs axion mass (keV converted to eV). Lower boundary traced is the thin solid 'conservative' curve, which delineates the conclusively excluded (light blue) region and is DM-assumption independent. The thick blue 'fiducial' and dashed 'optimistic' curves lie below (lower coupling) and are only disfavored/conceivable, so the conservative curve is the correct conservative exclusion lower edge. Left edge of exclusion near 0.2 keV; a step-down occurs near 0.7 keV; plateau ~1.3e-12 from ~1-9 keV; sharp rise above ~15 keV. Grey (RG) and orange (WD) stellar-cooling bands are separate constraints not traced here. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.96 snapped to identity)",
+  "num_points": 29,
+  "elapsed_s": 136.15991616249084
+}

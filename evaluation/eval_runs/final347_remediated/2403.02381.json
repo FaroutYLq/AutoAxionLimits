@@ -1,0 +1,114 @@
+{
+  "arxiv_id": "2403.02381",
+  "paper_title": "MICROSCOPE",
+  "coupling_type": "VectorBL",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-19,
+      7.1e-26
+    ],
+    [
+      3.2e-19,
+      7.1e-26
+    ],
+    [
+      1e-18,
+      7.1e-26
+    ],
+    [
+      3.2e-18,
+      7.1e-26
+    ],
+    [
+      1e-17,
+      7.1e-26
+    ],
+    [
+      3.2e-17,
+      7.1e-26
+    ],
+    [
+      1e-16,
+      7.1e-26
+    ],
+    [
+      3.2e-16,
+      7.1e-26
+    ],
+    [
+      1e-15,
+      7.1e-26
+    ],
+    [
+      2e-15,
+      7.2e-26
+    ],
+    [
+      3e-15,
+      7.3e-26
+    ],
+    [
+      4e-15,
+      7.5e-26
+    ],
+    [
+      5e-15,
+      7.9e-26
+    ],
+    [
+      6e-15,
+      8.7e-26
+    ],
+    [
+      7e-15,
+      1e-25
+    ],
+    [
+      8e-15,
+      1.15e-25
+    ],
+    [
+      1e-14,
+      1.4e-25
+    ],
+    [
+      1.5e-14,
+      1.7e-25
+    ],
+    [
+      2e-14,
+      1.85e-25
+    ],
+    [
+      3e-14,
+      2e-25
+    ],
+    [
+      4e-14,
+      2.1e-25
+    ],
+    [
+      6e-14,
+      2.25e-25
+    ],
+    [
+      8e-14,
+      2.35e-25
+    ],
+    [
+      1e-13,
+      2.45e-25
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "MICROSCOPE (Final)",
+  "coupling_convention": "g_{B-L}, dimensionless gauge coupling, plotted directly on y-axis",
+  "notes": "Paper is on ultralight vector (dark photon) B-L dark matter; the constrained quantity is the U(1)_{B-L} gauge coupling g_BL, so VectorBL (NOT ScalarBaryon, overriding the hint). The main new results are PROJECTED sensitivities for optomechanical cavities (Fig. 5, f0=0.1/1/10 Hz), which are DM-density dependent (rho ~ GeV/cm^3). Separately, Appendix E recomputes an updated OBSERVED limit from the final MICROSCOPE results: g_BL <~ 7e-26 at low masses (mass-independent fifth-force bound, hence no DM density). I report this MICROSCOPE flat limit as a two-point horizontal line over the low-mass validity range (~1e-19 to ~1e-14 eV) since it is the clean text value matching the paper title. They also express it as |eps_BL| <~ 8.93e-19*(N/A). The projection curves in Fig. 5 could not be read numerically with confidence. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 24)) | Vision: Figure 5: 90% CL limits on g_{B-L} for ultralight B-L dark matter. Traced the MICROSCOPE (Final) grey solid line, which is the recomputed experimental constraint forming the lower boundary of the grey excluded region. It is flat at ~7e-26 (text confirms g_{B-L} <= 7e-26 at low masses) up to ~3e-15 eV, then rises into the T_obs>tau_coh region reaching ~2.5e-25 at 1e-13 eV. The colored f0=0.1/1/10 Hz solid curves are projected optomechanical-cavity sensitivities, not existing exclusions, so they were not traced. MICROSCOPE (First) dashed line sits at ~4.3e-25, Eot-Wash at ~3.5e-24. Top axis is Compton frequency in Hz; x-axis mass in eV used directly. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.89 snapped to identity)",
+  "num_points": 24,
+  "elapsed_s": 221.21725296974182
+}

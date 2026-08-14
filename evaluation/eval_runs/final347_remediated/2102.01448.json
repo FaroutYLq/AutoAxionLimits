@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "2102.01448",
+  "paper_title": "Search for axion-like dark matter with spin-based amplifiers",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      8.3e-15,
+      3.5e-09
+    ],
+    [
+      6.75e-14,
+      2.9e-09
+    ],
+    [
+      8.205e-14,
+      3.5e-09
+    ],
+    [
+      7.44e-13,
+      3.5e-09
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "SpinAmplifier_XeRb_2021",
+  "coupling_convention": "g_aNN in GeV^-1 (derivative axion-nucleon coupling, as reported by paper)",
+  "notes": "Search for ALP dark matter (8.3-744 feV) using 129Xe-87Rb spin-based amplifier. Constrains ALP-nucleon coupling gaNN in GeV^-1 (via 129Xe, neutron-rich isotope -> AxionNeutron). Best 5h limit gaNN=2.9e-9 GeV^-1 at 67.5 feV; 100s data ~3.5e-9 GeV^-1 (e.g. 3.5e-9 at 82.05 feV). Values are the paper's derivative-coupling gaNN in GeV^-1, NOT the dimensionless g_an \u2014 downstream conversion needed. Paper also sets dark-photon (dEDM/dMDM) and quadratic ALP limits, but primary result is gaNN. Only sparse numerical values available from text; exclusion curve is approximately flat but degrades at high mass. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.6, 4))",
+  "num_points": 4,
+  "elapsed_s": 97.16813397407532
+}

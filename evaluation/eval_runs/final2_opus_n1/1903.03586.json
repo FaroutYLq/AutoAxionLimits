@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "1903.03586",
+ "paper_title": "Photoproduction of axion-like particles",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   110000000.0,
+   0.0004
+  ],
+  [
+   115000000.0,
+   0.0003
+  ],
+  [
+   120000000.0,
+   0.00045
+  ],
+  [
+   130000000.0,
+   0.0005
+  ],
+  [
+   140000000.0,
+   0.00045
+  ],
+  [
+   150000000.0,
+   0.0004
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "PrimEx_ALP",
+ "coupling_convention": "c_gamma/Lambda in GeV^-1 (equivalent to g_agamma in GeV^-1)",
+ "notes": "Paper sets world-leading limits on ALP-photon coupling (c_gamma/Lambda) from a bump hunt of published PrimEx diphoton mass spectrum (Fig. S2), and separately ALP-gluon coupling c_g/Lambda from GlueX (Fig. S4). The observed photon-coupling limit spans ~0.11-0.15 GeV with best sensitivity near 115 and 160 MeV, values ~3-5e-4 GeV^-1 read approximately from Fig. S2. Full PrimEx and GlueX projections shown in Figs. 2 and 3 are separate projections. Data points are approximate readings from small plot; values are c_gamma/Lambda which corresponds to g_agamma coupling. Confidence lowered due to approximate plot reading and coupling normalization convention uncertainty. | selector: text over figure_vision (quality (1, 1, 1, 0, 1, 0, 0.55, 6)) | [CONVENTION REVIEW] declared coupling convention 'c_gamma/Lambda in GeV^-1 (equivalent to g_agamma in GeV^-1)' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 6,
+ "elapsed_s": 178.07962799072266
+}

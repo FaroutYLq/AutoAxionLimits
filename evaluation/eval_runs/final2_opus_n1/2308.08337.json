@@ -1,0 +1,22 @@
+{
+ "arxiv_id": "2308.08337",
+ "paper_title": "SUPAX",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.434e-05,
+   6.2e-14
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "SUPAX",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "Single-frequency dark photon haloscope limit at 8303.06 MHz = 34.34 ueV. Final claimed limit chi < 6.20e-14 (95% CL) in randomised polarisation scenario. A fixed-polarisation limit chi_pol < 38e-14 is also quoted but the headline result is the randomised value. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.92, 1))",
+ "num_points": 1,
+ "elapsed_s": 134.2466537952423
+}

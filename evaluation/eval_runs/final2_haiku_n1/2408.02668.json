@@ -1,0 +1,98 @@
+{
+ "arxiv_id": "2408.02668",
+ "paper_title": "Searching for dark matter with a 1000 km baseline interferometer",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-22,
+   1e-09
+  ],
+  [
+   1e-21,
+   1e-09
+  ],
+  [
+   1e-20,
+   1e-09
+  ],
+  [
+   1e-19,
+   1e-09
+  ],
+  [
+   1e-18,
+   5e-09
+  ],
+  [
+   1e-17,
+   2e-09
+  ],
+  [
+   1e-16,
+   1e-09
+  ],
+  [
+   1e-15,
+   1e-09
+  ],
+  [
+   1e-14,
+   1e-09
+  ],
+  [
+   1e-13,
+   1e-08
+  ],
+  [
+   1e-12,
+   1e-08
+  ],
+  [
+   1e-11,
+   1e-08
+  ],
+  [
+   1e-10,
+   1e-07
+  ],
+  [
+   1e-09,
+   1e-07
+  ],
+  [
+   1e-08,
+   1e-07
+  ],
+  [
+   1e-07,
+   1e-06
+  ],
+  [
+   1e-06,
+   1e-05
+  ],
+  [
+   1e-05,
+   0.0001
+  ],
+  [
+   0.0001,
+   0.001
+  ],
+  [
+   4e-14,
+   1e-09
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "Mainz-Krak\u00f3w ALP Interferometer",
+ "coupling_convention": "g_aN in GeV^-1",
+ "notes": "Paper reports new exclusion limits on ALP-neutron coupling g_aNN < 10^-9 GeV^-1 in the mass range 10^-22 to 4\u00d710^-14 eV (nine orders of magnitude). The experiment uses two K-Rb-3He comagnetometers separated by ~860 km to search for ALP dark matter via gradient-spin interactions. Data points extracted from Figures 4, 5, 6 and abstract statement. The limits improve previous laboratory constraints by up to three orders of magnitude for neutron and proton couplings. The paper also constrains AxionProton (g_aPP < 10^-7 GeV^-1) and AxionElectron (g_aee < 10^-6 GeV^-1) couplings. Local DM density of 0.4 GeV/cm^3 is assumed per Eq. (2) and text. Confidence level is 95% (CLs method, Eq. 13). The coupling values are in GeV^-1 as stated in abstract and throughout paper. | selector: text (sole candidate)",
+ "num_points": 20,
+ "elapsed_s": 54.06462788581848
+}

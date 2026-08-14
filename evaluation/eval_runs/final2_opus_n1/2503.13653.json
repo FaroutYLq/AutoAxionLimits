@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2503.13653",
+ "paper_title": "Energy transfer by feebly interacting particles in supernovae: the trapping regime",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   10000000.0,
+   2e-09
+  ],
+  [
+   30000000.0,
+   1e-09
+  ],
+  [
+   100000000.0,
+   7e-10
+  ],
+  [
+   300000000.0,
+   6e-10
+  ],
+  [
+   1000000000.0,
+   8e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.45,
+ "suggested_experiment_name": "SN_EnergyDeposition_Trapping",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Supernova energy-deposition bound on axion-photon coupling in the trapping regime (Fig. 3). The paper's main new result is the ceiling/upper-boundary of the energy-deposition exclusion region across axion masses ~1-1000 MeV, with g_agamma reaching up to ~1e-4 GeV^-1 at low mass and closing off near ~1e-9 GeV^-1. This is an astrophysical (SN) bound, not a haloscope, so no DM density applies. Data points are rough estimates read from the exclusion plot boundary and are approximate; the exclusion is a 2D closed region (upper edge ~1e-4, lower edge varying), so single-line extraction is uncertain. Values shown here approximate the lower boundary of the newly-derived diffusive/trapping ceiling near ~1e-9 GeV^-1 across the mass range. No explicit numerical table is provided. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.45, 5))",
+ "num_points": 5,
+ "elapsed_s": 125.62638282775879
+}

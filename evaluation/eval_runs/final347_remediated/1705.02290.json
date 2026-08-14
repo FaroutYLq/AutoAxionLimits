@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "1705.02290",
+  "paper_title": "CAST",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.0001,
+      6.6e-11
+    ],
+    [
+      0.02,
+      6.6e-11
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.92,
+  "suggested_experiment_name": "CAST2017",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "CAST solar axion helioscope, 2013-2015 vacuum phase. Main result g_agamma < 0.66e-10 GeV^-1 (95% C.L.) valid for m_a <~ 0.02 eV, encoded as flat horizontal bound spanning the coherent-conversion range. Not a DM haloscope so no local density assumed. For m_a > 0.02 eV sensitivity degrades (rising curve in Fig 2) but precise numerical points not tabulated. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.92, 2))",
+  "num_points": 2,
+  "elapsed_s": 64.99085068702698
+}

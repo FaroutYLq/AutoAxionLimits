@@ -1,0 +1,182 @@
+{
+ "arxiv_id": "2208.12670",
+ "paper_title": "Search for galactic axions with a high-Q dielectric cavity",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.2821e-05,
+   7.5e-13
+  ],
+  [
+   4.282108e-05,
+   4.5e-13
+  ],
+  [
+   4.282112e-05,
+   6.5e-13
+  ],
+  [
+   4.282116e-05,
+   3e-13
+  ],
+  [
+   4.28212e-05,
+   5e-13
+  ],
+  [
+   4.282124e-05,
+   2.5e-13
+  ],
+  [
+   4.282128e-05,
+   4e-13
+  ],
+  [
+   4.282132e-05,
+   1.8e-13
+  ],
+  [
+   4.282136e-05,
+   3e-13
+  ],
+  [
+   4.28214e-05,
+   1.5e-13
+  ],
+  [
+   4.282144e-05,
+   2.5e-13
+  ],
+  [
+   4.282148e-05,
+   1.2e-13
+  ],
+  [
+   4.28215e-05,
+   2e-13
+  ],
+  [
+   4.282153e-05,
+   9.5e-14
+  ],
+  [
+   4.282156e-05,
+   1.6e-13
+  ],
+  [
+   4.282159e-05,
+   8.5e-14
+  ],
+  [
+   4.282162e-05,
+   1.4e-13
+  ],
+  [
+   4.282165e-05,
+   7.8e-14
+  ],
+  [
+   4.282168e-05,
+   1.2e-13
+  ],
+  [
+   4.282171e-05,
+   7.31e-14
+  ],
+  [
+   4.282174e-05,
+   1.1e-13
+  ],
+  [
+   4.282177e-05,
+   8e-14
+  ],
+  [
+   4.28218e-05,
+   1.3e-13
+  ],
+  [
+   4.282183e-05,
+   8.5e-14
+  ],
+  [
+   4.282186e-05,
+   1.4e-13
+  ],
+  [
+   4.282189e-05,
+   9e-14
+  ],
+  [
+   4.282192e-05,
+   1.6e-13
+  ],
+  [
+   4.282195e-05,
+   1e-13
+  ],
+  [
+   4.282198e-05,
+   1.8e-13
+  ],
+  [
+   4.282201e-05,
+   1.2e-13
+  ],
+  [
+   4.282204e-05,
+   2e-13
+  ],
+  [
+   4.282206e-05,
+   1.4e-13
+  ],
+  [
+   4.28221e-05,
+   2.5e-13
+  ],
+  [
+   4.282213e-05,
+   1.6e-13
+  ],
+  [
+   4.282216e-05,
+   3e-13
+  ],
+  [
+   4.282219e-05,
+   2e-13
+  ],
+  [
+   4.282222e-05,
+   3.5e-13
+  ],
+  [
+   4.282225e-05,
+   2.5e-13
+  ],
+  [
+   4.282228e-05,
+   5e-13
+  ],
+  [
+   4.28223e-05,
+   6.5e-13
+  ],
+  [
+   4.282233e-05,
+   9e-13
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "QUAX-agamma dielectric haloscope",
+ "coupling_convention": "g_agamma in GeV^-1, canonical",
+ "notes": "QUAX-agamma haloscope with high-Q dielectric cavity. Limit g_agamma < 0.731e-13 GeV^-1 at 90% CL over mass window ~1.32 neV centered at 42.8216 ueV (42.8210-42.8223 ueV). Encoded as horizontal band spanning the narrow scan range. Local DM density rho_a = 0.45 GeV/cm^3. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 41)) | Vision: FIG. 8 shows a 90% CL upper limit on g_agamma over a very narrow mass window (42.8210-42.8223 ueV). The boundary is highly jagged with many downward spikes. The reference limit stated in text is g_agamma < 0.731e-13 GeV^-1 (=7.31e-14) at the point of maximum sensitivity, used to calibrate the lowest spike near 4.28217e-05 eV. Red curve is expected limit. Values are approximate given the fluctuating boundary. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.03 snapped to identity)",
+ "num_points": 41,
+ "elapsed_s": 183.9241771697998
+}

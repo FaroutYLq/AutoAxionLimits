@@ -1,0 +1,98 @@
+{
+ "arxiv_id": "2205.03679",
+ "paper_title": "Search for Dark Photon Dark Matter in the Mass Range $74\\mbox{--}110\\,\u03bc\\mathrm{eV}/c^2$ with a Cryogenic Millimeter-Wave Receiver",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   7.4e-05,
+   1e-10
+  ],
+  [
+   7.5e-05,
+   1.1e-10
+  ],
+  [
+   7.7e-05,
+   9.5e-11
+  ],
+  [
+   7.9e-05,
+   1.05e-10
+  ],
+  [
+   8.1e-05,
+   9e-11
+  ],
+  [
+   8.3e-05,
+   1e-10
+  ],
+  [
+   8.5e-05,
+   8.5e-11
+  ],
+  [
+   8.7e-05,
+   1e-10
+  ],
+  [
+   8.9e-05,
+   9e-11
+  ],
+  [
+   9e-05,
+   1.05e-10
+  ],
+  [
+   9.2e-05,
+   9e-11
+  ],
+  [
+   9.4e-05,
+   1e-10
+  ],
+  [
+   9.6e-05,
+   8.5e-11
+  ],
+  [
+   9.8e-05,
+   1e-10
+  ],
+  [
+   0.0001,
+   9.5e-11
+  ],
+  [
+   0.000102,
+   1.1e-10
+  ],
+  [
+   0.000104,
+   9e-11
+  ],
+  [
+   0.000106,
+   1e-10
+  ],
+  [
+   0.000108,
+   1.05e-10
+  ],
+  [
+   0.00011,
+   1e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.39,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "DOSUE-RR",
+ "coupling_convention": "kinetic mixing chi, dimensionless (plotted in units of 1e-10)",
+ "notes": "Dark photon DM search 74-110 ueV/c2 (18-26.5 GHz). Paper reports chi < (0.3-2.0)e-10 at 95% CL over the mass range but does not give a per-frequency table; only the range bounds are quoted. Endpoints emitted as approximate span; the limit varies with frequency between 0.3e-10 and 2.0e-10. Local DM density 0.39 GeV/cm^3. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 20)) | Vision: Lower boundary of 'This work' exclusion region from Fig. 5 bottom panel. Y-axis in units of x10^-10, linear scale 0-10. Boundary is a noisy near-flat band around chi~1e-10 across mass range 74-110 ueV. The excluded region is above this boundary up to the cosmological limit line. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.11 snapped to identity)",
+ "num_points": 20,
+ "elapsed_s": 111.36681604385376
+}

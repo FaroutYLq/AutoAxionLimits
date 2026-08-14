@@ -1,0 +1,134 @@
+{
+  "arxiv_id": "2211.02902",
+  "paper_title": "Search for Dark Matter Axions with CAST-CAPP",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.974e-05,
+      5e-13
+    ],
+    [
+      1.98e-05,
+      3.2e-13
+    ],
+    [
+      1.99e-05,
+      2.6e-13
+    ],
+    [
+      2e-05,
+      2.5e-13
+    ],
+    [
+      2.01e-05,
+      2.1e-13
+    ],
+    [
+      2.02e-05,
+      2.3e-13
+    ],
+    [
+      2.03e-05,
+      1.9e-13
+    ],
+    [
+      2.04e-05,
+      2.1e-13
+    ],
+    [
+      2.05e-05,
+      2e-13
+    ],
+    [
+      2.06e-05,
+      1.8e-13
+    ],
+    [
+      2.07e-05,
+      1.9e-13
+    ],
+    [
+      2.08e-05,
+      1.7e-13
+    ],
+    [
+      2.09e-05,
+      1.7e-13
+    ],
+    [
+      2.1e-05,
+      1.5e-13
+    ],
+    [
+      2.11e-05,
+      1.5e-13
+    ],
+    [
+      2.12e-05,
+      1.4e-13
+    ],
+    [
+      2.13e-05,
+      1.4e-13
+    ],
+    [
+      2.14e-05,
+      1.3e-13
+    ],
+    [
+      2.15e-05,
+      1.3e-13
+    ],
+    [
+      2.16e-05,
+      1.2e-13
+    ],
+    [
+      2.17e-05,
+      1.15e-13
+    ],
+    [
+      2.18e-05,
+      1.05e-13
+    ],
+    [
+      2.19e-05,
+      9.5e-14
+    ],
+    [
+      2.2e-05,
+      8e-14
+    ],
+    [
+      2.21e-05,
+      8.5e-14
+    ],
+    [
+      2.22e-05,
+      9.5e-14
+    ],
+    [
+      2.23e-05,
+      1.05e-13
+    ],
+    [
+      2.24e-05,
+      1.15e-13
+    ],
+    [
+      2.247e-05,
+      1.3e-13
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "CAST-CAPP",
+  "coupling_convention": "canonical |g_agamma| in GeV^-1",
+  "notes": "CAST-CAPP haloscope, 19.74-22.47 ueV (4.774-5.434 GHz). Best exclusion g_agamma = 8e-14 GeV^-1 at 90% CL, with typical values around 1e-13 across the range; better sensitivity near 22 ueV due to phase-matching. Exact per-mass curve is from Fig. 5 (only endpoints/best value given numerically in text); intermediate points approximate. Local DM density 0.45 GeV/cm^3. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 29)) | Vision: Left panel of Figure 5. CAST-CAPP red exclusion region, 90% CL, mass range 19.74-22.47 ueV. Lower boundary is highly jagged; values represent the lower envelope of the red region. Boundary mostly ~2-3e-13 GeV^-1, dipping to ~8e-14 near 22 ueV where phase-matching is dominant, consistent with text stating exclusion down to g=8e-14 GeV^-1. Left edge ramps up to 1e-11 near 19.5-19.7 ueV. KSVZ line ~9e-15, DFSZ ~3e-15. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.90 snapped to identity)",
+  "num_points": 29,
+  "elapsed_s": 102.70247888565063
+}

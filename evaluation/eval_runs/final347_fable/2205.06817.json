@@ -1,0 +1,17 @@
+{
+  "arxiv_id": "2205.06817",
+  "paper_title": "Constraining Fundamental Constant Variations from Ultralight Dark Matter with Pulsar Timing Arrays",
+  "coupling_type": "ScalarElectron",
+  "is_new_limit": false,
+  "is_projection": true,
+  "data_points": [],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.35,
+  "suggested_experiment_name": "PTA_FundamentalConstants_Projection",
+  "coupling_convention": "dimensionless d_e (Damour-Donoghue convention, Lambda = M_Pl/sqrt(4pi)), approximate values estimated from Fig. 1",
+  "notes": "Paper (Kaplan, Mitridate, Trickle 2022, arXiv:2205.06817) derives PROJECTED 95% C.L. constraints using MOCK PTA data (IPTA-like and future PTA) on five scalar ULDM couplings: d_mhat, d_e, d_mu, d_gamma, d_g, via pulsar spin fluctuations and reference clock shifts. No real-data limit is set. Results appear only in Fig. 1 (no numerical table); the data_points above for the electron coupling d_e (IPTA, correlated analysis) are rough estimates based on the figure's axis ranges (mass 1e-24 to 1e-20 eV, d from 1e-8 to 1e-2) and the stated scaling behavior (d proportional to m^2 at high mass, flattening/weakening at low mass), NOT precise digitization - treat with caution. The paper equally constrains d_gamma (ScalarPhoton), d_g/d_mhat (ScalarNucleon-like gluon/quark couplings), and d_mu; ScalarElectron chosen per pre-analysis hint. Local DM density rho = 0.4 GeV/cm^3 assumed. Constraints are 95th percentile of Bayesian posterior. | [VISION GATE A] is_projection=true but the vision notes say the traced curve is existing experiment 'ipta' \u2014 not the paper's own projected curve",
+  "num_points": 0,
+  "elapsed_s": 113.37820172309875
+}

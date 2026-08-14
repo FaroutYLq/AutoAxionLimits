@@ -1,0 +1,17 @@
+{
+  "arxiv_id": "1711.08999",
+  "paper_title": "Overview of the Cosmic Axion Spin Precession Experiment (CASPEr)",
+  "coupling_type": "AxionEDM",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.2,
+  "suggested_experiment_name": "CASPEr_overview2018",
+  "coupling_convention": "gd in GeV^-2 (axion-gluon/EDM coupling), or gaNN in GeV^-1 for CASPEr Wind",
+  "notes": "Overview/proposal paper of CASPEr with two sensitivity-projection figures: Fig.3 (CASPEr Electric, axion-gluon coupling gd generating oscillating nuclear EDM, x-axis ALP mass ~1e-12 to 1e-6 eV) and Fig.4 (CASPEr Wind, ALP-nucleon coupling gaNN in GeV^-1, y-axis 1e-16 to 1e-8, mass 1e-12 to 1e-6 eV). No tabulated numerical values are provided; projection curves cannot be read reliably from the text. Coupling type is ambiguous between AxionEDM (Electric) and AxionNeutron (Wind, 129Xe neutron-rich). Assumed rho_DM=0.4 GeV/cm^3 stated in text. No extractable data points. | [VISION GATE A] is_projection=true but the vision notes say the traced curve is existing experiment 'sn1987a' \u2014 not the paper's own projected curve",
+  "num_points": 0,
+  "elapsed_s": 186.17573881149292
+}

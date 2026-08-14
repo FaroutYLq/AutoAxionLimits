@@ -1,0 +1,106 @@
+{
+ "arxiv_id": "2007.04990",
+ "paper_title": "More Axions from Strings",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-07,
+   6.5e-11
+  ],
+  [
+   3e-07,
+   6.5e-11
+  ],
+  [
+   1e-06,
+   6.5e-11
+  ],
+  [
+   3e-06,
+   6.5e-11
+  ],
+  [
+   1e-05,
+   6.5e-11
+  ],
+  [
+   3e-05,
+   6.5e-11
+  ],
+  [
+   0.0001,
+   6.5e-11
+  ],
+  [
+   0.0003,
+   6.5e-11
+  ],
+  [
+   0.001,
+   6.5e-11
+  ],
+  [
+   0.003,
+   6.5e-11
+  ],
+  [
+   0.01,
+   6.5e-11
+  ],
+  [
+   0.02,
+   6.5e-11
+  ],
+  [
+   0.03,
+   6.8e-11
+  ],
+  [
+   0.05,
+   7e-11
+  ],
+  [
+   0.07,
+   6.8e-11
+  ],
+  [
+   0.1,
+   6.5e-11
+  ],
+  [
+   0.15,
+   6.8e-11
+  ],
+  [
+   0.2,
+   7e-11
+  ],
+  [
+   0.3,
+   6.8e-11
+  ],
+  [
+   0.5,
+   6.5e-11
+  ],
+  [
+   0.7,
+   6.5e-11
+  ],
+  [
+   1.0,
+   6.5e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.35,
+ "suggested_experiment_name": "CAST/HB (context in More Axions from Strings)",
+ "coupling_convention": "g_agamma in GeV^-1 (horizontal CAST/HB astrophysical bound; NOT the paper's primary result)",
+ "notes": "Theoretical cosmology paper computing QCD axion DM abundance from string defects. Provides a lower bound on the post-inflationary QCD axion mass (window ma ~ 0.5-20 meV; fa >~ 3.7e9 GeV) but does NOT present an experimental exclusion limit or a (mass, coupling) exclusion curve. No extractable coupling-vs-mass data points. The referenced ga\u03b3\u03b3 curves are pre-existing experimental/astrophysical bounds shown for context, not new results of this paper. | selector: figure_vision (sole candidate) | Vision: The paper's primary result is a LOWER BOUND on the QCD axion mass (m_a >~ 0.5-3.5 meV shown as vertical green lines), NOT a coupling exclusion curve. Figure 5's y-axis is g_agamma (axion-photon coupling), so this is fundamentally an AxionPhoton plot, not an AxionMass (f_a-m_a) plot despite the hint. The traced boundary is the CAST/HB horizontal constraint (~6.5e-11 GeV^-1) which forms the lower edge of the excluded upper region. This does not represent the paper's own novel result, which cannot be expressed as a coupling-vs-mass boundary. Confidence reduced accordingly. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.96 snapped to identity)",
+ "num_points": 22,
+ "elapsed_s": 224.63156294822693
+}

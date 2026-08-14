@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "2304.01060",
+  "paper_title": "Investigating the gamma-ray burst from decaying MeV-scale axion-like particles produced in supernova explosions",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      10000.0,
+      1e-11
+    ],
+    [
+      1000000.0,
+      1e-11
+    ],
+    [
+      100000000.0,
+      2e-12
+    ],
+    [
+      280000000.0,
+      2e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.42,
+  "suggested_experiment_name": "SN1987A_SMM_ALPdecay2023",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Paper derives an updated SN 1987A gamma-ray decay bound on the ALP-photon coupling g_agamma, extending the excluded mass range up to m_a ~ 280 MeV by including photon coalescence production. Main new result is the observed SMM/SN1987A exclusion (2 sigma and 3 sigma); a Fermi-LAT sensitivity projection (down to g_agamma ~ 1e-13 GeV^-1) is also presented but is secondary. No numerical table is provided; the exclusion contour is only shown in Fig. 3. Data points here are ROUGH estimates of the lower boundary of the excluded band inferred from text-quoted benchmark values (case 1: g=1e-11 GeV^-1, m=1 MeV 'close to maximal allowed'; case 2: g=4e-13 GeV^-1, m=100 MeV, factor ~5 below the edge). Values should be treated as approximate. Astrophysical bound - no DM density applies. Bound extends from ~10 keV to ~280 MeV. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.42, 4))",
+  "num_points": 4,
+  "elapsed_s": 105.56021785736084
+}

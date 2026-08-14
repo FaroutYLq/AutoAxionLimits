@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1508.02463",
+ "paper_title": "Short-range spin-dependent interactions of electrons: a probe for exotic pseudo-Goldstone bosons",
+ "coupling_type": "MonopoleDipole",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.5e-06,
+   1e-28
+  ],
+  [
+   0.0004,
+   1e-28
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "E\u00f6t-Wash_Torsion_Pendulum_2015",
+ "coupling_convention": "|(g_e_p * g_N_s)| / (hbar * c), dimensionless",
+ "notes": "Paper reports two independent measurements: (1) Dipole-dipole (Vdd) constraints on (g_e_p)^2/(hbar*c) for m_b \u2264 500 \u00b5eV, reaching 5.5\u00d710^-17 for m_b < 30 \u00b5eV (AxionElectron type, not extracted here). (2) Monopole-dipole (Vmd) CP-violating constraints on |(g_e_p * g_N_s)|/(hbar*c) for 1.5 \u00b5eV < m_b < 400 \u00b5eV at the 10^-28 level, improving previous bounds by up to 1000\u00d7. The monopole-dipole result is the primary new constraint highlighted in the abstract. The coupling convention represents the product of electron pseudoscalar coupling g_e_p and nucleon scalar coupling g_N_s, normalized by hbar*c. The mass range 1.5\u2013400 \u00b5eV is encoded as a horizontal line at 10^-28. Confidence is 0.75 because the paper clearly identifies the monopole-dipole coupling type and mass range, but the exact numerical value (10^-28) is inferred from Fig. 5 caption and text rather than an explicit table entry for all mass points. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.75, 2))",
+ "num_points": 2,
+ "elapsed_s": 98.38950204849243
+}

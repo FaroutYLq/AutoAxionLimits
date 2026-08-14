@@ -1,0 +1,86 @@
+{
+ "arxiv_id": "1806.00310",
+ "paper_title": "Operation of a ferromagnetic axion haloscope at $m_a=58\\,\u03bc$eV",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   5.8527e-05,
+   3.4999999999999996e-08
+  ],
+  [
+   5.8528e-05,
+   5e-09
+  ],
+  [
+   5.8529e-05,
+   5e-09
+  ],
+  [
+   5.853e-05,
+   4.899999999999999e-09
+  ],
+  [
+   5.8531e-05,
+   3e-08
+  ],
+  [
+   5.8532e-05,
+   5e-09
+  ],
+  [
+   5.8533e-05,
+   5e-09
+  ],
+  [
+   5.8534e-05,
+   4.899999999999999e-09
+  ],
+  [
+   5.8535e-05,
+   5e-09
+  ],
+  [
+   5.8536e-05,
+   5e-09
+  ],
+  [
+   5.8537e-05,
+   3e-08
+  ],
+  [
+   5.8538e-05,
+   5e-09
+  ],
+  [
+   5.8539e-05,
+   4.899999999999999e-09
+  ],
+  [
+   5.854e-05,
+   5e-09
+  ],
+  [
+   5.8541e-05,
+   5e-09
+  ],
+  [
+   5.8542e-05,
+   5e-09
+  ],
+  [
+   5.8543e-05,
+   3e-08
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "QUAX ferromagnetic haloscope",
+ "coupling_convention": "canonical g_aee, dimensionless",
+ "notes": "Ferromagnetic axion haloscope (QUAX prototype). Upper limit g_aee < 4.9e-10 at 95% C.L. for m_a = 58 ueV (14 GHz, ~14.061 GHz f+ hybrid mode). Limit spans a small ~3 MHz range around 14 GHz; only the quoted minimum value at 58 ueV is explicitly given in text. Local DM density 0.45 GeV/cm^3. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 17)) | Vision: Minimum measured g_aee is 4.9e-10 at 58 ueV. The excluded (blue) region is a series of narrow spikes over the ~5.852-5.854e-5 eV range, with the lower boundary near 4.9e-10 to 5e-10 at the best bins and higher (~few e-9) at gaps. X-axis is linear scale in units of 1e-5 eV. DFSZ model line lies well below at ~2e-15. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=6.00)",
+ "num_points": 17,
+ "elapsed_s": 187.34168696403503
+}

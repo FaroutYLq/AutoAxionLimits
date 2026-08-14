@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "2202.08858",
+ "paper_title": "Do direct detection experiments constrain axionlike particles coupled to electrons?",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   5000.0,
+   1.3000000000000001e-12
+  ],
+  [
+   6000.0,
+   1.2e-12
+  ],
+  [
+   7000.0,
+   1.15e-12
+  ],
+  [
+   8000.0,
+   1.1e-12
+  ],
+  [
+   10000.0,
+   1.05e-12
+  ],
+  [
+   12000.0,
+   1e-12
+  ],
+  [
+   15000.0,
+   9.5e-13
+  ],
+  [
+   20000.0,
+   9e-13
+  ],
+  [
+   25000.0,
+   8.5e-13
+  ],
+  [
+   30000.0,
+   8e-13
+  ],
+  [
+   40000.0,
+   7.2e-13
+  ],
+  [
+   50000.0,
+   6.500000000000001e-13
+  ],
+  [
+   60000.0,
+   6e-13
+  ],
+  [
+   70000.0,
+   5.5e-13
+  ],
+  [
+   80000.0,
+   5.2e-13
+  ],
+  [
+   100000.0,
+   4.8e-13
+  ],
+  [
+   120000.0,
+   4.3e-13
+  ],
+  [
+   150000.0,
+   3.8e-13
+  ],
+  [
+   200000.0,
+   3.3e-13
+  ],
+  [
+   250000.0,
+   2.9000000000000003e-13
+  ],
+  [
+   300000.0,
+   2.6e-13
+  ],
+  [
+   400000.0,
+   2.1e-13
+  ],
+  [
+   500000.0,
+   1.8e-13
+  ],
+  [
+   600000.0,
+   1.5e-13
+  ],
+  [
+   700000.0,
+   1.3e-13
+  ],
+  [
+   800000.0,
+   1.1000000000000001e-13
+  ],
+  [
+   1000000.0,
+   9e-14
+  ],
+  [
+   1200000.0,
+   7.5e-14
+  ],
+  [
+   1500000.0,
+   5.8e-14
+  ],
+  [
+   2000000.0,
+   4.2e-14
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Direct detection experiments (XENON1T, LUX, SuperCDMS, Majorana, EDELWEISS-III, GERDA) constraining axionlike particles coupled to electrons",
+ "coupling_convention": "g_ae, dimensionless (canonical axion-electron coupling)",
+ "notes": "This paper is a CRITICAL ANALYSIS of existing direct detection limits (GERDA, SuperCDMS, EDELWEISS-III, Majorana, XENON1T, XMASS, LUX, PandaX-II), NOT a new experimental measurement. The authors argue that published dark matter ALP-electron coupling limits are NOT self-consistent because ALPs in the keV\u2013MeV mass range decay radiatively into photons on timescales shorter than the age of the universe (\u03c4_a\u2192\u03b3\u03b3 < 13.8 Gyr). The paper shows that for most of the parameter space claimed by these experiments, the ALPs cannot be dark matter. Additionally, X-ray and gamma-ray astronomy constraints (from NuSTAR, XMM-Newton, INTEGRAL) exclude the parameter space for m_a > 6 keV. Figure 2 displays the excluded regions (dark grey = unstable ALPs, light grey = astrophysical X-ray/gamma-ray constraints), but no NEW numerical limits are presented\u2014only reinterpretation of existing published bounds. The paper does not extract or tabulate new (m_a, g_ae) data points; it critiques the validity of previously published limits. Therefore, data_points is empty and extraction_confidence is low (<0.3) because this is a theoretical/critical paper, not an experimental result paper. | [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of the experimental exclusion regions') rather than the paper's own single curve | selector: figure_vision (sole candidate) | Vision: Figure 2 shows exclusion limits on g_ae from direct detection searches for dark matter ALPs in the keV\u2013MeV mass range. The plot displays multiple experimental constraints (LUX, Pandax, XENON1T, XMASS, SuperCDMS, Majorana, EDELWEISS-III, GERDA) shown as colored regions. The lower boundary of the exclusion region (where the colored experimental bands end) traces the sensitivity frontier. Two additional theoretical constraints are shown: a diagonal line labeled 'Lifetime < 13.8 Gyr' (dark grey region above) and a sloped line labeled 'X-ray and gamma-ray limits on lifetime' (light grey region above). The traced boundary follows the lower envelope of the experimental exclusion regions from ~5 keV to ~1 MeV. The boundary shows a general downward trend in coupling strength with increasing mass, with some structure reflecting the different sensitivities of individual experiments. The x-axis is in MeV (converted to eV for output), and the y-axis is g_ae in dimensionless units on a log scale. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=25.00)",
+ "num_points": 30,
+ "elapsed_s": 122.2422239780426
+}

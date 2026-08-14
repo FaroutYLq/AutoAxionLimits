@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2301.06778",
+ "paper_title": "Searching for Low-Mass Axions using Resonant Upconversion",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.12e-06,
+   3e-06
+  ],
+  [
+   1.2e-06,
+   3e-06
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "UPLOAD",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper presents exclusion limits from the UPLOAD (UPconversion Low-Noise Oscillator Axion Detection) experiment, a room-temperature resonant AC haloscope searching for axions via photon upconversion. The experiment excludes axions with masses between 1.12\u20131.20 \u03bceV (corresponding to frequencies 271.7\u2013290.3 MHz) above a coupling strength of g_agamma = 3\u00d710^-6 GeV^-1 after 30 days of measurement. This represents a three order of magnitude improvement over their previous result. The experiment is also sensitive to the newly proposed g_aBB coupling term (quantum electromagnetodynamical axion coupling), for which the same exclusion limit applies. The mass range is encoded as a horizontal line at the stated coupling value. Standard virialized halo dark matter model assumed with local density \u03c1_a \u2248 0.3 GeV/cm^3 (typical galactic halo value). Confidence level is 95% as stated in Fig. 7. The coupling values are dimensionless g_agamma in GeV^-1 as is standard for axion-photon coupling. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.92, 2))",
+ "num_points": 2,
+ "elapsed_s": 237.15990495681763
+}

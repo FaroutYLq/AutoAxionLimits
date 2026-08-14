@@ -1,0 +1,138 @@
+{
+  "arxiv_id": "1505.07455",
+  "paper_title": "Lattice QCD input for axion cosmology",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1000000000.0,
+      43.2
+    ],
+    [
+      1300000000.0,
+      41.5
+    ],
+    [
+      1700000000.0,
+      39.5
+    ],
+    [
+      2200000000.0,
+      37.5
+    ],
+    [
+      3000000000.0,
+      35.2
+    ],
+    [
+      4000000000.0,
+      33.2
+    ],
+    [
+      5500000000.0,
+      31.0
+    ],
+    [
+      7500000000.0,
+      29.0
+    ],
+    [
+      10000000000.0,
+      27.5
+    ],
+    [
+      14000000000.0,
+      25.5
+    ],
+    [
+      19000000000.0,
+      24.0
+    ],
+    [
+      26000000000.0,
+      22.3
+    ],
+    [
+      36000000000.0,
+      20.8
+    ],
+    [
+      50000000000.0,
+      19.3
+    ],
+    [
+      70000000000.0,
+      18.0
+    ],
+    [
+      100000000000.0,
+      16.8
+    ],
+    [
+      140000000000.0,
+      15.3
+    ],
+    [
+      190000000000.0,
+      14.2
+    ],
+    [
+      260000000000.0,
+      13.1
+    ],
+    [
+      360000000000.0,
+      12.0
+    ],
+    [
+      500000000000.0,
+      11.0
+    ],
+    [
+      700000000000.0,
+      10.1
+    ],
+    [
+      1000000000000.0,
+      9.3
+    ],
+    [
+      1400000000000.0,
+      8.6
+    ],
+    [
+      1900000000000.0,
+      8.0
+    ],
+    [
+      2600000000000.0,
+      7.5
+    ],
+    [
+      3600000000000.0,
+      7.1
+    ],
+    [
+      5000000000000.0,
+      6.8
+    ],
+    [
+      7000000000000.0,
+      6.5
+    ],
+    [
+      10000000000000.0,
+      6.4
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.1199,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.2,
+  "suggested_experiment_name": "Lattice QCD axion cosmology (DIGM/IILM misalignment bound)",
+  "coupling_convention": "T1/Tc temperature ratio (dimensionless, linear axis) \u2014 NOT axion mass; this figure plots the rolling temperature T1/Tc vs f_a, there is no m_a-vs-f_a exclusion plane in the paper",
+  "notes": "Lattice QCD (pure SU(3) Yang-Mills) calculation of temperature-dependent topological susceptibility used to derive an axion cosmology bound via the misalignment mechanism (post-inflation PQ breaking). Main result: f_a <= (4.10 +/- 0.04)e11 GeV, equivalently m_a >= (14.6 +/- 0.1) ueV. This is a single-point cosmological/theoretical bound on the f_a-m_a relation, not a coupling-vs-mass exclusion curve. Encoded as one point [m_a=1.46e-5 eV, f_a=4.10e11 GeV]. Not a haloscope DM search, so no local DM density. Note the derived pure-glue bound is weaker than the standard ma>21 ueV; it is a proof-of-concept. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.2, 30)) | Vision: The only plot on the f_a [GeV] axis is Fig. 9, whose y-axis is T1/Tc (temperature ratio, linear 0-45), NOT the axion mass or any coupling. The paper's actual axion-mass bound (m_a >= 14.6 +/- 0.1 ueV, f_a <= (4.10+/-0.04)e11 GeV) appears only as a numeric result in Eq. (39), not as a traced exclusion boundary in the (f_a, m_a) plane. I traced the solid black T1 curve as plotted. Per the plotted-values contract, emitted y-values are the T1/Tc ratio exactly as read from the axis; they should NOT be treated as m_a. Extraction confidence is low because no genuine coupling/mass exclusion boundary exists in these figures. | Calibration: No calibration needed",
+  "num_points": 30,
+  "elapsed_s": 112.87332916259766
+}

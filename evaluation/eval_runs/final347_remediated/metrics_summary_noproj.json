@@ -1,0 +1,144 @@
+{
+  "n_papers": 329,
+  "gt_exclusions": {
+    "n_entries": 19,
+    "n_papers_fully_excluded": 17
+  },
+  "status_counts": {
+    "compared": 267,
+    "no_comparable_gt": 20,
+    "gt_unusable": 1,
+    "convention_mismatch": 19,
+    "excluded_gt": 17,
+    "gt_point_reference": 3,
+    "no_extracted_points": 2
+  },
+  "classification_accuracy": {
+    "coupling_type": 0.9743589743589743,
+    "is_new_limit": 1.0,
+    "is_projection": 1.0,
+    "data_source": 0.45161290322580644
+  },
+  "coupling_type_confusion": {
+    "matrix": {
+      "AxionEDM": {
+        "AxionEDM": 3,
+        "AxionCPV": 1
+      },
+      "AxionElectron": {
+        "AxionElectron": 17
+      },
+      "AxionMass": {
+        "AxionMass": 20,
+        "AxionCPV": 2,
+        "AxionPhoton": 1,
+        "ScalarNucleon": 1
+      },
+      "AxionNeutron": {
+        "AxionNeutron": 16,
+        "AxionProton": 1
+      },
+      "AxionPhoton": {
+        "AxionPhoton": 144
+      },
+      "AxionProton": {
+        "AxionProton": 3
+      },
+      "DarkPhoton": {
+        "DarkPhoton": 66
+      },
+      "MonopoleDipole": {
+        "MonopoleDipole": 2
+      },
+      "ScalarBaryon": {
+        "ScalarBaryon": 2
+      },
+      "ScalarElectron": {
+        "ScalarElectron": 5
+      },
+      "ScalarNucleon": {
+        "ScalarNucleon": 5
+      },
+      "ScalarPhoton": {
+        "ScalarPhoton": 15
+      },
+      "VectorBL": {
+        "VectorBL": 6,
+        "DarkPhoton": 3
+      }
+    },
+    "confusions": [
+      {
+        "gt": "VectorBL",
+        "predicted": "DarkPhoton",
+        "count": 3
+      },
+      {
+        "gt": "AxionMass",
+        "predicted": "AxionCPV",
+        "count": 2
+      },
+      {
+        "gt": "AxionEDM",
+        "predicted": "AxionCPV",
+        "count": 1
+      },
+      {
+        "gt": "AxionMass",
+        "predicted": "AxionPhoton",
+        "count": 1
+      },
+      {
+        "gt": "AxionMass",
+        "predicted": "ScalarNucleon",
+        "count": 1
+      },
+      {
+        "gt": "AxionNeutron",
+        "predicted": "AxionProton",
+        "count": 1
+      }
+    ],
+    "n_graded": 312,
+    "n_correct": 304,
+    "n_skipped": 17,
+    "accuracy": 0.9743589743589743
+  },
+  "interpolation": {
+    "n_finite": 265,
+    "n_zero_overlap": 2,
+    "median_median_residual_dex": 0.1842330293096932,
+    "mean_frac_within_0_3dex": 0.6167125271100217,
+    "median_median_residual_dex_reverse": 0.18978538463479433
+  },
+  "symmetric": {
+    "median_area_between_log": 0.23662205450267795,
+    "median_mass_jaccard": 0.8815881824402034
+  },
+  "per_type_aggregate": {
+    "n_types": 11,
+    "n_papers_compared": 265,
+    "micro_median_residual_dex": 0.1842330293096932,
+    "macro_median_residual_dex": 0.4320317758464747,
+    "macro_minus_micro_dex": 0.24779874653678147,
+    "per_type_n": {
+      "AxionPhoton": 137,
+      "DarkPhoton": 63,
+      "AxionNeutron": 15,
+      "AxionElectron": 14,
+      "AxionMass": 11,
+      "ScalarPhoton": 10,
+      "VectorBL": 5,
+      "ScalarElectron": 4,
+      "AxionEDM": 3,
+      "AxionProton": 2,
+      "MonopoleDipole": 1
+    }
+  },
+  "calibration": {
+    "noise_floor_residual_dex": 0.32,
+    "top_bin_mean_confidence": 0.8691525423728813,
+    "top_bin_actual_accuracy": 0.8135593220338984,
+    "overconfidence_gap": 0.05559322033898295
+  }
+}

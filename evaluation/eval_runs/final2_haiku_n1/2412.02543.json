@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2412.02543",
+ "paper_title": "Bounds on Axions-Like Particles Shining in the Ultra-Violet",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   14.4,
+   1e-12
+  ],
+  [
+   22.2,
+   1e-12
+  ],
+  [
+   14.4,
+   2e-13
+  ],
+  [
+   22.2,
+   2e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "HST_FUV_ALP_2024",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper constrains ALP-photon coupling g_agamma using HST archival UV spectroscopy (110-170 nm) of dwarf spheroidal galaxies (Ursa Minor, Draco) and galaxy clusters (Virgo, Fornax). The main result is shown in Figure 3 (right panel, combined limit). The paper states the derived limit 'excludes values above 10^-12 GeV^-1 over the whole mass range' and 'reaching g_agamma < 2 \u00d7 10^-13 GeV for some masses.' The mass range is 14.4-22.2 eV. Data points extracted from abstract and conclusions: the upper envelope is ~10^-12 GeV^-1 across the range, with the best limit reaching ~2\u00d710^-13 GeV^-1 at intermediate masses. Figure 3 shows the combined bound as a band with thickness representing D-factor uncertainty. The two-point representation at mass boundaries (14.4 and 22.2 eV) with coupling 10^-12 GeV^-1 represents the conservative (upper) limit stated in the abstract; the second pair at 2\u00d710^-13 GeV^-1 represents the best achieved limit mentioned in the abstract. This is a measured exclusion limit (95% C.L.) from HST observations, not a projection. The paper does not assume a specific local DM density for these astrophysical targets\u2014instead it uses measured D-factors (line-of-sight integrals of DM density) from the literature for each target. Confidence is high because the coupling type is unambiguous (ALP-photon coupling g_agamma explicitly stated throughout) and the numerical limits are clearly stated in abstract and text, though the exact shape of the exclusion curve in Figure 3 is not tabulated numerically. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.85, 4))",
+ "num_points": 4,
+ "elapsed_s": 57.485552072525024
+}

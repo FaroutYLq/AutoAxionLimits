@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2410.02858",
+ "paper_title": "LymanAlpha",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.41e-13,
+   3.16e-15
+  ],
+  [
+   2.24e-13,
+   7.08e-15
+  ],
+  [
+   3.55e-13,
+   7.08e-15
+  ],
+  [
+   5.62e-13,
+   1e-14
+  ]
+ ],
+ "data_source": "table",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "LymanAlpha_HE0940",
+ "coupling_convention": "dimensionless kinetic mixing epsilon",
+ "notes": "Dark photon DM constraints from Lyman-alpha forest heating. The 95% CL limits on kinetic mixing epsilon vs mA' are shown in Fig. 7 but exact numerical values are not tabulated; data points are approximate readings from the exclusion plot for masses log(mA'/eV) between -12.9 and -12.15 where constraints are set. Table I lists simulated grid points (masses log(mA'/eV) from -13.4 to -11.9, log epsilon from -15 to -13.5), not the exclusion contour itself. Low and high masses are unconstrained within the grid. Values here are rough estimates and should be verified against Fig. 7. | selector: table over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.5, 4))",
+ "num_points": 4,
+ "elapsed_s": 284.7102620601654
+}

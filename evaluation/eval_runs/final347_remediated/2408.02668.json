@@ -1,0 +1,66 @@
+{
+  "arxiv_id": "2408.02668",
+  "paper_title": "Searching for dark matter with a 1000 km baseline interferometer",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-22,
+      1e-05
+    ],
+    [
+      1e-21,
+      5e-06
+    ],
+    [
+      1e-20,
+      3e-07
+    ],
+    [
+      1e-19,
+      5e-08
+    ],
+    [
+      1e-18,
+      2e-08
+    ],
+    [
+      3e-18,
+      1e-08
+    ],
+    [
+      1.2e-17,
+      1e-09
+    ],
+    [
+      4e-17,
+      1e-09
+    ],
+    [
+      1e-16,
+      3e-09
+    ],
+    [
+      1e-15,
+      1e-08
+    ],
+    [
+      1e-14,
+      5e-08
+    ],
+    [
+      4e-14,
+      1e-07
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "Mainz-Krakow Comagnetometer Interferometer 2024",
+  "coupling_convention": "gradient coupling g_aNN in GeV^-1",
+  "notes": "Interferometer of two K-Rb-3He comagnetometers (Mainz + Krakow) searching for ALP-gradient-spin coupling. Paper reports limits on ALP-neutron (g_aNN), ALP-proton (g_aPP) and ALP-electron (g_aee) couplings, all in GeV^-1 gradient-coupling convention (NOT dimensionless). Chose neutron coupling per hint; best limit g_aNN < 1e-9 GeV^-1 near ma~1.2e-17 to 4e-17 eV. Data points approximated from Fig.4 exclusion curve (mean limits) over mass range 1e-22 to 4e-14 eV; no numerical table provided so values are read-off estimates. CL=95%. Local DM density 0.4 GeV/cm^3. Note the coupling is a derivative/gradient coupling with GeV^-1 units, so downstream may need conversion to dimensionless g_an via g_an = 2*m_N*g_aNN. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 2.3 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 12,
+  "elapsed_s": 110.49136996269226
+}

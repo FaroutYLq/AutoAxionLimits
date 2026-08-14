@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "1709.00009",
+  "paper_title": "BeamDump",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      50000000.0,
+      0.0003
+    ],
+    [
+      100000000.0,
+      5e-05
+    ],
+    [
+      500000000.0,
+      2e-05
+    ],
+    [
+      1000000000.0,
+      1.5e-05
+    ],
+    [
+      3000000000.0,
+      3e-05
+    ],
+    [
+      9000000000.0,
+      0.0001
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.45,
+  "suggested_experiment_name": "BelleII_ALP_3gamma_50ab",
+  "coupling_convention": "g_agamma in GeV^-1 (read approximately from projection figure 7)",
+  "notes": "Paper (Dolan et al. 1709.00009) constrains ALP-photon coupling g_agamma vs m_a, NOT dark photon kinetic mixing despite the pre-analysis hint - it discusses reinterpreting BaBar dark-photon searches into ALP bounds. Main NEW result is a projected Belle II sensitivity (photon coupling case, ga\u03b3Z=0) for single-photon (\u03b3+inv) and three-photon (3\u03b3) searches at 20 fb^-1 and 50 ab^-1, 90% CL. The paper also reviews/updates existing constraints (LEP, SN1987A, E137, E141, HB stars) but these are recompilations of others' work. Data points are rough estimates read from the projected Belle II 3\u03b3 (50 ab^-1) curve in figure 7; exact tabulated values are not provided. Values converted from GeV mass to eV (x1e9). This is a sensitivity projection, not a measured/observed exclusion. | [VISION GATE A] is_projection=true but the vision notes say the traced curve is existing experiment 'union' \u2014 not the paper's own projected curve ; [VISION GATE D] vision notes admit tracing a compilation envelope ('union of') rather than the paper's own single curve | selector: text (sole candidate)",
+  "num_points": 6,
+  "elapsed_s": 133.94584488868713
+}

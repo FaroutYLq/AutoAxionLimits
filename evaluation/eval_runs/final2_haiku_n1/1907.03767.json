@@ -1,0 +1,62 @@
+{
+ "arxiv_id": "1907.03767",
+ "paper_title": "Axion-like Relics: New Constraints from Old Comagnetometer Data",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.4e-17,
+   1e-10
+  ],
+  [
+   1e-16,
+   8e-11
+  ],
+  [
+   1e-15,
+   6e-11
+  ],
+  [
+   1e-14,
+   4e-11
+  ],
+  [
+   1e-13,
+   2e-11
+  ],
+  [
+   2e-13,
+   1.5e-11
+  ],
+  [
+   3e-18,
+   5e-10
+  ],
+  [
+   4e-17,
+   3e-10
+  ],
+  [
+   2e-13,
+   1e-11
+  ],
+  [
+   4e-13,
+   8e-12
+  ],
+  [
+   1.8e-22,
+   1e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "3He-K_Comagnetometer_Bloch2020",
+ "coupling_convention": "g_aN in GeV^-1",
+ "notes": "Paper derives new constraints on ALP-neutron and ALP-electron couplings from re-analysis of decade-old comagnetometer data (Refs. [47-49]). The bounds are presented as shaded regions in Figs. 3 and 4. Data points extracted from figure descriptions and text statements of mass ranges and coupling limits. The paper claims strongest terrestrial constraints on ALP-neutron coupling over broad mass range (2.4\u00d710^-17 eV \u2272 m_a \u2272 4\u00d710^-13 eV), comparable to stellar cooling bounds. DM density assumption \u03c1_a = 0.4 GeV/cm^3 (all DM) and velocity v \u2248 7.7\u00d710^-4 used throughout. Stochastic nature of ALP field accounted for via Monte Carlo. Confidence level 95% C.L. stated explicitly. Extraction confidence moderate (0.75) because exact numerical values from figures are approximate; paper provides mass ranges and qualitative bound descriptions rather than tabulated data points. AxionNeutron coupling type confirmed by abstract, title, and detailed discussion of neutron spin interactions via 3He nuclear spin. | selector: text (sole candidate)",
+ "num_points": 11,
+ "elapsed_s": 54.9857656955719
+}

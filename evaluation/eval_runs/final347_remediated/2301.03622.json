@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2301.03622",
+  "paper_title": "Searching for Ultralight Dark Matter Conversion in Solar Corona using Low Frequency Array Data",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.24e-07,
+      1e-13
+    ],
+    [
+      1.65e-07,
+      8e-14
+    ],
+    [
+      2e-07,
+      1e-13
+    ],
+    [
+      2.5e-07,
+      1.2e-13
+    ],
+    [
+      3.3e-07,
+      1.5e-13
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.68,
+  "suggested_experiment_name": "LOFAR_SolarCorona",
+  "coupling_convention": "dimensionless kinetic mixing epsilon (chi)",
+  "notes": "Main result: 95% C.L. upper limit on dark photon kinetic mixing epsilon ~1e-13 over 30-80 MHz (mA' ~1.2e-7 to 3.3e-7 eV) from resonant conversion in solar corona using LOFAR data. Mass from freq via m=4.136e-15*f. Values are approximate reads from Fig.4; the limit is roughly flat near 1e-13. Assumes rho_DM=0.3 GeV/cm^3 and rho_A'=rho_DM. Paper also derives an axion-photon coupling limit (Fig.10) but that is weaker/secondary; DarkPhoton is the primary result. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 5,
+  "elapsed_s": 37.76215696334839
+}

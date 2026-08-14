@@ -1,0 +1,114 @@
+{
+  "arxiv_id": "2011.07100",
+  "paper_title": "Search of spin-dependent fifth forces with precision magnetometry",
+  "coupling_type": "MonopoleDipole",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.973e-05,
+      1e-27
+    ],
+    [
+      1.315e-05,
+      1e-28
+    ],
+    [
+      9.865e-06,
+      3e-29
+    ],
+    [
+      6.577e-06,
+      6e-30
+    ],
+    [
+      3.946e-06,
+      1e-30
+    ],
+    [
+      2.819e-06,
+      4e-31
+    ],
+    [
+      1.973e-06,
+      2e-31
+    ],
+    [
+      1.315e-06,
+      1e-31
+    ],
+    [
+      9.865e-07,
+      7e-32
+    ],
+    [
+      6.577e-07,
+      6e-32
+    ],
+    [
+      3.946e-07,
+      5.7e-32
+    ],
+    [
+      2.819e-07,
+      5.7e-32
+    ],
+    [
+      1.973e-07,
+      6e-32
+    ],
+    [
+      9.865e-08,
+      6.5e-32
+    ],
+    [
+      6.577e-08,
+      7e-32
+    ],
+    [
+      3.946e-08,
+      8e-32
+    ],
+    [
+      1.973e-08,
+      9e-32
+    ],
+    [
+      6.577e-09,
+      1e-31
+    ],
+    [
+      1.973e-09,
+      1e-31
+    ],
+    [
+      6.577e-10,
+      1.1e-31
+    ],
+    [
+      1.973e-10,
+      1.1e-31
+    ],
+    [
+      6.577e-11,
+      1.2e-31
+    ],
+    [
+      1.973e-11,
+      1.3e-31
+    ],
+    [
+      6.577e-12,
+      1.5e-31
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "SQUID magnetometry spin-dependent fifth force (GSO paramagnet)",
+  "coupling_convention": "g_p^e * g_s^N product, dimensionless (plotted as spin-mass interaction constant)",
+  "notes": "Search for monopole-dipole (spin-mass) fifth force with SQUID magnetometry and paramagnetic GSO crystals. Best quoted 95% C.L. limit g_p^e g_s^N <= 5.7e-32 for lambda >~ 10 cm (m <~ 2 ueV); also g_p^e g_s^e <= 1.6e-31. The exclusion spans lambda ~1 cm to 10 m and 10 km to 300 km (mass ~2e-5 eV down to ~6.6e-13 eV). For large lambda the potential is 1/r^2 (mass-independent), so the ~5.7e-32 bound is roughly flat toward small masses; encoded as a horizontal line. Full mass-dependent curve is only in Fig. 4 (not numerically readable); values here taken from text. Only two-body electron-nucleon product reported in text. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 24)) | Vision: Upper panel of Fig. 4: limits on g_p^e g_s^N vs lambda [m], mass on top axis in ueV. Traced the cyan 'This work' (SQUID and paramagnets) lower boundary. Converted lambda to mass via m[eV]=1.973e-7/lambda[m], verified against top axis (lambda=0.01 m -> 20 ueV). Best limit ~5.7e-32 near lambda~0.3-1 m per text; boundary rises steeply below ~1 cm and stays roughly flat (~1e-31) at large lambda out to ~30 km (paper states improvement up to ~300 km). Overlapping literature regions (Crescini'17, Heckel'08, torsion, comagnetometry, stored-ion) make exact boundary tracing approximate. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.95 snapped to identity)",
+  "num_points": 24,
+  "elapsed_s": 181.72744226455688
+}

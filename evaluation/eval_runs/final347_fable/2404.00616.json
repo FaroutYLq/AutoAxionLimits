@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2404.00616",
+  "paper_title": "Prospects of nuclear-coupled-dark-matter detection via correlation spectroscopy of I$_2^+$ and Ca$^+$",
+  "coupling_type": "ScalarBaryon",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      1e-21,
+      1e-08
+    ],
+    [
+      1e-20,
+      1e-07
+    ],
+    [
+      1e-19,
+      1e-06
+    ],
+    [
+      1e-18,
+      1e-05
+    ],
+    [
+      1e-17,
+      0.0001
+    ],
+    [
+      1e-16,
+      0.001
+    ],
+    [
+      1e-15,
+      0.01
+    ],
+    [
+      1e-14,
+      0.1
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "I2_Ca_CorrelationSpectroscopy",
+  "coupling_convention": "dimensionless dilaton-type gluon coupling d_g (Damour-Donoghue normalization)",
+  "notes": "Proposal paper (not a measurement): projects sensitivity of correlation spectroscopy between an I2+ molecular-ion clock and a Ca+ atomic clock to ULDM coupled to the QCD/gluon sector. Two projected results are given: (1) scalar gluon coupling d_g >~ 1e-5 * (m_phi/1e-18 eV) over m_DM ~ 1e-21 to 1e-14 eV (extracted here as the ScalarBaryon/d_g projection line from the text scaling relation, no table available); (2) axion decay constant f_a <~ 2e14 GeV * (1e-18 eV/m_a), which would map to AxionMass/gluon coupling and is not encoded here. Data points are reconstructed from the text scaling formula, not from a digitized figure, so treat as approximate. Local DM density rho_DM = 0.4 GeV/cm^3 assumed. Assumed Ramsey time 0.58 s, one-month campaign, sigma_c precision floor ~1e-18. Confidence level not explicitly stated; 0.95 assumed. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c) | [COUPLING REVIEW] axis 'inverse axion decay constant 1/f_a in GeV^-1' implies AxionMass but classified ScalarBaryon (cross-family contradiction \u2014 flagged, not overridden) | [CONVENTION REVIEW] declared coupling convention 'dimensionless dilaton-type gluon coupling d_g (Damour-Donoghue normalization)' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 8,
+  "elapsed_s": 80.27988600730896
+}

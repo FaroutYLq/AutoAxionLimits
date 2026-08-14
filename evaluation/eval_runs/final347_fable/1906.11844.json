@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "1906.11844",
+  "paper_title": "SN1987A",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.0,
+      6e-10
+    ],
+    [
+      0.0,
+      6e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "SN1987A_Carenza2019",
+  "coupling_convention": "dimensionless g_an (assuming g_an = g_ap, from La < Lnu criterion)",
+  "notes": "Carenza et al. (1906.11844) revise the SN1987A axion emissivity via NN bremsstrahlung beyond one-pion-exchange (finite pion mass, rho exchange, effective nucleon mass, multiple scattering). Main new limit: g_an = g_ap <= 6e-10 (free-streaming regime, La < Lnu at tpb=1 s), relaxed by factor ~3 vs naive OPE (2e-10). General coupling combination constrained: g_an^2 + 0.61 g_ap^2 + 0.53 g_an g_ap <= 8.26e-19, equivalent to m_a <= 5.67 meV * (C_an^2 + 0.61 C_ap^2 + 0.53 C_an C_ap)^{-1/2}; KSVZ: g_ap <= 1.2e-9, m_a <= 15 meV. The bound is mass-independent for light axions (no explicit validity range in mass given, hence mass-0 sentinel encoding). Not a dark-matter search, so no local DM density assumption. The confidence level is not a statistical CL (energy-loss argument), so the stated 0.95 is nominal. This is a stellar/SN energy-loss bound, and the emitted values are the paper's quoted dimensionless g_aN with g_an = g_ap assumed. | selector: text over figure_vision (quality (1, 1, 1, 0, 1, 0, 0.8, 2)) | [CONVENTION REVIEW] declared coupling convention 'dimensionless g_an (assuming g_an = g_ap, from La < Lnu criterion)' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 2,
+  "elapsed_s": 112.80773568153381
+}

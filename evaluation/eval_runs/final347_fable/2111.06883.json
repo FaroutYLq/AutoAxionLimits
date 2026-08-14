@@ -1,0 +1,170 @@
+{
+  "arxiv_id": "2111.06883",
+  "paper_title": "Search for oscillations of fundamental constants using molecular spectroscopy",
+  "coupling_type": "ScalarNucleon",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.14e-14,
+      1000.0
+    ],
+    [
+      6.2e-14,
+      950.0
+    ],
+    [
+      1e-13,
+      900.0
+    ],
+    [
+      1.65e-13,
+      850.0
+    ],
+    [
+      2.5e-13,
+      800.0
+    ],
+    [
+      4.1e-13,
+      300.0
+    ],
+    [
+      8.3e-13,
+      80.0
+    ],
+    [
+      1.65e-12,
+      22.0
+    ],
+    [
+      2.9e-12,
+      8.0
+    ],
+    [
+      4.1e-12,
+      4.0
+    ],
+    [
+      5.8e-12,
+      2.9
+    ],
+    [
+      8.3e-12,
+      3.5
+    ],
+    [
+      1.65e-11,
+      5.5
+    ],
+    [
+      4.1e-11,
+      8.5
+    ],
+    [
+      8.3e-11,
+      10.0
+    ],
+    [
+      2.1e-10,
+      12.0
+    ],
+    [
+      4.1e-10,
+      13.0
+    ],
+    [
+      5e-10,
+      6.0
+    ],
+    [
+      6.6e-10,
+      3.0
+    ],
+    [
+      9.1e-10,
+      1.5
+    ],
+    [
+      1.16e-09,
+      1.0
+    ],
+    [
+      1.65e-09,
+      0.95
+    ],
+    [
+      2.5e-09,
+      0.9
+    ],
+    [
+      4.1e-09,
+      0.85
+    ],
+    [
+      8.3e-09,
+      0.75
+    ],
+    [
+      1.24e-08,
+      0.65
+    ],
+    [
+      1.45e-08,
+      0.6
+    ],
+    [
+      1.7e-08,
+      1.9
+    ],
+    [
+      2.1e-08,
+      11.0
+    ],
+    [
+      2.4e-08,
+      100.0
+    ],
+    [
+      2.9e-08,
+      1600.0
+    ],
+    [
+      3.5e-08,
+      50000.0
+    ],
+    [
+      4.1e-08,
+      1200000.0
+    ],
+    [
+      5.2e-08,
+      21000000.0
+    ],
+    [
+      8.3e-08,
+      25000000.0
+    ],
+    [
+      1.65e-07,
+      32000000.0
+    ],
+    [
+      2.9e-07,
+      45000000.0
+    ],
+    [
+      4.14e-07,
+      55000000.0
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "I2 molecular spectroscopy UDM search (Expt A: Nd:YAG/532nm; Expt B: Ti:Sapphire/725nm)",
+  "coupling_convention": "Q_hat_N . d_vec, the dimensionless linear combination of scalar UDM couplings to the QCD sector (0.999 d_gs + 0.092 d_mhat + 3e-4 d_deltam + 0.047 d_ms), exactly as plotted on the y-axis of Fig. 3",
+  "notes": "Oswald et al. (arXiv:2111.06883): first direct bounds on oscillating UDM coupling to gluons/quarks (nuclear-mass variation) via I2 molecular spectroscopy, 10 Hz - 100 MHz (m_phi ~ 4e-14 to 4e-7 eV). Primary new result is Fig. 3 exclusion on Q_N_hat.d (QCD-sector combination, dominated by gluon coupling d_gs), best mapped to ScalarNucleon since it constrains nucleon-mass variation. No numerical table is provided; data_points are reconstructed from the reported fractional frequency sensitivities (delta_nu/nu ~ 1e-15 to 5e-14 for Expt A, ~6e-15 for Expt B), sensitivities Delta_R_N ~ 0.06-0.07, phi0/M_Pl = sqrt(2*rho)/(m_phi*M_Pl) with rho = 0.3 GeV/cm^3, and the stochastic factor-3 penalty; values are order-of-magnitude estimates consistent with the Fig. 3 axis range (1e-3 to 1e9+). Paper also gives new bounds on d_alpha (ScalarPhoton) and d_me (ScalarElectron) in Figs. 4a/4b; only the novel QCD-sector limit is extracted here. Solar-halo and Earth-halo scenarios yield stronger bounds (higher assumed local density, e.g. 1e5 x 0.3 GeV/cm^3 for solar halo) but the galactic halo (0.3 GeV/cm^3) is the standard scenario encoded. Confidence lowered because points are computed estimates, not digitized/tabulated values. | [VISION GATE D] vision notes admit tracing a compilation envelope ('union of') rather than the paper's own single curve | selector: figure_vision over text (quality (0, 1, 1, 0, 1, 0, 0.55, 38)) | Vision: Figure 3 shows exclusion regions for Expt A (red, f=10 Hz-1e5 Hz, m=4.1e-14 to 4.1e-10 eV) and Expt B (blue, f=1e5-1e8 Hz) under three DM halo assumptions (galactic, solar, earth halo). Traced curve is the LOWER ENVELOPE of the union of shaded regions: solar-halo Expt A (~1e3) below ~60 Hz, then earth-halo Expt A down to min ~3 at ~1.4 kHz (5.8e-12 eV), earth-halo Expt B with min ~0.6 at ~3.4 MHz (1.45e-8 eV), steep rise from decoherence/acoustic cutoff, then solar-halo Expt B to 1e8 Hz. The standard galactic-halo bound is much weaker (~1e6 at 10 Hz rising to ~1e9 at 1e5 Hz for Expt A; ~4e8 rising above 1e10 for Expt B). Earth/solar halo scenarios assume overdense bound halos, not the standard rho=0.4 GeV/cm^3. Coupling type: constrains quark/gluon (nucleon-mass) couplings d_g etc., matching ScalarNucleon; y-axis is the combination Q_hat_N.d, not a single canonical coupling, hence moderate confidence. Points read from pixel positions on log-log plot; ~0.2 decade uncertainty on coupling values, larger on the steep rise segment. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.67 snapped to identity) | contract: median outside VALID_RANGES after corrections (flagged low confidence) | [CONVENTION REVIEW] declared coupling convention 'Q_hat_N . d_vec, the dimensionless linear combination of scalar UDM couplings to the QCD sector (0.999 d_gs + 0.092 d_mhat + 3e-4 d_deltam + 0.047 d_ms), exactly as plotted on the y-axis of Fig. 3' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 38,
+  "elapsed_s": 355.90826392173767
+}

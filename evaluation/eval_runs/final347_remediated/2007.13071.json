@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2007.13071",
+  "paper_title": "BelleII",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      200000000.0,
+      0.001
+    ],
+    [
+      9700000000.0,
+      0.001
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "BelleII_ALP_2020",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Belle II search for e+e- -> gamma a, a -> gamma gamma (ALP coupling to photons g_agamma). This constrains AxionPhoton, NOT DarkPhoton (pre-analysis hint overridden). Collider production search, not a DM haloscope, so no DM density assumption. Mass range 0.2-9.7 GeV/c^2, 95% CL upper limits at the level of ~10^-3 GeV^-1. Detailed numerical limits are provided only in a supplemental textfile not included in the paper body; the two emitted points represent the stated ~1e-3 GeV^-1 level across the range and are approximate. Actual limit varies with mass. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.6, 2))",
+  "num_points": 2,
+  "elapsed_s": 103.6219630241394
+}

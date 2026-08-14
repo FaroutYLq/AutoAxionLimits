@@ -1,0 +1,158 @@
+{
+  "arxiv_id": "1403.1290",
+  "paper_title": "Resonant detection of axion mediated forces with Nuclear Magnetic Resonance",
+  "coupling_type": "MonopoleDipole",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      1.97e-06,
+      7.4e-33
+    ],
+    [
+      3.16e-06,
+      7e-33
+    ],
+    [
+      5.07e-06,
+      6.7e-33
+    ],
+    [
+      1e-05,
+      6.4e-33
+    ],
+    [
+      1.97e-05,
+      6.1e-33
+    ],
+    [
+      3.78e-05,
+      6.3e-33
+    ],
+    [
+      7.23e-05,
+      6.7e-33
+    ],
+    [
+      0.0001194,
+      7.4e-33
+    ],
+    [
+      0.000197,
+      8.2e-33
+    ],
+    [
+      0.00025,
+      9.5e-33
+    ],
+    [
+      0.000316,
+      1.1e-32
+    ],
+    [
+      0.000378,
+      1.2e-32
+    ],
+    [
+      0.000458,
+      1.4e-32
+    ],
+    [
+      0.000555,
+      1.7e-32
+    ],
+    [
+      0.000662,
+      2e-32
+    ],
+    [
+      0.000768,
+      2.6e-32
+    ],
+    [
+      0.00089,
+      3.3e-32
+    ],
+    [
+      0.00103,
+      4.3e-32
+    ],
+    [
+      0.00119,
+      5.5e-32
+    ],
+    [
+      0.00136,
+      7.6e-32
+    ],
+    [
+      0.00154,
+      1e-31
+    ],
+    [
+      0.00175,
+      1.4e-31
+    ],
+    [
+      0.00197,
+      1.8e-31
+    ],
+    [
+      0.00219,
+      2.4e-31
+    ],
+    [
+      0.00239,
+      3e-31
+    ],
+    [
+      0.00261,
+      3.8e-31
+    ],
+    [
+      0.0029,
+      5e-31
+    ],
+    [
+      0.00326,
+      8.4e-31
+    ],
+    [
+      0.00361,
+      1.4e-30
+    ],
+    [
+      0.00401,
+      2.2e-30
+    ],
+    [
+      0.0045,
+      3.7e-30
+    ],
+    [
+      0.00507,
+      7.6e-30
+    ],
+    [
+      0.00562,
+      1.4e-29
+    ],
+    [
+      0.00632,
+      2.9e-29
+    ],
+    [
+      0.00702,
+      5.5e-29
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "ARIADNE (resonant NMR axion-mediated force search, projected)",
+  "coupling_convention": "|g_s^N g_p^N| dimensionless product of scalar (nucleon) and pseudoscalar (nucleon) couplings, exactly as plotted on the y-axis of Fig. 2",
+  "notes": "This is the original Arvanitaki-Geraci proposal (arXiv:1403.1290) that became the ARIADNE experiment. It presents sensitivity PROJECTIONS only, no measured limits. Primary result (Fig. 2) is the projected reach for the monopole-dipole coupling |g_s^N g_p^N| vs force range (0.01-10 cm, i.e. m_a ~ 2e-6 to 2e-3 eV); Fig. 3 shows secondary dipole-dipole projections ((g_p^N)^2/4pi and g_p^N g_p^e/4pi) not extracted here. No numerical table is provided; data_points are approximate readings of the ultimate projected-reach curve from the figure description and the stated axis ranges (couplings span 1e-39 to 1e-24 on the plot), so they should be treated as indicative only. Sensitivity is explicitly independent of cosmic axion abundance, so no DM density assumption applies. Confidence level not explicitly stated in the paper. | selector: figure_vision (sole candidate) | Vision: This is a projection/proposal paper (ARIADNE). Traced the red solid 'T2=1 sec' curve, the conservative boundary of the 'Setup in this paper' sensitivity band in Fig. 2 (monopole-dipole |g_s g_p| vs force range). The red dashed T2=1000 s curve lies ~1.5 decades lower (~2e-34 at the flat region), and the blue 'Projected Reach' lies further below (~1e-38 at 10 cm). Mass converted from force range via m = 1.973e-5 eV\u00b7cm / lambda. Top axis maps lambda to f_a: 1e9-1e12 GeV. Excluded/probed region is above the traced curve. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.70 snapped to identity)",
+  "num_points": 35,
+  "elapsed_s": 219.88845801353455
+}

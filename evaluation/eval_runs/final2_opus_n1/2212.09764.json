@@ -1,0 +1,142 @@
+{
+ "arxiv_id": "2212.09764",
+ "paper_title": "Updated constraints on axion-like particles from temporal information in supernova SN1987A gamma-ray data",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-11,
+   5.3e-12
+  ],
+  [
+   1.4e-11,
+   5.3e-12
+  ],
+  [
+   2e-11,
+   5.3e-12
+  ],
+  [
+   3e-11,
+   5.3e-12
+  ],
+  [
+   5e-11,
+   5.3e-12
+  ],
+  [
+   7e-11,
+   5.3e-12
+  ],
+  [
+   1e-10,
+   5.3e-12
+  ],
+  [
+   1.5e-10,
+   5.3e-12
+  ],
+  [
+   2e-10,
+   5.3e-12
+  ],
+  [
+   3e-10,
+   5.4e-12
+  ],
+  [
+   4e-10,
+   5.5e-12
+  ],
+  [
+   5e-10,
+   5.7e-12
+  ],
+  [
+   6e-10,
+   6e-12
+  ],
+  [
+   7e-10,
+   6.4e-12
+  ],
+  [
+   8e-10,
+   6.9e-12
+  ],
+  [
+   9e-10,
+   7e-12
+  ],
+  [
+   1e-09,
+   6.8e-12
+  ],
+  [
+   1.2e-09,
+   6.7e-12
+  ],
+  [
+   1.5e-09,
+   7.5e-12
+  ],
+  [
+   1.8e-09,
+   8.5e-12
+  ],
+  [
+   2e-09,
+   9.5e-12
+  ],
+  [
+   2.5e-09,
+   1.15e-11
+  ],
+  [
+   3e-09,
+   1.4e-11
+  ],
+  [
+   3.5e-09,
+   1.65e-11
+  ],
+  [
+   4e-09,
+   1.9e-11
+  ],
+  [
+   5e-09,
+   2.4e-11
+  ],
+  [
+   6e-09,
+   3e-11
+  ],
+  [
+   7e-09,
+   3.6e-11
+  ],
+  [
+   8e-09,
+   4.4e-11
+  ],
+  [
+   9e-09,
+   5.2e-11
+  ],
+  [
+   1e-08,
+   6.2e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "SN1987A SMM ALP-photon conversion (this work, lambda_P)",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper updates SN1987A gamma-ray limits on ALP-photon coupling using SMM/GRS data. Two regimes: ALP conversion in Galactic magnetic field (low mass ~1e-11 to 1e-8 eV, g~6.5e-12 GeV^-1 at 95% CL, improved by factor 1.4 with temporal info) and ALP decays (keV-GeV masses). Data points are approximate reads off Figures 2/3; benchmark values from text: ma=1e-10 eV, ga\u03b3=6.55e-12 GeV^-1 (conversion) and ma=1 MeV, ga\u03b3=2.26e-11 GeV^-1 (decay) are disfavored benchmarks, not exactly the limit. Exclusion limit values are approximate. This is an astrophysical (stellar/SN) bound, not a DM haloscope, so no DM density. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 31)) | Vision: Left panel of Figure 3. Traced solid black 'This work (lambda_P)' boundary for ALP-photon conversion at 95% CL. Boundary is flat near ~5.3e-12 GeV^-1 below ~3e-10 eV, has a slight bump near 8e-10 eV, then rises steeply toward higher mass. Excluded region is above the line. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.86 snapped to identity)",
+ "num_points": 31,
+ "elapsed_s": 147.16080594062805
+}

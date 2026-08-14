@@ -1,0 +1,162 @@
+{
+  "arxiv_id": "1207.2442",
+  "paper_title": "EotwashEP",
+  "coupling_type": "VectorBL",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      7.89e-06,
+      1e-05
+    ],
+    [
+      4.93e-06,
+      6e-06
+    ],
+    [
+      2.82e-06,
+      3.5e-06
+    ],
+    [
+      1.97e-06,
+      2.3e-06
+    ],
+    [
+      9.87e-07,
+      1.2e-06
+    ],
+    [
+      3.95e-07,
+      6e-07
+    ],
+    [
+      1.97e-07,
+      3.5e-07
+    ],
+    [
+      9.87e-08,
+      2e-07
+    ],
+    [
+      3.95e-08,
+      1e-07
+    ],
+    [
+      1.97e-08,
+      6e-08
+    ],
+    [
+      6.58e-09,
+      3e-08
+    ],
+    [
+      1.97e-09,
+      1.5e-08
+    ],
+    [
+      6.58e-10,
+      8e-09
+    ],
+    [
+      1.97e-10,
+      5e-09
+    ],
+    [
+      6.58e-11,
+      4e-09
+    ],
+    [
+      1.97e-11,
+      3e-09
+    ],
+    [
+      9.87e-12,
+      2.2e-09
+    ],
+    [
+      3.95e-12,
+      2e-09
+    ],
+    [
+      1.97e-12,
+      1.5e-09
+    ],
+    [
+      9.87e-13,
+      1e-09
+    ],
+    [
+      6.58e-13,
+      1.2e-09
+    ],
+    [
+      3.95e-13,
+      9e-10
+    ],
+    [
+      2.47e-13,
+      5e-10
+    ],
+    [
+      1.97e-13,
+      3e-10
+    ],
+    [
+      1.32e-13,
+      1.5e-10
+    ],
+    [
+      9.87e-14,
+      8e-11
+    ],
+    [
+      6.58e-14,
+      4e-11
+    ],
+    [
+      3.95e-14,
+      2.5e-11
+    ],
+    [
+      2.47e-14,
+      2.1e-11
+    ],
+    [
+      1.97e-14,
+      2e-11
+    ],
+    [
+      1.97e-15,
+      2e-11
+    ],
+    [
+      1.97e-16,
+      2e-11
+    ],
+    [
+      1.97e-17,
+      2e-11
+    ],
+    [
+      1.97e-18,
+      2e-11
+    ],
+    [
+      1.97e-19,
+      2e-11
+    ],
+    [
+      1.97e-20,
+      2e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.65,
+  "suggested_experiment_name": "EotwashEP",
+  "coupling_convention": "|alpha_tilde|: dimensionless Yukawa interaction strength relative to gravity for charge q_tilde = B-L, exactly as plotted on the y-axis of figure 6 (left panel). NOT converted to g_BL.",
+  "notes": "Eot-Wash torsion-balance WEP test (Wagner et al. 2012, review of Schlamminger 2008 / Wagner thesis results). The key exclusion plot (Fig. 6, left) gives 95% CL limits on Yukawa strength alpha-tilde vs range lambda for charge q=B-L, so VectorBL is the appropriate coupling type (overriding the ScalarBaryon hint; the paper also constrains dilaton scalar couplings De, Dm in Fig. 7, hence type confidence is capped). No numerical table of the alpha(lambda) curve is provided; the emitted points are DERIVED from Table 3: |eta_earth| < ~3.5e-13 (95% CL), combined Be-Ti/Be-Al with Delta(N/mu) from Table 1 and (N/mu)_earth ~ 0.50 gives alpha ~ 2e-11, converted to g_BL ~ 1.2e-24. This flat bound is valid only in the long-range regime lambda >> 10^7 m (m << 2e-14 eV); the actual limit weakens substantially at higher masses (shorter ranges down to lambda ~ 1 m), which cannot be extracted from the text. Digitization of Fig. 6 would be needed for the full mass-dependent curve. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.65, 36)) | Vision: Paper: 'Torsion-balance tests of the weak equivalence principle' (Wagner et al., Eot-Wash). Figure 6 left panel gives 95% CL upper bounds on the strength |alpha_tilde| of a vector Yukawa interaction coupled to B-L vs range lambda [m]. Traced the lower envelope of the yellow EXCLUDED REGION, which follows the 'EW' (lab-fixed, table 3) curve at short/intermediate ranges, dips near lambda~1e5-1e6 m (regional/earth-scale sources), and plateaus at |alpha_tilde|~2e-11 for lambda >~1e7 m (earth/sun attractors). Mass converted via m = hbar*c/lambda = 1.973e-7 eV.m / lambda (Yukawa-range convention). Coupling values emitted as plotted (|alpha_tilde|, strength relative to gravity); downstream conversion to g_BL required: g_BL^2 ~ alpha * 4*pi*G*u^2*(charge factors). Boundary read from plot pixels; wiggle structure near 1e4-1e6 m approximate. Figures 7 (dilaton De-Dm ellipse) and 9 (a_DM^ng/a_DM vs psi) are not mass-coupling limit plots. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.33 snapped to identity)",
+  "num_points": 36,
+  "elapsed_s": 283.2355101108551
+}

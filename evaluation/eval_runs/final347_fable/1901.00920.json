@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "1901.00920",
+  "paper_title": "Piezoelectrically Tuned Multimode Cavity Search for Axion Dark Matter",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.738e-05,
+      1.5e-13
+    ],
+    [
+      1.757e-05,
+      1.5e-13
+    ],
+    [
+      2.103e-05,
+      1e-12
+    ],
+    [
+      2.398e-05,
+      1e-12
+    ],
+    [
+      2.967e-05,
+      2e-12
+    ],
+    [
+      2.979e-05,
+      2e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "ADMX_Sidecar",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "ADMX Sidecar pathfinder haloscope. New 90% CL exclusion limits on g_agamma in three frequency ranges: Run A (4202-4249 MHz, TM010, 17.38-17.57 ueV), Run B (5086-5799 MHz, TM010, 21.03-23.98 ueV), Run C (7173-7203 MHz, TM020, 29.67-29.79 ueV), assuming rho_a = 0.45 GeV/cm^3 with an isothermal halo distribution. No numerical limit table is provided; limits are shown only in Fig. 4 (y-axis 1e-13 to 1e-10 GeV^-1). The coupling values above are approximate representative levels per run, estimated from the figure description and the run parameters (Run A: B=3.11 T, C=0.49, QL=6.2k -> ~1.5e-13; Run B: low field 0.78 T commissioning, QL=2.2k -> ~1e-12; Run C: TM020 with form factor ~0.04 -> ~2e-12). Each run encoded as a flat two-point band over its stated mass range. Paper states improvement over solar (CAST) bounds by ~2 orders of magnitude, consistent with these levels. Coupling type unambiguous; data quality approximate, hence moderate extraction confidence. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 6,
+  "elapsed_s": 63.83074712753296
+}

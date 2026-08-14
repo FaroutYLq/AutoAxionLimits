@@ -1,0 +1,62 @@
+{
+  "arxiv_id": "1503.06886",
+  "paper_title": "Search for ultralight scalar dark matter with atomic spectroscopy",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-24,
+      4e-06
+    ],
+    [
+      1e-23,
+      4e-07
+    ],
+    [
+      1e-22,
+      4.2e-08
+    ],
+    [
+      1e-21,
+      4.2e-07
+    ],
+    [
+      1e-20,
+      4.2e-06
+    ],
+    [
+      1e-19,
+      3e-05
+    ],
+    [
+      1e-18,
+      0.00015
+    ],
+    [
+      3e-18,
+      0.00036
+    ],
+    [
+      1e-17,
+      0.0012
+    ],
+    [
+      1e-16,
+      0.012
+    ],
+    [
+      1e-15,
+      0.12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "Dysprosium_VanTilburg2015",
+  "coupling_convention": "dimensionless dilaton photon coupling d_e (Damour-Donoghue normalization, d_e=1 is gravitational strength)",
+  "notes": "Van Tilburg, Leefer, Bougas, Budker (arXiv:1503.06886): first atomic spectroscopy limits on ultralight scalar DM coupled to photons via alpha oscillations, using Dy-162/Dy-164 rf transitions. Coupling type unambiguous (ScalarPhoton, d_e). No numerical table provided; exclusion curve is Fig. 4. Data points reconstructed from explicitly stated anchors in text: best limit d_e ~ 4.2e-8 at m_phi ~ 1e-22 eV; limit surpasses EP bound (|d_e| < 3.6e-4) for m < 3e-18 eV; valid mass range ~1e-24 to ~1e-15 eV. Intermediate points obtained by applying the paper's stated scaling (limit on d_e scales roughly ~m_phi above best-sensitivity mass; ~m_phi^-1 below due to \u03c9^-2 amplitude degradation), so they are approximate (factor ~2 uncertainty). Assumes phi comprises all of the DM with rho_DM = 0.3 GeV/cm^3; limits scale as sqrt(rho_phi). 95% CL. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 11,
+  "elapsed_s": 57.6717529296875
+}

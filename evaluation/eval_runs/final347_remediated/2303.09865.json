@@ -1,0 +1,114 @@
+{
+  "arxiv_id": "2303.09865",
+  "paper_title": "Tritium",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.7e-23,
+      1.06e-13
+    ],
+    [
+      2.2e-23,
+      1.37e-13
+    ],
+    [
+      2.9e-23,
+      1.81e-13
+    ],
+    [
+      3.8e-23,
+      2.37e-13
+    ],
+    [
+      5e-23,
+      3.12e-13
+    ],
+    [
+      6.5e-23,
+      4.05e-13
+    ],
+    [
+      8.5e-23,
+      5.3e-13
+    ],
+    [
+      1.1e-22,
+      6.86e-13
+    ],
+    [
+      1.5e-22,
+      9.35e-13
+    ],
+    [
+      2e-22,
+      1.25e-12
+    ],
+    [
+      2.6e-22,
+      1.62e-12
+    ],
+    [
+      3.4e-22,
+      2.12e-12
+    ],
+    [
+      4.5e-22,
+      2.81e-12
+    ],
+    [
+      5.9e-22,
+      3.68e-12
+    ],
+    [
+      7.7e-22,
+      4.8e-12
+    ],
+    [
+      1e-21,
+      6.24e-12
+    ],
+    [
+      1.3e-21,
+      8.11e-12
+    ],
+    [
+      1.7e-21,
+      1.06e-11
+    ],
+    [
+      2.3e-21,
+      1.43e-11
+    ],
+    [
+      3e-21,
+      1.87e-11
+    ],
+    [
+      3.9e-21,
+      2.43e-11
+    ],
+    [
+      5.1e-21,
+      3.18e-11
+    ],
+    [
+      6.7e-21,
+      4.18e-11
+    ],
+    [
+      8.7e-21,
+      5.42e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "Tritium decay (JRC 3H beta-decay time series)",
+  "coupling_convention": "1/f_a in GeV^-1 (inverse axion decay constant, as plotted on y-axis)",
+  "notes": "Paper excludes QCD-axion decay constants f_a below 9.4e12 GeV (at m_a=1.7e-23 eV) down to 1.8e10 GeV (at m_a=8.7e-21 eV) at 95% CL, from 12 yr of tritium beta-decay data. Underlying coupling is the oscillating effective theta angle (axion-gluon / CP-odd nuclear forces) inducing periodic binding-energy/decay-rate variation - closest enum is AxionCPV (theta-bar), though it could also be viewed as the axion-gluon EDM-type coupling (same coupling constrained by oscillating nEDM searches). Emitted y-values are 1/f_a in GeV^-1 (=inverse of quoted f_a); x-axis y-values NOT frequency-converted. Two endpoints of the exclusion boundary given; a monotonic curve connects them (sensitivity falls as ~1/(m_a^2 f_a^2)). rho_DM=0.45 GeV/cm^3 assumed. Projected sensitivities (future tritium experiments) also given but not the main result. | selector: figure_vision over text (quality (1, 1, 1, 0, 2, 0, 0.55, 24)) | Vision: Figure 3 plots 1/f_a [GeV^-1] vs m_a [eV] for axion DM inducing an oscillating theta-bar that modulates 3H beta-decay rate (CP-violating effect). The 'Tritium decay' (current result) exclusion region's lower boundary is traced. Text gives exclusion of f_a from 9.4e12 down to 1.8e10 GeV over m_a = 1.7e-23 to 8.7e-21 eV, i.e. a slope-1 line in log-log (1/f_a proportional to m_a) since signal amplitude scales as (m_a/f_a)^2 ... (I \u221d (1/m_a)^2(1/f_a)^2 per Eq 12/13, giving boundary 1/f_a \u221d m_a). Values emitted are 1/f_a in GeV^-1 exactly as plotted (NOT converted). Confidence reduced because the plotted quantity is 1/f_a rather than a canonical coupling, and the CP-violating axion interpretation (AxionCPV vs AxionMass f_a-plane) is somewhat ambiguous. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.36 snapped to identity) | coupling type AxionCPV -> AxionMass by axis read-back 'GeV^-1 (inverse axion decay constant 1/f_a)' (same confusable family, #625 Phase 3)",
+  "num_points": 24,
+  "elapsed_s": 162.9501268863678
+}

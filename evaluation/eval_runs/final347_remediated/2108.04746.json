@@ -1,0 +1,142 @@
+{
+  "arxiv_id": "2108.04746",
+  "paper_title": "Constraints on scalar field dark matter from co-located Michelson interferometers",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.8e-12,
+      8e-08
+    ],
+    [
+      2.5e-12,
+      2e-08
+    ],
+    [
+      3.5e-12,
+      5e-09
+    ],
+    [
+      5e-12,
+      1.5e-09
+    ],
+    [
+      7e-12,
+      6e-10
+    ],
+    [
+      1e-11,
+      1.9999999999999998e-10
+    ],
+    [
+      1.5e-11,
+      8e-11
+    ],
+    [
+      2.2e-11,
+      3e-11
+    ],
+    [
+      3.5e-11,
+      1.1999999999999999e-11
+    ],
+    [
+      5e-11,
+      5.9999999999999995e-12
+    ],
+    [
+      7e-11,
+      2.9999999999999997e-12
+    ],
+    [
+      1e-10,
+      2e-12
+    ],
+    [
+      1.5e-10,
+      1.4999999999999999e-12
+    ],
+    [
+      2.2e-10,
+      1.2e-12
+    ],
+    [
+      3.5e-10,
+      1e-12
+    ],
+    [
+      5e-10,
+      9e-13
+    ],
+    [
+      7e-10,
+      8e-13
+    ],
+    [
+      9.3e-10,
+      5e-14
+    ],
+    [
+      1.2e-09,
+      1e-12
+    ],
+    [
+      1.8e-09,
+      1.4999999999999999e-12
+    ],
+    [
+      2.5e-09,
+      2e-12
+    ],
+    [
+      4e-09,
+      4e-12
+    ],
+    [
+      6e-09,
+      8e-12
+    ],
+    [
+      9e-09,
+      1.5e-11
+    ],
+    [
+      1.3e-08,
+      4e-11
+    ],
+    [
+      2e-08,
+      1.2e-10
+    ],
+    [
+      3e-08,
+      5e-10
+    ],
+    [
+      4.5e-08,
+      3e-09
+    ],
+    [
+      6.5e-08,
+      3e-08
+    ],
+    [
+      8.5e-08,
+      5e-07
+    ],
+    [
+      1e-07,
+      5e-05
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "Fermilab Holometer (co-located Michelson interferometers)",
+  "coupling_convention": "Lambda_gamma^{-1} in GeV^{-1} (inverse photon coupling energy scale), exactly as plotted on y-axis",
+  "notes": "Paper constrains scalar-field DM couplings to photons (Lambda_gamma) and electrons (Lambda_e) using cross-correlated Fermilab Holometer twin interferometers, mass range 1.6e-12 to 1.0e-7 eV, at 95% CL, assuming rho_local=0.4 GeV/cm^3 (Relaxion halo uses mass-dependent overdensity). Both ScalarPhoton (Lambda_gamma) and ScalarElectron (Lambda_e) are constrained; hint suggests ScalarPhoton. No numerical coupling values are given in the text; limits appear only in Fig. 2 which cannot be read, so no data points could be extracted. Couplings are expressed as energy scales Lambda (inverse of d_e-type dimensionless couplings), not standard d_e. | selector: figure_vision (sole candidate) | Vision: Exclusion plot from Fig. 2, top-right panel (Basic Scalar scenario, photon coupling Lambda_gamma) which corresponds to ScalarPhoton (scalar coupling to photons, alpha variation). The y-axis is plotted as Lambda_gamma^{-1} in GeV^{-1}, NOT the canonical dimensionless d_gamma/d_e; per the plotted-values contract I emit the plotted Lambda_gamma^{-1} values. Red region = Holometer result; its lower boundary is traced. Mass range 1.6e-12 to 1.0e-7 eV matches text. Deep dip near ~9e-10 eV is the 226 kHz beamsplitter mechanical resonance. Small multi-panel plot with overlapping colored regions makes precise reading difficult; values approximate. Left column would be Lambda_e (electron coupling); ScalarPhoton -> right column (Lambda_gamma) chosen. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=11.11)",
+  "num_points": 31,
+  "elapsed_s": 162.43927764892578
+}

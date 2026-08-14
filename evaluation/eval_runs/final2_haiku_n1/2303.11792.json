@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2303.11792",
+ "paper_title": "Searching for Time-Dependent Axion Dark Matter Signals in Pulsars",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.9e-06,
+   5.5e-11
+  ],
+  [
+   4.7e-06,
+   5.5e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "MeerKAT_PSR_J2144-3933",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper reports a new measured exclusion limit on axion-photon coupling using time-domain matched-filter analysis of PSR J2144\u22123933 radio observations from MeerKAT. The limit g_agamma < 5.5 \u00d7 10^-11 GeV^-1 is valid over the mass range m_a = 3.9\u20134.7 \u03bceV (corresponding to observing frequency ~1.0 GHz). This is encoded as a horizontal line (mass-independent bound over the stated range). The paper uses a fiducial pulsar distance D = 0.165 kpc (parallax measurement); an alternative distance D = 0.29 kpc from electron density models yields a weaker limit of 9.6 \u00d7 10^-11 GeV^-1. The DM density assumed is \u03c1_DM \u2248 0.45 GeV/cm^3 (standard NFW profile extrapolation for the Galactic halo). The limit is a 2\u03c3 (\u224895% CL) upper bound derived from matched-filter SNR analysis. The paper emphasizes the advantage of time-domain over frequency-domain searches for signals with significant time variation due to pulsar magnetosphere rotation. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.92, 2))",
+ "num_points": 2,
+ "elapsed_s": 216.9061529636383
+}

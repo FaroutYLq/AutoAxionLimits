@@ -1,0 +1,138 @@
+{
+  "arxiv_id": "2208.07293",
+  "paper_title": "First Search for Axion-Like Particles in a Storage Ring Using a Polarized Deuteron Beam",
+  "coupling_type": "AxionEDM",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.9632e-10,
+      5e-23
+    ],
+    [
+      4.9653e-10,
+      4.9e-23
+    ],
+    [
+      4.9673e-10,
+      4.8e-23
+    ],
+    [
+      4.9694e-10,
+      5e-23
+    ],
+    [
+      4.9715e-10,
+      4.9e-23
+    ],
+    [
+      4.9736e-10,
+      4.7e-23
+    ],
+    [
+      4.9757e-10,
+      4.4e-23
+    ],
+    [
+      4.9777e-10,
+      4.3e-23
+    ],
+    [
+      4.9798e-10,
+      4.1e-23
+    ],
+    [
+      4.9819e-10,
+      4e-23
+    ],
+    [
+      4.984e-10,
+      4e-23
+    ],
+    [
+      4.986e-10,
+      3.9e-23
+    ],
+    [
+      4.9881e-10,
+      4e-23
+    ],
+    [
+      4.9902e-10,
+      4.3e-23
+    ],
+    [
+      4.9923e-10,
+      4.6e-23
+    ],
+    [
+      4.9943e-10,
+      4.9e-23
+    ],
+    [
+      4.9964e-10,
+      4.9e-23
+    ],
+    [
+      4.9985e-10,
+      4.6e-23
+    ],
+    [
+      5.0006e-10,
+      4.3e-23
+    ],
+    [
+      5.0026e-10,
+      4.1e-23
+    ],
+    [
+      5.0047e-10,
+      4e-23
+    ],
+    [
+      5.0068e-10,
+      4e-23
+    ],
+    [
+      5.0089e-10,
+      4.4e-23
+    ],
+    [
+      5.0109e-10,
+      4.9e-23
+    ],
+    [
+      5.013e-10,
+      5.1e-23
+    ],
+    [
+      5.0151e-10,
+      5.2e-23
+    ],
+    [
+      5.0172e-10,
+      5.3e-23
+    ],
+    [
+      5.0192e-10,
+      5.3e-23
+    ],
+    [
+      5.0213e-10,
+      5.5e-23
+    ],
+    [
+      5.0234e-10,
+      5.8e-23
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.55,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "JEDI storage-ring polarized deuteron ALP search",
+  "coupling_convention": "oscillating EDM amplitude d_n in e*cm (axis read-back)",
+  "notes": "First storage-ring ALP search with polarized deuteron beam at COSY. 90% CL upper bound on oscillating deuteron EDM |d_AC| < 6.4e-23 e*cm over frequency 120.0-121.4 kHz corresponding to ALP mass ~0.495-0.502 neV/c^2 (~5e-10 eV). Primary result is oscillating EDM (Fig. 17), hence AxionEDM in e*cm. The curve varies around ~10^-22 e*cm; the quoted overall bound 6.4e-23 e*cm used as the flat value spanning the narrow mass window. Paper also derives g_adgamma, C_G/f_a, and axion-wind C_d/f_a limits, but the primary measured plot is the oscillating EDM. Local DM density not explicitly quoted in excerpt. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 30)) | declaration reconciled to axis read-back: 'oscillating EDM amplitude d_n in e*cm (axis read-back)' (model declared 'd_ac (oscillating deuteron edm) in e\u00b7cm, i.e. plotted value \u00d710^-23 e\u00b7cm' \u2014 axis unit wins, #594 contract) | Vision: Figure 17: 90% CL upper limit on oscillating deuteron EDM d_AC in the frequency band 120.0-121.4 kHz (m_a = 0.495-0.502 neV/c2). Y-axis in units of 10^-23 e\u00b7cm. The plotted limit is noisy; traced the lower envelope of the filled exclusion region. Mass computed from frequency via m[eV]=4.136e-15*f[Hz]. Green region (\u0394p=0.112 MeV/c) covers ~120.0-120.25 kHz, blue (\u0394p=0.138 MeV/c) the rest. Overall 90% CL bound quoted in text: |d_AC| < 6.4e-23 e\u00b7cm. Plotted quantity is the deuteron oscillating EDM (analogous to axion-induced nucleon EDM), reported directly in e\u00b7cm. | Calibration: No calibration needed",
+  "num_points": 30,
+  "elapsed_s": 166.68819093704224
+}

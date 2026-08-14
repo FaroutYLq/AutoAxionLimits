@@ -1,0 +1,166 @@
+{
+ "arxiv_id": "2303.08410",
+ "paper_title": "Constraints on axion-like polarization oscillations in the cosmic microwave background with POLARBEAR",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-22,
+   1.2e-13
+  ],
+  [
+   1.5e-22,
+   1.5000000000000002e-13
+  ],
+  [
+   2e-22,
+   1.8000000000000002e-13
+  ],
+  [
+   3e-22,
+   2.2e-13
+  ],
+  [
+   5e-22,
+   2.8e-13
+  ],
+  [
+   7e-22,
+   3.3e-13
+  ],
+  [
+   1e-21,
+   4e-13
+  ],
+  [
+   1.5e-21,
+   5e-13
+  ],
+  [
+   2e-21,
+   6.000000000000001e-13
+  ],
+  [
+   3e-21,
+   7.5e-13
+  ],
+  [
+   5e-21,
+   9.5e-13
+  ],
+  [
+   7e-21,
+   1.1500000000000001e-12
+  ],
+  [
+   1e-20,
+   1.4e-12
+  ],
+  [
+   1.2e-20,
+   1.5500000000000003e-12
+  ],
+  [
+   1.5e-20,
+   1.8e-12
+  ],
+  [
+   2e-20,
+   2.2000000000000003e-12
+  ],
+  [
+   2.5e-20,
+   2.6000000000000002e-12
+  ],
+  [
+   3e-20,
+   3e-12
+  ],
+  [
+   4e-20,
+   3.8e-12
+  ],
+  [
+   5e-20,
+   4.7000000000000006e-12
+  ],
+  [
+   6e-20,
+   5.6e-12
+  ],
+  [
+   7e-20,
+   6.600000000000001e-12
+  ],
+  [
+   8e-20,
+   7.700000000000002e-12
+  ],
+  [
+   9e-20,
+   8.800000000000001e-12
+  ],
+  [
+   1e-19,
+   1.0000000000000001e-11
+  ],
+  [
+   1.2e-19,
+   1.2500000000000002e-11
+  ],
+  [
+   1.5e-19,
+   1.6e-11
+  ],
+  [
+   2e-19,
+   2.2e-11
+  ],
+  [
+   2.5e-19,
+   2.9e-11
+  ],
+  [
+   3e-19,
+   3.7e-11
+  ],
+  [
+   4e-19,
+   5.5e-11
+  ],
+  [
+   5e-19,
+   7.8e-11
+  ],
+  [
+   6e-19,
+   1.0500000000000001e-10
+  ],
+  [
+   7e-19,
+   1.4e-10
+  ],
+  [
+   8e-19,
+   1.8e-10
+  ],
+  [
+   9e-19,
+   2.3e-10
+  ],
+  [
+   1e-18,
+   2.9000000000000003e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "POLARBEAR (Polarization of Background Radiation)",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling constant",
+ "notes": "Paper reports a median 95% upper limit on axion-photon coupling g_agamma < (2.4 \u00d7 10^-11 GeV^-1) \u00d7 (m_a / 10^-21 eV) over the mass range 9.6 \u00d7 10^-22 eV to 2.2 \u00d7 10^-20 eV. This is the stochastic case where the axion field amplitude is treated as a Rayleigh-distributed random variable (following Ref. [22]), which is more appropriate than the deterministic case when the experiment timescale is much shorter than the axion coherence time (~6000 years). The limit assumes the axion constitutes all dark matter with local density \u03c1_0 = 0.3 GeV/cm^3. The constraint is derived from a search for sinusoidal oscillations in CMB polarization angle measured by POLARBEAR over two observing seasons (2012-2016). No signal was detected (p-value = 0.048, 1.7\u03c3). The frequency range 0.02-0.45 days^-1 corresponds to oscillation periods from ~2 to ~50 days, limited by HWP position uncertainty at longer periods. The data points represent a mass-independent (flat) bound across the stated mass range. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 37)) | Vision: Figure 5 shows the 95% upper confidence limit on axion-photon coupling g_agamma as a function of axion mass m_a. The POLARBEAR constraint (solid red line) is the primary result from this work, derived from a search for sinusoidal oscillations in CMB polarization angle. The constraint assumes a stochastic local axion field amplitude with Rayleigh-distributed phase. The mass range probed is 9.6\u00d710^-22 eV \u2264 m_a \u2264 2.2\u00d710^-20 eV, corresponding to oscillation periods from ~100 days to ~0.1 days. The median bound is g_agamma < (2.4\u00d710^-11 GeV^-1) \u00d7 (m_a/10^-21 eV). The plot also shows comparison constraints from BICEP 2022, SPT 2022, CAST, MW satellites, Lyman-\u03b1 forest, and theoretical washout bounds. The boundary traced represents the lower edge of the excluded region (above which couplings are excluded at 95% CL). | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.29)",
+ "num_points": 37,
+ "elapsed_s": 209.88528776168823
+}

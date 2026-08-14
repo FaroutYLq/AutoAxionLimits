@@ -1,0 +1,142 @@
+{
+  "arxiv_id": "2103.03783",
+  "paper_title": "Direct limits for scalar field dark matter from a gravitational-wave detector",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2e-13,
+      5e-16
+    ],
+    [
+      2.5e-13,
+      8e-17
+    ],
+    [
+      3e-13,
+      1.5e-17
+    ],
+    [
+      3.5e-13,
+      4e-18
+    ],
+    [
+      4.5e-13,
+      8.000000000000001e-19
+    ],
+    [
+      5.5e-13,
+      2.0000000000000002e-19
+    ],
+    [
+      6e-13,
+      1.0000000000000001e-19
+    ],
+    [
+      7e-13,
+      5.0000000000000005e-20
+    ],
+    [
+      8e-13,
+      3e-20
+    ],
+    [
+      9e-13,
+      1.5e-20
+    ],
+    [
+      1e-12,
+      1.0000000000000001e-20
+    ],
+    [
+      1.1e-12,
+      7e-21
+    ],
+    [
+      1.25e-12,
+      5.0000000000000005e-21
+    ],
+    [
+      1.4e-12,
+      4e-21
+    ],
+    [
+      1.7e-12,
+      3.3e-21
+    ],
+    [
+      1.9e-12,
+      3.3e-21
+    ],
+    [
+      2e-12,
+      3.3e-21
+    ],
+    [
+      2.5e-12,
+      4e-21
+    ],
+    [
+      3e-12,
+      5.0000000000000005e-21
+    ],
+    [
+      3.5e-12,
+      7e-21
+    ],
+    [
+      4e-12,
+      8e-21
+    ],
+    [
+      4.5e-12,
+      1.2000000000000001e-20
+    ],
+    [
+      5.5e-12,
+      2.5000000000000002e-20
+    ],
+    [
+      7e-12,
+      6e-20
+    ],
+    [
+      9e-12,
+      1.5e-19
+    ],
+    [
+      1.1e-11,
+      3.5e-19
+    ],
+    [
+      1.4e-11,
+      1e-18
+    ],
+    [
+      1.7e-11,
+      3.0000000000000002e-18
+    ],
+    [
+      2e-11,
+      1e-17
+    ],
+    [
+      2.5e-11,
+      5.0000000000000005e-17
+    ],
+    [
+      3e-11,
+      3e-16
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.45,
+  "suggested_experiment_name": "GEO 600 scalar field dark matter search",
+  "coupling_convention": "Lambda_i^-1 (inverse coupling scale) in GeV^-1, exactly as plotted on the y-axis (combined Lambda_e^-1 and Lambda_gamma^-1 'This work' green region)",
+  "notes": "GEO600 gravitational-wave detector direct search for scalar field DM coupling to the beamsplitter. Constraints set on both photon coupling Lambda_gamma (fine-structure/alpha variation -> ScalarPhoton) and electron coupling Lambda_e (electron-mass variation -> ScalarElectron), reported equally, so coupling type is ambiguous. y-axis is Lambda_i^-1 in GeV^-1, best (lower) limit ~1/(3e19 GeV)=3.3e-20 GeV^-1 for masses ~1e-13 to 1e-11 eV (Basic Scalar scenario, rho=0.4 GeV/cm^3). Only the best-limit value is extracted from text as an approximate horizontal band; the full mass-dependent curve spans ~2e-13 to 2.5e-11 eV (50 Hz-6 kHz) but is not numerically tabulated. Values are raw Lambda^-1, NOT converted to dimensionless d_e/d_me. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.45, 31)) | Vision: Figure 2 (Basic Scalar scenario). Y-axis plotted as inverse coupling scale Lambda_i^-1 in GeV^-1, NOT d_e; values emitted as plotted per contract. Green 'This work' region traced along its lower boundary; minimum Lambda^-1 ~ 3.3e-20 GeV^-1 (Lambda=3e19 GeV) around m~1.5-2e-12 eV, consistent with text stating best limits for masses between 1e-13 and 1e-11 eV. The green region is the SAME measurement in Fig 3-left (Dilaton/Modulus); Fig 3-right (Relaxion Halo) is density-rescaled. Coupling type is ambiguous: the green region constrains BOTH the photon coupling (Lambda_gamma, alpha variation -> ScalarPhoton) and the electron coupling (Lambda_e, m_e variation -> ScalarElectron) with equal value in this scenario, hence reduced confidence. Mass axis read via frequency-to-mass over the GEO600 band. Boundary partly reconstructed from envelope due to small figure resolution and spiky noise-dependent structure. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.30)",
+  "num_points": 31,
+  "elapsed_s": 230.02183485031128
+}

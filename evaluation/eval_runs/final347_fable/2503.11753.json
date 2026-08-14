@@ -1,0 +1,62 @@
+{
+  "arxiv_id": "2503.11753",
+  "paper_title": "JWST_Pinetti",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.1,
+      3e-11
+    ],
+    [
+      0.15,
+      1.5e-11
+    ],
+    [
+      0.2,
+      1e-11
+    ],
+    [
+      0.3,
+      7e-12
+    ],
+    [
+      0.5,
+      5e-12
+    ],
+    [
+      0.7,
+      3e-12
+    ],
+    [
+      1.0,
+      2e-12
+    ],
+    [
+      1.5,
+      1.5e-12
+    ],
+    [
+      2.0,
+      1e-12
+    ],
+    [
+      3.0,
+      1e-12
+    ],
+    [
+      4.0,
+      1.5e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "JWST_Pinetti",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Paper (arXiv:2503.11753, Pinetti) presents first JWST constraints on QCD axion DM via axion decay to infrared photons, using MIRI (0.1-0.5 eV) and NIRSpec (0.5-4 eV) blank-sky observations. 95% CL limits on g_agamma shown in Fig. 2 spanning ~1e-13 to 1e-9 GeV^-1 axis; no numerical table of limit values is provided, so data_points are approximate values estimated from the figure description and the stated >2 orders of magnitude improvement over existing bounds (e.g. CAST ~6.6e-11 GeV^-1). Assumes axions are all of Milky Way DM with NFW profile (rs=24 kpc, rho_s=0.18 GeV/cm^3); this is an indirect-detection decay search, not a haloscope, so dm_density_assumed left null. Coupling type unambiguous (axion-photon), but data quality limited by lack of tabulated values. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 11))",
+  "num_points": 11,
+  "elapsed_s": 95.45612788200378
+}

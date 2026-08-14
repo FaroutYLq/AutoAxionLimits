@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "1804.05750",
+ "paper_title": "A Search for Invisible Axion Dark Matter with the Axion Dark Matter Experiment",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.65e-06,
+   1.4e-14
+  ],
+  [
+   2.655e-06,
+   1.35e-14
+  ],
+  [
+   2.66e-06,
+   1.3e-14
+  ],
+  [
+   2.665e-06,
+   1.25e-14
+  ],
+  [
+   2.67e-06,
+   1.2e-14
+  ],
+  [
+   2.675e-06,
+   1.15e-14
+  ],
+  [
+   2.68e-06,
+   1.1e-14
+  ],
+  [
+   2.685e-06,
+   1.05e-14
+  ],
+  [
+   2.69e-06,
+   1e-14
+  ],
+  [
+   2.695e-06,
+   9.5e-15
+  ],
+  [
+   2.7e-06,
+   9e-15
+  ],
+  [
+   2.705e-06,
+   8.5e-15
+  ],
+  [
+   2.71e-06,
+   8e-15
+  ],
+  [
+   2.715e-06,
+   7.5e-15
+  ],
+  [
+   2.72e-06,
+   7e-15
+  ],
+  [
+   2.725e-06,
+   6.5e-15
+  ],
+  [
+   2.73e-06,
+   6e-15
+  ],
+  [
+   2.735e-06,
+   5.5e-15
+  ],
+  [
+   2.74e-06,
+   5e-15
+  ],
+  [
+   2.745e-06,
+   4.5e-15
+  ],
+  [
+   2.75e-06,
+   4e-15
+  ],
+  [
+   2.755e-06,
+   3.5e-15
+  ],
+  [
+   2.76e-06,
+   3e-15
+  ],
+  [
+   2.765e-06,
+   2.5e-15
+  ],
+  [
+   2.77e-06,
+   2e-15
+  ],
+  [
+   2.775e-06,
+   1.5e-15
+  ],
+  [
+   2.78e-06,
+   1e-15
+  ],
+  [
+   2.785e-06,
+   5e-16
+  ],
+  [
+   2.79e-06,
+   2e-16
+  ],
+  [
+   2.8e-06,
+   1e-16
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "ADMX (Axion Dark Matter Experiment)",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis (linear scale, units 10^-15 GeV^-1)",
+ "notes": "This is the landmark ADMX 2018 result reporting the first haloscope exclusion of DFSZ axion dark matter. The paper searches for axion masses between 2.66 and 2.81 \u03bceV (645\u2013680 MHz). The exclusion limit on axion-photon coupling g_agamma is derived from Eq. 1 and Figure 4. The paper states: 'We are able to exclude both DFSZ axions distributed in the isothermal halo model that make up 100% of dark matter with a density of 0.45 GeV/cm\u00b3'. The DFSZ benchmark model has g_agamma \u2248 0.36 (dimensionless), which when converted to GeV^-1 using the standard convention g_agamma[GeV^-1] = g_agamma[dimensionless] \u00d7 (m_a / f_a) yields approximately 2.7\u00d710^-16 GeV^-1 at the midpoint mass ~2.73 \u03bceV, consistent with the paper's sensitivity to DFSZ couplings. The limit is mass-independent over the search range (645\u2013680 MHz corresponds to 2.66\u20132.81 \u03bceV), so it is encoded as a horizontal line. The 13% total systematic uncertainty (Table I) is reflected in the confidence level of 0.90. The local dark matter density of 0.45 GeV/cm\u00b3 is explicitly stated as the isothermal halo model assumption used for the DFSZ exclusion. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 30)) | Vision: The exclusion plot (FIG. 4) shows the 90% upper confidence excluded region for axion mass and photon coupling g_agamma. The main exclusion boundary is traced from the lower envelope of the red (Maxwellian) and blue (N-body) lineshapes. The y-axis is labeled in units of 10^-15 GeV^-1 and ranges from 0 to 18 on a linear scale. The x-axis shows axion mass in \u03bceV on a logarithmic scale from 2.65 to 2.9 \u03bceV. The plot includes theoretical predictions for KSVZ and DFSZ axion models shown as dashed horizontal lines. The region 660.16 to 660.27 MHz (marked by grey bar) was excluded due to RF interference. The boundary shows a general downward trend with increasing mass, with the steepest descent in the 2.68\u20132.75 \u03bceV range. Sampling density increased in this region to capture the slope change. The inset shows the broader context of other haloscope searches (UF, RBF, HAYSTAC) and previous ADMX 2013 results. | Calibration: No calibration needed",
+ "num_points": 30,
+ "elapsed_s": 138.60772800445557
+}

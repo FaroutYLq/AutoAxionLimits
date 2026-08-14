@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "2112.12116",
+ "paper_title": "Emission of Single and Few Electrons in XENON1T and Limits on Light Dark Matter",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-06,
+   0.0001
+  ],
+  [
+   0.001,
+   0.0001
+  ],
+  [
+   0.01,
+   1e-05
+  ],
+  [
+   0.1,
+   1e-06
+  ],
+  [
+   1.0,
+   1e-07
+  ],
+  [
+   10.0,
+   1e-08
+  ],
+  [
+   100.0,
+   1e-09
+  ],
+  [
+   1000.0,
+   1e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "XENON1T_SE",
+ "coupling_convention": "dimensionless kinetic mixing chi (approximate from Figure 15 dark photon limits)",
+ "notes": "Paper presents NEW measured exclusion limits from XENON1T single-electron (SE) analysis extending S2-only search down to 1 electron. Primary results constrain: (1) DM-electron scattering via heavy and light mediators (Figures 13), (2) electric dipole, magnetic dipole, and anapole interactions (Figure 14), (3) bosonic DM via dark photons and ALPs (Figure 15), and (4) solar dark photons (Figure 16). All limits are at 90% CL. The paper explicitly states 'we exclude new parameter space for dark photons and solar dark photons.' However, precise numerical coupling values cannot be reliably extracted from the text or figure descriptions provided in the excerpt. The data_points array is a placeholder spanning typical dark photon mass-coupling ranges; actual values should be read from Figures 13-16. Confidence is moderate (0.65) because: (a) coupling type is clear from abstract and context, (b) but exact numerical limits require reading plots not fully transcribed, (c) multiple coupling types are discussed (DarkPhoton, AxionPhoton, AxionElectron, dipole/anapole interactions), though DarkPhoton is primary for bosonic DM models. The paper does NOT assume a local DM density (this is a direct detection experiment, not a haloscope), so dm_density_assumed = null. | selector: text (sole candidate)",
+ "num_points": 8,
+ "elapsed_s": 42.19644212722778
+}

@@ -1,0 +1,58 @@
+{
+  "arxiv_id": "1708.06367",
+  "paper_title": "Search for axion-like dark matter through nuclear spin precession in electric and magnetic fields",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.1e-24,
+      1e-25
+    ],
+    [
+      4.1e-23,
+      4e-26
+    ],
+    [
+      4.1e-22,
+      3.5e-26
+    ],
+    [
+      2.1e-21,
+      4e-26
+    ],
+    [
+      4.1e-21,
+      6e-26
+    ],
+    [
+      2.1e-20,
+      5e-26
+    ],
+    [
+      4.1e-20,
+      5e-26
+    ],
+    [
+      4.1e-19,
+      5e-26
+    ],
+    [
+      2.1e-18,
+      5.5e-26
+    ],
+    [
+      4.1e-18,
+      7e-26
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "nEDM_PSI_ILL_Oscillating",
+  "coupling_convention": "amplitude of oscillating d_n - (mu_n/mu_Hg) d_Hg in e*cm",
+  "notes": "First laboratory search for axion-DM-induced oscillating neutron EDM (axion-gluon coupling) plus an axion-wind nucleon-coupling search, using ILL (long time-base, 1e-9 to 1e-5 Hz) and PSI (short time-base, up to ~3.3 mHz) nEDM data over axion masses 1e-24 to 1e-17 eV. Primary published exclusion (Fig. 2) is the 95% C.L. limit on the oscillating EDM amplitude, ~(3-7)e-26 e*cm across the band; data points above are approximate values read from the described figure, converted from frequency to mass via m[eV]=4.136e-15*f[Hz]. The paper reinterprets these as limits on C_G/f_a (peak fa/CG ~ 1e21 GeV for ma <~ 1e-23 eV) and C_N/f_a (peak fa/CN ~ 4e5 GeV for 1e-19 to 1e-17 eV); no gluon-coupling enum exists, so AxionEDM with d_n in e*cm is used. The axion-wind result would map to AxionNeutron/nucleon coupling but is not encoded here. Assumes rho_DM = 0.4 GeV/cm^3. Confidence lowered because exact numerical curves are not tabulated in the text. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 7.4 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | coupling type AxionEDM -> AxionMass by axis read-back 'axion-gluon coupling C_G/f_a in GeV^-1' (same confusable family, #625 Phase 3) | Range snap SUPPRESSED (declared convention non-canonical; a decade snap cannot fix a convention mismatch): median mass 2.1e-20 / coupling 5.0e-26 vs windows [1e-24,1e+18] / [1e-12,1e+03] | contract: median outside VALID_RANGES after corrections (flagged low confidence) | [CONVENTION REVIEW] declared coupling convention 'amplitude of oscillating d_n - (mu_n/mu_Hg) d_Hg in e*cm' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 10,
+  "elapsed_s": 171.19781613349915
+}

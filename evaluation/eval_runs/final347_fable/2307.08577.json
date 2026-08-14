@@ -1,0 +1,146 @@
+{
+  "arxiv_id": "2307.08577",
+  "paper_title": "Dark matter detection using nuclear magnetization in magnet with hyperfine interaction",
+  "coupling_type": "AxionProton",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      2.07e-06,
+      3e-07
+    ],
+    [
+      2.07e-06,
+      3e-08
+    ],
+    [
+      2.08e-06,
+      3e-09
+    ],
+    [
+      2.09e-06,
+      5e-10
+    ],
+    [
+      2.1e-06,
+      1e-10
+    ],
+    [
+      2.13e-06,
+      4e-11
+    ],
+    [
+      2.17e-06,
+      2e-11
+    ],
+    [
+      2.22e-06,
+      1e-11
+    ],
+    [
+      2.28e-06,
+      6.5e-12
+    ],
+    [
+      2.32e-06,
+      5.5e-12
+    ],
+    [
+      2.36e-06,
+      7e-12
+    ],
+    [
+      2.4e-06,
+      1.2e-11
+    ],
+    [
+      2.44e-06,
+      3e-11
+    ],
+    [
+      2.46e-06,
+      1e-10
+    ],
+    [
+      2.47e-06,
+      6e-10
+    ],
+    [
+      2.48e-06,
+      5e-09
+    ],
+    [
+      2.48e-06,
+      3e-08
+    ],
+    [
+      2.48e-06,
+      3e-07
+    ],
+    [
+      0.000186,
+      3e-07
+    ],
+    [
+      0.000186,
+      1e-07
+    ],
+    [
+      0.000187,
+      5e-08
+    ],
+    [
+      0.00019,
+      3.5e-08
+    ],
+    [
+      0.000194,
+      2.5e-08
+    ],
+    [
+      0.000199,
+      1.8e-08
+    ],
+    [
+      0.000205,
+      1.4e-08
+    ],
+    [
+      0.000212,
+      1.1e-08
+    ],
+    [
+      0.000218,
+      1e-08
+    ],
+    [
+      0.000222,
+      1.4e-08
+    ],
+    [
+      0.000225,
+      3e-08
+    ],
+    [
+      0.000226,
+      8e-08
+    ],
+    [
+      0.000227,
+      2e-07
+    ],
+    [
+      0.000227,
+      3e-07
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "MnCO3 hyperfine nuclear magnetization (canted antiferromagnet)",
+  "coupling_convention": "coupling squared, g^2 (axis read-back)",
+  "notes": "Theoretical proposal (July 2023) for DM detection via nuclear magnons in canted antiferromagnet MnCO3 with strong hyperfine interaction; sensitivity PROJECTIONS only (1 kg sample, 1 yr, T=0.1 K, SNR>=1). The paper projects limits on THREE couplings: axion-proton g_app (Fig. 7), axion-electron g_aee (Fig. 8, reaching ~1e-14 at ~1e-6 eV), and dark photon kinetic mixing eps (Fig. 9). Chose AxionProton as primary since paper explicitly states 55Mn nuclear spin is proton-dominated (sigma_p~0.1, sigma_n=0), overriding the AxionNeutron hint, and the headline result is g_app >~ 1e-11 at m_a ~ 1e-6 eV covering unexplored parameter space. Emitted data points are an approximate flat line over the nuclear-dominated mode band (500-600 MHz -> 2.07e-6 to 2.48e-6 eV) from text statements; full sensitivity curves are only in figures (not machine-readable here). Electron-dominated mode band (45-55 GHz, ~1.9-2.3e-4 eV) is stated to NOT beat astrophysical bounds for g_app. Confidence level not explicitly stated (SNR>=1 criterion); 0.95 is nominal. Extraction confidence limited by multiple coupling types and text-only approximate values. | selector: figure_vision (sole candidate) | declaration reconciled to axis read-back: 'coupling squared, g^2 (axis read-back)' (model declared 'g_app, dimensionless axion-proton coupling as plotted on y-axis of fig. 7' \u2014 axis unit wins, #594 contract) | Vision: Figure 7 shows PROJECTED sensitivity (not existing exclusion) of a 1 kg MnCO3 canted antiferromagnet with T_total = 1 yr. Two disconnected sensitivity bands: green (nuclear-dominated mode, 500-600 MHz -> 2.07e-6 to 2.48e-6 eV) and red/orange (electron-dominated mode, 45-55 GHz -> 1.86e-4 to 2.27e-4 eV). I traced the OPTIMISTIC envelope (pale green T_2n=10us reaching ~5.5e-12; orange T_2e optimistic reaching ~1e-8). Realistic variants (dark green T_2n=1us / red) stop at ~1e-10 and ~3e-8 respectively. Gray astro constraints (SN1987A ~1e-9, NS cooling) also shown but not traced. Paper also has g_aee (Fig 8) and dark photon epsilon (Fig 9) plots; the AxionProton hint matches Fig 7, whose y-range matches the provided calibration. | Calibration: No calibration needed",
+  "num_points": 32,
+  "elapsed_s": 323.70219802856445
+}

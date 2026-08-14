@@ -1,0 +1,17 @@
+{
+  "arxiv_id": "2402.00741",
+  "paper_title": "Axion Dark Matter from Cosmic String Network",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.2,
+  "suggested_experiment_name": "KAIST_CosmicStrings2024",
+  "coupling_convention": null,
+  "notes": "Lattice simulation of axion production from cosmic strings in the post-inflationary scenario, deriving a lower bound on the QCD axion mass (equivalently an upper bound on f_a) by requiring the string-radiated axion abundance not exceed the observed DM density. This is a cosmological bound on the f_a-m_a plane (AxionMass type), not a laboratory measurement. However, the provided paper content is truncated before the explicit numerical value of the mass lower bound is stated (Section 8.1 references Omega_mis h^2 ~ 0.12 (28 ueV/ma)^(7/6) as an input, and quotes xi_star = 13.4/16.6 and spectral-index fits, but the final bound value is not present). No extractable data points; extraction_confidence set below 0.3 accordingly.",
+  "num_points": 0,
+  "elapsed_s": 53.13958692550659
+}

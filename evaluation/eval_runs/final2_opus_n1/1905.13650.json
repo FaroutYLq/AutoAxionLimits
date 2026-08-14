@@ -1,0 +1,126 @@
+{
+ "arxiv_id": "1905.13650",
+ "paper_title": "Stochastic fluctuations of bosonic dark matter",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-22,
+   0.001
+  ],
+  [
+   7.9e-22,
+   0.00105
+  ],
+  [
+   6.3e-21,
+   0.0011
+  ],
+  [
+   3.2e-21,
+   0.0014
+  ],
+  [
+   1.6e-20,
+   0.0032
+  ],
+  [
+   1e-20,
+   0.0025
+  ],
+  [
+   6.3e-20,
+   0.01
+  ],
+  [
+   3.2e-20,
+   0.006
+  ],
+  [
+   1.6e-19,
+   0.02
+  ],
+  [
+   1e-19,
+   0.016
+  ],
+  [
+   6.3e-19,
+   0.032
+  ],
+  [
+   3.2e-19,
+   0.025
+  ],
+  [
+   1e-18,
+   0.035
+  ],
+  [
+   3.2e-18,
+   0.032
+  ],
+  [
+   6.3e-18,
+   0.03
+  ],
+  [
+   1e-17,
+   0.032
+  ],
+  [
+   1.6e-16,
+   0.0015
+  ],
+  [
+   1e-16,
+   0.0014
+  ],
+  [
+   6.3e-16,
+   0.003
+  ],
+  [
+   3.2e-16,
+   0.002
+  ],
+  [
+   1e-15,
+   0.01
+  ],
+  [
+   3.2e-15,
+   0.03
+  ],
+  [
+   6.3e-15,
+   0.08
+  ],
+  [
+   1e-14,
+   0.16
+  ],
+  [
+   3.2e-14,
+   0.4
+  ],
+  [
+   6.3e-14,
+   0.6
+  ],
+  [
+   1e-13,
+   0.8
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "Stochastic VULF (CASPEr-ZULF Comagnetometer, stochastic reinterpretation)",
+ "coupling_convention": "log10 g_aNN plotted; emitted as absolute g_aNN in GeV^-1",
+ "notes": "This paper is a methodological/reinterpretation study showing that constraints on bosonic dark matter couplings derived in the T<<tau_c regime were overestimated by factors of ~3-10 due to neglecting the stochastic (Rayleigh-distributed) nature of the VULF amplitude. It does NOT present a new original exclusion limit; instead it applies correction factors to previously published constraints (CASPEr-ZULF, nEDM, dilaton searches). The exclusion plots (Figs. 3, 4) are rescaled versions of prior experiments' limits rather than new measurements, and no numerical limit tables/curves are provided in extractable form. Assumed local DM density rho_DM ~ 0.4 GeV/cm^3 is mentioned. | selector: figure_vision (sole candidate) | Vision: Figure 3 shows stochastic (green) vs deterministic (gray) axion-nucleon g_aNN constraints. I traced the green (stochastic) lower boundary as it is this paper's primary result. Note: y-axis units are GeV^-1 which is unusual for a dimensionless g_aNN (canonical g_aNN is dimensionless); the paper plots g_aNN in GeV^-1 (derivative coupling normalization). Values emitted as plotted (absolute g_aNN in GeV^-1). The gap between ~1e-17 and 1e-16 eV corresponds to region not constrained. Coupling type AxionNeutron chosen since g_aNN is axion-nucleon coupling from neutron-rich comagnetometer/nEDM experiments. | Calibration: No calibration needed",
+ "num_points": 27,
+ "elapsed_s": 230.7560520172119
+}

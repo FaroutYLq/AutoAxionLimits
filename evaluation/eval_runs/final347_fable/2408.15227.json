@@ -1,0 +1,30 @@
+{
+  "arxiv_id": "2408.15227",
+  "paper_title": "Axion Dark Matter eXperiment around 3.3 \u03bceV with Dine-Fischler-Srednicki-Zhitnitsky Discovery Ability",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      3.27e-06,
+      4.8e-16
+    ],
+    [
+      3.3e-06,
+      4.85e-16
+    ],
+    [
+      3.34e-06,
+      4.9e-16
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "ADMX2024",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "ADMX 2022 run haloscope search from 792-807 MHz (3.27-3.34 ueV) excluding DFSZ axions at 90% CL, assuming standard halo model (boosted Maxwell-Boltzmann) with local DM density 0.45 GeV/cm^3 (an alternative N-body model with 0.63 GeV/cm^3 was also analyzed). No numerical table provided; exclusion shown in Fig. 4. Data points are the DFSZ benchmark coupling level g_DFSZ = alpha*0.36/(pi*f_a) evaluated at the band edges, since the paper states DFSZ axions are excluded across this mass range (actual limits in most bins are somewhat below DFSZ). Coupling values approximate, derived from the DFSZ relation rather than digitized from the figure. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.75, 3))",
+  "num_points": 3,
+  "elapsed_s": 111.19768071174622
+}

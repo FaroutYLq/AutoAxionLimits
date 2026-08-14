@@ -1,0 +1,118 @@
+{
+  "arxiv_id": "2208.12670",
+  "paper_title": "Search for galactic axions with a high-Q dielectric cavity",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.2821e-05,
+      6e-13
+    ],
+    [
+      4.282108e-05,
+      3.5e-13
+    ],
+    [
+      4.282115e-05,
+      2.2e-13
+    ],
+    [
+      4.282122e-05,
+      1.7e-13
+    ],
+    [
+      4.282127e-05,
+      1.5e-13
+    ],
+    [
+      4.282133e-05,
+      1.4e-13
+    ],
+    [
+      4.28214e-05,
+      1.2e-13
+    ],
+    [
+      4.282147e-05,
+      1.1e-13
+    ],
+    [
+      4.282153e-05,
+      1e-13
+    ],
+    [
+      4.282158e-05,
+      8.5e-14
+    ],
+    [
+      4.282163e-05,
+      7.5e-14
+    ],
+    [
+      4.282168e-05,
+      8e-14
+    ],
+    [
+      4.282172e-05,
+      9e-14
+    ],
+    [
+      4.282176e-05,
+      7.8e-14
+    ],
+    [
+      4.28218e-05,
+      9.5e-14
+    ],
+    [
+      4.282185e-05,
+      8.8e-14
+    ],
+    [
+      4.28219e-05,
+      1.05e-13
+    ],
+    [
+      4.282195e-05,
+      1e-13
+    ],
+    [
+      4.2822e-05,
+      1.2e-13
+    ],
+    [
+      4.282206e-05,
+      1.4e-13
+    ],
+    [
+      4.282212e-05,
+      1.7e-13
+    ],
+    [
+      4.282218e-05,
+      2.3e-13
+    ],
+    [
+      4.282224e-05,
+      3.5e-13
+    ],
+    [
+      4.282229e-05,
+      5.5e-13
+    ],
+    [
+      4.282233e-05,
+      7e-13
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "QUAX-a-gamma (high-Q dielectric cavity)",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis (|g_agamma|)",
+  "notes": "QUAX-agamma haloscope with high-Q dielectric cavity at ~10.353 GHz (m_a ~ 42.82 ueV). Reference best limit g_agamma < 0.731e-13 GeV^-1 at 90% C.L., approximately flat over the narrow mass window 42.8210-42.8223 ueV (1.32 neV wide). rho_a = 0.45 GeV/cm^3. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 25)) | Vision: FIG. 8: 90% single-sided C.L. upper limit. Blue is excluded region (above boundary), red is expected limit. Extremely narrow mass window (~1.32 neV, linear x-axis) centered at 42.8216 ueV. Boundary is highly jagged; points trace the lower envelope of the blue excluded region. Deepest excluded coupling ~0.731e-13 GeV^-1 matches text. KSVZ/DFSZ QCD band lines shown near 1.6e-14 / 6e-15. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.03 snapped to identity)",
+  "num_points": 25,
+  "elapsed_s": 107.0210108757019
+}

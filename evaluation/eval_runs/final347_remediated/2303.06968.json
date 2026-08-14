@@ -1,0 +1,142 @@
+{
+  "arxiv_id": "2303.06968",
+  "paper_title": "New solar X-ray constraints on keV Axion-Like Particles",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4000.0,
+      4e-11
+    ],
+    [
+      4500.0,
+      2.5e-11
+    ],
+    [
+      5000.0,
+      1.3e-11
+    ],
+    [
+      5500.0,
+      8e-12
+    ],
+    [
+      6000.0,
+      5e-12
+    ],
+    [
+      6500.0,
+      3.5e-12
+    ],
+    [
+      7000.0,
+      2.3e-12
+    ],
+    [
+      7500.0,
+      1.6e-12
+    ],
+    [
+      8000.0,
+      1.1e-12
+    ],
+    [
+      8500.0,
+      8e-13
+    ],
+    [
+      9000.0,
+      6.5e-13
+    ],
+    [
+      9500.0,
+      5.5e-13
+    ],
+    [
+      10000.0,
+      5e-13
+    ],
+    [
+      11000.0,
+      4.3e-13
+    ],
+    [
+      12000.0,
+      4e-13
+    ],
+    [
+      13000.0,
+      4e-13
+    ],
+    [
+      14000.0,
+      4.3e-13
+    ],
+    [
+      15000.0,
+      5e-13
+    ],
+    [
+      16000.0,
+      6e-13
+    ],
+    [
+      17000.0,
+      7e-13
+    ],
+    [
+      18000.0,
+      9e-13
+    ],
+    [
+      19000.0,
+      1.1e-12
+    ],
+    [
+      20000.0,
+      1.4e-12
+    ],
+    [
+      22000.0,
+      2e-12
+    ],
+    [
+      24000.0,
+      2.8e-12
+    ],
+    [
+      26000.0,
+      4e-12
+    ],
+    [
+      28000.0,
+      5.5e-12
+    ],
+    [
+      30000.0,
+      7.5e-12
+    ],
+    [
+      33000.0,
+      1.2e-11
+    ],
+    [
+      36000.0,
+      1.8e-11
+    ],
+    [
+      40000.0,
+      3e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "Solar X-ray trapped ALP (SphinX + NuSTAR, Coalescence)",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis",
+  "notes": "Astrophysical (solar X-ray) constraint on keV ALPs from decay of gravitationally trapped ALPs, using SphinX and NuSTAR data. Main result is the coalescence-production exclusion limit in the (g_agamma, m) plane (Fig. 1), valid ~3-40 keV, explicitly NOT relying on any local DM density assumption. Data points are approximate readings of the strongest (coalescence) exclusion curve from Fig. 1; exact tabulated values not provided in paper. Paper also discusses g_ae (Compton) but the primary published limit is on g_agamma. | [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of the blue 'Coalescence' curves') rather than the paper's own single curve | selector: figure_vision over text (quality (1, 1, 1, 1, 1, 0, 0.6, 31)) | Vision: Traced the lower envelope of the blue 'Coalescence' curves (NuSTAR solid + SphinX dashed) in Fig. 1, the paper's headline hadronic-axion (g_ae=0) exclusion in the (g_agamma, m) plane. This is the strongest/lowest boundary; the excluded region lies above it. X-axis log scale 3-40 keV with only '10' explicitly labeled; masses interpolated on log scale and converted keV->eV. Y-axis matches provided calibration (1e-13 to 1e-9). The minimum of ~4e-13 occurs near 12 keV. Fig. 4 shows an alternative version with g_ae variation but with a different y-range (1e-15 to 1e-10); I used Fig. 1 per calibration. No KSVZ/DFSZ benchmark line present. | Calibration: No calibration needed",
+  "num_points": 31,
+  "elapsed_s": 135.54161095619202
+}

@@ -1,0 +1,118 @@
+{
+  "arxiv_id": "2211.03414",
+  "paper_title": "FermiQuasars",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5e-09,
+      6e-12
+    ],
+    [
+      6e-09,
+      5.5e-12
+    ],
+    [
+      8e-09,
+      5.2e-12
+    ],
+    [
+      1e-08,
+      5e-12
+    ],
+    [
+      1.3e-08,
+      4.9e-12
+    ],
+    [
+      1.7e-08,
+      4.8e-12
+    ],
+    [
+      2e-08,
+      4.9e-12
+    ],
+    [
+      2.5e-08,
+      5e-12
+    ],
+    [
+      3e-08,
+      5.1e-12
+    ],
+    [
+      4e-08,
+      5.3e-12
+    ],
+    [
+      5e-08,
+      5.5e-12
+    ],
+    [
+      6e-08,
+      5.8e-12
+    ],
+    [
+      7e-08,
+      6.2e-12
+    ],
+    [
+      8e-08,
+      6.6e-12
+    ],
+    [
+      9e-08,
+      7e-12
+    ],
+    [
+      1e-07,
+      7.5e-12
+    ],
+    [
+      1.2e-07,
+      9e-12
+    ],
+    [
+      1.4e-07,
+      1.1e-11
+    ],
+    [
+      1.6e-07,
+      1.4e-11
+    ],
+    [
+      1.8e-07,
+      1.8e-11
+    ],
+    [
+      2e-07,
+      2.5e-11
+    ],
+    [
+      2.3e-07,
+      4e-11
+    ],
+    [
+      2.6e-07,
+      6e-11
+    ],
+    [
+      2.9e-07,
+      9e-11
+    ],
+    [
+      3.1e-07,
+      1e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "Fermi-LAT FSRQ blazar jets (3C454.3, CTA102, 3C279 combined)",
+  "coupling_convention": "canonical g_agamma in GeV^-1",
+  "notes": "Combined Fermi-LAT analysis of three flaring FSRQs (3C454.3, CTA102, 3C279) using blazar jets as ALP-photon mixing region. No ALP signal; 95% CL exclusion of g_agamma >~ 5e-12 GeV^-1 for 5 neV <~ ma <~ 200 neV. Encoded as horizontal exclusion line at 5e-12 GeV^-1 spanning the stated mass range. Astrophysical bound (not a DM haloscope), so no local DM density. Full 2D exclusion contour is in Figs. 8-9; only the summary boundary values are given in text. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 25)) | Vision: Traced the black solid 'Total' combined 95% exclusion contour lower boundary from Figure 9. Excluded region is above the boundary. Plateau near g~5e-12 for 10-100 neV, then steep rise toward 1e-10 around 200-300 neV, consistent with text statement of exclusion for 5 neV < m_a < 200 neV, g > 5e-12 GeV^-1. Mass converted from neV to eV (x1e-9). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.81 snapped to identity)",
+  "num_points": 25,
+  "elapsed_s": 102.30792117118835
+}

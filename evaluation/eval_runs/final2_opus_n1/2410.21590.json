@@ -1,0 +1,114 @@
+{
+ "arxiv_id": "2410.21590",
+ "paper_title": "NeutronStars_Kumamoto",
+ "coupling_type": "AxionMass",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3e-10,
+   3e-16
+  ],
+  [
+   5e-10,
+   5e-16
+  ],
+  [
+   1e-09,
+   1e-15
+  ],
+  [
+   2e-09,
+   2e-15
+  ],
+  [
+   4e-09,
+   4e-15
+  ],
+  [
+   8e-09,
+   8e-15
+  ],
+  [
+   1.5e-08,
+   1.5e-14
+  ],
+  [
+   3e-08,
+   3e-14
+  ],
+  [
+   6e-08,
+   6e-14
+  ],
+  [
+   1e-07,
+   1e-13
+  ],
+  [
+   2e-07,
+   2e-13
+  ],
+  [
+   4e-07,
+   4e-13
+  ],
+  [
+   8e-07,
+   8e-13
+  ],
+  [
+   1.5e-06,
+   1.5e-12
+  ],
+  [
+   3e-06,
+   3e-12
+  ],
+  [
+   6e-06,
+   6e-12
+  ],
+  [
+   1e-05,
+   1e-11
+  ],
+  [
+   2e-05,
+   2e-11
+  ],
+  [
+   4e-05,
+   4e-11
+  ],
+  [
+   8e-05,
+   8e-11
+  ],
+  [
+   0.00015,
+   1.5e-10
+  ],
+  [
+   0.0003,
+   3e-10
+  ],
+  [
+   0.0006,
+   6e-10
+  ],
+  [
+   0.001,
+   1e-09
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "Neutron star combined constraint (crust relaxation + cooling + glitches), Scenario A",
+ "coupling_convention": "1/f_a in GeV^-1, as plotted on y-axis",
+ "notes": "This paper derives constraints on exceptionally light QCD axions in the fa-ma (or epsilon-ma) parameter space from neutron star observations (thermal relaxation, isolated cooling, pulsar glitches). The constraints are expressed in terms of epsilon = (ma/m_a^QCD)^2 rather than a standard coupling constant, excluding roughly 5e-7 < epsilon < 0.2 for ma > 2e-9 eV. Constraint tables give epsilon ranges for fixed ma >= 1e-8 eV (e.g. Table V: 5.2e-7 to 0.068 for Scenario A), but the actual exclusion boundary in the fa-ma plane appears only in figures (Figs. 14, 16, 17) that are not numerically tabulated in the provided text. Because the result is on the epsilon-ma / fa-ma plane and no coupling-vs-mass numeric pairs are extractable, no reliable data_points can be emitted. Coupling type mapped to AxionMass since the paper's primary result is the fa-ma (exceptionally light axion) parameter space, but the y-axis is epsilon, not fa directly, so mapping is imperfect. | selector: figure_vision (sole candidate) | Vision: The exclusion plot has y-axis 1/f_a [GeV^-1], NOT m_a as the AxionMass canonical convention expects. Values emitted are 1/f_a in GeV^-1 exactly as plotted. The lower boundary of the pink (Scenario A) excluded region hugs the QCD axion diagonal line. The excluded region is above/left of this diagonal within a band. This is not a standard f_a-vs-m_a plane, so coupling type mapping is approximate; confidence reduced accordingly. | Calibration: Calibration reverted: \u00d71e-1 from spot-check verify/stage2 (raw_ratio=0.12) failed contract [vision calibration \u00d71e-1: reverted (R5 hard floor: median outside VALID_RANGES)] | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+ "num_points": 24,
+ "elapsed_s": 179.22675490379333
+}

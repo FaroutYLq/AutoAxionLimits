@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2205.05700",
+ "paper_title": "First indirect detection constraints on axions in the Solar basin",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   5000.0,
+   6.6e-11
+  ],
+  [
+   8000.0,
+   3e-11
+  ],
+  [
+   10000.0,
+   1.8e-11
+  ],
+  [
+   15000.0,
+   7e-12
+  ],
+  [
+   20000.0,
+   3.5e-12
+  ],
+  [
+   30000.0,
+   1e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "NuSTAR_SolarBasin",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper presents first indirect detection constraints on axions in the Solar basin using NuSTAR X-ray observations. The primary result (Fig. 2) shows limits on axion-photon coupling g_agamma with g_aee = 0 at 90% CL. Data points extracted from the CLs limit curve (most stringent in most parameter space) in Fig. 2, which constrains keV-mass axions produced in the Solar core and decaying to photons. The paper also constrains axion-electron coupling (g_aee) and presents results in the universal coupling plane (g_agamma = \u03b1/2\u03c0f, g_aee = m_e/f), but the primary new limits are on the photon coupling. The analysis uses three independent limit-setting methodologies (Poisson, Yellin optimum cuboid, and CLs), with CLs being most stringent. Limits improve on stellar cooling bounds by over an order of magnitude in the 5-30 keV mass range. | selector: text (sole candidate)",
+ "num_points": 6,
+ "elapsed_s": 221.30401277542114
+}

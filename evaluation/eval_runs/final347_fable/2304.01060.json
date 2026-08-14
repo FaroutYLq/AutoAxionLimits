@@ -1,0 +1,162 @@
+{
+  "arxiv_id": "2304.01060",
+  "paper_title": "Investigating the gamma-ray burst from decaying MeV-scale axion-like particles produced in supernova explosions",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      30000.0,
+      8e-11
+    ],
+    [
+      40000.0,
+      7e-11
+    ],
+    [
+      50000.0,
+      6.2e-11
+    ],
+    [
+      70000.0,
+      5.2e-11
+    ],
+    [
+      100000.0,
+      4.3e-11
+    ],
+    [
+      150000.0,
+      3.5e-11
+    ],
+    [
+      200000.0,
+      3e-11
+    ],
+    [
+      300000.0,
+      2.5e-11
+    ],
+    [
+      500000.0,
+      2e-11
+    ],
+    [
+      700000.0,
+      1.8e-11
+    ],
+    [
+      1000000.0,
+      1.5e-11
+    ],
+    [
+      1500000.0,
+      1.3e-11
+    ],
+    [
+      2000000.0,
+      1.1e-11
+    ],
+    [
+      3000000.0,
+      9e-12
+    ],
+    [
+      5000000.0,
+      7e-12
+    ],
+    [
+      7000000.0,
+      5.5e-12
+    ],
+    [
+      10000000.0,
+      4.5e-12
+    ],
+    [
+      15000000.0,
+      3.7e-12
+    ],
+    [
+      20000000.0,
+      3.2e-12
+    ],
+    [
+      30000000.0,
+      2.7e-12
+    ],
+    [
+      50000000.0,
+      2.2e-12
+    ],
+    [
+      70000000.0,
+      2e-12
+    ],
+    [
+      100000000.0,
+      1.8e-12
+    ],
+    [
+      130000000.0,
+      1.65e-12
+    ],
+    [
+      160000000.0,
+      1.55e-12
+    ],
+    [
+      200000000.0,
+      1.5e-12
+    ],
+    [
+      230000000.0,
+      1.55e-12
+    ],
+    [
+      260000000.0,
+      1.7e-12
+    ],
+    [
+      280000000.0,
+      2e-12
+    ],
+    [
+      300000000.0,
+      2.6e-12
+    ],
+    [
+      320000000.0,
+      3.5e-12
+    ],
+    [
+      340000000.0,
+      5e-12
+    ],
+    [
+      360000000.0,
+      8e-12
+    ],
+    [
+      380000000.0,
+      1.5e-11
+    ],
+    [
+      400000000.0,
+      3e-11
+    ],
+    [
+      420000000.0,
+      7e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "SN1987A gamma-ray burst (SMM) - decaying ALPs with photon coalescence",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on the y-axis",
+  "notes": "Paper presents an updated SN 1987A gamma-ray decay bound on MeV-scale ALP-photon coupling (SMM non-observation), newly including photon coalescence production which extends the excluded mass range up to ~280 MeV (previously ~200 MeV). No numerical table of the exclusion contour is provided; data points are inferred from text: case 1 (ma=1 MeV, g=1e-11 GeV^-1) is described as 'close to the maximal allowed value', and case 2 (ma=100 MeV, g=4e-13 GeV^-1) as 'a factor ~5 below the maximal allowed value', implying the bound is ~1e-11 GeV^-1 at 1 MeV and ~2e-12 GeV^-1 at 100 MeV. Bound applies for masses roughly 30 keV to 280 MeV. Exclusion is quoted at both 2-sigma and 3-sigma levels for SMM. The paper ALSO contains a Fermi-LAT sensitivity PROJECTION for a future nearby SN reaching g~1e-13 GeV^-1 (95% CL), but the primary new measured result is the SN1987A bound reported here. Not a DM haloscope; no local DM density assumption. Data points are approximate \u2014 actual contour should be digitized from Fig. 3 if precision needed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 36)) | Vision: Traced the solid red 'SN1987A (This work)' exclusion region (2sigma darker red, slightly larger than the 3sigma bright red) in Fig. 3. Boundary descends from ~8e-11 GeV^-1 at 0.03 MeV to a minimum ~1.5e-12 GeV^-1 near 200 MeV, then rises steeply due to the closing of the sensitivity at high mass (region extended to ~400 MeV by the new photon-coalescence production channel). Other shaded regions (HB stars, diffuse gamma-flux, low-energy SNe, GW170817, BBN, axion freeze-in) are external constraints and were not traced. The red dashed contour is a Fermi-LAT future-SN sensitivity projection, not an exclusion. Masses converted from MeV to eV (x1e6). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.09 snapped to identity)",
+  "num_points": 36,
+  "elapsed_s": 141.78626132011414
+}

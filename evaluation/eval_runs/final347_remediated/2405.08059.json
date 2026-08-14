@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2405.08059",
+  "paper_title": "FIRAS",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2e-13,
+      1e-09
+    ],
+    [
+      3e-12,
+      1e-09
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "FIRAS_AxionScreening",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Paper studies resonant CMB photon-to-axion conversion inside large-scale structure (axion-photon coupling g_agamma). The title/focus 'FIRAS' refers to the real observed bound derived from COBE/FIRAS spectral-distortion data (Fig. 2, blue region, 99% CL), which excludes g_agamma down to about 1e-9 GeV^-1 over the axion mass range ~2e-13 to 3e-12 eV (natural cutoff at ma ~ 3e-12 eV). Exact per-mass values are not tabulated; I encode the FIRAS bound as a roughly flat line at ~1e-9 GeV^-1 across the stated mass range. The bulk of the paper is a Planck/CMB-S4+unWISE sensitivity FORECAST reaching g_agamma ~ 3e-12 GeV^-1 (Planck) and ~an order of magnitude better for CMB-S4, but those are projections; the extracted numbers are the actual FIRAS-derived exclusion. Pre-analysis hint of DarkPhoton is incorrect: this paper constrains axion-photon coupling (its companion 'Paper I' treats dark photons). Confidence level in paper is 99%, approximated as 0.95. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.55, 2))",
+  "num_points": 2,
+  "elapsed_s": 93.73409295082092
+}

@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2308.14656",
+ "paper_title": "Search for Dark Photon Dark Matter in the Mass Range 41--74 $\u03bc\\mathrm{eV}$ using Millimeter-Wave Receiver and Radioshielding Box",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.136e-05,
+   5e-11
+  ],
+  [
+   7.448e-05,
+   3.9e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.39,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "DOSUE-RR",
+ "coupling_convention": "dimensionless kinetic mixing \u03c7",
+ "notes": "Paper reports upper limits \u03c7 < (0.5\u20133.9) \u00d7 10^\u221210 at 95% CL in the mass range 41\u201374 \u00b5eV (frequency range 10\u201318 GHz). Data points represent the lower and upper bounds of the exclusion region: 41 \u00b5eV = 4.136e-5 eV (10 GHz) with \u03c7 = 5e-11, and 74 \u00b5eV = 7.448e-5 eV (18 GHz) with \u03c7 = 3.9e-10. The coupling constant \u03c7 is the kinetic mixing parameter between dark photons and ordinary photons. DM density \u03c1 = 0.39 \u00b1 0.03 GeV/cm\u00b3 is used in the signal power calculation (Eq. 1). No significant signal detected; global p-value = 2.2%. Systematic uncertainties total 5.7\u20139.7%. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.92, 2))",
+ "num_points": 2,
+ "elapsed_s": 62.333300828933716
+}

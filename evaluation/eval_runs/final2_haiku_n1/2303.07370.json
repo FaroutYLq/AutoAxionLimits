@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2303.07370",
+ "paper_title": "Exotic energy injection in the early universe II: CMB spectral distortions and constraints on light dark matter",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   10.0,
+   1e-21
+  ],
+  [
+   100.0,
+   1e-19
+  ],
+  [
+   1000.0,
+   1e-17
+  ],
+  [
+   10000.0,
+   1e-15
+  ],
+  [
+   100000.0,
+   1e-14
+  ],
+  [
+   1000000.0,
+   1e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "CMB_anisotropy_DarkHistory",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper extends CMB anisotropy constraints on decaying dark matter (equivalently, axion-like particles coupling to photons) down to arbitrarily low masses via improved DarkHistory calculations. Figure 10 shows constraints on ALP-photon coupling g_agamma vs mass. The constraint is derived from modifications to the ionization history affecting CMB power spectrum, based on Planck 2015 data. Data points are approximate readings from Fig. 10 (black contour labeled 'CMB anisotropy (our work)'). The paper states these constraints become stronger above ~100 eV and are competitive with other CMB-derived limits but weaker than dwarf galaxy heating constraints. The constraint extends from ~10 eV to ~10^6 eV. Confidence is moderate because: (1) exact numerical values from Fig. 10 are difficult to read precisely, (2) the paper presents an estimate rather than a full MCMC analysis, and (3) the coupling type is unambiguous (AxionPhoton) but data extraction from the figure is approximate. | selector: text (sole candidate)",
+ "num_points": 6,
+ "elapsed_s": 73.00909805297852
+}

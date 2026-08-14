@@ -1,0 +1,158 @@
+{
+  "arxiv_id": "2105.13963",
+  "paper_title": "First Constraints on Nuclear Coupling of Axionlike Particles from the Binary Neutron Star Gravitational Wave Event GW170817",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-21,
+      1e-05
+    ],
+    [
+      3.16e-21,
+      1e-05
+    ],
+    [
+      1e-20,
+      1e-05
+    ],
+    [
+      3.16e-20,
+      1e-05
+    ],
+    [
+      1e-19,
+      1e-05
+    ],
+    [
+      3.16e-19,
+      1e-05
+    ],
+    [
+      1e-18,
+      1e-05
+    ],
+    [
+      3.16e-18,
+      1e-05
+    ],
+    [
+      1e-17,
+      1e-05
+    ],
+    [
+      3.16e-17,
+      1e-05
+    ],
+    [
+      1e-16,
+      1e-05
+    ],
+    [
+      3.16e-16,
+      1e-05
+    ],
+    [
+      1e-15,
+      1e-05
+    ],
+    [
+      3.16e-15,
+      1e-05
+    ],
+    [
+      1e-14,
+      1e-05
+    ],
+    [
+      3.16e-14,
+      1e-05
+    ],
+    [
+      1e-13,
+      1e-05
+    ],
+    [
+      2e-13,
+      1e-05
+    ],
+    [
+      3.16e-13,
+      1e-05
+    ],
+    [
+      5e-13,
+      1e-05
+    ],
+    [
+      1e-12,
+      1e-05
+    ],
+    [
+      1.5e-12,
+      1e-05
+    ],
+    [
+      2e-12,
+      1e-05
+    ],
+    [
+      3.16e-12,
+      1e-05
+    ],
+    [
+      5e-12,
+      1e-05
+    ],
+    [
+      7e-12,
+      1e-05
+    ],
+    [
+      8.5e-12,
+      1e-05
+    ],
+    [
+      1e-11,
+      1e-05
+    ],
+    [
+      1.1e-11,
+      1.4999999999999999e-05
+    ],
+    [
+      1.2e-11,
+      2.5e-05
+    ],
+    [
+      1.35e-11,
+      4.4999999999999996e-05
+    ],
+    [
+      1.5e-11,
+      8e-05
+    ],
+    [
+      1.7e-11,
+      0.00014
+    ],
+    [
+      1.9e-11,
+      0.00022
+    ],
+    [
+      2e-11,
+      0.00025
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "GW170817 BNS inspiral (LIGO-Virgo)",
+  "coupling_convention": "GeV/f_a, i.e. inverse axion decay constant in GeV^-1, exactly as plotted on the y-axis (Log10[GeV/f_a]); x values are m_a in eV as plotted (Log10[m_a/eV])",
+  "notes": "First constraint on nuclear-coupled axionlike particles from binary neutron star inspiral GW170817. The exclusion is on the f_a-m_a plane: for axion masses m_a < 1e-11 eV, decay constants 1.6e16 GeV < f_a < 1e18 GeV are excluded at 3-sigma confidence (actual CL ~99.7%, higher than the 0.95 recorded here; schema limits to 0.90/0.95). The upper edge f_a = 1e18 GeV exists because heavier decay constants prevent the finite-density phase transition inside NSs, so the bound is a band, not a one-sided limit; only the lower boundary (1.6e16 GeV) is encoded as the flat exclusion line spanning the massless-limit extrapolation (figure extends to ~1e-20 eV) up to 1e-11 eV. Constraint is independent of axions being dark matter, so no local DM density is assumed. Data taken from explicit numbers in abstract/text; Fig. 1 shows mildly mass-dependent structure near 1e-12 to 1e-11 eV not captured here. | selector: figure_vision over text (quality (0, 1, 1, 1, 2, 0, 0.75, 35)) | Vision: Fig. 1 (page 2) plots Log10[GeV/f_a] vs Log10[m_a/eV]. The GW170817 blue excluded region is the band 1.6e16 GeV < f_a < 1e18 GeV (i.e., -18 < log10(GeV/f_a) < -16.2) for m_a < 1e-11 eV. The LOWER boundary of this excluded band is flat at GeV/f_a = 1e-18 (f_a = 1e18 GeV; above this f_a NSs cannot trigger the phase transition and no constraint applies), terminating with a steep rise near m_a ~ 1-2e-11 eV where the sampled blue dots (3-sigma constraints) descend. Constraint quoted at 3-sigma (~99.7% CL); reported here as the closest allowed value 0.95. Note: the UPPER boundary of the band (dots at ~6e-17, f_a=1.6e16 GeV) is the strongest-coupling edge; the excluded region lies between the traced lower boundary and that upper edge. Constraint is independent of DM density assumption. | Calibration: Calibration reverted: \u00d71e+2 from spot-check verify/stage2 (raw_ratio=63.00) failed contract [vision calibration \u00d71e+2: reverted (R5 hard floor: median outside VALID_RANGES)] | Auto-corrected couplings: \u00d71e+13 (\u00d71.00e+13, rule=argmin|log10(median*f)-log10(anchor=3.2e-05)|)",
+  "num_points": 35,
+  "elapsed_s": 187.817547082901
+}

@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "1707.07921",
+ "paper_title": "Limits on Axion Couplings from the first 80-day data of PandaX-II Experiment",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-05,
+   4.35e-12
+  ],
+  [
+   1.0,
+   4.35e-12
+  ],
+  [
+   1.0,
+   4e-13
+  ],
+  [
+   25.0,
+   4.3e-14
+  ],
+  [
+   10.0,
+   6e-14
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "PandaX-II",
+ "coupling_convention": "dimensionless g_ae",
+ "notes": "Paper reports three distinct exclusion limits on axion-electron coupling g_ae: (1) Solar axion CBRD mechanisms: g_ae \u2264 4.35\u00d710^-12 for mass range 10^-5 to 1 keV/c^2 (stated as 4\u00d710^-13 in text but abstract says 4.35\u00d710^-12; using abstract value as primary result). (2) 57Fe de-excitation: best limit of 6\u00d710^-14 at m_a = 10 keV/c^2. (3) Galactic ALPs: g_ae < 4.3\u00d710^-14 for mass range 1\u201325 keV/c^2. The galactic ALP limit uses local DM density \u03c1_DM = 0.3 GeV/cm^3 (stated in Eq. 5). Data points encode the three main results: solar CBRD (flat across 10^-5\u20131 keV), 57Fe peak at 10 keV, and galactic ALP limit at 25 keV. All limits are 90% CL. The paper uses the axioelectrical effect (axion absorption by bound electrons) to set these constraints using xenon recoil events. | selector: text (sole candidate)",
+ "num_points": 5,
+ "elapsed_s": 20.304606199264526
+}

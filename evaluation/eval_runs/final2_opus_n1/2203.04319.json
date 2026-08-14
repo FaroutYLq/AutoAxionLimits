@@ -1,0 +1,122 @@
+{
+ "arxiv_id": "2203.04319",
+ "paper_title": "Upper limit on the axion-photon coupling from magnetic white dwarf polarization",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-11,
+   5.4e-12
+  ],
+  [
+   2e-11,
+   5.4e-12
+  ],
+  [
+   5e-11,
+   5.4e-12
+  ],
+  [
+   1e-10,
+   5.4e-12
+  ],
+  [
+   2e-10,
+   5.4e-12
+  ],
+  [
+   5e-10,
+   5.4e-12
+  ],
+  [
+   1e-09,
+   5.4e-12
+  ],
+  [
+   2e-09,
+   5.4e-12
+  ],
+  [
+   5e-09,
+   5.4e-12
+  ],
+  [
+   1e-08,
+   5.4e-12
+  ],
+  [
+   2e-08,
+   5.4e-12
+  ],
+  [
+   5e-08,
+   5.5e-12
+  ],
+  [
+   8e-08,
+   5.6e-12
+  ],
+  [
+   1e-07,
+   5.8e-12
+  ],
+  [
+   1.5e-07,
+   6.3e-12
+  ],
+  [
+   2e-07,
+   7.2e-12
+  ],
+  [
+   2.5e-07,
+   8.8e-12
+  ],
+  [
+   3e-07,
+   1.1e-11
+  ],
+  [
+   3.5e-07,
+   1.4e-11
+  ],
+  [
+   4e-07,
+   1.8e-11
+  ],
+  [
+   4.5e-07,
+   2.4e-11
+  ],
+  [
+   5e-07,
+   3.2e-11
+  ],
+  [
+   5.5e-07,
+   4.3e-11
+  ],
+  [
+   6e-07,
+   5.8e-11
+  ],
+  [
+   6.5e-07,
+   7.5e-11
+  ],
+  [
+   7e-07,
+   9.5e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "MWD Polarization (SDSS J135141)",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted",
+ "notes": "Astrophysical bound from magnetic white dwarf polarization (SDSS J135141). Conservative fiducial 95% upper limit |g_agamma| < 5.4e-12 GeV^-1 for m_a < ~3e-7 eV. Encoded as flat mass-independent line up to the stated mass validity range. Not a DM haloscope, so no local density assumed. Other MWD limits mentioned: Grw+70 8247 and PG1031+234 (~8.8e-12), SDSS J234605 (~2.1e-11), but SDSS J135141 gives the strongest quoted final limit. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 26)) | Vision: Traced the red 'conservative (fiducial)' curve from Figure 1, which is this paper's main constraint from SDSS J135141. The curve is flat at |g_agamma| ~ 5.4e-12 GeV^-1 for m_a < ~3e-7 eV (matching the abstract), then rises sharply. The orange shaded band shows astrophysical uncertainties (best fit and optimistic lower). I traced the conservative (upper/least-constraining fiducial) boundary, which is the paper's quoted 95% CL limit. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.93 snapped to identity)",
+ "num_points": 26,
+ "elapsed_s": 299.64849495887756
+}

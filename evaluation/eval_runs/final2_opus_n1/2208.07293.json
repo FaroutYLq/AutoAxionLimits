@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2208.07293",
+ "paper_title": "First Search for Axion-Like Particles in a Storage Ring Using a Polarized Deuteron Beam",
+ "coupling_type": "AxionEDM",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.95e-10,
+   6.4e-23
+  ],
+  [
+   5.02e-10,
+   6.4e-23
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "JEDI_COSY_deuteron",
+ "coupling_convention": "d_n in e*cm (oscillating deuteron EDM amplitude d_AC)",
+ "notes": "First storage-ring ALP search using polarized deuteron beam at COSY. Primary result: 90% CL upper limit on oscillating deuteron EDM |d_AC| < 6.4e-23 e*cm, over axion mass range 0.495-0.502 neV/c2 (frequency 120.0-121.4 kHz). Encoded as a near-flat line across the scanned mass range using the average limit value; the actual curve fluctuates slightly with frequency. Paper also derives limits on g_adgamma, C_d^G/f_a, and C_d/f_a (axion-wind), but the fundamental measured quantity is the oscillating EDM (AxionEDM). Local DM density is implicitly assumed but no explicit GeV/cm^3 value given in provided text. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 14.7 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | [CONVENTION REVIEW] declared coupling convention 'd_n in e*cm (oscillating deuteron EDM amplitude d_AC)' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 2,
+ "elapsed_s": 259.7876720428467
+}

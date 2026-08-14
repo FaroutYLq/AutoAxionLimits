@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2112.09620",
+ "paper_title": "Earth as a transducer for axion dark-matter detection",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2e-18,
+   1e-08
+  ],
+  [
+   7e-17,
+   1e-08
+  ],
+  [
+   3e-17,
+   6.5e-11
+  ],
+  [
+   4e-17,
+   6.5e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "SuperMAG_Axion_Search",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper presents a new experimental search for ultralight axion dark matter using Earth's geomagnetic field as a transducer. The axion-photon coupling g_agamma is constrained in the mass range 2\u00d710^-18 eV \u2272 m_a \u2272 7\u00d710^-17 eV using SuperMAG magnetometer network data. The strongest constraints reach g_agamma \u2272 6.5\u00d710^-11 GeV^-1 for 3\u00d710^-17 eV \u2272 m_a \u2272 4\u00d710^-17 eV, comparable to CAST helioscope bounds. The analysis assumes the axion comprises all dark matter with local density \u03c1_dm = 0.3 GeV/cm^3. No robust signal candidates were identified; 27 naive candidates were rejected through robustness checks. The limit is presented as a smoothed exclusion band in Fig. 1. Data points extracted from abstract and main text statements of strongest constraints and mass range boundaries. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.92, 4))",
+ "num_points": 4,
+ "elapsed_s": 162.58455896377563
+}

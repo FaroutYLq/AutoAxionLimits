@@ -1,0 +1,74 @@
+{
+ "arxiv_id": "2410.21590",
+ "paper_title": "NeutronStars_Kumamoto",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2e-09,
+   5e-07
+  ],
+  [
+   1e-08,
+   5e-07
+  ],
+  [
+   1e-07,
+   0.0083
+  ],
+  [
+   1e-07,
+   0.1
+  ],
+  [
+   1e-06,
+   0.0083
+  ],
+  [
+   1e-06,
+   0.1
+  ],
+  [
+   1e-05,
+   0.0083
+  ],
+  [
+   1e-05,
+   0.1
+  ],
+  [
+   0.0001,
+   0.0083
+  ],
+  [
+   0.0001,
+   0.1
+  ],
+  [
+   0.001,
+   0.0083
+  ],
+  [
+   0.001,
+   0.1
+  ],
+  [
+   0.01,
+   0.0083
+  ],
+  [
+   0.01,
+   0.1
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "NeutronStars_Kumamoto_2025",
+ "coupling_convention": "dimensionless \u03b5 (axion mass suppression factor)",
+ "notes": "This paper derives constraints on exceptionally light QCD axions (with mass suppression factor \u03b5 < 1) from neutron star observations. The primary observable is the parameter \u03b5 = m_a / m_a^(QCD), not a direct coupling constant. The paper constrains \u03b5 using three independent neutron star observables: (1) crust thermal relaxation timescales in accreting neutron stars, (2) isolated neutron star cooling, and (3) pulsar glitches. The excluded region is stated as 5\u00d710^-7 \u2272 \u03b5 \u2272 0.2 for m_a \u2273 2\u00d710^-9 eV (abstract). However, the detailed constraints vary by scenario and observable. Table IV shows crust thermal relaxation excludes 2.2\u00d710^-3 < \u03b5 < 0.10 (Scenario A, conservative). Table V shows isolated NS cooling excludes 5.2\u00d710^-7 < \u03b5 < 0.068 (Scenario A). Table VII shows pulsar glitches exclude 8.3\u00d710^-3 < \u03b5 < 0.17 (Scenario A). The paper uses three nuclear interaction scenarios (A, B, C) with different K\u03c3 values; Scenario A (K\u03c3=0, no nuclear force modification) is presented as the conservative benchmark. The coupling type is labeled as AxionNeutron because the constraints arise from the axion-nucleon coupling (specifically the axion-gluon coupling that modifies nucleon properties in dense matter), though the paper does not directly measure g_an but rather constrains \u03b5 which parameterizes the axion mass relative to QCD predictions. The data points represent approximate boundaries of excluded regions from the three observables for Scenario A at m_a \u2273 10^-8 eV where domain wall effects are negligible. Extraction confidence is moderate (0.65) because: (1) the coupling type is somewhat indirect (\u03b5 rather than g_an), (2) multiple observables with different exclusion ranges are presented, and (3) the paper emphasizes scenario-dependence and theoretical uncertainties in nuclear physics at \u03b8=\u03c0. | selector: text (sole candidate)",
+ "num_points": 14,
+ "elapsed_s": 74.9569890499115
+}

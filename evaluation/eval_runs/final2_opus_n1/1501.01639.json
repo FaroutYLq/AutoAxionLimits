@@ -1,0 +1,46 @@
+{
+ "arxiv_id": "1501.01639",
+ "paper_title": "New axion and hidden photon constraints from a solar data global fit",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3e-05,
+   6e-08
+  ],
+  [
+   0.0001,
+   1.8e-08
+  ],
+  [
+   0.001,
+   1.8e-09
+  ],
+  [
+   0.01,
+   1.8e-10
+  ],
+  [
+   0.1,
+   1.8e-11
+  ],
+  [
+   1.0,
+   1.8e-12
+  ],
+  [
+   8.0,
+   2.25e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.72,
+ "suggested_experiment_name": "Solar_global_fit_2015",
+ "coupling_convention": "dimensionless chi, derived as chi = (chi*m)/m with chi*m < 1.8e-12 eV",
+ "notes": "Solar global fit (helioseismology + neutrinos). Paper's headline hidden photon result: product chi*m < 1.8e-12 eV at 3-sigma, valid for m <~ 0.3 keV, most stringent from 3e-5 eV to 8 eV. Constraint is on the product chi*m (from longitudinal HP resonant emission), so chi = 1.8e-12 eV / m; I converted to chi vs mass along the diagonal line. The 3-sigma CL corresponds roughly to 0.997 (encoded as 0.90 among available options; actual is 3-sigma). Paper also gives an axion-photon bound g_agamma < 4.1e-10 GeV^-1 (flat, mass-independent for ALPs below ~eV) which is a competing result but less novel. | selector: text (sole candidate)",
+ "num_points": 7,
+ "elapsed_s": 29.97624707221985
+}

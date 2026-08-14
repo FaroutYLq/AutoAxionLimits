@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "1706.00209",
+ "paper_title": "The ORGAN Experiment: An axion haloscope above 15 GHz",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.2e-06,
+   8e-16
+  ],
+  [
+   2.5e-06,
+   1.5e-15
+  ],
+  [
+   3e-06,
+   3e-15
+  ],
+  [
+   3.3e-06,
+   6e-15
+  ],
+  [
+   3.5e-06,
+   6.2e-15
+  ],
+  [
+   3.8e-06,
+   6e-14
+  ],
+  [
+   4.5e-06,
+   6e-14
+  ],
+  [
+   5.5e-06,
+   6e-14
+  ],
+  [
+   6e-06,
+   4e-14
+  ],
+  [
+   6e-06,
+   6e-14
+  ],
+  [
+   6.5e-06,
+   7e-14
+  ],
+  [
+   7.5e-06,
+   9e-14
+  ],
+  [
+   8.5e-06,
+   1e-13
+  ],
+  [
+   1e-05,
+   1.2e-13
+  ],
+  [
+   1.15e-05,
+   1.3e-13
+  ],
+  [
+   3e-05,
+   3e-14
+  ],
+  [
+   3e-05,
+   6e-14
+  ],
+  [
+   8.5e-05,
+   3e-13
+  ],
+  [
+   9e-05,
+   6e-14
+  ],
+  [
+   9.5e-05,
+   3e-13
+  ],
+  [
+   0.0001,
+   3e-13
+  ],
+  [
+   0.000105,
+   2.5e-13
+  ],
+  [
+   0.000108,
+   8e-13
+  ],
+  [
+   0.00011,
+   8e-13
+  ],
+  [
+   0.000112,
+   8e-13
+  ],
+  [
+   0.000115,
+   2e-13
+  ],
+  [
+   0.000125,
+   3e-13
+  ],
+  [
+   0.000135,
+   4e-13
+  ],
+  [
+   0.000145,
+   4.5e-13
+  ],
+  [
+   0.000155,
+   5e-13
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.4,
+ "suggested_experiment_name": "ORGAN (with published haloscope limits)",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted",
+ "notes": "Pathfinding run sets g_agamma limit of 2.02e-12 GeV^-1 at 26.531 GHz (110 ueV), over a narrow span of 2.5 neV shaped by Lorentzian resonance. Abstract writes 'eV^-1' but exclusion plot (fig 3) y-axis is GeV^-1 and value matches ~50x KSVZ, confirming GeV^-1. Limit is very narrow around 110 ueV; encoded as short horizontal band spanning approx 100-110 ueV region shown in plot. DM density 0.45 GeV/cm^3 mentioned for projections. Stage I/II figures are projections, not extracted. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.4, 30)) | Vision: Figure 5 combines multiple published haloscope exclusion regions (ADMX, RBF, UF, HAYSTAC) plus ORGAN projections. The lower boundary traced is a composite of these separate excluded regions, not a single coherent limit curve; extraction confidence reduced accordingly. The paper's own new result (ORGAN Pathfinder, Fig 3) is a flat line near 6e-14 to ~1e-12 over m_a=1.0-1.2e-4 eV, but Fig 5 is the wide-range summary. KSVZ/DFSZ diagonal model lines shown. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.96 snapped to identity)",
+ "num_points": 30,
+ "elapsed_s": 120.50663614273071
+}

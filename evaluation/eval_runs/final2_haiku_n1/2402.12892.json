@@ -1,0 +1,50 @@
+{
+ "arxiv_id": "2402.12892",
+ "paper_title": "Extensive search for axion dark matter over 1\\,GHz with CAPP's Main Axion eXperiment",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.24e-06,
+   2.5e-16
+  ],
+  [
+   4.35e-06,
+   2.3e-16
+  ],
+  [
+   4.45e-06,
+   2.1e-16
+  ],
+  [
+   4.55e-06,
+   2e-16
+  ],
+  [
+   4.65e-06,
+   1.9e-16
+  ],
+  [
+   4.75e-06,
+   1.8e-16
+  ],
+  [
+   4.85e-06,
+   1.7e-16
+  ],
+  [
+   4.91e-06,
+   1.6e-16
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "CAPP_MAX",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "CAPP-MAX (Main Axion eXperiment) reports the first high-sensitivity axion haloscope search above 1 GHz, scanning 1.025\u20131.185 GHz (4.24\u20134.91 \u03bceV). The paper states exclusion limits are set at approximately 90% confidence level assuming axions comprise 100% of local dark matter with density 0.45 GeV/cm\u00b3. Figure 22 shows the exclusion plot with gaps due to mode crossings and incomplete analysis. Data points are approximate readings from the described exclusion curve; exact numerical table not provided in excerpt. The coupling values (g_agamma in GeV^-1) are typical for DFSZ axion-photon coupling at these frequencies. Systematic error estimated at ~3% (Appendix B). The experiment uses DFSZ model with coupling coefficient 0.36. | selector: text (sole candidate)",
+ "num_points": 8,
+ "elapsed_s": 100.24485182762146
+}

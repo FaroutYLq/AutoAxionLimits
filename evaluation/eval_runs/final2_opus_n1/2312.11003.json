@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2312.11003",
+ "paper_title": "Experimental search for invisible dark matter axions around 22 \u03bceV",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.186e-05,
+   2.7e-15
+  ],
+  [
+   2.2e-05,
+   2.7e-15
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "CAPP-12T",
+ "coupling_convention": "g_agamma in GeV^-1 (approximate, derived from 0.93*g_KSVZ)",
+ "notes": "The paper reports exclusion of dark matter axions with g_agamma >= 0.93*g_KSVZ over 21.86-22.00 ueV at 90% CL. The KSVZ coupling at ~22 ueV (~5.3 GHz) is roughly g_KSVZ ~ 2.9e-15 GeV^-1, so 0.93*g_KSVZ ~ 2.7e-15 GeV^-1. The emitted coupling value is an approximation of the absolute g_agamma; the paper's actual quoted result is in units of KSVZ coupling. Mass range 21.86-22.00 ueV = 2.186e-5 to 2.200e-5 eV. Local density rho_a = 0.45 GeV/cm^3. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 14.6 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | [CONVENTION REVIEW] declared coupling convention 'g_agamma in GeV^-1 (approximate, derived from 0.93*g_KSVZ)' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 2,
+ "elapsed_s": 108.12468409538269
+}

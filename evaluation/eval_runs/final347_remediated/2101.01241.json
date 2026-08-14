@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2101.01241",
+  "paper_title": "Search for axion-like dark matter using solid-state nuclear magnetic resonance",
+  "coupling_type": "AxionEDM",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.62e-07,
+      1e-21
+    ],
+    [
+      1.66e-07,
+      1e-21
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.82,
+  "suggested_experiment_name": "CASPEr-e_2021",
+  "coupling_convention": "d_n in e*cm",
+  "notes": "CASPEr-electric solid-state 207Pb NMR search for axion-like dark matter, mass 162-166 neV (Compton freq ~39.65 MHz). Primary result is EDM coupling |gd| < 9.5e-4 GeV^-2, converted by the authors to an oscillating neutron EDM amplitude d_n < 1.0e-21 e*cm (95% CL); emitted as a flat horizontal bound over the stated 162-166 neV mass range in e*cm. Paper also reports gradient coupling |gaNN| < 2.8e-1 GeV^-1 (AxionNeutron) - not emitted here. DM density inferred from stated rho_DM = 3.6e-42 GeV^4 (~0.4-0.47 GeV/cm^3). Standard halo model, v0=220 km/s. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 19.9 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 2,
+  "elapsed_s": 93.53599405288696
+}

@@ -1,0 +1,22 @@
+{
+  "arxiv_id": "1906.08814",
+  "paper_title": "DM-Pathfinder",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.035e-09,
+      1.5e-09
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "DMRadio_Pathfinder_LumpedResonator2019",
+  "coupling_convention": "dimensionless kinetic mixing epsilon",
+  "notes": "Fixed-frequency superconducting lumped-element resonator (DM Radio test device) at 492.027 kHz -> hidden photon mass 2.035 neV. Excludes kinetic mixing epsilon >~ 1.5e-9 (90% C.L.) in a narrow band around 2.035 neV based on 5.14 hours integration. Only a single-frequency point band reported in text; exclusion plot Fig.3a not numerically tabulated. This is the observed limit (the blue projection curves for Pathfinder 1-year scan are separate and not extracted here). | selector: text (sole candidate)",
+  "num_points": 1,
+  "elapsed_s": 83.40874886512756
+}

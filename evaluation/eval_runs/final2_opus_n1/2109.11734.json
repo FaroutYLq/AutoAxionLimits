@@ -1,0 +1,42 @@
+{
+ "arxiv_id": "2109.11734",
+ "paper_title": "Constraining the axion-photon coupling using radio data of the Bullet Cluster",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   6.42e-06,
+   3.4e-11
+  ],
+  [
+   7.66e-06,
+   9e-12
+  ],
+  [
+   8.9e-06,
+   3.8e-12
+  ],
+  [
+   1.014e-05,
+   4.6e-12
+  ],
+  [
+   1.138e-05,
+   9.6e-12
+  ],
+  [
+   1.262e-05,
+   1.3e-11
+  ]
+ ],
+ "data_source": "table",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.9,
+ "suggested_experiment_name": "BulletCluster_Radio2021",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "2\u03c3 upper limits on g_agamma from the two-component model (Table 2), using mean m_a of each sub-band. Masses converted from \u00b5eV midpoints: 14-17\u219215.5, 17-20\u219218.5, 20-23\u219221.5, 23-26\u219224.5, 26-29\u219227.5, 29-32\u219230.5 \u00b5eV. Limit derived from stimulated axion decay in the Bullet cluster hot gas. Astrophysical bound, not a haloscope, so no local DM density assumed. | selector: table (sole candidate)",
+ "num_points": 6,
+ "elapsed_s": 10.755162954330444
+}

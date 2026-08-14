@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2404.17333",
+ "paper_title": "Bounds on heavy axions with an X-ray free electron laser",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   44.0,
+   0.000391
+  ],
+  [
+   340.0,
+   0.00031
+  ],
+  [
+   460.0,
+   0.000387
+  ],
+  [
+   1100.0,
+   0.000369
+  ],
+  [
+   2400.0,
+   0.000276
+  ]
+ ],
+ "data_source": "table",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.9,
+ "suggested_experiment_name": "EuXFEL_LSW",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Light-shining-through-wall style axion search at EuXFEL using Primakoff conversion in Ge crystals. Bounds from Table I at 5 discrete detuning angles. The mass for the first row (Bragg, dtheta=0) is given as <=44 eV (plasma frequency); used 44 eV. Other masses read from Table I. Bounds are 90% CL upper limits on g_agamma. Each off-Bragg point is sensitive only to a narrow mass range (~1e-3 eV) centered on quoted mass. | selector: table (sole candidate)",
+ "num_points": 5,
+ "elapsed_s": 15.088082790374756
+}

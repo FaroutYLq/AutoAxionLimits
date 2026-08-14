@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2403.07790",
+ "paper_title": "RADES axion search results with a High-Temperature Superconducting cavity in an 11.7 T magnet",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.65676e-05,
+   6.3e-13
+  ],
+  [
+   3.65699e-05,
+   1.59e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "RADES_HTS_11.7T",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Haloscope search around 8.84 GHz (36.5687 ueV). Limit ranges from g_agamma ~6.3e-13 GeV^-1 to ~1.59e-13 GeV^-1 over 36.5676-36.5699 ueV at 95% CL. Only endpoint values given in text; the sensitivity varies across the narrow 554 kHz band. Local DM density 0.45 GeV/cm^3. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.8, 2))",
+ "num_points": 2,
+ "elapsed_s": 136.04664874076843
+}

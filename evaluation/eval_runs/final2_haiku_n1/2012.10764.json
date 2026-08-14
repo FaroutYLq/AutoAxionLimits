@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2012.10764",
+ "paper_title": "First Results from Axion Haloscope at CAPP around 10.7 $\u03bc$eV",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.0712e-05,
+   3.6e-16
+  ],
+  [
+   1.0719e-05,
+   3.6e-16
+  ],
+  [
+   1.016e-05,
+   3.2e-15
+  ],
+  [
+   1.137e-05,
+   3.2e-15
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "CAPP-PACE",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper reports two exclusion regions at 90% CL: (1) 10.7126\u201310.7186 \u00b5eV with near-KSVZ coupling sensitivity (g_agamma \u2248 3.6\u00d710^-16 GeV^-1 for KSVZ model with g_\u03b3=0.97); (2) 10.16\u201311.37 \u00b5eV with ~9\u00d7 larger coupling (g_agamma \u2248 3.2\u00d710^-15 GeV^-1). KSVZ coupling extracted from Eq. (1) and standard axion-photon coupling formula g_agamma = g_\u03b3 \u00d7 \u03b1_em / (\u03c0 f_a), using g_\u03b3=0.97 (KSVZ) and f_a derived from m_a via \u039b\u2248f_a\u00b2m_a\u224878 MeV. Local DM density \u03c1_a = 0.45 GeV/cm\u00b3 explicitly stated in Eq. (1). This is the first axion haloscope result in these mass ranges and the coldest cavity experiment to date (T_cav = 38 mK). Data points represent the boundaries of the two excluded regions. | selector: text (sole candidate)",
+ "num_points": 4,
+ "elapsed_s": 91.83353018760681
+}

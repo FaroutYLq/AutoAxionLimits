@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2012.09498",
+  "paper_title": "Search for invisible axion dark matter of mass m$_a=43~\u03bc$eV with the QUAX--$a\u03b3$ experiment",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.30163e-05,
+      7.66e-14
+    ],
+    [
+      4.302e-05,
+      7.66e-14
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.9,
+  "suggested_experiment_name": "QUAX_agamma_2021",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "QUAX-agamma haloscope, TM010 Cu cavity at 10.40176 GHz, 8.1 T. Main result g_agamma < 0.766e-13 GeV^-1 at 90% C.L. over a 3.7 neV window centered at m_a=43.0182 ueV (4.30182e-5 eV). Note abstract v2 differs (0.639e-13) from body text (0.766e-13); used body value. Local DM density 0.45 GeV/cm^3. | [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of all exclusion regions') rather than the paper's own single curve | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.9, 2))",
+  "num_points": 2,
+  "elapsed_s": 160.5709011554718
+}

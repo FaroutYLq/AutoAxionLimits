@@ -1,0 +1,174 @@
+{
+ "arxiv_id": "1907.12628",
+ "paper_title": "DAMIC",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.2,
+   2e-11
+  ],
+  [
+   1.3,
+   1.4e-11
+  ],
+  [
+   1.5,
+   9e-12
+  ],
+  [
+   1.7,
+   6.5e-12
+  ],
+  [
+   2.0,
+   4.5e-12
+  ],
+  [
+   2.3,
+   3.3e-12
+  ],
+  [
+   2.6,
+   2.6e-12
+  ],
+  [
+   3.0,
+   2e-12
+  ],
+  [
+   3.3,
+   1.9e-12
+  ],
+  [
+   3.6,
+   1.9e-12
+  ],
+  [
+   4.0,
+   1.5e-12
+  ],
+  [
+   4.3,
+   1.1e-12
+  ],
+  [
+   4.6,
+   9e-13
+  ],
+  [
+   5.0,
+   7.5e-13
+  ],
+  [
+   5.5,
+   6e-13
+  ],
+  [
+   6.0,
+   5e-13
+  ],
+  [
+   6.5,
+   4.5e-13
+  ],
+  [
+   7.0,
+   4.3e-13
+  ],
+  [
+   7.5,
+   4.2e-13
+  ],
+  [
+   8.0,
+   3.5e-13
+  ],
+  [
+   8.5,
+   2.5e-13
+  ],
+  [
+   9.0,
+   1.8e-13
+  ],
+  [
+   9.5,
+   1.3e-13
+  ],
+  [
+   10.0,
+   1e-13
+  ],
+  [
+   11.0,
+   7e-14
+  ],
+  [
+   12.0,
+   5e-14
+  ],
+  [
+   13.0,
+   3.5e-14
+  ],
+  [
+   14.0,
+   2.5e-14
+  ],
+  [
+   15.0,
+   1.7e-14
+  ],
+  [
+   16.0,
+   1.1e-14
+  ],
+  [
+   17.0,
+   9e-15
+  ],
+  [
+   18.0,
+   9.5e-15
+  ],
+  [
+   19.0,
+   1.1e-14
+  ],
+  [
+   20.0,
+   1.3e-14
+  ],
+  [
+   22.0,
+   1.5e-14
+  ],
+  [
+   24.0,
+   1.5e-14
+  ],
+  [
+   26.0,
+   1.4e-14
+  ],
+  [
+   28.0,
+   1.3e-14
+  ],
+  [
+   30.0,
+   1.2e-14
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.7,
+ "suggested_experiment_name": "DAMIC at SNOLAB (hidden-photon DM)",
+ "coupling_convention": "kinetic mixing kappa (epsilon), dimensionless, as plotted",
+ "notes": "Paper reports 90% C.L. constraints on hidden-photon DM kinetic mixing kappa (epsilon) vs hidden-photon mass mV in range 1.2-30 eV (best 1.2-9 eV), shown only in Fig. 4 with no numerical table or explicit values in text. The primary result is DM-electron scattering cross section (not in enum). Local DM density rho=0.3 GeV/cm^3 assumed. No extractable numerical (mass, kappa) pairs available from text. | selector: figure_vision (sole candidate) | Vision: Traced solid blue 'DAMIC at SNOLAB' curve in Fig. 4 (kappa vs m_V in eV). Note: the axis calibration provided in the prompt corresponds to Fig. 3 (DM-electron cross section), not the DarkPhoton plot. Fig. 4 x-axis is m_V in eV (1 to ~30), y-axis kappa from 1e-16 to ~1e-10. Excluded region is above the curve; a sharp minimum near m_V~17 eV. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.57 snapped to identity)",
+ "num_points": 39,
+ "elapsed_s": 162.47272396087646
+}

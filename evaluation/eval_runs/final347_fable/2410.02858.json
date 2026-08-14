@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "2410.02858",
+  "paper_title": "Constraints on dark photon dark matter from Lyman-$\u03b1$ forest simulations and an ultra-high signal-to-noise quasar spectrum",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      7.08e-14,
+      7.9e-15
+    ],
+    [
+      1.26e-13,
+      4e-15
+    ],
+    [
+      2.24e-13,
+      3.2e-15
+    ],
+    [
+      3.98e-13,
+      5e-15
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "LymanAlpha_HE0940_tPDF",
+  "coupling_convention": "dimensionless kinetic mixing epsilon",
+  "notes": "Paper sets new 95% CL upper limits on dark photon kinetic mixing epsilon vs mass mA' ~ 1e-13 to 1e-12 eV, from Lyman-alpha forest tPDF of quasar HE0940-1050 compared with hydrodynamical simulations (Fig. 7). No numerical table is provided; the exact limit values are only shown graphically. Data points here are approximate estimates: constraints are only reached for log10(mA'/eV) = -13.15, -12.9, -12.65, -12.4 (paper explicitly states the lowest mass -13.4 and masses >= -12.15 are NOT constrained within the explored grid, log eps in [-15.0, -13.5]). Epsilon values estimated consistent with the statement that the Bolton+22 best fit (mA'=8e-14 eV, eps=5e-15) remains allowed at 95% CL, and with the simulation grid range. This is a cosmological/IGM-heating bound assuming dark photons are all of DM (cosmological abundance), so no local DM density is set. Downstream users should digitize Fig. 7 for precise values. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.5, 4))",
+  "num_points": 4,
+  "elapsed_s": 142.17613220214844
+}

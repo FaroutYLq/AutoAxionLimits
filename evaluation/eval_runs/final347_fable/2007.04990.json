@@ -1,0 +1,22 @@
+{
+  "arxiv_id": "2007.04990",
+  "paper_title": "More Axions from Strings",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      11000000000.0,
+      0.0005
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "MoreAxionsFromStrings2021",
+  "coupling_convention": "x = f_a in GeV, y = m_a in eV (QCD axion relation m_a = 5.7 ueV * 1e12 GeV / f_a)",
+  "notes": "Gorghetto, Hardy & Villadoro (arXiv:2007.04990) compute the axion string contribution to the QCD axion relic abundance in the post-inflationary scenario. Extrapolating scaling violations (xi ~ 15 at log ~ 60-70, IR-dominated spectrum q>1) and including nonlinear effects at the QCD crossover, they derive a lower bound on the QCD axion mass (equivalently an upper bound on f_a) from requiring the string-produced abundance not exceed the observed DM density. The main text states the viable post-inflationary window (combined with the SN1987A bound) is m_a ~ 0.5-20 meV; the NEW bound from this paper is the lower edge m_a >~ 0.5 meV for N=1 (KSVZ), corresponding to f_a <~ 1.1e10 GeV, encoded as a single point on the f_a-m_a plane. Explicit eqs. (6)-(7) values were truncated in the provided text, so the 0.5 meV value is taken from the stated allowed window; O(1) theoretical uncertainties acknowledged by authors. This is a cosmological/theoretical bound, not a haloscope search, so no local DM density assumption applies. No statistical confidence level is quoted (theory bound); 0.95 entered as placeholder. | [VISION GATE B] vision notes assert the plotted axis belongs to AxionPhoton but the declared coupling is AxionMass \u2014 wrong panel/curve traced | selector: text (sole candidate) | [COUPLING REVIEW] axis 'axion-photon coupling |g_a\u03b3\u03b3| in GeV^-1' implies AxionPhoton but classified AxionMass (cross-family contradiction \u2014 flagged, not overridden)",
+  "num_points": 1,
+  "elapsed_s": 151.34428596496582
+}

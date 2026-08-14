@@ -1,0 +1,30 @@
+{
+  "arxiv_id": "1906.00967",
+  "paper_title": "Buschmann20",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      402000000000.0,
+      1.42e-05
+    ],
+    [
+      227000000000.0,
+      2.52e-05
+    ],
+    [
+      158000000000.0,
+      3.62e-05
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "Buschmann20",
+  "coupling_convention": "x-axis f_a in GeV, y-axis m_a in eV (QCD axion relation m_a = 5.707e-5 eV * (1e11 GeV / f_a))",
+  "notes": "This is not an experimental exclusion limit but a theoretical prediction on the f_a-m_a plane from early-universe simulations of the post-inflationary PQ-breaking scenario. The paper's central result is m_a = 25.2 +/- 11.0 ueV (i.e., 14.2-36.2 ueV) for the QCD axion to produce the observed DM abundance, corresponding to f_a = (2.27 +/- 0.33)e11 GeV (band ~1.58e11 to 4.02e11 GeV using the m_a range). Data points give the band edges and central value: [f_a GeV, m_a eV]. The quoted +/-11.0 ueV uncertainty is a combined statistical+systematic (~1-sigma) uncertainty, not a formal 90/95% CL. No local DM density assumption applies (cosmological simulation, not a haloscope). Also reports minihalo mass function ~1e-15 M_sun scale, not encoded here. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 3))",
+  "num_points": 3,
+  "elapsed_s": 165.38462686538696
+}

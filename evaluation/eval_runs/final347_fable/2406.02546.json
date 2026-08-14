@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2406.02546",
+  "paper_title": "Planck_unWISE",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.5e-13,
+      1e-07
+    ],
+    [
+      3e-13,
+      4e-08
+    ],
+    [
+      5.2e-13,
+      2.08e-08
+    ],
+    [
+      1.3e-12,
+      3e-08
+    ],
+    [
+      2.7e-12,
+      4e-08
+    ],
+    [
+      9.7e-12,
+      1e-07
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.65,
+  "suggested_experiment_name": "Planck_unWISE",
+  "coupling_convention": "dimensionless kinetic mixing epsilon (not epsilon^2)",
+  "notes": "Paper places new 95% CL upper limits on dark photon kinetic mixing epsilon via patchy dark screening of the CMB, cross-correlating Planck NILC maps with unWISE galaxies. Not a dark-matter search (CMB photons converting to dark photons in LSS), so no local DM density assumption. Exact limit curve is in Fig. 3 (not machine-readable here); data points reconstructed from text statements: epsilon < 4e-8 over most of 1e-13 to 1e-11 eV, strongest constraint epsilon < 2.08e-8 near mA' ~ 5.2e-13 eV, scan range 1.5e-13 to 9.7e-12 eV, with weakening toward the edges (endpoint values ~1e-7 approximate from Fig. 3 axis range). Points between the anchors are interpolated/approximate. The pre-analysis hint of AxionMass is incorrect; y-axis is clearly kinetic mixing epsilon. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 6,
+  "elapsed_s": 46.74686002731323
+}

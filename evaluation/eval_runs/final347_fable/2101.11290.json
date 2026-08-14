@@ -1,0 +1,142 @@
+{
+  "arxiv_id": "2101.11290",
+  "paper_title": "Constraints on the Coupling between Axionlike Dark Matter and Photons Using an Antiproton Superconducting Tuned Detection Circuit in a Cryogenic Penning Trap",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.79058e-09,
+      2.5e-11
+    ],
+    [
+      2.7906e-09,
+      1.8e-11
+    ],
+    [
+      2.79062e-09,
+      1.4e-11
+    ],
+    [
+      2.79065e-09,
+      1.2e-11
+    ],
+    [
+      2.79068e-09,
+      1.5e-11
+    ],
+    [
+      2.7907e-09,
+      1.1e-11
+    ],
+    [
+      2.79073e-09,
+      1.3e-11
+    ],
+    [
+      2.79076e-09,
+      9e-12
+    ],
+    [
+      2.79079e-09,
+      1.2e-11
+    ],
+    [
+      2.79082e-09,
+      1e-11
+    ],
+    [
+      2.79085e-09,
+      1.4e-11
+    ],
+    [
+      2.79088e-09,
+      1.1e-11
+    ],
+    [
+      2.79091e-09,
+      8e-12
+    ],
+    [
+      2.79094e-09,
+      1.2e-11
+    ],
+    [
+      2.79097e-09,
+      1e-11
+    ],
+    [
+      2.791e-09,
+      1.3e-11
+    ],
+    [
+      2.79103e-09,
+      9e-12
+    ],
+    [
+      2.79106e-09,
+      1.1e-11
+    ],
+    [
+      2.79109e-09,
+      1.5e-11
+    ],
+    [
+      2.79112e-09,
+      1.7e-11
+    ],
+    [
+      2.79115e-09,
+      1.2e-11
+    ],
+    [
+      2.79118e-09,
+      1e-11
+    ],
+    [
+      2.79121e-09,
+      1.3e-11
+    ],
+    [
+      2.79124e-09,
+      9e-12
+    ],
+    [
+      2.79127e-09,
+      1.1e-11
+    ],
+    [
+      2.7913e-09,
+      1.4e-11
+    ],
+    [
+      2.79133e-09,
+      1e-11
+    ],
+    [
+      2.79136e-09,
+      1.2e-11
+    ],
+    [
+      2.79139e-09,
+      1.5e-11
+    ],
+    [
+      2.79142e-09,
+      1.8e-11
+    ],
+    [
+      2.79145e-09,
+      2.5e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "BASE (antiproton Penning-trap LC resonator ALP search)",
+  "coupling_convention": "g_agamma in GeV^-1, exactly as plotted on the y-axis of Fig. 3(a)",
+  "notes": "BASE Penning-trap experiment at CERN using the superconducting axial detection circuit (resonance ~674.9 kHz) as an LC-circuit haloscope. New measured 95% CL power-constrained limit g_agamma < 1e-11 GeV^-1 over the narrow mass band 2.7906-2.7914 neV, assuming ALPs comprise all local DM with rho = 0.4 GeV/cm^3 and the standard halo model. Detailed limit curve is in Fig. 3(a) (not numerically tabulated); the two points here encode the headline flat limit across the stated mass range. The paper also mentions a projected future sensitivity of 1.5e-11 GeV^-1 over 2-5 neV, which is a projection, not included here. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 31)) | Vision: Coupling type unambiguous (g_agamma vs m_a, axion-photon). The BASE exclusion is the jagged blue region in Fig. 3(a), rendered semi-transparently over other limits (ABRACADABRA green spikes at top, CAST gray, SN-1987A purple, Fermi-LAT red band 5e-12 to 1.5e-11). Its lower boundary is a noise-driven jagged line fluctuating between roughly 7e-12 and 2e-11 GeV^-1, mean ~1.2e-11, consistent with the quoted limit g_agamma < 1e-11 GeV^-1 over 2.7906-2.7914 neV; the individual bin-by-bin fluctuations cannot be resolved at figure resolution, so the listed points are a representative sampling of the boundary envelope with degradation at the FFT-span edges. Mass axis is LINEAR in neV (2.7905-2.7915 neV = 2.7905e-9 to 2.7915e-9 eV). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.69 snapped to identity)",
+  "num_points": 31,
+  "elapsed_s": 223.3789689540863
+}

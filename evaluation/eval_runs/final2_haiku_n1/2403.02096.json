@@ -1,0 +1,118 @@
+{
+ "arxiv_id": "2403.02096",
+ "paper_title": "Exploration of the polarization angle variability of the Crab Nebula with POLARBEAR and its application to the search for axion-like particles",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-22,
+   1.3e-13
+  ],
+  [
+   1.5e-22,
+   1.5e-13
+  ],
+  [
+   2e-22,
+   1.8e-13
+  ],
+  [
+   3e-22,
+   2.5e-13
+  ],
+  [
+   5e-22,
+   4e-13
+  ],
+  [
+   7e-22,
+   6e-13
+  ],
+  [
+   1e-21,
+   1e-12
+  ],
+  [
+   1.5e-21,
+   1.5e-12
+  ],
+  [
+   2e-21,
+   2.2e-12
+  ],
+  [
+   3e-21,
+   3.5e-12
+  ],
+  [
+   5e-21,
+   6e-12
+  ],
+  [
+   7e-21,
+   9e-12
+  ],
+  [
+   1e-20,
+   1.3e-11
+  ],
+  [
+   1.5e-20,
+   1.9e-11
+  ],
+  [
+   2e-20,
+   2.7e-11
+  ],
+  [
+   3e-20,
+   4.2e-11
+  ],
+  [
+   5e-20,
+   7e-11
+  ],
+  [
+   7e-20,
+   1.1e-10
+  ],
+  [
+   1e-19,
+   1.6e-10
+  ],
+  [
+   1.5e-19,
+   2.4e-10
+  ],
+  [
+   2e-19,
+   3.3e-10
+  ],
+  [
+   3e-19,
+   5.2e-10
+  ],
+  [
+   5e-19,
+   8.5e-10
+  ],
+  [
+   7e-19,
+   1.3e-09
+  ],
+  [
+   1e-18,
+   1.9e-09
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "POLARBEAR Tau A polarization oscillation search",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling",
+ "notes": "Paper reports median 95% upper bound on ALP-photon coupling g_agamma < 2.16\u00d710^-12 GeV^-1 \u00d7 (m_a/10^-21 eV) over mass range 9.9\u00d710^-23 eV to 7.7\u00d710^-19 eV. This is a mass-dependent bound with linear scaling in mass. The bound is derived from polarization angle oscillation measurements of the Crab Nebula (Tau A) using POLARBEAR 150 GHz observations from 2015-2016. The paper assumes the ALP field is stochastic and Gaussian, and that ALPs constitute all local dark matter with density \u03c1_DM = 0.3 GeV/cm^3. A hint of signal at 2.5\u03c3 was found but interpreted conservatively as upper limit. The coupling convention is the standard dimensionless g_agamma in GeV^-1. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 25)) | Vision: Extracted the lower boundary of the 95% upper bound constraint on g_agamma from Figure 11 (page 15). The plot shows the exclusion region ABOVE the boundary curve. The black solid line labeled 'Smoothed stochastic (This work)' represents the primary constraint from this paper's Tau A polarization oscillation search. The boundary traces from ~1e-22 eV (where g_agamma \u2248 1.3e-13 GeV^-1) to ~1e-18 eV (where g_agamma \u2248 1.9e-9 GeV^-1). The curve shows a smooth power-law-like increase on the log-log plot, consistent with the theoretical relationship between ALP mass and photon coupling. Sampling density increased near the lower-mass region where the curve shows slight curvature changes. The paper assumes a stochastic ALP field and reports 95% confidence level bounds. The constraint is complementary to CMB-based bounds (orange curve) and pulsar-based bounds (blue curve) shown on the same plot. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.15 snapped to identity)",
+ "num_points": 25,
+ "elapsed_s": 298.11149978637695
+}

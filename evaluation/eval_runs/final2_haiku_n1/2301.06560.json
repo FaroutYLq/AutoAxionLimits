@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2301.06560",
+ "paper_title": "Probing the Blue Axion with Cosmic Optical Background Anisotropies",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   5.0,
+   1.3e-11
+  ],
+  [
+   10.0,
+   6.5e-12
+  ],
+  [
+   15.0,
+   4.3e-12
+  ],
+  [
+   20.0,
+   3.2e-12
+  ],
+  [
+   25.0,
+   2.5e-12
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "HST_COB_606nm",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper constrains axion-photon coupling g_agamma via cosmic optical background (COB) anisotropies measured by HST at 606 nm for cold dark matter blue axions with mass 5\u201325 eV. The coupling values are extracted from Fig. 1 (solid blue line, HST 606 nm bound) by reading approximate exclusion limits across the mass range. The paper also presents projections for future HST measurements at 438 nm and 336 nm (dashed lines), which would improve constraints by factors 4\u201310. The analysis includes multiple production mechanisms (misalignment, string-wall annihilation, freeze-out, hot relic) and alternative dark portal scenarios. The bounds are derived from requiring that the angular power spectrum Cl does not exceed HST data error bars, with additional likelihood analysis providing ~15\u201325% stronger constraints. The paper excludes the LORRI excess as due to decaying blue axion CDM. Confidence is moderate (0.75) because exact numerical values from Fig. 1 are approximate readings; the paper does not provide explicit tabulated coupling values for each mass point. | selector: text (sole candidate)",
+ "num_points": 5,
+ "elapsed_s": 37.74763488769531
+}

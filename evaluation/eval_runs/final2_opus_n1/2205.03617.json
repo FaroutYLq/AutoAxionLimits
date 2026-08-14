@@ -1,0 +1,170 @@
+{
+ "arxiv_id": "2205.03617",
+ "paper_title": "Particle dispersion in the classical vector dark matter background",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-15,
+   1e-07
+  ],
+  [
+   3e-15,
+   6e-08
+  ],
+  [
+   1e-14,
+   4e-08
+  ],
+  [
+   3e-14,
+   3e-08
+  ],
+  [
+   1e-13,
+   2.5e-08
+  ],
+  [
+   3e-13,
+   2e-08
+  ],
+  [
+   1e-12,
+   1.5e-08
+  ],
+  [
+   3e-12,
+   8e-09
+  ],
+  [
+   1e-11,
+   3e-09
+  ],
+  [
+   3e-11,
+   1.5e-09
+  ],
+  [
+   1e-10,
+   6e-10
+  ],
+  [
+   3e-10,
+   4.0000000000000007e-10
+  ],
+  [
+   1e-09,
+   3e-10
+  ],
+  [
+   3e-09,
+   5e-10
+  ],
+  [
+   1e-08,
+   8.000000000000001e-10
+  ],
+  [
+   3e-08,
+   6e-10
+  ],
+  [
+   1e-07,
+   4.0000000000000007e-10
+  ],
+  [
+   3e-07,
+   5e-10
+  ],
+  [
+   1e-06,
+   6e-10
+  ],
+  [
+   3e-06,
+   5e-10
+  ],
+  [
+   1e-05,
+   6e-10
+  ],
+  [
+   3e-05,
+   8.000000000000001e-10
+  ],
+  [
+   0.0001,
+   1e-09
+  ],
+  [
+   0.0003,
+   3e-09
+  ],
+  [
+   0.001,
+   1e-08
+  ],
+  [
+   0.003,
+   3e-08
+  ],
+  [
+   0.01,
+   5e-08
+  ],
+  [
+   0.03,
+   3e-08
+  ],
+  [
+   0.1,
+   1.5e-08
+  ],
+  [
+   0.3,
+   1e-08
+  ],
+  [
+   1.0,
+   8e-09
+  ],
+  [
+   3.0,
+   6e-09
+  ],
+  [
+   10.0,
+   5e-09
+  ],
+  [
+   30.0,
+   4e-09
+  ],
+  [
+   100.0,
+   3e-09
+  ],
+  [
+   1000.0,
+   2e-09
+  ],
+  [
+   10000.0,
+   2e-09
+  ],
+  [
+   100000.0,
+   3e-09
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "VDM particle dispersion - dark photon model constraints (Fig. 6)",
+ "coupling_convention": "kinetic mixing epsilon, dimensionless, as plotted on y-axis",
+ "notes": "Paper constrains gauge couplings of Lmu-Ltau, Le-Lmu/tau, B-L and dark photon models via VDM background dispersion/normalization effects. Bounds are analytical mass-dependent formulas, not tabulated. The dark photon Z-bound (Eq.39) g_e<6.6e-39*(m/1e-20eV)^2 is expressed as gauge coupling g_e=eps*e, NOT directly as kinetic mixing chi; conversion to chi requires dividing by e. Also Eq.35 (electron mass): g_e<3.3e-12*(m/1e-20eV). Multiple models make coupling type ambiguous; dark photon is one of four. Density 0.3 GeV/cm^3 for terrestrial bounds. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.55, 38)) | Vision: Figure 6 dark photon constraint plot. Y-axis is kinetic mixing epsilon. The combined excluded region includes DPDM (brown), NS+SN1987A, Sun+HB+RG, gamma->gamma, and BHSR. Lower boundary traced represents envelope of the combined excluded region. The dashed green (delta m_e) and black (Z) lines are model-dependent upper bounds. Data points are approximate readings from the log-log plot; the boundary has a deep minimum near 1e-9 to 1e-7 eV (~4e-9) and rises at both mass extremes. BHSR green band located near 1e-13 to 1e-10 eV extends to very low couplings but is a separate feature. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.20)",
+ "num_points": 38,
+ "elapsed_s": 268.4798777103424
+}

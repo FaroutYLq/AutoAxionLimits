@@ -1,0 +1,30 @@
+{
+  "arxiv_id": "2212.01971",
+  "paper_title": "ORGAN-1a",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      6.32e-05,
+      6.2e-13
+    ],
+    [
+      6.5e-05,
+      6e-13
+    ],
+    [
+      6.71e-05,
+      5.8e-13
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "ORGAN_1a",
+  "coupling_convention": "dimensionless kinetic mixing chi",
+  "notes": "Paper recasts the ORGAN Phase 1a axion-photon limit (|g_agamma| <= 3e-12 GeV^-1 over 63.2-67.1 ueV, from ref [45]) onto dark photon kinetic mixing (Fig 1/2), scalar/dilaton g_phigamma and QEMD g_aAB (Fig 3). The NEW headline result is the dark-photon chi limit (claimed strictest to date 63.2-65.1 ueV). Values here are the fixed-polarization scenario, computed from chi = g_agamma*B/(m*|cos theta|) with B=11.5 T, |cos theta|=sqrt(0.03); random-polarization scenario is ~3x smaller (~1.8e-13). Values are approximate since the underlying g_agamma limit varies across the tuning range. Scalar/dilaton limits (GeV^-1) also presented but do not surpass CAST; note the pre-analysis AxionPhoton hint refers only to the already-published input limit, not the new results. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.5, 3))",
+  "num_points": 3,
+  "elapsed_s": 138.60093808174133
+}

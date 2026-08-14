@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2209.12901",
+  "paper_title": "Discovering QCD-Coupled Axion Dark Matter with Polarization Haloscopes",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      3e-07,
+      1e-11
+    ],
+    [
+      1e-06,
+      5e-12
+    ],
+    [
+      3e-06,
+      3e-12
+    ],
+    [
+      1e-05,
+      4e-12
+    ],
+    [
+      3e-05,
+      1e-11
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.35,
+  "suggested_experiment_name": "PolarizationHaloscope_BerlinZhou2022",
+  "coupling_convention": "1/f_a in GeV^-1 (axion-gluon/EDM coupling), NOT converted to d_n in e*cm",
+  "notes": "Projection (SNR>=2) paper proposing a 'polarization haloscope' to probe the QCD axion-gluon coupling via axion-induced oscillating atomic EDMs. Fig. 2 y-axis is 1/f_a in GeV^-1 vs axion mass m_a in eV (range ~1e-7 to 1e-4 eV, i.e. ~0.1-10 GHz). Three benchmark curves: 100 L prototype (thermal fp), hyperpolarized cubic meter, and post-discovery upgrade. The plotted coupling is 1/f_a (gluon coupling), physically equivalent to the CP-odd EDM coupling but NOT the raw neutron EDM d_n in e*cm \u2014 I emitted 1/f_a values in GeV^-1 without conversion. Data points are ROUGH visual estimates of the cubic-meter scanning reach envelope; exact numbers cannot be read reliably from the figure, hence low extraction confidence. QCD axion line follows 1/f_a = m_a[eV]/5.7e6 GeV^-1. Local DM density rho=0.4 GeV/cm^3 assumed. | [VISION GATE A] is_projection=true but the vision notes say the traced curve is existing experiment 'sn1987a' \u2014 not the paper's own projected curve | selector: text (sole candidate) | coupling type AxionEDM -> AxionMass by axis read-back 'GeV^-1 (inverse axion decay constant 1/f_a)' (same confusable family, #625 Phase 3)",
+  "num_points": 5,
+  "elapsed_s": 239.71707391738892
+}

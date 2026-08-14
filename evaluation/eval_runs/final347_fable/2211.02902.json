@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2211.02902",
+  "paper_title": "Search for Dark Matter Axions with CAST-CAPP",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.974e-05,
+      3e-13
+    ],
+    [
+      2.05e-05,
+      3e-13
+    ],
+    [
+      2.1e-05,
+      2.5e-13
+    ],
+    [
+      2.15e-05,
+      2e-13
+    ],
+    [
+      2.2e-05,
+      8e-14
+    ],
+    [
+      2.235e-05,
+      1.5e-13
+    ],
+    [
+      2.247e-05,
+      3e-13
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "CAST-CAPP",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "CAST-CAPP haloscope search for galactic DM axions, 4.774-5.434 GHz (19.74-22.47 ueV). Paper explicitly states best exclusion g_agamma = 8e-14 GeV^-1 at 90% CL, reached near ~22 ueV where phase-matching was predominantly used. No numerical table provided; other data points are approximate reconstructions of the exclusion curve from the abstract/text and Fig. 5 description (typical limit a few 1e-13 across the band with the dip to 8e-14 near 22 ueV). Assumes local DM density 0.45 GeV/cm^3 and virialized Maxwell-Boltzmann halo. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 7,
+  "elapsed_s": 35.541481018066406
+}

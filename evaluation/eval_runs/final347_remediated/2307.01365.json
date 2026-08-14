@@ -1,0 +1,150 @@
+{
+  "arxiv_id": "2307.01365",
+  "paper_title": "LIDA",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.967e-09,
+      2.8e-09
+    ],
+    [
+      1.969e-09,
+      1.7e-09
+    ],
+    [
+      1.971e-09,
+      1.1e-09
+    ],
+    [
+      1.973e-09,
+      8e-10
+    ],
+    [
+      1.976e-09,
+      5.5e-10
+    ],
+    [
+      1.978e-09,
+      4.5e-10
+    ],
+    [
+      1.98e-09,
+      3.8e-10
+    ],
+    [
+      1.982e-09,
+      3.2e-10
+    ],
+    [
+      1.984e-09,
+      2.6e-10
+    ],
+    [
+      1.985e-09,
+      2.3e-10
+    ],
+    [
+      1.987e-09,
+      2.7e-10
+    ],
+    [
+      1.989e-09,
+      3.2e-10
+    ],
+    [
+      1.991e-09,
+      3.5e-10
+    ],
+    [
+      1.994e-09,
+      3.7e-10
+    ],
+    [
+      1.997e-09,
+      3.9e-10
+    ],
+    [
+      2e-09,
+      4.2e-10
+    ],
+    [
+      2.003e-09,
+      4.5e-10
+    ],
+    [
+      2.006e-09,
+      4.8e-10
+    ],
+    [
+      2.009e-09,
+      5.2e-10
+    ],
+    [
+      2.012e-09,
+      5.6e-10
+    ],
+    [
+      2.015e-09,
+      6e-10
+    ],
+    [
+      2.018e-09,
+      6.4e-10
+    ],
+    [
+      2.021e-09,
+      6.8e-10
+    ],
+    [
+      2.024e-09,
+      7.3e-10
+    ],
+    [
+      2.027e-09,
+      8e-10
+    ],
+    [
+      2.03e-09,
+      9.5e-10
+    ],
+    [
+      2.032e-09,
+      1.4e-09
+    ],
+    [
+      2.034e-09,
+      1.1e-09
+    ],
+    [
+      2.036e-09,
+      8.5e-10
+    ],
+    [
+      2.038e-09,
+      9.5e-10
+    ],
+    [
+      2.04e-09,
+      1.1e-09
+    ],
+    [
+      2.042e-09,
+      1.3e-09
+    ],
+    [
+      2.044e-09,
+      1.5e-09
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.82,
+  "suggested_experiment_name": "LIDA",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis",
+  "notes": "Laser-interferometric axion detector (LIDA) first run. Peak sensitivity g_agamma = 1.51e-10 GeV^-1 at 1.985 neV (480 kHz), average 3.2e-10 GeV^-1 over 1.97-2.01 neV. Values from text; a detailed sensitivity curve is in Fig. 2 but only key numbers are quoted. Local DM density used in analysis but numerical value not stated in text. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.82, 33)) | Vision: Figure 2 (fig_00.png) is the exclusion plot. Black 'LIDA (95% C.L.)' curve traced as lower boundary of excluded region. X-axis axion mass 1.97-2.04 neV (linear). Minimum sensitivity ~1.5-2.3e-10 GeV^-1 near 1.985 neV per text (max sensitivity 1.51e-10). Curve rises toward higher mass with narrow spikes from electronic dark noise lines near 2.03 neV. Red dashed CAST limit flat at ~6.6e-11 GeV^-1 used as calibration. The provided hint said plot in 'image 1' but the exclusion plot is actually in fig_00.png (Figure 2); fig_01 is Figure 3 noise plots. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.89 snapped to identity)",
+  "num_points": 33,
+  "elapsed_s": 85.5664370059967
+}

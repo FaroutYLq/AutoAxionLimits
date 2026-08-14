@@ -1,0 +1,166 @@
+{
+  "arxiv_id": "2301.10784",
+  "paper_title": "Oscillating nuclear charge radii as sensors for ultralight dark matter",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-23,
+      4.9999999999999996e-06
+    ],
+    [
+      1.2e-23,
+      4.000000000000001e-06
+    ],
+    [
+      1.5e-23,
+      3.2000000000000003e-06
+    ],
+    [
+      2e-23,
+      2.4999999999999998e-06
+    ],
+    [
+      2.5e-23,
+      2.0000000000000003e-06
+    ],
+    [
+      3e-23,
+      1.6999999999999998e-06
+    ],
+    [
+      4e-23,
+      1.45e-06
+    ],
+    [
+      5e-23,
+      1.35e-06
+    ],
+    [
+      7e-23,
+      1.3e-06
+    ],
+    [
+      1e-22,
+      1.6000000000000001e-06
+    ],
+    [
+      1.5e-22,
+      2.3e-06
+    ],
+    [
+      2e-22,
+      3e-06
+    ],
+    [
+      3e-22,
+      4.5e-06
+    ],
+    [
+      5e-22,
+      7.5e-06
+    ],
+    [
+      7e-22,
+      1.0500000000000001e-05
+    ],
+    [
+      1e-21,
+      1.5e-05
+    ],
+    [
+      1.5e-21,
+      2.2e-05
+    ],
+    [
+      2e-21,
+      3e-05
+    ],
+    [
+      3e-21,
+      4.4e-05
+    ],
+    [
+      5e-21,
+      7.4e-05
+    ],
+    [
+      7e-21,
+      0.0001
+    ],
+    [
+      1e-20,
+      0.00015
+    ],
+    [
+      2e-20,
+      0.00029
+    ],
+    [
+      3e-20,
+      0.00043999999999999996
+    ],
+    [
+      5e-20,
+      0.00073
+    ],
+    [
+      7e-20,
+      0.001
+    ],
+    [
+      1e-19,
+      0.0014999999999999998
+    ],
+    [
+      2e-19,
+      0.0029000000000000002
+    ],
+    [
+      3e-19,
+      0.0044
+    ],
+    [
+      5e-19,
+      0.0073
+    ],
+    [
+      7e-19,
+      0.01
+    ],
+    [
+      1e-18,
+      0.015
+    ],
+    [
+      2e-18,
+      0.028999999999999998
+    ],
+    [
+      5e-18,
+      0.073
+    ],
+    [
+      1e-17,
+      0.15
+    ],
+    [
+      1.5e-17,
+      0.22
+    ],
+    [
+      2e-17,
+      0.29000000000000004
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "PTB Yb+ E3/E2 single-ion optical clock (oscillating nuclear charge radius)",
+  "coupling_convention": "1/f_a in GeV^-1 exactly as plotted on the y-axis of Fig. 2 (inverse axion decay constant for the axion-gluon coupling); x values are m_a in eV",
+  "notes": "Paper reports first UDM-nuclear coupling limits from optical clock comparison (Yb+ E3/E2 frequency ratio at PTB, 26 months of data). It constrains BOTH scalar couplings d_g, d_mhat (Fig 1) and the QCD axion-gluon coupling 1/f_a vs m_a (Fig 2, matching the AxionMass hint). No numerical table is provided; data_points were RECONSTRUCTED from the paper's Eq. (13) using the stated ingredients: |beta|=0.34, K_E3,E2=2.4e-3, mu*md/(mu+md)^2~0.216, rho_DM=0.4 GeV/cm^3 (=3.07e-6 eV^4), flat 95% CL relative-amplitude limit ~2e-17 over 1.4e-8 to 5e-3 Hz, rescaled by the stated stochastic factor of 3 (effective amplitude 6e-17). This gives f_a > 3.0e3/m_a [eV], evaluated over the stated mass range 6.0e-23 to 2e-17 eV. Limits weaken below ~1e-22 eV (DM-fraction assumption relaxed) - not encoded. Values are approximate (mean-field theory inputs carry ~30% uncertainty); the paper notes nEDM limits remain stronger. Dashed projection curves (1e-18 amplitude) not extracted. If the scalar couplings d_g/d_mhat are preferred downstream, those would be a different (ScalarBaryon-like gluon/quark) coupling type not cleanly in the enum. | selector: figure_vision over text (quality (0, 1, 1, 1, 2, 0, 0.5, 37)) | Vision: Traced the dark red 'Yb+ E3/E2' 95% CL boundary in paper Fig. 2 (image fig_01.png), the f_a-m_a plane result matching the AxionMass hint. NOTE on calibration conflict: the provided y-axis calibration (1e-8 to 1.0, ticks [1,1e-2,1e-4,1e-6,1e-8]) actually corresponds to paper Fig. 1 (scalar coupling d_g/d_mhat), not the axion plot; the axion plot (Fig. 2, stated as 'image 1') has y-axis 1/f_a from 1e-19 to 1e-11 GeV^-1 with the same 5-tick/2-decade pattern. I followed the AxionMass hint and the actual Fig. 2 axes. X-range matches the calibration (1e-23 to 2e-17 eV). Boundary is flat-minimum near 6e-23 to 1e-22 eV (~1.3e-17 GeV^-1, where data cover <1 oscillation cycle below 6e-23 eV causing the upturn) and rises linearly (slope +1, quadratic axion coupling with flat amplitude limit ~2e-17) to ~3e-12 GeV^-1 at 2e-17 eV. Small wiggles in the measured curve smoothed. rho_DM = 0.4 GeV/cm^3 assumed. If instead the d_g plot (Fig. 1a) was intended, values would need to be re-extracted with y in [1e-8,1]. | Calibration: No calibration needed | [COUPLING REVIEW] axis 'd_g (linear scalar DM-gluon coupling), dimensionless' implies ScalarNucleon but classified AxionMass (cross-family contradiction \u2014 flagged, not overridden) | Auto-corrected couplings: \u00d71e+11 (\u00d71.00e+11, rule=argmin|log10(median*f)-log10(anchor=3.2e-05)|)",
+  "num_points": 37,
+  "elapsed_s": 346.4606740474701
+}

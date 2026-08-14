@@ -1,0 +1,138 @@
+{
+  "arxiv_id": "2408.15227",
+  "paper_title": "Axion Dark Matter eXperiment around 3.3 \u03bceV with Dine-Fischler-Srednicki-Zhitnitsky Discovery Ability",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      3.228e-06,
+      4.5e-16
+    ],
+    [
+      3.234e-06,
+      3.5e-16
+    ],
+    [
+      3.24e-06,
+      2.4e-16
+    ],
+    [
+      3.246e-06,
+      3e-16
+    ],
+    [
+      3.25e-06,
+      2.6e-16
+    ],
+    [
+      3.255e-06,
+      3.6e-16
+    ],
+    [
+      3.259e-06,
+      4e-16
+    ],
+    [
+      3.263e-06,
+      3.2e-16
+    ],
+    [
+      3.267e-06,
+      3.5e-16
+    ],
+    [
+      3.271e-06,
+      2.8e-16
+    ],
+    [
+      3.273e-06,
+      2.5e-16
+    ],
+    [
+      3.277e-06,
+      3.8e-16
+    ],
+    [
+      3.281e-06,
+      3e-16
+    ],
+    [
+      3.284e-06,
+      2.5e-16
+    ],
+    [
+      3.288e-06,
+      3.5e-16
+    ],
+    [
+      3.292e-06,
+      2.7e-16
+    ],
+    [
+      3.296e-06,
+      3.2e-16
+    ],
+    [
+      3.3e-06,
+      2.4e-16
+    ],
+    [
+      3.304e-06,
+      3e-16
+    ],
+    [
+      3.309e-06,
+      2.6e-16
+    ],
+    [
+      3.313e-06,
+      3.4e-16
+    ],
+    [
+      3.317e-06,
+      2.5e-16
+    ],
+    [
+      3.321e-06,
+      3e-16
+    ],
+    [
+      3.325e-06,
+      2.7e-16
+    ],
+    [
+      3.329e-06,
+      2.4e-16
+    ],
+    [
+      3.333e-06,
+      3.5e-16
+    ],
+    [
+      3.338e-06,
+      3e-16
+    ],
+    [
+      3.342e-06,
+      4e-16
+    ],
+    [
+      3.346e-06,
+      4.2e-16
+    ],
+    [
+      3.35e-06,
+      4.6e-16
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "ADMX (3.3 \u03bceV DFSZ run)",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis",
+  "notes": "ADMX haloscope excludes DFSZ axion-photon coupling over 3.27-3.34 ueV (792-807 MHz) at 90% CL, standard halo model rho=0.45 GeV/cm^3. Numerical limit values not tabulated; the exclusion reaches the DFSZ line (~1.4e-16 GeV^-1 at these masses, estimated from Fig. 4 y-axis 1e-16 to 1e-15 and DFSZ benchmark). Endpoints given at the stated mass range. Actual per-bin limits dip below DFSZ but DFSZ-level is the headline exclusion. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 30)) | Vision: Figure 4 exclusion plot. X-axis is frequency 780-810 MHz (linear); converted to axion mass via m[eV]=4.136e-9*f[MHz]. Top axis mass ticks 3.250-3.325 \u03bceV confirm this. Y-axis g_agamma log scale, ticks 1e-16 and 1e-15. KSVZ (~1.3e-15) and DFSZ (~5e-16) dashed benchmark lines. Exclusion region fills from top down to a highly jagged lower boundary near/below DFSZ line. Left/right green = previous ADMX; central orange = this work (MB), semi-transparent = N-body extending lowest. Jagged boundary values are approximate reads of the lower envelope. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.48 snapped to identity)",
+  "num_points": 30,
+  "elapsed_s": 165.0911099910736
+}

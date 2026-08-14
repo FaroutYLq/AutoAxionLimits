@@ -1,0 +1,66 @@
+{
+ "arxiv_id": "2306.08039",
+ "paper_title": "Dark Matter Search with a Resonantly-Coupled Hybrid Spin System",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.01,
+   3e-09
+  ],
+  [
+   0.04,
+   2.5e-09
+  ],
+  [
+   0.1,
+   2e-09
+  ],
+  [
+   0.5,
+   1.5e-09
+  ],
+  [
+   1.0,
+   1.2e-09
+  ],
+  [
+   2.0,
+   1e-09
+  ],
+  [
+   4.0,
+   3e-10
+  ],
+  [
+   10.0,
+   3e-09
+  ],
+  [
+   30.0,
+   3e-09
+  ],
+  [
+   100.0,
+   1e-08
+  ],
+  [
+   300.0,
+   3e-08
+  ],
+  [
+   1000.0,
+   1e-07
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "K-Rb-21Ne_HSR_SC",
+ "coupling_convention": "g_ann in GeV^-1",
+ "notes": "Paper presents new broadband constraints on axion-neutron (g_ann) and axion-proton (g_app) couplings using a K-Rb-21Ne hybrid spin system. Two regimes utilized: self-compensation (SC) at low frequencies [0.01-6 Hz] and hybrid spin resonance (HSR) at higher frequencies [3-1000 Hz]. For axion-neutron coupling, best limit is |g_ann| \u2264 3\u00d710^-10 GeV^-1 in [2\u00d710^-2, 4] Hz range, surpassing astrophysical limits and providing strongest laboratory constraints in [10, 100] Hz range. For axion-proton coupling, best terrestrial constraints achieved in [2\u00d710^-2, 5] Hz and [16, 7\u00d710^2] Hz ranges. Data points extracted from Fig. 4 and text statements; values are approximate read-offs from the exclusion plot. DM density \u03c1_DM = 0.4 GeV/cm^3 from Standard Halo Model. Stochastic effects of DM accounted for in analysis. Post-analysis rejected all 62 candidate signals at 95% CL after rigorous testing (two-stage joint-LLR, signal-strength-stability, signal-shape analysis). One candidate at 46.704996 Hz marginally excluded. | selector: text (sole candidate)",
+ "num_points": 12,
+ "elapsed_s": 48.78463101387024
+}

@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2304.12907",
+  "paper_title": "Production rates of dark photons and $Z'$ in the Sun and stellar cooling bounds",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.0001,
+      4.1e-10
+    ],
+    [
+      10000.0,
+      4.1e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.45,
+  "suggested_experiment_name": "SolarCooling_BminusL_LiXu2023",
+  "coupling_convention": "dimensionless g_BL (gauge coupling gZ')",
+  "notes": "Paper derives stellar (solar) cooling bounds for multiple U(1) models: dark photon (kinetic mixing epsilon), B-L, Lmu-Ltau, Le-Lmu(tau). I extracted the B-L (VectorBL) solar bound, which the paper states as g_Z' < 4.1e-10 (flat) for m_Z' <~ 10 keV; the bound becomes flat at low mass due to nn/np coupling asymmetry. Encoded as a horizontal line over the flat region ~1e-4 to 1e4 eV. Ambiguity: the paper presents several coupling types (DarkPhoton epsilon, VectorBL g_BL, Lmu-Ltau, Le-Lmu). Per instructions B-L strongly favors VectorBL. Full mass-dependent curves are in Fig. 4 (not digitizable from text). Le-Lmu(tau) analogous bound is 3.9e-11. These are astrophysical (not DM haloscope) bounds, so no DM density. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 3.2 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | coupling type VectorBL -> DarkPhoton by axis read-back 'epsilon dimensionless (kinetic mixing)' (same confusable family, #625 Phase 3) | [CONVENTION REVIEW] declared coupling convention 'dimensionless g_BL (gauge coupling gZ')' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 2,
+  "elapsed_s": 170.82230877876282
+}

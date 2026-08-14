@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "1604.08514",
+  "paper_title": "Searching for an oscillating massive scalar field as a dark matter candidate using atomic hyperfine frequency comparisons",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-24,
+      3e-06
+    ],
+    [
+      1.4e-23,
+      3.8e-09
+    ],
+    [
+      1e-21,
+      2.7e-07
+    ],
+    [
+      1e-20,
+      1.2e-06
+    ],
+    [
+      1e-19,
+      1.2e-05
+    ],
+    [
+      1e-18,
+      0.00013
+    ],
+    [
+      2.4e-18,
+      0.00053
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "SYRTE_RbCs_FO2",
+  "coupling_convention": "dimensionless d_e (paper's limit is on the combination de + 0.043(d_mhat - d_g), which equals d_e under the assumption of coupling to electromagnetism only)",
+  "notes": "Hees et al. (2016, arXiv:1604.08514): 6 years of Rb/Cs hyperfine frequency ratio data from the FO2 dual atomic fountain at LNE-SYRTE, searching for oscillating scalar dark matter. Explicit anchor points from text: most stringent limit 3.8e-9 at m_phi = 1.4e-23 eV; worst-case limit 5.3e-4 anywhere in range; mass range ~1e-24 to ~2.4e-18 eV (omega_max = 3.6e-3 rad/s). Intermediate points reconstructed from the stated frequency-dependent noise levels (Eq. 9) and Eq. 8 scaling (coupling limit \u221d omega x amplitude limit), so they are approximate \u2014 the true exclusion curve in Fig. 3 is jagged. The constrained quantity is the combination de + 0.043(d_mhat - d_g); classified as ScalarPhoton per the paper's headline interpretation (assuming only de != 0, improving Dy limits by >1 order of magnitude). DM density assumed rho_DM = 0.4 GeV/cm^3. 95% CL. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c) | [CONVENTION REVIEW] declared coupling convention 'dimensionless d_e (paper's limit is on the combination de + 0.043(d_mhat - d_g), which equals d_e under the assumption of coupling to electromagnetism only)' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 7,
+  "elapsed_s": 84.1833610534668
+}

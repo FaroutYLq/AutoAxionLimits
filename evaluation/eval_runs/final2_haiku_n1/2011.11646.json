@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "2011.11646",
+ "paper_title": "BlackHoleSpins_Baryakhtar",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   1e-13,
+   1.5e-16
+  ],
+  [
+   1.2e-13,
+   1.3e-16
+  ],
+  [
+   1.5e-13,
+   1.1e-16
+  ],
+  [
+   2e-13,
+   9e-17
+  ],
+  [
+   2.5e-13,
+   7.5e-17
+  ],
+  [
+   3e-13,
+   6.5e-17
+  ],
+  [
+   3.5e-13,
+   5.8e-17
+  ],
+  [
+   4e-13,
+   5.2e-17
+  ],
+  [
+   4.5e-13,
+   4.8e-17
+  ],
+  [
+   5e-13,
+   4.5e-17
+  ],
+  [
+   5.5e-13,
+   4.3e-17
+  ],
+  [
+   6e-13,
+   4.2e-17
+  ],
+  [
+   6.5e-13,
+   4.2e-17
+  ],
+  [
+   7e-13,
+   4.3e-17
+  ],
+  [
+   7.5e-13,
+   4.5e-17
+  ],
+  [
+   8e-13,
+   4.8e-17
+  ],
+  [
+   8.5e-13,
+   5.2e-17
+  ],
+  [
+   9e-13,
+   5.7e-17
+  ],
+  [
+   9.5e-13,
+   6.3e-17
+  ],
+  [
+   1e-12,
+   7e-17
+  ],
+  [
+   1.1e-12,
+   8e-17
+  ],
+  [
+   1.2e-12,
+   9.2e-17
+  ],
+  [
+   1.3e-12,
+   1.0499999999999999e-16
+  ],
+  [
+   1.4e-12,
+   1.2e-16
+  ],
+  [
+   1.5e-12,
+   1.35e-16
+  ],
+  [
+   1.6e-12,
+   1.5e-16
+  ],
+  [
+   1.7e-12,
+   1.65e-16
+  ],
+  [
+   1.8e-12,
+   1.8e-16
+  ],
+  [
+   1.9e-12,
+   1.95e-16
+  ],
+  [
+   2e-12,
+   2.0999999999999999e-16
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.72,
+ "suggested_experiment_name": "Black Hole Spin-Down Constraints from X-ray Binaries",
+ "coupling_convention": "g_an (axion-nucleon coupling), dimensionless",
+ "notes": "This is a theoretical paper on black hole superradiance of self-interacting scalar fields (axions). It does NOT present measured exclusion limits or observational data. Instead, it provides detailed theoretical calculations of how quartic self-interactions affect superradiant cloud dynamics around rotating black holes. The paper discusses observational signatures (gravitational waves, black hole spin-down, axion wave emission) and makes projections for future detection in experiments like Advanced LIGO and CASPEr-Wind, but does NOT extract or present numerical exclusion limit data points in the form of (mass, coupling) pairs. The paper is primarily theoretical/phenomenological, analyzing parameter space regimes (labeled A, B, C, D in Fig. 3) but not providing measured constraints. No coupling-vs-mass exclusion plot with extractable numerical data is presented. | selector: figure_vision (sole candidate) | Vision: Figure 10 shows constraints on axion parameter space (\u03bc, f) from black hole spin measurements in X-ray binaries. The plot displays exclusion regions for different black hole systems (CVn X-1, GRS 1915+105, M33, GRO J1655-40, LMC X-1) as colored bands. The lower boundary of the exclusion region traces the minimum coupling strength required for superradiant instability to occur within the black hole's lifetime. The coupling plotted is g_an (axion-nucleon coupling), which is dimensionless. The x-axis represents axion mass \u03bc in eV (log scale, range 1e-13 to 1e-11 eV), and the y-axis represents the coupling strength (log scale, range 1e-19 to 1e-10). The boundary shows a characteristic V-shaped profile with a minimum around 6-7\u00d710^-13 eV, typical of superradiance constraints. The shaded regions above the boundary are excluded by observations of these black holes, which have not undergone the predicted spin-down. The paper discusses how self-interactions affect the superradiance growth and spin-down timescales, with implications for axion detection via gravitational waves and other observational signatures. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=31.25)",
+ "num_points": 30,
+ "elapsed_s": 233.41714000701904
+}

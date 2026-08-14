@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2312.13723",
+ "paper_title": "Ultralight Dark Matter Search with Space-Time Separated Atomic Clocks and Cavities",
+ "coupling_type": "ScalarElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-19,
+   1.0
+  ],
+  [
+   2e-15,
+   1.0
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.45,
+ "suggested_experiment_name": "SpaceTimeClocksCavities2024",
+ "coupling_convention": "dimensionless d_me (approximate flat bound read from Fig. 2)",
+ "notes": "Paper presents first constraints on scalar-DM coupling to electron mass d_me alone in mass range 1e-19 to 2e-15 eV, using two analyses: NPL/PTB cavity-cavity fiber comparison (spatial term) and GPS microwave clocks vs H-maser (temporal term). Signal amplitude is stated to be independent of DM mass, so the constraints are approximately flat (horizontal) across the mass range. Assumed local DM density 0.4 GeV/cm^3. Numerical coupling values could not be read precisely from Fig. 2 (log10|dme| vs log10(m_phi/eV)); the emitted value ~1 is an order-of-magnitude placeholder and should be treated as approximate. 95% C.L. Coupling type unambiguous (ScalarElectron / d_me), but exact numbers are uncertain since only plotted, not tabulated. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 3.5 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 114.70092391967773
+}

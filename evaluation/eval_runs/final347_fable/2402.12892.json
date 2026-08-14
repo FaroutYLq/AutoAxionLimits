@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2402.12892",
+  "paper_title": "Extensive search for axion dark matter over 1\\,GHz with CAPP's Main Axion eXperiment",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.24e-06,
+      6.5e-16
+    ],
+    [
+      4.45e-06,
+      6.8e-16
+    ],
+    [
+      4.6e-06,
+      7e-16
+    ],
+    [
+      4.75e-06,
+      7.3e-16
+    ],
+    [
+      4.91e-06,
+      7.5e-16
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "CAPP-MAX",
+  "coupling_convention": "g_agamma in GeV^-1 (DFSZ-level values inferred from paper's stated 'at or near DFSZ sensitivity' claim)",
+  "notes": "CAPP-MAX (CAPP-12TB) cavity haloscope search over 1.025-1.185 GHz (4.24-4.91 ueV) reporting the most stringent axion-photon coupling limits in this range at ~90% CL, assuming axions are 100% of local DM with rho=0.45 GeV/cm^3. The paper presents its exclusion in Fig. 22 but no numerical table is provided in the extracted text; data_points are approximate DFSZ-band-level values (g_DFSZ ~ 6.5e-16 to 7.5e-16 GeV^-1 over this mass range) consistent with the paper's statement of achieving 'at or near DFSZ sensitivity'. Some sub-ranges (1.0267-1.0443 GHz, 1.1220-1.1229 GHz) used HEMT amplifiers and have weaker limits; gaps exist at mode crossings. Actual limit curve should be digitized from Fig. 22 for precise values. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 5))",
+  "num_points": 5,
+  "elapsed_s": 127.15905094146729
+}

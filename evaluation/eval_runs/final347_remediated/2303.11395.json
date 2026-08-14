@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2303.11395",
+  "paper_title": "Axion-sourced fireballs from supernovae",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2000000.0,
+      6e-10
+    ],
+    [
+      5000000.0,
+      3e-10
+    ],
+    [
+      10000000.0,
+      2.5e-10
+    ],
+    [
+      40000000.0,
+      2e-10
+    ],
+    [
+      60000000.0,
+      4e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.45,
+  "suggested_experiment_name": "SN1987A_PVO_fireball",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "SN1987A axion-fireball paper. New bound from Pioneer Venus Orbiter (PVO) excluding the fireball-formation region in the ALP mass-coupling plane (ma ~ few MeV to ~60 MeV, g_agamma ~ 2e-10 to ~1e-8 GeV^-1). The data points give the approximate lower boundary of the excluded fireball region, read off from Figs. 2-3; exact contour not tabulated so values are approximate. Astrophysical SN bound (not a DM haloscope), so no local DM density. This is an observational exclusion, not a projection. | [VISION GATE D] vision notes admit tracing a compilation envelope ('union of') rather than the paper's own single curve | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.45, 5))",
+  "num_points": 5,
+  "elapsed_s": 235.4393560886383
+}

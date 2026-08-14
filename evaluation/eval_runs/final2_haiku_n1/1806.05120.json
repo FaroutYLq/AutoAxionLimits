@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "1806.05120",
+ "paper_title": "First results from a hidden photon dark matter search in the meV sector using a plane-parabolic mirror system",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.00067,
+   1e-08
+  ],
+  [
+   0.00092,
+   1e-08
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "Dish_Antenna_meV_2018",
+ "coupling_convention": "dimensionless kinetic mixing \u03c7",
+ "notes": "First results from a hidden photon dark matter search using a plane-parabolic mirror system in the meV mass region. The paper reports an upper limit \u03c7 \u2272 10^-8 for the mass range 0.67\u20130.92 meV at 90% confidence level. The limit is derived from a broadband dish antenna search using mm-wave heterodyne detection. The local DM density of 0.45 GeV/cm\u00b3 is explicitly stated in footnote 2 and used in Eq. (1.2) for the kinetic mixing calculation. The paper assumes virialized (Maxwellian) DM velocity distribution for the main result. Both virialized (four-bin) and unvirialized (single-bin) analyses are presented, with the virialized result being the primary limit. The mass range is encoded as a horizontal line at \u03c7 = 10^-8 spanning the stated validity range (0.67\u20130.92 meV converted to eV). | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.92, 2))",
+ "num_points": 2,
+ "elapsed_s": 223.76663088798523
+}

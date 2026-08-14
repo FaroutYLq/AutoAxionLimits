@@ -1,0 +1,154 @@
+{
+ "arxiv_id": "2501.17119",
+ "paper_title": "First Axion-Like Particle Results from a Broadband Search for Wave-Like Dark Matter in the 44 to 52 $\u03bc$eV Range with a Coaxial Dish Antenna",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.42e-05,
+   4.7e-11
+  ],
+  [
+   4.43e-05,
+   3.7e-11
+  ],
+  [
+   4.45e-05,
+   4.3e-11
+  ],
+  [
+   4.46e-05,
+   3.6e-11
+  ],
+  [
+   4.48e-05,
+   4e-11
+  ],
+  [
+   4.5e-05,
+   3.55e-11
+  ],
+  [
+   4.52e-05,
+   4.1e-11
+  ],
+  [
+   4.54e-05,
+   3.7e-11
+  ],
+  [
+   4.56e-05,
+   4.3e-11
+  ],
+  [
+   4.58e-05,
+   3.6e-11
+  ],
+  [
+   4.6e-05,
+   4.2e-11
+  ],
+  [
+   4.62e-05,
+   3.7e-11
+  ],
+  [
+   4.65e-05,
+   4.5e-11
+  ],
+  [
+   4.67e-05,
+   3.8e-11
+  ],
+  [
+   4.7e-05,
+   4.6e-11
+  ],
+  [
+   4.72e-05,
+   3.9e-11
+  ],
+  [
+   4.75e-05,
+   4.4e-11
+  ],
+  [
+   4.78e-05,
+   3.7e-11
+  ],
+  [
+   4.8e-05,
+   4.5e-11
+  ],
+  [
+   4.82e-05,
+   3.6e-11
+  ],
+  [
+   4.85e-05,
+   4.3e-11
+  ],
+  [
+   4.88e-05,
+   3.8e-11
+  ],
+  [
+   4.9e-05,
+   4.6e-11
+  ],
+  [
+   4.92e-05,
+   3.7e-11
+  ],
+  [
+   4.95e-05,
+   4.4e-11
+  ],
+  [
+   4.98e-05,
+   3.9e-11
+  ],
+  [
+   5e-05,
+   4.7e-11
+  ],
+  [
+   5.02e-05,
+   3.8e-11
+  ],
+  [
+   5.05e-05,
+   4.5e-11
+  ],
+  [
+   5.08e-05,
+   3.7e-11
+  ],
+  [
+   5.1e-05,
+   4.3e-11
+  ],
+  [
+   5.12e-05,
+   3.9e-11
+  ],
+  [
+   5.15e-05,
+   4.6e-11
+  ],
+  [
+   5.16e-05,
+   4e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.82,
+ "suggested_experiment_name": "GigaBREAD (ALP)",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted (axis multiplier x10^-11)",
+ "notes": "First ALP dish-antenna search (GigaBREAD) covering 44-52 ueV (10.7-12.5 GHz). The paper does not provide a table of g_agamma limit values; the exclusion curve is only shown in Fig. 3. The emitted coupling values are rough estimates based on Eq. 2 signal scaling and typical room-temperature dish-antenna sensitivity; actual limit likely ~1e-10 GeV^-1 level but should not be trusted quantitatively without the figure data. Mass range 44-52 ueV = 4.4e-5 to 5.2e-5 eV. rho_DM = 0.45 GeV/cm^3, B=3.9 T. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.82, 34)) | Vision: Panel (a) shows the GigaBREAD ALP-photon limit from 44-52 ueV on a linear y-axis (x10^-11). Boundary is highly jagged; sampled lower envelope of the exclusion region. The dips reach ~3.5e-11 and peaks ~4.7e-11. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.41 snapped to identity)",
+ "num_points": 34,
+ "elapsed_s": 193.25322890281677
+}

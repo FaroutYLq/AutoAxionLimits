@@ -1,0 +1,114 @@
+{
+ "arxiv_id": "2212.05721",
+ "paper_title": "YbCs",
+ "coupling_type": "ScalarElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-22,
+   3.5e-06
+  ],
+  [
+   1.3e-22,
+   2.8e-06
+  ],
+  [
+   1.6e-22,
+   2.2e-06
+  ],
+  [
+   2e-22,
+   1.9e-06
+  ],
+  [
+   2.6e-22,
+   1.7e-06
+  ],
+  [
+   3.2e-22,
+   1.7e-06
+  ],
+  [
+   4e-22,
+   1.7e-06
+  ],
+  [
+   5e-22,
+   1.6e-06
+  ],
+  [
+   6.3e-22,
+   1.8e-06
+  ],
+  [
+   8e-22,
+   2.2e-06
+  ],
+  [
+   1e-21,
+   2.8e-06
+  ],
+  [
+   1.3e-21,
+   3.6e-06
+  ],
+  [
+   1.6e-21,
+   4.5e-06
+  ],
+  [
+   2e-21,
+   5.8e-06
+  ],
+  [
+   2.6e-21,
+   6.5e-06
+  ],
+  [
+   3.2e-21,
+   7.2e-06
+  ],
+  [
+   4e-21,
+   8.5e-06
+  ],
+  [
+   5e-21,
+   1e-05
+  ],
+  [
+   6.3e-21,
+   1.3e-05
+  ],
+  [
+   8e-21,
+   1.6e-05
+  ],
+  [
+   1e-20,
+   2.1e-05
+  ],
+  [
+   1.3e-20,
+   3e-05
+  ],
+  [
+   1.6e-20,
+   4.5e-05
+  ],
+  [
+   2e-20,
+   6.5e-05
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "NMIJ Yb/Cs clock comparison",
+ "coupling_convention": "d_me, dimensionless (rescaled by factor 3.0 as stated)",
+ "notes": "Yb optical lattice clock vs Cs fountain, 298 days. New 95% CL limits on scalar DM couplings to electrons (d_me, ScalarElectron) and gluons (d_g) in mass range 1e-22 to 1e-20 eV. Most stringent new limit d_me <~ 1.6e-6 at m_phi ~ 5e-22 eV, improved by ~1000x. Only one explicit numerical value in text (peak sensitivity); the full exclusion curve in Fig 4(b) not tabulated. Paper also sets d_g limits (gluon/QCD scale coupling, would map to ScalarNucleon). Limits rescaled by factor 3.0 for stochastic field interference. Data points approximate/horizontal placeholder over stated mass range; actual curve varies with mass. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 24)) | Vision: Traced the lower boundary of the red Yb/Cs excluded region in Fig 4(b) for d_me (ScalarElectron). Minimum limit ~1.6e-6 near m_phi ~5e-22 eV, consistent with text. Region extends roughly 1e-22 to 2e-20 eV. The overlapping blue Si/H curve was excluded; only the red Yb/Cs boundary is traced. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.67 snapped to identity)",
+ "num_points": 24,
+ "elapsed_s": 179.20334887504578
+}

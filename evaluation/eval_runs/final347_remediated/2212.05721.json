@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "2212.05721",
+  "paper_title": "Search for ultralight dark matter from long-term frequency comparisons of optical and microwave atomic clocks",
+  "coupling_type": "ScalarElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-22,
+      3.2e-07
+    ],
+    [
+      5e-22,
+      1.6e-06
+    ],
+    [
+      1e-21,
+      3.2e-06
+    ],
+    [
+      1e-20,
+      3.2e-05
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "NMIJ_YbCs2022",
+  "coupling_convention": "dimensionless d_me",
+  "notes": "Yb optical lattice / Cs fountain clock comparison over 298 days searching for oscillating scalar DM. New limits set on d_me (electron mass coupling) and d_g (gluon coupling) over m_phi = 1e-22 to 1e-20 eV. Paper's primary highlighted new result is on d_me, best limit d_me <~ 1.6e-6 at m_phi ~ 5e-22 eV (improved by ~1000x). Data points approximate: explicit value 1.6e-6 at 5e-22 eV from text; other points estimated from linear scaling (coupling ~ proportional to frequency/mass at fixed amplitude limit) as shown in Fig. 4(b). d_g limits also new below 1e-21 eV but ScalarElectron chosen as the emphasized result. Assumes local DM density 0.3 GeV/cm^3; limits rescaled by factor 3.0 for stochastic interference. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.6, 4))",
+  "num_points": 4,
+  "elapsed_s": 113.80518817901611
+}

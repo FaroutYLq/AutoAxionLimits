@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2108.05368",
+  "paper_title": "Dark Matter from Axion Strings with Adaptive Mesh Refinement",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      31000000000.0,
+      0.00018
+    ],
+    [
+      140000000000.0,
+      4e-05
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "BuschmannAMR2021_AxionStrings",
+  "coupling_convention": "x = f_a in GeV, y = m_a in eV (post-inflation QCD axion DM prediction band)",
+  "notes": "Theoretical/cosmological prediction, not an experimental exclusion: AMR simulations of axion string networks in the post-inflation PQ-breaking scenario predict the QCD axion DM mass in the range ma = (40, 180) microeV, corresponding to fa in (3.1e10, 1.4e11) GeV (Eq. 2 and Discussion). Endpoints paired via inverse fa-ma relation: fa=3.1e10 GeV <-> ma=180 microeV (=1.8e-4 eV), fa=1.4e11 GeV <-> ma=40 microeV (=4.0e-5 eV). Central value for exactly scale-invariant spectrum (q=1): ma = 65 +/- 6 microeV (fa ~ 8.5e10 GeV). Uncertainty band derives from spectral index q in (0.98, 1.06) at 1-sigma, so stated confidence_level of 0.95 is nominal; the band is effectively ~1-sigma. No coupling constant (g_agamma, g_ae, etc.) is constrained; the result lives on the f_a - m_a plane, so AxionMass is appropriate. Assumes Planck DM abundance Omega_DM h^2 = 0.12; no local DM density assumption applies. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 2,
+  "elapsed_s": 108.78219795227051
+}

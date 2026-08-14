@@ -1,0 +1,178 @@
+{
+  "arxiv_id": "2402.19063",
+  "paper_title": "Search for Axion dark matter with the QUAX-LNF tunable haloscope",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      3.65232e-05,
+      1.6e-13
+    ],
+    [
+      3.65236e-05,
+      1.1e-13
+    ],
+    [
+      3.65241e-05,
+      1.3e-13
+    ],
+    [
+      3.65247e-05,
+      1e-13
+    ],
+    [
+      3.65253e-05,
+      1.4e-13
+    ],
+    [
+      3.65259e-05,
+      1.05e-13
+    ],
+    [
+      3.65265e-05,
+      1.25e-13
+    ],
+    [
+      3.65271e-05,
+      9.5e-14
+    ],
+    [
+      3.65277e-05,
+      1.3e-13
+    ],
+    [
+      3.65283e-05,
+      1.1e-13
+    ],
+    [
+      3.65289e-05,
+      1.5e-13
+    ],
+    [
+      3.65296e-05,
+      1e-13
+    ],
+    [
+      3.65303e-05,
+      1.2e-13
+    ],
+    [
+      3.6531e-05,
+      9.2e-14
+    ],
+    [
+      3.65317e-05,
+      1.35e-13
+    ],
+    [
+      3.65324e-05,
+      1.05e-13
+    ],
+    [
+      3.65331e-05,
+      1.2e-13
+    ],
+    [
+      3.65338e-05,
+      9e-14
+    ],
+    [
+      3.65345e-05,
+      1.4e-13
+    ],
+    [
+      3.65352e-05,
+      1e-13
+    ],
+    [
+      3.6536e-05,
+      1.25e-13
+    ],
+    [
+      3.65368e-05,
+      1.1e-13
+    ],
+    [
+      3.65376e-05,
+      1.45e-13
+    ],
+    [
+      3.65384e-05,
+      9.8e-14
+    ],
+    [
+      3.65392e-05,
+      1.3e-13
+    ],
+    [
+      3.654e-05,
+      1.05e-13
+    ],
+    [
+      3.65408e-05,
+      1.2e-13
+    ],
+    [
+      3.65416e-05,
+      9.5e-14
+    ],
+    [
+      3.65424e-05,
+      1.35e-13
+    ],
+    [
+      3.65432e-05,
+      1.1e-13
+    ],
+    [
+      3.6544e-05,
+      1.25e-13
+    ],
+    [
+      3.65448e-05,
+      1e-13
+    ],
+    [
+      3.65456e-05,
+      1.4e-13
+    ],
+    [
+      3.65464e-05,
+      1.05e-13
+    ],
+    [
+      3.65472e-05,
+      1.3e-13
+    ],
+    [
+      3.6548e-05,
+      1.1e-13
+    ],
+    [
+      3.6549e-05,
+      1.5e-13
+    ],
+    [
+      3.655e-05,
+      1.15e-13
+    ],
+    [
+      3.6551e-05,
+      1.3e-13
+    ],
+    [
+      3.6552e-05,
+      1.6e-13
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "QUAX-LNF",
+  "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling as plotted",
+  "notes": "QUAX-LNF tunable haloscope, TM010 mode cavity at 8.83 GHz, 8T field. Best limit g_agamma < 0.882e-13 GeV^-1 at 90% CL over mass range 36.52413-36.5511 ueV. Limit is approximately flat across the narrow scanned range; emitted as two-point line at the quoted best value. Local DM density 0.45 GeV/cm^3. Paper also recasts to dark photon kinetic mixing chi (random polarization, cos^2 theta = 1/3) in appendix, but primary result is AxionPhoton. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 40)) | Vision: Traced lower boundary of blue excluded region in Fig. 7 top panel (g_agamma vs m_a). Boundary is a jagged per-frequency-bin line hovering around 1e-13 GeV^-1; text states max sensitivity g_agamma < 0.882e-13 GeV^-1 at 90% CL, ~6x above KSVZ. X-axis is linear in this zoomed range. Dark photon plot (Fig 8) exists separately but hint requested AxionPhoton. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.00 snapped to identity)",
+  "num_points": 40,
+  "elapsed_s": 123.78855490684509
+}

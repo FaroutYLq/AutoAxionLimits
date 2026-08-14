@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2007.03694",
+ "paper_title": "Axion and neutrino bounds improved with new calibrations of the tip of the red-giant branch using geometric distance determinations",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0,
+   1.6e-13
+  ],
+  [
+   10000.0,
+   1.6e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "TRGB_NGC4258_2020",
+ "coupling_convention": "dimensionless g_ae",
+ "notes": "Paper presents updated stellar constraints on axion-electron coupling from tip of red-giant branch (TRGB) calibrations using geometric distance determinations. Primary result from NGC 4258 (cleanest extragalactic case): g_ae < 1.6\u00d710^-13 at 95% CL. Secondary result from \u03c9 Centauri: g_ae < 1.3\u00d710^-13 at 95% CL. The constraint is mass-independent (valid over wide mass range) as it derives from stellar cooling arguments. Encoded as horizontal line spanning 0 to 10^4 eV per standard protocol for mass-independent bounds. Paper also constrains neutrino dipole moments (\u03bc_\u03bd < 1.5\u00d710^-12 \u03bc_B from NGC 4258) but primary focus is axion-electron coupling. Coupling type unambiguous from abstract and throughout paper. | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 127.68565082550049
+}

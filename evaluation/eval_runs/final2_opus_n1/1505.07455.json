@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "1505.07455",
+ "paper_title": "Lattice QCD input for axion cosmology",
+ "coupling_type": "AxionMass",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [],
+ "data_source": "none",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "LatticeQCD_AxionMass_Berkowitz2015",
+ "coupling_convention": "m_a in eV vs f_a in GeV",
+ "notes": "This lattice QCD paper derives a lower bound on the axion mass (m_a >= 14.6 ueV, equivalently f_a <= 4.10e11 GeV) from pure-glue topological susceptibility and the misalignment mechanism (post-inflation PQ breaking). This is a single cosmological bound point rather than an exclusion curve; the main results are dimensionless ratios (chi/Tc^4 vs T/Tc), not a coupling-vs-mass exclusion plot. The bound is a single (f_a, m_a) point: f_a=4.10e11 GeV, m_a=1.46e-5 eV. No mass-vs-coupling curve exists to extract as data_points, so I leave data_points empty with low extraction confidence.",
+ "num_points": 0,
+ "elapsed_s": 82.21655702590942
+}

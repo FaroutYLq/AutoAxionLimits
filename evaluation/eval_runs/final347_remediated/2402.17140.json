@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2402.17140",
+  "paper_title": "Direct Detection of Dark Photon Dark Matter with the James Webb Space Telescope",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      0.041,
+      1.5e-13
+    ],
+    [
+      0.1,
+      1e-13
+    ],
+    [
+      0.25,
+      1.5e-13
+    ],
+    [
+      0.41,
+      2e-13
+    ],
+    [
+      1.0,
+      5e-13
+    ],
+    [
+      2.07,
+      1e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.45,
+  "suggested_experiment_name": "JWST_DPDM",
+  "coupling_convention": "dimensionless kinetic mixing epsilon",
+  "notes": "Projected 95% C.L. sensitivity for a modified JWST mirror configuration (ground-testing) to dark photon dark matter kinetic mixing epsilon over 10-500 THz (m_A' ~ 0.04-2 eV). Two projection curves: JWST-MIRI (~10-60 THz, lower mass) and JWST-NIRSpec (~100-500 THz, higher mass). No numeric table given; data_points estimated from Fig.4 (randomized polarization scheme) and the abstract's stated range epsilon ~ 1e-12 to 1e-14. Masses converted from frequency via m=4.136e-15*f. DM density not explicitly stated in excerpt; assumed standard 0.3 GeV/cm^3. This is a sensitivity projection, not an observed limit. | [VISION GATE A] is_projection=true but the vision notes say the traced curve is existing experiment 'jwst' \u2014 not the paper's own projected curve | selector: text (sole candidate)",
+  "num_points": 6,
+  "elapsed_s": 101.84075474739075
+}

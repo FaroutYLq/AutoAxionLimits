@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2308.06339",
+  "paper_title": "GlueX",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      200000000.0,
+      0.002
+    ],
+    [
+      250000000.0,
+      0.0015
+    ],
+    [
+      300000000.0,
+      0.0012
+    ],
+    [
+      360000000.0,
+      0.0005
+    ],
+    [
+      400000000.0,
+      0.0012
+    ],
+    [
+      450000000.0,
+      0.0015
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "GlueX_Primakoff_ALP",
+  "coupling_convention": "1/Lambda in GeV^-1 (Leff = (1/4Lambda) a F Ftilde), equivalent to g_agamma in GeV^-1",
+  "notes": "Despite the pre-analysis hint of DarkPhoton, this paper unambiguously constrains the ALP-photon coupling 1/Lambda via nuclear Primakoff production of a->gamma gamma on 12C at GlueX, over 200-450 MeV ALP mass. No numerical table is provided; the observed 95% CL limits are shown only in Fig. 7 with couplings on the scale of O(1e-3 GeV^-1) ('O(1 TeV)' per abstract), with the most stringent limit at ma~360 MeV (~few x 1e-4 GeV^-1, a noted downward fluctuation). The emitted data points are approximate reconstructions from the text/figure description and should be treated as indicative only. Paper also contains future projections (Pb target, 1 fb^-1) which are NOT included here. Not a dark-matter haloscope; no DM density assumed. | selector: text over figure_vision (quality (0, 1, 1, 1, 1, 0, 0.55, 6)) | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+  "num_points": 6,
+  "elapsed_s": 109.09719705581665
+}

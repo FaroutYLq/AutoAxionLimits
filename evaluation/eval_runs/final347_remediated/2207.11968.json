@@ -1,0 +1,146 @@
+{
+  "arxiv_id": "2207.11968",
+  "paper_title": "Search for dark matter particle interactions with electron final states with DarkSide-50",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      35.0,
+      6.5e-13
+    ],
+    [
+      42.0,
+      8.5e-13
+    ],
+    [
+      50.0,
+      1.1e-12
+    ],
+    [
+      60.0,
+      9.5e-13
+    ],
+    [
+      75.0,
+      8e-13
+    ],
+    [
+      95.0,
+      8.5e-13
+    ],
+    [
+      120.0,
+      1e-12
+    ],
+    [
+      150.0,
+      1.1e-12
+    ],
+    [
+      190.0,
+      1.05e-12
+    ],
+    [
+      215.0,
+      6e-13
+    ],
+    [
+      225.0,
+      1.5e-13
+    ],
+    [
+      235.0,
+      9e-14
+    ],
+    [
+      260.0,
+      1.05e-13
+    ],
+    [
+      300.0,
+      1.5e-13
+    ],
+    [
+      400.0,
+      2.3e-13
+    ],
+    [
+      500.0,
+      3e-13
+    ],
+    [
+      700.0,
+      4.5e-13
+    ],
+    [
+      1000.0,
+      6e-13
+    ],
+    [
+      1400.0,
+      7.5e-13
+    ],
+    [
+      1900.0,
+      9e-13
+    ],
+    [
+      2500.0,
+      1e-12
+    ],
+    [
+      2950.0,
+      1.1e-12
+    ],
+    [
+      3050.0,
+      5.2e-13
+    ],
+    [
+      3400.0,
+      6e-13
+    ],
+    [
+      4000.0,
+      8e-13
+    ],
+    [
+      5000.0,
+      1.1e-12
+    ],
+    [
+      6000.0,
+      1.4e-12
+    ],
+    [
+      8000.0,
+      2e-12
+    ],
+    [
+      10000.0,
+      3e-12
+    ],
+    [
+      13000.0,
+      4e-12
+    ],
+    [
+      16000.0,
+      5e-12
+    ],
+    [
+      20000.0,
+      6.2e-12
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.82,
+  "suggested_experiment_name": "DarkSide-50 (2022)",
+  "coupling_convention": "coupling squared, g^2 (axis read-back)",
+  "notes": "DarkSide-50 sets 90% C.L. limits on axioelectric coupling g_Ae from ALP absorption for masses 0.03-0.2 keV/c2 (30-200 eV), among other couplings (dark-matter-electron cross section, dark photon kappa, sterile neutrino |Ue4|^2). The g_Ae exclusion (AxionElectron) is presented only in Fig. 2 with no numerical table or explicit values in the text, so no reliable (mass, coupling) data points can be extracted. Local DM density assumed 0.3 GeV/cm^3, Standard Halo Model, vesc=544 km/s, v0=238 km/s. | selector: figure_vision (sole candidate) | declaration reconciled to axis read-back: 'coupling squared, g^2 (axis read-back)' (model declared 'canonical g_ae, dimensionless' \u2014 axis unit wins, #594 contract) | Vision: Traced the solid red DarkSide-50 (2022) curve in the middle-left panel of Fig. 2 (axioelectric coupling g_Ae vs m_A). X-axis is m_A in keV/c^2 (ticks 0.1, 1, 10 keV) converted to eV; y-axis is g_Ae dimensionless. NOTE: the provided axis calibration (5-1000 MeV, 1e-40 to 1e-35) belongs to the cross-section panel, not this g_Ae panel, so it was not used. The curve shows two sharp downward notches near ~0.22 keV and ~3 keV (argon absorption edges), sampled densely. A red dotted line (lower, alternate/expected) is also present but the solid line is the actual 90% C.L. limit and forms the lower boundary of the excluded region. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.78 snapped to identity)",
+  "num_points": 32,
+  "elapsed_s": 129.09032487869263
+}

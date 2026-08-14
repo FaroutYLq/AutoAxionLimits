@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2305.00890",
+ "paper_title": "Long-baseline quantum sensor network as dark matter haloscope",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.1e-15,
+   1e-08
+  ],
+  [
+   2.1e-12,
+   5e-06
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "AMAILS",
+ "coupling_convention": "dimensionless kinetic mixing coefficient \u03b5",
+ "notes": "Paper reports first long-baseline quantum sensor network search for dark photon dark matter (DPDM) using 15 synchronized atomic magnetometers in Harbin and Suzhou, China (~1700 km separation). Constrains kinetic mixing coefficient \u03b5 over mass range 4.1 feV to 2.1 peV (4.1e-15 eV to 2.1e-12 eV). Data points extracted from text: 'constraint \u03b5 \u2248 5 \u00d7 10^-6 at 2.1 peV' and approximate lower bound from mass range. Figure 3b shows exclusion limits with 95% C.L. The experiment uses a standard halo model with DM density \u03c1 \u2248 0.45 GeV/cm\u00b3 (stated in paper). This is a haloscope-type experiment using meter-scale electromagnetic shields and atomic magnetometer networks to detect DPDM-induced magnetic fields. The long baseline enables noise suppression and correlated signal detection. Coupling type is unambiguously DarkPhoton (kinetic mixing \u03b5) based on title, abstract, and throughout the paper. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 6.0 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 397.85813903808594
+}

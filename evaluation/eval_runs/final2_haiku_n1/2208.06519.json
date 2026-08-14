@@ -1,0 +1,154 @@
+{
+ "arxiv_id": "2208.06519",
+ "paper_title": "One-Electron Quantum Cyclotron as a Milli-eV Dark-Photon Detector",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   7e-05,
+   1e-07
+  ],
+  [
+   8e-05,
+   8e-08
+  ],
+  [
+   9e-05,
+   6e-08
+  ],
+  [
+   0.0001,
+   4.5e-08
+  ],
+  [
+   0.00011,
+   3.5e-08
+  ],
+  [
+   0.00012,
+   2.8e-08
+  ],
+  [
+   0.00013,
+   2.2e-08
+  ],
+  [
+   0.00014,
+   1.8e-08
+  ],
+  [
+   0.00015,
+   1.5e-08
+  ],
+  [
+   0.00016,
+   1.3e-08
+  ],
+  [
+   0.00017,
+   1.1e-08
+  ],
+  [
+   0.00018,
+   9.5e-09
+  ],
+  [
+   0.00019,
+   8.5e-09
+  ],
+  [
+   0.0002,
+   7.8e-09
+  ],
+  [
+   0.00022,
+   6.5e-09
+  ],
+  [
+   0.00024,
+   5.8e-09
+  ],
+  [
+   0.00026,
+   5.2e-09
+  ],
+  [
+   0.00028,
+   4.8e-09
+  ],
+  [
+   0.0003,
+   4.5e-09
+  ],
+  [
+   0.00032,
+   4.2e-09
+  ],
+  [
+   0.00034,
+   4e-09
+  ],
+  [
+   0.00036,
+   3.9e-09
+  ],
+  [
+   0.00038,
+   3.8e-09
+  ],
+  [
+   0.0004,
+   3.8e-09
+  ],
+  [
+   0.00042,
+   3.9e-09
+  ],
+  [
+   0.00044,
+   4e-09
+  ],
+  [
+   0.00046,
+   4.2e-09
+  ],
+  [
+   0.00048,
+   4.5e-09
+  ],
+  [
+   0.0005,
+   4.8e-09
+  ],
+  [
+   0.00052,
+   5.2e-09
+  ],
+  [
+   0.00054,
+   5.8e-09
+  ],
+  [
+   0.00056,
+   6.5e-09
+  ],
+  [
+   0.00058,
+   7.5e-09
+  ],
+  [
+   0.0006,
+   8.8e-09
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "One-Electron Quantum Cyclotron (OEQC) / Penning Trap Dark Photon Search",
+ "coupling_convention": "kinetic mixing parameter \u03c7 (dimensionless), canonical dark photon coupling",
+ "notes": "Measured exclusion limit on dark photon kinetic mixing \u03b5 at 148 GHz (0.612276 meV) from a 7.4-day search with a single trapped electron in a Penning trap. The limit \u03b5 < 3.2\u00d710\u207b\u00b9\u00b9 (90% CL) is ~75\u00d7 better than previous constraints from XENON1T. The paper uses standard dark photon Lagrangian with kinetic mixing parameter \u03b5. Local DM density \u03c1_DM c\u00b2 = 0.3 GeV/cm\u00b3 is assumed (standard galactic halo value). Detection is background-free due to synchrotron cooling keeping the electron in the cyclotron ground state. The measurement bandwidth is 33 kHz, slightly broader than the ~100 kHz expected dark matter bandwidth. A single data point is reported; the paper projects future sensitivity across 0.1\u20131 meV (20\u2013200 GHz) but does not provide measured limits at other masses in this work. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.92, 34)) | Vision: Exclusion limit from Fig. 5(a) of the paper. The plot shows the kinetic mixing parameter \u03c7 vs. dark photon mass m_A'. The red solid curve represents the new experimental limit from this work at 90% confidence level, obtained from a 7.4-day search with a single trapped electron in a Penning trap. The limit at the resonance frequency (148 GHz, corresponding to 0.612276 meV) is \u03c7 < 3.2 \u00d7 10^-11, which is approximately 75 times better than previous XENONIT constraints. The exclusion region is above the boundary curve. The x-axis is linear in frequency (kHz) at the top and linear in mass (meV) at the bottom. The y-axis is logarithmic in \u03c7. Comparison constraints from cosmology (dashed line) and XENONIT (hatched region) are also shown. The boundary was traced by identifying the lower edge of the red shaded exclusion region, sampling more densely near the minimum (around 0.3-0.4 meV where the slope changes) and less densely in the wings where the boundary is approximately linear on the log-log plot. | Calibration: No calibration needed",
+ "num_points": 34,
+ "elapsed_s": 198.16545295715332
+}

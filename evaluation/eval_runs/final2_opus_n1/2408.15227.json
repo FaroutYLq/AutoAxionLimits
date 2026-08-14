@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "2408.15227",
+ "paper_title": "Axion Dark Matter eXperiment around 3.3 \u03bceV with Dine-Fischler-Srednicki-Zhitnitsky Discovery Ability",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.2262e-06,
+   5e-16
+  ],
+  [
+   3.2303e-06,
+   4.5e-16
+  ],
+  [
+   3.2345e-06,
+   4.2e-16
+  ],
+  [
+   3.2386e-06,
+   3.9e-16
+  ],
+  [
+   3.2427e-06,
+   3.6e-16
+  ],
+  [
+   3.2469e-06,
+   3.3e-16
+  ],
+  [
+   3.251e-06,
+   3.1e-16
+  ],
+  [
+   3.2551e-06,
+   2.9e-16
+  ],
+  [
+   3.2593e-06,
+   2.8e-16
+  ],
+  [
+   3.2634e-06,
+   2.9e-16
+  ],
+  [
+   3.2675e-06,
+   3e-16
+  ],
+  [
+   3.2717e-06,
+   3.2e-16
+  ],
+  [
+   3.2758e-06,
+   3.5e-16
+  ],
+  [
+   3.2799e-06,
+   4e-16
+  ],
+  [
+   3.2841e-06,
+   4.5e-16
+  ],
+  [
+   3.2882e-06,
+   4.2e-16
+  ],
+  [
+   3.2923e-06,
+   3.8e-16
+  ],
+  [
+   3.2965e-06,
+   4e-16
+  ],
+  [
+   3.3006e-06,
+   4.3e-16
+  ],
+  [
+   3.3047e-06,
+   4e-16
+  ],
+  [
+   3.3089e-06,
+   3.7e-16
+  ],
+  [
+   3.313e-06,
+   4.1e-16
+  ],
+  [
+   3.3171e-06,
+   4.4e-16
+  ],
+  [
+   3.3213e-06,
+   4e-16
+  ],
+  [
+   3.3254e-06,
+   3.8e-16
+  ],
+  [
+   3.3295e-06,
+   4.2e-16
+  ],
+  [
+   3.3337e-06,
+   5e-16
+  ],
+  [
+   3.3378e-06,
+   5.5e-16
+  ],
+  [
+   3.3419e-06,
+   6e-16
+  ],
+  [
+   3.3461e-06,
+   6.5e-16
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.55,
+ "suggested_experiment_name": "ADMX 2022 (3.3 ueV DFSZ)",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "ADMX 2022 run excluding DFSZ axions between 3.27-3.34 ueV (792-807 MHz) at 90% CL, MB distribution with rho=0.45 GeV/cm^3. The exclusion reaches the DFSZ line (gamma coupling g_gamma=-0.97, ga\u03b3\u03b3 ~ 3.9e-16 GeV^-1 at ~3.3 ueV). Data points are approximate; the limit dips below DFSZ across most of the band. Precise per-mass values only available from Fig. 4 which is not machine-readable. Values estimated at the DFSZ level as the paper explicitly excludes DFSZ axions across this range. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.55, 30)) | Vision: Figure 4 shows exclusion band in frequency 780-810 MHz vs g_agamma (1e-16 to 1e-15, log). Converted frequency to axion mass via m=4.136e-15*f. Lower boundary traced along the sensitive edge of the combined ADMX/this-work exclusion band, which lies near and below the DFSZ benchmark line (~4-5e-16). Band is jagged; values approximate the smoothed lower envelope. KSVZ line ~1e-15, DFSZ line ~4.5e-16 provide calibration. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.95 snapped to identity)",
+ "num_points": 30,
+ "elapsed_s": 275.4192259311676
+}

@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "1604.08514",
+  "paper_title": "Searching for an oscillating massive scalar field as a dark matter candidate using atomic hyperfine frequency comparisons",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-24,
+      0.00053
+    ],
+    [
+      1.4e-23,
+      3.8e-09
+    ],
+    [
+      1e-22,
+      5e-08
+    ],
+    [
+      1e-20,
+      1e-05
+    ],
+    [
+      1e-18,
+      0.00053
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "SYRTE_FO2_RbCs_2016",
+  "coupling_convention": "dimensionless d_e (combination d_e+0.043(d_mhat-d_g), interpreted as d_e for EM-only coupling)",
+  "notes": "Search for oscillating massive scalar DM via Rb/Cs hyperfine frequency comparison at LNE-SYRTE. Main result (Fig.3) constrains the linear combination d_e + 0.043(d_mhat - d_g) vs scalar mass; when only EM coupling assumed this is d_e (ScalarPhoton). Text gives ceiling <5.3e-4 over the mass range 1e-24 to 1e-18 eV and best limit 3.8e-9 at m=1.4e-23 eV. Intermediate points are rough estimates read from the exclusion curve shape, so limited accuracy. 95% CL. Local DM density 0.4 GeV/cm^3 assumed. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 5))",
+  "num_points": 5,
+  "elapsed_s": 86.07480812072754
+}

@@ -1,0 +1,130 @@
+{
+  "arxiv_id": "1810.04602",
+  "paper_title": "Evidence for light-by-light scattering and searches for axion-like particles in ultraperipheral PbPb collisions at $\\sqrt{s_\\mathrm{NN}} =$ 5.02 TeV",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5000000000.0,
+      0.0019
+    ],
+    [
+      5500000000.0,
+      0.0013
+    ],
+    [
+      6000000000.0,
+      0.00095
+    ],
+    [
+      6500000000.0,
+      0.00075
+    ],
+    [
+      7000000000.0,
+      0.00062
+    ],
+    [
+      7500000000.0,
+      0.00054
+    ],
+    [
+      8000000000.0,
+      0.00049
+    ],
+    [
+      9000000000.0,
+      0.00044
+    ],
+    [
+      10000000000.0,
+      0.00041
+    ],
+    [
+      12000000000.0,
+      0.00039
+    ],
+    [
+      14000000000.0,
+      0.0004
+    ],
+    [
+      16000000000.0,
+      0.00042
+    ],
+    [
+      18000000000.0,
+      0.00044
+    ],
+    [
+      20000000000.0,
+      0.00046
+    ],
+    [
+      25000000000.0,
+      0.00049
+    ],
+    [
+      30000000000.0,
+      0.00054
+    ],
+    [
+      35000000000.0,
+      0.00059
+    ],
+    [
+      40000000000.0,
+      0.00064
+    ],
+    [
+      45000000000.0,
+      0.00069
+    ],
+    [
+      50000000000.0,
+      0.00074
+    ],
+    [
+      55000000000.0,
+      0.0008
+    ],
+    [
+      60000000000.0,
+      0.00086
+    ],
+    [
+      65000000000.0,
+      0.00095
+    ],
+    [
+      70000000000.0,
+      0.00105
+    ],
+    [
+      75000000000.0,
+      0.00115
+    ],
+    [
+      80000000000.0,
+      0.0013
+    ],
+    [
+      85000000000.0,
+      0.00145
+    ],
+    [
+      90000000000.0,
+      0.0016
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.78,
+  "suggested_experiment_name": "CMS PbPb LbL ALP (5.02 TeV)",
+  "coupling_convention": "1/Lambda (GeV^-1) = g_agamma, plotted directly as on y-axis",
+  "notes": "CMS light-by-light scattering in ultraperipheral PbPb collisions sets 95% CL exclusion limits on pseudoscalar ALP production via gamma gamma -> a -> gamma gamma over m_a = 5-90 GeV. Limits are presented in the g_agamma (=1/Lambda) vs m_a plane in Fig. 7, and cross-section limits (1500-20 nb) in Fig. 6. This is a collider bound (not a DM haloscope), so no local DM density applies. Coupling type is clearly AxionPhoton, but no numerical (mass, coupling) pairs are given in the text/tables; the g_agamma limits exist only in figures and cannot be reliably extracted, hence empty data_points and low extraction confidence. | selector: figure_vision (sole candidate) | Vision: Figure 7 left panel (operator aFF~/4Lambda, ALP-photon coupling only). Traced green solid 'PbPb 5.02 TeV observed' curve, the lower boundary of the excluded region (excluded above). X-axis is log|linear hybrid: log below 10 GeV, linear 10-100 GeV; only search range 5-90 GeV shown for the CMS curve. Y-axis 1/Lambda = g_agamma in GeV^-1, ticks at 1e-4 and 1e-3. Curve minimum ~4e-4 near m_a=10-12 GeV. Small data-driven wiggles smoothed. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.43 snapped to identity)",
+  "num_points": 28,
+  "elapsed_s": 120.2630889415741
+}

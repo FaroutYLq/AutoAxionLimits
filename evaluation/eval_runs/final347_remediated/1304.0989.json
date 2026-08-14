@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "1304.0989",
+  "paper_title": "Constraints on axion-like particles from X-ray observations of Hydra galaxy cluster",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5e-13,
+      8.3e-12
+    ],
+    [
+      7e-12,
+      8.3e-12
+    ],
+    [
+      8e-12,
+      1e-11
+    ],
+    [
+      1e-11,
+      1.3e-11
+    ],
+    [
+      1.5e-11,
+      2.5e-11
+    ],
+    [
+      2e-11,
+      4.5e-11
+    ],
+    [
+      3e-11,
+      1e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "HydraA_Chandra_ALP",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Astrophysical bound from photon/ALP oscillations in Hydra cluster magnetic field, Chandra X-ray data. Main flat constraint g < 8.3e-12 GeV^-1 for m_a < 7e-12 eV (95% CL), rising as m_a^2 at higher masses with a slight weakening feature near 8e-12 eV where m_a ~ effective photon mass. Rising-branch points are approximate reads from Figure 4 (x-axis in 10^-12 eV, y-axis in 10^-11 GeV^-1). Not a DM haloscope, so no local density assumed. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 7,
+  "elapsed_s": 39.36259317398071
+}

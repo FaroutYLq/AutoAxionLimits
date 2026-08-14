@@ -1,0 +1,22 @@
+{
+  "arxiv_id": "1903.06547",
+  "paper_title": "Galactic axions search with a superconducting resonant cavity",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      3.75e-05,
+      1.03e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.92,
+  "suggested_experiment_name": "QUAX-a_gamma_2019",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Single-mass haloscope search with NbTi superconducting cavity, TM010 mode at 9.07 GHz. Limit g_agamma < 1.03e-12 GeV^-1 at ma ~= 37.5 ueV over a narrow 45 kHz band (~0.2 neV mass range). 95% single-sided CL. Local DM density rho_a = 0.45 GeV/cm^3. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.92, 1))",
+  "num_points": 1,
+  "elapsed_s": 58.28274083137512
+}

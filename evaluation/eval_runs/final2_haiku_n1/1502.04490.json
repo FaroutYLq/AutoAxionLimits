@@ -1,0 +1,54 @@
+{
+ "arxiv_id": "1502.04490",
+ "paper_title": "SHIPS",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0001,
+   3e-07
+  ],
+  [
+   0.0003,
+   5e-07
+  ],
+  [
+   0.001,
+   1e-06
+  ],
+  [
+   0.003,
+   2e-06
+  ],
+  [
+   0.01,
+   4e-06
+  ],
+  [
+   0.03,
+   8e-06
+  ],
+  [
+   0.1,
+   2e-05
+  ],
+  [
+   0.3,
+   5e-05
+  ],
+  [
+   1.0,
+   0.0001
+  ]
+ ],
+ "data_source": "figure",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "SHIPS",
+ "coupling_convention": "dimensionless kinetic mixing \u03c7",
+ "notes": "SHIPS (Solar Hidden Photon Search) is a helioscope experiment searching for transversely polarised hidden photons (paraphotons) with ~3 eV energies emitted from the Sun. The experiment analyzed 330 hours of solar tracking data and 330 hours of background characterisation, finding no signal. The exclusion limit on kinetic mixing \u03c7 as a function of hidden photon mass m is extracted from Figure 13 (the primary exclusion plot). Data points are approximate readings from the SHIPS exclusion curve in the figure. The paper reports a photon detection rate limit of 25 mHz/m\u00b2 at 95% C.L. The constraint is most stringent for transverse-mode hidden photons in the meV to eV mass range. The paper notes that XENON10 and solar precision tests provide stronger constraints on longitudinally-polarised HPs, but SHIPS provides the most restrictive experimental exclusion limits in the transverse-mode. | selector: figure (sole candidate)",
+ "num_points": 9,
+ "elapsed_s": 71.99110674858093
+}

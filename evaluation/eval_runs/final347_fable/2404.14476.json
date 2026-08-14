@@ -1,0 +1,166 @@
+{
+  "arxiv_id": "2404.14476",
+  "paper_title": "Leading Axion-Photon Sensitivity with NuSTAR Observations of M82 and M87",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-13,
+      6.4e-13
+    ],
+    [
+      1.5e-13,
+      6.3e-13
+    ],
+    [
+      2e-13,
+      6.2e-13
+    ],
+    [
+      3e-13,
+      6e-13
+    ],
+    [
+      4e-13,
+      6.2e-13
+    ],
+    [
+      6e-13,
+      6e-13
+    ],
+    [
+      8e-13,
+      6.3e-13
+    ],
+    [
+      1e-12,
+      6.1e-13
+    ],
+    [
+      1.5e-12,
+      6e-13
+    ],
+    [
+      2e-12,
+      6.2e-13
+    ],
+    [
+      3e-12,
+      6e-13
+    ],
+    [
+      4e-12,
+      6.1e-13
+    ],
+    [
+      5e-12,
+      5.8e-13
+    ],
+    [
+      6e-12,
+      5.3e-13
+    ],
+    [
+      7e-12,
+      4.8e-13
+    ],
+    [
+      8e-12,
+      5.2e-13
+    ],
+    [
+      1e-11,
+      6e-13
+    ],
+    [
+      1.3e-11,
+      6.5e-13
+    ],
+    [
+      1.6e-11,
+      7e-13
+    ],
+    [
+      2e-11,
+      7.8e-13
+    ],
+    [
+      2.5e-11,
+      8.8e-13
+    ],
+    [
+      3e-11,
+      1e-12
+    ],
+    [
+      4e-11,
+      1.25e-12
+    ],
+    [
+      5e-11,
+      1.5e-12
+    ],
+    [
+      6e-11,
+      1.75e-12
+    ],
+    [
+      8e-11,
+      2.3e-12
+    ],
+    [
+      1e-10,
+      2.9e-12
+    ],
+    [
+      1.3e-10,
+      3.5e-12
+    ],
+    [
+      1.6e-10,
+      4.1e-12
+    ],
+    [
+      2e-10,
+      4.8e-12
+    ],
+    [
+      2.5e-10,
+      5.5e-12
+    ],
+    [
+      3e-10,
+      6.1e-12
+    ],
+    [
+      4e-10,
+      7e-12
+    ],
+    [
+      5e-10,
+      7.5e-12
+    ],
+    [
+      6.3e-10,
+      7.8e-12
+    ],
+    [
+      8e-10,
+      8.1e-12
+    ],
+    [
+      1e-09,
+      8.3e-12
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "NuSTAR M82/M87 stellar axion search (Ning & Safdi 2024)",
+  "coupling_convention": "g_agamma in GeV^-1, 95% CL upper limit as plotted on y-axis",
+  "notes": "Astrophysical (non-DM) search: stellar Primakoff axion production in M82/M87 with conversion to hard X-rays in galactic/cluster magnetic fields, observed with NuSTAR. Headline 95% CL power-constrained limit |g_agamma| < 6.4e-13 GeV^-1 (M82) for m_a <~ 1e-10 eV, encoded as a flat bound over the low-mass plateau shown in Fig. 2 (plot spans 1e-13 to 1e-9 eV; limit degrades above ~1e-10 eV, but no numerical mass-dependence is tabulated). M87 gives a weaker limit of 8.4e-13 GeV^-1 (not included). No local DM density assumption since axions are stellar-produced, not halo dark matter. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 37)) | Vision: Traced the M82 (this work) limit, the strongest bound in Fig. 2. Anchored at low mass by the quoted massless-limit value 6.4e-13 GeV^-1 (M87 limit is 8.4e-13 GeV^-1, lying above M82 everywhere). Flat plateau up to ~1e-11 eV with a mild dip near 7e-12 eV, then rising boundary reaching ~8e-12 GeV^-1 at 1e-9 eV. This is an astrophysical stellar-production + B-field conversion limit, so no DM density assumption. Rising-region values read from plot pixels; ~20-30% uncertainty possible there. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity)",
+  "num_points": 37,
+  "elapsed_s": 107.33022999763489
+}

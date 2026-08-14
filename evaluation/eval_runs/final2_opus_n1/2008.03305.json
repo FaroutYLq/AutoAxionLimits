@@ -1,0 +1,150 @@
+{
+ "arxiv_id": "2008.03305",
+ "paper_title": "Xray-SuperStarClusters",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-13,
+   3.6e-12
+  ],
+  [
+   2e-13,
+   3.6e-12
+  ],
+  [
+   4e-13,
+   3.6e-12
+  ],
+  [
+   7e-13,
+   3.6e-12
+  ],
+  [
+   1e-12,
+   3.6e-12
+  ],
+  [
+   2e-12,
+   3.6e-12
+  ],
+  [
+   4e-12,
+   3.5e-12
+  ],
+  [
+   6e-12,
+   3.5e-12
+  ],
+  [
+   8e-12,
+   3.4e-12
+  ],
+  [
+   1e-11,
+   3.3e-12
+  ],
+  [
+   1.5e-11,
+   3.1e-12
+  ],
+  [
+   2e-11,
+   3e-12
+  ],
+  [
+   2.5e-11,
+   3.2e-12
+  ],
+  [
+   3e-11,
+   3.6e-12
+  ],
+  [
+   3.5e-11,
+   4.2e-12
+  ],
+  [
+   4e-11,
+   5e-12
+  ],
+  [
+   5e-11,
+   6.5e-12
+  ],
+  [
+   6e-11,
+   8e-12
+  ],
+  [
+   7e-11,
+   9.5e-12
+  ],
+  [
+   8e-11,
+   1.1e-11
+  ],
+  [
+   1e-10,
+   1.4e-11
+  ],
+  [
+   1.3e-10,
+   1.8e-11
+  ],
+  [
+   1.6e-10,
+   2.2e-11
+  ],
+  [
+   2e-10,
+   2.7e-11
+  ],
+  [
+   2.5e-10,
+   3.3e-11
+  ],
+  [
+   3e-10,
+   3.9e-11
+  ],
+  [
+   4e-10,
+   5e-11
+  ],
+  [
+   5e-10,
+   6.2e-11
+  ],
+  [
+   6e-10,
+   7.3e-11
+  ],
+  [
+   7e-10,
+   8.4e-11
+  ],
+  [
+   8e-10,
+   9.5e-11
+  ],
+  [
+   9e-10,
+   1.05e-10
+  ],
+  [
+   1e-09,
+   1.15e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.8,
+ "suggested_experiment_name": "NuSTAR Super Star Clusters (Quintuplet + Wd1 joint)",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Astrophysical bound from axions produced in super star clusters (Quintuplet, Wd1) converting to X-rays in Galactic magnetic fields, observed with NuSTAR. Joint 95% limit g_agamma < 3.6e-12 GeV^-1 for m_a < 5e-11 eV. Encoded as flat horizontal line over stated validity range. Not a haloscope DM search, so no local density assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 33)) | Vision: Traced the Joint 95% limit (red curve) from Figure 3 combining Quintuplet and Wd1. At low masses (m_a < ~1e-11 eV) the limit plateaus at g_agamma ~3.6e-12 GeV^-1, consistent with abstract quote. There is a slight dip near m_a ~2-3e-11 eV before rising. Limit rises approximately linearly (log-log) at higher masses. Individual Quintuplet/Wd1 limits similar but slightly weaker; red joint curve chosen as the strongest (lowest) boundary. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.77 snapped to identity)",
+ "num_points": 33,
+ "elapsed_s": 305.7079508304596
+}

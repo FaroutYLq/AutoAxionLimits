@@ -1,0 +1,17 @@
+{
+  "arxiv_id": "1608.05414",
+  "paper_title": "Unifying inflation with the axion, dark matter, baryogenesis and the seesaw mechanism",
+  "coupling_type": "AxionMass",
+  "is_new_limit": false,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.1,
+  "suggested_experiment_name": "SMASH",
+  "coupling_convention": "dimensionless threshold correction \u03b4 = \u03bb_H\u03c3\u00b2/\u03bb_\u03c3",
+  "notes": "This is a theoretical model-building paper (SMASH) unifying inflation, axion dark matter, baryogenesis and seesaw. It predicts an axion DM mass window 50-200 ueV (fA ~ 3e10-1.2e11 GeV) but presents no measured/observed exclusion limit or sensitivity projection on any coupling. Not an experimental limit paper; no extractable (mass, coupling) data points. | Coupling from pre-classifier (AxionMass, conf=0.70)",
+  "num_points": 0,
+  "elapsed_s": 65.62667775154114
+}

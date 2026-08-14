@@ -1,0 +1,98 @@
+{
+ "arxiv_id": "2404.00616",
+ "paper_title": "I2Ca",
+ "coupling_type": "ScalarNucleon",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   2.9e-21,
+   3e-08
+  ],
+  [
+   5e-21,
+   6e-08
+  ],
+  [
+   1e-20,
+   1.2e-07
+  ],
+  [
+   3e-20,
+   4e-07
+  ],
+  [
+   1e-19,
+   1.5e-06
+  ],
+  [
+   3e-19,
+   4.5e-06
+  ],
+  [
+   1e-18,
+   1.5e-05
+  ],
+  [
+   3e-18,
+   4.5e-05
+  ],
+  [
+   1e-17,
+   0.00015
+  ],
+  [
+   3e-17,
+   0.00045
+  ],
+  [
+   1e-16,
+   0.0015
+  ],
+  [
+   3e-16,
+   0.0045
+  ],
+  [
+   1e-15,
+   0.015
+  ],
+  [
+   3e-15,
+   0.045
+  ],
+  [
+   7e-15,
+   0.1
+  ],
+  [
+   1e-14,
+   0.2
+  ],
+  [
+   2e-14,
+   0.8
+  ],
+  [
+   4e-14,
+   5.0
+  ],
+  [
+   7e-14,
+   30.0
+  ],
+  [
+   1e-13,
+   150.0
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "I2+/Ca+ correlation spectroscopy (projected)",
+ "coupling_convention": "d_g dimensionless, plotted as on y-axis of Fig 3a",
+ "notes": "Projection paper for correlation spectroscopy of I2+ and Ca+ ions probing scalar/axion coupling to gluons. Primary result is on the d_g-m_phi plane (scalar coupling to gluons) and 1/f_a-m_a plane (axion). This does not cleanly map to the provided enum: the scalar-gluon coupling d_g constrains nuclear/hadron masses (closest to ScalarNucleon), while the axion result is on the f_a-m_a plane (AxionMass). Only sparse anchor points are stated in text: dg >~ 10^-5*(m_phi/10^-18 eV) and fa <~ 2e14 GeV*(10^-18 eV/ma). Data points are approximate scaling-relation estimates, NOT from a table. Mass range roughly 10^-21 to 10^-14 eV. Given ambiguity between ScalarNucleon and AxionMass, confidence kept low. The scalar dg scaling: dg~10^-5 at m=10^-18 eV, scaling linearly with mass. Values are rough anchors from the text; the actual exclusion curve was read off Fig 3 which is not numerically available. | selector: figure_vision over text (quality (1, 1, 1, 0, 2, 0, 0.6, 20)) | Vision: Figure 3(a) shows scalar coupling d_g to gluons (ScalarNucleon type) vs m_phi. The thick red line 'I2+/Ca+ (this work)' rises approximately linearly (d_g ~ 10^-5 * m_phi/10^-18 eV per text) then steepens above ~10^-14 eV. Text states d_g >~ 10^-5 (m_phi/10^-18 eV). The provided y-axis calibration (1e-18 to 1e-9) does not match panel (a) which uses d_g from 1e-9 to 1e3; I used the actual panel (a) axis. Values approximate from log-log reading. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.67 snapped to identity) | [CONVENTION REVIEW] declared coupling convention 'd_g dimensionless, plotted as on y-axis of Fig 3a' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 20,
+ "elapsed_s": 200.0047698020935
+}

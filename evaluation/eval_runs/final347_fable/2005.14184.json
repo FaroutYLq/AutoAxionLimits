@@ -1,0 +1,186 @@
+{
+  "arxiv_id": "2005.14184",
+  "paper_title": "The first search for bosonic super-WIMPs with masses up to 1 MeV/c$^2$ with GERDA",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      60000.0,
+      1.2e-12
+    ],
+    [
+      65000.0,
+      1e-12
+    ],
+    [
+      70000.0,
+      1.3e-12
+    ],
+    [
+      75000.0,
+      1.4e-12
+    ],
+    [
+      80000.0,
+      1.5e-12
+    ],
+    [
+      87000.0,
+      1.8e-12
+    ],
+    [
+      90000.0,
+      1.7e-12
+    ],
+    [
+      100000.0,
+      2e-12
+    ],
+    [
+      110000.0,
+      2.2e-12
+    ],
+    [
+      120000.0,
+      2.4e-12
+    ],
+    [
+      130000.0,
+      2.6e-12
+    ],
+    [
+      140000.0,
+      2.8e-12
+    ],
+    [
+      150000.0,
+      3e-12
+    ],
+    [
+      160000.0,
+      3.1e-12
+    ],
+    [
+      170000.0,
+      3.2e-12
+    ],
+    [
+      180000.0,
+      3.3e-12
+    ],
+    [
+      190000.0,
+      3.5e-12
+    ],
+    [
+      200000.0,
+      4e-12
+    ],
+    [
+      210000.0,
+      4.2e-12
+    ],
+    [
+      225000.0,
+      4.3e-12
+    ],
+    [
+      239000.0,
+      6e-12
+    ],
+    [
+      250000.0,
+      4.5e-12
+    ],
+    [
+      270000.0,
+      4.7e-12
+    ],
+    [
+      295000.0,
+      5.5e-12
+    ],
+    [
+      310000.0,
+      5e-12
+    ],
+    [
+      352000.0,
+      6.5e-12
+    ],
+    [
+      380000.0,
+      5.5e-12
+    ],
+    [
+      420000.0,
+      6e-12
+    ],
+    [
+      460000.0,
+      6.3e-12
+    ],
+    [
+      478000.0,
+      7e-12
+    ],
+    [
+      511000.0,
+      9e-12
+    ],
+    [
+      530000.0,
+      7e-12
+    ],
+    [
+      583000.0,
+      8.5e-12
+    ],
+    [
+      610000.0,
+      8.5e-12
+    ],
+    [
+      650000.0,
+      7.5e-12
+    ],
+    [
+      700000.0,
+      8e-12
+    ],
+    [
+      750000.0,
+      8.5e-12
+    ],
+    [
+      800000.0,
+      9e-12
+    ],
+    [
+      850000.0,
+      9.5e-12
+    ],
+    [
+      900000.0,
+      1e-11
+    ],
+    [
+      950000.0,
+      1.1e-11
+    ],
+    [
+      1000000.0,
+      1.3e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "GERDA",
+  "coupling_convention": "coupling squared, g^2 (axis read-back)",
+  "notes": "GERDA search for keV-scale bosonic super-WIMPs (60 keV - 1 MeV) via axioelectric absorption in HPGe detectors, 58.9 kg-yr exposure. Paper sets 90% credible interval upper limits on both g_ae (pseudoscalar/ALP) and alpha'/alpha (dark photon kinetic mixing); AxionElectron chosen per the g_ae result, consistent with pre-analysis hint. Full exclusion curves are shown only in Fig. 3 (no numerical table); the only explicit numerical value in the text is g_ae < 3e-12 at 150 keV/c^2, which is the single point emitted. The dark photon limit alpha'/alpha < 6.5e-24 at 150 keV is also quoted but not included since coupling_type is AxionElectron. Limits are strongest direct constraints for masses 120 keV - 1 MeV. Assumes super-WIMPs constitute all local DM with density 0.3 GeV/cm^3. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 42)) | declaration reconciled to axis read-back: 'coupling squared, g^2 (axis read-back)' (model declared 'canonical g_ae, dimensionless (90% c.i. upper limit, gerda curve, fig. 3 top panel)' \u2014 axis unit wins, #594 contract) | Vision: Traced light-blue GERDA curve in Fig. 3 top panel (g_ae vs mass in keV/c^2, log-log, x: 8-1000 keV, y: 1e-13 to 1e-9). Text anchor: g_ae < 3e-12 at 150 keV/c^2 (90% C.I.), used to calibrate. Step feature at 200 keV/c^2 due to lower exposure below that mass (14.6 kg-yr below, 58.9 kg-yr above). The curve is highly jagged from background fluctuations; upward spikes near gamma lines at 238.6, 295.2, 352.0, 511/514, 583.2, 609.3 keV are included approximately. Bottom panel shows the vector (dark photon) alpha'/alpha limit, not extracted here. Coupling type AxionElectron is unambiguous (pseudoscalar coupling to electrons). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.11 snapped to identity)",
+  "num_points": 42,
+  "elapsed_s": 102.15420293807983
+}

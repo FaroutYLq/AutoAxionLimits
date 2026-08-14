@@ -1,0 +1,58 @@
+{
+  "arxiv_id": "2209.06299",
+  "paper_title": "Constraints on light decaying dark matter candidates from 16 years of INTEGRAL/SPI observations",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      60000.0,
+      2.5e-19
+    ],
+    [
+      100000.0,
+      1.2e-19
+    ],
+    [
+      200000.0,
+      4e-20
+    ],
+    [
+      500000.0,
+      1e-20
+    ],
+    [
+      1000000.0,
+      3.6e-21
+    ],
+    [
+      2000000.0,
+      1.3e-21
+    ],
+    [
+      3000000.0,
+      8e-22
+    ],
+    [
+      5000000.0,
+      3.5e-22
+    ],
+    [
+      10000000.0,
+      1.2e-22
+    ],
+    [
+      16000000.0,
+      6e-23
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "INTEGRAL_SPI_DecayingDM",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Paper sets new 95% CL upper limits on decaying DM from 16 yr of INTEGRAL/SPI data. Primary ALP result is Fig. 3 (g_agamma vs m_a, 60 keV - 16 MeV), derived from the 2-gamma decay-rate limits in Fig. 1 via Eq. 6: Gamma_2gamma = 0.755e-30 (g/1e-20 GeV^-1)^2 (m/100 keV)^3 s^-1. No numerical table is provided; the data_points above are approximate values reconstructed from the figures assuming the benchmark 1D global-fit limit (Gamma_2gamma ~ 1e-28 s^-1 scale) converted through Eq. 6, so they should be treated as digitization-level estimates. The Fig. 1 limit is 'noisy' bin-to-bin, so individual points may deviate by factors of a few. Analysis assumes NFW halo profile (Karukes et al. 2020) with D-factor 1.289e29 keV/cm^2 over |l|,|b|<47.5 deg \u2014 a Galactic halo decay bound, not a local-density haloscope, so dm_density_assumed is null. Paper also constrains g_ae (Fig. 4) and sterile neutrino mixing (Fig. 5); AxionPhoton chosen as the primary ALP result per the hint and paper emphasis. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 7.2 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 10,
+  "elapsed_s": 293.9130427837372
+}

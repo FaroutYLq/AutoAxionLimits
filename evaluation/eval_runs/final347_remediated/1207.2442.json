@@ -1,0 +1,146 @@
+{
+  "arxiv_id": "1207.2442",
+  "paper_title": "EotwashEP",
+  "coupling_type": "VectorBL",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.973e-19,
+      1.5e-12
+    ],
+    [
+      1.973e-18,
+      1.5e-12
+    ],
+    [
+      1.973e-17,
+      1.5e-12
+    ],
+    [
+      1.973e-16,
+      1.4e-12
+    ],
+    [
+      1.973e-15,
+      1.4e-12
+    ],
+    [
+      1.973e-14,
+      1.4e-12
+    ],
+    [
+      1.973e-13,
+      1.5e-12
+    ],
+    [
+      3.95e-13,
+      1.6e-12
+    ],
+    [
+      9.87e-13,
+      1.9e-12
+    ],
+    [
+      1.973e-12,
+      2.5000000000000003e-12
+    ],
+    [
+      2.82e-12,
+      3e-12
+    ],
+    [
+      3.95e-12,
+      4e-12
+    ],
+    [
+      9.87e-12,
+      1.2e-11
+    ],
+    [
+      1.973e-11,
+      2.5000000000000004e-11
+    ],
+    [
+      6.58e-11,
+      7e-11
+    ],
+    [
+      1.973e-10,
+      2.0000000000000003e-10
+    ],
+    [
+      2.82e-10,
+      3e-10
+    ],
+    [
+      6.58e-10,
+      5e-10
+    ],
+    [
+      1.973e-09,
+      8.000000000000001e-10
+    ],
+    [
+      6.58e-09,
+      9e-10
+    ],
+    [
+      1.973e-08,
+      1e-09
+    ],
+    [
+      2.82e-08,
+      1.05e-09
+    ],
+    [
+      3.95e-08,
+      1.1e-09
+    ],
+    [
+      9.87e-08,
+      1.6000000000000003e-09
+    ],
+    [
+      1.315e-07,
+      2e-09
+    ],
+    [
+      1.973e-07,
+      3e-09
+    ],
+    [
+      3.95e-07,
+      8e-09
+    ],
+    [
+      9.87e-07,
+      3e-08
+    ],
+    [
+      1.973e-06,
+      8e-08
+    ],
+    [
+      3.95e-06,
+      1.5000000000000002e-07
+    ],
+    [
+      9.87e-06,
+      5.000000000000001e-07
+    ],
+    [
+      1.973e-05,
+      1.0000000000000002e-06
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "Eot-Wash EP (torsion balance, B-L vector Yukawa)",
+  "coupling_convention": "|alpha-tilde|, dimensionless Yukawa interaction strength (normalized to gravity) for a B-L vector force, exactly as plotted on the y-axis",
+  "notes": "Eot-Wash torsion-balance WEP test (Be-Ti, Be-Al). Main exclusion (Fig.6 left) is 95% CL on Yukawa strength alpha-tilde for a vector interaction coupled to q=B-L versus range lambda; per guidance B-L favors VectorBL, though the paper also discusses scalar (dilaton D_mhat, D_e) couplings so coupling-type is somewhat ambiguous. No numerical curve is tabulated in the text (only Eotvos parameters and dilaton coefficient bounds), so the alpha-lambda exclusion cannot be reliably digitized here; data_points left empty. Individual dilaton constraints: D_mhat=(-0.3+/-3.2)e-10, D_e=(+1.7+/-10.3)e-10 (95% CL). | selector: figure_vision (sole candidate) | Vision: Figure 6 left panel: 95% CL upper bound on |alpha-tilde| for a vector Yukawa force coupled to B-L, vs range lambda [m]. Traced the lower envelope of the yellow excluded region (the strongest 'EW' bound at each range). X-axis (lambda in meters) converted to mediator mass via m[eV]=hbar*c/lambda=1.973e-7/lambda (reduced Compton/Yukawa convention). Plotted y-quantity is |alpha-tilde|, a gravity-normalized Yukawa strength (not the bare g_BL); emitted as plotted per instructions. Boundary is weak (large alpha) at short range and flattens to ~1.5e-11 at long range. Multiple overlapping curves (EW, EW94, EW99, Moscow, LLR, Princeton) present; traced the overall lowest boundary. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.17) | [CONVENTION REVIEW] declared coupling convention '|alpha-tilde|, dimensionless Yukawa interaction strength (normalized to gravity) for a B-L vector force, exactly as plotted on the y-axis' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 32,
+  "elapsed_s": 234.37645292282104
+}

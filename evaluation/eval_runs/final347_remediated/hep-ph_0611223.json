@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "0611223",
+  "paper_title": "TorsionBalance",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-06,
+      0.00057
+    ],
+    [
+      0.0002,
+      0.00057
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "EotWash_ISL_2007",
+  "coupling_convention": "dimensionless g_P^n (pseudoscalar neutron coupling, natural units); derived from beta_3=1.3e-4 and Eq.20 assuming pure neutron coupling",
+  "notes": "Torsion-balance ISL test (Adelberger et al.) constraining multiple couplings: vector B-L Yukawa (Fig.1), scalar phi-gamma-gamma (gphigg<1.6e-17 GeV^-1 for m<20 meV, Eq.14), chameleon, and gamma5 pseudoscalar-neutron couplings (Fig.5). No numerical exclusion table for coupling-vs-mass is given; the emitted AxionNeutron value is the low-mass (long-range) plateau derived from beta_3=1.3e-4 (Table I) via Eq.20 assuming dominant neutron coupling, giving (g_P^n)^2/(4pi)~2.6e-8, i.e. g_P^n~5.7e-4. Constraint weakens (curve rises) for m above ~0.2 meV in Fig.5. Coupling type is ambiguous (paper also strongly features VectorBL B-L in Fig.1); chose AxionNeutron because Fig.5 is the dedicated coupling-vs-mass plot. Not a DM haloscope, so no local density. SN1987a comparison line at (g_P^n)^2/(4pi)=8e-14..8e-8. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.4, 2))",
+  "num_points": 2,
+  "elapsed_s": 167.3381700515747
+}

@@ -1,0 +1,130 @@
+{
+ "arxiv_id": "2207.11330",
+ "paper_title": "Search for New Physics in Electronic Recoil Data from XENONnT",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1000.0,
+   1.2e-09
+  ],
+  [
+   1200.0,
+   1e-09
+  ],
+  [
+   1500.0,
+   8.500000000000001e-10
+  ],
+  [
+   2000.0,
+   6.499999999999999e-10
+  ],
+  [
+   2500.0,
+   5.200000000000001e-10
+  ],
+  [
+   3000.0,
+   4.3e-10
+  ],
+  [
+   3500.0,
+   3.6e-10
+  ],
+  [
+   4000.0,
+   3.1e-10
+  ],
+  [
+   5000.0,
+   2.4e-10
+  ],
+  [
+   6000.0,
+   1.9e-10
+  ],
+  [
+   7000.0,
+   1.6e-10
+  ],
+  [
+   8000.0,
+   1.4e-10
+  ],
+  [
+   9000.0,
+   1.2e-10
+  ],
+  [
+   10000.0,
+   1.05e-10
+  ],
+  [
+   12000.0,
+   8.499999999999999e-11
+  ],
+  [
+   15000.0,
+   6.500000000000001e-11
+  ],
+  [
+   18000.0,
+   5.1999999999999995e-11
+  ],
+  [
+   20000.0,
+   4.5999999999999996e-11
+  ],
+  [
+   25000.0,
+   3.5e-11
+  ],
+  [
+   30000.0,
+   2.8e-11
+  ],
+  [
+   35000.0,
+   2.2999999999999998e-11
+  ],
+  [
+   40000.0,
+   1.95e-11
+  ],
+  [
+   50000.0,
+   1.4500000000000002e-11
+  ],
+  [
+   60000.0,
+   1.1499999999999999e-11
+  ],
+  [
+   70000.0,
+   9.5e-12
+  ],
+  [
+   80000.0,
+   8e-12
+  ],
+  [
+   90000.0,
+   6.8e-12
+  ],
+  [
+   100000.0,
+   5.7999999999999995e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "XENONnT (This work) - Solar Axion Search",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling",
+ "notes": "Paper reports 90% C.L. upper limits on solar axions in the (g_ae, g_agamma) plane (Fig. 6a). The solar axion model includes three couplings: g_ae (axion-electron), g_agamma (axion-photon), and g_an^eff (axion-nucleon). The limit on g_agamma is extracted from the 2D projection of the 3D confidence volume. The paper states these limits hold for axion masses up to ~100 eV/c^2, making this a mass-independent bound. The most stringent constraint on g_agamma from this work is approximately 3.5\u00d710^-13 GeV^-1 (read from Fig. 6a). The paper also reports exclusion of the XENON1T 2.3 keV excess at ~4\u03c3 significance. No local DM density is assumed as this is a solar axion search, not a galactic halo DM search. The analysis is blinded below 20 keV during development and uses 1.16 tonne-years of exposure with the lowest background rate (15.8\u00b11.3 events/(t\u00b7y\u00b7keV) in 1-30 keV) ever achieved in a dark matter detector. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 28)) | Vision: Extracted lower boundary of the XENONnT solar axion exclusion region from panel (a) of FIG. 6. The plot shows 90% C.L. upper limits on g_agamma vs axion mass m_a. X-axis spans 1 keV/c\u00b2 to 100 keV/c\u00b2 (converted to eV: 1e3 to 1e5 eV). Y-axis spans 1e-14 to 1e-7 GeV^-1. The XENONnT constraint (blue shaded region, labeled 'This work') provides the most stringent limits in the 1-10 keV mass range. The boundary shows a smooth decline in coupling strength with increasing mass, characteristic of solar axion production mechanisms. KSVZ and DFSZ theoretical model lines are also shown for reference but are not the primary constraint. Confidence is moderate (0.75) due to the difficulty in precisely reading the exact boundary from the shaded exclusion region in the published figure. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=17.65)",
+ "num_points": 28,
+ "elapsed_s": 156.6351752281189
+}

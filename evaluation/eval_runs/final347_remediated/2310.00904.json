@@ -1,0 +1,134 @@
+{
+  "arxiv_id": "2310.00904",
+  "paper_title": "Exclusion of ALP Cogenesis Dark Matter in a Mass Window Above 100 $\u03bc$eV",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.00010742,
+      8e-12
+    ],
+    [
+      0.00010746,
+      7e-12
+    ],
+    [
+      0.0001075,
+      6.1e-12
+    ],
+    [
+      0.00010754,
+      6.9e-12
+    ],
+    [
+      0.0001076,
+      6.8e-12
+    ],
+    [
+      0.0001077,
+      6.9e-12
+    ],
+    [
+      0.00010785,
+      6.8e-12
+    ],
+    [
+      0.000108,
+      6.9e-12
+    ],
+    [
+      0.0001082,
+      6.8e-12
+    ],
+    [
+      0.0001084,
+      6.9e-12
+    ],
+    [
+      0.00010865,
+      6.8e-12
+    ],
+    [
+      0.0001089,
+      6.9e-12
+    ],
+    [
+      0.0001092,
+      6.8e-12
+    ],
+    [
+      0.0001095,
+      6.9e-12
+    ],
+    [
+      0.0001096,
+      6.8e-12
+    ],
+    [
+      0.0001099,
+      6.9e-12
+    ],
+    [
+      0.0001102,
+      6.8e-12
+    ],
+    [
+      0.0001105,
+      6.9e-12
+    ],
+    [
+      0.0001108,
+      6.8e-12
+    ],
+    [
+      0.0001111,
+      6.9e-12
+    ],
+    [
+      0.0001114,
+      6.8e-12
+    ],
+    [
+      0.0001116,
+      6.9e-12
+    ],
+    [
+      0.0001118,
+      6.8e-12
+    ],
+    [
+      0.0001116,
+      6.9e-12
+    ],
+    [
+      0.0001117,
+      6.9e-12
+    ],
+    [
+      0.00011185,
+      7e-12
+    ],
+    [
+      0.00011189,
+      7.6e-12
+    ],
+    [
+      0.00011191,
+      9e-12
+    ],
+    [
+      0.00011193,
+      1.1e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.72,
+  "suggested_experiment_name": "ORGAN Phase 1b",
+  "coupling_convention": "|g_agamma| in GeV^-1, plotted directly on log y-axis",
+  "notes": "ORGAN Phase 1b microwave cavity haloscope, 107.42-111.93 ueV (25.97-27.07 GHz). Excludes g_agamma >= 4e-12 GeV^-1 at 95% CL over the range (flat limit, small notch near 26 GHz not resolved numerically). Local DM density 0.45 GeV/cm^3, axions=100% of DM. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.72, 29)) | Vision: FIG. 5 of ORGAN Phase 1b. Blue region is the 95% CL upper exclusion on |g_agamma|. Y-axis log scale with ticks at 1e-11 and 1e-10; calibrated range 6e-12 to 2e-10. Lower boundary of exclusion is a jagged nearly-flat line around 6.8-7e-12 across 107.42-111.93 ueV, with a downward 'notch' spike near 26.0 GHz (left edge, ~6.1e-12) due to insufficient integration time, and vertical rises at both mass-range edges. X-axis converted from frequency (GHz) via m[ueV]=4.1357*f[GHz]. Abstract quotes best bound g>=4e-12 but the plotted boundary sits ~6.8e-12 given the shown y-axis range. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.18 snapped to identity)",
+  "num_points": 29,
+  "elapsed_s": 176.7412087917328
+}

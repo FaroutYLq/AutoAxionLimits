@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "1510.08052",
+  "paper_title": "PVLAS",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.0001,
+      3e-08
+    ],
+    [
+      0.0005,
+      3.2e-08
+    ],
+    [
+      0.001,
+      4e-08
+    ],
+    [
+      0.002,
+      1e-07
+    ],
+    [
+      0.003,
+      3e-07
+    ],
+    [
+      0.005,
+      1e-06
+    ],
+    [
+      0.01,
+      5e-06
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "PVLAS2015",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "PVLAS vacuum magnetic birefringence/dichroism experiment (Fabry-Perot polarimeter). Model-independent laboratory limit on ALP two-photon coupling g (Fig. 14), valid for both scalar and pseudoscalar ALPs, at 95% c.l. Not a DM haloscope, so no local DM density. Data points read approximately from the ellipticity exclusion curve in Fig. 14 (x-axis 1e-4 to ~1e-2 eV, y-axis g in GeV^-1); curve minimum ~3e-8 GeV^-1 at low mass, rising sharply above ~1 meV. Paper also gives milli-charged particle limits (not extracted). Values approximate due to being read from a log plot. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 7,
+  "elapsed_s": 39.56380891799927
+}

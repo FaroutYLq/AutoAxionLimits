@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2111.09892",
+ "paper_title": "Upper Limit on the QCD Axion Mass from Isolated Neutron Star Cooling",
+ "coupling_type": "AxionNeutron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.001,
+   1.3e-09
+  ],
+  [
+   0.1,
+   1.3e-09
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.6,
+ "suggested_experiment_name": "IsolatedNS_Cooling_M7",
+ "coupling_convention": "dimensionless g_ann",
+ "notes": "Neutron star cooling limit on QCD axion. Primary result is upper limit on axion mass (m_a < 16 meV, KSVZ, 95% CL). The paper also quotes coupling limits: |g_ann| < 1.3e-9 (axion-neutron only) and |g_app| < 1.5e-9 (axion-proton only) at 95% CL. Extracted the axion-neutron limit (per hint). This is an astrophysical cooling bound, effectively flat over the relevant meV mass range; encoded as a horizontal two-point line spanning ~meV masses. There is also a full g_ann-g_app exclusion plane (Fig S5) not tabulated numerically. Confidence lowered because paper reports both neutron and proton couplings and the primary result is on m_a, not on the coupling. | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 142.50233221054077
+}

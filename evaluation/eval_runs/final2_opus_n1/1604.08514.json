@@ -1,0 +1,150 @@
+{
+ "arxiv_id": "1604.08514",
+ "paper_title": "RbCs",
+ "coupling_type": "ScalarPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.16e-25,
+   5e-08
+  ],
+  [
+   5.6e-25,
+   3.2e-08
+  ],
+  [
+   1e-24,
+   1.6e-08
+  ],
+  [
+   1.8e-24,
+   8.9e-09
+  ],
+  [
+   3.16e-24,
+   5.6e-09
+  ],
+  [
+   5.6e-24,
+   4.5e-09
+  ],
+  [
+   7.9e-24,
+   4e-09
+  ],
+  [
+   1e-23,
+   3.8e-09
+  ],
+  [
+   1.4e-23,
+   4.2e-09
+  ],
+  [
+   2e-23,
+   6.3e-09
+  ],
+  [
+   3.16e-23,
+   8.9e-09
+  ],
+  [
+   4.5e-23,
+   1.1e-08
+  ],
+  [
+   6.3e-23,
+   1.3e-08
+  ],
+  [
+   1e-22,
+   1.4e-08
+  ],
+  [
+   1.4e-22,
+   1.6e-08
+  ],
+  [
+   2e-22,
+   1.9e-08
+  ],
+  [
+   3.16e-22,
+   2.5e-08
+  ],
+  [
+   5.6e-22,
+   3.5e-08
+  ],
+  [
+   1e-21,
+   5e-08
+  ],
+  [
+   1.8e-21,
+   7.1e-08
+  ],
+  [
+   3.16e-21,
+   1e-07
+  ],
+  [
+   5.6e-21,
+   1.4e-07
+  ],
+  [
+   1e-20,
+   2e-07
+  ],
+  [
+   1.8e-20,
+   2.8e-07
+  ],
+  [
+   3.16e-20,
+   4e-07
+  ],
+  [
+   5.6e-20,
+   5.6e-07
+  ],
+  [
+   1e-19,
+   7.9e-07
+  ],
+  [
+   1.8e-19,
+   1.3e-06
+  ],
+  [
+   3.16e-19,
+   2.2e-06
+  ],
+  [
+   5.6e-19,
+   4e-06
+  ],
+  [
+   1e-18,
+   7.1e-06
+  ],
+  [
+   1.8e-18,
+   1.3e-05
+  ],
+  [
+   3.16e-18,
+   2.2e-05
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "LNE-SYRTE Rb/Cs dual fountain clock",
+ "coupling_convention": "log10 of d_e + 0.043(d_m\u0302 - d_g); emitted as absolute coupling value (10^y)",
+ "notes": "Search for oscillating massive scalar DM via Rb/Cs hyperfine frequency comparison. Constrains linear combination de + 0.043(d_hat_m - d_g), sensitive to fine-structure constant variation (ScalarPhoton d_e) among others. Paper states exclusion of couplings >5.3e-4 over range mphi ~1e-24 to ~1e-18 eV, with most stringent limit 3.8e-9 at mphi=1.4e-23 eV. Only these specific values quoted in text; full curve in Fig.3 not digitized. Values represent a combination of coupling constants, not pure d_e, hence reduced confidence. | selector: figure_vision over text (quality (1, 1, 1, 0, 2, 0, 0.7, 33)) | Vision: Fig 3: red CL95% curve is upper bound on linear combination d_e + 0.043(d_m\u0302 - d_g). Most stringent limit ~3.8e-9 at m_phi=1.4e-23 eV. Excluded region is above the red curve. Values emitted as absolute coupling (10^y) where plotted y is log10. Both axes log scale. | Calibration: No calibration needed | [CONVENTION REVIEW] declared coupling convention 'log10 of d_e + 0.043(d_m\u0302 - d_g); emitted as absolute coupling value (10^y)' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 33,
+ "elapsed_s": 193.5322608947754
+}

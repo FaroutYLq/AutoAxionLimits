@@ -1,0 +1,182 @@
+{
+ "arxiv_id": "2302.00685",
+ "paper_title": "Axinovae",
+ "coupling_type": "AxionMass",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-20,
+   1e-16
+  ],
+  [
+   3e-20,
+   3e-16
+  ],
+  [
+   8e-20,
+   8e-16
+  ],
+  [
+   2e-19,
+   1.5e-15
+  ],
+  [
+   5e-19,
+   3e-15
+  ],
+  [
+   1e-18,
+   5e-15
+  ],
+  [
+   3e-18,
+   1.2e-14
+  ],
+  [
+   8e-18,
+   3e-14
+  ],
+  [
+   2e-17,
+   6e-14
+  ],
+  [
+   5e-17,
+   1.3e-13
+  ],
+  [
+   1e-16,
+   2.5e-13
+  ],
+  [
+   3e-16,
+   6e-13
+  ],
+  [
+   8e-16,
+   1.4e-12
+  ],
+  [
+   2e-15,
+   3e-12
+  ],
+  [
+   5e-15,
+   6e-12
+  ],
+  [
+   1e-14,
+   1.2e-11
+  ],
+  [
+   3e-14,
+   3e-11
+  ],
+  [
+   8e-14,
+   7e-11
+  ],
+  [
+   2e-13,
+   1.5e-10
+  ],
+  [
+   5e-13,
+   3.5e-10
+  ],
+  [
+   1e-12,
+   7e-10
+  ],
+  [
+   3e-12,
+   1.6e-09
+  ],
+  [
+   8e-12,
+   4e-09
+  ],
+  [
+   2e-11,
+   8e-09
+  ],
+  [
+   5e-11,
+   1.8e-08
+  ],
+  [
+   1e-10,
+   3.5e-08
+  ],
+  [
+   3e-10,
+   9e-08
+  ],
+  [
+   8e-10,
+   2e-07
+  ],
+  [
+   2e-09,
+   4.5e-07
+  ],
+  [
+   5e-09,
+   1e-06
+  ],
+  [
+   1e-08,
+   2e-06
+  ],
+  [
+   3e-08,
+   5e-06
+  ],
+  [
+   8e-08,
+   1.2e-05
+  ],
+  [
+   2e-07,
+   2.5e-05
+  ],
+  [
+   5e-07,
+   6e-05
+  ],
+  [
+   1e-06,
+   0.00012
+  ],
+  [
+   3e-06,
+   0.0003
+  ],
+  [
+   8e-06,
+   0.0007
+  ],
+  [
+   2e-05,
+   0.0015
+  ],
+  [
+   5e-05,
+   0.0035
+  ],
+  [
+   0.0001,
+   0.007
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "Axinovae (recurrent axion star collapse cosmological bound)",
+ "coupling_convention": "f_a^{-1} in GeV^{-1}, plotted as y-axis value directly",
+ "notes": "Cosmological constraint on axion-like dark matter self-coupling, presented in the m_a (eV) vs 1/f_a (GeV^-1) plane in Fig 1 and Fig 2. The exclusion depends only on axion self-coupling and gravity, independent of SM couplings. This maps to the AxionMass (f_a-m_a) plane. However, no numerical table or explicit data points are provided; the exclusion regions are only shown graphically with several assumption-dependent boundaries (green/red/blue). Mass axis spans roughly 1e-20 to 1e-4 eV and 1/f_a axis 1e-17 to 1e-7 GeV^-1, but specific boundary points cannot be reliably extracted from the text alone. | selector: figure_vision (sole candidate) | Vision: Plot shows f_a^{-1} [GeV^{-1}] on y-axis vs m_a [eV] on x-axis. This is NOT the standard AxionMass plane (which uses f_a [GeV] vs m_a [eV]); the y-axis is inverse decay constant. I emitted the plotted f_a^{-1} values directly per the plotted-values contract. The traced boundary is the lower edge of the blue region (T_osc ~ sqrt(m_a M_pl), optimized over oscillation temperature), which is the most extensive exclusion. Blue region rises roughly log-linearly from lower left. Gray regions are black hole superradiance (existing). Coupling type flagged as AxionMass but plotted quantity is f_a^{-1}, hence reduced confidence. | Calibration: No calibration needed | [CONVENTION REVIEW] declared coupling convention 'f_a^{-1} in GeV^{-1}, plotted as y-axis value directly' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 41,
+ "elapsed_s": 129.63731694221497
+}

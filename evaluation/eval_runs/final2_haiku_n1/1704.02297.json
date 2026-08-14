@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "1704.02297",
+ "paper_title": "First Searches for Axions and Axion-Like Particles with the LUX Experiment",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.0,
+   3.5e-12
+  ],
+  [
+   0.0,
+   3.5e-12
+  ],
+  [
+   1000.0,
+   4.2e-13
+  ],
+  [
+   16000.0,
+   4.2e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.95,
+ "suggested_experiment_name": "LUX2013",
+ "coupling_convention": "dimensionless g_ae",
+ "notes": "Paper presents two independent exclusion limits: (1) Solar axions: g_ae < 3.5\u00d710^-12 (90% C.L.), mass-independent limit encoded as horizontal line at [0, 3.5e-12]. (2) Galactic ALPs: g_ae < 4.2\u00d710^-13 (90% C.L.) for masses 1\u201316 keV/c^2, encoded as horizontal line spanning [1e3 eV, 4.2e-13] to [16e3 eV, 4.2e-13]. Both limits are from profile likelihood ratio analysis of 2013 LUX data (95 live-days \u00d7 118 kg fiducial mass). The paper also reports corresponding axion mass exclusions under DFSZ (m_a < 0.12 eV) and KSVZ (m_a > 36.6 eV) models, but the primary experimental result is on g_ae coupling. No local dark matter density assumption is needed\u2014this is a direct detection experiment searching for solar axions and galactic ALPs via axio-electric effect in xenon, not a haloscope. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.95, 4))",
+ "num_points": 4,
+ "elapsed_s": 120.70016598701477
+}

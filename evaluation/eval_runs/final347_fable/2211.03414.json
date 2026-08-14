@@ -1,0 +1,170 @@
+{
+  "arxiv_id": "2211.03414",
+  "paper_title": "FermiQuasars",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5e-09,
+      9e-12
+    ],
+    [
+      6e-09,
+      8e-12
+    ],
+    [
+      7e-09,
+      7e-12
+    ],
+    [
+      8e-09,
+      6.5e-12
+    ],
+    [
+      9e-09,
+      6e-12
+    ],
+    [
+      1e-08,
+      5.8e-12
+    ],
+    [
+      1.2e-08,
+      5.5e-12
+    ],
+    [
+      1.4e-08,
+      5.2e-12
+    ],
+    [
+      1.6e-08,
+      5e-12
+    ],
+    [
+      1.8e-08,
+      5e-12
+    ],
+    [
+      2e-08,
+      5.1e-12
+    ],
+    [
+      2.5e-08,
+      5.3e-12
+    ],
+    [
+      3e-08,
+      5.5e-12
+    ],
+    [
+      3.5e-08,
+      5.6e-12
+    ],
+    [
+      4e-08,
+      5.8e-12
+    ],
+    [
+      4.5e-08,
+      6e-12
+    ],
+    [
+      5e-08,
+      6.2e-12
+    ],
+    [
+      5.5e-08,
+      6.5e-12
+    ],
+    [
+      6e-08,
+      7e-12
+    ],
+    [
+      7e-08,
+      7.5e-12
+    ],
+    [
+      8e-08,
+      8e-12
+    ],
+    [
+      9e-08,
+      8.5e-12
+    ],
+    [
+      1e-07,
+      9e-12
+    ],
+    [
+      1.1e-07,
+      9.5e-12
+    ],
+    [
+      1.2e-07,
+      1e-11
+    ],
+    [
+      1.4e-07,
+      1.1e-11
+    ],
+    [
+      1.6e-07,
+      1.2e-11
+    ],
+    [
+      1.8e-07,
+      1.35e-11
+    ],
+    [
+      2e-07,
+      1.5e-11
+    ],
+    [
+      2.2e-07,
+      1.7e-11
+    ],
+    [
+      2.5e-07,
+      2e-11
+    ],
+    [
+      2.8e-07,
+      2.5e-11
+    ],
+    [
+      3e-07,
+      3e-11
+    ],
+    [
+      3.5e-07,
+      4e-11
+    ],
+    [
+      4e-07,
+      5.5e-11
+    ],
+    [
+      4.5e-07,
+      7e-11
+    ],
+    [
+      5e-07,
+      8.5e-11
+    ],
+    [
+      5.5e-07,
+      1e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "Fermi-LAT flaring FSRQ combined analysis (3C454.3 + CTA 102 + 3C279)",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on the y-axis of Fig. 9",
+  "notes": "Davies, Meyer & Cotter (arXiv:2211.03414): combined Fermi-LAT analysis of three flaring FSRQs (3C454.3, CTA 102, 3C279) using the blazar jets as the dominant ALP-photon mixing region. No ALP signal found; excluded region stated in abstract and conclusions: 5 neV <= m_a <= 200 neV for g_agamma >= 5e-12 GeV^-1 at 95% CL. The full exclusion contour is shown in Fig. 9 but only the summary values are given numerically in the text, so the emitted points approximate the contour floor across the excluded mass range. This is an astrophysical propagation bound, not a DM haloscope, so no local DM density is assumed. Note a marginal (~2 sigma local) ALP preference in CTA 102 data that disappears in the combined analysis. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 38)) | Vision: Exclusion plot is Figure 9 (page shown in fig_02.png): overall 95% exclusion contours for each source and the combined 'Total' (black) contour, on axes m_a in [5,5000] neV vs g_agamma in [1e-12,1e-10] GeV^-1. Traced the lower boundary of the combined Total contour. Text confirms exclusion of 5 neV < m_a < 200 neV for g > ~5e-12 GeV^-1; the boundary floor is ~5e-12 GeV^-1 near 15-20 neV and rises steeply above ~200-300 neV, reaching the plot top (1e-10) near ~500-600 neV. Contour is jagged (grid-based, 8x7 scan interpolated), so intermediate points are approximate. Not a dark-matter-density-dependent limit (photon-ALP mixing in blazar jets). Best-fit ALP point (not excluded): m_a=100.8 neV, g=4.64e-12 GeV^-1. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.80 snapped to identity)",
+  "num_points": 38,
+  "elapsed_s": 129.9794888496399
+}

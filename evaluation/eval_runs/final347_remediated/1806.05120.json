@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "1806.05120",
+  "paper_title": "First results from a hidden photon dark matter search in the meV sector using a plane-parabolic mirror system",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.00067,
+      1e-08
+    ],
+    [
+      0.00092,
+      1e-08
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "TokyoFukui_DishAntenna_meV",
+  "coupling_convention": "dimensionless kinetic mixing chi",
+  "notes": "Dish-antenna (plane-parabolic mirror) haloscope search for hidden photon dark matter. Upper limit chi ~ 1e-8 at 90% CL over mass range 0.67-0.92 meV (fRF ~163-224 GHz). Limit is roughly flat/stepwise around 1e-8; only two endpoint values extracted from text since numerical stepwise values are given only in Fig.5. Local DM density assumed 0.45 GeV/cm^3. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.75, 2))",
+  "num_points": 2,
+  "elapsed_s": 80.17359375953674
+}

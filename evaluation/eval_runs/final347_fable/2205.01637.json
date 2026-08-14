@@ -1,0 +1,174 @@
+{
+  "arxiv_id": "2205.01637",
+  "paper_title": "Novel cosmological bounds on thermally-produced axion-like particles",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.0001,
+      3.2e-08
+    ],
+    [
+      0.0002,
+      3.2e-08
+    ],
+    [
+      0.0005,
+      3.25e-08
+    ],
+    [
+      0.001,
+      3.3e-08
+    ],
+    [
+      0.002,
+      3.35e-08
+    ],
+    [
+      0.005,
+      3.4e-08
+    ],
+    [
+      0.01,
+      3.4e-08
+    ],
+    [
+      0.02,
+      3.3e-08
+    ],
+    [
+      0.03,
+      3.2e-08
+    ],
+    [
+      0.05,
+      3.1e-08
+    ],
+    [
+      0.07,
+      3e-08
+    ],
+    [
+      0.1,
+      2.9e-08
+    ],
+    [
+      0.15,
+      2.8e-08
+    ],
+    [
+      0.2,
+      2.7e-08
+    ],
+    [
+      0.3,
+      2.5e-08
+    ],
+    [
+      0.5,
+      2.3e-08
+    ],
+    [
+      0.7,
+      2.15e-08
+    ],
+    [
+      1.0,
+      2e-08
+    ],
+    [
+      1.5,
+      1.8e-08
+    ],
+    [
+      2.0,
+      1.6e-08
+    ],
+    [
+      2.5,
+      1.5e-08
+    ],
+    [
+      3.0,
+      1.4e-08
+    ],
+    [
+      4.0,
+      1.2e-08
+    ],
+    [
+      5.0,
+      1e-08
+    ],
+    [
+      6.0,
+      8.5e-09
+    ],
+    [
+      7.0,
+      7.5e-09
+    ],
+    [
+      8.5,
+      6.6e-09
+    ],
+    [
+      10.0,
+      6e-09
+    ],
+    [
+      12.0,
+      6.4e-09
+    ],
+    [
+      15.0,
+      7.3e-09
+    ],
+    [
+      18.0,
+      8.4e-09
+    ],
+    [
+      22.0,
+      9.6e-09
+    ],
+    [
+      26.0,
+      1.05e-08
+    ],
+    [
+      30.0,
+      1.1e-08
+    ],
+    [
+      40.0,
+      1.05e-08
+    ],
+    [
+      50.0,
+      9.5e-09
+    ],
+    [
+      65.0,
+      8.5e-09
+    ],
+    [
+      80.0,
+      7.6e-09
+    ],
+    [
+      100.0,
+      7e-09
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "Planck+BAO thermal axion (CMB) bound",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis",
+  "notes": "Paper derives cosmological (Planck 2018 TT,TE,EE+lowE + BAO) bounds on thermally-produced ALPs for BOTH the axion-photon coupling g_agamma and the axion-gluon coupling Cg/fa (equivalently the EDM coupling gd). The headline marginalized 95% CL bound over the scanned mass range 1e-4 < ma/eV < 100 is g_agamma < 3.16e-8 GeV^-1 (Planck+BAO; Planck alone gives 2.84e-8). Encoded as a flat two-point bound over the mass prior range; the actual mass-dependent limit (Fig. 7, fixed-mass runs at ma = 1e-4...100 eV) is only shown graphically, tightening toward ma~10 eV and relaxing around ma~30 eV \u2014 precise per-mass numbers are not tabulated. The paper's strongest NEW result is actually the axion-GLUON bound Cg/fa < 1.06e-7 GeV^-1 (gd < 3.77e-10 GeV^-2), superseding SN1987A, but the pre-analysis hint and the requested single coupling type led to reporting AxionPhoton; extraction confidence lowered accordingly since two coupling planes are constrained. No local DM density assumed (cosmological bound, no requirement that axions saturate DM). CMB-S4 numbers quoted (ga\u03b3 ~ 1.07e-8) are projections and were excluded. | [VISION GATE D] vision notes admit tracing a compilation envelope ('summary plot') rather than the paper's own single curve | selector: figure_vision over text (quality (1, 1, 1, 1, 1, 0, 0.8, 39)) | Vision: Traced the Planck+BAO (blue diamonds) dashed boundary from the summary plot (fig_07); region above the curve is excluded. The Planck-only curve (orange) nearly coincides except near m_a ~ 3-30 eV where it is slightly weaker (e.g. 9.5e-9 at 10 eV, 1.5e-8 at 30 eV vs blue 6e-9 and 1.1e-8). Boundary has a pronounced dip near m_a ~ 10 eV, then a bump near 30 eV before decreasing again toward 100 eV; sampled densely there. This is a bound on thermally-produced axions from CMB spectra + BAO (not a DM-density-dependent haloscope limit). The paper also constrains the axion-gluon coupling in a separate plane, not extracted here per the AxionPhoton hint. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.28 snapped to identity)",
+  "num_points": 39,
+  "elapsed_s": 153.8753912448883
+}

@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2207.11968",
+ "paper_title": "Search for dark matter particle interactions with electron final states with DarkSide-50",
+ "coupling_type": "AxionElectron",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   0.03,
+   1.5e-12
+  ],
+  [
+   0.2,
+   2e-12
+  ],
+  [
+   16000000.0,
+   1e-10
+  ],
+  [
+   56000000.0,
+   3e-11
+  ],
+  [
+   80000000.0,
+   2e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "DarkSide-50",
+ "coupling_convention": "dimensionless g_Ae",
+ "notes": "Paper presents exclusion limits on three main coupling types: (1) dark matter-electron cross section \u03c3\u0304_e for light dark matter (LDM) scattering with heavy and light mediators, (2) axioelectric coupling g_Ae for axion-like particles (ALPs), and (3) dark photon kinetic mixing \u03ba. The pre-analysis hint correctly identified AxionElectron as the primary coupling type. Data points extracted from text descriptions of newly excluded parameter space: ALPs constrained between 0.03\u20130.2 keV/c\u00b2 (converted to eV: 3e-2 to 2e-1 eV), and LDM-electron scattering limits at 16\u201356 MeV/c\u00b2 (heavy mediator) and above 80 MeV/c\u00b2 (light mediator). Exact coupling values read from Fig. 2 description are approximate due to figure resolution. The experiment assumes Standard Halo Model with local DM density \u03c1_DM = 0.3 GeV/(c\u00b2 cm\u00b3). Confidence is moderate (0.75) because while the coupling type is clear, precise numerical values from the figure are difficult to extract without higher-resolution data; the text provides mass ranges and qualitative statements about excluded parameter space rather than explicit tabulated (mass, coupling) pairs. The paper also constrains dark photon kinetic mixing \u03ba and sterile neutrino mixing |U_e4|\u00b2, but AxionElectron (g_Ae) is the primary new constraint matching the pre-analysis hint. | selector: text (sole candidate)",
+ "num_points": 5,
+ "elapsed_s": 16.35636830329895
+}

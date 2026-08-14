@@ -1,0 +1,70 @@
+{
+ "arxiv_id": "2302.04565",
+ "paper_title": "QSNET",
+ "coupling_type": "ScalarPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-20,
+   1e-08
+  ],
+  [
+   1e-19,
+   5e-09
+  ],
+  [
+   1e-18,
+   2e-09
+  ],
+  [
+   1e-17,
+   1e-09
+  ],
+  [
+   1e-16,
+   5e-10
+  ],
+  [
+   1e-15,
+   2e-10
+  ],
+  [
+   1e-14,
+   1e-10
+  ],
+  [
+   1e-13,
+   5e-11
+  ],
+  [
+   1e-12,
+   2e-11
+  ],
+  [
+   1e-11,
+   1e-11
+  ],
+  [
+   1e-10,
+   5e-12
+  ],
+  [
+   1e-09,
+   2e-12
+  ],
+  [
+   1e-08,
+   1e-12
+  ]
+ ],
+ "data_source": "figure",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "QSNET",
+ "coupling_convention": "dimensionless d_gamma (linear coupling d(1)_gamma)",
+ "notes": "Paper presents constraints on ultralight dark matter (ULDM) couplings to fundamental constants using atomic clock comparisons (87Sr, 171Yb+, 133Cs). Primary new limits are on scalar field couplings d(n)_gamma, d(n)_me, d(n)_g, and d(n)_q. Figure 6 (top panel) shows constraints on linear photon coupling d(1)_gamma vs axion mass m_phi, with best-fit Yb+/Sr data (red line) and 95% C.L. (light red band). Data points extracted from Fig. 6 top panel showing approximate exclusion boundary. The paper uses a model-independent effective field theory framework to describe time variations of fundamental constants via coupling to a scalar field phi(t). For ULDM interpretation, assumes Standard Halo Model with local DM density rho_DM \u2248 0.3 GeV/cm\u00b3. Constraints span mass range ~10^-20 to 10^-17 eV. Paper claims order-of-magnitude improvement over previous Rb/Cs clock studies in this mass range due to larger sensitivity coefficient |\u0394K_Yb+/Sr_alpha| \u2248 6 vs |\u0394K_Rb/Cs_alpha| \u2248 0.5. Also provides constraints on quadratic couplings d(2)_gamma and other scalar couplings (d_me, d_g, d_q, Higgs coupling A). Oscillatory analysis uses Lomb-Scargle periodogram on ~2 week atomic clock data from July 2019 at NPL. | selector: figure (sole candidate)",
+ "num_points": 13,
+ "elapsed_s": 84.31292581558228
+}

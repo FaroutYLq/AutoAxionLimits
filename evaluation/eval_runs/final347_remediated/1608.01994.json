@@ -1,0 +1,158 @@
+{
+  "arxiv_id": "1608.01994",
+  "paper_title": "Absorption of light dark matter in semiconductors",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      0.01,
+      1e-14
+    ],
+    [
+      0.013,
+      6e-15
+    ],
+    [
+      0.02,
+      7e-15
+    ],
+    [
+      0.03,
+      1.2e-14
+    ],
+    [
+      0.05,
+      1e-14
+    ],
+    [
+      0.07,
+      8e-15
+    ],
+    [
+      0.1,
+      1e-14
+    ],
+    [
+      0.15,
+      1.1e-14
+    ],
+    [
+      0.2,
+      1e-14
+    ],
+    [
+      0.6,
+      2e-14
+    ],
+    [
+      0.8,
+      1.5e-13
+    ],
+    [
+      1.0,
+      1.5e-12
+    ],
+    [
+      1.2,
+      3e-13
+    ],
+    [
+      1.5,
+      8e-15
+    ],
+    [
+      2.0,
+      3e-15
+    ],
+    [
+      3.0,
+      1e-15
+    ],
+    [
+      4.0,
+      5e-16
+    ],
+    [
+      5.0,
+      3e-16
+    ],
+    [
+      7.0,
+      1.2e-16
+    ],
+    [
+      10.0,
+      5e-17
+    ],
+    [
+      13.0,
+      3.5e-17
+    ],
+    [
+      16.0,
+      3e-17
+    ],
+    [
+      20.0,
+      4e-17
+    ],
+    [
+      30.0,
+      6e-17
+    ],
+    [
+      50.0,
+      1e-16
+    ],
+    [
+      70.0,
+      1.5e-16
+    ],
+    [
+      100.0,
+      2e-16
+    ],
+    [
+      150.0,
+      1.5e-16
+    ],
+    [
+      200.0,
+      3e-16
+    ],
+    [
+      300.0,
+      5e-16
+    ],
+    [
+      500.0,
+      1e-15
+    ],
+    [
+      700.0,
+      2e-15
+    ],
+    [
+      1000.0,
+      4e-15
+    ],
+    [
+      1500.0,
+      8e-15
+    ],
+    [
+      2000.0,
+      1.2e-14
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "Semiconductor (Ge/Si) DM absorption projected reach, 1 kg-yr",
+  "coupling_convention": "kinetic mixing kappa (chi), dimensionless, as plotted on y-axis",
+  "notes": "Projection paper (Hochberg, Lin, Zurek 2017) for absorption of kinetically mixed hidden-photon dark matter in Ge/Si semiconductors, 1 kg-yr, 90% CL. Fig. 2 shows kappa vs mV. Values approximate reading of Ge halo-DM reach curve (multi-phonon below ~0.2 eV, electron excitation above 0.5 eV); no numerical table provided. Paper also derives recast limits from CDMSlite/DAMIC/Xenon100. A separate pseudoscalar (AxionElectron, g_aee) result is in Fig. 3. Local density rho_DM = 0.3 GeV/cm^3 assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 35)) | Vision: Figure 2 'Hidden photon dark matter'. Traced the lower envelope of the projected 90% CL reach (solid green Ge and blue Si, 1 kg-yr). Left segment (0.01-0.2 eV) is multi-phonon reach; right segment (>0.6 eV) is electron-excitation reach with a sharp vertical spike near 1 eV (the band-gap edge / threshold feature) and a deep minimum ~3e-17 around 15-20 eV. These are projected sensitivity curves, not data-derived exclusions; the actual data constraints in the plot are the shaded stellar/Xenon/DAMIC/CDMSlite regions at much higher kappa. Coupling type DarkPhoton (kinetic mixing chi=kappa) is unambiguous from the plot axis label. | Calibration: No calibration needed",
+  "num_points": 35,
+  "elapsed_s": 167.59090614318848
+}

@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "1712.00483",
+  "paper_title": "MICROSCOPE mission: first constraints on the violation of the weak equivalence principle by a light scalar dilaton",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-20,
+      1e-11
+    ],
+    [
+      1e-12,
+      1e-11
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "MICROSCOPE2018",
+  "coupling_convention": "dimensionless alpha (Yukawa strength relative to gravity), q=B",
+  "notes": "MICROSCOPE WEP test constrains a light scalar (dilaton) Yukawa fifth force. Main result: |alpha|<1e-11 for baryon-number coupling (q=B) for scalar masses < 1e-12 eV (Yukawa range > a few 1e5 m); a separate q=B-L result gives |alpha|<1e-12. Values taken from abstract/text (Fig. 1 exclusion region). Emitted as a horizontal (mass-independent below 1e-12 eV) bound. Note alpha here is Yukawa strength relative to gravity, not necessarily the standard d_g convention; downstream may need adjustment. 2-sigma (95% CL). Not a DM search, so no local density. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 6.2 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | coupling type ScalarBaryon -> ScalarPhoton by axis read-back 'dimensionless (linear dilaton-electromagnetic coupling d_e)' (same confusable family, #625 Phase 3)",
+  "num_points": 2,
+  "elapsed_s": 141.20936393737793
+}

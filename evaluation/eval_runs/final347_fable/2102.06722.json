@@ -1,0 +1,30 @@
+{
+  "arxiv_id": "2102.06722",
+  "paper_title": "ABRACADABRA_run2",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.1e-10,
+      1e-09
+    ],
+    [
+      2.99e-09,
+      3.2e-11
+    ],
+    [
+      8.27e-09,
+      1e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "ABRACADABRA_10cm_Run3",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "ABRACADABRA-10cm broadband axion dark matter search (Run 3, 2020 data; note: despite the provided title 'ABRACADABRA_run2', the physics results presented are from Run 3 - Run 2 was uncalibrated and used only for analysis tuning). 95% CL upper limits on g_agamma over 0.41-8.27 neV (100 kHz-2 MHz), ~11.1 million mass points. Strongest limit explicitly stated in text: g_agamma < 3.2e-11 GeV^-1 at m_a ~ 2.99 neV. Endpoint values (1e-9 at 0.41 neV, ~1e-10 at 8.27 neV) are approximate, estimated from Fig. 4 axis range and text descriptions (low-frequency reach degraded by vibrational noise); full limit curve is in a public data release (github.com/joshwfoster/ABRA_Results_2020) but not tabulated in the paper text. DM halo: Standard Halo Model, rho_DM = 0.4 GeV/cm^3, v0 = 220 km/s, v_sun = 232 km/s. | vector-trace candidate: MaskingFraction.pdf colour (0.0, 0.0, 0.0), 18 pts (selected among 1) | [TEXT-VECTOR DISAGREEMENT] vector trace differs from the in-range text anchor by 5.4 dex (> 2.0) over the shared mass range \u2014 likely wrong curve/panel; deferred to text | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 3,
+  "elapsed_s": 43.26630926132202
+}

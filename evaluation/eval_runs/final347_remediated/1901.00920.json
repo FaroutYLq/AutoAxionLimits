@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "1901.00920",
+  "paper_title": "Piezoelectrically Tuned Multimode Cavity Search for Axion Dark Matter",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.738e-05,
+      2e-13
+    ],
+    [
+      1.747e-05,
+      2e-13
+    ],
+    [
+      1.757e-05,
+      2e-13
+    ],
+    [
+      2.103e-05,
+      4e-13
+    ],
+    [
+      2.25e-05,
+      4e-13
+    ],
+    [
+      2.398e-05,
+      4e-13
+    ],
+    [
+      2.967e-05,
+      1e-12
+    ],
+    [
+      2.973e-05,
+      1e-12
+    ],
+    [
+      2.979e-05,
+      1e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "ADMX_Sidecar",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "ADMX Sidecar pathfinder haloscope, three frequency bands (Run A: 4202-4249 MHz TM010, Run B: 5086-5799 MHz TM010, Run C: 7173-7203 MHz TM020) corresponding to axion masses 17.38-17.57, 21.03-23.98, 29.67-29.79 ueV. Exclusion on g_agamma at 90% CL, rho_a=0.45 GeV/cm^3 isothermal. Numerical coupling values estimated from Fig. 4 (y-axis 1e-13 to 1e-10 GeV^-1); paper gives no exclusion table so values are approximate readings from the plot. Region C weaker due to low TM020 form factor. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 9,
+  "elapsed_s": 45.00218892097473
+}

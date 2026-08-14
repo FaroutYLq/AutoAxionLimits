@@ -1,0 +1,134 @@
+{
+ "arxiv_id": "0106045",
+ "paper_title": "Casimir",
+ "coupling_type": "ScalarNucleon",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-09,
+   25.0
+  ],
+  [
+   1.2e-09,
+   24.2
+  ],
+  [
+   1.5e-09,
+   23.0
+  ],
+  [
+   2e-09,
+   21.5
+  ],
+  [
+   2.5e-09,
+   20.2
+  ],
+  [
+   3e-09,
+   19.0
+  ],
+  [
+   4e-09,
+   17.0
+  ],
+  [
+   5e-09,
+   15.5
+  ],
+  [
+   6e-09,
+   14.2
+  ],
+  [
+   7e-09,
+   13.0
+  ],
+  [
+   8e-09,
+   12.0
+  ],
+  [
+   1e-08,
+   10.5
+  ],
+  [
+   1.2e-08,
+   9.8
+  ],
+  [
+   1.5e-08,
+   8.8
+  ],
+  [
+   2e-08,
+   7.8
+  ],
+  [
+   2.5e-08,
+   7.0
+  ],
+  [
+   3e-08,
+   6.3
+  ],
+  [
+   4e-08,
+   5.2
+  ],
+  [
+   5e-08,
+   4.5
+  ],
+  [
+   6e-08,
+   3.9
+  ],
+  [
+   7e-08,
+   3.4
+  ],
+  [
+   8e-08,
+   3.0
+  ],
+  [
+   1e-07,
+   2.2
+  ],
+  [
+   1.2e-07,
+   1.8
+  ],
+  [
+   1.5e-07,
+   1.3
+  ],
+  [
+   2e-07,
+   0.8
+  ],
+  [
+   2.5e-07,
+   0.4
+  ],
+  [
+   3e-07,
+   0.1
+  ],
+  [
+   3.5e-07,
+   0.0
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "Casimir force measurements (metallic and dielectric surfaces) and Cavendish-type experiments",
+ "coupling_convention": "log|\u03b1G| (dimensionless coupling constant for Yukawa-type hypothetical interaction), plotted as log10 of the absolute value",
+ "notes": "This is a comprehensive theoretical and experimental review of the Casimir effect (arXiv:quant-ph/0106045). The paper discusses vacuum energy, quantum field theory regularization, and measurements of Casimir forces between conducting plates and other geometries. While Section 7 briefly mentions 'constraints for non-Newtonian gravity from the Casimir effect,' the paper is NOT primarily about dark matter, axions, dark photons, or ultralight dark matter searches. The Casimir effect is a quantum vacuum phenomenon arising from zero-point electromagnetic energy, distinct from dark matter coupling searches. No exclusion limits on axion-photon coupling, dark photon kinetic mixing, or other dark sector parameters are presented. The paper is outside the scope of dark matter/dark sector experimental constraints. | selector: figure_vision (sole candidate) | Vision: This plot (Fig. 27-28) shows constraints on the coupling constant \u03b1G and range parameter \u03bb for Yukawa-type hypothetical fifth-force interactions. The x-axis represents the interaction range \u03bb in meters (log scale from 10^-9 to 10^-4 m). The y-axis represents log|\u03b1G| (dimensionless). The plot displays multiple constraint curves: Curve 1 (Cavendish-type experiments), Curve 2 (Casimir force measurements between metallic surfaces), and Curve 3 (van der Waals force measurements between dielectric surfaces). The excluded region is ABOVE each curve (higher coupling values are excluded). The boundary traced here follows the strongest constraints, primarily from Curve 2 (Casimir force measurements). The interaction range \u03bb is related to the mediator mass via m \u2248 \u210fc/\u03bb. The paper discusses constraints from multiple experimental techniques including Casimir force measurements, van der Waals force measurements, and Cavendish-type experiments. The coupling type is ScalarNucleon because the paper explicitly discusses Yukawa-type fifth-force interactions between nucleons, which are mediated by scalar exchange and characterized by the coupling constant \u03b1G. | Calibration: No calibration needed | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+ "num_points": 29,
+ "elapsed_s": 213.6716079711914
+}

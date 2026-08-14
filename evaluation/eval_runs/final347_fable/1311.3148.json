@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "1311.3148",
+  "paper_title": "Constraints on axionlike particles with H.E.S.S. from the irregularity of the PKS 2155-304 energy spectrum",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.5e-08,
+      2.1e-11
+    ],
+    [
+      6e-08,
+      2.1e-11
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "HESS_PKS2155",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "H.E.S.S. constraint on ALP-photon coupling from spectral irregularity of PKS 2155-304 (z=0.116). Headline conservative limit g_gamma-a < 2.1e-11 GeV^-1 at 95% C.L. for ALP masses between 15 neV and 60 neV, derived assuming photon-ALP mixing in the galaxy cluster magnetic field (1 uG, 370 kpc, Lc=10 kpc). Encoded as flat two-point bound over stated mass range. Paper also quotes an optimistic IGMF-based limit ~5e-11 GeV^-1 near 1 neV mass (assuming 1 nG IGMF), not included since authors themselves label it optimistic and magnetic-field dependent. Full exclusion contours are only in Fig. 7 (not digitizable from text). Limits apply to both pseudoscalar and scalar bosons coupling to photons. Not a dark-matter search, so no local DM density assumption. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.8, 2))",
+  "num_points": 2,
+  "elapsed_s": 111.51735496520996
+}

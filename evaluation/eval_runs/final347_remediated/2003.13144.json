@@ -1,0 +1,114 @@
+{
+  "arxiv_id": "2003.13144",
+  "paper_title": "Limits from the Funk Experiment on the Mixing Strength of Hidden-Photon Dark Matter in the Visible and Near-Ultraviolet Wavelength Range",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.95,
+      2e-11
+    ],
+    [
+      2.0,
+      1e-11
+    ],
+    [
+      2.1,
+      5e-12
+    ],
+    [
+      2.2,
+      3.16e-12
+    ],
+    [
+      2.4,
+      1.78e-12
+    ],
+    [
+      2.6,
+      1.26e-12
+    ],
+    [
+      2.8,
+      1e-12
+    ],
+    [
+      3.0,
+      7.9e-13
+    ],
+    [
+      3.3,
+      6.6e-13
+    ],
+    [
+      3.6,
+      6.3e-13
+    ],
+    [
+      4.0,
+      6.6e-13
+    ],
+    [
+      4.5,
+      7.9e-13
+    ],
+    [
+      5.0,
+      8.9e-13
+    ],
+    [
+      5.5,
+      1e-12
+    ],
+    [
+      6.0,
+      1.05e-12
+    ],
+    [
+      6.3,
+      1.26e-12
+    ],
+    [
+      6.6,
+      1.12e-12
+    ],
+    [
+      7.0,
+      1.26e-12
+    ],
+    [
+      7.4,
+      1.41e-12
+    ],
+    [
+      7.8,
+      2e-12
+    ],
+    [
+      8.0,
+      2.8e-12
+    ],
+    [
+      8.2,
+      5e-12
+    ],
+    [
+      8.4,
+      1e-11
+    ],
+    [
+      8.55,
+      1.4e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "FUNK",
+  "coupling_convention": "kinetic mixing chi, dimensionless (plotted as lg chi, converted to chi)",
+  "notes": "FUNK dish-antenna hidden-photon DM search. Text gives chi <= 6.65e-13 (95% CL) over HP mass range 1.95-8.55 eV; abstract quotes chi ~1e-12 for 2.5-7 eV. Mass-resolved limit is in Appendix A table (not included in provided content) and Figs 23/24. Emitted a flat two-point line at the quoted conservative value 6.65e-13 spanning the stated mass range. Local DM density assumed 0.3 GeV/cm^3 as in Eq.(10). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 24)) | Vision: Figure 23 FUNK exclusion (red line), 95% C.L. Text states chi <= 6.65e-13 for 1.95 < m/eV < 8.55, consistent with the minimum of the traced curve (lg chi ~ -12.2). X-axis is linear m_gamma/eV; y-axis is lg chi. Excluded region is above the red curve. Figure 24 (full landscape) shows same FUNK limit but Fig 23 gives the mass-resolved detail used here. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.90 snapped to identity)",
+  "num_points": 24,
+  "elapsed_s": 101.66552495956421
+}

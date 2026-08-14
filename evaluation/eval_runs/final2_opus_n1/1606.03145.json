@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "1606.03145",
+ "paper_title": "The topological susceptibility in finite temperature QCD and axion cosmology",
+ "coupling_type": "AxionMass",
+ "is_new_limit": false,
+ "is_projection": false,
+ "data_points": [],
+ "data_source": "none",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.25,
+ "suggested_experiment_name": "HotQCD_chi_t_2016",
+ "coupling_convention": "f_a in GeV vs m_a",
+ "notes": "Lattice QCD study of topological susceptibility used to bound the axion decay constant. Main result is f_a <= 1.2e12 GeV (with ~10% error) assuming QCD axion dark matter, but this is a single scalar bound presented in a Tosc-fa plane, not a tabulated m_a-f_a exclusion curve. No extractable (mass, coupling) data points with explicit numerical pairs are provided; the paper presents a Tosc vs fa band. Insufficient tabulated data to construct a reliable f_a-m_a curve.",
+ "num_points": 0,
+ "elapsed_s": 111.6024079322815
+}

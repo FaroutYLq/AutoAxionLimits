@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "1502.04490",
+  "paper_title": "Results from the Solar Hidden Photon Search (SHIPS)",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.0002,
+      2e-07
+    ],
+    [
+      0.001,
+      6e-08
+    ],
+    [
+      0.003,
+      3.5e-08
+    ],
+    [
+      0.01,
+      3e-08
+    ],
+    [
+      0.03,
+      3e-08
+    ],
+    [
+      0.1,
+      4e-08
+    ],
+    [
+      0.3,
+      7e-08
+    ],
+    [
+      1.0,
+      2e-07
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "SHIPS",
+  "coupling_convention": "dimensionless kinetic mixing chi",
+  "notes": "Solar hidden photon helioscope (TSHIPS). Constrains kinetic mixing chi vs HP mass (Fig. 13). This is a solar-flux helioscope, not a DM haloscope, so no local DM density applies. Exclusion curve is bathtub-shaped, best sensitivity chi ~ 3e-8 around m ~ 3e-3 to 3e-2 eV; data points read approximately from Fig. 13 (95% C.L.). Values are absolute chi. Photon flux limit 25 mHz/m^2 at 95% C.L. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 8,
+  "elapsed_s": 70.09728693962097
+}

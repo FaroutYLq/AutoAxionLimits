@@ -1,0 +1,134 @@
+{
+  "arxiv_id": "1508.02463",
+  "paper_title": "Short-range spin-dependent interactions of electrons: a probe for exotic pseudo-Goldstone bosons",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-08,
+      5.5e-17
+    ],
+    [
+      1e-07,
+      5.5e-17
+    ],
+    [
+      1e-06,
+      5.5e-17
+    ],
+    [
+      5e-06,
+      5.5e-17
+    ],
+    [
+      1e-05,
+      5.5e-17
+    ],
+    [
+      2e-05,
+      5.5e-17
+    ],
+    [
+      3e-05,
+      5.6e-17
+    ],
+    [
+      4e-05,
+      6e-17
+    ],
+    [
+      5e-05,
+      7e-17
+    ],
+    [
+      6e-05,
+      8.5e-17
+    ],
+    [
+      7e-05,
+      1.1e-16
+    ],
+    [
+      8e-05,
+      1.5e-16
+    ],
+    [
+      9e-05,
+      2.1e-16
+    ],
+    [
+      0.0001,
+      3e-16
+    ],
+    [
+      0.000115,
+      5e-16
+    ],
+    [
+      0.00013,
+      8.5e-16
+    ],
+    [
+      0.00015,
+      1.8e-15
+    ],
+    [
+      0.00017,
+      3.8e-15
+    ],
+    [
+      0.0002,
+      8e-15
+    ],
+    [
+      0.00023,
+      1.8e-14
+    ],
+    [
+      0.00026,
+      4e-14
+    ],
+    [
+      0.0003,
+      9e-14
+    ],
+    [
+      0.00033,
+      1.8e-13
+    ],
+    [
+      0.00036,
+      4e-13
+    ],
+    [
+      0.0004,
+      9e-13
+    ],
+    [
+      0.00043,
+      1.8e-12
+    ],
+    [
+      0.00046,
+      4e-12
+    ],
+    [
+      0.0005,
+      8.5e-12
+    ],
+    [
+      0.00052,
+      1e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "Eot-Wash 20-pole spin pendulum (Terrano et al. 2015)",
+  "coupling_convention": "(g_p^e)^2/(hbar c), dimensionless squared pseudoscalar electron coupling, exactly as plotted on y-axis",
+  "notes": "Torsion-pendulum/rotating-attractor experiment probing spin-dependent (pseudo-Goldstone/axion-like) forces between electrons. Primary dipole-dipole result: (g_p^e)^2/hbar c < 5.5e-17 (2 sigma) for m_b < 30 ueV, weakening up to m_b <= 500 ueV. Values emitted are the electron pseudoscalar coupling SQUARED as plotted on Fig.4 y-axis; take sqrt (~7.4e-9) to obtain g_ae. Paper ALSO reports CP-violating monopole-dipole limits |g_p^e g_s^N|/hbar c (MonopoleDipole type) improving prior bounds by up to 1000x for 1.5-400 ueV (Fig.5, ~1e-28 level) \u2014 a second distinct result not encoded here. Coupling-type ambiguity between AxionElectron (dipole-dipole) and MonopoleDipole lowers confidence. Not a DM haloscope; no local DM density. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 29)) | Vision: Fig. 4 bottom panel. Y-axis is the SQUARED coupling (g_p^e)^2/(hbar-c), NOT canonical g_ae; values emitted as plotted per contract. Flat limit at 5.5e-17 for m_b<30 ueV (confirmed in text), rising steeply due to Yukawa suppression toward ~500 ueV. Excluded region is above the 'this work' curve at 2sigma. Coupling is electron pseudoscalar coupling -> AxionElectron. X-axis in ueV converted to eV. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=2.00 snapped to identity)",
+  "num_points": 29,
+  "elapsed_s": 127.67960906028748
+}

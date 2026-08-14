@@ -1,0 +1,150 @@
+{
+  "arxiv_id": "2307.11216",
+  "paper_title": "Spectra of axions emitted from main sequence stars",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      500.0,
+      5.8e-11
+    ],
+    [
+      540.0,
+      4.6e-11
+    ],
+    [
+      580.0,
+      4e-11
+    ],
+    [
+      650.0,
+      3.75e-11
+    ],
+    [
+      720.0,
+      3.65e-11
+    ],
+    [
+      800.0,
+      3.6e-11
+    ],
+    [
+      1000.0,
+      3.55e-11
+    ],
+    [
+      1300.0,
+      3.5e-11
+    ],
+    [
+      1700.0,
+      3.48e-11
+    ],
+    [
+      2000.0,
+      3.5e-11
+    ],
+    [
+      2500.0,
+      3.52e-11
+    ],
+    [
+      3000.0,
+      3.58e-11
+    ],
+    [
+      3500.0,
+      3.65e-11
+    ],
+    [
+      4000.0,
+      3.7e-11
+    ],
+    [
+      5000.0,
+      3.8e-11
+    ],
+    [
+      6000.0,
+      3.9e-11
+    ],
+    [
+      7000.0,
+      4e-11
+    ],
+    [
+      8000.0,
+      4.2e-11
+    ],
+    [
+      9000.0,
+      4.4e-11
+    ],
+    [
+      10000.0,
+      4.5e-11
+    ],
+    [
+      11000.0,
+      4.5e-11
+    ],
+    [
+      12000.0,
+      4.3e-11
+    ],
+    [
+      13000.0,
+      3.95e-11
+    ],
+    [
+      15000.0,
+      3.5e-11
+    ],
+    [
+      17000.0,
+      3.25e-11
+    ],
+    [
+      19000.0,
+      3.05e-11
+    ],
+    [
+      21000.0,
+      3.05e-11
+    ],
+    [
+      23000.0,
+      3.2e-11
+    ],
+    [
+      26000.0,
+      3.6e-11
+    ],
+    [
+      30000.0,
+      4.3e-11
+    ],
+    [
+      35000.0,
+      5.2e-11
+    ],
+    [
+      40000.0,
+      6e-11
+    ],
+    [
+      45000.0,
+      6.2e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "StAB NuSTAR CXB (stellar axion background)",
+  "coupling_convention": "canonical g_agamma in GeV^-1, as plotted on the y-axis",
+  "notes": "Paper computes stellar axion background (StAB) from main-sequence stars and derives a 95% CL exclusion on axion-photon coupling g_agamma vs axion mass m_a (~keV) from the NuSTAR cosmic X-ray background (Fig. 7). This is a genuine astrophysical/cosmological bound (not a DM haloscope), so no local DM density applies. Numerical data_points are approximate readings of the excluded swatch, which lies just below the globular-cluster/CAST cooling bound (6.6e-11 GeV^-1) over m_a ~ 1-30 keV; no data table is provided so values are estimated from the figure. The paper notes the same limits apply to a scalar with photon coupling g_sgamma. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 33)) | Vision: Figure 7. Lower boundary of the NuSTAR blue exclusion region (95% CL) traced. The region is bounded above at ~6e-11 by the globular cluster constraint. Boundary shows a flat plateau ~3.5e-11 for m_a ~1-3 keV, a bump peaking ~4.5e-11 near 10-11 keV, a deep dip to ~3e-11 near 19-21 keV, then rising steeply. Dashed diagonal lines are axion lifetime contours (tau_a), not benchmark coupling models. Freeze-in (light gray) constraint present at low mass but the primary result of this paper is the NuSTAR/StAB limit. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.88 snapped to identity)",
+  "num_points": 33,
+  "elapsed_s": 124.10434198379517
+}

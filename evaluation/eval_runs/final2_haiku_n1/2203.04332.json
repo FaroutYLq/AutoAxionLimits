@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2203.04332",
+ "paper_title": "Constraining Axion-Like Particles with HAWC Observations of TeV Blazars",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-09,
+   3e-11
+  ],
+  [
+   3e-07,
+   3e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "HAWC_TeVBlazars",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper constrains ALP-photon coupling via TeV gamma-ray observations of distant blazars using HAWC and complementary ACT data (VERITAS, MAGIC, H.E.S.S.). The analysis exploits ALP-photon mixing in magnetic fields to detect excess TeV flux that would otherwise be attenuated by extragalactic background light (EBL). Main result: ALP hypothesis excluded at >3\u03c3 for g_agamma \u2273 3\u00d710^-11 GeV^-1 for ALP masses below ~200-300 neV. The limit is mass-independent (flat) over the stated range, encoded as a horizontal line from 1 neV to 300 neV. Seven blazars used in joint likelihood analysis (MAGIC J2001+435 and PKS 1222+216 excluded due to flaring states). Limits are competitive with or better than leading terrestrial and astrophysical constraints in this mass range. No local DM density assumption applies (astrophysical/cosmological bound, not haloscope). Confidence level 95% (>3\u03c3 exclusion). | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.92, 2))",
+ "num_points": 2,
+ "elapsed_s": 80.388356924057
+}

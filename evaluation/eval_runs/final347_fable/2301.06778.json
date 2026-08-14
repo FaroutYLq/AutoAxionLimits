@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2301.06778",
+  "paper_title": "Searching for Low-Mass Axions using Resonant Upconversion",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.12e-06,
+      3e-06
+    ],
+    [
+      1.2e-06,
+      3e-06
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "UPLOAD",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "UPLOAD (UPconversion Low-Noise Oscillator Axion Detection) room-temperature resonant AC haloscope. Measured 95% CL exclusion of axions with mass 1.12-1.20 ueV (271.7-290.3 MHz beat frequency) above g_agamma (and equivalently g_aBB) of 3e-6 GeV^-1, from 30 days of power-technique data. Encoded as a flat bound over the stated mass range using the abstract's quoted coupling value; the actual exclusion curve (Fig. 7) has some frequency dependence not tabulated in text. The same numerical limit applies to the QEMD coupling g_aBB. Paper assumes standard virialized halo DM (v_rms = 226 km/s) but does not state a numerical local density, so dm_density_assumed left null. A projection for a future cryogenic niobium setup is also shown (blue dashed line in Fig. 7) but the primary result is the measured limit. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.75, 2))",
+  "num_points": 2,
+  "elapsed_s": 113.19931602478027
+}

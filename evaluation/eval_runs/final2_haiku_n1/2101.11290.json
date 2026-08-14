@@ -1,0 +1,54 @@
+{
+ "arxiv_id": "2101.11290",
+ "paper_title": "Constraints on the Coupling between Axionlike Dark Matter and Photons Using an Antiproton Superconducting Tuned Detection Circuit in a Cryogenic Penning Trap",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.7906e-09,
+   1.2e-11
+  ],
+  [
+   2.7907e-09,
+   1.15e-11
+  ],
+  [
+   2.7908e-09,
+   1.1e-11
+  ],
+  [
+   2.7909e-09,
+   1.05e-11
+  ],
+  [
+   2.791e-09,
+   1e-11
+  ],
+  [
+   2.7911e-09,
+   9.8e-12
+  ],
+  [
+   2.7912e-09,
+   9.6e-12
+  ],
+  [
+   2.7913e-09,
+   9.5e-12
+  ],
+  [
+   2.7914e-09,
+   9.6e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "BASE (Baryon Antibaryon Symmetry Experiment) at CERN",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis",
+ "notes": "Paper reports a measured exclusion limit on axion-like particle (ALP) coupling to photons using the BASE Penning trap experiment at CERN. The limit g_agamma < 1 \u00d7 10^-11 GeV^-1 applies to ALPs with masses in the narrow range 2.7906\u20132.7914 neV/c^2 (converted to eV: 2.7906\u20132.7914 \u00d7 10^-9 eV). This is encoded as a horizontal line (mass-independent within the stated range). The experiment assumes standard halo dark matter density \u03c1_a = 0.4 GeV/cm^3. The limit is set at 95% confidence level using power-constrained likelihood analysis. This represents the first laboratory constraint in this particular mass-coupling region, complementing astrophysical observations from Fermi-LAT and CAST. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 9)) | Vision: Figure 3(a) shows the 95% confidence exclusion region for ALP-photon coupling g_agamma measured with the antiproton Penning trap detector. The x-axis spans a narrow mass range 2.7906\u20132.7914 neV/c\u00b2 (converted from neV/c\u00b2 to eV: multiply by 1e-9). The y-axis is logarithmic in g_agamma [GeV^-1], ranging from 1e-12 to 1e-9. The lower boundary of the red exclusion region (BASE constraint) is traced from left to right. The constraint reaches its minimum coupling around 2.791 neV, where g_agamma \u2248 1.0e-11 GeV^-1, consistent with the abstract statement. The boundary shows a shallow V-shape with the tightest constraint near the center of the mass range. Sampling is denser near the minimum (around 2.791 neV) where the slope changes, and sparser at the edges where the boundary is nearly flat. The dark matter density \u03c1_a = 0.4 GeV/cm\u00b3 is assumed per the paper's analysis (Eq. 8). The coupling values are read directly from the plotted exclusion region without any transformation. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.10 snapped to identity)",
+ "num_points": 9,
+ "elapsed_s": 138.91101789474487
+}

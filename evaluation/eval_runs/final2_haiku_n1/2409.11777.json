@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2409.11777",
+ "paper_title": "First search for axion dark matter with a Madmax prototype",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   7.656e-05,
+   2e-11
+  ],
+  [
+   7.682e-05,
+   2e-11
+  ],
+  [
+   7.931e-05,
+   2e-11
+  ],
+  [
+   7.953e-05,
+   2e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "MADMAX_CB200",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "First axion dark matter search with a dielectric haloscope prototype (MADMAX CB200). The paper reports 95% CL upper limits on axion-photon coupling |g_a\u03b3| \u2248 2\u00d710^-11 GeV^-1 in two mass ranges: 76.56\u201376.82 \u03bceV (Configuration 1, centered at 76.72 \u03bceV) and 79.31\u201379.53 \u03bceV (Configuration 2, centered at 79.45 \u03bceV). Data extracted from abstract and main text. The limit is mass-dependent across the narrow frequency ranges scanned; four representative points encode the two mass windows. Local axion DM density \u03c1_a = 0.3 GeV/cm\u00b3 assumed per abstract. No axion signal detected over 14.5 days of data collection. Systematic uncertainties on |g_a\u03b3| range from 5% to 10% (Table I). The experiment uses a 1.6 T Morpurgo magnet at CERN with three sapphire disks and a mirror in a dielectric haloscope configuration. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.92, 4))",
+ "num_points": 4,
+ "elapsed_s": 320.4383490085602
+}

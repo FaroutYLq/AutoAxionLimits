@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "0809.4700",
+  "paper_title": "Limits on new long range nuclear spin-dependent forces set with a K-3He co-magnetometer",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-10,
+      5.8e-10
+    ],
+    [
+      3.9e-07,
+      5.8e-10
+    ],
+    [
+      1e-06,
+      7.5e-09
+    ],
+    [
+      2e-06,
+      9.5e-08
+    ],
+    [
+      3e-06,
+      1.3e-06
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "K-3He_Comagnetometer_Princeton2009",
+  "coupling_convention": "(g_p^n)^2/(4pi), dimensionless (neutron pseudoscalar coupling squared over 4pi)",
+  "notes": "Fig.4 shows limit on (g_p^n)^2/(4pi) vs pseudoscalar boson mass (x-axis in meV). Massless value (g_p^n)^2/(4pi)<5.8e-10 is the robust reported number; flat below m~4e-7 eV (range set by 50 cm distance) then rises exponentially. Rising points are digitized approximations from the exp(mr) behavior. Values emitted are the paper's (g_p^n)^2/(4pi), NOT converted to dimensionless g_an; downstream must take sqrt(4pi*value) to get g_an. This is a spin-spin (dipole-dipole) force between neutrons via a pseudoscalar; also reports vector/torsion/unparticle bounds (Table I) not extracted here. Laboratory force search, not a DM haloscope, so no local density assumed. 1-sigma limit reported. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 5,
+  "elapsed_s": 52.64543890953064
+}

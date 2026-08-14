@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2012.10764",
+  "paper_title": "First Results from Axion Haloscope at CAPP around 10.7 $\u03bc$eV",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.016e-05,
+      3.6e-14
+    ],
+    [
+      1.077e-05,
+      3.83e-14
+    ],
+    [
+      1.137e-05,
+      4.04e-14
+    ],
+    [
+      1.07126e-05,
+      4.23e-15
+    ],
+    [
+      1.07186e-05,
+      4.23e-15
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "CAPP-PACE",
+  "coupling_convention": "g_agamma in GeV^-1 (derived from stated KSVZ / 9xKSVZ sensitivity)",
+  "notes": "Axion haloscope (CAPP-PACE). Paper reports exclusion in two regions: 10.7126-10.7186 ueV at near-KSVZ coupling sensitivity, and 10.16-11.37 ueV at ~8-10 (nominal 9) times KSVZ coupling, both 90% CL. No numerical g_agamma table given; values computed from KSVZ scaling g_KSVZ ~ 3.95e-16 * m_a[ueV] GeV^-1 and multiplied by ~9 for the wide-range points. Local DM density 0.45 GeV/cm^3 as stated. First three points are the 9xKSVZ line; last two are the near-KSVZ narrow window. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 14.4 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 5,
+  "elapsed_s": 108.74029493331909
+}

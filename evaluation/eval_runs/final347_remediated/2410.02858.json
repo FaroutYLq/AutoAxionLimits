@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "2410.02858",
+  "paper_title": "Constraints on dark photon dark matter from Lyman-$\u03b1$ forest simulations and an ultra-high signal-to-noise quasar spectrum",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      7.08e-14,
+      1e-14
+    ],
+    [
+      1.26e-13,
+      6.3e-15
+    ],
+    [
+      2.24e-13,
+      5e-15
+    ],
+    [
+      3.98e-13,
+      8e-15
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "Lyman-alpha_HE0940-1050",
+  "coupling_convention": "dimensionless kinetic mixing epsilon (= chi)",
+  "notes": "Cosmological/astrophysical bound on dark photon DM kinetic mixing from Lyman-alpha forest heating (VLT/UVES quasar HE0940-1050 + hydro simulations). 95% CL limits shown in Fig. 7 vs dark photon mass. Constraints only apply to intermediate masses (log10(mA'/eV) between about -13.15 and -12.40); low-mass (-13.4) and high-mass (>=-12.15) models are unconstrained within the simulated parameter grid. Numerical epsilon values estimated from figures (no data table given); masses converted from log10(mA'/eV c^-2). DM assumed to be entirely dark photons but this is not a haloscope so no local density assumed. Best-fit model of Ref[41] (mA'=8e-14 eV, eps=5e-15) is allowed at 95% CL. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.5, 4))",
+  "num_points": 4,
+  "elapsed_s": 147.89799404144287
+}

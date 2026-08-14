@@ -1,0 +1,122 @@
+{
+  "arxiv_id": "2504.07559",
+  "paper_title": "Axion dark matter search from terrestrial magnetic fields at extremely low frequencies",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.8e-15,
+      3e-11
+    ],
+    [
+      2e-15,
+      1.3e-11
+    ],
+    [
+      2.5e-15,
+      9e-12
+    ],
+    [
+      3e-15,
+      8e-12
+    ],
+    [
+      4e-15,
+      9e-12
+    ],
+    [
+      5e-15,
+      6e-12
+    ],
+    [
+      6e-15,
+      5e-12
+    ],
+    [
+      8e-15,
+      5e-12
+    ],
+    [
+      1e-14,
+      4e-12
+    ],
+    [
+      1.3e-14,
+      2.5e-12
+    ],
+    [
+      1.6e-14,
+      1.2e-12
+    ],
+    [
+      2e-14,
+      7e-13
+    ],
+    [
+      2.5e-14,
+      5e-13
+    ],
+    [
+      3e-14,
+      4e-13
+    ],
+    [
+      3.5e-14,
+      3.8e-13
+    ],
+    [
+      4e-14,
+      4e-13
+    ],
+    [
+      5e-14,
+      4.5e-13
+    ],
+    [
+      6e-14,
+      5e-13
+    ],
+    [
+      7e-14,
+      6e-13
+    ],
+    [
+      8e-14,
+      9e-13
+    ],
+    [
+      9e-14,
+      1.5e-12
+    ],
+    [
+      1e-13,
+      3e-12
+    ],
+    [
+      1.1e-13,
+      7e-12
+    ],
+    [
+      1.2e-13,
+      2e-11
+    ],
+    [
+      1.35e-13,
+      8e-11
+    ],
+    [
+      1.5e-13,
+      5e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "Eskdalemuir ELF geomagnetic axion search",
+  "coupling_convention": "canonical g_agamma in GeV^-1, as plotted on y-axis",
+  "notes": "Axion-photon coupling search using terrestrial ELF magnetic field data (0.3-30 Hz, ma 1e-15 to 1e-13 eV) at Eskdalemuir observatory. Main result in Fig. 6 (95% CL). Only two anchor values are explicitly quoted in text: g_agamma <~ 4e-13 GeV^-1 at ma ~3e-14 eV (tightest, Schumann first peak ~7.8 Hz) and g_agamma <~ 1.3e-11 GeV^-1 at 0.2630 Hz (ma ~1.1e-15 eV). Full curve only available as figure; digitized data not extractable from text. rho_DM = 0.3 GeV/cm^3 assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 26)) | Vision: FIG. 6 constraint (95% CL) on g_agamma from terrestrial magnetic field data at Eskdalemuir observatory. Traced the lower boundary of the blue 'This work' region (excluded above). Region spans f=0.43-43.9 Hz -> m_a~1.8e-15 to 1.8e-13 eV. Tightest limit ~4e-13 GeV^-1 near m_a~3e-14 eV (text: ~2 orders below CAST). CAST horizontal line ~6e-11 GeV^-1. Curve is jagged/spiky in the real plot; values are envelope estimates of the lower boundary. Other overlaid regions (SuperMAG, SNIPE, Planck+unWISE, CAST, Chandra) excluded from this trace. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.75 snapped to identity)",
+  "num_points": 26,
+  "elapsed_s": 186.6993670463562
+}

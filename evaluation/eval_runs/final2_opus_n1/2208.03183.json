@@ -1,0 +1,22 @@
+{
+ "arxiv_id": "2208.03183",
+ "paper_title": "SQMS",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   5.354e-06,
+   1.5e-16
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "SQMS_SERAPH",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "Nontunable SRF cavity (SERAPH/SQMS) proof-of-concept dark photon dark matter search at 1.2946 GHz. Single mass point at mA'=5.354 ueV with chi_90% = 1.5e-16. The exclusion actually spans a narrow range of ~14 peV around this mass (Fig 3) due to convolution with DM line shape, but the paper's headline result is the single quoted value. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.92, 1))",
+ "num_points": 1,
+ "elapsed_s": 165.85454201698303
+}

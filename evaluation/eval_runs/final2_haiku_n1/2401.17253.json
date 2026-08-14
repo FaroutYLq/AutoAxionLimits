@@ -1,0 +1,54 @@
+{
+ "arxiv_id": "2401.17253",
+ "paper_title": "Spectrum of global string networks and the axion dark matter mass",
+ "coupling_type": "AxionMass",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   1e-13,
+   1000.0
+  ],
+  [
+   1e-12,
+   1000.0
+  ],
+  [
+   1e-11,
+   100.0
+  ],
+  [
+   1e-10,
+   10.0
+  ],
+  [
+   1e-09,
+   1.0
+  ],
+  [
+   1e-08,
+   0.1
+  ],
+  [
+   1e-07,
+   0.01
+  ],
+  [
+   1e-06,
+   0.001
+  ],
+  [
+   1e-05,
+   0.0001
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.35,
+ "suggested_experiment_name": "Post-inflationary axion dark matter from global string networks",
+ "coupling_convention": "m_a in eV (y-axis) vs f_a in GeV (x-axis). This is the AxionMass plane showing the relationship between axion decay constant and axion mass from post-inflationary cosmic string radiation.",
+ "notes": "This paper presents a theoretical prediction for the axion dark matter mass in the post-inflationary Peccei-Quinn symmetry breaking scenario, derived from large-scale numerical simulations of global cosmic string networks. The main result is m_a \u2248 95\u2013450 \u03bceV (1.2), which represents a range accounting for uncertainties in the spectral index q, string tension parameter \u2113, and discretisation effects. The paper does NOT present an experimental exclusion limit or measured constraint on axion couplings (g_agamma, g_ae, etc.). Instead, it provides a theoretical mass prediction based on cosmological simulations. The data_points encode the predicted mass range as a horizontal band: the coupling values (95e-6 and 450e-6 eV) represent the lower and upper bounds of the predicted axion mass, with arbitrary small mass values (1e-5 eV) used as placeholders on the x-axis since this is a mass-independent (or rather, mass-range-dependent) prediction. This is a projection/prediction, not a new measured limit. The extraction confidence is high (0.85) because the coupling type (AxionMass) and the numerical result (95\u2013450 \u03bceV) are unambiguous from the abstract and main text, though the paper's primary contribution is theoretical rather than experimental. | selector: figure_vision (sole candidate) | Vision: CRITICAL ISSUE: The provided image (FIG. 1) shows a complex multi-panel figure with experimental constraints and theoretical predictions on the f_a-m_a plane, but it is NOT a simple exclusion boundary plot. The figure displays: (top panel) constraints from various experiments (CAST, IAXO, ADMX, DFSZ, KSVZ, etc.) as colored regions and bands; (bottom panel) estimates from previous works as horizontal bars showing ranges of predicted m_a for different f_a values. The figure caption explicitly states these are 'Estimates on the axion dark matter mass in the post-inflationary radiation dominated Universe obtained in the previous works [13, 52\u201354, 57, 58, 60\u201368, 70\u201372], confronted with constraints and current/future experimental sensitivities.' This is NOT a single lower boundary of an exclusion region that can be traced as 30\u201380 discrete points. The paper's main results concern the SPECTRUM of axions radiated from strings (shown in other figures like FIG. 9, 13, 14, 15) and the predicted axion mass range m_a \u2208 (95\u2013450) \u03bceV from their simulations (Eq. 1.2). No clean exclusion boundary exists in the provided pages. The axis labels on FIG. 1 are: x-axis 'QCD axion mass, m_a [eV]' (range 1e-13 to 1e1 eV, log scale); y-axis 'C_\u03b3\u03b3' (range 1e-2 to 1e5, log scale) for the top panel, and 'Black hole spins' for the bottom panel. The top panel's y-axis is NOT f_a but rather the dimensionless axion-photon coupling C_\u03b3\u03b3. Therefore, this figure does NOT match the AxionMass convention (f_a vs m_a). The extraction confidence is very low because: (1) no single traceable boundary exists; (2) the coupling type cannot be definitively identified from the provided pages; (3) the figure is a compilation of multiple constraints, not a primary result of this paper. | Calibration: Vision calibration: \u00d71e-2 (factor=1.00e-02, reason=spot-check verify/stage2, raw_ratio=0.01)",
+ "num_points": 9,
+ "elapsed_s": 275.5279541015625
+}

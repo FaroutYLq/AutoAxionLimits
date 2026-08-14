@@ -1,0 +1,158 @@
+{
+ "arxiv_id": "2209.12901",
+ "paper_title": "Discovering QCD-Coupled Axion Dark Matter with Polarization Haloscopes",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   1e-07,
+   1.2e-10
+  ],
+  [
+   1.2e-07,
+   1.15e-10
+  ],
+  [
+   1.5e-07,
+   1.1000000000000001e-10
+  ],
+  [
+   2e-07,
+   1.05e-10
+  ],
+  [
+   2.5e-07,
+   9.999999999999999e-11
+  ],
+  [
+   3e-07,
+   9.5e-11
+  ],
+  [
+   4e-07,
+   9e-11
+  ],
+  [
+   5e-07,
+   8.499999999999999e-11
+  ],
+  [
+   6e-07,
+   8e-11
+  ],
+  [
+   7e-07,
+   7.6e-11
+  ],
+  [
+   8e-07,
+   7.2e-11
+  ],
+  [
+   9e-07,
+   6.9e-11
+  ],
+  [
+   1e-06,
+   6.500000000000001e-11
+  ],
+  [
+   1.2e-06,
+   6.1e-11
+  ],
+  [
+   1.5e-06,
+   5.6e-11
+  ],
+  [
+   2e-06,
+   5.1e-11
+  ],
+  [
+   2.5e-06,
+   4.7e-11
+  ],
+  [
+   3e-06,
+   4.3e-11
+  ],
+  [
+   4e-06,
+   3.6e-11
+  ],
+  [
+   5e-06,
+   3.1e-11
+  ],
+  [
+   6e-06,
+   2.6999999999999997e-11
+  ],
+  [
+   7e-06,
+   2.3999999999999998e-11
+  ],
+  [
+   8e-06,
+   2.1e-11
+  ],
+  [
+   9e-06,
+   1.9e-11
+  ],
+  [
+   1e-05,
+   1.7e-11
+  ],
+  [
+   1.2e-05,
+   1.5e-11
+  ],
+  [
+   1.5e-05,
+   1.2999999999999999e-11
+  ],
+  [
+   2e-05,
+   1.0999999999999999e-11
+  ],
+  [
+   2.5e-05,
+   9.5e-12
+  ],
+  [
+   3e-05,
+   8.2e-12
+  ],
+  [
+   4e-05,
+   6.499999999999999e-12
+  ],
+  [
+   5e-05,
+   5.2000000000000005e-12
+  ],
+  [
+   6e-05,
+   4.3e-12
+  ],
+  [
+   8e-05,
+   2.9999999999999997e-12
+  ],
+  [
+   0.0001,
+   2.2e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Polarization Haloscope (ADMX-style cavity with nuclear spin polarization)",
+ "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis (canonical axion-photon coupling)",
+ "notes": "This paper is a PROPOSAL/THEORY paper presenting projected sensitivities for a novel 'polarization haloscope' concept, NOT a measured exclusion limit. Figure 2 shows three projected sensitivity curves (100 L prototype, hyperpolarized cubic meter, post-discovery upgrade) but these are FUTURE projections, not current experimental results. The paper constrains the axion-photon coupling indirectly through the axion-gluon coupling (QCD axion), but the primary physics is the axion-induced nuclear EDM effect in polarized dielectrics. The y-axis of Fig. 2 is labeled '1/f_a (GeV^-1)', which is the inverse decay constant. To convert to g_agamma in GeV^-1, one would use the DFSZ relation g_agamma \u2243 0.87 \u00d7 10^-3 / f_a (stated in text), but since no actual measured data points are extracted from the figure (it shows only projected sensitivity bands), and the paper explicitly states these are 'projected sensitivity' curves for future experiments, no data_points can be reliably extracted. The local DM density \u03c1_DM \u2243 0.4 GeV/cm\u00b3 is stated in Eq. (3) and used throughout. The paper does NOT present a NEW measured limit\u2014it is a design study and sensitivity projection for a future detector concept. | selector: figure_vision (sole candidate) | Vision: Figure 2 shows projected sensitivity for three benchmark polarization haloscope setups. The lower boundary traced is the 'Post-Discovery Upgrade' projection (dashed blue line), which represents the most sensitive configuration discussed. The plot also shows existing constraints from SN 1987A, the Sun, CAST, IAXO, and ADMX. The y-axis is labeled '1/f_a (GeV^-1)' which is the inverse of the axion decay constant; this is equivalent to g_agamma in the standard convention for QCD axions. The x-axis is axion mass m_a in eV on a logarithmic scale. The exclusion region is above the boundary (higher coupling/lower f_a values are excluded). Sampling density increased near the kink around 1e-6 eV where the boundary changes slope. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=3.49)",
+ "num_points": 35,
+ "elapsed_s": 156.41139388084412
+}

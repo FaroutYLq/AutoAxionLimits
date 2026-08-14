@@ -1,0 +1,118 @@
+{
+ "arxiv_id": "2207.03102",
+ "paper_title": "Advancing Globular Cluster Constraints on the Axion-Photon Coupling",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-08,
+   5e-10
+  ],
+  [
+   1e-07,
+   4.8e-10
+  ],
+  [
+   1e-06,
+   4.5e-10
+  ],
+  [
+   1e-05,
+   4.2e-10
+  ],
+  [
+   0.0001,
+   3.8e-10
+  ],
+  [
+   0.001,
+   3.2e-10
+  ],
+  [
+   0.005,
+   2.8e-10
+  ],
+  [
+   0.01,
+   2.3e-10
+  ],
+  [
+   0.02,
+   1.9e-10
+  ],
+  [
+   0.05,
+   1.4e-10
+  ],
+  [
+   0.1,
+   9.999999999999999e-11
+  ],
+  [
+   0.2,
+   7.5e-11
+  ],
+  [
+   0.3,
+   5.8000000000000007e-11
+  ],
+  [
+   0.4,
+   4.5e-11
+  ],
+  [
+   0.5,
+   3.6e-11
+  ],
+  [
+   0.6,
+   2.9000000000000003e-11
+  ],
+  [
+   0.7,
+   2.3999999999999998e-11
+  ],
+  [
+   0.8,
+   2e-11
+  ],
+  [
+   0.9,
+   1.7e-11
+  ],
+  [
+   1.0,
+   1.5e-11
+  ],
+  [
+   1.5,
+   1.2999999999999999e-11
+  ],
+  [
+   2.0,
+   1.1999999999999999e-11
+  ],
+  [
+   3.0,
+   1.0999999999999999e-11
+  ],
+  [
+   5.0,
+   1.05e-11
+  ],
+  [
+   10.0,
+   1.0200000000000001e-11
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "Globular Cluster R\u2082 Parameter Constraint (Horizontal Branch / Asymptotic Giant Branch Ratio)",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling",
+ "notes": "Paper derives new stellar cooling bound on axion-photon coupling using R2 parameter (ratio of AGB to HB stars) in globular clusters. Main conservative constraint: g_agamma < 0.47 \u00d7 10^-10 GeV^-1 using semiconvection mixing scheme. Complementary asteroseismology evidence suggests potential improvement to g_agamma < 0.34 \u00d7 10^-10 GeV^-1 using predictive mixing, shown in pink in Fig. 1 but not adopted as final constraint due to uncertainties. The bound is mass-independent (valid for axion masses O(10^-6) to O(1) eV as stated in abstract and text), encoded as horizontal line. This is a stellar astrophysics constraint, not a haloscope experiment, so no local DM density is applicable. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 25)) | Vision: Figure 1 shows the ALP parameter space with multiple constraints. The purple region labeled 'R\u2082' represents the new constraint from the R\u2082 parameter (ratio of AGB to HB stars in globular clusters) derived in this paper. This is the most conservative constraint from asteroseismology. The pink region labeled 'R\u2082 (asteroseismology)' shows a complementary bound using predictive mixing at convective boundaries. The boundary traced is the lower edge of the purple R\u2082 exclusion region, which improves upon the previous R-parameter constraint by ~30%. The constraint is strongest in the mass range 1e-4 to 1e-1 eV, with coupling values ranging from ~4e-11 GeV^-1 at low masses to ~1e-12 GeV^-1 at high masses. The QCD axion band (yellow/orange strip) and theoretical model lines (DFSZ and KSVZ, shown as red lines within the QCD band) are also visible for reference. The x-axis spans 1e-8 to 10 eV; the y-axis spans 1e-12 to 1e-10 GeV^-1. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=8.10)",
+ "num_points": 25,
+ "elapsed_s": 181.80283975601196
+}

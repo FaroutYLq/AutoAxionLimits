@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2110.10262",
+ "paper_title": "Dark Matter Axion Search Using a Josephson Traveling Wave Parametric Amplifier",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.984e-05,
+   1e-13
+  ],
+  [
+   1.984e-05,
+   1e-09
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "ADMX_JTWPA_Sidecar",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper presents first JTWPA implementation in axion dark matter search. Exclusion bound stated as g_agamma > 10^-13 GeV^-1 over frequency range 4796.7\u20134799.5 MHz, corresponding to axion mass ~19.84 \u00b5eV (1.984e-5 eV). Figure 7 shows the exclusion limit plot with both DFSZ and KSVZ models. The limit assumes axion dark matter density of 0.45 GeV/cm^3 (equal to total dark matter density at Earth). Data acquired over ~2 weeks with 0.588-liter sidecar cavity. The narrow frequency range was due to a sticking tuning rod. Two-point encoding represents the vertical extent of the exclusion (from ~10^-13 to ~10^-9 GeV^-1 based on Figure 7) at the single measured mass of 19.84 \u00b5eV. | selector: text (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 100.2063889503479
+}

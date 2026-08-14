@@ -1,0 +1,46 @@
+{
+ "arxiv_id": "1607.06083",
+ "paper_title": "Searching for axion-like particles with ultra-peripheral heavy-ion collisions",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": true,
+ "data_points": [
+  [
+   5000000000.0,
+   0.0002
+  ],
+  [
+   10000000000.0,
+   0.00012
+  ],
+  [
+   20000000000.0,
+   6e-05
+  ],
+  [
+   40000000000.0,
+   3e-05
+  ],
+  [
+   60000000000.0,
+   2.5e-05
+  ],
+  [
+   80000000000.0,
+   2.2e-05
+  ],
+  [
+   100000000000.0,
+   2e-05
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "LHC_PbPb_UPC_ALP",
+ "coupling_convention": "1/Lambda in GeV^-1 (aFFtilde operator with L = -(1/4)(a/Lambda)F Ftilde); note g_agamma = 1/Lambda in this normalization",
+ "notes": "Projected sensitivity from ultra-peripheral Pb-Pb collisions (1 nb^-1) for the aFFtilde operator. Values are 1/Lambda in GeV^-1 read approximately from Fig. 4 (no table available). The coupling normalization L=-(1/4)(a/Lambda)FFtilde means 1/Lambda equals g_agamma. Data points are rough estimates from the log-linear axis. Paper also reports recast limits from LEPII/LHC and a projected B-Btilde operator result, but the main new sensitivity is this projection. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.5, 7))",
+ "num_points": 7,
+ "elapsed_s": 156.78132319450378
+}

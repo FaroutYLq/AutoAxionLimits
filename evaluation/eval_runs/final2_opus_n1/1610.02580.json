@@ -1,0 +1,146 @@
+{
+ "arxiv_id": "1610.02580",
+ "paper_title": "First results from a microwave cavity axion search at 24 micro-eV",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.353e-05,
+   7e-14
+  ],
+  [
+   2.354e-05,
+   4.5e-14
+  ],
+  [
+   2.3548e-05,
+   2.9e-14
+  ],
+  [
+   2.3555e-05,
+   2.5e-14
+  ],
+  [
+   2.3562e-05,
+   2.3e-14
+  ],
+  [
+   2.357e-05,
+   2.1e-14
+  ],
+  [
+   2.3578e-05,
+   1.95e-14
+  ],
+  [
+   2.3585e-05,
+   2.1e-14
+  ],
+  [
+   2.359e-05,
+   7e-14
+  ],
+  [
+   2.36e-05,
+   2e-14
+  ],
+  [
+   2.362e-05,
+   2e-14
+  ],
+  [
+   2.365e-05,
+   1.9e-14
+  ],
+  [
+   2.368e-05,
+   1.9e-14
+  ],
+  [
+   2.37e-05,
+   1.9e-14
+  ],
+  [
+   2.372e-05,
+   1.85e-14
+  ],
+  [
+   2.374e-05,
+   1.8e-14
+  ],
+  [
+   2.3755e-05,
+   1.55e-14
+  ],
+  [
+   2.376e-05,
+   1.9e-14
+  ],
+  [
+   2.378e-05,
+   1.85e-14
+  ],
+  [
+   2.38e-05,
+   1.9e-14
+  ],
+  [
+   2.382e-05,
+   1.95e-14
+  ],
+  [
+   2.385e-05,
+   2e-14
+  ],
+  [
+   2.388e-05,
+   2.05e-14
+  ],
+  [
+   2.39e-05,
+   2.05e-14
+  ],
+  [
+   2.392e-05,
+   2.1e-14
+  ],
+  [
+   2.394e-05,
+   2.15e-14
+  ],
+  [
+   2.396e-05,
+   2.3e-14
+  ],
+  [
+   2.397e-05,
+   2.5e-14
+  ],
+  [
+   2.398e-05,
+   2.9e-14
+  ],
+  [
+   2.399e-05,
+   3.5e-14
+  ],
+  [
+   2.4e-05,
+   5.5e-14
+  ],
+  [
+   2.401e-05,
+   7e-14
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "HAYSTAC (Phase 1)",
+ "coupling_convention": "|g_agamma| in units of 10^-14 GeV^-1, emitted as absolute GeV^-1",
+ "notes": "First HAYSTAC results. Excludes |g_agamma| >~ 2e-14 GeV^-1 over 23.55 < m_a < 24.0 ueV at 90% CL. Limit varies slightly with frequency per Fig. 3 but text gives an average value of ~2e-14 GeV^-1 (|g_gamma| >~ 2.3 x KSVZ). Encoded as a two-point horizontal line spanning the stated mass range. Local DM density rho_a = 0.45 GeV/cm^3. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 32)) | Vision: HAYSTAC first results microwave cavity axion search at 24 ueV. Main plot g_agamma vs m_a in 10^-14 GeV^-1. Boundary traced along green 'This work' curve (~2e-14 across most of range) with rising edges at band boundaries and injected signal notches. KSVZ dashed line at ~0.88e-14, DFSZ at ~0.33e-14. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.04 snapped to identity)",
+ "num_points": 32,
+ "elapsed_s": 152.35085487365723
+}

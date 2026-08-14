@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "hep-ph/0611223",
+  "paper_title": "TorsionBalance",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.001,
+      1.6e-17
+    ],
+    [
+      0.0015,
+      1.6e-17
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.45,
+  "suggested_experiment_name": "EotWash_ISL2007",
+  "coupling_convention": "g_phigammagamma in GeV^-1 (scalar boson-two-photon coupling, PVLAS-type scalar)",
+  "notes": "This Eot-Wash torsion-balance ISL paper (Adelberger et al. 2007, hep-ph/0611223) derives MULTIPLE new constraints from the Kapner et al. ISL data: (1) vector Yukawa interactions coupled to B-L (Fig. 1, VectorBL candidate, but only graphical - no numerical values readable); (2) scalar phi-gamma-gamma coupling testing the PVLAS interpretation, with the only explicit numerical limit in the text: g_phigammagamma <~ 1.6e-17 GeV^-1 at the PVLAS-preferred mass 1.0-1.5 meV (95% CL), improving astrophysical bounds for m <= 20 meV; (3) gamma5 pseudoscalar-neutron couplings (Fig. 5, graphical only, in (g_P^n)^2/(4pi) convention, second-order two-boson exchange - not standard g_an); (4) chameleon, radion, dilaton, fat-graviton, and power-law constraints (Table I gives beta_k, not a supported coupling type). Coupling type is ambiguous between VectorBL (main Fig. 1 exclusion plot mentions B-L explicitly) and the scalar-photon coupling; I emitted the phi-gamma-gamma bound because it is the only explicit number extractable, but flag as scalar (not pseudoscalar ALP). The pre-analysis hint of ScalarNucleon refers to the underlying Yukawa alpha-lambda limit, whose numerical data resides in the companion paper Ref.[1] (Kapner et al.), not here. Confidence <=0.5 due to multi-coupling ambiguity. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 13.6 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 2,
+  "elapsed_s": 226.30285501480103
+}

@@ -1,0 +1,146 @@
+{
+ "arxiv_id": "2104.12772",
+ "paper_title": "No evidence for axions from Chandra observation of magnetic white dwarf",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-11,
+   5.5e-14
+  ],
+  [
+   3e-11,
+   5.5e-14
+  ],
+  [
+   1e-10,
+   5.5e-14
+  ],
+  [
+   3e-10,
+   5.5e-14
+  ],
+  [
+   1e-09,
+   5.5e-14
+  ],
+  [
+   3e-09,
+   5.5e-14
+  ],
+  [
+   1e-08,
+   5.5e-14
+  ],
+  [
+   3e-08,
+   5.5e-14
+  ],
+  [
+   1e-07,
+   5.5e-14
+  ],
+  [
+   3e-07,
+   5.600000000000001e-14
+  ],
+  [
+   6e-07,
+   5.799999999999999e-14
+  ],
+  [
+   1e-06,
+   6.2e-14
+  ],
+  [
+   2e-06,
+   7.500000000000001e-14
+  ],
+  [
+   3e-06,
+   9.5e-14
+  ],
+  [
+   4e-06,
+   1.3e-13
+  ],
+  [
+   5e-06,
+   1.8000000000000002e-13
+  ],
+  [
+   6e-06,
+   2.5e-13
+  ],
+  [
+   8e-06,
+   3.8e-13
+  ],
+  [
+   1e-05,
+   5e-13
+  ],
+  [
+   1.5e-05,
+   6.500000000000001e-13
+  ],
+  [
+   2e-05,
+   7.5e-13
+  ],
+  [
+   3e-05,
+   9.5e-13
+  ],
+  [
+   4e-05,
+   1.2000000000000001e-12
+  ],
+  [
+   6e-05,
+   1.7e-12
+  ],
+  [
+   0.0001,
+   2.6000000000000002e-12
+  ],
+  [
+   0.0002,
+   4.8000000000000005e-12
+  ],
+  [
+   0.0003,
+   7.000000000000001e-12
+  ],
+  [
+   0.0005,
+   1.1e-11
+  ],
+  [
+   0.001,
+   2.1000000000000002e-11
+  ],
+  [
+   0.002,
+   4.0000000000000004e-11
+  ],
+  [
+   0.005,
+   9.500000000000001e-11
+  ],
+  [
+   0.01,
+   1.8e-10
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "RE J0317-853 (Chandra MWD)",
+ "coupling_convention": "g_agamma in GeV^-1 (plotted as |g_agamma|)",
+ "notes": "MWD X-ray observation. Primary result is limit on product g_aee*g_agamma < 1.3e-25 GeV^-1 for m_a << 5e-6 eV. Translated to g_agamma <= 5.5e-13 sqrt(C_agamma/C_aee) GeV^-1 for C_aee=C_agamma scenario. Encoded as flat horizontal line over m_a range ~1e-11 to 5e-6 eV where limit applies. Note: paper's fundamental measured quantity is the product coupling; the g_agamma value assumes tree-level C_aee=C_agamma. Could alternatively be reported as AxionElectron. W-phobic loop-induced case gives weaker limit ~4.4e-11 GeV^-1. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 32)) | Vision: Traced the red 'RE J0317-853 (this work)' boundary for the C_aee = C_agamma scenario (green band). Flat at ~5.5e-13 GeV^-1 for m_a < 1e-6 eV, then rising toward higher masses. Text states g_agamma < 5.5e-13 sqrt(C_agamma/C_aee) GeV^-1 for m_a < 5e-6 eV. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.22)",
+ "num_points": 32,
+ "elapsed_s": 223.65501523017883
+}

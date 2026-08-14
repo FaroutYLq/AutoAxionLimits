@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2302.10206",
+ "paper_title": "Axion Star Explosions: A New Source for Axion Indirect Detection",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-14,
+   1e-14
+  ],
+  [
+   1e-08,
+   1e-14
+  ],
+  [
+   1e-08,
+   1e-10
+  ],
+  [
+   1e-14,
+   1e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "AxionStarExplosions_Planck2023",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Cosmological/indirect constraint from axion star explosions reionizing the IGM, compared to Planck Thomson optical depth. Excluded region approximately bounded by 1e-14 eV < m_a < 1e-8 eV and 1e-14 GeV^-1 < g_agamma < 1e-10 GeV^-1 for the benchmark alpha=2/5 model (Figure 3). Only abstract-level bounding-box values available; the actual exclusion contour has a nontrivial shape not extractable numerically from the text. Not a haloscope so no DM density flag set. The four points encode the corners of the stated exclusion box, not the true contour. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.5, 4))",
+ "num_points": 4,
+ "elapsed_s": 217.09113907814026
+}

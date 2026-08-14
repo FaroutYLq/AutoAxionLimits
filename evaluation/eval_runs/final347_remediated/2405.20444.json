@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2405.20444",
+  "paper_title": "DarkEfield2",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.1e-07,
+      6e-15
+    ],
+    [
+      1.24e-06,
+      6e-13
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "DarkEfield2",
+  "coupling_convention": "dimensionless kinetic mixing epsilon",
+  "notes": "Dark E-Field Radio experiment, 50-300 MHz (0.21-1.24 ueV). 95% exclusion limit on kinetic mixing epsilon between 6e-15 (best) and 6e-13 (worst), with ragged structure tracking resonant modes of the shielded room. No numerical table provided; the two data points encode only the stated envelope range endpoints (best sensitivity ~6e-15 at low mass, ~6e-13 at high mass). Actual limit curve is jagged (Fig 11/12) and not fully recoverable from text. rho_DM = 0.45 GeV/cm^3. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.6, 2))",
+  "num_points": 2,
+  "elapsed_s": 75.73027682304382
+}

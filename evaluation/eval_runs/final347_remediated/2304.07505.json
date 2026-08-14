@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2304.07505",
+  "paper_title": "Search for galactic axions with a traveling wave parametric amplifier",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.28178e-05,
+      2.05e-14
+    ],
+    [
+      4.2819e-05,
+      2.05e-14
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "QUAX_TWPA2023",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "QUAX-agamma haloscope with TWPA at 10.353 GHz. Sets upper limit g_agamma < 2.05e-14 GeV^-1 (90% single-sided CL, power-constrained) over axion mass range 42.8178-42.8190 ueV. Figure 7 shows a series of blue bars spanning this narrow range near ~2e-14 GeV^-1; only the minimum value is given numerically in text, so data_points span the stated mass range at the minimum limit value. Local DM density assumed 0.45 GeV/cm^3, standard halo model. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+  "num_points": 2,
+  "elapsed_s": 79.9656240940094
+}

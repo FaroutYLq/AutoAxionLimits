@@ -1,0 +1,158 @@
+{
+  "arxiv_id": "2203.04332",
+  "paper_title": "Constraining Axion-Like Particles with HAWC Observations of TeV Blazars",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-11,
+      2.95e-11
+    ],
+    [
+      2e-11,
+      2.95e-11
+    ],
+    [
+      5e-11,
+      2.95e-11
+    ],
+    [
+      1e-10,
+      2.95e-11
+    ],
+    [
+      2e-10,
+      2.92e-11
+    ],
+    [
+      5e-10,
+      2.9e-11
+    ],
+    [
+      1e-09,
+      2.9e-11
+    ],
+    [
+      2e-09,
+      2.9e-11
+    ],
+    [
+      3e-09,
+      2.88e-11
+    ],
+    [
+      5e-09,
+      2.85e-11
+    ],
+    [
+      7e-09,
+      2.85e-11
+    ],
+    [
+      9e-09,
+      2.8e-11
+    ],
+    [
+      1.1e-08,
+      2.7e-11
+    ],
+    [
+      1.3e-08,
+      2.55e-11
+    ],
+    [
+      1.5e-08,
+      2.42e-11
+    ],
+    [
+      1.6e-08,
+      2.5e-11
+    ],
+    [
+      1.8e-08,
+      2.85e-11
+    ],
+    [
+      2e-08,
+      3e-11
+    ],
+    [
+      2.3e-08,
+      2.85e-11
+    ],
+    [
+      2.6e-08,
+      3.05e-11
+    ],
+    [
+      3e-08,
+      3e-11
+    ],
+    [
+      4e-08,
+      3e-11
+    ],
+    [
+      5e-08,
+      3e-11
+    ],
+    [
+      7e-08,
+      3e-11
+    ],
+    [
+      1e-07,
+      3e-11
+    ],
+    [
+      1.3e-07,
+      3.02e-11
+    ],
+    [
+      1.6e-07,
+      3.05e-11
+    ],
+    [
+      1.9e-07,
+      3.1e-11
+    ],
+    [
+      2.2e-07,
+      3.3e-11
+    ],
+    [
+      2.5e-07,
+      3.7e-11
+    ],
+    [
+      2.8e-07,
+      4.5e-11
+    ],
+    [
+      3.1e-07,
+      5.5e-11
+    ],
+    [
+      3.4e-07,
+      7e-11
+    ],
+    [
+      3.7e-07,
+      8.5e-11
+    ],
+    [
+      4e-07,
+      1e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "HAWC TeV Blazars (ALP)",
+  "coupling_convention": "g_agamma in GeV^-1 (y-axis plotted in units of 10^-11 GeV^-1; multiplier applied)",
+  "notes": "Astrophysical bound from HAWC/ACT observations of stacked TeV blazars via ALP-photon mixing. Main result: g_agamma > ~3e-11 GeV^-1 excluded at >3 sigma for ALP masses below ~200-300 neV (3e-7 eV). Encoded as an approximately flat horizontal exclusion line. Not a DM haloscope, so no local DM density assumption. Exclusion stated at >3 sigma level (not standard 90/95% CL); 0.95 chosen as nearest option. Detailed per-mass contour shown in Figs 3-4 but only the flat limit value is given numerically in text. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 35)) | Vision: Figure 3: ALPs excluded at >3sigma from joint likelihood of HAWC TeV blazar observations. Boundary is nearly flat at ~2.9-3.0e-11 GeV^-1 across most masses, with a dip to ~2.4e-11 near 15 neV, rising steeply above ~200-300 neV to the top of the plot. Consistent with text: excluded for g>3e-11 GeV^-1 and masses up to ~200-300x10^-9 eV. y-axis multiplier 10^-11 applied to plotted tick values. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.67 snapped to identity)",
+  "num_points": 35,
+  "elapsed_s": 89.73800492286682
+}

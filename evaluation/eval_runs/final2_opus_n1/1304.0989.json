@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "1304.0989",
+ "paper_title": "Constraints on axion-like particles from X-ray observations of Hydra galaxy cluster",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-13,
+   8.3e-12
+  ],
+  [
+   7e-12,
+   8.3e-12
+  ],
+  [
+   8e-12,
+   1e-11
+  ],
+  [
+   1e-11,
+   1.3e-11
+  ],
+  [
+   2e-11,
+   5e-11
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.82,
+ "suggested_experiment_name": "Chandra_HydraA",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Astrophysical bound from X-ray spectral irregularities of Hydra A. Main quoted limit g<8.3e-12 GeV^-1 for m_a < 7e-12 eV (mass-independent below this). Above ~7e-12 eV limit weakens (rises as m_a^2, with a small feature near 8e-12 eV where m_a~m_gamma). Points above 7e-12 eV are approximate reads from Fig. 4 exclusion contour. Not a DM haloscope, so no local density assumed. | selector: text (sole candidate)",
+ "num_points": 5,
+ "elapsed_s": 9.8682279586792
+}

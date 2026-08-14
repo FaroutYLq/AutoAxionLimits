@@ -1,0 +1,150 @@
+{
+  "arxiv_id": "1607.06083",
+  "paper_title": "Searching for axion-like particles with ultra-peripheral heavy-ion collisions",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      5000000000.0,
+      8e-05
+    ],
+    [
+      5500000000.0,
+      6.8e-05
+    ],
+    [
+      6000000000.0,
+      6e-05
+    ],
+    [
+      7000000000.0,
+      5.4e-05
+    ],
+    [
+      8000000000.0,
+      5e-05
+    ],
+    [
+      9000000000.0,
+      4.8e-05
+    ],
+    [
+      10000000000.0,
+      4.7e-05
+    ],
+    [
+      11000000000.0,
+      4.8e-05
+    ],
+    [
+      12000000000.0,
+      4.9e-05
+    ],
+    [
+      13000000000.0,
+      5.1e-05
+    ],
+    [
+      15000000000.0,
+      5.5e-05
+    ],
+    [
+      17000000000.0,
+      6e-05
+    ],
+    [
+      20000000000.0,
+      6.8e-05
+    ],
+    [
+      22000000000.0,
+      7.4e-05
+    ],
+    [
+      25000000000.0,
+      8.3e-05
+    ],
+    [
+      28000000000.0,
+      9.2e-05
+    ],
+    [
+      30000000000.0,
+      9.8e-05
+    ],
+    [
+      33000000000.0,
+      0.000108
+    ],
+    [
+      35000000000.0,
+      0.000114
+    ],
+    [
+      38000000000.0,
+      0.000122
+    ],
+    [
+      40000000000.0,
+      0.000128
+    ],
+    [
+      45000000000.0,
+      0.000145
+    ],
+    [
+      50000000000.0,
+      0.000162
+    ],
+    [
+      55000000000.0,
+      0.00018
+    ],
+    [
+      60000000000.0,
+      0.0002
+    ],
+    [
+      65000000000.0,
+      0.000217
+    ],
+    [
+      70000000000.0,
+      0.000235
+    ],
+    [
+      75000000000.0,
+      0.000255
+    ],
+    [
+      80000000000.0,
+      0.00027
+    ],
+    [
+      85000000000.0,
+      0.00029
+    ],
+    [
+      90000000000.0,
+      0.000305
+    ],
+    [
+      95000000000.0,
+      0.00032
+    ],
+    [
+      100000000000.0,
+      0.00034
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.65,
+  "suggested_experiment_name": "LHC Pb-Pb UPC (photon fusion, 1 nb^-1 projection)",
+  "coupling_convention": "1/Lambda in GeV^-1 as plotted on y-axis, with Lagrangian -(1/4)(a/Lambda) F Ftilde, i.e. g_agamma = 1/Lambda",
+  "notes": "Paper's headline result is a PROJECTED sensitivity for ALP->gamma gamma production in ultra-peripheral Pb-Pb collisions at the LHC (1 nb^-1 and 10 nb^-1), covering 5-100 GeV in ALP mass on the 1/Lambda vs m_a plane (Fig. 4). It also derives NEW recast exclusion limits from OPAL 2-gamma/3-gamma (LEP II) and ATLAS multi-photon searches (100 MeV - 100 GeV), so both is_new_limit and is_projection are set true. No numerical table is provided; the data_points above are approximate anchors reconstructed from the text: benchmark signal points (m_a=15 GeV, Lambda=17 TeV -> 1/Lambda=5.9e-5 GeV^-1; m_a=40 GeV, Lambda=8 TeV -> 1.25e-4 GeV^-1) and rough endpoint estimates of the 1 nb^-1 Pb-Pb sensitivity curve in Fig. 4 (left, aF Ftilde coupling). Endpoint values (5 and 100 GeV) are visual estimates and carry significant uncertainty. Coupling type unambiguous (photon coupling), but data quality limited (no table, figure-only). Not a dark matter search; no DM density assumption. OPAL recast limits are quoted at 95% CL. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.65, 33)) | Vision: Figure 4 (page 4), LEFT panel: aF-Ftilde coupling, y-axis 1/Lambda [GeV^-1] (log, 1e-5 to ~3e-3), x-axis m_a in GeV (log below 5 GeV, linear 5-100 GeV per axis annotation). Traced the SOLID green curve = expected 95% CL sensitivity of Pb-Pb UPCs at sqrt(s_NN)=5.5 TeV with 1 nb^-1, the paper's headline result; it forms the lowest boundary of prospective exclusion for 5-100 GeV (dashed green 10 nb^-1 lies lower but is a future-luminosity projection; benchmark_reading gives one point on it). Existing shaded exclusions (Beam Dump, OPAL 2g/3g, ATLAS 2g/3g, CMS) lie above at higher couplings. Cross-check: text quotes signal benchmark Lambda=17 TeV at m_a=15 GeV (1/Lambda=5.9e-5), consistent with the traced curve (~5.5e-5 at 15 GeV). This is a projected sensitivity, not an observed exclusion; masses converted GeV->eV (x1e9). Confidence limited by curve digitization on mixed log/linear axis and choice among multiple curves in the plot. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.71 snapped to identity)",
+  "num_points": 33,
+  "elapsed_s": 157.0462121963501
+}

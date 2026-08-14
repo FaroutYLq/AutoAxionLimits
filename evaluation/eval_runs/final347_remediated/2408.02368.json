@@ -1,0 +1,30 @@
+{
+  "arxiv_id": "2408.02368",
+  "paper_title": "First search for dark photon dark matter with a MADMAX prototype",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      7.862e-05,
+      2.7e-12
+    ],
+    [
+      8.057e-05,
+      1.1e-13
+    ],
+    [
+      8.395e-05,
+      2.7e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "MADMAX_prototype_2024",
+  "coupling_convention": "dimensionless kinetic mixing chi",
+  "notes": "First MADMAX dielectric haloscope prototype DPDM search, 78.62-83.95 ueV. Full-range exclusion chi>2.7e-12, peak sensitivity chi=1.1e-13 at 80.57 ueV. Only representative text values available (Fig 4 curve not tabulated); intermediate masses would have lower limits near resonance. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 3))",
+  "num_points": 3,
+  "elapsed_s": 75.69080996513367
+}

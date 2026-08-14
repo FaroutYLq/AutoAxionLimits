@@ -1,0 +1,146 @@
+{
+  "arxiv_id": "2209.12901",
+  "paper_title": "Discovering QCD-Coupled Axion Dark Matter with Polarization Haloscopes",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      5e-07,
+      1e-08
+    ],
+    [
+      5e-07,
+      1e-09
+    ],
+    [
+      5e-07,
+      1e-10
+    ],
+    [
+      5e-07,
+      1e-11
+    ],
+    [
+      5e-07,
+      6e-12
+    ],
+    [
+      5.6e-07,
+      7e-12
+    ],
+    [
+      6.3e-07,
+      8.1e-12
+    ],
+    [
+      7.1e-07,
+      9.5e-12
+    ],
+    [
+      7.9e-07,
+      1.1e-11
+    ],
+    [
+      1e-06,
+      1.5e-11
+    ],
+    [
+      1.12e-06,
+      1.7e-11
+    ],
+    [
+      1.26e-06,
+      2e-11
+    ],
+    [
+      1.58e-06,
+      2.7e-11
+    ],
+    [
+      2e-06,
+      3.6e-11
+    ],
+    [
+      2.5e-06,
+      4.9e-11
+    ],
+    [
+      3.16e-06,
+      6.6e-11
+    ],
+    [
+      3.55e-06,
+      7.8e-11
+    ],
+    [
+      4e-06,
+      8.9e-11
+    ],
+    [
+      5e-06,
+      1.2e-10
+    ],
+    [
+      6.3e-06,
+      1.66e-10
+    ],
+    [
+      7.1e-06,
+      1.9e-10
+    ],
+    [
+      7.9e-06,
+      2.2e-10
+    ],
+    [
+      1e-05,
+      3e-10
+    ],
+    [
+      1.26e-05,
+      4.1e-10
+    ],
+    [
+      1.58e-05,
+      5.5e-10
+    ],
+    [
+      2e-05,
+      7.4e-10
+    ],
+    [
+      2.24e-05,
+      8.6e-10
+    ],
+    [
+      2.5e-05,
+      1e-09
+    ],
+    [
+      2.5e-05,
+      3e-09
+    ],
+    [
+      2.5e-05,
+      1e-08
+    ],
+    [
+      2.5e-05,
+      1e-07
+    ],
+    [
+      2.5e-05,
+      1e-06
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "Polarization haloscope (Hyperpolarized Cubic Meter projection)",
+  "coupling_convention": "1/f_a in GeV^-1 (inverse axion decay constant, i.e. the axion-gluon coupling normalization) exactly as plotted on the y-axis; NOT converted to d_n in e*cm",
+  "notes": "Theory proposal (Berlin & Zhou, arXiv:2209.12901) for a 'polarization haloscope' probing the QCD axion gluon coupling via axion-induced oscillating atomic EDMs (Schiff moments) in nuclear spin-polarized dielectrics. Fig. 2 shows projected sensitivities (SNR>=2) for three setups (100 L prototype, hyperpolarized cubic meter, post-discovery upgrade) on the 1/fa [GeV^-1] vs m_a plane over roughly 1e-7 to 1e-4 eV, assuming rho_DM = 0.4 GeV/cm^3. This is downstream categorized as the axion-EDM/gluon coupling (converts to g_d via d_n ~ 2.4e-3 e fm * theta_a), but no numerical limit values are given in tables or text \u2014 only the figure \u2014 so no data points could be reliably extracted. Coupling-type assignment between AxionEDM and AxionMass (1/fa plane) is somewhat ambiguous, hence low confidence. | selector: figure_vision (sole candidate) | Vision: Figure 2 of Berlin & Zhou (arXiv:2209.12901) shows projected sensitivities on the 1/f_a vs m_a plane (axion-gluon/EDM coupling). I traced the lower boundary of the deepest solid (scanning) projection, the 'Hyperpolarized Cubic Meter' region: vertical left edge at ~5e-7 eV, diagonal from (~5e-7 eV, ~6e-12 GeV^-1) to (~2.5e-5 eV, ~1e-9 GeV^-1) with slope ~1.3 on log-log, then vertical right edge at ~2.5e-5 eV. Per the plotted-values contract the emitted couplings are 1/f_a in GeV^-1 as plotted, not d_n in e*cm (conversion via theta_a and d_n \u2248 2.4e-3 e fm * theta_a would be needed downstream). These are PROJECTIONS (SNR>=2), not existing exclusions; existing constraints in the plot are SN1987A (~2e-6 GeV^-1 flat) and Sun cooling. Other curves not traced: 100 L Prototype (shallower, ~1.4e-8 at 1.1e-6 eV), dashed Post-Discovery Upgrade single-mass line (reaching QCD axion line near ~2.5e-5 eV), CASPEr-2/3 and Storage Ring projections. Extraction confidence reduced because the plotted variable (1/f_a) differs from the canonical d_n, and coupling type could alternatively be labeled AxionMass-like gluon coupling. | Calibration: No calibration needed | coupling type AxionEDM -> AxionMass by axis read-back 'inverse axion decay constant 1/f_a in GeV^-1 (equivalent to the axion-gluon coupling scale)' (same confusable family, #625 Phase 3)",
+  "num_points": 32,
+  "elapsed_s": 202.1881537437439
+}

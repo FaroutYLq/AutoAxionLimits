@@ -1,0 +1,54 @@
+{
+ "arxiv_id": "1110.2895",
+ "paper_title": "Cosmological bounds on pseudo Nambu-Goldstone bosons",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-10,
+   1e-18
+  ],
+  [
+   1e-08,
+   1e-16
+  ],
+  [
+   1e-06,
+   1e-14
+  ],
+  [
+   0.0001,
+   1e-12
+  ],
+  [
+   0.01,
+   1e-10
+  ],
+  [
+   1.0,
+   1e-08
+  ],
+  [
+   100.0,
+   1e-06
+  ],
+  [
+   10000.0,
+   0.0001
+  ],
+  [
+   1000000.0,
+   0.01
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.99,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "Cosmological_BBN_CMB_bounds_2011",
+ "coupling_convention": "g in GeV^-1 (two-photon coupling)",
+ "notes": "This paper presents cosmological bounds on axion-like particles (ALPs) with anomalous two-photon coupling from multiple independent constraints: big bang nucleosynthesis (BBN), cosmic microwave background (CMB), extragalactic background light (EBL), and effective number of neutrinos (N_eff). The bounds are shown in Figures 1 and 2 as exclusion regions in the m_\u03c6\u2013g parameter space. The coupling g \u223c \u03b1/(2\u03c0f_\u03c6) has inverse mass dimension (GeV^-1). Key constraints include: (1) N_eff bound from WMAP7 at 99% C.L. (most stringent for intermediate masses); (2) BBN bounds from deuterium and helium abundances; (3) CMB spectral distortions (\u03bc and y parameters); (4) Direct detection of decay photons in optical, X-ray, and \u03b3-ray bands; (5) Reionization history constraints; (6) Dark matter overproduction limit. The paper also includes astrophysical bounds from horizontal branch (HB) stars in globular clusters and supernova 1987A. Data points extracted represent approximate boundary positions from the exclusion regions shown in Figures 1 and 2, spanning roughly m_\u03c6 from 10^-10 eV to 10^6 eV and g from 10^-18 to 10^-2 GeV^-1. The extraction confidence is moderate (0.65) because: (1) exact numerical values are not tabulated but must be read from figures; (2) multiple overlapping constraints make precise boundary identification difficult; (3) the paper focuses on exclusion regions rather than providing explicit coupling-mass pairs. The 99% C.L. is used for the N_eff constraint, which dominates much of the parameter space. | selector: text (sole candidate)",
+ "num_points": 9,
+ "elapsed_s": 23.799636840820312
+}

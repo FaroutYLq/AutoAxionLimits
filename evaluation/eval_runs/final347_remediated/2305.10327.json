@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2305.10327",
+  "paper_title": "GW170817",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      10000000.0,
+      3e-10
+    ],
+    [
+      30000000.0,
+      1e-10
+    ],
+    [
+      100000000.0,
+      5e-11
+    ],
+    [
+      200000000.0,
+      6e-11
+    ],
+    [
+      400000000.0,
+      2e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "GW170817_AxionFireball",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Astrophysical (not DM) bound on axion-photon coupling from radiatively decaying heavy axions (ma ~1-400 MeV) produced in the GW170817 hypermassive neutron star, forming a fireball detectable by X-ray telescopes (CALET CGBM, Konus-Wind, Insight-HXMT/HE). Excludes couplings down to ~5e-11 GeV^-1. Data points approximate the lower (strongest) envelope of the excluded region read from Fig. 3; the actual exclusion is a closed 2D region in the ma-g plane. 90% C.L. per Table I. Not a haloscope, so no local DM density applies. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 5,
+  "elapsed_s": 36.46799993515015
+}

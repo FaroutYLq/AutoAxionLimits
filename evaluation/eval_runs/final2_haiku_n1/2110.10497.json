@@ -1,0 +1,38 @@
+{
+ "arxiv_id": "2110.10497",
+ "paper_title": "MuDHI",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.4,
+   1.2e-10
+  ],
+  [
+   1.5,
+   8.5e-11
+  ],
+  [
+   1.61,
+   6.86e-11
+  ],
+  [
+   1.7,
+   7.5e-11
+  ],
+  [
+   1.8,
+   1.1e-10
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "MuDHI",
+ "coupling_convention": "dimensionless kinetic mixing \u03c7",
+ "notes": "MuDHI (Multilayer Dielectric Haloscope Investigation) is a prototype dark photon search using a 23-bilayer SiO\u2082/Si\u2083N\u2084 chirped dielectric stack with a SPAD photosensor. The experiment searched for dark photons with mass around 1.5 eV/c\u00b2 via DP-to-photon conversion in the dielectric stack. No signal excess observed; 90% CL upper limits set on kinetic mixing parameter \u03c7. Minimum limit of \u03c7 < 6.86 \u00d7 10\u207b\u00b9\u00b9 reached at 1.61 eV/c\u00b2. The boost factor spectrum peaks in the region 1.4\u20131.8 eV/c\u00b2 with uncertainty envelope shown in Fig. 11. Data points extracted from the exclusion curve in Fig. 11 and text statement of minimum limit. DM density of 0.3 GeV/cm\u00b3 assumed (standard galactic halo model). Polarization treatment assumes randomized DP polarization with averaging over coherence times, giving \u27e8cos\u00b2\u03b8\u27e9 = 2/3 as per Eq. (20). The paper notes that for constant polarization scenarios, directional and timing information could improve sensitivity comparably. Extraction confidence is high due to clear coupling type (kinetic mixing \u03c7 for dark photons), explicit numerical limit values in text and figure, and well-documented experimental methodology. | selector: text (sole candidate)",
+ "num_points": 5,
+ "elapsed_s": 77.58298873901367
+}

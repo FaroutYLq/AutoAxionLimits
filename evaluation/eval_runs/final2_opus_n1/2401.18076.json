@@ -1,0 +1,122 @@
+{
+ "arxiv_id": "2401.18076",
+ "paper_title": "Searching for scalar field dark matter with LIGO",
+ "coupling_type": "ScalarPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.5e-14,
+   3e-19
+  ],
+  [
+   5e-14,
+   5e-20
+  ],
+  [
+   5.5e-14,
+   2e-20
+  ],
+  [
+   6e-14,
+   1e-20
+  ],
+  [
+   7e-14,
+   6e-21
+  ],
+  [
+   8e-14,
+   4e-21
+  ],
+  [
+   1e-13,
+   3e-21
+  ],
+  [
+   1.3e-13,
+   2.2e-21
+  ],
+  [
+   1.6e-13,
+   1.9e-21
+  ],
+  [
+   2e-13,
+   1.7e-21
+  ],
+  [
+   2.5e-13,
+   1.6e-21
+  ],
+  [
+   3e-13,
+   1.6e-21
+  ],
+  [
+   3.5e-13,
+   1.7e-21
+  ],
+  [
+   4e-13,
+   1.8e-21
+  ],
+  [
+   4.5e-13,
+   2e-21
+  ],
+  [
+   5e-13,
+   2.3e-21
+  ],
+  [
+   5.5e-13,
+   2.7e-21
+  ],
+  [
+   6e-13,
+   3.2e-21
+  ],
+  [
+   6.5e-13,
+   3.9e-21
+  ],
+  [
+   7e-13,
+   5e-21
+  ],
+  [
+   7.5e-13,
+   7e-21
+  ],
+  [
+   8e-13,
+   1e-20
+  ],
+  [
+   8.5e-13,
+   1.5e-20
+  ],
+  [
+   9e-13,
+   3e-20
+  ],
+  [
+   9.5e-13,
+   8e-20
+  ],
+  [
+   1e-12,
+   3e-19
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.4,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.5,
+ "suggested_experiment_name": "LIGO O3 scalar DM",
+ "coupling_convention": "Lambda_gamma^-1 in GeV^-1 (left axis of panel b), as plotted",
+ "notes": "LIGO O3 search for scalar field dark matter via beamsplitter/test-mass size oscillations. Constrains both Lambda_gamma (d_e, ScalarPhoton coupling to photons/alpha) and Lambda_e (d_me, ScalarElectron coupling to electron mass), with the assumption that the other coupling is null. Frequency band 10-180 Hz corresponds to roughly 5e-14 to 1e-12 eV mass (paper states this). Limits are 95% C.L. assuming rho=0.4 GeV/cm^3. Numerical exclusion values are only available as smoothed curves in Fig. 3 (no data table), so no reliable (mass, coupling) pairs could be extracted. Coupling type is ambiguous between ScalarPhoton (Lambda_gamma/d_e) and ScalarElectron (Lambda_e/d_me) since both are reported. | selector: figure_vision (sole candidate) | Vision: Panel b) constrains Lambda_gamma^-1 (photon coupling, d_e on right axis = ScalarPhoton). The paper's own result is the thick blue line spanning ~10-180 Hz (5e-14 to 1e-12 eV). Emitted values are the LEFT-axis Lambda_gamma^-1 in GeV^-1 as plotted, NOT the dimensionless d_e. The minimum of the blue exclusion boundary is around Lambda_gamma^-1 ~ 1.6e-21 GeV^-1 near a few 1e-13 eV. Note: the plotted quantity is Lambda_gamma^-1 (GeV^-1), not the dimensionless d_e; if d_e values are required use the right axis instead. Confidence reduced due to axis-convention ambiguity. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.56 snapped to identity)",
+ "num_points": 26,
+ "elapsed_s": 158.13467001914978
+}

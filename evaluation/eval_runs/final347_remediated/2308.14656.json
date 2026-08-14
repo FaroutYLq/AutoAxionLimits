@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2308.14656",
+  "paper_title": "Search for Dark Photon Dark Matter in the Mass Range 41--74 $\u03bc\\mathrm{eV}$ using Millimeter-Wave Receiver and Radioshielding Box",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.1e-05,
+      5e-11
+    ],
+    [
+      7.4e-05,
+      3.9e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.39,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "DOSUE-RR_2023",
+  "coupling_convention": "dimensionless kinetic mixing chi",
+  "notes": "Dark photon dark matter search, mass range 41-74 ueV (10-18 GHz), chi < (0.5-3.9)e-10 at 95% CL. Only the overall range is quoted in text; the per-frequency exclusion curve is in Fig. 11 which is not numerically extractable. Data points here are approximate endpoints spanning the stated range; exact mapping of 0.5e-10 vs 3.9e-10 to specific masses is not given in the text. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.6, 2))",
+  "num_points": 2,
+  "elapsed_s": 63.45445799827576
+}

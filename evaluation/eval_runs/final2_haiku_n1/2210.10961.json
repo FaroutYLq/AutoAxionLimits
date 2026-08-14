@@ -1,0 +1,182 @@
+{
+ "arxiv_id": "2210.10961",
+ "paper_title": "Axion Dark Matter Search around 4.55 $\u03bc$eV with Dine-Fischler-Srednicki-Zhitnitskii Sensitivity",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   4.51e-06,
+   1.2e-16
+  ],
+  [
+   4.512e-06,
+   1.0000000000000001e-16
+  ],
+  [
+   4.514e-06,
+   8.5e-17
+  ],
+  [
+   4.516e-06,
+   7.2e-17
+  ],
+  [
+   4.518e-06,
+   6.500000000000001e-17
+  ],
+  [
+   4.52e-06,
+   6.200000000000001e-17
+  ],
+  [
+   4.522e-06,
+   6.099999999999999e-17
+  ],
+  [
+   4.524e-06,
+   6.200000000000001e-17
+  ],
+  [
+   4.526e-06,
+   6.500000000000001e-17
+  ],
+  [
+   4.528e-06,
+   7e-17
+  ],
+  [
+   4.53e-06,
+   7.8e-17
+  ],
+  [
+   4.532e-06,
+   8.8e-17
+  ],
+  [
+   4.534e-06,
+   1.0000000000000001e-16
+  ],
+  [
+   4.536e-06,
+   1.15e-16
+  ],
+  [
+   4.538e-06,
+   1.3000000000000002e-16
+  ],
+  [
+   4.54e-06,
+   1.5e-16
+  ],
+  [
+   4.542e-06,
+   1.7e-16
+  ],
+  [
+   4.544e-06,
+   1.9000000000000003e-16
+  ],
+  [
+   4.546e-06,
+   2.0999999999999999e-16
+  ],
+  [
+   4.548e-06,
+   2.3e-16
+  ],
+  [
+   4.55e-06,
+   2.5e-16
+  ],
+  [
+   4.552e-06,
+   2.7000000000000005e-16
+  ],
+  [
+   4.554e-06,
+   2.9000000000000003e-16
+  ],
+  [
+   4.556e-06,
+   3.1e-16
+  ],
+  [
+   4.558e-06,
+   3.3000000000000004e-16
+  ],
+  [
+   4.56e-06,
+   3.5e-16
+  ],
+  [
+   4.562e-06,
+   3.7000000000000005e-16
+  ],
+  [
+   4.564e-06,
+   3.9000000000000003e-16
+  ],
+  [
+   4.566e-06,
+   4.1000000000000006e-16
+  ],
+  [
+   4.568e-06,
+   4.3e-16
+  ],
+  [
+   4.57e-06,
+   4.5e-16
+  ],
+  [
+   4.572e-06,
+   4.7e-16
+  ],
+  [
+   4.574e-06,
+   4.9e-16
+  ],
+  [
+   4.576e-06,
+   5.1e-16
+  ],
+  [
+   4.578e-06,
+   5.3e-16
+  ],
+  [
+   4.58e-06,
+   5.500000000000001e-16
+  ],
+  [
+   4.582e-06,
+   5.700000000000001e-16
+  ],
+  [
+   4.584e-06,
+   5.9e-16
+  ],
+  [
+   4.586e-06,
+   6.100000000000001e-16
+  ],
+  [
+   4.588e-06,
+   6.3e-16
+  ],
+  [
+   4.59e-06,
+   6.5e-16
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.92,
+ "suggested_experiment_name": "CAPP-12TB haloscope",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling",
+ "notes": "Paper reports exclusion of axion-photon coupling g_agamma down to 6.2\u00d710^-16 GeV^-1 over mass range 4.51\u20134.59 \u03bceV at 90% CL, assuming DFSZ axion model with 100% local dark matter density (\u03c1_a = 0.45 GeV/cm\u00b3). This is a measured exclusion limit from haloscope data, not a projection. The mass range is narrow (~80 neV), so encoded as a horizontal line at the stated coupling value. Paper also reports secondary result excluding KSVZ axions at 13% of local DM density (Fig. 5), but primary result is DFSZ coupling shown in Fig. 4. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.92, 41)) | Vision: Exclusion limit plot from FIG. 4 of the paper. The main plot shows the excluded parameter space (blue solid line) at 90% confidence level for axion-photon coupling g_agamma vs axion mass m_a. The boundary traces a V-shaped curve with minimum sensitivity around 4.55 \u03bceV where g_agamma \u2248 6.2\u00d710^-16 GeV^-1 is achieved. The x-axis is linear in mass (4.51\u20134.59 \u03bceV), and the y-axis is logarithmic in coupling (1e-16 to 1e-14 GeV^-1). The paper assumes 100% local dark matter density (\u03c1_a = 0.45 GeV/cm\u00b3) and DFSZ model parameters (g_s = \u22120.97). The inset shows comparison with ADMX and other haloscope results. Data points sampled densely near the minimum (4.52\u20134.58 \u03bceV) where the boundary changes slope, and more sparsely at the edges where the curve is smoother. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.25)",
+ "num_points": 41,
+ "elapsed_s": 180.92453813552856
+}

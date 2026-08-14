@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "2412.08699",
+ "paper_title": "Axion mass prediction from adaptive mesh refinement cosmological lattice simulations",
+ "coupling_type": "AxionMass",
+ "is_new_limit": false,
+ "is_projection": false,
+ "data_points": [],
+ "data_source": "none",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.2,
+ "suggested_experiment_name": "Benabou_AMR_AxionString_2024",
+ "coupling_convention": "m_a in eV (QCD axion mass prediction, not an exclusion limit)",
+ "notes": "This paper predicts the QCD axion DM mass (m_a ~ 45-65 ueV from strings, potentially up to ~300 ueV including domain-wall production) from cosmological lattice simulations. It is a theoretical mass prediction, not a measured or projected exclusion limit on a coupling constant. No (mass, coupling) exclusion data points are provided; the results are on axion mass ranges only, not on the f_a-m_a exclusion plane in a form yielding tabulated coupling limits. Therefore no extractable exclusion data points. | [CONVENTION REVIEW] declared coupling convention 'm_a in eV (QCD axion mass prediction, not an exclusion limit)' is not canonical and has no vetted auto-conversion; needs human review",
+ "num_points": 0,
+ "elapsed_s": 138.08768510818481
+}

@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "0802.2350",
+  "paper_title": "Improved constraints on non-Newtonian forces at 10 microns",
+  "coupling_type": "ScalarNucleon",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.049333,
+      31000000.0
+    ],
+    [
+      0.032888,
+      460000.0
+    ],
+    [
+      0.019733,
+      14000.0
+    ],
+    [
+      0.010963,
+      1100.0
+    ],
+    [
+      0.005804,
+      250.0
+    ],
+    [
+      0.00299,
+      150.0
+    ]
+  ],
+  "data_source": "table",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "Stanford3_Microcantilever2008",
+  "coupling_convention": "alpha (Yukawa strength relative to gravity); x converted lambda->mass via m[eV]=1.9733e-7/lambda[m]",
+  "notes": "Yukawa-type non-Newtonian force search (fifth force / ISL test). Table V gives 95% exclusion on |alpha| (strength relative to gravity) vs range lambda in microns. Emitted values are the raw alpha (NOT a canonical dimensionless nucleon coupling); lambda converted to Compton mass. Best bound |alpha|>14000 at lambda=10um. Downstream may need to convert alpha to a dimensionless scalar coupling; type mapped to ScalarNucleon per Yukawa/ISL hint. | selector: table over figure_vision (quality (0, 1, 1, 0, 4, 0, 0.78, 6)) | Range snap SUPPRESSED (declared convention non-canonical; a decade snap cannot fix a convention mismatch): median mass 2.0e-02 / coupling 1.4e+04 vs windows [1e-24,1e+09] / [1e-30,1e+00] | contract: median outside VALID_RANGES after corrections (flagged low confidence) | [CONVENTION REVIEW] declared coupling convention 'alpha (Yukawa strength relative to gravity); x converted lambda->mass via m[eV]=1.9733e-7/lambda[m]' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 6,
+  "elapsed_s": 113.56436395645142
+}

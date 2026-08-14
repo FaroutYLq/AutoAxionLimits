@@ -1,0 +1,130 @@
+{
+ "arxiv_id": "2311.05476",
+ "paper_title": "A Spectroscopic Search for Optical Emission Lines from Dark Matter Decay",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.9,
+   2.8e-26
+  ],
+  [
+   3.0,
+   1.5e-26
+  ],
+  [
+   3.1,
+   9e-27
+  ],
+  [
+   3.2,
+   7e-27
+  ],
+  [
+   3.3,
+   5.5e-27
+  ],
+  [
+   3.4,
+   4.8e-27
+  ],
+  [
+   3.5,
+   4.5e-27
+  ],
+  [
+   3.6,
+   4.5e-27
+  ],
+  [
+   3.7,
+   4.8e-27
+  ],
+  [
+   3.9,
+   5.5e-27
+  ],
+  [
+   4.0,
+   6.5e-27
+  ],
+  [
+   4.2,
+   7e-27
+  ],
+  [
+   4.4,
+   6.5e-27
+  ],
+  [
+   4.6,
+   5.5e-27
+  ],
+  [
+   4.8,
+   6e-27
+  ],
+  [
+   5.0,
+   7e-27
+  ],
+  [
+   5.2,
+   6.5e-27
+  ],
+  [
+   5.5,
+   5.5e-27
+  ],
+  [
+   5.8,
+   6e-27
+  ],
+  [
+   6.0,
+   7e-27
+  ],
+  [
+   6.3,
+   8e-27
+  ],
+  [
+   6.6,
+   8.5e-27
+  ],
+  [
+   7.0,
+   9e-27
+  ],
+  [
+   7.4,
+   9e-27
+  ],
+  [
+   7.8,
+   8.5e-27
+  ],
+  [
+   8.0,
+   9e-27
+  ],
+  [
+   8.2,
+   1e-26
+  ],
+  [
+   8.4,
+   1.1e-26
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.3,
+ "suggested_experiment_name": "DESI spectroscopic DM decay search (BGS)",
+ "coupling_convention": "decay rate Gamma in s^-1 (two-photon decay rate), as plotted on y-axis (BGS-5sigma curve)",
+ "notes": "This paper constrains two-photon decay of axion-like dark matter, reported as a decay rate Gamma (s^-1) vs mass (eV) in Fig 8, NOT directly as g_agamma. The paper states particle lifetime exceeds 3e25 s in the 5-12 eV range. The relation Gamma = g^2 m^3/(64 pi) could convert to g_agamma, but I emit the raw decay-rate values (approximate, read from Fig 8 for the 5-sigma BGS/LRG curves) rather than performing the conversion. Values are only rough estimates from the plot. The y-axis in Fig 8 is Gamma [s^-1]; the paper's own limit is on the decay rate/lifetime. Because I emit Gamma not g_agamma, downstream should NOT treat these as GeV^-1. Confidence is low because the emitted values are not in the canonical coupling units and are read approximately from the figure. | selector: figure_vision over text (quality (0, 1, 1, 1, 2, 0, 0.4, 28)) | Vision: Figure 8 y-axis is the two-photon decay rate Gamma [s^-1], NOT g_agamma. Emitted values are Gamma exactly as plotted (BGS-5sigma lower-boundary curve, the lowest/strongest constraint from this work). Conversion to g_agamma requires Gamma = g^2 m^3/(64 pi) per Eq. 5; NOT applied here per plotted-values contract. Coupling_type set to AxionPhoton per hint but plotted quantity is a decay rate, so extraction_confidence lowered. X-axis 2.8-12.4 eV linear; y-axis log 1e-29 to 1e-25. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.83 snapped to identity) | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+ "num_points": 28,
+ "elapsed_s": 221.02663779258728
+}

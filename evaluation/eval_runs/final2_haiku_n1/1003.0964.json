@@ -1,0 +1,22 @@
+{
+ "arxiv_id": "1003.0964",
+ "paper_title": "LSW_UWA",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   3.788e-05,
+   2.9e-05
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "LSW_UWA",
+ "coupling_convention": "dimensionless kinetic mixing chi",
+ "notes": "First microwave cavity light-shining-through-a-wall (LSW) experiment searching for hidden sector photons (dark photons). The paper reports an upper limit on kinetic mixing parameter \u03c7 = 2.9 \u00d7 10^-5 at a hidden sector photon mass of 37.78 \u00b5eV (= 3.788 \u00d7 10^-5 eV). The authors acknowledge this result lies within already-established limits but validates the microwave cavity LSW concept. The experiment used two cylindrical copper cavities (radius ~2 cm, length ~4 cm) in the TE_0_1_1 mode at ~9.588 GHz. The main limitation was microwave leakage in the common vacuum chamber. The paper discusses future improvements that could reduce the \u03c7 limit by several orders of magnitude. The coupling type is DarkPhoton (kinetic mixing \u03c7 between photon and hidden sector photon), not AxionPhoton, as the paper explicitly discusses hidden sector photons and kinetic mixing rather than axion-photon coupling. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 1))",
+ "num_points": 1,
+ "elapsed_s": 114.50428795814514
+}

@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "1806.00310",
+  "paper_title": "Operation of a ferromagnetic axion haloscope at $m_a=58\\,\u03bc$eV",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5.79e-05,
+      4.9e-10
+    ],
+    [
+      5.8e-05,
+      4.9e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "QUAX_2018",
+  "coupling_convention": "dimensionless g_aee",
+  "notes": "QUAX ferromagnetic haloscope (GaYIG spheres in 14 GHz cavity). Upper limit g_aee < 4.9e-10 at 95% C.L. for m_a = 58 ueV (14 GHz), from resonant axion-electron spin interaction. A limited ~3 MHz frequency scan was performed around 14 GHz; the minimum value 4.9e-10 occurs at the central frequency. Local DM density 0.45 GeV/cm^3 assumed. DFSZ axion-electron coupling constrained. | selector: text (sole candidate)",
+  "num_points": 2,
+  "elapsed_s": 93.67256188392639
+}

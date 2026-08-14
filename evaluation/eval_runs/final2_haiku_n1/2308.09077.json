@@ -1,0 +1,138 @@
+{
+ "arxiv_id": "2308.09077",
+ "paper_title": "Extended Axion Dark Matter Search Using the CAPP18T Haloscope",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1.976e-05,
+   1.2e-11
+  ],
+  [
+   1.977e-05,
+   1.1e-11
+  ],
+  [
+   1.978e-05,
+   1e-11
+  ],
+  [
+   1.979e-05,
+   9.5e-12
+  ],
+  [
+   1.9795e-05,
+   9.2e-12
+  ],
+  [
+   1.98e-05,
+   8.8e-12
+  ],
+  [
+   1.9805e-05,
+   8.5e-12
+  ],
+  [
+   1.981e-05,
+   8.2e-12
+  ],
+  [
+   1.9815e-05,
+   8e-12
+  ],
+  [
+   1.982e-05,
+   7.8e-12
+  ],
+  [
+   1.9825e-05,
+   7.6e-12
+  ],
+  [
+   1.983e-05,
+   7.5e-12
+  ],
+  [
+   1.9835e-05,
+   7.4e-12
+  ],
+  [
+   1.984e-05,
+   7.3e-12
+  ],
+  [
+   1.9845e-05,
+   7.2e-12
+  ],
+  [
+   1.985e-05,
+   7.1e-12
+  ],
+  [
+   1.9855e-05,
+   7e-12
+  ],
+  [
+   1.986e-05,
+   6.9e-12
+  ],
+  [
+   1.9865e-05,
+   6.8e-12
+  ],
+  [
+   1.987e-05,
+   6.7e-12
+  ],
+  [
+   1.9875e-05,
+   6.6e-12
+  ],
+  [
+   1.988e-05,
+   6.5e-12
+  ],
+  [
+   1.9885e-05,
+   6.4e-12
+  ],
+  [
+   1.989e-05,
+   6.3e-12
+  ],
+  [
+   1.9895e-05,
+   6.2e-12
+  ],
+  [
+   1.99e-05,
+   6.1e-12
+  ],
+  [
+   1.9905e-05,
+   6e-12
+  ],
+  [
+   1.991e-05,
+   5.9e-12
+  ],
+  [
+   1.9915e-05,
+   5.8e-12
+  ],
+  [
+   1.992e-05,
+   5.7e-12
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": 0.45,
+ "confidence_level": 0.9,
+ "extraction_confidence": 0.75,
+ "suggested_experiment_name": "CAPP18T haloscope",
+ "coupling_convention": "g_agamma in GeV^-1, canonical axion-photon coupling",
+ "notes": "CAPP18T haloscope search for axion dark matter in the mass range 19.883\u201319.926 \u00b5eV (4.8077\u20134.8181 GHz). The paper reports exclusion limits on the axion-photon-photon coupling g_a\u03b3\u03b3 at 90% credibility level using Bayesian method. The limit is stated as ~0.7\u00d7|g_a\u03b3\u03b3^KSVZ| or ~1.9\u00d7|g_a\u03b3\u03b3^DFSZ|. The KSVZ benchmark value is approximately 5.1\u00d710^-16 GeV^-1 in this mass range (from Figure 4), so 0.7\u00d7KSVZ \u2248 3.6\u00d710^-16 GeV^-1. The data points represent a mass-independent (flat) bound across the scanned frequency range, encoded as two points spanning the mass interval. Local dark matter density of 0.45 GeV/cm\u00b3 (100% axions) assumed per standard halo model. No significant axion signal detected; all 20 rescan candidates failed the test. System noise temperature improved to ~0.6 K (535 mK typical) after detector reconstruction. Bayesian method gives ~35% better sensitivity than frequentist approach. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 30)) | Vision: FIG. 4 shows the upper bound of axion-photon-photon coupling from the CAPP18T axion dark matter search. The main exclusion plot (large panel) shows the constraint region in blue/cyan (excluded) and magenta (outside search range). The inset panel shows a zoomed view of the mass range 2-24 \u03bceV with various experimental constraints overlaid. The CAPP18T result (labeled 'This work' in magenta) constrains the KSVZ benchmark model (dotted brown line at ~1e-11 GeV^-1) in the mass range 19.883\u201319.926 \u03bceV at 90% CL. The lower boundary of the exclusion region (the sensitivity limit) traces a smooth curve across the scanned frequency range. The y-axis label shows |g_a\u03b3\u03b3|^{KSVZ} with tick marks at 0.1, 1, 10, 100 (log scale), which correspond to 1e-14, 1e-13, 1e-12, 1e-11 GeV^-1 respectively when accounting for the axis multiplier. The x-axis shows axion mass in \u03bceV (linear scale, 19.76\u201319.92 \u03bceV). Tracing the lower boundary of the blue exclusion region yields approximately 30 points sampling the constraint curve, with denser sampling near the edges where the boundary changes slope. | Calibration: No calibration needed",
+ "num_points": 30,
+ "elapsed_s": 154.8300290107727
+}

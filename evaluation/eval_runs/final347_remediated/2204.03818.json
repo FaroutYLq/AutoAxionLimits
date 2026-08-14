@@ -1,0 +1,166 @@
+{
+  "arxiv_id": "2204.03818",
+  "paper_title": "ORPHEUS",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      6.535e-05,
+      7e-13
+    ],
+    [
+      6.54e-05,
+      3e-13
+    ],
+    [
+      6.545e-05,
+      2e-13
+    ],
+    [
+      6.55e-05,
+      1.7e-13
+    ],
+    [
+      6.56e-05,
+      1.5e-13
+    ],
+    [
+      6.57e-05,
+      1.4e-13
+    ],
+    [
+      6.575e-05,
+      8e-13
+    ],
+    [
+      6.58e-05,
+      1.4e-13
+    ],
+    [
+      6.59e-05,
+      8e-13
+    ],
+    [
+      6.595e-05,
+      1.5e-13
+    ],
+    [
+      6.598e-05,
+      6e-14
+    ],
+    [
+      6.6e-05,
+      4.2e-14
+    ],
+    [
+      6.605e-05,
+      4.5e-14
+    ],
+    [
+      6.61e-05,
+      5.5e-14
+    ],
+    [
+      6.62e-05,
+      6.2e-14
+    ],
+    [
+      6.64e-05,
+      6.8e-14
+    ],
+    [
+      6.66e-05,
+      7e-14
+    ],
+    [
+      6.68e-05,
+      7.2e-14
+    ],
+    [
+      6.7e-05,
+      7.8e-14
+    ],
+    [
+      6.705e-05,
+      8.5e-14
+    ],
+    [
+      6.71e-05,
+      1.3e-13
+    ],
+    [
+      6.715e-05,
+      9.5e-14
+    ],
+    [
+      6.72e-05,
+      9e-14
+    ],
+    [
+      6.73e-05,
+      1.05e-13
+    ],
+    [
+      6.75e-05,
+      1.1e-13
+    ],
+    [
+      6.77e-05,
+      1.1e-13
+    ],
+    [
+      6.8e-05,
+      1.1e-13
+    ],
+    [
+      6.82e-05,
+      1.05e-13
+    ],
+    [
+      6.84e-05,
+      1.05e-13
+    ],
+    [
+      6.86e-05,
+      1.1e-13
+    ],
+    [
+      6.88e-05,
+      1.05e-13
+    ],
+    [
+      6.9e-05,
+      1.05e-13
+    ],
+    [
+      6.91e-05,
+      9.5e-14
+    ],
+    [
+      6.92e-05,
+      1.1e-13
+    ],
+    [
+      6.925e-05,
+      1.3e-13
+    ],
+    [
+      6.93e-05,
+      3e-13
+    ],
+    [
+      6.935e-05,
+      8e-13
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "ADMX-Orpheus",
+  "coupling_convention": "kinetic mixing chi, dimensionless (as plotted)",
+  "notes": "ADMX-Orpheus dielectrically-loaded microwave cavity dark photon search. Excludes chi > ~1e-13 between 65.5 ueV (15.8 GHz) and 69.3-69.5 ueV (16.8 GHz) at 90% CL. Limit is approximately flat at chi ~ 1e-13 across the band; exact per-frequency values only available in Fig. 5. Assumes rho_DM = 0.45 GeV/cm^3 and randomly polarized dark photons. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 37)) | Vision: Top panel of Fig. 5. X-axis: Dark Photon Mass 65.3-69.5 ueV (top axis frequency 15.8-16.8 GHz). Y-axis: kinetic mixing chi, log scale 1e-14 to 1e-12. Excluded (blue) region is above the traced boundary. Boundary sits near chi~1e-13 across most of the range with a deep dip to ~4e-14 near 66.0 ueV, and narrow vertical gaps (unexcluded spikes) near 65.75, 65.9, and 67.1 ueV where the boundary jumps to the top. Abstract states exclusion of chi>1e-13 between 65.5-69.3 ueV. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.28 snapped to identity)",
+  "num_points": 37,
+  "elapsed_s": 101.19617509841919
+}

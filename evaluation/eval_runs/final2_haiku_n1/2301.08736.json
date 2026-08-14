@@ -1,0 +1,26 @@
+{
+ "arxiv_id": "2301.08736",
+ "paper_title": "LISAPathfinder",
+ "coupling_type": "DarkPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   8e-20,
+   1.5e-16
+  ],
+  [
+   2e-14,
+   1.5e-16
+  ]
+ ],
+ "data_source": "figure",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.65,
+ "suggested_experiment_name": "LISA_Pathfinder_2023",
+ "coupling_convention": "dimensionless coupling strength \u03b5 (dark photon/baryon coupling parameter)",
+ "notes": "Paper presents first search for dark photon dark matter using LISA Pathfinder data (3 months, frequency range 2\u00d710\u207b\u2075\u20135 Hz, corresponding to masses 8\u00d710\u207b\u00b2\u2070\u20132\u00d710\u207b\u00b9\u2074 eV). No signal detected; upper limits set on dark photon/baryon coupling strength \u03b5. Figure 5 shows exclusion limits in both semi-coherent and fully-coherent regimes. The coupling parameter \u03b5 is defined in Eq. 2 as the strength of dark photon coupling to baryon/baryon-lepton number current, normalized by electromagnetic coupling constant. Limits are mass-independent (flat) across the analyzed frequency range, so encoded as horizontal line. Stochastic amplitude correction factor of 9 applied to \u03b5\u00b2 limits due to Tobs << Tcoh regime. DM density of 0.3 GeV/cm\u00b3 (standard galactic halo value) is implicit in the signal model (Eq. 4). Extraction confidence reduced to 0.65 because: (1) exact numerical values from Figure 5 are approximate (read from plot), (2) paper constrains dark photon coupling to baryons but does not provide explicit tabulated coupling values, (3) the coupling convention \u03b5 is somewhat non-standard (normalized by e), requiring careful interpretation. The limits are conservative compared to torsion-balance experiments but represent proof-of-concept for LISA dark matter searches. | selector: figure (sole candidate)",
+ "num_points": 2,
+ "elapsed_s": 140.34959626197815
+}

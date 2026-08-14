@@ -1,0 +1,17 @@
+{
+  "arxiv_id": "2007.04990",
+  "paper_title": "More Axions from Strings",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.22,
+  "suggested_experiment_name": "GorghettoHardyVilladoro2021_AxionStrings",
+  "coupling_convention": "m_a in eV (lower bound); f_a in GeV",
+  "notes": "Theoretical/numerical cosmological calculation of QCD axion relic abundance from string defects in the post-inflationary scenario. Primary result is a LOWER BOUND on the QCD axion mass (equivalently upper bound on f_a), stronger than misalignment. Reference parameters: xi*=15, x0=10, q>2, alpha=8, log*=64, fa~1e10 GeV. Combined with SN1987A the viable post-inflationary window is quoted as ma ~ 0.5-20 meV. This is not an experimental exclusion curve and does not constrain a coupling constant on the y-axis; the explicit numerical bounds (eqs. 6 and 7) are cut off in the provided text, so a clean f_a vs m_a data curve could not be extracted. Not a haloscope, so no DM density assumption. | [VISION GATE A] is_projection=true but the vision notes say the traced curve is existing experiment 'admx' \u2014 not the paper's own projected curve ; [VISION GATE B] vision notes assert the plotted axis belongs to AxionPhoton but the declared coupling is AxionMass \u2014 wrong panel/curve traced ; [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of the actual filled experimental exclusions') rather than the paper's own single curve",
+  "num_points": 0,
+  "elapsed_s": 155.60100388526917
+}

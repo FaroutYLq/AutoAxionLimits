@@ -1,0 +1,34 @@
+{
+ "arxiv_id": "2105.13963",
+ "paper_title": "GW170817",
+ "coupling_type": "AxionMass",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-13,
+   0.00015999999999999999
+  ],
+  [
+   1e-11,
+   0.00015999999999999999
+  ],
+  [
+   1e-13,
+   0.01
+  ],
+  [
+   1e-11,
+   0.01
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.99,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "GW170817",
+ "coupling_convention": "f_a in GeV (decay constant) vs m_a in eV (mass)",
+ "notes": "Paper reports first constraints on axionlike particles from binary neutron star gravitational wave event GW170817. The primary result is a mass-independent exclusion band in the (m_a, f_a) plane: axions with masses m_a \u2272 10^-11 eV and decay constants 1.6\u00d710^16 GeV < f_a < 10^18 GeV are excluded at 3\u03c3 confidence level. The constraint arises from the absence of detectable dephasing in the GW170817 inspiral waveform due to axion-mediated forces between neutron stars. The lower bound f_a > 1.6\u00d710^16 GeV comes from the Bayesian analysis of GW170817 data; the upper bound f_a < 10^18 GeV is theoretical (critical radius condition for phase transition in NS). The constraint is independent of dark matter assumptions. Data points encode the rectangular exclusion region: two corners at (m_a=10^-13 eV, f_a=1.6\u00d710^16 GeV) and (m_a=10^-11 eV, f_a=10^18 GeV), with horizontal extrapolation to the massless limit for m_a < 10^-13 eV. | selector: text (sole candidate) | Auto-corrected couplings: \u00d71e-20 (\u00d71.00e-20, rule=argmin|log10(median*f)-log10(anchor=3.2e-05)|)",
+ "num_points": 4,
+ "elapsed_s": 133.63785910606384
+}

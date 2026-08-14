@@ -1,0 +1,46 @@
+{
+ "arxiv_id": "2307.07403",
+ "paper_title": "Robust bounds on ALP dark matter from dwarf spheroidal galaxies in the optical MUSE-Faint survey",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   2.7,
+   1e-12
+  ],
+  [
+   3.0,
+   9.5e-13
+  ],
+  [
+   3.5,
+   8.5e-13
+  ],
+  [
+   4.0,
+   8e-13
+  ],
+  [
+   4.5,
+   7.8e-13
+  ],
+  [
+   5.0,
+   7.5e-13
+  ],
+  [
+   5.3,
+   7.3e-13
+  ]
+ ],
+ "data_source": "text",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.85,
+ "suggested_experiment_name": "MUSE-Faint",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "Paper derives 95% C.L. upper limits on the effective ALP-two-photon coupling g_agamma from radiative decay searches in five dwarf spheroidal galaxies (Leo T, Sculptor, Eridanus 2, Grus 1, Hydra II) using MUSE spectroscopic observations. Mass range 2.7\u20135.3 eV. Data points extracted from Figures 2 and 5 (NFW profile, combined analysis). The bounds are slightly weaker than the previous Leo T-only analysis [14] due to more rigorous treatment of DM profile uncertainties via Jeans analysis. A gap exists in the constraints around 2.08\u20132.13 eV due to the sodium laser blocking filter. No significant ALP signal detected after excluding channels with large background contamination. Bounds exclude the QCD axion band in this mass range and are more constraining than other probes (globular clusters, galaxy clusters, gamma-ray attenuation) in the 2.7\u20135.3 eV window. | selector: text (sole candidate)",
+ "num_points": 7,
+ "elapsed_s": 96.0281388759613
+}

@@ -1,0 +1,114 @@
+{
+  "arxiv_id": "2401.07798",
+  "paper_title": "Constraints on axion-like particles with the Perseus Galaxy Cluster with MAGIC",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-09,
+      5e-12
+    ],
+    [
+      1.5e-09,
+      5e-12
+    ],
+    [
+      2.5e-09,
+      4.95e-12
+    ],
+    [
+      4e-09,
+      4.9e-12
+    ],
+    [
+      6e-09,
+      4.85e-12
+    ],
+    [
+      1e-08,
+      4.75e-12
+    ],
+    [
+      1.4e-08,
+      4.6e-12
+    ],
+    [
+      1.8e-08,
+      4.4e-12
+    ],
+    [
+      2.2e-08,
+      4.1e-12
+    ],
+    [
+      2.8e-08,
+      3.7e-12
+    ],
+    [
+      3.3e-08,
+      3.4e-12
+    ],
+    [
+      3.6e-08,
+      3.2e-12
+    ],
+    [
+      4e-08,
+      3e-12
+    ],
+    [
+      5e-08,
+      3e-12
+    ],
+    [
+      6.5e-08,
+      3.1e-12
+    ],
+    [
+      8e-08,
+      3.3e-12
+    ],
+    [
+      9e-08,
+      3.4e-12
+    ],
+    [
+      1.1e-07,
+      3.7e-12
+    ],
+    [
+      1.4e-07,
+      4.1e-12
+    ],
+    [
+      1.8e-07,
+      4.5e-12
+    ],
+    [
+      2.3e-07,
+      4.9e-12
+    ],
+    [
+      3e-07,
+      5.4e-12
+    ],
+    [
+      3.6e-07,
+      5.9e-12
+    ],
+    [
+      4e-07,
+      6.2e-12
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "MAGIC Perseus Cluster (NGC 1275)",
+  "coupling_convention": "canonical g_agamma = |g_a\u03b3| in GeV^-1, as plotted on y-axis",
+  "notes": "MAGIC observation of NGC 1275 in the Perseus cluster (41.3 h) sets 99% CL exclusion limits on the ALP-photon coupling g_agamma. The paper reports the strongest limit g_agamma = 3.0e-12 GeV^-1 at m_a = 40 neV (4e-8 eV), being most competitive for masses 40-90 neV and constraining the range 40-400 neV. Scan grid: mass 4e-9 to 1e-6 eV, coupling 5e-13 to 5e-10 GeV^-1. No digitized exclusion curve/table available in provided text; only the minimum-coupling point could be extracted from text, so data_points are approximate and sparse. Note: actual confidence level is 99% (schema restricted to 0.90/0.95). This is an astrophysical (spectral irregularity) bound, not a DM haloscope, so no local DM density applies. Paper also presents a separate CTA-comparison projection (Fig. 4) but the main result is the observed limit. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 24)) | Vision: Traced the lower boundary of the 'Perseus Cluster \u2013 MAGIC (This Work)' exclusion region in Figure 5 (fig_04). This work's result is 99% CL (paper reports 99%, nearest allowed field value 0.95 used). Excluded region is above the boundary. Anchored to the text statement that the deepest reach is g_a\u03b3 = 3.0e-12 GeV^-1 at m_a = 40 neV (4e-8 eV), with constraints spanning ~40-400 neV and strongest sensitivity at 40-90 neV. The region forms a broad V/basin shape. Underlying contour also shown in Figure 2 (99% CL solid line). Some ambiguity in reading the lower edge because Fig.5 overlays many other experiments' regions (CAST, NGC1275 Fermi, Pulsars, etc.); a diagonal line descending to lower-right at high mass is attributed to the Pulsars limit, not this work. Coupling type unambiguously AxionPhoton (g_a\u03b3 vs m_a). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity)",
+  "num_points": 24,
+  "elapsed_s": 239.23858213424683
+}

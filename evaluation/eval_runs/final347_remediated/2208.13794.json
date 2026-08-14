@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "2208.13794",
+  "paper_title": "Seeking dark matter with $\u03b3$-ray attenuation",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      8.0,
+      2e-11
+    ],
+    [
+      9.1,
+      2.1e-11
+    ],
+    [
+      15.0,
+      2.3e-11
+    ],
+    [
+      25.0,
+      3e-11
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "GammaRayAttenuation_EBL2023",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Cosmological/astrophysical bound from gamma-ray optical depth (EBL attenuation) on ALP two-photon decay, assuming ALPs constitute all dark matter (relic abundance, not a haloscope local-density assumption). Main result is on g_agamma-m_a plane (Fig. 3), strongest bounds over 8-25 eV mass range. Best fit m_a=9.1 eV, Gamma_a=2.5e-24 s^-1 corresponding to g_agamma=2.1e-11 GeV^-1. Numerical points approximate, read from text/figure since no data table provided; the exclusion is roughly flat around a few x 1e-11 GeV^-1 over 8-25 eV. Paper also expresses results as decay rate Gamma_a in s^-1 on primary axis but provides explicit g_agamma conversion. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 4))",
+  "num_points": 4,
+  "elapsed_s": 132.8097641468048
+}

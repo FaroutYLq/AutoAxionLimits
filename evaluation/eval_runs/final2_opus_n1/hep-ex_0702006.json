@@ -1,0 +1,150 @@
+{
+ "arxiv_id": "0702006",
+ "paper_title": "An improved limit on the axion-photon coupling from the CAST experiment",
+ "coupling_type": "AxionPhoton",
+ "is_new_limit": true,
+ "is_projection": false,
+ "data_points": [
+  [
+   1e-05,
+   9e-11
+  ],
+  [
+   3e-05,
+   9e-11
+  ],
+  [
+   0.0001,
+   9e-11
+  ],
+  [
+   0.0003,
+   9e-11
+  ],
+  [
+   0.001,
+   9e-11
+  ],
+  [
+   0.003,
+   9e-11
+  ],
+  [
+   0.006,
+   9e-11
+  ],
+  [
+   0.01,
+   9.2e-11
+  ],
+  [
+   0.015,
+   9.5e-11
+  ],
+  [
+   0.02,
+   1e-10
+  ],
+  [
+   0.03,
+   1.3e-10
+  ],
+  [
+   0.04,
+   1.8e-10
+  ],
+  [
+   0.05,
+   2.4e-10
+  ],
+  [
+   0.06,
+   3e-10
+  ],
+  [
+   0.07,
+   3.8e-10
+  ],
+  [
+   0.08,
+   4.6e-10
+  ],
+  [
+   0.1,
+   6.2e-10
+  ],
+  [
+   0.13,
+   8.5e-10
+  ],
+  [
+   0.16,
+   1.1e-09
+  ],
+  [
+   0.2,
+   1.5e-09
+  ],
+  [
+   0.25,
+   2e-09
+  ],
+  [
+   0.3,
+   2.6e-09
+  ],
+  [
+   0.4,
+   4e-09
+  ],
+  [
+   0.5,
+   5.5e-09
+  ],
+  [
+   0.6,
+   7.5e-09
+  ],
+  [
+   0.8,
+   1.1e-08
+  ],
+  [
+   1.0,
+   1.5e-08
+  ],
+  [
+   1.3,
+   2e-08
+  ],
+  [
+   1.6,
+   2.5e-08
+  ],
+  [
+   2.0,
+   3e-08
+  ],
+  [
+   3.0,
+   3.8e-08
+  ],
+  [
+   4.0,
+   4.3e-08
+  ],
+  [
+   5.0,
+   4.5e-08
+  ]
+ ],
+ "data_source": "figure_vision",
+ "dm_density_assumed": null,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.9,
+ "suggested_experiment_name": "CAST phase I",
+ "coupling_convention": "g_agamma in GeV^-1",
+ "notes": "CAST phase I combined final limit g_agamma < 8.8e-11 GeV^-1 at 95% CL, valid for m_a <~ 0.02 eV (mass-independent in coherent regime). Encoded as horizontal line from ~1e-5 eV to 0.02 eV. Solar helioscope (Primakoff), not a DM haloscope, so no local DM density. For higher masses the limit degrades but no tabulated points are given in the excerpt. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.9, 33)) | Vision: CAST phase I exclusion (blue curve) from Figure 8. Flat plateau at ~9e-11 GeV^-1 for m_a < ~0.02 eV, rising steeply beyond as coherence is lost. Excluded region is above the boundary. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.10 snapped to identity)",
+ "num_points": 33,
+ "elapsed_s": 135.1074676513672
+}

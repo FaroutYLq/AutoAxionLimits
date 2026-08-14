@@ -1,0 +1,17 @@
+{
+ "arxiv_id": "1512.06165",
+ "paper_title": "Dark Matter Direct Detection with Accelerometers",
+ "coupling_type": "ScalarBaryon",
+ "is_new_limit": false,
+ "is_projection": true,
+ "data_points": [],
+ "data_source": "none",
+ "dm_density_assumed": 0.3,
+ "confidence_level": 0.95,
+ "extraction_confidence": 0.35,
+ "suggested_experiment_name": "Torsion_Balance_DM_Search",
+ "coupling_convention": "dimensionless (coupling constant)",
+ "notes": "This is a theoretical proposal paper presenting PROJECTED sensitivities for future dark matter searches using accelerometers (torsion balances, atom interferometry, lunar laser ranging, pulsar timing arrays). The paper does NOT present measured exclusion limits from actual experiments. Instead, it proposes detection strategies and estimates future sensitivity curves (Figs. 2, 3, 4) for three types of light bosonic dark matter: (1) B\u2212L vector DM, (2) Higgs-portal scalar DM, and (3) electron-mass-coupled scalar DM. The coupling type is ambiguous across the paper: Section IV.B discusses B\u2212L vector DM (VectorBL), Section IV.C discusses Higgs-portal scalar DM (ScalarBaryon via nucleon mass coupling), and Section IV.D discusses electron-mass-coupled scalar DM (ScalarElectron). The pre-analysis hint suggested ScalarBaryon, which matches the Higgs-portal scalar discussion (Section IV.C, Eq. 13), where the scalar couples to nucleon masses and produces EP-violating forces. However, the paper's main results (Figs. 2, 3, 4) present three separate exclusion/sensitivity plots for different coupling types, making it impossible to extract a single unambiguous coupling type or numerical data points without access to the actual figure data. The paper states DM density \u03c1_DM \u2248 0.3 GeV/cm\u00b3 \u2248 (0.04 eV)\u2074 for the local galactic halo, but this is a cosmological/astrophysical assumption, not a haloscope-specific local density. No measured data points are provided in tabular or explicit textual form; all results are projections shown in figures. Therefore, extraction_confidence is low (0.35) due to: (1) multiple coupling types discussed without clear primary focus, (2) no extractable numerical data points from the paper text, (3) projections rather than measured limits, and (4) figures not accessible for digitization. | [VISION GATE B] vision notes assert the plotted axis belongs to VectorB-L/VectorBL but the declared coupling is ScalarBaryon \u2014 wrong panel/curve traced",
+ "num_points": 0,
+ "elapsed_s": 99.15989708900452
+}

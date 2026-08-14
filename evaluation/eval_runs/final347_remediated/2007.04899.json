@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "2007.04899",
+  "paper_title": "Searching for vector dark matter with an optomechanical accelerometer",
+  "coupling_type": "VectorBL",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      8.3e-12,
+      1e-23
+    ],
+    [
+      2.5e-11,
+      1e-23
+    ],
+    [
+      5e-11,
+      2e-23
+    ],
+    [
+      1.03e-10,
+      3e-23
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "Optomechanical_Accelerometer_SiN_Be_2020",
+  "coupling_convention": "dimensionless g_B-L",
+  "notes": "Projected (not measured) sensitivity of a proposed Si3N4 membrane / Be mirror optomechanical accelerometer to vector B-L dark matter (Fig. 2). Values read approximately from the resonant minima of the 1-year blue projection curves for 2.5-20 cm membranes (resonances ~2-25 kHz, i.e. mDM ~8e-12 to 1e-10 eV). Coupling is dimensionless gB-L. The paper also projects B-coupled dark photon sensitivity (Fig. 4). Reference bounds shown (Eot-Wash, LIGO, MICROSCOPE) are not this paper's result. Data are approximate figure reads; not a table. | vector-trace candidate: Fig2.pdf colour (0.0, 0.0, 0.57), 2541 pts (selected among 12) | [TEXT-VECTOR DISAGREEMENT] vector trace differs from the in-range text anchor by 3.4 dex (> 2.0) over the shared mass range \u2014 likely wrong curve/panel; deferred to text | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 4,
+  "elapsed_s": 71.7531111240387
+}

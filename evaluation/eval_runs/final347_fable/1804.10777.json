@@ -1,0 +1,178 @@
+{
+  "arxiv_id": "1804.10777",
+  "paper_title": "Constraints on hidden photons produced in nuclear reactors",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.112,
+      0.91
+    ],
+    [
+      0.126,
+      0.72
+    ],
+    [
+      0.158,
+      0.45
+    ],
+    [
+      0.2,
+      0.283
+    ],
+    [
+      0.251,
+      0.177
+    ],
+    [
+      0.316,
+      0.111
+    ],
+    [
+      0.398,
+      0.0696
+    ],
+    [
+      0.501,
+      0.0436
+    ],
+    [
+      0.631,
+      0.0273
+    ],
+    [
+      0.794,
+      0.0171
+    ],
+    [
+      1.0,
+      0.0107
+    ],
+    [
+      1.26,
+      0.00673
+    ],
+    [
+      1.58,
+      0.00421
+    ],
+    [
+      2.0,
+      0.00264
+    ],
+    [
+      2.51,
+      0.00166
+    ],
+    [
+      3.16,
+      0.00104
+    ],
+    [
+      3.98,
+      0.00065
+    ],
+    [
+      5.01,
+      0.000407
+    ],
+    [
+      6.31,
+      0.000255
+    ],
+    [
+      7.94,
+      0.00016
+    ],
+    [
+      10.0,
+      0.0001
+    ],
+    [
+      12.6,
+      6.3e-05
+    ],
+    [
+      15.8,
+      4e-05
+    ],
+    [
+      17.8,
+      3.16e-05
+    ],
+    [
+      20.0,
+      2.5e-05
+    ],
+    [
+      22.4,
+      2.5e-05
+    ],
+    [
+      31.6,
+      2.5e-05
+    ],
+    [
+      50.1,
+      2.5e-05
+    ],
+    [
+      100.0,
+      2.5e-05
+    ],
+    [
+      200.0,
+      2.5e-05
+    ],
+    [
+      398.0,
+      2.5e-05
+    ],
+    [
+      1000.0,
+      2.5e-05
+    ],
+    [
+      2510.0,
+      2.5e-05
+    ],
+    [
+      6310.0,
+      2.5e-05
+    ],
+    [
+      15800.0,
+      2.5e-05
+    ],
+    [
+      39800.0,
+      2.5e-05
+    ],
+    [
+      100000.0,
+      2.5e-05
+    ],
+    [
+      251000.0,
+      2.5e-05
+    ],
+    [
+      501000.0,
+      2.5e-05
+    ],
+    [
+      1000000.0,
+      2.5e-05
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "TEXONO (reactor hidden photons, Danilov-Demidov-Gorbunov reanalysis)",
+  "coupling_convention": "kinetic mixing epsilon (dimensionless); y-axis plotted as Log10(epsilon), values converted to linear epsilon",
+  "notes": "Paper derives a revised 95% CL upper limit on hidden photon kinetic mixing epsilon vs mass mX from published TEXONO reactor data, correcting Park (2017) by including photon-hidden photon oscillations in matter (effective photon mass m_gamma ~ 20 eV) and the anti-Compton selection efficiency. The result is only shown in Fig. 1 (no numerical table). Data points here are reconstructed from the physics described in the text: for mX >> 20 eV the limit is a factor ~4^(1/4)~1.4 weaker than Park's ~1e-5, giving epsilon ~ 1.5e-5 (flat up to the kinematic production cutoff at mX ~ MeV); for mX < 20 eV the signal scales as (mX/m_gamma)^8 in epsilon^4, so the limit degrades as (m_gamma/mX)^2, losing sensitivity entirely below mX ~ 0.1 eV as stated in the abstract. Point values are approximate reconstructions, not digitized from the figure, hence moderate extraction confidence. Not a dark-matter search (reactor production), so no local DM density assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 40)) | Vision: Traced the black solid TEXONO line in Fig. 1 (95% CL upper limit on hidden photon kinetic mixing from TEXONO reactor data). The line falls diagonally with slope ~-2 (log-log) from epsilon~1 at m_X~0.1 eV to a sharp kink at m_X~20 eV (the assumed effective photon mass m_gamma=20 eV in matter), then is mass-independent at epsilon~2.5e-5 up to 1 MeV. Flat value calibrated both visually (between -3 and -6 ticks, at ~-4.6) and by text stating the limit is slightly weaker (factor 4^(1/4)) than the epsilon<~1e-5 of Ref.[13]. Other shaded regions (CAST, Solar Lifetime, HB, Rydberg, EW, dDM) are prior constraints, not traced. Not a dark-matter search; no DM density assumed (source is reactor photons). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity)",
+  "num_points": 40,
+  "elapsed_s": 151.35939383506775
+}
