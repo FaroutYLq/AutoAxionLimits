@@ -1,0 +1,134 @@
+{
+  "arxiv_id": "1004.1313",
+  "paper_title": "New ALPS Results on Hidden-Sector Lightweights",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.0001,
+      6.8e-08
+    ],
+    [
+      0.00013,
+      6.7e-08
+    ],
+    [
+      0.00017,
+      6.6e-08
+    ],
+    [
+      0.00022,
+      6.6e-08
+    ],
+    [
+      0.00028,
+      6.6e-08
+    ],
+    [
+      0.00035,
+      6.6e-08
+    ],
+    [
+      0.00042,
+      6.7e-08
+    ],
+    [
+      0.0005,
+      6.9e-08
+    ],
+    [
+      0.00056,
+      7.1e-08
+    ],
+    [
+      0.00062,
+      7.5e-08
+    ],
+    [
+      0.00068,
+      8e-08
+    ],
+    [
+      0.00073,
+      8.7e-08
+    ],
+    [
+      0.00078,
+      9.6e-08
+    ],
+    [
+      0.00083,
+      1.08e-07
+    ],
+    [
+      0.00088,
+      1.25e-07
+    ],
+    [
+      0.00093,
+      1.45e-07
+    ],
+    [
+      0.00098,
+      1.7e-07
+    ],
+    [
+      0.00103,
+      2e-07
+    ],
+    [
+      0.00108,
+      2.4e-07
+    ],
+    [
+      0.00113,
+      2.9e-07
+    ],
+    [
+      0.00118,
+      3.5e-07
+    ],
+    [
+      0.00123,
+      4.2e-07
+    ],
+    [
+      0.00128,
+      5e-07
+    ],
+    [
+      0.00133,
+      6e-07
+    ],
+    [
+      0.0014,
+      7.5e-07
+    ],
+    [
+      0.0015,
+      1e-06
+    ],
+    [
+      0.0016,
+      1.3e-06
+    ],
+    [
+      0.0017,
+      1.6e-06
+    ],
+    [
+      0.00185,
+      1.9e-06
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.82,
+  "suggested_experiment_name": "ALPS (LSW)",
+  "coupling_convention": "g_agamma in GeV^-1 (canonical), as plotted on y-axis",
+  "notes": "Light-shining-through-wall (LSW) experiment at DESY using HERA dipole (5 T, 8.8 m). Sets 95% CL limits on photon-WISP-photon conversion probability of ~2e-25. Paper constrains multiple WISPs: ALP-photon coupling g_agamma (Fig. 4), hidden-photon kinetic mixing chi (Fig. 5, DarkPhoton), and minicharged particles (Fig. 6). Chosen AxionPhoton per hint and it is the paradigmatic result. Flat ALP bound g_- ~ 7e-8 GeV^-1 derived from measured conversion probability limit; approximate value, valid for m_phi below ~5e-4 eV before coherence gaps appear (Fig.4 shows exclusion in the 1e-4 to 1e-3 eV mass window with gaps filled by gas runs). Not a DM haloscope, so no local DM density assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.82, 29)) | Vision: Figure 4 left panel: 95% C.L. exclusion for pseudoscalar ALPs. Traced the lower boundary of the ALPS (red) region, which is the most stringent constraint. X-axis m_phi from 1e-4 to ~2e-3 eV (log), y-axis g_- from 5e-8 to 2e-6 GeV^-1 (log). Boundary is flat (~6.6e-8) at low mass, then rises steeply near ~1 meV where finger/oscillatory structures appear due to coherence loss. Excluded region is above the boundary. The scalar (g_+) right panel is nearly identical. | Calibration: No calibration needed",
+  "num_points": 29,
+  "elapsed_s": 130.20880317687988
+}

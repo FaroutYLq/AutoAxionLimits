@@ -1,0 +1,158 @@
+{
+  "arxiv_id": "2102.02207",
+  "paper_title": "XMM-Newton",
+  "coupling_type": null,
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5200.0,
+      1.5e-11
+    ],
+    [
+      5400.0,
+      9e-12
+    ],
+    [
+      5600.0,
+      6e-12
+    ],
+    [
+      5900.0,
+      5e-12
+    ],
+    [
+      6200.0,
+      1.5e-11
+    ],
+    [
+      6500.0,
+      6e-12
+    ],
+    [
+      6800.0,
+      4.5e-12
+    ],
+    [
+      7000.0,
+      4e-12
+    ],
+    [
+      7300.0,
+      5e-12
+    ],
+    [
+      7600.0,
+      5.5e-12
+    ],
+    [
+      7900.0,
+      3.5e-12
+    ],
+    [
+      8200.0,
+      3e-12
+    ],
+    [
+      8500.0,
+      2.6e-12
+    ],
+    [
+      8800.0,
+      3e-12
+    ],
+    [
+      9100.0,
+      2.5e-12
+    ],
+    [
+      9400.0,
+      2e-12
+    ],
+    [
+      9700.0,
+      1.7e-12
+    ],
+    [
+      10000.0,
+      1.4e-12
+    ],
+    [
+      10300.0,
+      1.1e-12
+    ],
+    [
+      10600.0,
+      8e-13
+    ],
+    [
+      10900.0,
+      6e-13
+    ],
+    [
+      11200.0,
+      9e-13
+    ],
+    [
+      11600.0,
+      1.3e-12
+    ],
+    [
+      12000.0,
+      2e-12
+    ],
+    [
+      12300.0,
+      1.5e-12
+    ],
+    [
+      12700.0,
+      1.4e-12
+    ],
+    [
+      13000.0,
+      1.6e-12
+    ],
+    [
+      13300.0,
+      2e-12
+    ],
+    [
+      13700.0,
+      1.6e-12
+    ],
+    [
+      14000.0,
+      1.4e-12
+    ],
+    [
+      14400.0,
+      1.8e-12
+    ],
+    [
+      14800.0,
+      2e-12
+    ],
+    [
+      15200.0,
+      1.8e-12
+    ],
+    [
+      15600.0,
+      1.9e-12
+    ],
+    [
+      16000.0,
+      2e-12
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.29,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.35,
+  "suggested_experiment_name": "XMM-Newton blank-sky (sterile neutrino DM decay)",
+  "coupling_convention": "sin^2(2 theta), sterile-neutrino mixing angle, dimensionless, exactly as plotted on the y-axis",
+  "notes": "This paper sets limits on decaying sterile-neutrino dark matter via the mixing angle sin^2(2theta) as a function of DM mass m_chi (5-16 keV) using XMM-Newton blank-sky observations. The constrained parameter (sterile neutrino mixing angle / DM decay rate) does not correspond to any coupling type in the provided enum (not axion, dark photon, or scalar couplings), so coupling_type is null. Limits range roughly sin^2(2theta) ~ 1e-12 to 1e-10 across the mass range (Fig. 3) but no tabulated numerical values are available in the provided text. Local DM density assumed 0.29 GeV/cm^3 (NFW, solar radius). | selector: figure_vision (sole candidate) | Vision: Figure 3 upper panel: power-constrained 95% upper limit on sin^2(2theta) vs m_chi [keV] for decaying sterile-neutrino DM (XMM-Newton). X-axis linear 5-16 keV; y-axis log 1e-13 to 1e-10. Solid black 'Fiducial' curve traced as lower boundary of excluded region; excluded region lies above. Vertical grey bands are masked background lines where the limit spikes up (e.g. ~6.3, ~12, ~13.3 keV). NFW profile, local DM density ~0.29 GeV/cm^3. The plotted sin^2(2theta) does not match any listed coupling_type, so coupling_type set to null; values emitted exactly as plotted. Readings are approximate due to figure resolution. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.86 snapped to identity)",
+  "num_points": 35,
+  "elapsed_s": 104.41106414794922
+}

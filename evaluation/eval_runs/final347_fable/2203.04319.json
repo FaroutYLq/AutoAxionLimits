@@ -1,0 +1,170 @@
+{
+  "arxiv_id": "2203.04319",
+  "paper_title": "Upper limit on the axion-photon coupling from magnetic white dwarf polarization",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-11,
+      5.4e-12
+    ],
+    [
+      2e-11,
+      5.4e-12
+    ],
+    [
+      5e-11,
+      5.4e-12
+    ],
+    [
+      1e-10,
+      5.4e-12
+    ],
+    [
+      2e-10,
+      5.4e-12
+    ],
+    [
+      5e-10,
+      5.4e-12
+    ],
+    [
+      1e-09,
+      5.4e-12
+    ],
+    [
+      2e-09,
+      5.4e-12
+    ],
+    [
+      5e-09,
+      5.4e-12
+    ],
+    [
+      1e-08,
+      5.4e-12
+    ],
+    [
+      2e-08,
+      5.4e-12
+    ],
+    [
+      5e-08,
+      5.4e-12
+    ],
+    [
+      1e-07,
+      5.4e-12
+    ],
+    [
+      1.5e-07,
+      5.5e-12
+    ],
+    [
+      2e-07,
+      5.6e-12
+    ],
+    [
+      2.5e-07,
+      5.8e-12
+    ],
+    [
+      3e-07,
+      6.2e-12
+    ],
+    [
+      3.5e-07,
+      6.8e-12
+    ],
+    [
+      4e-07,
+      7.6e-12
+    ],
+    [
+      4.5e-07,
+      8.8e-12
+    ],
+    [
+      5e-07,
+      1e-11
+    ],
+    [
+      5.5e-07,
+      1.2e-11
+    ],
+    [
+      6e-07,
+      1.45e-11
+    ],
+    [
+      6.5e-07,
+      1.75e-11
+    ],
+    [
+      7e-07,
+      2.1e-11
+    ],
+    [
+      7.5e-07,
+      2.6e-11
+    ],
+    [
+      8e-07,
+      3.1e-11
+    ],
+    [
+      8.5e-07,
+      3.8e-11
+    ],
+    [
+      9e-07,
+      4.6e-11
+    ],
+    [
+      9.5e-07,
+      5.5e-11
+    ],
+    [
+      1e-06,
+      6.6e-11
+    ],
+    [
+      1.05e-06,
+      7.8e-11
+    ],
+    [
+      1.1e-06,
+      9.2e-11
+    ],
+    [
+      1.15e-06,
+      1.1e-10
+    ],
+    [
+      1.2e-06,
+      1.3e-10
+    ],
+    [
+      1.3e-06,
+      1.8e-10
+    ],
+    [
+      1.4e-06,
+      2.4e-10
+    ],
+    [
+      1.5e-06,
+      3e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "MWD polarization (SDSS J135141)",
+  "coupling_convention": "|g_agammagamma| in GeV^-1, as plotted on the y-axis of Fig. 1",
+  "notes": "Fiducial (conservative) 95% CL upper limit |g_agamma| < 5.4e-12 GeV^-1 from non-observation of axion-induced linear polarization of MWD SDSS J135141, valid for m_a <~ 3e-7 eV (encoded as a flat bound spanning the Fig. 1 mass range lower edge ~1e-11 eV up to 3e-7 eV; above this the sensitivity degrades quadratically with m_a, but no digitized data is available for that region). This is a purely astrophysical bound (no DM assumption). Paper also reports weaker/comparable limits from Grw+70 8247 (~0.73% Lp) and PG 1031+234 (8.8e-12 GeV^-1), but the headline result is the SDSS J135141 fiducial limit. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 38)) | Vision: Exclusion plot is Fig. 1 on page 1 (fig_00.png). The traced boundary is the red solid 'conservative (fiducial)' 95% CL upper limit from non-observation of linear polarization from SDSS J135141. The text explicitly states |g_agamma| <~ 5.4e-12 GeV^-1 at 95% CL for m_a <~ 3e-7 eV, anchoring the flat portion; the limit rises steeply above ~3e-7 eV, exiting the top of the plot (~3e-10 GeV^-1) near 1.5e-6 eV. The rising portion is read from the plot with slope ~2.5-3 in log-log. The best-fit (dashed) and optimistic (dotted) curves lie slightly lower (~4-4.5e-12 in the flat region) but the conservative fiducial curve is the paper's quoted limit. Limit does not assume axion dark matter (astrophysical photon-axion conversion), so dm_density_assumed is null. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.68 snapped to identity)",
+  "num_points": 38,
+  "elapsed_s": 113.75861406326294
+}

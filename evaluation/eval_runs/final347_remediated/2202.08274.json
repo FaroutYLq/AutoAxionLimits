@@ -1,0 +1,154 @@
+{
+  "arxiv_id": "2202.08274",
+  "paper_title": "Extraterrestrial Axion Search with the Breakthrough Listen Galactic Center Survey",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.5e-05,
+      1e-10
+    ],
+    [
+      1.53e-05,
+      4e-11
+    ],
+    [
+      1.57e-05,
+      1.8e-11
+    ],
+    [
+      1.6e-05,
+      1.3e-11
+    ],
+    [
+      1.65e-05,
+      1e-11
+    ],
+    [
+      1.7e-05,
+      9e-12
+    ],
+    [
+      1.75e-05,
+      8e-12
+    ],
+    [
+      1.8e-05,
+      7.5e-12
+    ],
+    [
+      1.85e-05,
+      8e-12
+    ],
+    [
+      1.9e-05,
+      8.5e-12
+    ],
+    [
+      1.95e-05,
+      9.5e-12
+    ],
+    [
+      2e-05,
+      1e-11
+    ],
+    [
+      2.05e-05,
+      1e-11
+    ],
+    [
+      2.1e-05,
+      1.05e-11
+    ],
+    [
+      2.15e-05,
+      1.1e-11
+    ],
+    [
+      2.2e-05,
+      1.2e-11
+    ],
+    [
+      2.3e-05,
+      1.3e-11
+    ],
+    [
+      2.4e-05,
+      1.5e-11
+    ],
+    [
+      2.5e-05,
+      1.7e-11
+    ],
+    [
+      2.6e-05,
+      1.9e-11
+    ],
+    [
+      2.7e-05,
+      2.2e-11
+    ],
+    [
+      2.75e-05,
+      2.5e-11
+    ],
+    [
+      2.8e-05,
+      3e-11
+    ],
+    [
+      2.85e-05,
+      3.5e-11
+    ],
+    [
+      2.9e-05,
+      4.2e-11
+    ],
+    [
+      2.95e-05,
+      5e-11
+    ],
+    [
+      3e-05,
+      5.8e-11
+    ],
+    [
+      3.05e-05,
+      7e-11
+    ],
+    [
+      3.1e-05,
+      8e-11
+    ],
+    [
+      3.15e-05,
+      9e-11
+    ],
+    [
+      3.2e-05,
+      1e-10
+    ],
+    [
+      3.3e-05,
+      1e-10
+    ],
+    [
+      3.4e-05,
+      1e-10
+    ],
+    [
+      3.5e-05,
+      1e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.346,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "Breakthrough Listen GBT Galactic Center Survey",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis",
+  "notes": "Astrophysical search for axion-photon conversion in GC neutron star magnetospheres using Breakthrough Listen GBT C-band data. Sets 95% CL upper limit g_agamma ~ 1e-11 GeV^-1 over m_a in 15-35 ueV. No numerical table provided; the exclusion curve is in Fig. 1 and only the approximate level (~1e-11 GeV^-1) is quoted in the text, so the two emitted points represent an approximate flat bound spanning the stated mass range. Local DM density 0.346 GeV/cm^3 (NFW normalization) assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 34)) | Vision: Figure 1 (title page). Red line is the median 95% CL upper limit over 100 MC realizations of the NS population; traced as the lower boundary of the exclusion region. The line is noisy (forest of narrow spikes); the smooth median envelope was traced. Limit hovers near 1e-11 GeV^-1 across 15-27 ueV and rises toward ~1e-10 at high mass. Y-axis reaches ~2e-11 in the DM-plausible band. Frequency top axis 4-8 GHz corresponds to mass range. KSVZ/DFSZ QCD lines near 5e-15 to 1e-14. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.37 snapped to identity)",
+  "num_points": 34,
+  "elapsed_s": 91.96005487442017
+}

@@ -1,0 +1,30 @@
+{
+  "arxiv_id": "2110.01582",
+  "paper_title": "New Constraints on Dark Photon Dark Matter with Superconducting Nanowire Detectors in an Optical Haloscope",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.7,
+      1e-12
+    ],
+    [
+      0.75,
+      1e-12
+    ],
+    [
+      0.8,
+      1e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "LAMPOST",
+  "coupling_convention": "dimensionless kinetic mixing epsilon",
+  "notes": "LAMPOST proof-of-concept optical haloscope with SNSPD, 180 hr exposure. New 90% CL exclusion on dark photon kinetic mixing in mass range ~0.7-0.8 eV at epsilon ~1e-12, improving existing limits (FUNK, SENSEI, Xenon10, Xenon1T solar) by up to a factor of two. No numerical table provided; data points are approximate values from the abstract/text ('kinetic mixing eps >~ 1e-12'). The actual limit curve in Fig. 4 oscillates due to substrate thickness effects, so these flat approximate values carry moderate uncertainty. Paper also mentions future axion-photon sensitivity with magnetic field, but the measured result is DarkPhoton only. A projection curve for 90% SDE is shown in Fig. 4 but not extracted here. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.6, 3))",
+  "num_points": 3,
+  "elapsed_s": 141.97744584083557
+}

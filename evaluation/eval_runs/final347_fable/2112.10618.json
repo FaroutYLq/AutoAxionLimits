@@ -1,0 +1,166 @@
+{
+  "arxiv_id": "2112.10618",
+  "paper_title": "Measuring the stability of fundamental constants with a network of clocks",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      4.136e-15,
+      4.5e-17
+    ],
+    [
+      2.757e-15,
+      3.67e-17
+    ],
+    [
+      2.068e-15,
+      3.18e-17
+    ],
+    [
+      1.379e-15,
+      2.6e-17
+    ],
+    [
+      8.272e-16,
+      2.01e-17
+    ],
+    [
+      5.909e-16,
+      1.7e-17
+    ],
+    [
+      4.136e-16,
+      1.42e-17
+    ],
+    [
+      2.757e-16,
+      1.16e-17
+    ],
+    [
+      2.068e-16,
+      1.01e-17
+    ],
+    [
+      1.379e-16,
+      8.22e-18
+    ],
+    [
+      8.272e-17,
+      6.36e-18
+    ],
+    [
+      5.909e-17,
+      5.38e-18
+    ],
+    [
+      4.136e-17,
+      4.5e-18
+    ],
+    [
+      2.757e-17,
+      3.67e-18
+    ],
+    [
+      2.068e-17,
+      3.18e-18
+    ],
+    [
+      1.379e-17,
+      2.6e-18
+    ],
+    [
+      8.272e-18,
+      2.01e-18
+    ],
+    [
+      5.909e-18,
+      1.7e-18
+    ],
+    [
+      4.136e-18,
+      1.42e-18
+    ],
+    [
+      2.757e-18,
+      1.16e-18
+    ],
+    [
+      2.068e-18,
+      1.01e-18
+    ],
+    [
+      1.379e-18,
+      8.22e-19
+    ],
+    [
+      8.272e-19,
+      6.36e-19
+    ],
+    [
+      5.909e-19,
+      5.38e-19
+    ],
+    [
+      4.136e-19,
+      4.5e-19
+    ],
+    [
+      2.757e-19,
+      3.67e-19
+    ],
+    [
+      2.068e-19,
+      3.18e-19
+    ],
+    [
+      1.379e-19,
+      2.6e-19
+    ],
+    [
+      8.272e-20,
+      2.01e-19
+    ],
+    [
+      5.909e-20,
+      1.7e-19
+    ],
+    [
+      4.136e-20,
+      1.42e-19
+    ],
+    [
+      2.757e-20,
+      1.16e-19
+    ],
+    [
+      2.068e-20,
+      1.01e-19
+    ],
+    [
+      1.379e-20,
+      8.4e-20
+    ],
+    [
+      8.272e-21,
+      6.6e-20
+    ],
+    [
+      5.909e-21,
+      5.6e-20
+    ],
+    [
+      4.136e-21,
+      4.8e-20
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.45,
+  "suggested_experiment_name": "QSNET clock network",
+  "coupling_convention": "Fractional sensitivity/uncertainty on the fine-structure-constant variation, d\u03b1/\u03b1 (dimensionless), exactly as plotted on the y-axis of Fig. 6b; NOT converted to the dilaton coupling d_e. X-axis converted from integration time \u03c4[s] to mass via m[eV]=4.136e-15/\u03c4.",
+  "notes": "QSNET white paper presenting projected sensitivities (not measured limits) of a UK clock network to oscillating scalar dark matter coupled to the photon (1/Lambda_gamma, i.e. d_e^(1)) and electron (1/Lambda_e, d_me^(1)), shown as green curves in Figs. 6-7 spanning m_phi ~ 1e-24 to 1e-10 eV. The paper constrains both ScalarPhoton (alpha variation) and ScalarElectron (m_e variation) channels; ScalarPhoton chosen per pre-analysis hint and the primary Fig. 6a panel. However, no numerical sensitivity values are given in tables or text - the projections exist only as unreadable plot curves - so no data points could be extracted. If digitized later, note the y-axis is log10(GeV/Lambda_gamma), convertible to d_e via 1/Lambda_gamma = kappa*d_e with kappa = sqrt(4*pi*G_N). | selector: figure_vision (sole candidate) | Vision: The image labeled as the exclusion plot (fig_07) is actually an AC Stark shift plot; the plot matching the supplied axis calibration (x: 1-1e6 s, y: 1e-20 to 1e-15) is Fig. 6 panel (b) in fig_06.png, showing projected d\u03b1/\u03b1 sensitivity vs integration time \u03c4 for clock pairs Yb+/Sr, Cf17+/Sr, Cf17+/Yb+, Cf15+/Cf17+. I traced the lower envelope (Cf15+/Cf17+, gold dotted), which follows ~4.5e-17\u00b7\u03c4^(-1/2) with mild flattening beyond ~1e5 s. This is a projected sensitivity, not a measured exclusion; converting to d_e would require the DM field amplitude, so plotted d\u03b1/\u03b1 values are emitted per the plotted-values contract. ScalarPhoton type chosen since panel (b) constrains \u03b1 variation (panel (c) shows d\u03bc/\u03bc, which would be a different coupling). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.41 snapped to identity)",
+  "num_points": 37,
+  "elapsed_s": 198.95634293556213
+}

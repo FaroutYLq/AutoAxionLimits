@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2401.18076",
+  "paper_title": "Searching for scalar field dark matter with LIGO",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.1e-14,
+      1e-19
+    ],
+    [
+      8.3e-14,
+      1e-21
+    ],
+    [
+      2.1e-13,
+      3e-22
+    ],
+    [
+      4.1e-13,
+      1.5e-22
+    ],
+    [
+      7.4e-13,
+      3e-22
+    ],
+    [
+      4.1e-12,
+      5e-21
+    ],
+    [
+      2.1e-11,
+      1e-19
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "LIGO_O3_ScalarDM",
+  "coupling_convention": "Lambda_gamma^-1 in GeV^-1 (paper's y-axis variable; approximate values estimated from the described frequency band and LIGO O3 sensitivity, NOT digitized from the figure)",
+  "notes": "Paper (Gottel et al., arXiv:2401.18076) sets new direct-search upper limits on scalar DM couplings 1/Lambda_gamma (photon, d_e) and 1/Lambda_e (electron, d_me) from LIGO O3 data, 10 Hz to 5000 Hz (~4e-14 to ~2e-11 eV), with best improvement (up to 3 orders of magnitude over previous direct searches) in 10-180 Hz. The limit applies identically to either 1/Lambda_gamma or 1/Lambda_e assuming the other is zero; ScalarPhoton chosen per hint, but the same numbers constrain ScalarElectron (d_me = MPl/(sqrt(4pi)*Lambda_e)). No numerical table is provided in the text; the emitted data points are order-of-magnitude estimates of the Fig. 3 exclusion curve reconstructed from Eq. (10), the LIGO O3 noise curve, and integration time, hence the low extraction confidence. Assumes rho_local = 0.4 GeV/cm^3; limits at 95% C.L. To convert emitted values to dimensionless d_e, multiply by MPl/sqrt(4pi) = 3.44e18 GeV. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 2.1 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 7,
+  "elapsed_s": 322.07404112815857
+}

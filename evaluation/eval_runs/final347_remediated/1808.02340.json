@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "1808.02340",
+  "paper_title": "Searches for electron interactions induced by new physics in the EDELWEISS-III germanium bolometers",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.0,
+      1.1e-11
+    ],
+    [
+      1000.0,
+      1.1e-11
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "EDELWEISS-III_SolarAxion",
+  "coupling_convention": "dimensionless g_ae",
+  "notes": "EDELWEISS-III Ge bolometers. Multiple results: solar axion CBRD gives g_ae < 1.1e-11 (90% CL) in massless limit (encoded here as a mass-independent horizontal line valid up to ~keV solar temperature). Also g_ae x g_aN^eff < 3.5e-17 (AxionNeutron/Proton product, not encoded), and mass-dependent bosonic DM absorption limits on g_ae (ALP) and kinetic mixing kappa (hidden photon) over 0.8-500 keV shown only in Figures 3-5 (no numerical table available, so those plot curves could not be extracted precisely). DM density rho=0.3 GeV/cm^3 assumed for the halo absorption searches. Projections down to 150 eV also presented but the emitted number is the observed solar limit, not a projection. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.6, 2))",
+  "num_points": 2,
+  "elapsed_s": 151.9091432094574
+}

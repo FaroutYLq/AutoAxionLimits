@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2205.06817",
+  "paper_title": "Constraining Fundamental Constant Variations from Ultralight Dark Matter with Pulsar Timing Arrays",
+  "coupling_type": "ScalarElectron",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      1e-23,
+      2e-06
+    ],
+    [
+      3e-23,
+      1.5e-06
+    ],
+    [
+      1e-22,
+      2e-06
+    ],
+    [
+      3e-22,
+      1e-05
+    ],
+    [
+      1e-21,
+      8e-05
+    ],
+    [
+      3e-21,
+      0.0007
+    ],
+    [
+      1e-20,
+      0.005
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.35,
+  "suggested_experiment_name": "PTA_ULDM_Projection_Kaplan2022",
+  "coupling_convention": "dimensionless d_e (scalar-electron mass coupling, Damour-Donoghue normalization)",
+  "notes": "Projection using mock IPTA/future PTA data. Paper constrains FIVE scalar ULDM couplings (d_hat_m quark, d_e electron, d_mu muon, d_gamma photon, d_g gluon) shown as separate panels in Fig. 1. Pre-analysis hint ScalarElectron corresponds to the d_e panel. No numeric tables for the limit curves exist; data_points are rough visual estimates of the IPTA correlated 95% C.L. d_e curve and are unreliable. Local DM density rho=0.4 GeV/cm^3 assumed. If ScalarPhoton (d_gamma) or quark/gluon couplings were intended, extraction would differ. Confidence kept low due to multiple coupling types and plot-only data. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.35, 7))",
+  "num_points": 7,
+  "elapsed_s": 120.55772304534912
+}

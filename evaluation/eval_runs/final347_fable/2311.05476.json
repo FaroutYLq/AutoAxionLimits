@@ -1,0 +1,182 @@
+{
+  "arxiv_id": "2311.05476",
+  "paper_title": "A Spectroscopic Search for Optical Emission Lines from Dark Matter Decay",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.85,
+      3e-26
+    ],
+    [
+      2.95,
+      1.5e-26
+    ],
+    [
+      3.05,
+      9e-27
+    ],
+    [
+      3.15,
+      6.5e-27
+    ],
+    [
+      3.25,
+      8e-27
+    ],
+    [
+      3.35,
+      6.5e-27
+    ],
+    [
+      3.45,
+      5e-27
+    ],
+    [
+      3.6,
+      4.5e-27
+    ],
+    [
+      3.8,
+      5e-27
+    ],
+    [
+      4.0,
+      5e-27
+    ],
+    [
+      4.2,
+      5.5e-27
+    ],
+    [
+      4.4,
+      7e-27
+    ],
+    [
+      4.6,
+      8e-27
+    ],
+    [
+      4.8,
+      6e-27
+    ],
+    [
+      5.0,
+      6.5e-27
+    ],
+    [
+      5.2,
+      9e-27
+    ],
+    [
+      5.4,
+      1e-26
+    ],
+    [
+      5.6,
+      9e-27
+    ],
+    [
+      5.8,
+      7.5e-27
+    ],
+    [
+      6.0,
+      6.5e-27
+    ],
+    [
+      6.2,
+      9e-27
+    ],
+    [
+      6.4,
+      1.2e-26
+    ],
+    [
+      6.6,
+      1.3e-26
+    ],
+    [
+      6.8,
+      1.2e-26
+    ],
+    [
+      7.0,
+      1.1e-26
+    ],
+    [
+      7.2,
+      1e-26
+    ],
+    [
+      7.4,
+      1.1e-26
+    ],
+    [
+      7.6,
+      1e-26
+    ],
+    [
+      7.8,
+      9.5e-27
+    ],
+    [
+      8.0,
+      1e-26
+    ],
+    [
+      8.2,
+      1.2e-26
+    ],
+    [
+      8.4,
+      1.3e-26
+    ],
+    [
+      8.6,
+      2.8e-26
+    ],
+    [
+      9.0,
+      3.2e-26
+    ],
+    [
+      9.5,
+      3.5e-26
+    ],
+    [
+      10.0,
+      3.8e-26
+    ],
+    [
+      10.5,
+      4e-26
+    ],
+    [
+      11.0,
+      4.2e-26
+    ],
+    [
+      11.5,
+      4e-26
+    ],
+    [
+      12.0,
+      3.2e-26
+    ],
+    [
+      12.4,
+      2e-26
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "DESI dark-sky spectral stacking (BGS+LRG)",
+  "coupling_convention": "two-photon decay rate Gamma in s^-1 exactly as plotted on the y-axis of Fig. 8 (NOT converted to g_agamma; paper relates them via Gamma = g^2 m^3 / 64 pi in natural units)",
+  "notes": "DESI stacked dark-sky spectra search for narrow optical emission lines from DM two-photon decay around BGS/LRG galaxies (~50 kpc impact parameter). Main result (Fig. 8) is a bound on the decay rate Gamma [s^-1] vs particle mass, derived from a 5-sigma surface-brightness detection limit of 1e-19 erg/s/cm^2/arcsec^2 over 2000-9000 A. The paper states the constraint corresponds to particle lifetime > 3e25 s (Gamma < ~3.3e-26 s^-1) over the mass range 5-12 eV, which I encode as a flat two-point bound. The exact Gamma(m) curve is only in Fig. 8 (machine-readable data on Zenodo, not in text). The ALP interpretation uses Gamma = g^2 m^3/(64 pi), so the bound maps to g_agamma ~ 1.6e-12 to 6e-12 GeV^-1 over 12-5 eV. No local DM density assumed (extragalactic halo bound via weak-lensing surface mass density). Paper quotes a 5-sigma detection limit rather than a 90/95% CL; 0.95 is a conservative placeholder. Confidence reduced because emitted values are raw decay rates, not the coupling, and the flat encoding approximates the mildly mass-dependent Fig. 8 curve. | [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of this paper's own limits') rather than the paper's own single curve | selector: figure_vision over text (quality (0, 1, 1, 1, 1, 0, 0.6, 41)) | Vision: Fig. 8 shows bounds on the axion-like DM two-photon decay rate Gamma [1/s] vs mass m [eV] (linear x-axis, 2.8-12.7 eV; log y-axis 1e-29 to 1e-25). Traced the lower envelope of this paper's own limits: BGS-5sigma (black) for 2.85-8.4 eV and LRG-5sigma (green) for 8.6-12.4 eV. MUSE and VIMOS (95% C.L.) curves from prior work are stronger below ~5 eV but were not traced since the task is this paper's constraint. Note the paper's limits are quoted at 5sigma (reported here under the 0.95 field as the closest allowed value). Coupling type is AxionPhoton by identification, but the emitted values are decay rates in s^-1 per the plotted-values contract; surface mass density assumed from SDSS lensing (Sigma ~ 70 h Msun/pc^2 for BGS at 40 kpc, 145 h Msun/pc^2 for LRG at 70 kpc), with ~30% systematic bands shown. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.89 snapped to identity) | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+  "num_points": 41,
+  "elapsed_s": 113.65468311309814
+}

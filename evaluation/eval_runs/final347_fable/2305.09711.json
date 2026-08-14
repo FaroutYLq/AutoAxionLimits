@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2305.09711",
+  "paper_title": "First Scan Search for Dark Photon Dark Matter with a Tunable Superconducting Radio-Frequency Cavity",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5.368e-06,
+      2.2e-16
+    ],
+    [
+      5.373e-06,
+      2.2e-16
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "SHANHE_SRF",
+  "coupling_convention": "dimensionless kinetic mixing epsilon",
+  "notes": "First scan search for dark photon dark matter with a tunable 1.3 GHz single-cell SRF niobium cavity (SHANHE collaboration, arXiv:2305.09711). Scanned 1.37 MHz range starting from f_max = 1.2991643795 GHz downward (1150 steps of ~1.3 kHz), corresponding to masses ~5.368e-6 to 5.373e-6 eV. The headline 90% CL limit epsilon < 2.2e-16 is quoted in text; the full frequency-dependent limit curve is in Fig. 3 but no numerical table is provided, so the limit is encoded as a flat two-point bound over the scanned range. Actual limit varies across bins (sensitivity estimate ~2.8e-16 from Eq. 1). Assumed rho_DM = 0.45 GeV/cm^3 and randomized dark photon polarization. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.75, 2))",
+  "num_points": 2,
+  "elapsed_s": 90.90713787078857
+}

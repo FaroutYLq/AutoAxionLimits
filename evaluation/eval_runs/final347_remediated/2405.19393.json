@@ -1,0 +1,130 @@
+{
+  "arxiv_id": "2405.19393",
+  "paper_title": "SN1987A_gamma_ProgenitorBfield",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-12,
+      1.4e-12
+    ],
+    [
+      3e-12,
+      1.3e-12
+    ],
+    [
+      1e-11,
+      1.2e-12
+    ],
+    [
+      3e-11,
+      1.1e-12
+    ],
+    [
+      1e-10,
+      1.05e-12
+    ],
+    [
+      3e-10,
+      1e-12
+    ],
+    [
+      1e-09,
+      9.5e-13
+    ],
+    [
+      3e-09,
+      9e-13
+    ],
+    [
+      1e-08,
+      8.5e-13
+    ],
+    [
+      3e-08,
+      8e-13
+    ],
+    [
+      1e-07,
+      7.8e-13
+    ],
+    [
+      3e-07,
+      8e-13
+    ],
+    [
+      7e-07,
+      9e-13
+    ],
+    [
+      1e-06,
+      1e-12
+    ],
+    [
+      2e-06,
+      1.4e-12
+    ],
+    [
+      4e-06,
+      2.2e-12
+    ],
+    [
+      7e-06,
+      3.5e-12
+    ],
+    [
+      1e-05,
+      5e-12
+    ],
+    [
+      2e-05,
+      9e-12
+    ],
+    [
+      4e-05,
+      1.6e-11
+    ],
+    [
+      7e-05,
+      2.5e-11
+    ],
+    [
+      0.0001,
+      3.5e-11
+    ],
+    [
+      0.0002,
+      5.5e-11
+    ],
+    [
+      0.0004,
+      8e-11
+    ],
+    [
+      0.0007,
+      1.1e-10
+    ],
+    [
+      0.001,
+      1.4e-10
+    ],
+    [
+      0.0015,
+      1.8e-10
+    ],
+    [
+      0.002,
+      2.3e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "SN1987A axion-photon conversion in progenitor B-field",
+  "coupling_convention": "g_agamma in GeV^-1 (canonical axion-photon coupling), as plotted",
+  "notes": "SN1987A gamma-ray (SMM) constraint on axion-photon coupling, newly extended to higher masses (up to ~10^-2 eV) via axion-to-photon conversion in the progenitor star's stellar magnetic field. The main new observed 95% CL limit is the 'ALP SN1987A' curve in Fig.1. Text gives low-mass value |g_agamma| <= 2.6e-12 GeV^-1 (fiducial, updated Galactic UF field + hadronic production); 3.1e-12 with Primakoff only; 3.4e-12 with older JF Galactic field. The full mass-dependent curve is only available as a plot (Fig.1); values above are an approximate flat reconstruction of the low-mass/plateau portion. The ALP limit newly excludes parameter space for m_a >~ 10 ueV up to ~10^-2 eV, but exact turnover/degradation points were not numerically tabulated in the extractable text. Not a DM haloscope, so no local density. Paper also contains projections (GALAXIS, NS mergers) but the primary NEW measured limit is the SN1987A ALP exclusion. Conservative B0=100 G assumed for SN1987A limit. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.5, 28)) | Vision: Traced the lower boundary of the solid blue 'ALP SN1987A (excl. 95%)' region in Fig. 1 of Manzari, Park, Safdi, Savoray (arXiv:2405.19393). This is the paper's new constraint from axion-to-photon conversion in the progenitor star's magnetic field, extending the SN1987A gamma-ray limit to higher masses up to ~1e-3 eV. Lower boundary is roughly flat near g~1e-12 GeV^-1 at low masses (1e-12 to ~1e-6 eV), then rises steeply for m_a > ~1e-6 eV. The exact position of the flat portion is hard to read precisely due to overlapping grey existing constraints and red projection lines near ~5e-13; values are approximate. Coupling type (AxionPhoton, g_agamma) is unambiguous from title/abstract/axis label. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.96 snapped to identity)",
+  "num_points": 28,
+  "elapsed_s": 169.41590976715088
+}

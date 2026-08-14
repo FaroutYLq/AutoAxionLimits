@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "1501.01639",
+  "paper_title": "New axion and hidden photon constraints from a solar data global fit",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-11,
+      4.1e-10
+    ],
+    [
+      1.0,
+      4.1e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "SolarGlobalFit2015",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Solar global fit (helioseismology + neutrino fluxes) bound. Axion-photon coupling limit g_agamma < 4.1e-10 GeV^-1 at 3-sigma CL (g10 < 4.1), valid as a mass-independent (flat) ALP bound for m_a below ~eV where Primakoff production is efficient (see Fig. 9 'Sun (global)' line). Encoded as horizontal line. NOTE: the paper ALSO derives a hidden-photon (DarkPhoton) constraint chi*m < 1.8e-12 eV valid over 3e-5 eV to 8 eV, which is the more novel result; if DarkPhoton is desired, chi = 1.8e-12/m[eV]. Confidence reduced because the paper constrains two coupling types. Limits quoted at 3-sigma (marked as 0.95 field placeholder). | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.55, 2))",
+  "num_points": 2,
+  "elapsed_s": 129.13341307640076
+}

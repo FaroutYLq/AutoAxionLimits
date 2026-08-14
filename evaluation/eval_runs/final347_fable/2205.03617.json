@@ -1,0 +1,62 @@
+{
+  "arxiv_id": "2205.03617",
+  "paper_title": "Particle dispersion in the classical vector dark matter background",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-22,
+      2.18e-42
+    ],
+    [
+      1e-20,
+      2.18e-38
+    ],
+    [
+      1e-18,
+      2.18e-34
+    ],
+    [
+      1e-16,
+      2.18e-30
+    ],
+    [
+      1e-14,
+      2.18e-26
+    ],
+    [
+      1e-12,
+      2.18e-22
+    ],
+    [
+      1e-10,
+      2.18e-18
+    ],
+    [
+      1e-08,
+      2.18e-14
+    ],
+    [
+      1e-06,
+      2.18e-10
+    ],
+    [
+      0.0001,
+      2.18e-06
+    ],
+    [
+      0.01,
+      0.0218
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "VDM_Dispersion_ChunYun2022",
+  "coupling_convention": "dimensionless kinetic mixing epsilon; values are eps = g_e/e with e=0.303 applied to the paper's g_psi bound of Eq. (39)",
+  "notes": "Theory paper deriving new bounds on ultralight vector DM from in-medium dispersion/normalization effects. For the dark photon model (Fig. 6), two new bounds are derived: (i) electron mass measurement, g_e < 3.3e-12*(m/1e-20 eV) [Eq. 35], and (ii) wavefunction normalization / electroweak precision (Z line), g < 6.6e-39*(m/1e-20 eV)^2 [Eq. 39]. The Eq. 39 bound is stronger throughout the plotted ultralight mass range, so the emitted curve is Eq. 39 converted to kinetic mixing via eps = g/e (e = 0.303). Paper also derives bounds for L_mu-L_tau, L_e-L_mu/tau, and B-L models (g_BL couplings) which are not included here; only the dark photon result is extracted per the hint. Bounds assume the vector field constitutes all of the local DM (rho = 0.3 GeV/cm^3); no explicit confidence level stated (order-of-magnitude theoretical constraints). | [VISION GATE B] vision notes assert the plotted axis belongs to VectorB-L/VectorBL but the declared coupling is DarkPhoton \u2014 wrong panel/curve traced | selector: text (sole candidate) | [CONVENTION REVIEW] declared coupling convention 'dimensionless kinetic mixing epsilon; values are eps = g_e/e with e=0.303 applied to the paper's g_psi bound of Eq. (39)' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 11,
+  "elapsed_s": 234.06923580169678
+}

@@ -1,0 +1,162 @@
+{
+  "arxiv_id": "1310.8098",
+  "paper_title": "First results of the CERN Resonant WISP Search (CROWS)",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.2e-09,
+      10.0
+    ],
+    [
+      2e-09,
+      3.1
+    ],
+    [
+      3e-09,
+      1.2
+    ],
+    [
+      5e-09,
+      0.36
+    ],
+    [
+      1e-08,
+      0.07100000000000001
+    ],
+    [
+      2e-08,
+      0.014
+    ],
+    [
+      5e-08,
+      0.0016
+    ],
+    [
+      1e-07,
+      0.00031999999999999997
+    ],
+    [
+      2e-07,
+      6.2e-05
+    ],
+    [
+      5e-07,
+      7.2e-06
+    ],
+    [
+      8e-07,
+      2.4e-06
+    ],
+    [
+      1e-06,
+      1.4000000000000001e-06
+    ],
+    [
+      1.03e-06,
+      8e-07
+    ],
+    [
+      1.1e-06,
+      1.1e-06
+    ],
+    [
+      1.5e-06,
+      7.2e-07
+    ],
+    [
+      2e-06,
+      4.6999999999999995e-07
+    ],
+    [
+      3e-06,
+      2.6e-07
+    ],
+    [
+      4e-06,
+      1.7000000000000001e-07
+    ],
+    [
+      5e-06,
+      1.25e-07
+    ],
+    [
+      6e-06,
+      9.6e-08
+    ],
+    [
+      7e-06,
+      7.699999999999999e-08
+    ],
+    [
+      8e-06,
+      6.3e-08
+    ],
+    [
+      9e-06,
+      5.3000000000000005e-08
+    ],
+    [
+      1e-05,
+      4.6e-08
+    ],
+    [
+      1.08e-05,
+      4.1e-08
+    ],
+    [
+      1.15e-05,
+      4.5e-08
+    ],
+    [
+      1.22e-05,
+      6.999999999999999e-08
+    ],
+    [
+      1.4e-05,
+      1.5e-07
+    ],
+    [
+      1.6e-05,
+      3e-07
+    ],
+    [
+      1.9e-05,
+      4.6000000000000004e-07
+    ],
+    [
+      2.3e-05,
+      1.2e-06
+    ],
+    [
+      3e-05,
+      5.600000000000001e-06
+    ],
+    [
+      3.7e-05,
+      2.5e-05
+    ],
+    [
+      4.9e-05,
+      0.00010999999999999999
+    ],
+    [
+      6e-05,
+      0.0004
+    ],
+    [
+      8.6e-05,
+      0.0038000000000000004
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "CROWS",
+  "coupling_convention": "kinetic mixing parameter chi, dimensionless, exactly as plotted on y-axis of Fig. 14",
+  "notes": "CROWS is a microwave light-shining-through-wall experiment at CERN. It sets NEW limits on both hidden sector photons (chi = 4.1e-9 at m = 10.8 ueV, probing previously unexplored parameter space) and ALPs (g = 4.5e-8 GeV^-1 at m = 7.2 ueV; wideband g = 9.9e-8 GeV^-1). Following the pre-analysis hint and the fact that only the HSP result probes new parameter space, DarkPhoton was chosen. Only the single most-sensitive point is given numerically in the text; the full exclusion curves are in Figs. 13-14 but no table is provided. As an LSW experiment, no DM density assumption applies. The ALP result (AxionPhoton) is a separate limit not encoded here. Confidence level 95% stated explicitly in the paper. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 36)) | Vision: CROWS microwave LSW (light-shining-through-wall) HSP search, Sept 2013 run at f_sys = 2.9566 GHz. Fig. 14 shows the hidden-sector-photon exclusion (blue region 'CROWS 9/2013'). Anchor point given explicitly in plot annotation: m_gamma' = 10.8 ueV, chi = 4.1e-9 (95% CL). Left boundary follows ~chi \u221d m^-2.3 (consistent with P \u221d chi^4 (m/omega)^8 scaling); narrow dip near ~1 ueV from form-factor structure; boundary rises very steeply above the cavity cutoff mass hf_sys \u2248 1.22e-5 eV (evanescent regime). LSW result: no dark-matter density assumption. NOTE: the supplied axis calibration (1e-12 to 1) matches the ALP plot (Fig. 13, g in GeV^-1); the HSP plot traced here clearly spans 1e-9 to 1 on both axes, which I used, consistent with the annotated tip value 4.1e-9 lying within the axes. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=8.00)",
+  "num_points": 36,
+  "elapsed_s": 290.7496483325958
+}

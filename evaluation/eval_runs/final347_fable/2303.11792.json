@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2303.11792",
+  "paper_title": "Searching for Time-Dependent Axion Dark Matter Signals in Pulsars",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      3.9e-06,
+      5.5e-11
+    ],
+    [
+      4.7e-06,
+      5.5e-11
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "MeerKAT_J2144",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "First time-domain search for axion DM radio signals from a neutron star magnetosphere using MeerKAT observations of PSR J2144-3933. Body text (v2) quotes g_agamma < 5.5e-11 GeV^-1 for fiducial parallax distance D=0.165 kpc over m_a = 3.9-4.7 ueV (the arXiv abstract shown quotes 4e-11 from v1; the v2 body value 5.5e-11 is used). A weaker limit 9.6e-11 GeV^-1 applies if D=0.29 kpc from electron density models. Limit is a 2-sigma (~95% CL) exclusion assuming axions constitute the entire Galactic halo with local density extrapolated from rho_DM ~ 0.45 GeV/cm^3 via NFW profile; also relies on alpha > 20 deg (pulsar not an aligned rotator). Encoded as flat bound across the stated mass validity range; Fig. 7 shows some mass dependence but numerical per-mass values are not available, so the quoted worst-case bound is used. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.8, 2))",
+  "num_points": 2,
+  "elapsed_s": 93.89766788482666
+}

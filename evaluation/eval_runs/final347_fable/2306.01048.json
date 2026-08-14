@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "2306.01048",
+  "paper_title": "Getting the most on supernova axions",
+  "coupling_type": "AxionProton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.001,
+      6e-10
+    ],
+    [
+      1000000.0,
+      6e-10
+    ],
+    [
+      10000000.0,
+      6e-10
+    ],
+    [
+      100000000.0,
+      7e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "SN1987A_Trapping_Lella2023",
+  "coupling_convention": "dimensionless g_ap (ALP-proton coupling, KSVZ benchmark with g_an = 0)",
+  "notes": "Paper extends SN 1987A bounds on ALP-nucleon couplings into the trapping regime using a modified luminosity criterion (GARCHING SFHo-18.8 model) plus a new Kamiokande-II ALP-induced oxygen excitation bound. The analysis assumes gan=0 (KSVZ-inspired), so the constraint is on the ALP-PROTON coupling gap (overriding the AxionNeutron hint). Combined exclusion: gap >~ 6e-10 for ma <~ 1 MeV (conclusions); cooling excludes 6e-10 <~ gap <~ 2.5e-6 for ma <~ 10 MeV and 7e-10 <~ gap <~ 3.5e-7 for ma ~ 100 MeV, with the KII bound (gap >~ 3e-7) closing the gap above the trapping ceiling for low masses. Data points give the lower boundary of the combined excluded region; the low-mass endpoint (1e-3 eV) is nominal since the bound is mass-independent below ~1 MeV. Without pions the free-streaming bound relaxes by ~2x (gap >~ 1.6e-9). The exclusion regions in Fig. 3/4 are given only graphically; numbers taken from explicit text values. Astrophysical bound, so no DM density assumption. Paper also translates results to QCD axion mass bounds (ma >~ 8-19 meV for KSVZ), but the primary plane is gap vs ma. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.7, 4))",
+  "num_points": 4,
+  "elapsed_s": 159.3141748905182
+}

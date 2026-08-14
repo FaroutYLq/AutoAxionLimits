@@ -1,0 +1,30 @@
+{
+  "arxiv_id": "2207.13597",
+  "paper_title": "Near-Quantum-Noise Axion Dark Matter Search at CAPP around 9.5 $\u03bc$eV",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      9.39e-06,
+      9.9e-15
+    ],
+    [
+      9.45e-06,
+      1e-14
+    ],
+    [
+      9.51e-06,
+      1.01e-14
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "CAPP_PACE_JPA",
+  "coupling_convention": "g_agamma in GeV^-1 (computed as 2.7 x KSVZ coupling at the given masses, as stated in the paper)",
+  "notes": "CAPP-PACE haloscope with flux-driven JPA, axion mass range 9.39-9.51 ueV (2.2704-2.3000 GHz). Paper states exclusion at 2.7x KSVZ coupling level assuming rho_a = 0.45 GeV/cm^3 and 100% axion dark matter, at 90% CL. No numerical table of limit values provided; data points derived from the stated '2.7-fold above KSVZ' sensitivity using g_KSVZ = (alpha/2pi f_a)*1.92 with m_a*f_a = 5.7e-3 GeV^2, giving ~1.0e-14 GeV^-1 across the band. Exact limit curve is in Fig. 4 (not numerically extractable from text). | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 14.4 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 3,
+  "elapsed_s": 83.08913803100586
+}

@@ -1,0 +1,22 @@
+{
+  "arxiv_id": "2308.08337",
+  "paper_title": "First results of the SUPAX Experiment: Probing Dark Photons",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      3.434e-05,
+      6.2e-14
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.9,
+  "suggested_experiment_name": "SUPAX",
+  "coupling_convention": "dimensionless kinetic mixing chi",
+  "notes": "First results of SUPAX haloscope at Mainz: 8.3 GHz (8303.06 MHz) copper cavity at 4.2 K, 126 min run without magnetic field. Single-frequency proof-of-concept limit chi < (6.20 +/- 3.15(exp) +/- 9.65(SG)) x 10^-14 at 95% CL for m_A' = 34.34 ueV, assuming randomly polarised DP field and rho_DM = 0.45 GeV/cm^3. The central value 6.20e-14 already includes the factor-5 correction for unaccounted analysis losses. Fixed-polarization limit is chi < 38e-14. Emitted as single point since limit applies at one frequency only. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.9, 1))",
+  "num_points": 1,
+  "elapsed_s": 105.83093309402466
+}

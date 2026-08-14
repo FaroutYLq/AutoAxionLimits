@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "0810.5501",
+  "paper_title": "New Constraints on Hidden Photons using Very High Energy Gamma-Rays from the Crab Nebula",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-05,
+      0.0343
+    ],
+    [
+      1e-06,
+      0.0343
+    ],
+    [
+      3e-07,
+      0.05
+    ],
+    [
+      1e-07,
+      0.1
+    ],
+    [
+      3e-08,
+      0.3
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "Crab_Nebula_VHE_2008",
+  "coupling_convention": "dimensionless kinetic mixing chi (mixing angle)",
+  "notes": "Hidden-photon (dark photon) constraint from photon->hidden-photon oscillations using VHE gamma-rays from the Crab Nebula. Combined limit converges to chi ~= 0.0343 at high mass; valid for mu <~ 10^-5 eV (coherence conditions). The bound weakens (larger chi) at lower masses; the low-mass points are approximate reads from Fig. 2. Stated confidence level is 68.3% (nearest option 0.90 selected). Values are the mixing angle chi (paper uses sin(2chi)), already dimensionless. Combined chi_fit=0.0343 from Table 1/text. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 5,
+  "elapsed_s": 33.641802072525024
+}

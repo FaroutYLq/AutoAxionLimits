@@ -1,0 +1,134 @@
+{
+  "arxiv_id": "2409.01805",
+  "paper_title": "Search for sub-eV axion-like particles in a quasi-parallel stimulated resonant photon-photon collider with \"coronagraphy\"",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.028,
+      0.1
+    ],
+    [
+      0.029,
+      0.02
+    ],
+    [
+      0.031,
+      0.003
+    ],
+    [
+      0.034,
+      0.0005
+    ],
+    [
+      0.037,
+      0.0001
+    ],
+    [
+      0.04,
+      4e-05
+    ],
+    [
+      0.045,
+      1.5e-05
+    ],
+    [
+      0.05,
+      8e-06
+    ],
+    [
+      0.06,
+      4e-06
+    ],
+    [
+      0.07,
+      2.5e-06
+    ],
+    [
+      0.085,
+      1.5e-06
+    ],
+    [
+      0.1,
+      1e-06
+    ],
+    [
+      0.11,
+      8.5e-07
+    ],
+    [
+      0.13,
+      6.5e-07
+    ],
+    [
+      0.15,
+      5.45e-07
+    ],
+    [
+      0.17,
+      6e-07
+    ],
+    [
+      0.19,
+      7e-07
+    ],
+    [
+      0.22,
+      9e-07
+    ],
+    [
+      0.25,
+      1.3e-06
+    ],
+    [
+      0.28,
+      2e-06
+    ],
+    [
+      0.32,
+      3.5e-06
+    ],
+    [
+      0.36,
+      7e-06
+    ],
+    [
+      0.4,
+      1.5e-05
+    ],
+    [
+      0.44,
+      5e-05
+    ],
+    [
+      0.47,
+      0.0002
+    ],
+    [
+      0.5,
+      0.001
+    ],
+    [
+      0.53,
+      0.005
+    ],
+    [
+      0.56,
+      0.03
+    ],
+    [
+      0.58,
+      0.1
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.78,
+  "suggested_experiment_name": "SAPPHIRES02",
+  "coupling_convention": "g/M (ALP-photon coupling) in GeV^-1, plotted directly",
+  "notes": "Laboratory stimulated resonant photon-photon collider (SAPPHIRES02) search for sub-eV ALPs, model-independent (no DM density). Result reported as ALP-photon coupling g/M in GeV^-1 vs ALP mass m. Only one explicit numerical exclusion point given in text: g/M = 5.45e-7 GeV^-1 at m = 0.15 eV (95% CL) for pseudoscalar ALPs; full exclusion curve (Figs 10/11) spans ~1e-3 to 1 eV but numerical values not tabulated. Both scalar and pseudoscalar limits provided; pseudoscalar is the axion-like case relevant to AxionPhoton. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.78, 29)) | Vision: Figure 11 (fig_00.png), pseudoscalar ALP-photon result. Red U-shaped 'SAPPHIRES02 (This work)' curve; lower boundary traced. Minimum g/M=5.45e-7 GeV^-1 at m=0.15 eV stated explicitly in text. Excluded region is the interior/above of the red U. Left branch rises steeply toward ~0.028 eV, right branch toward ~0.58 eV. 95% CL. Y-axis is g/M in GeV^-1 (M is a coupling scale; plotted values emitted directly). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity)",
+  "num_points": 29,
+  "elapsed_s": 123.88585782051086
+}

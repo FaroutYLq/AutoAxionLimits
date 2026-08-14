@@ -1,0 +1,17 @@
+{
+  "arxiv_id": "2005.14694",
+  "paper_title": "Frequency Ratio Measurements with 18-digit Accuracy Using a Network of Optical Clocks",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": false,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.15,
+  "suggested_experiment_name": "BACON_ClockNetwork",
+  "coupling_convention": null,
+  "notes": "This is the BACON collaboration paper reporting Al+/Yb, Al+/Sr, and Yb/Sr optical clock frequency ratio measurements with 8e-18 level uncertainty. It is a pure metrology paper: no dark matter search, no exclusion limit, and no coupling constraint is derived. Tests of fundamental physics (e.g., variation of fundamental constants / ultralight dark matter searches, which would map to ScalarPhoton/ScalarElectron) are mentioned only as future applications. The pre-analysis hint of ScalarPhoton likely stems from later papers that use these clock ratios; this paper itself contains no extractable limit data. | Coupling from pre-classifier (ScalarPhoton, conf=0.70)",
+  "num_points": 0,
+  "elapsed_s": 39.693732023239136
+}

@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "1907.12628",
+  "paper_title": "Constraints on Light Dark Matter Particles Interacting with Electrons from DAMIC at SNOLAB",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.2,
+      1e-12
+    ],
+    [
+      1.5,
+      1e-13
+    ],
+    [
+      2.0,
+      3e-14
+    ],
+    [
+      3.0,
+      1.5e-14
+    ],
+    [
+      5.0,
+      1e-14
+    ],
+    [
+      9.0,
+      9e-15
+    ],
+    [
+      12.0,
+      1.2e-14
+    ],
+    [
+      20.0,
+      2e-14
+    ],
+    [
+      30.0,
+      3e-14
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.45,
+  "suggested_experiment_name": "DAMIC_SNOLAB2019",
+  "coupling_convention": "dimensionless kinetic mixing kappa (same as chi/epsilon)",
+  "notes": "DAMIC at SNOLAB (arXiv:1907.12628) reports new 90% C.L. direct-detection limits on hidden-photon (dark photon) DM kinetic mixing kappa for masses 1.2-30 eV (Fig. 4), claiming best direct-detection limits in 1.2-9 eV. The paper also constrains DM-electron scattering cross section sigma_e for 0.6-100 MeV masses (Fig. 3), but sigma_e is not among the supported coupling types, so the hidden-photon kappa result is extracted. No numerical table is provided; the kappa values listed here are approximate reconstructions of the Fig. 4 exclusion curve shape (kappa ~1e-14 at minimum near ~5-10 eV, rising steeply toward the Si band gap at ~1.2 eV), hence the reduced extraction confidence. Halo parameters: rho_DM = 0.3 GeV/cm^3, v0 = 220 km/s, vesc = 544 km/s. For quantitative use, digitization of Fig. 4 from the published figure is recommended. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.45, 9))",
+  "num_points": 9,
+  "elapsed_s": 156.971825838089
+}

@@ -1,0 +1,58 @@
+{
+  "arxiv_id": "2412.02543",
+  "paper_title": "HST_dwarfs",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      14.4,
+      1e-12
+    ],
+    [
+      15.0,
+      5e-13
+    ],
+    [
+      16.0,
+      3e-13
+    ],
+    [
+      17.0,
+      2.5e-13
+    ],
+    [
+      18.0,
+      2e-13
+    ],
+    [
+      19.0,
+      2.5e-13
+    ],
+    [
+      20.0,
+      4e-13
+    ],
+    [
+      20.5,
+      1e-12
+    ],
+    [
+      21.0,
+      5e-13
+    ],
+    [
+      22.2,
+      6e-13
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "HST_dwarfs",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Indirect ALP DM decay search using archival HST STIS/MAMA FUV spectra of dwarf spheroidals (UMi, Draco) and clusters (Virgo, Fornax). 95% C.L. limits on g_agamma over ALP mass 14.4-22.2 eV. Text states exclusion of g_agamma > 1e-12 GeV^-1 over whole range, reaching ~2e-13 GeV^-1 for some masses; a degradation near 20.5 eV due to Lyalpha contamination. Data points read approximately from combined bound in Fig. 3 (only text-level values available). DM density modeled via NFW/Burkert D-factors, not a single local halo density, so dm_density_assumed left null. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 10,
+  "elapsed_s": 34.29298710823059
+}

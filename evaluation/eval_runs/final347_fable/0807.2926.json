@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "0807.2926",
+  "paper_title": "Solar neutrino limit on axions and keV-mass bosons",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-10,
+      7e-10
+    ],
+    [
+      1000.0,
+      7e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "SolarNeutrinos",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Paper derives a solar energy-loss limit (La < 0.1 Lsun from SNO all-flavor 8B neutrino flux) giving g_agamma < 7e-10 GeV^-1, Eq. (4). This is a mass-independent bound stated to apply to sub-keV mass particles (solar core T ~ 1 keV), encoded as a flat line from effectively massless up to ~1 keV. The paper also derives boson-electron Yukawa limits (PS: 2.8e-11, S: 2.4e-13, V: 1.7e-13 at mchi=0, with mass dependence shown only in Fig. 1 up to ~10 keV), but the primary/hinted result is the axion-photon coupling. No CL is explicitly stated for the solar limit (described as a 'nominal limit'); 0.95 given as default. No DM density assumption (astrophysical energy-loss bound, not a haloscope). | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2)) | [COUPLING REVIEW] axis 'dimensionless coupling g_ee\u03c7 (boson-electron Yukawa coupling, not squared)' implies DarkPhoton but classified AxionPhoton (cross-family contradiction \u2014 flagged, not overridden)",
+  "num_points": 2,
+  "elapsed_s": 119.48341202735901
+}

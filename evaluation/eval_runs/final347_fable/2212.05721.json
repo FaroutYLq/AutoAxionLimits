@@ -1,0 +1,166 @@
+{
+  "arxiv_id": "2212.05721",
+  "paper_title": "Search for ultralight dark matter from long-term frequency comparisons of optical and microwave atomic clocks",
+  "coupling_type": "ScalarElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.6e-22,
+      3e-06
+    ],
+    [
+      2e-22,
+      2.3e-06
+    ],
+    [
+      2.5e-22,
+      2e-06
+    ],
+    [
+      3e-22,
+      1.8e-06
+    ],
+    [
+      4e-22,
+      1.7e-06
+    ],
+    [
+      5e-22,
+      1.6e-06
+    ],
+    [
+      6e-22,
+      1.8e-06
+    ],
+    [
+      7e-22,
+      2e-06
+    ],
+    [
+      8e-22,
+      2.3e-06
+    ],
+    [
+      1e-21,
+      2.8e-06
+    ],
+    [
+      1.2e-21,
+      3.5e-06
+    ],
+    [
+      1.5e-21,
+      4.5e-06
+    ],
+    [
+      1.8e-21,
+      6e-06
+    ],
+    [
+      2e-21,
+      7e-06
+    ],
+    [
+      2.3e-21,
+      8e-06
+    ],
+    [
+      2.6e-21,
+      7e-06
+    ],
+    [
+      3e-21,
+      7.5e-06
+    ],
+    [
+      3.5e-21,
+      9e-06
+    ],
+    [
+      4e-21,
+      1e-05
+    ],
+    [
+      5e-21,
+      1.2e-05
+    ],
+    [
+      6e-21,
+      1.4e-05
+    ],
+    [
+      7e-21,
+      1.8e-05
+    ],
+    [
+      8e-21,
+      2e-05
+    ],
+    [
+      1e-20,
+      2.5e-05
+    ],
+    [
+      1.3e-20,
+      3e-05
+    ],
+    [
+      1.6e-20,
+      3.8e-05
+    ],
+    [
+      2e-20,
+      4.5e-05
+    ],
+    [
+      2.5e-20,
+      5.5e-05
+    ],
+    [
+      3e-20,
+      6.5e-05
+    ],
+    [
+      4e-20,
+      8.5e-05
+    ],
+    [
+      5e-20,
+      0.0001
+    ],
+    [
+      6e-20,
+      0.00013
+    ],
+    [
+      8e-20,
+      0.00017
+    ],
+    [
+      1e-19,
+      0.0002
+    ],
+    [
+      1.3e-19,
+      0.00027
+    ],
+    [
+      1.6e-19,
+      0.00035
+    ],
+    [
+      2e-19,
+      0.0005
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "NMIJ Yb/Cs clock comparison",
+  "coupling_convention": "d_me, dimensionless linear scalar coupling to electron mass, as plotted on y-axis of Fig. 4(b); limits already rescaled by factor 3.0 for stochastic field amplitude",
+  "notes": "Paper compares an 171Yb optical lattice clock with a 133Cs fountain clock over 298 days, setting new 95% CL limits on scalar DM couplings d_me (electron mass) and d_g (gluon/QCD) for m_phi = 1e-22 to 1e-20 eV, assuming rho_DM = 0.3 GeV/cm^3 and including a stochastic-field rescaling factor of 3.0. The only explicit numerical limit in the text is d_me <~ 1.6e-6 at m_phi ~ 5e-22 eV (best point, improved by ~10^3). Other data points are reconstructed by scaling the roughly flat amplitude limit (white-noise regime) linearly with mass/frequency per Eq.(5); they are approximate since Fig.4 numerical values are not tabulated. The paper also constrains d_g (new in 1e-22 to 1e-21 eV), d_e, and d_mq, but d_me is the headline improved coupling per the abstract and pre-analysis hint. Confidence lowered because data points beyond the single quoted value are inferred from scaling, not read from a table. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 37)) | Vision: Fig. 4(b) of the paper shows d_me vs scalar field mass. The red 'Yb/Cs' shaded region is this work's new 95% CL exclusion, spanning ~1.6e-22 to ~2e-19 eV. Text anchor: minimum d_me ~ 1.6e-6 at m ~ 5e-22 eV, matching the traced minimum. Left edge of exclusion at m ~ 1.6e-22 eV (f = 1/T_total ~ 3.9e-8 Hz). Above ~5e-21 eV the red curve overlaps the Si/H limit and rises with slope ~1 on log-log with jagged wiggles (smoothed in this trace). Boundary values estimated visually; local wiggle amplitudes ~\u00b130%. Paper also constrains d_e, d_mq, d_g in other panels; ScalarElectron chosen per panel (b) and hint. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity)",
+  "num_points": 37,
+  "elapsed_s": 168.3087921142578
+}

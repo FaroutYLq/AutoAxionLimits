@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2504.16044",
+  "paper_title": "Search for Axionlike Dark Matter Using Liquid-State Nuclear Magnetic Resonance",
+  "coupling_type": "AxionProton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5.576741e-09,
+      0.03
+    ],
+    [
+      5.577733e-09,
+      0.03
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "CASPEr_Gradient_LowField",
+  "coupling_convention": "g_ap gradient coupling in GeV^-1 (g_aNN, not the dimensionless g_ap)",
+  "notes": "CASPEr-Gradient Low-Field NMR search for ALP-proton gradient coupling. No detection; upper limit |g_ap| <= 3e-2 GeV^-1 (95% CL) over the narrow mass range 5.576741-5.577733 neV/c^2 (240 Hz window at 1.348570 MHz). Coupling reported as gradient coupling g_aNN in GeV^-1 (dimension of inverse energy), NOT the standard dimensionless g_ap; downstream conversion (g_ap_dimensionless ~ 2 m_p * g_aNN) may be needed. Local DM density 0.3 GeV/cm^3 assumed. Thermally polarized methanol proton sample; proof-of-principle commissioning measurement. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+  "num_points": 2,
+  "elapsed_s": 84.35640382766724
+}

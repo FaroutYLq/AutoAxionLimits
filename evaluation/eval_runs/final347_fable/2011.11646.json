@@ -1,0 +1,174 @@
+{
+  "arxiv_id": "2011.11646",
+  "paper_title": "Black hole superradiance of self-interacting scalar fields",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      2.9e-13,
+      1e-19
+    ],
+    [
+      2.9e-13,
+      1e-18
+    ],
+    [
+      2.9e-13,
+      1e-17
+    ],
+    [
+      2.9e-13,
+      1e-16
+    ],
+    [
+      2.9e-13,
+      1e-15
+    ],
+    [
+      2.9e-13,
+      2.5e-15
+    ],
+    [
+      3.3e-13,
+      3e-15
+    ],
+    [
+      3.8e-13,
+      3.8e-15
+    ],
+    [
+      4.5e-13,
+      5.5e-15
+    ],
+    [
+      4.9e-13,
+      6.5e-15
+    ],
+    [
+      5.6e-13,
+      8.5e-15
+    ],
+    [
+      6.5e-13,
+      1.1e-14
+    ],
+    [
+      7.4e-13,
+      1.4e-14
+    ],
+    [
+      8.5e-13,
+      1.8e-14
+    ],
+    [
+      1e-12,
+      2.5e-14
+    ],
+    [
+      1.2e-12,
+      3.6e-14
+    ],
+    [
+      1.5e-12,
+      5.2e-14
+    ],
+    [
+      1.8e-12,
+      7.5e-14
+    ],
+    [
+      2.1e-12,
+      1e-13
+    ],
+    [
+      2.4e-12,
+      1.4e-13
+    ],
+    [
+      2.8e-12,
+      1.9e-13
+    ],
+    [
+      3.2e-12,
+      2.7e-13
+    ],
+    [
+      3.6e-12,
+      3.6e-13
+    ],
+    [
+      4e-12,
+      4.5e-13
+    ],
+    [
+      4e-12,
+      1e-13
+    ],
+    [
+      4e-12,
+      1e-14
+    ],
+    [
+      4e-12,
+      1e-15
+    ],
+    [
+      4e-12,
+      1e-16
+    ],
+    [
+      4e-12,
+      1e-17
+    ],
+    [
+      4.5e-12,
+      6e-18
+    ],
+    [
+      5e-12,
+      5.5e-18
+    ],
+    [
+      6e-12,
+      5e-18
+    ],
+    [
+      8e-12,
+      4.5e-18
+    ],
+    [
+      1e-11,
+      4e-18
+    ],
+    [
+      1.2e-11,
+      3.5e-18
+    ],
+    [
+      1.4e-11,
+      3.2e-18
+    ],
+    [
+      1.6e-11,
+      3e-18
+    ],
+    [
+      1.6e-11,
+      1e-18
+    ],
+    [
+      1.6e-11,
+      1e-19
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "Black hole superradiance spin-down (X-ray binaries: Cyg X-1, GRS 1915+105, M33, GRO J1655-40, LMC X-1)",
+  "coupling_convention": "GeV/f exactly as plotted on the y-axis (dimensionless ratio 1 GeV / f_a, i.e. inverse axion decay constant in GeV^-1 times GeV); x values are the boson mass mu in eV as plotted. To obtain f_a in GeV, take 1/(emitted value).",
+  "notes": "Theory paper analyzing spin-0 BH superradiance with quartic self-interactions (lambda = mu^2/f^2). Main results are on the m_a vs f plane (Fig. 3, Fig. 10): BH spin-down constraints from spin measurements apply for large f but are evaded for f <~ 1e12-1e13 GeV where self-interactions saturate the cloud. Text states axion masses ~3e-13 to ~2e-12 eV would yield >10 LIGO CW signals for gravitational-strength interactions, and that 'much of the axion mass range is excluded for large f by BH spin measurements... these constraints do not apply for f <~ 1e12-1e13 GeV'. Data points are a rough encoding of this text-based boundary (masses ~3e-13 to 2e-12 eV excluded for f >~ 1e13 GeV); the actual exclusion boundary is only presented in figures (Fig. 3/10) with complex mass- and BH-dependent shape, so numerical values are unreliable. Paper also contains sensitivity PROJECTIONS for axion-nucleon (CASPEr-Wind) and gravitational-wave searches, but those depend on additional couplings (C_N) and are not simple coupling-vs-mass limits. No local DM density assumption applies (astrophysical BH bound, source is the superradiant cloud, not halo DM). | [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of the solid-contour (high-confidence) spin-down regions') rather than the paper's own single curve | selector: figure_vision over text (quality (0, 1, 1, 1, 1, 0, 0.6, 39)) | Vision: Fig. 10 of the paper (page 29): constraints on (mu, GeV/f) plane from BH spin measurements. Traced the envelope of the solid-contour (high-confidence) spin-down regions: main m=1 region spans mu ~ 2.9e-13 to 4.0e-12 eV with the self-interaction cutoff (max GeV/f, i.e. min f_a) rising from ~2.5e-15 to ~4.5e-13; a second m=2 region (GRS 1915+105) spans ~4.5e-12 to ~1.6e-11 eV with max GeV/f ~ 3-6e-18. IMPORTANT orientation note: on the plotted GeV/f axis the excluded region lies BELOW the traced curve (large f_a / weak self-interactions); equivalently, in terms of f_a the exclusion is ABOVE the boundary f_a,min(mu) = 1/(GeV/f). Vertical edge points at the mass endpoints are included. Hint coupling type AxionMass adopted; y values emitted as plotted (1/f_a form) per plotted-values contract, not converted to f_a. Extraction from plot pixels; y-calibration cross-checked with QCD axion line (GeV/f = 1.75e-19 at 1e-12 eV). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=2.14 snapped to identity) | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+  "num_points": 39,
+  "elapsed_s": 322.8643352985382
+}

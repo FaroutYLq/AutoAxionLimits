@@ -1,0 +1,178 @@
+{
+  "arxiv_id": "2206.11598",
+  "paper_title": "VISH$\u03bd$: a unified solution to five SM shortcomings with a protected electroweak scale",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.0001,
+      2.2
+    ],
+    [
+      0.0002,
+      2.2
+    ],
+    [
+      0.0004,
+      2.15
+    ],
+    [
+      0.0007,
+      2.1
+    ],
+    [
+      0.001,
+      2.0
+    ],
+    [
+      0.0015,
+      1.9
+    ],
+    [
+      0.002,
+      1.75
+    ],
+    [
+      0.003,
+      1.5
+    ],
+    [
+      0.004,
+      1.3
+    ],
+    [
+      0.006,
+      1.0
+    ],
+    [
+      0.008,
+      0.78
+    ],
+    [
+      0.01,
+      0.62
+    ],
+    [
+      0.013,
+      0.48
+    ],
+    [
+      0.017,
+      0.37
+    ],
+    [
+      0.02,
+      0.31
+    ],
+    [
+      0.025,
+      0.24
+    ],
+    [
+      0.03,
+      0.2
+    ],
+    [
+      0.04,
+      0.14500000000000002
+    ],
+    [
+      0.05,
+      0.11499999999999999
+    ],
+    [
+      0.06,
+      0.097
+    ],
+    [
+      0.08,
+      0.077
+    ],
+    [
+      0.1,
+      0.064
+    ],
+    [
+      0.13,
+      0.053
+    ],
+    [
+      0.17,
+      0.046
+    ],
+    [
+      0.2,
+      0.041999999999999996
+    ],
+    [
+      0.3,
+      0.036
+    ],
+    [
+      0.4,
+      0.033
+    ],
+    [
+      0.5,
+      0.031
+    ],
+    [
+      0.7,
+      0.03
+    ],
+    [
+      1.0,
+      0.028999999999999998
+    ],
+    [
+      2.0,
+      0.028
+    ],
+    [
+      3.0,
+      0.028
+    ],
+    [
+      5.0,
+      0.028
+    ],
+    [
+      10.0,
+      0.028
+    ],
+    [
+      30.0,
+      0.028
+    ],
+    [
+      100.0,
+      0.028
+    ],
+    [
+      300.0,
+      0.028
+    ],
+    [
+      1000.0,
+      0.028
+    ],
+    [
+      3000.0,
+      0.028
+    ],
+    [
+      10000.0,
+      0.028
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.15,
+  "suggested_experiment_name": "VISHnu inflation predictions (Planck 2018 / BICEP-Keck 2021 CMB constraints)",
+  "coupling_convention": "y values are the tensor-to-scalar ratio r (dimensionless, as plotted); x values are the non-minimal coupling xi_S (dimensionless, as plotted). NOT a mass/coupling exclusion plane.",
+  "notes": "This is a theoretical model-building paper (VISHnu, an NDW=1 variant of the nuDFSZ axion model) focused on inflationary dynamics and naturalness. It PREDICTS a viable axion mass window of [40 ueV, ~2 meV] (equivalently a range of f_A) for the post-inflationary PQ-restored scenario, but does not present any new experimental exclusion limit or sensitivity projection with extractable coupling-vs-mass data. The mass window is a theory target for existing/future haloscopes (ADMX, MADMAX, CAPP, HAYSTAC, ALPHA, ORGAN, IAXO), not an exclusion limit itself. No limit data extracted. | selector: figure_vision (sole candidate) | Vision: The plot identified by the calibration (Fig. 2, second panel of fig_05.png, x-range 1e-4 to 1e4, y-range ~0.002-0.4 with ticks 0.01 and 0.1) is NOT an axion f_a vs m_a exclusion plot. It shows the model-predicted tensor-to-scalar ratio r as a function of the non-minimal gravitational coupling xi_S, with the green band r < 0.036 allowed by BICEP/Keck 2021 (region above the band excluded). I traced the solid curve (N*=60 prediction); the dashed N*=50 curve lies slightly above (starting ~0.32, asymptote ~0.004). The curve enters the allowed band at xi_S ~ 1.5e-2, consistent with the text statement that xi_S > few x 10^-2 abides by CMB limits. The hinted coupling type 'AxionMass' (f_a vs m_a) does not apply to any plot in these pages; hence coupling_type is null and extraction confidence is very low. No dark-matter coupling exclusion data can be meaningfully extracted from these figures. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=4.68) | Coupling from pre-classifier (AxionMass, conf=0.80)",
+  "num_points": 40,
+  "elapsed_s": 147.60160517692566
+}

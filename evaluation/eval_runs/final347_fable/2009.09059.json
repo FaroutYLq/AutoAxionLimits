@@ -1,0 +1,186 @@
+{
+  "arxiv_id": "2009.09059",
+  "paper_title": "Constraints on Axion-like Particles from a Hard $X$-ray Observation of Betelgeuse",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-12,
+      5.2e-12
+    ],
+    [
+      2e-12,
+      5.2e-12
+    ],
+    [
+      4e-12,
+      5.2e-12
+    ],
+    [
+      7e-12,
+      5.2e-12
+    ],
+    [
+      1e-11,
+      5.2e-12
+    ],
+    [
+      1.5e-11,
+      5.2e-12
+    ],
+    [
+      2e-11,
+      5.2e-12
+    ],
+    [
+      2.5e-11,
+      5.2e-12
+    ],
+    [
+      3e-11,
+      5.2e-12
+    ],
+    [
+      3.5e-11,
+      5.2e-12
+    ],
+    [
+      4e-11,
+      5.3e-12
+    ],
+    [
+      4.5e-11,
+      5.3e-12
+    ],
+    [
+      5e-11,
+      5.4e-12
+    ],
+    [
+      5.5e-11,
+      5.6e-12
+    ],
+    [
+      6e-11,
+      5.9e-12
+    ],
+    [
+      6.5e-11,
+      6.2e-12
+    ],
+    [
+      7e-11,
+      6.6e-12
+    ],
+    [
+      8e-11,
+      7.3e-12
+    ],
+    [
+      9e-11,
+      8e-12
+    ],
+    [
+      1e-10,
+      8.8e-12
+    ],
+    [
+      1.1e-10,
+      9.6e-12
+    ],
+    [
+      1.2e-10,
+      1.05e-11
+    ],
+    [
+      1.35e-10,
+      1.2e-11
+    ],
+    [
+      1.5e-10,
+      1.35e-11
+    ],
+    [
+      1.7e-10,
+      1.55e-11
+    ],
+    [
+      1.9e-10,
+      1.75e-11
+    ],
+    [
+      2.1e-10,
+      1.95e-11
+    ],
+    [
+      2.4e-10,
+      2.3e-11
+    ],
+    [
+      2.7e-10,
+      2.7e-11
+    ],
+    [
+      3e-10,
+      3.1e-11
+    ],
+    [
+      3.4e-10,
+      3.6e-11
+    ],
+    [
+      3.8e-10,
+      4.2e-11
+    ],
+    [
+      4.3e-10,
+      5e-11
+    ],
+    [
+      4.8e-10,
+      5.8e-11
+    ],
+    [
+      5.4e-10,
+      6.8e-11
+    ],
+    [
+      6e-10,
+      8e-11
+    ],
+    [
+      6.8e-10,
+      9.6e-11
+    ],
+    [
+      7.6e-10,
+      1.15e-10
+    ],
+    [
+      8.5e-10,
+      1.4e-10
+    ],
+    [
+      9.5e-10,
+      1.7e-10
+    ],
+    [
+      1.1e-09,
+      2.1e-10
+    ],
+    [
+      1.25e-09,
+      2.7e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "NuSTAR Betelgeuse",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis of Fig. 3",
+  "notes": "First hard X-ray (NuSTAR, 50 ks) observation of Betelgeuse used to search for ALP-photon conversion in the Galactic magnetic field. 95% C.L. limits range from g_agamma < 5.2e-12 GeV^-1 (m_a < 5.5e-11 eV; optimistic: tcc=3.6 yr, BT=3.0 uG) to g_agamma < 1.8e-11 GeV^-1 (m_a < 3.5e-11 eV; conservative: tcc=1.55e5 yr, BT=0.4 uG). Emitted points encode the CONSERVATIVE mass-independent limit as a flat line over the low-mass validity range (lower edge 1e-14 eV taken from the paper's exclusion plot range). Limit degrades at higher masses (Fig. 3/S7) but numerical values there are only available from plots. Not a dark-matter halo search, so no local DM density assumed. Astrophysical bound; depends on Galactic B-field model and stellar evolutionary stage. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 42)) | Vision: Paper: Xiao et al., arXiv:2009.09059 (NuSTAR hard X-ray observation of Betelgeuse, ALP-photon coupling). Fig. 3 shows the 95% C.L. exclusion as a red band: lower dashed line = most optimistic stellar model/B_T (g<5.2e-12 GeV^-1 for m_a<5.5e-11 eV), upper solid line = most conservative (g<1.8e-11 GeV^-1 for m_a<3.5e-11 eV). I traced the LOWER boundary of the red band (optimistic limit), anchored by explicit text values; the rising high-mass portion was read from the plot (cross-checked with Fig. 1) and is approximate (small oscillatory wiggles smoothed). Not a dark-matter search, so no DM density assumed; limit derived from ALP production in the stellar core plus reconversion in the Galactic magnetic field (B_T = 0.4-3.0 uG range spans the band). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.52 snapped to identity)",
+  "num_points": 42,
+  "elapsed_s": 198.27983784675598
+}

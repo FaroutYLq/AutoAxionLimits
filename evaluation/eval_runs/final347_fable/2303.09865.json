@@ -1,0 +1,158 @@
+{
+  "arxiv_id": "2303.09865",
+  "paper_title": "Tritium",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.7e-23,
+      1.06e-13
+    ],
+    [
+      2.04e-23,
+      1.28e-13
+    ],
+    [
+      2.45e-23,
+      1.53e-13
+    ],
+    [
+      2.95e-23,
+      1.84e-13
+    ],
+    [
+      3.54e-23,
+      2.21e-13
+    ],
+    [
+      4.25e-23,
+      2.66e-13
+    ],
+    [
+      5.11e-23,
+      3.2e-13
+    ],
+    [
+      6.14e-23,
+      3.85e-13
+    ],
+    [
+      7.38e-23,
+      4.63e-13
+    ],
+    [
+      8.86e-23,
+      5.56e-13
+    ],
+    [
+      1.06e-22,
+      6.69e-13
+    ],
+    [
+      1.28e-22,
+      8.04e-13
+    ],
+    [
+      1.54e-22,
+      9.66e-13
+    ],
+    [
+      1.85e-22,
+      1.16e-12
+    ],
+    [
+      2.22e-22,
+      1.4e-12
+    ],
+    [
+      2.67e-22,
+      1.68e-12
+    ],
+    [
+      3.2e-22,
+      2.02e-12
+    ],
+    [
+      3.85e-22,
+      2.43e-12
+    ],
+    [
+      4.62e-22,
+      2.92e-12
+    ],
+    [
+      5.56e-22,
+      3.51e-12
+    ],
+    [
+      6.68e-22,
+      4.22e-12
+    ],
+    [
+      8.02e-22,
+      5.07e-12
+    ],
+    [
+      9.64e-22,
+      6.1e-12
+    ],
+    [
+      1.16e-21,
+      7.33e-12
+    ],
+    [
+      1.39e-21,
+      8.81e-12
+    ],
+    [
+      1.67e-21,
+      1.06e-11
+    ],
+    [
+      2.01e-21,
+      1.27e-11
+    ],
+    [
+      2.41e-21,
+      1.53e-11
+    ],
+    [
+      2.9e-21,
+      1.84e-11
+    ],
+    [
+      3.48e-21,
+      2.21e-11
+    ],
+    [
+      4.19e-21,
+      2.66e-11
+    ],
+    [
+      5.03e-21,
+      3.2e-11
+    ],
+    [
+      6.04e-21,
+      3.85e-11
+    ],
+    [
+      7.26e-21,
+      4.62e-11
+    ],
+    [
+      8.7e-21,
+      5.56e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "Tritium decay (JRC 3H time-series)",
+  "coupling_convention": "1/f_a in GeV^-1 as plotted on the y-axis of Fig. 3 (inverse axion decay constant); x-axis is m_a in eV. NOT converted to f_a.",
+  "notes": "Search for oscillating QCD theta-angle effects in 12 years of tritium (3H) beta-decay data from the European Commission JRC. No excess found; axion decay constants f_a below 9.4e12 GeV (at m_a=1.7e-23 eV) down to 1.8e10 GeV (at m_a=8.7e-21 eV) are excluded at 95% CL. Endpoints are explicit in the abstract/text; intermediate points interpolated assuming the f_a ~ 1/m_a scaling implied by Eq. (12) (signal amplitude ~ 1/(m_a^2 f_a^2)), consistent with the quoted endpoint ratio. Result is on the f_a-m_a plane (Fig. 3 shows 1/f_a vs m_a), hence AxionMass type. Assumed local DM density rho_DM = 0.45 GeV/cm^3. Paper also gives future projections (f_a < 1.5e16 GeV over 5.4e-25 to 1.4e-17 eV; f_a < 4.5e11 GeV over 2.4e-21 to 6.3e-14 eV) not included in data_points since the primary result is the measured limit. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 35)) | Vision: Paper searches for oscillations in 3H beta-decay rate induced by ultralight QCD-axion DM via theta-dependent nuclear binding energies. Fig. 3 plots 1/f_a vs m_a; per the plotted-values contract I emit (m_a [eV], 1/f_a [GeV^-1]) pairs, NOT (f_a, m_a) as the AxionMass canonical convention suggests - downstream conversion needed. Boundary anchored on the quoted numbers: f_a < 9.4e12 GeV excluded at m_a = 1.7e-23 eV and f_a < 1.8e10 GeV at 8.7e-21 eV, with the intermediate points interpolated along the slope~+1 log-log line visible in the plot (fine jagged structure smoothed). Mass range corresponds to frequency range 8.0e-9 - 4.2e-6 Hz with m_a = 2*pi*f*hbar/2 due to the cos(2*omega*t) signal. Confidence limited to 0.6 because plotted variable is 1/f_a (an inverse-coupling scale akin to theta-bar/CPV constraints) rather than the canonical AxionMass plane; type assigned per hint. Future projections (12yr, 1day) and other experiments (nEDM, HfF+, Rb/Quartz, Beam EDM, SN1987A, pulsars, black hole spins) were NOT traced - only the actual tritium-decay exclusion. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.99 snapped to identity)",
+  "num_points": 35,
+  "elapsed_s": 124.49097490310669
+}

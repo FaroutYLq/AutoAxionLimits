@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2102.02207",
+  "paper_title": "XMM-Newton",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5000.0,
+      2e-11
+    ],
+    [
+      6000.0,
+      7e-12
+    ],
+    [
+      7000.0,
+      4e-12
+    ],
+    [
+      8000.0,
+      2e-12
+    ],
+    [
+      10000.0,
+      1e-12
+    ],
+    [
+      12000.0,
+      6e-13
+    ],
+    [
+      14000.0,
+      4e-13
+    ],
+    [
+      16000.0,
+      2.5e-13
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.29,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "XMM-Newton_BSO_Foster2021",
+  "coupling_convention": "sin^2(2theta) sterile neutrino mixing angle (NOT converted to g_agamma GeV^-1)",
+  "notes": "Foster et al. (arXiv:2102.02207): deep search for decaying DM (sterile neutrino chi -> nu + gamma) with 547 Ms of XMM-Newton blank-sky data, mass range 5-16 keV. Primary result is a power-constrained 95% one-sided upper limit on sin^2(2theta) vs m_chi (Fig. 3); the paper notes it applies to general decaying DM incl. axion-like-particle DM decaying to photons, hence commonly recast onto the g_agamma plane (a -> 2 gamma at E = m_a/2). No numerical table is provided in the text; data_points are approximate values read from the described exclusion curve and should be treated as indicative only. Emitted values are the RAW sin^2(2theta) limits - downstream conversion to g_agamma requires the sterile-neutrino decay rate Gamma = 1.361e-29 s^-1 (sin^2(2theta)/1e-7)(m/keV)^5 matched to Gamma_a = g^2 m^3/(64 pi) with a factor-2 photon multiplicity. Fiducial NFW profile (rho_0 = 6.6e6 Msun/kpc^3, r_s = 19.1 kpc) gives local DM density ~0.29 GeV/cm^3; signal scales with Galactic D-factor rather than local density alone. Confidence is moderate-low because points are figure-approximate and the coupling-type mapping is a reinterpretation of a sterile-neutrino result. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.4, 8))",
+  "num_points": 8,
+  "elapsed_s": 145.01618003845215
+}

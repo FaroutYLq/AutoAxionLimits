@@ -1,0 +1,162 @@
+{
+  "arxiv_id": "2405.08059",
+  "paper_title": "FIRAS",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.35e-13,
+      3e-08
+    ],
+    [
+      1.45e-13,
+      2e-08
+    ],
+    [
+      1.55e-13,
+      1.3e-08
+    ],
+    [
+      1.65e-13,
+      9e-09
+    ],
+    [
+      1.8e-13,
+      6e-09
+    ],
+    [
+      1.95e-13,
+      4.2e-09
+    ],
+    [
+      2.1e-13,
+      3.2e-09
+    ],
+    [
+      2.3e-13,
+      2.4e-09
+    ],
+    [
+      2.5e-13,
+      1.9e-09
+    ],
+    [
+      2.75e-13,
+      1.55e-09
+    ],
+    [
+      3e-13,
+      1.3e-09
+    ],
+    [
+      3.3e-13,
+      1.15e-09
+    ],
+    [
+      3.6e-13,
+      1.05e-09
+    ],
+    [
+      4e-13,
+      9.8e-10
+    ],
+    [
+      4.5e-13,
+      9.2e-10
+    ],
+    [
+      5e-13,
+      9e-10
+    ],
+    [
+      5.5e-13,
+      8.9e-10
+    ],
+    [
+      6e-13,
+      9e-10
+    ],
+    [
+      6.5e-13,
+      9.3e-10
+    ],
+    [
+      7e-13,
+      9.8e-10
+    ],
+    [
+      7.5e-13,
+      1.05e-09
+    ],
+    [
+      8e-13,
+      1.15e-09
+    ],
+    [
+      8.5e-13,
+      1.3e-09
+    ],
+    [
+      9e-13,
+      1.5e-09
+    ],
+    [
+      9.5e-13,
+      1.7e-09
+    ],
+    [
+      1e-12,
+      2e-09
+    ],
+    [
+      1.1e-12,
+      2.7e-09
+    ],
+    [
+      1.2e-12,
+      3.6e-09
+    ],
+    [
+      1.3e-12,
+      5e-09
+    ],
+    [
+      1.4e-12,
+      6.8e-09
+    ],
+    [
+      1.5e-12,
+      9e-09
+    ],
+    [
+      1.6e-12,
+      1.2e-08
+    ],
+    [
+      1.7e-12,
+      1.5e-08
+    ],
+    [
+      1.9e-12,
+      2.2e-08
+    ],
+    [
+      2.1e-12,
+      2.8e-08
+    ],
+    [
+      2.3e-12,
+      3e-08
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "COBE/FIRAS (axion-photon conversion in halos, CMB spectral distortions)",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on the y-axis of Figure 2",
+  "notes": "Paper (arXiv:2405.08059) is primarily a sensitivity forecast for axion-induced patchy screening with Planck/unWISE and CMB-S4 (projections reaching ~3e-12 GeV^-1 and beyond). However, it also derives an actual NEW exclusion from COBE/FIRAS spectral distortion data (Fig. 2, blue region, stated at 99% CL - encoded here as 0.95 since 0.99 is not an allowed value): CMB monopole spectral distortions from photon-axion conversion in halos exclude g_agamma >~ 1e-9 GeV^-1 over the accessible axion mass range 2e-13 to 3e-12 eV. No numerical table is provided; data points are an approximate flat bound based on the text statement 'spectral distortions can only probe couplings as small as 10^-9 GeV^-1' over the paper's stated mass validity range. The pre-analysis hint of DarkPhoton is incorrect - the paper explicitly constrains the axion-photon coupling g_agamma (the dark photon case is 'Paper I', a separate publication). Axion is assumed to be a negligible fraction of dark matter, so no local DM density assumption applies. If the forecast curves (Planck/CMB-S4 sensitivities down to ~3e-12 and ~4e-13 GeV^-1) are desired instead, those would be projections. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 36)) | Vision: Boundary traced from the blue 'FIRAS' shaded region in Figure 2 (m_a vs g_agamma plane). The region is excluded at 99% CL per the caption (reported here as 0.95 since only 0.90/0.95 allowed; actual CL is 0.99). The FIRAS blob is U-shaped: floor at g~9e-10 GeV^-1 around m_a~5e-13 eV, rising to the top of the plotted range (~3e-8 GeV^-1) at m_a~1.4e-13 and ~2.4e-12 eV. Consistent with paper text: spectral distortions probe couplings down to ~1e-9 GeV^-1, and the method has a natural mass cutoff at m_a~3e-12 eV. This is not a dark-matter search, so no DM density assumed. Other curves on the plot (CAST, SN1987A-gamma, Star Clusters, NGC 1275) are pre-existing bounds, not this paper's result. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.08 snapped to identity)",
+  "num_points": 36,
+  "elapsed_s": 148.99618196487427
+}

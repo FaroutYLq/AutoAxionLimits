@@ -1,0 +1,158 @@
+{
+  "arxiv_id": "1506.08082",
+  "paper_title": "OSQAR",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5e-05,
+      3.2000000000000005e-09
+    ],
+    [
+      7e-05,
+      3.2000000000000005e-09
+    ],
+    [
+      0.0001,
+      3.2000000000000005e-09
+    ],
+    [
+      0.00014,
+      3.2000000000000005e-09
+    ],
+    [
+      0.00018,
+      3.2000000000000005e-09
+    ],
+    [
+      0.00022,
+      3.2999999999999998e-09
+    ],
+    [
+      0.00026,
+      3.5000000000000003e-09
+    ],
+    [
+      0.0003,
+      3.8e-09
+    ],
+    [
+      0.00034,
+      4.2e-09
+    ],
+    [
+      0.00038,
+      4.8e-09
+    ],
+    [
+      0.00042,
+      5.6000000000000005e-09
+    ],
+    [
+      0.00046,
+      6.8000000000000005e-09
+    ],
+    [
+      0.0005,
+      8.5e-09
+    ],
+    [
+      0.00053,
+      1.1000000000000001e-08
+    ],
+    [
+      0.00056,
+      1.6e-08
+    ],
+    [
+      0.00058,
+      3e-08
+    ],
+    [
+      0.000595,
+      8e-08
+    ],
+    [
+      0.000605,
+      1.7000000000000001e-07
+    ],
+    [
+      0.00062,
+      5e-08
+    ],
+    [
+      0.00065,
+      2.2000000000000002e-08
+    ],
+    [
+      0.0007,
+      1.6e-08
+    ],
+    [
+      0.00075,
+      1.5e-08
+    ],
+    [
+      0.0008,
+      1.7e-08
+    ],
+    [
+      0.00085,
+      2.5e-08
+    ],
+    [
+      0.00089,
+      6e-08
+    ],
+    [
+      0.00091,
+      1.5000000000000002e-07
+    ],
+    [
+      0.00094,
+      4e-08
+    ],
+    [
+      0.001,
+      2.3e-08
+    ],
+    [
+      0.0011,
+      2.4e-08
+    ],
+    [
+      0.0012,
+      3.5e-08
+    ],
+    [
+      0.0013,
+      8e-08
+    ],
+    [
+      0.0014,
+      4e-08
+    ],
+    [
+      0.0016,
+      4e-08
+    ],
+    [
+      0.0018,
+      6e-08
+    ],
+    [
+      0.002,
+      5.5e-08
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "OSQAR LSW",
+  "coupling_convention": "g_Agamma in GeV^-1, as plotted",
+  "notes": "OSQAR LSW (Light Shining Through a Wall) experiment at CERN, 9 T over 2x14.3 m, 532 nm laser. Pseudoscalar ALP di-photon coupling limit g_agamma < 3.5e-8 GeV^-1 for mA < 2e-4 eV (95% CL). A separate scalar-ALP search gives g_agamma < 3.2e-8 GeV^-1 (perpendicular polarization). Bound is essentially flat (nearly massless limit) up to ~2e-4 eV; encoded as horizontal line for the pseudoscalar result. Not a DM haloscope, so no local density assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 35)) | Vision: Fig. 6 of OSQAR LSW paper. Light-shining-through-wall experiment reporting g_Agamma vs m_A. Lower boundary traced is the OSQAR scalar (S-ALP) solid blue curve, which is the lowest limit. Flat at ~3.2e-8 GeV^-1 for m_A < 2e-4 eV (text confirms 3.2e-8 scalar, 3.5e-8 pseudoscalar), then rises with characteristic LSW oscillation spikes at higher masses (momentum-transfer nulls near ~6e-4, ~9e-4, ~1.3e-3 eV). Excluded region is above the curve. ALPS dashed line shown for comparison only, not traced. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.18)",
+  "num_points": 35,
+  "elapsed_s": 103.92899203300476
+}

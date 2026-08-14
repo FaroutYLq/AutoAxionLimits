@@ -1,0 +1,142 @@
+{
+  "arxiv_id": "2205.05574",
+  "paper_title": "First Results from the Taiwan Axion Search Experiment with Haloscope at 19.6 $\u03bc$eV",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.9467e-05,
+      8.3e-14
+    ],
+    [
+      1.9481e-05,
+      8.4e-14
+    ],
+    [
+      1.9489e-05,
+      8e-14
+    ],
+    [
+      1.9494e-05,
+      5.1e-14
+    ],
+    [
+      1.9498e-05,
+      7.5e-14
+    ],
+    [
+      1.9506e-05,
+      8.1e-14
+    ],
+    [
+      1.9522e-05,
+      8.2e-14
+    ],
+    [
+      1.9539e-05,
+      8.2e-14
+    ],
+    [
+      1.9551e-05,
+      6.7e-14
+    ],
+    [
+      1.956e-05,
+      8.1e-14
+    ],
+    [
+      1.9576e-05,
+      8.2e-14
+    ],
+    [
+      1.9593e-05,
+      8.3e-14
+    ],
+    [
+      1.9609e-05,
+      8.2e-14
+    ],
+    [
+      1.963e-05,
+      6.5e-14
+    ],
+    [
+      1.9638e-05,
+      8.2e-14
+    ],
+    [
+      1.9654e-05,
+      5.9e-14
+    ],
+    [
+      1.9663e-05,
+      8.2e-14
+    ],
+    [
+      1.9679e-05,
+      8.3e-14
+    ],
+    [
+      1.9695e-05,
+      8.2e-14
+    ],
+    [
+      1.9712e-05,
+      8.3e-14
+    ],
+    [
+      1.9728e-05,
+      8.2e-14
+    ],
+    [
+      1.9741e-05,
+      8.3e-14
+    ],
+    [
+      1.9749e-05,
+      5.4e-14
+    ],
+    [
+      1.9757e-05,
+      8.2e-14
+    ],
+    [
+      1.9774e-05,
+      8.3e-14
+    ],
+    [
+      1.979e-05,
+      8.2e-14
+    ],
+    [
+      1.9807e-05,
+      8.3e-14
+    ],
+    [
+      1.9823e-05,
+      8.2e-14
+    ],
+    [
+      1.9835e-05,
+      6e-14
+    ],
+    [
+      1.9844e-05,
+      8e-14
+    ],
+    [
+      1.9848e-05,
+      8.2e-14
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "TASEH CD102",
+  "coupling_convention": "|g_agamma| in GeV^-1 (plotted as 10^-14 GeV^-1 units, multiplier applied)",
+  "notes": "TASEH haloscope, frequencies 4.70750-4.79815 GHz. 95% C.L. limit on |g_agamma| ranges 5.3e-14 to 8.9e-14 GeV^-1 over mass range 19.4687-19.8436 ueV, average 8.2e-14. Detailed per-frequency values only in figure; text gives range and average, so emitted as flat band at average value across the stated mass range. Local DM density 0.45 GeV/cm^3, assumes 100% axion DM. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 31)) | Vision: TASEH haloscope, 4.70750-4.79815 GHz (~19.6 ueV). Y-axis is |g_agamma| in 10^-14 GeV^-1 (range 5-13). Limit curve (red) sits near 8.2e-14 with sharp downward notches (RF interference/masked bins) reaching ~5-7e-14 and edge upward spikes to ~13. Lower boundary of exclusion traced. KSVZ line at ratio 1 corresponds to ~7.5e-15 (limit is factor ~11 above KSVZ). | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.01 snapped to identity)",
+  "num_points": 31,
+  "elapsed_s": 130.2868890762329
+}

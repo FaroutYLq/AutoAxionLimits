@@ -1,0 +1,174 @@
+{
+  "arxiv_id": "hep-ph/0307284",
+  "paper_title": "Tests of the Gravitational Inverse-Square Law",
+  "coupling_type": "ScalarNucleon",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.000124,
+      0.0006
+    ],
+    [
+      0.000155,
+      0.0013
+    ],
+    [
+      0.000191,
+      0.0025
+    ],
+    [
+      0.000248,
+      0.005
+    ],
+    [
+      0.00031,
+      0.01
+    ],
+    [
+      0.000413,
+      0.01
+    ],
+    [
+      0.00062,
+      0.009
+    ],
+    [
+      0.000827,
+      0.0085
+    ],
+    [
+      0.00124,
+      0.009
+    ],
+    [
+      0.0017,
+      0.012
+    ],
+    [
+      0.00207,
+      0.02
+    ],
+    [
+      0.00276,
+      0.04
+    ],
+    [
+      0.004,
+      0.1
+    ],
+    [
+      0.00564,
+      0.35
+    ],
+    [
+      0.00775,
+      1.0
+    ],
+    [
+      0.0103,
+      2.0
+    ],
+    [
+      0.0138,
+      4.0
+    ],
+    [
+      0.017,
+      10.0
+    ],
+    [
+      0.0214,
+      40.0
+    ],
+    [
+      0.0264,
+      100.0
+    ],
+    [
+      0.0326,
+      400.0
+    ],
+    [
+      0.04,
+      1000.0
+    ],
+    [
+      0.0496,
+      4000.0
+    ],
+    [
+      0.059,
+      10000.0
+    ],
+    [
+      0.0729,
+      40000.0
+    ],
+    [
+      0.0886,
+      100000.0
+    ],
+    [
+      0.103,
+      200000.0
+    ],
+    [
+      0.124,
+      400000.0
+    ],
+    [
+      0.153,
+      1000000.0
+    ],
+    [
+      0.191,
+      2000000.0
+    ],
+    [
+      0.225,
+      4000000.0
+    ],
+    [
+      0.27,
+      10000000.0
+    ],
+    [
+      0.326,
+      30000000.0
+    ],
+    [
+      0.376,
+      100000000.0
+    ],
+    [
+      0.428,
+      400000000.0
+    ],
+    [
+      0.459,
+      1000000000.0
+    ],
+    [
+      0.477,
+      2500000000.0
+    ],
+    [
+      0.496,
+      5000000000.0
+    ],
+    [
+      0.517,
+      10000000000.0
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "ISL tests envelope (Stanford, Lamoreaux, Moscow, Colorado, Eot-Wash, Irvine)",
+  "coupling_convention": "|alpha| as plotted: dimensionless Yukawa strength relative to Newtonian gravity, alpha in V(r) = -(G m1 m2 / r)[1 + alpha exp(-r/lambda)]; x converted from Yukawa range lambda via m[eV] = 1.240e-6 / lambda[m]",
+  "notes": "This is a 2003 Annual Review article (Adelberger, Heckel & Nelson) reviewing tests of the gravitational inverse-square law. It compiles existing 95%-CL constraints on Yukawa-type ISL violations parameterized as alpha (strength relative to gravity) vs lambda (range), which corresponds to ScalarNucleon-type fifth-force constraints. However, it presents no NEW experimental limit of its own; all exclusion curves (Eot-Wash, Colorado, Stanford microcantilever, Casimir, LLR/Keplerian) are from cited primary references and are shown only in figures (Figs 4, 5, 9) with no extractable numerical data in the text. A few discrete statements exist (e.g., alpha >= 16/3 excluded for lambda > 130 um; R* <= 155 um for alpha = 8/3), but these are alpha-lambda values, not coupling-vs-mass points in the requested convention. No new limit data extracted. | selector: figure_vision (sole candidate) | Vision: Traced Figure 5 (page 77) of Adelberger, Heckel & Nelson, 'Tests of the Gravitational Inverse-Square Law': 95%-CL upper limits on ISL-violating Yukawa strength |alpha| vs range lambda (1 um < lambda < 1 cm; x-axis 1e-6 to 1e-2 m, y-axis 1e-4 to 1e10 per given calibration). The excluded (yellow) region lies above the envelope formed by Stanford, Lamoreaux, Moscow, Colorado, Eot-Wash and Irvine curves. Lambda was converted to mass with m[eV]=1.240e-6/lambda[m] as instructed; note mass increases as lambda decreases, so small masses correspond to the long-range (Irvine/Eot-Wash) end. Boundary values digitized from plot; uncertainties ~factor 1.5-2 in alpha in the steep regions. Coupling type ScalarNucleon (Yukawa fifth force between macroscopic test bodies). | Calibration: No calibration needed | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+  "num_points": 39,
+  "elapsed_s": 327.25416111946106
+}

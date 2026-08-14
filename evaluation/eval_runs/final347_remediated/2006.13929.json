@@ -1,0 +1,138 @@
+{
+  "arxiv_id": "2006.13929",
+  "paper_title": "XENON1T_Solar_S2",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.001,
+      1e-10
+    ],
+    [
+      0.002,
+      6e-11
+    ],
+    [
+      0.005,
+      3e-11
+    ],
+    [
+      0.01,
+      1.8e-11
+    ],
+    [
+      0.02,
+      1.1e-11
+    ],
+    [
+      0.05,
+      5e-12
+    ],
+    [
+      0.1,
+      3.2e-12
+    ],
+    [
+      0.2,
+      1.9e-12
+    ],
+    [
+      0.5,
+      9e-13
+    ],
+    [
+      1.0,
+      5.6e-13
+    ],
+    [
+      2.0,
+      3.3e-13
+    ],
+    [
+      5.0,
+      1.6e-13
+    ],
+    [
+      10.0,
+      1e-13
+    ],
+    [
+      15.0,
+      6e-14
+    ],
+    [
+      20.0,
+      4e-14
+    ],
+    [
+      30.0,
+      1.8e-14
+    ],
+    [
+      40.0,
+      1.4e-14
+    ],
+    [
+      50.0,
+      1.3e-14
+    ],
+    [
+      70.0,
+      1.3e-14
+    ],
+    [
+      100.0,
+      1.4e-14
+    ],
+    [
+      150.0,
+      1.2e-14
+    ],
+    [
+      200.0,
+      8e-15
+    ],
+    [
+      250.0,
+      1.3e-14
+    ],
+    [
+      300.0,
+      4e-14
+    ],
+    [
+      350.0,
+      1e-13
+    ],
+    [
+      400.0,
+      2.5e-13
+    ],
+    [
+      500.0,
+      6e-13
+    ],
+    [
+      600.0,
+      1.2e-12
+    ],
+    [
+      800.0,
+      3e-12
+    ],
+    [
+      1000.0,
+      6e-12
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "XENON1T Solar S2 (dark photon)",
+  "coupling_convention": "kinetic mixing epsilon (chi), dimensionless, as plotted",
+  "notes": "Paper (An, Pospelov, Pradler, Ritz 2020) constrains DARK PHOTONS (kinetic mixing epsilon), NOT axion-electron; the pre-analysis hint is incorrect. The genuinely new limit is the XENON1T S2-only constraint on SOLAR dark photon emission (red line, Fig.1 left panel), a Stueckelberg 'hard mass' vector coupled to the electron vector current. This is a solar-emission bound, so no local DM density applies (density set null). Data points are approximate read-offs from the log-log Fig.1 left panel (mV 1e-3 to ~1e3 eV) and are uncertain. The paper also fits keV dark photon DARK MATTER absorption to the XENON1T excess (right panel, rho_dm=0.3 GeV/cm^3, best fit mA'=2.8 keV, eps=8.4e-16), but those favored regions/official XENON1T limits are not the authors' primary new exclusion. Limits are 90% C.L. Values can also be reinterpreted as g_BL for U(1)_{B-L} via eps*e -> g_BL over ~10-100 eV. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 30)) | Vision: Left panel of Fig. 1 ('Solar Dark Photons'). Traced the red solid line = XENON1T S2-only constraint (hard/Stuckelberg mass, 90% C.L.), which is the paper's primary result. Line descends diagonally (slope ~ -0.75 in log-log) from (1e-3 eV, ~1e-10) to ~1e-13 near 10 eV, dips to a minimum near ~200 eV (resonant plasma frequency region, ~8e-15), then rises steeply toward higher mass. Solar (sun/HB/RG) shaded stellar constraints also present but the XENON1T red line is the reported bound. Values read from log-log plot; moderate uncertainty near steep features. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=2.22 snapped to identity)",
+  "num_points": 30,
+  "elapsed_s": 155.37209296226501
+}

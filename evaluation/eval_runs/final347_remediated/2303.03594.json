@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2303.03594",
+  "paper_title": "First results of axion dark matter search with DANCE",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-14,
+      0.0008
+    ],
+    [
+      1e-13,
+      0.0008
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "DANCE_Act1",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "DANCE Act-1 prototype, 24-hour observation. 95% CL upper limit g_agamma <~ 8e-4 GeV^-1 over 1e-14 to 1e-13 eV. Full spectrum only in figures (Fig 6); representative flat bound extracted from text/abstract/conclusion. DM density rho_a=0.4 GeV/cm^3 assumed. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+  "num_points": 2,
+  "elapsed_s": 65.67987990379333
+}

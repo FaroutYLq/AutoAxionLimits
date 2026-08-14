@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "2203.16567",
+  "paper_title": "SPT",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.8e-22,
+      6e-13
+    ],
+    [
+      1e-21,
+      1.25e-12
+    ],
+    [
+      2e-21,
+      2.5e-12
+    ],
+    [
+      5e-21,
+      6.25e-12
+    ],
+    [
+      1e-20,
+      1.25e-11
+    ],
+    [
+      2e-20,
+      2.51e-11
+    ],
+    [
+      4e-20,
+      5.05e-11
+    ],
+    [
+      7e-20,
+      9e-11
+    ],
+    [
+      9.6e-20,
+      1.27e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "SPT-3G_2019",
+  "coupling_convention": "g_phi_gamma in GeV^-1, evaluated from the paper's analytic limit formula Eq. (22): g < 1.25e-12 GeV^-1 x (m/1e-21 eV) / sinc(m/1.72e-19 eV)",
+  "notes": "SPT-3G 2019 search for axionlike time-dependent cosmic birefringence (AC oscillation effect) in CMB polarization. Sets 95% C.L. upper limits on g_phi_gamma over m_phi ~ 4.8e-22 to 9.6e-20 eV (oscillation periods 12 hours to 100 days). The limit scales linearly with mass; flat-region median limit is g < 1.18e-12 GeV^-1 x (m/1e-21 eV). Data points computed from the paper's explicit smoothed-limit formula Eq. (22) including the sinc correction at high mass. Assumes axions comprise all local dark matter with rho_0 = 0.3 GeV/cm^3 (limit scales as (kappa*rho/0.3)^{-1/2}). Improves on BICEP/Keck AC-oscillation limits by factor ~3.8. Paper also shows projections for full SPT-3G survey and CMB-S4, but the primary result is a measured limit. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 9,
+  "elapsed_s": 44.239641189575195
+}

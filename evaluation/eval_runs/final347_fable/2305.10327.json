@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2305.10327",
+  "paper_title": "GW170817",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1000000.0,
+      5e-11
+    ],
+    [
+      400000000.0,
+      5e-11
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "GW170817_Fireball",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Paper derives new bounds on axion-photon coupling from non-observation of an axion-sourced fireball from GW170817/GRB 170817A using X-ray flux upper limits (90% C.L.) from CALET CGBM, Konus-Wind, and Insight-HXMT/HE. This is an astrophysical (NS merger) bound, not a DM haloscope, so no local DM density assumption. The exclusion region (Fig. 3, red) spans axion masses ~1-400 MeV with couplings excluded down to ~5e-11 GeV^-1 at the floor. Precise contour is only shown graphically; only the stated floor value and mass validity range from the abstract are encoded here as a two-point line, so the actual exclusion boundary shape (which weakens toward both mass edges and closes near 400 MeV) is not captured. Full digitization of Fig. 3 would be needed for the exact contour. An illustrative point ma=202 MeV, g=2.2e-10 GeV^-1 lies inside the excluded region. | selector: text (sole candidate)",
+  "num_points": 2,
+  "elapsed_s": 50.53042507171631
+}

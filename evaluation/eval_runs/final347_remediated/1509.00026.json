@@ -1,0 +1,17 @@
+{
+  "arxiv_id": "1509.00026",
+  "paper_title": "Axion dark matter: strings and their cores",
+  "coupling_type": "AxionMass",
+  "is_new_limit": false,
+  "is_projection": false,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.15,
+  "suggested_experiment_name": "FleuryMoore2015_AxionStrings",
+  "coupling_convention": null,
+  "notes": "Theoretical/cosmological simulation study of axion string-wall network evolution and axion production efficiency. It yields a single prediction fa = 3.3e11 GeV, ma = 18 ueV (K=8), not an exclusion limit or coupling constraint. No coupling-vs-mass exclusion curve is presented, so no data points to extract. The AxionMass hint refers to the fa-ma relation but this is a point prediction, not a bound. | Coupling from pre-classifier (AxionMass, conf=0.95)",
+  "num_points": 0,
+  "elapsed_s": 39.48959183692932
+}

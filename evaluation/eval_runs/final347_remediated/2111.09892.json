@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2111.09892",
+  "paper_title": "NeutronStars",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.0,
+      1.3e-09
+    ],
+    [
+      0.0,
+      1.3e-09
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "NS_Cooling_M7_2021",
+  "coupling_convention": "dimensionless g_ann",
+  "notes": "Isolated neutron star cooling constraint on QCD axion. Main result is an upper limit on the axion mass (ma < 16 meV KSVZ, 95% CL). In a model with only axion-neutron coupling they constrain |g_ann| < 1.3e-9; with only axion-proton |g_app| < 1.5e-9 (95% CL). Encoded the neutron coupling bound as a mass-independent (flat) horizontal line using the [0,g] sentinel since the coupling limit is quoted as a single value. Paper also has a g_ann-g_app exclusion plane (Fig S5) and a DFSZ ma vs tan-beta plot (Fig 3). Coupling type ambiguous between neutron/proton; chose AxionNeutron per guidance. Not a DM haloscope, so no local density. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.5, 2))",
+  "num_points": 2,
+  "elapsed_s": 137.81601405143738
+}

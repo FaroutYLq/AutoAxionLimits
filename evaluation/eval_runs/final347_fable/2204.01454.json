@@ -1,0 +1,154 @@
+{
+  "arxiv_id": "2204.01454",
+  "paper_title": "BeamEDM",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-19,
+      0.001
+    ],
+    [
+      1e-19,
+      1e-05
+    ],
+    [
+      1e-19,
+      1e-07
+    ],
+    [
+      1e-19,
+      1e-09
+    ],
+    [
+      1e-19,
+      1e-11
+    ],
+    [
+      1e-19,
+      2e-12
+    ],
+    [
+      3e-19,
+      1.4e-12
+    ],
+    [
+      1e-18,
+      1e-12
+    ],
+    [
+      3e-18,
+      8e-13
+    ],
+    [
+      1e-17,
+      6.3e-13
+    ],
+    [
+      2e-17,
+      5.4e-13
+    ],
+    [
+      3e-17,
+      8.1e-13
+    ],
+    [
+      5e-17,
+      1.35e-12
+    ],
+    [
+      1e-16,
+      2.7e-12
+    ],
+    [
+      2e-16,
+      5.4e-12
+    ],
+    [
+      3e-16,
+      8.1e-12
+    ],
+    [
+      5e-16,
+      1.35e-11
+    ],
+    [
+      1e-15,
+      2.7e-11
+    ],
+    [
+      2e-15,
+      5.4e-11
+    ],
+    [
+      3e-15,
+      8.1e-11
+    ],
+    [
+      5e-15,
+      1.35e-10
+    ],
+    [
+      1e-14,
+      2.7e-10
+    ],
+    [
+      1.5e-14,
+      4.05e-10
+    ],
+    [
+      2e-14,
+      5.4e-10
+    ],
+    [
+      4e-14,
+      3.2e-09
+    ],
+    [
+      8e-14,
+      2e-08
+    ],
+    [
+      1.6e-13,
+      1.3e-07
+    ],
+    [
+      3.2e-13,
+      8e-07
+    ],
+    [
+      6.3e-13,
+      5e-06
+    ],
+    [
+      1.3e-12,
+      3.2e-05
+    ],
+    [
+      2e-12,
+      0.0001
+    ],
+    [
+      2.5e-12,
+      0.00018
+    ],
+    [
+      3.2e-12,
+      0.0004
+    ],
+    [
+      4e-12,
+      0.001
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "BeamEDM",
+  "coupling_convention": "C_G/f_a in GeV^-1 (ALP-gluon coupling) exactly as plotted on the Fig. 4 y-axis; solid line = deterministic dark-matter limit at 95% C.L. NOT converted to d_n in e cm.",
+  "notes": "Beam EDM experiment at ILL PF1b using Ramsey spectroscopy with cold neutrons; searches for oscillating neutron EDM induced by ALP-gluon coupling. Full excluded mass range spans 1e-19 to 4e-12 eV (23 uHz to 1 kHz), but only the most sensitive flat-in-CG/(fa*ma) region (2e-17 to 2e-14 eV, i.e. 5 mHz to 5 Hz) has an explicit numerical value in the text: CG/(fa*ma) = 2.7e13 GeV^-2 at 95% C.L. (deterministic DM model; stochastic model limit is 3.2x weaker). Emitted points reconstruct CG/fa = 2.7e13 * ma[GeV] across that flat region; consistency checked against footnote [46] example (CG/fa = 1.4e-11 GeV^-1 near ma = 1e-15 eV). Limits outside this range rise (drifts at low f, sensitivity loss at high f) and are only shown in Fig. 4, so they are not extracted. The paper's y-axis variable is the gluon coupling CG/fa, not d_n in e*cm; AxionEDM chosen per the induced-EDM interpretation (hint), hence moderate confidence. | selector: figure_vision over text (quality (0, 1, 1, 1, 2, 0, 0.6, 34)) | Vision: Paper searches for oscillating neutron EDM induced by ALP-gluon coupling (AxionEDM class), but the exclusion plot's y-axis is C_G/f_a in GeV^-1, not d_n in e cm; values emitted exactly as plotted per contract. Boundary anchored on text: best limit C_G/f_a*m_a = 2.7e13 GeV^-2 (95% C.L.) between 2e-17 and 2e-14 eV (linear-in-mass region); vertical left edge at ~1e-19 eV (23 uHz lowest analyzed frequency); high-mass rise (slope ~2.6 in log-log) up to 4e-12 eV (1 kHz) read from figure. Dotted stochastic-DM line lies a factor 3.2 higher (not traced). rho_DM = 0.4 GeV/cm^3 assumed. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity) | coupling type AxionEDM -> AxionMass by axis read-back 'ALP-gluon coupling C_G/f_a in GeV^-1' (same confusable family, #625 Phase 3)",
+  "num_points": 34,
+  "elapsed_s": 212.73396611213684
+}

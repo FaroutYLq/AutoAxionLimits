@@ -1,0 +1,114 @@
+{
+  "arxiv_id": "2406.19445",
+  "paper_title": "X-Ray Constraints on Dark Photon Tridents",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      60000.0,
+      1e-12
+    ],
+    [
+      65000.0,
+      6.5e-13
+    ],
+    [
+      70000.0,
+      4.2e-13
+    ],
+    [
+      75000.0,
+      2.8e-13
+    ],
+    [
+      80000.0,
+      1.9e-13
+    ],
+    [
+      90000.0,
+      9.8e-14
+    ],
+    [
+      100000.0,
+      5.4e-14
+    ],
+    [
+      110000.0,
+      3.1e-14
+    ],
+    [
+      120000.0,
+      1.9e-14
+    ],
+    [
+      140000.0,
+      7.8e-15
+    ],
+    [
+      160000.0,
+      3.6e-15
+    ],
+    [
+      180000.0,
+      1.9e-15
+    ],
+    [
+      200000.0,
+      1e-15
+    ],
+    [
+      250000.0,
+      2.8e-16
+    ],
+    [
+      300000.0,
+      1e-16
+    ],
+    [
+      350000.0,
+      4.1e-17
+    ],
+    [
+      400000.0,
+      1.9e-17
+    ],
+    [
+      450000.0,
+      9.5e-18
+    ],
+    [
+      500000.0,
+      5.3e-18
+    ],
+    [
+      600000.0,
+      1.9e-18
+    ],
+    [
+      700000.0,
+      7.7e-19
+    ],
+    [
+      800000.0,
+      3.6e-19
+    ],
+    [
+      900000.0,
+      1.8e-19
+    ],
+    [
+      1000000.0,
+      1e-19
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.42,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "INTEGRAL/SPI dark photon trident",
+  "coupling_convention": "kinetic mixing epsilon (chi), dimensionless, plotted directly on y-axis",
+  "notes": "Paper constrains dark photon dark matter kinetic mixing epsilon vs mass via three-photon (trident) decay observed with 16 yr INTEGRAL/SPI data, masses 61-1022 keV. Only endpoint values available from text ('from 10^-12 down to 10^-19'); exact exclusion curve (Fig. 4 blue line) not tabulated in the paper text. Endpoints emitted as a two-point approximation. Assumes dark photon is 100% of DM, NFW profile, rho_sun=0.42 GeV/cm^3. Constraint improves with mass due to m^9 decay-width scaling. Paper's primary lifetime limit (Fig. 1) is mapped to epsilon via one-loop amplitude. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 24)) | Vision: Figure 4: \u03b5 vs m_A' [keV]. Blue INTEGRAL region is the new constraint from 16 yr INTEGRAL/SPI data via dark photon trident (A'->3\u03b3). Excluded region is above the blue boundary. Boundary traced is approximately a straight power-law line on log-log from ~(60 keV, 1e-12) to ~(1000 keV, 1e-19), consistent with \u03b5\u221dm^-5.7 and the text statement that the constraint reaches from 10^-12 down to 10^-19 over 61-1022 keV. Other lines (magenta Redondo/Arias EH & loop, gray Xenon/LZ, green stellar bounds) are pre-existing constraints not traced. Full one-loop amplitude used. 95% C.L. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity)",
+  "num_points": 24,
+  "elapsed_s": 181.16590523719788
+}

@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "2007.13071",
+  "paper_title": "BelleII",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      200000000.0,
+      0.001
+    ],
+    [
+      1000000000.0,
+      0.001
+    ],
+    [
+      5000000000.0,
+      0.001
+    ],
+    [
+      9700000000.0,
+      0.001
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "BelleII",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Belle II search for e+e- -> gamma a, a -> gamma gamma with 445/pb (2018 data). Sets 95% C.L. upper limits on g_agamma 'at the level of 10^-3 GeV^-1' over 0.2 < m_a < 9.7 GeV/c^2; best limits to date for 0.2-1 GeV (paper says best for 0.2-5 GeV in text). Detailed numerical limits are in a supplemental text file NOT included in the provided content, so the emitted data points are an approximate flat representation of the quoted order-of-magnitude limit across the search range. The pre-analysis DarkPhoton hint is incorrect: the paper's exclusion is on the ALP-photon coupling g_agamma. This is a collider bound, not a DM haloscope, so no local DM density assumption applies. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.6, 4))",
+  "num_points": 4,
+  "elapsed_s": 116.75893306732178
+}

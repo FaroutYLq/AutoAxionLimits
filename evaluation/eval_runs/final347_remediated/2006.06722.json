@@ -1,0 +1,114 @@
+{
+  "arxiv_id": "2006.06722",
+  "paper_title": "SNe-gamma",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-10,
+      2.5e-11
+    ],
+    [
+      1.5e-10,
+      2.5e-11
+    ],
+    [
+      2e-10,
+      2.5e-11
+    ],
+    [
+      3e-10,
+      2.55e-11
+    ],
+    [
+      4e-10,
+      2.6e-11
+    ],
+    [
+      5e-10,
+      2.7e-11
+    ],
+    [
+      6.5e-10,
+      2.9e-11
+    ],
+    [
+      8e-10,
+      3.2e-11
+    ],
+    [
+      1e-09,
+      3.7e-11
+    ],
+    [
+      1.3e-09,
+      4.5e-11
+    ],
+    [
+      1.6e-09,
+      5.5e-11
+    ],
+    [
+      2e-09,
+      6.8e-11
+    ],
+    [
+      2.5e-09,
+      8.5e-11
+    ],
+    [
+      3e-09,
+      1e-10
+    ],
+    [
+      3.5e-09,
+      1.15e-10
+    ],
+    [
+      4e-09,
+      1.3e-10
+    ],
+    [
+      5e-09,
+      1.6e-10
+    ],
+    [
+      6e-09,
+      1.8e-10
+    ],
+    [
+      7e-09,
+      2e-10
+    ],
+    [
+      8.5e-09,
+      2.3e-10
+    ],
+    [
+      1e-08,
+      2.5e-10
+    ],
+    [
+      1.3e-08,
+      2.7e-10
+    ],
+    [
+      1.6e-08,
+      2.85e-10
+    ],
+    [
+      2e-08,
+      3e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "Fermi-LAT SNe stacked ALP search",
+  "coupling_convention": "g_agamma in GeV^-1 (plotted axis in units of 10^-11 GeV^-1, multiplier applied)",
+  "notes": "Fermi-LAT search for ALP-induced prompt gamma-ray emission from extragalactic core-collapse SNe. Main combined result excludes g_agamma > 2.6e-11 GeV^-1 for m_a < 3e-10 eV at 95% CL (fiducial 10 Msun progenitor, NiCo model, JF12 GMF). The limit is mass-independent for m_a < ~0.5 neV and degrades toward higher masses; encoded as horizontal line up to the stated validity cutoff 3e-10 eV. Astrophysical/stellar-type bound, not a DM haloscope, so no local DM density. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 24)) | Vision: FIG. 2 combined observed limit (blue solid line) traced as lower boundary of excluded region. Text confirms low-mass plateau g_agamma > 2.6e-11 GeV^-1 for m_a < 3e-10 eV. Axis label g_a\u03b3 in 10^-11 GeV^-1; emitted values are absolute GeV^-1. X-axis in neV converted to eV. Limit degrades toward higher masses due to reduced conversion probability. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.82 snapped to identity)",
+  "num_points": 24,
+  "elapsed_s": 117.98540306091309
+}

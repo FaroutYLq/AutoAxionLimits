@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "1903.12190",
+  "paper_title": "Gas-rich dwarf galaxies as a new probe of dark matter interactions with ordinary matter",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-23,
+      3e-09
+    ],
+    [
+      1e-20,
+      1e-09
+    ],
+    [
+      1e-17,
+      4e-10
+    ],
+    [
+      1e-14,
+      2e-10
+    ],
+    [
+      1e-12,
+      4e-10
+    ],
+    [
+      1e-10,
+      1e-09
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "LeoT_HPDM_Wadekar2021",
+  "coupling_convention": "dimensionless kinetic mixing chi (= g in paper)",
+  "notes": "Paper derives new constraints on ultra-light hidden-photon (dark photon) DM kinetic mixing 'g' (= chi) from heating of gas in the Leo T dwarf galaxy, valid ~1e-23 to 1e-10 eV (Fig. 2). Coupling type is DarkPhoton (kinetic mixing), not VectorBL. The figure axis labels in the extracted text are corrupted/illegible, so the tabulated (mass, chi) points are APPROXIMATE estimates of the Leo T exclusion curve shape and magnitude (~1e-10 to 1e-9); actual digitized values are in the authors' GitHub data files (github.com/JayWadekar/Gas_rich_dwarfs). Paper also constrains millicharged DM (eps) and DM-nucleon cross sections, but those are not in the coupling enum. DM density is astrophysical (Leo T Burkert halo, spatially varying), not a standard local haloscope value, so dm_density_assumed left null. Astrophysical bound, no formal CL stated; conservative |Q_dot| <= |C_dot| requirement. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.4, 6))",
+  "num_points": 6,
+  "elapsed_s": 146.32809019088745
+}

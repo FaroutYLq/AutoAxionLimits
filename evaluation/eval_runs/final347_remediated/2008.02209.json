@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2008.02209",
+  "paper_title": "Constraining hidden photons via atomic force microscope measurements and the Plimpton-Lawton experiment",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2e-11,
+      0.97
+    ],
+    [
+      1e-10,
+      0.194
+    ],
+    [
+      1e-09,
+      0.0194
+    ],
+    [
+      1e-08,
+      0.00194
+    ],
+    [
+      1e-07,
+      0.000194
+    ],
+    [
+      5e-07,
+      3.9e-05
+    ],
+    [
+      1e-06,
+      5.04e-05
+    ],
+    [
+      1e-05,
+      0.000159
+    ],
+    [
+      0.0001,
+      0.000504
+    ],
+    [
+      0.001,
+      0.00159
+    ],
+    [
+      0.01,
+      0.00504
+    ],
+    [
+      0.1,
+      0.0159
+    ],
+    [
+      1.0,
+      0.0504
+    ],
+    [
+      10.0,
+      0.159
+    ],
+    [
+      100.0,
+      0.504
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "PlimptonLawton2020",
+  "coupling_convention": "dimensionless kinetic mixing chi",
+  "notes": "Laboratory (non-DM) constraints on hidden photon kinetic mixing chi from Coulomb-law-type tests. Two observed limits are presented: an AFM/Casimir setup bound (Fig. 6 red, covering roughly m~0.1-10 eV with chi minimum ~10^-1.5) and the Plimpton-Lawton two-shell experiment (Fig. 7 purple, spanning ~1e-11 to 1e2 eV). Reported here is the observed Plimpton-Lawton bound, reconstructed from the paper's Eq. (26) and asymptotic Eqs. (27a,b) using sensitivity gamma=3.3e-10, R*=0.61 m, R=0.76 m. Small-mass branch chi~1.94e-11/m[eV]; large-mass branch chi~0.0504*sqrt(m[eV]); V-shaped with minimum chi~4e-5 near m~5e-7 eV. These are not DM haloscope limits (no local DM density). Projections (black/orange curves) not included. Coupling is kinetic-mixing chi, i.e. DarkPhoton (not B-L). Points derived from formulas, hence approximate. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 15,
+  "elapsed_s": 110.47892904281616
+}

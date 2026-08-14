@@ -1,0 +1,138 @@
+{
+  "arxiv_id": "2102.00379",
+  "paper_title": "WhiteDwarfs",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1000.0,
+      3e-10
+    ],
+    [
+      1500.0,
+      2.7e-10
+    ],
+    [
+      2000.0,
+      2.4e-10
+    ],
+    [
+      3000.0,
+      2.1e-10
+    ],
+    [
+      5000.0,
+      1.9e-10
+    ],
+    [
+      8000.0,
+      1.7e-10
+    ],
+    [
+      12000.0,
+      1.6e-10
+    ],
+    [
+      20000.0,
+      1.4e-10
+    ],
+    [
+      30000.0,
+      1.3e-10
+    ],
+    [
+      50000.0,
+      1.2e-10
+    ],
+    [
+      70000.0,
+      1.15e-10
+    ],
+    [
+      90000.0,
+      1.1e-10
+    ],
+    [
+      110000.0,
+      1.15e-10
+    ],
+    [
+      130000.0,
+      1.4e-10
+    ],
+    [
+      150000.0,
+      2e-10
+    ],
+    [
+      170000.0,
+      3.5e-10
+    ],
+    [
+      190000.0,
+      7e-10
+    ],
+    [
+      210000.0,
+      1.5e-09
+    ],
+    [
+      230000.0,
+      3.5e-09
+    ],
+    [
+      250000.0,
+      8e-09
+    ],
+    [
+      270000.0,
+      2e-08
+    ],
+    [
+      290000.0,
+      4.5e-08
+    ],
+    [
+      310000.0,
+      1e-07
+    ],
+    [
+      330000.0,
+      2.2e-07
+    ],
+    [
+      350000.0,
+      4.5e-07
+    ],
+    [
+      370000.0,
+      9e-07
+    ],
+    [
+      400000.0,
+      2e-06
+    ],
+    [
+      430000.0,
+      4.5e-06
+    ],
+    [
+      460000.0,
+      8e-06
+    ],
+    [
+      500000.0,
+      1.2e-05
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "WD-IFMR (White Dwarf Initial-Final Mass Relation ALP bound)",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on the y-axis",
+  "notes": "Stellar/astrophysical bound (not DM haloscope) on ALP-photon coupling g_agamma for keV-MeV mass ALPs, derived from the white dwarf initial-final mass relation (WD-IFMR) applied to AGB stars. Constrains part of the 'cosmological triangle' near ma~1 MeV, ga\u03b3\u03b3~1e-5 GeV^-1. Coupling type is AxionPhoton (ALPs coupling exclusively to photons, La = -ga\u03b3\u03b3/4 F F~ a). Data points are approximate readings of the lower boundary of the WD-IFMR exclusion curve in Figs 1/15 combined with text values (10 keV excluded at 0.794e-10, 316 keV region ~3.16e-9, 630 keV reaching into triangle at 1e-5). Bound relaxes at high ga\u03b3\u03b3 due to ALP decay inside the burning shell. 95% CL. No DM density since this is a stellar energy-loss bound. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.5, 30)) | Vision: Figure 1 shows ALP-photon constraints (g_agamma [GeV^-1] vs m_a [keV], log-log). The derived constraint of this work is the green 'WD-IFMR' region. X-axis 1 keV (1e3 eV) to ~2.5 MeV; Y-axis 1e-10 to 1e-3 GeV^-1. The lower boundary is near the plot floor (~1e-10) for masses 1-100 keV (extends below plot range at low mass), then rises steeply above ~130 keV forming the right side of the wedge toward the cosmological triangle (~g~1e-5, m~1 MeV). Boundary overlaps with HB Stars, SN1987, and SN1987A(a->gamma gamma) regions, making the exact green edge difficult to read; coordinates are approximate. Stellar/astrophysical constraint, so no DM density assumed. 95% CL per caption. | Calibration: No calibration needed",
+  "num_points": 30,
+  "elapsed_s": 211.81606197357178
+}

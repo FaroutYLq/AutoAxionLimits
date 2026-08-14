@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2005.14184",
+  "paper_title": "The first search for bosonic super-WIMPs with masses up to 1 MeV/c$^2$ with GERDA",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      60000.0,
+      2e-12
+    ],
+    [
+      120000.0,
+      2.5e-12
+    ],
+    [
+      150000.0,
+      3e-12
+    ],
+    [
+      200000.0,
+      4e-12
+    ],
+    [
+      300000.0,
+      6e-12
+    ],
+    [
+      500000.0,
+      1e-11
+    ],
+    [
+      700000.0,
+      2e-11
+    ],
+    [
+      1000000.0,
+      3e-11
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "GERDA2020",
+  "coupling_convention": "dimensionless g_ae",
+  "notes": "GERDA search for bosonic super-WIMPs (60 keV-1 MeV). Paper reports limits on both g_ae (ALP-electron, AxionElectron) and dark photon kinetic mixing alpha'/alpha. Chose AxionElectron per hint and primary text example (g_ae<3e-12 at 150 keV/c2, 90% C.I.). Only the 150 keV anchor point is explicit in text; other points estimated from Fig. 3 curve and are approximate. A parallel dark-photon limit (alpha'/alpha<6.5e-24 at 150 keV) also exists but is not encoded here. Local DM density 0.3 GeV/cm^3. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 8,
+  "elapsed_s": 40.222885847091675
+}

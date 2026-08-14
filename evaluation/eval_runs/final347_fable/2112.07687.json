@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "2112.07687",
+  "paper_title": "High-precision search for dark photon dark matter with the Parkes Pulsar Timing Array",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      3.16e-24,
+      1e-26
+    ],
+    [
+      1e-23,
+      8e-26
+    ],
+    [
+      3.16e-23,
+      3e-25
+    ],
+    [
+      1e-22,
+      8.5e-25
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "PPTA_DR2_DarkPhoton",
+  "coupling_convention": "dimensionless epsilon, where the U(1)_{B-L} gauge coupling strength is epsilon*e (normalized to the electromagnetic coupling e); NOT converted to g_BL = epsilon*e",
+  "notes": "Paper places 95% credible upper limits on the dimensionless coupling epsilon^2 for U(1)_B and U(1)_{B-L} dark photon dark matter using 14.2-yr PPTA DR2 timing of 26 pulsars over mass range 10^-23.5 to 10^-21 eV. The main results are in Fig. 1 (epsilon^2 vs m_A), with no numerical table provided. Data points here are APPROXIMATE, reconstructed from text statements: PPTA limits improve on the MICROSCOPE WEP bound (epsilon ~ 10^-24.07 for B-L, i.e. epsilon^2 ~ 10^-48.14) by up to two orders of magnitude in epsilon for m_A < 10^-22 eV, crossing the WEP bound around m_A ~ 10^-22 eV, with roughly epsilon proportional to m_A^2 scaling assumed for intermediate masses. Emitted values are epsilon (linear, not epsilon^2), for the U(1)_{B-L} scenario. The paper also constrains U(1)_B (improvement up to m_A < 3x10^-22 eV). Local DM density assumed rho_0 = 0.4 GeV/cm^3. Confidence reduced due to figure-only data requiring approximate reconstruction. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 24.4 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | coupling type VectorBL -> DarkPhoton by axis read-back 'epsilon^2 (squared dimensionless kinetic/gauge coupling constant)' (same confusable family, #625 Phase 3) | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+  "num_points": 4,
+  "elapsed_s": 125.13151431083679
+}

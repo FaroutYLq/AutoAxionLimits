@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "1509.00476",
+  "paper_title": "LEP",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1000000.0,
+      0.01
+    ],
+    [
+      10000000.0,
+      0.002
+    ],
+    [
+      100000000.0,
+      0.0006
+    ],
+    [
+      1000000000.0,
+      0.0003
+    ],
+    [
+      10000000000.0,
+      0.0002
+    ],
+    [
+      40000000000.0,
+      0.0002
+    ],
+    [
+      70000000000.0,
+      0.0004
+    ],
+    [
+      90000000000.0,
+      0.001
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "LEP",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Paper (Jaeckel & Spannowsky 2015, arXiv:1509.00476) derives NEW exclusion limits on ALP-photon (g_agamma) and ALP-hypercharge (g_aBB) couplings by recasting LEP-I Z->2gamma and Z->3gamma branching ratio data, filling the MeV-10 GeV gap. Despite the 'DarkPhoton' hint, this is clearly an axion-like-particle two-photon coupling paper (y-axis of Fig. 4 is Log10 g_agamma [GeV^-1]). No numerical table is provided; the limit exists only as shaded regions in Fig. 4, so data_points are approximate values read from the figure description (limits at the few x 10^-4 GeV^-1 level over ~MeV to m_Z, weakening at low mass due to ALP decay length and at m_a near m_Z). Paper also contains FCC-ee and LHC 13 TeV/100 fb^-1 projections, but the primary result is the measured LEP recast limit. Confidence level not explicitly stated in paper. No DM density assumption (collider bound). The g_aBB hypercharge limit (Fig. 4a) is a separate stronger bound not encoded here since the enum targets the photon coupling. | selector: text (sole candidate)",
+  "num_points": 8,
+  "elapsed_s": 36.07994484901428
+}

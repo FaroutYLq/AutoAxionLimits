@@ -1,0 +1,182 @@
+{
+  "arxiv_id": "2302.09096",
+  "paper_title": "Using the Sun and the Moon as Source masses and the Earth's Rotation as a Modulation to Search for Exotic Spin-Dependent Interactions at Astronomical Distances",
+  "coupling_type": "MonopoleDipole",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      9.38e-15,
+      1.3e-26
+    ],
+    [
+      8.95e-15,
+      6e-27
+    ],
+    [
+      7.88e-15,
+      8.3e-28
+    ],
+    [
+      6.57e-15,
+      7.6e-29
+    ],
+    [
+      4.93e-15,
+      4e-30
+    ],
+    [
+      3.94e-15,
+      7.2e-31
+    ],
+    [
+      3.28e-15,
+      2.4e-31
+    ],
+    [
+      2.81e-15,
+      1.1e-31
+    ],
+    [
+      2.46e-15,
+      6.1e-32
+    ],
+    [
+      1.97e-15,
+      2.8e-32
+    ],
+    [
+      1.64e-15,
+      1.7e-32
+    ],
+    [
+      1.31e-15,
+      1.05e-32
+    ],
+    [
+      9.85e-16,
+      6.8e-33
+    ],
+    [
+      7.88e-16,
+      5.3e-33
+    ],
+    [
+      6.57e-16,
+      4.6e-33
+    ],
+    [
+      4.93e-16,
+      3.9e-33
+    ],
+    [
+      3.94e-16,
+      3.5e-33
+    ],
+    [
+      2.81e-16,
+      3.2e-33
+    ],
+    [
+      1.97e-16,
+      3.1e-33
+    ],
+    [
+      9.85e-17,
+      2.95e-33
+    ],
+    [
+      6.57e-17,
+      2.92e-33
+    ],
+    [
+      3.94e-17,
+      2.9e-33
+    ],
+    [
+      1.97e-17,
+      2.9e-33
+    ],
+    [
+      1.31e-17,
+      2.9e-33
+    ],
+    [
+      9.85e-18,
+      2.9e-33
+    ],
+    [
+      9.38e-18,
+      2.5e-33
+    ],
+    [
+      8.95e-18,
+      1.9e-33
+    ],
+    [
+      7.88e-18,
+      9.2e-34
+    ],
+    [
+      6.57e-18,
+      4e-34
+    ],
+    [
+      4.93e-18,
+      1.43e-34
+    ],
+    [
+      3.94e-18,
+      8e-35
+    ],
+    [
+      2.81e-18,
+      4.3e-35
+    ],
+    [
+      1.97e-18,
+      2.87e-35
+    ],
+    [
+      1.31e-18,
+      2.17e-35
+    ],
+    [
+      9.85e-19,
+      1.94e-35
+    ],
+    [
+      6.57e-19,
+      1.76e-35
+    ],
+    [
+      3.94e-19,
+      1.66e-35
+    ],
+    [
+      1.97e-19,
+      1.62e-35
+    ],
+    [
+      6.57e-20,
+      1.6e-35
+    ],
+    [
+      1.97e-20,
+      1.6e-35
+    ],
+    [
+      1.97e-21,
+      1.6e-35
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "Sun/Moon-source Earth-rotation-modulated comagnetometer (Xe-He, this work)",
+  "coupling_convention": "|g_S^N g_P^n| dimensionless scalar(nucleon)-pseudoscalar(neutron) coupling product, exactly as plotted on the y-axis of Fig. 2",
+  "notes": "Paper derives new limits on exotic spin-dependent interactions using the Sun/Moon as source masses and Earth's rotation as modulation, reanalyzing 3He-129Xe comagnetometer Lorentz-violation data (Allmendinger et al. 2014). Primary result is the monopole-dipole (scalar-pseudoscalar) coupling |g_S^N g_P^n| < 1.6e-35 (95% CL) for interaction range lambda > 1e12 m, valid up to ~1e14 m; encoded as flat bound with mass = hbar*c/lambda (1.97e-7 eV*m / lambda), giving m from ~1.97e-21 eV (lambda=1e14 m) to ~1.97e-19 eV (lambda=1e12 m). Full exclusion extends to lambda ~2e10 m (m ~1e-17 eV) but weaker limits there are only shown in Fig. 2, not tabulated. Paper also constrains VA (|g_V^N g_A^n| < 7.1e-59) and AA (|g_A^N g_A^n| < 8.1e-31) interactions and Hari-Dass alpha1/alpha2 parameters, which are not captured by the MonopoleDipole coupling type. Not a dark matter halo search, so no DM density assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 41)) | Vision: Traced FIG. 2 (left plot, page 4): constraint on |g_S^N g_P^n| vs interaction range lambda from 1e6 to 1e14 m. The combined 'this work' boundary is the Moon curve (steep drop at lambda~2e7 m, plateau ~3e-33) for lambda < ~2e10 m and the Sun curve (drop at ~2e10 m, plateau 1.6e-35) for larger lambda. Mass conversion uses m[eV]=1.97e-7/lambda[m], verified against the plot's own top mass axis (10^-14 eV aligns with lambda~2e7 m). Anchored to text values: |g_S g_P| < 1.6e-35 (95% C.L.) for lambda > 1e12 m; Sun curve dominant for lambda > 2e10 m. Boundary shape between anchors follows the exp(-R/lambda)(1/(lambda R)+1/R^2) Yukawa response with R_sun=1.5e11 m and R_moon=3.84e8 m, consistent with the plotted curves. The dashed 'Astro Limit' (SN1987A + WEP) lies slightly below the Moon plateau but is not part of this work's boundary. Fig. 3 (g_V g_A) and Fig. 4 (g_A g_A) were not traced since the hinted coupling is MonopoleDipole (SP). | Calibration: No calibration needed",
+  "num_points": 41,
+  "elapsed_s": 197.59767508506775
+}

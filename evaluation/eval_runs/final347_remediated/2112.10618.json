@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "2112.10618",
+  "paper_title": "Measuring the stability of fundamental constants with a network of clocks",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      1e-24,
+      3e-19
+    ],
+    [
+      1e-20,
+      3e-19
+    ],
+    [
+      1e-16,
+      3e-19
+    ],
+    [
+      1e-13,
+      3e-19
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "QSNET",
+  "coupling_convention": "1/Lambda_gamma in GeV^-1 (linear-in-phi scalar-photon coupling; NOT converted to dimensionless d_e)",
+  "notes": "QSNET clock-network projection paper. Fig. 6a shows projected sensitivity to a linear scalar dark-matter coupling to the electromagnetic field (drives variation of alpha => ScalarPhoton), while Fig. 6b is the electron-mass coupling (ScalarElectron) and Fig. 7 gives the quadratic-coupling cases. This is a forecast/sensitivity projection, not a measured exclusion. The plotted y-axis is the effective new-physics scale Lambda_gamma; I could not reliably read exact numerical values off the figure, so the emitted data points are rough estimates of 1/Lambda_gamma in GeV^-1 spanning the ~1e-24 to 1e-13 eV mass range. To obtain the canonical dimensionless d_e one would use d_e = (1/Lambda_gamma)/kappa with kappa = sqrt(4*pi*G_N) ~ 2.9e-19 GeV^-1 (not applied here). Values are approximate; treat with caution. | selector: text (sole candidate)",
+  "num_points": 4,
+  "elapsed_s": 117.11530303955078
+}

@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "1110.2895",
+  "paper_title": "Cosmological bounds on pseudo Nambu-Goldstone bosons",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.0,
+      0.001
+    ],
+    [
+      10.0,
+      3.2e-05
+    ],
+    [
+      100.0,
+      1e-06
+    ],
+    [
+      154.0,
+      4e-07
+    ],
+    [
+      154.0,
+      1e-17
+    ],
+    [
+      1000.0,
+      1e-17
+    ],
+    [
+      100000.0,
+      1e-17
+    ],
+    [
+      10000000.0,
+      1e-17
+    ],
+    [
+      10000000000.0,
+      1e-17
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "Cosmology_CadamuroRedondo2012",
+  "coupling_convention": "g_agamma in GeV^-1 (L = -(g/4) F Fdual phi)",
+  "notes": "Cadamuro & Redondo (arXiv:1110.2895) present new cosmological exclusion bounds on ALP two-photon coupling g vs mass m_phi (Fig. 1), combining Neff (WMAP7, 99% CL), BBN deuterium/helium, CMB spectral distortions (mu, y), reionization (xion), EBL/X-ray/optical decay photon searches, and DM overclosure (m > 154 eV excluded for stable ALPs). No numerical table is provided; the exclusion is presented as summary plots. Emitted data_points trace an APPROXIMATE lower envelope of the combined excluded region reconstructed from text formulas: Eq. 3.11 (g >~ 1e-3 (eV/m)^{3/2} GeV^-1 low-mass validity boundary), the 154 eV DM overclosure threshold, and the g ~ 1e-17 GeV^-1 floor where freeze-out temperature would exceed the Planck scale. For precise contours the published Fig. 1 should be digitized. Coupling type unambiguous (anomalous two-photon ALP coupling); data quality approximate, hence confidence 0.5. Not a haloscope; no local DM density assumption. Confidence levels vary by bound (Neff quoted at 99% CL, He/D at 95% CL); 0.95 entered as closest allowed value. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 13.0 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 9,
+  "elapsed_s": 187.63465404510498
+}

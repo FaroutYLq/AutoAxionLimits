@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2201.02042",
+  "paper_title": "Improved bounds on ultralight scalar dark matter in the radio-frequency range",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      8e-11,
+      5e-22
+    ],
+    [
+      1e-09,
+      8e-22
+    ],
+    [
+      1e-08,
+      3e-21
+    ],
+    [
+      1e-07,
+      2e-20
+    ],
+    [
+      4e-07,
+      5e-20
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.35,
+  "suggested_experiment_name": "Mainz_Cs_RF_ScalarDM_2022",
+  "coupling_convention": "g_gamma in eV^-1 (scalar-photon coupling as plotted; NOT converted to dimensionless d_e = g_gamma*M_Pl)",
+  "notes": "Search for oscillations of fundamental constants (alpha and m_e) from ultralight scalar DM in the 20 kHz-100 MHz (8e-11 to 4e-7 eV) range using Cs optical spectroscopy (Apparatus B measured limit; Apparatus A shown as ultimate/projected sensitivity). Paper constrains BOTH a photon coupling g_gamma (variation of alpha -> ScalarPhoton) and an electron coupling g_e / d_me (variation of m_e -> ScalarElectron), so coupling type is ambiguous; chose ScalarPhoton per hint but confidence is limited. Local DM density rho_DM ~ 3e-6 eV^4 (~0.4 GeV/cm^3, galactic halo scenario; Solar/Earth halos give stronger enhanced bounds). Numerical data only available in log-scale exclusion plots (Fig 2 bottom row for g_gamma), so emitted g_gamma values in eV^-1 are rough estimates read off the galactic-halo Exp B curve, not tabulated. Values NOT converted to standard dimensionless d_e; multiply by M_Pl=2.4e27 eV to obtain d_gamma. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 5.0 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 5,
+  "elapsed_s": 533.0954291820526
+}

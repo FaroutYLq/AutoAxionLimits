@@ -1,0 +1,22 @@
+{
+  "arxiv_id": "1512.06746",
+  "paper_title": "Bonati16",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1000000000000.0,
+      5.3e-06
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.35,
+  "suggested_experiment_name": "Bonati2016_LatticeQCD",
+  "coupling_convention": "x = f_a in GeV, y = m_a in eV (zero-T axion mass from lattice chi^1/4=73 MeV)",
+  "notes": "Lattice QCD (Nf=2+1) computation of the topological susceptibility chi(T), used to fix the axion potential/mass and derive the axion dark-matter window. This is a theoretical/cosmological determination, not an experimental haloscope exclusion. Primary quantitative axion result: post-inflation misalignment gives f_a = 1.0e12 GeV (Eq. 4.4), read as an upper bound to the PQ scale if axions make up all DM; the instanton-based value would be ~0.2e12 GeV. Zero-T continuum result chi^1/4 = 73(9) MeV (ChPT: 77.8 MeV), giving m_a ~ 5.7 ueV*(1e12 GeV/f_a). The single emitted point converts f_a=1e12 GeV to m_a~5.3e-6 eV using m_a=sqrt(chi)/f_a. Confidence is low because the paper does not present a conventional exclusion curve and provides essentially one representative (f_a, m_a) value rather than a limit contour. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.35, 1))",
+  "num_points": 1,
+  "elapsed_s": 165.7726809978485
+}

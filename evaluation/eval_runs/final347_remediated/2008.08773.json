@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "2008.08773",
+  "paper_title": "Precision Metrology Meets Cosmology: Improved Constraints on Ultralight Dark Matter from Atom-Cavity Frequency Comparisons",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2e-21,
+      4e-05
+    ],
+    [
+      1e-20,
+      0.0001
+    ],
+    [
+      1e-19,
+      0.0004
+    ],
+    [
+      1e-18,
+      0.002
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "JILA_SrSiH_2020",
+  "coupling_convention": "dimensionless d_me (modulus of coupling to electron mass)",
+  "notes": "Atom-cavity frequency comparison (Sr optical clock, cryogenic Si cavity, H maser) constraining dilatonic ultralight dark matter coupling. Paper sets NEW limits on BOTH the fine-structure-constant modulus d_e (ScalarPhoton, Fig 2a, from Sr/Si and H/Si) and the electron-mass modulus d_me (ScalarElectron, Fig 2b, from H/Si). Per hint I report the d_me (ScalarElectron) result. Text states improvement by up to a factor 100 between 2e-19 and 2e-21 eV, disfavoring d_me at ~4e-5 for the lowest masses (~2e-21 eV). Numerical values are approximate, read/inferred from text and Fig 2(b) axes (no data table given); the limit is mass-dependent (grows with mass). 95% CL. Local DM density assumed 0.3 GeV/cm^3 (Eq. 6). Confidence limited by (a) paper constrains two coupling types and (b) only approximate text/plot values available. If the intended target were d_e, coupling_type would be ScalarPhoton instead. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.5, 4)) | coupling type ScalarElectron -> ScalarPhoton by axis read-back 'd_e dimensionless (electromagnetic gauge modulus coupling)' (same confusable family, #625 Phase 3) | [CONVENTION REVIEW] declared coupling convention 'dimensionless d_me (modulus of coupling to electron mass)' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 4,
+  "elapsed_s": 189.097158908844
+}

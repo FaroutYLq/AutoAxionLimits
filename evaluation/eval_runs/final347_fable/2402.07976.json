@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2402.07976",
+  "paper_title": "First Result for Dark Matter Search by WINERED",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.8,
+      1e-10
+    ],
+    [
+      2.7,
+      1e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.65,
+  "suggested_experiment_name": "WINERED",
+  "coupling_convention": "g_phigammagamma in GeV^-1",
+  "notes": "First WINERED dark matter decay search: spectroscopy of dSphs Leo V and Tucana II with the 6.5m Magellan Clay telescope, constraining DM decaying to line photons in the 1.8-2.7 eV mass range. This is a new observed 2-sigma limit (not a projection). The paper quotes the ALP photon-coupling bound only approximately in text: g_phigammagamma <~ (2-3)e-11 GeV^-1 assuming NFW profiles for the dSphs, and ~1e-10 GeV^-1 for the conservative generalized Hernquist profile. I emit the CONSERVATIVE (generalized Hernquist) flat bound of 1e-10 GeV^-1 across the validated mass range 1.8-2.7 eV; users preferring the NFW assumption should use ~(2-3)e-11 GeV^-1. Detailed limit curves (with ~20 efficiency-related peaks) are only in Fig. 1 and attached data files, not reproduced in the text, hence approximate values. This is an indirect-detection (decay lifetime) bound relying on dSph D-factors, so no local DM density assumption applies. Extraction confidence moderate because numerical values are order-of-magnitude text statements rather than a table. | source-data candidate: gagg_general.txt (loose_file, 8946 rows, header-labeled columns) | selector: text over figure_vision, source_data (quality (1, 1, 1, 1, 1, 0, 0.65, 2))",
+  "num_points": 2,
+  "elapsed_s": 202.51129794120789
+}

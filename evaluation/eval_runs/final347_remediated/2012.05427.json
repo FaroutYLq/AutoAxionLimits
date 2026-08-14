@@ -1,0 +1,134 @@
+{
+  "arxiv_id": "2012.05427",
+  "paper_title": "Cooling of young neutron stars and dark gauge bosons",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-05,
+      5.5e-13
+    ],
+    [
+      0.0001,
+      5.5e-13
+    ],
+    [
+      0.001,
+      5.5e-13
+    ],
+    [
+      0.01,
+      5.5e-13
+    ],
+    [
+      0.1,
+      5.5e-13
+    ],
+    [
+      1.0,
+      5.5e-13
+    ],
+    [
+      10.0,
+      5.5e-13
+    ],
+    [
+      100.0,
+      5.5e-13
+    ],
+    [
+      1000.0,
+      5.5e-13
+    ],
+    [
+      10000.0,
+      5.5e-13
+    ],
+    [
+      30000.0,
+      5.5e-13
+    ],
+    [
+      70000.0,
+      5.5e-13
+    ],
+    [
+      100000.0,
+      5.5e-13
+    ],
+    [
+      150000.0,
+      5.8e-13
+    ],
+    [
+      200000.0,
+      7e-13
+    ],
+    [
+      250000.0,
+      1e-12
+    ],
+    [
+      300000.0,
+      1.8e-12
+    ],
+    [
+      350000.0,
+      3e-12
+    ],
+    [
+      400000.0,
+      5e-12
+    ],
+    [
+      450000.0,
+      9e-12
+    ],
+    [
+      500000.0,
+      1.5e-11
+    ],
+    [
+      550000.0,
+      3e-11
+    ],
+    [
+      600000.0,
+      5e-11
+    ],
+    [
+      650000.0,
+      9e-11
+    ],
+    [
+      700000.0,
+      1.5e-10
+    ],
+    [
+      750000.0,
+      2.3e-10
+    ],
+    [
+      800000.0,
+      3.5e-10
+    ],
+    [
+      900000.0,
+      6e-10
+    ],
+    [
+      1000000.0,
+      1e-09
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "Cassiopeia A neutron star cooling (Cas A)",
+  "coupling_convention": "e' (U(1)_{B-L} gauge coupling), dimensionless, plotted directly on y-axis",
+  "notes": "Neutron star cooling (Cas A and NS1987A) bound on U(1)_{B-L} gauge boson. Conservative constraint e' < 5e-13 for m_gamma' < Tc(n3P2) ~ O(0.1) MeV = ~1e5 eV, encoded as mass-independent horizontal line. Paper also constrains dark photon (eps*m_gamma' < 1.5e-8 MeV), which would be a separate DarkPhoton limit, but the primary VectorBL result is extracted here per hint. Cas A also gives light-red region 1e-13<e'<5e-13; the 5e-13 conservative value used. Astrophysical/stellar bound, no DM density. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 29)) | Vision: Figure 7: U(1)_{B-L} gauge boson constraint plot. Y-axis labeled e' (the B-L coupling), x-axis m_gamma' [eV]. Traced the lower boundary of the darker red 'Cas A (all eta)' exclusion region, which is flat at ~5.5e-13 for m < ~1e5 eV then rises steeply near 3e5-1e6 eV. A lighter pink band 'Cas A (eta<1e-11)' extends the exclusion down to ~1e-13. SN1987 constraint (brown) covers the upper-right region. The B-L coupling here plays the role of g_BL, so VectorBL is the correct type. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.71 snapped to identity) | coupling type VectorBL -> DarkPhoton by axis read-back 'dimensionless kinetic mixing epsilon' (same confusable family, #625 Phase 3)",
+  "num_points": 29,
+  "elapsed_s": 125.5601179599762
+}

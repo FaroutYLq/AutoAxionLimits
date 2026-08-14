@@ -1,0 +1,138 @@
+{
+  "arxiv_id": "2412.03655",
+  "paper_title": "Stepping Up Superradiance Constraints on Axions",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.8e-13,
+      1e-18
+    ],
+    [
+      1.85e-13,
+      1e-14
+    ],
+    [
+      1.9e-13,
+      1e-13
+    ],
+    [
+      2.2e-13,
+      3e-13
+    ],
+    [
+      3e-13,
+      6e-13
+    ],
+    [
+      4e-13,
+      9e-13
+    ],
+    [
+      6e-13,
+      1.4e-12
+    ],
+    [
+      8e-13,
+      1.8e-12
+    ],
+    [
+      1e-12,
+      2.3e-12
+    ],
+    [
+      1.3e-12,
+      3e-12
+    ],
+    [
+      1.6e-12,
+      4e-12
+    ],
+    [
+      1.9e-12,
+      6e-12
+    ],
+    [
+      2.1e-12,
+      7e-12
+    ],
+    [
+      2.3e-12,
+      5e-12
+    ],
+    [
+      2.5e-12,
+      2e-12
+    ],
+    [
+      2.6e-12,
+      1.2e-12
+    ],
+    [
+      2.8e-12,
+      2e-12
+    ],
+    [
+      3.2e-12,
+      5e-12
+    ],
+    [
+      3.6e-12,
+      1.2e-11
+    ],
+    [
+      4e-12,
+      2e-11
+    ],
+    [
+      4.3e-12,
+      1.5e-11
+    ],
+    [
+      4.6e-12,
+      8e-12
+    ],
+    [
+      5e-12,
+      5e-12
+    ],
+    [
+      5.5e-12,
+      4e-12
+    ],
+    [
+      6.5e-12,
+      4e-12
+    ],
+    [
+      7.5e-12,
+      5e-12
+    ],
+    [
+      8.5e-12,
+      6e-12
+    ],
+    [
+      9.5e-12,
+      4e-12
+    ],
+    [
+      1.05e-11,
+      1e-12
+    ],
+    [
+      1.1e-11,
+      1e-18
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "Black Hole Superradiance (Cyg X-1), n<=5",
+  "coupling_convention": "1/f_a in GeV^-1 (inverse axion decay constant), plotted exactly as on the y-axis",
+  "notes": "Black hole superradiance constraint on the axion decay constant f_a vs axion mass mu (main result Fig. 1, 95%/2sigma), derived from inferred spins of solar-mass black holes Cygnus X-1 and GRS 1915+105 including axion self-interactions and n<=5 states. This is an f_a-m_a plane bound => AxionMass. NOT a DM haloscope, so no local density. Numerical data points are ROUGH estimates inferred from the text (e.g. mu=2e-12 eV at alpha~0.33 for M=22.2 Msun); no numeric exclusion table is available in the provided content, so data quality is low. The excluded region spans roughly mu ~ few e-13 to ~1e-11 eV with f_a excluded up to ~2e17 GeV near the peak. Should ideally be digitized from Fig. 1. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 30)) | Vision: Figure 7 (FIG. 16, Cyg X-1) plots the 95% CI superradiance exclusion on the m_a [eV] (x, log) vs 1/f_a [GeV^-1] (y, log) plane. The excluded region is a closed blob; I traced the upper (outer) envelope of the n<=5 (green) curve, which extends furthest right (~1.1e-11 eV). The main peak reaches ~2e-11 GeV^-1 near m_a=4e-12 eV, with a local dip near 2.6e-12 eV. Left and right vertical edges drop to the plot floor (1e-18). Y-axis quantity is 1/f_a, NOT a standard coupling; emitted as plotted per the plotted-values contract. The QCD axion diagonal line passes through ~3e-18 GeV^-1 near m_a=1e-11 eV for calibration. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.25 snapped to identity)",
+  "num_points": 30,
+  "elapsed_s": 140.40701913833618
+}

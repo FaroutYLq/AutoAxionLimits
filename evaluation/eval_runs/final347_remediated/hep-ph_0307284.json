@@ -1,0 +1,130 @@
+{
+  "arxiv_id": "0307284",
+  "paper_title": "FifthForce",
+  "coupling_type": "ScalarNucleon",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.564,
+      1000000000.0
+    ],
+    [
+      0.413,
+      100000000.0
+    ],
+    [
+      0.31,
+      10000000.0
+    ],
+    [
+      0.248,
+      1000000.0
+    ],
+    [
+      0.177,
+      100000.0
+    ],
+    [
+      0.124,
+      10000.0
+    ],
+    [
+      0.0954,
+      2000.0
+    ],
+    [
+      0.062,
+      100.0
+    ],
+    [
+      0.0413,
+      30.0
+    ],
+    [
+      0.031,
+      10.0
+    ],
+    [
+      0.0207,
+      3.5
+    ],
+    [
+      0.0155,
+      2.6
+    ],
+    [
+      0.0124,
+      2.4
+    ],
+    [
+      0.00827,
+      3.0
+    ],
+    [
+      0.0062,
+      2.0
+    ],
+    [
+      0.00413,
+      1.0
+    ],
+    [
+      0.0031,
+      0.4
+    ],
+    [
+      0.00248,
+      0.2
+    ],
+    [
+      0.00177,
+      0.06
+    ],
+    [
+      0.00124,
+      0.02
+    ],
+    [
+      0.000827,
+      0.008
+    ],
+    [
+      0.00062,
+      0.005
+    ],
+    [
+      0.000413,
+      0.004
+    ],
+    [
+      0.00031,
+      0.006
+    ],
+    [
+      0.000248,
+      0.01
+    ],
+    [
+      0.000207,
+      0.01
+    ],
+    [
+      0.000177,
+      0.008
+    ],
+    [
+      0.000124,
+      0.003
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "ISL/fifth-force composite (Stanford, Lamoreaux, Colorado, Irvine, Eot-Wash)",
+  "coupling_convention": "|alpha|, dimensionless Yukawa strength relative to gravity (as plotted)",
+  "notes": "This is a review article (Adelberger, Heckel & Nelson, Annu. Rev. Nucl. Part. Sci. 2003) on tests of the gravitational inverse-square law, i.e. Yukawa fifth-force / ScalarNucleon-type constraints. Results are presented in the alpha-lambda plane (Figures 4, 5, 9) as 95%-CL exclusion curves, not as a coupling-vs-mass table, and no numerical data points are given in the text. It compiles existing experimental limits rather than presenting a single new measurement. Only qualitative statements exist (e.g. alpha>=16/3 excluded for lambda>130 um; R*<155 um for alpha=8/3). No clean extractable (mass_eV, coupling) data available. | selector: figure_vision (sole candidate) | Vision: Figure 5 of Adelberger, Heckel & Nelson review. X-axis is Compton wavelength lambda[m], converted to mass via m[eV]=1.24e-6/lambda. Y-axis is |alpha| (Yukawa coupling strength relative to gravity), a nucleon inverse-square-law/fifth-force constraint. Boundary is the lower envelope of the yellow excluded region formed by multiple experimental upper-limit curves; values approximate due to overlapping curves in a review figure. Minimum near lambda~2-3 mm (Eot-Wash) at |alpha|~4e-3. | Calibration: No calibration needed | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+  "num_points": 28,
+  "elapsed_s": 164.06460213661194
+}

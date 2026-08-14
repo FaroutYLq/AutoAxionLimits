@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2305.01002",
+  "paper_title": "First Constraints on the Photon Coupling of Axion-like Particles from Multimessenger Studies of the Neutron Star Merger GW170817",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      20000000.0,
+      4e-11
+    ],
+    [
+      50000000.0,
+      8e-12
+    ],
+    [
+      100000000.0,
+      2e-12
+    ],
+    [
+      200000000.0,
+      1.41e-12
+    ],
+    [
+      300000000.0,
+      3e-11
+    ],
+    [
+      398000000.0,
+      5.01e-11
+    ],
+    [
+      600000000.0,
+      1e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "GW170817_FermiLAT_ALP",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Astrophysical (NS merger GW170817 + Fermi-LAT) constraint on ALP-photon coupling g_agamma vs m_a; NOT a DM haloscope, so no local DM density. Main 95% CL exclusion is a closed region in the (m_a, g_agamma) plane (Fig. 4), roughly m_a ~ 20 MeV\u20131 GeV. Exact contour could not be read numerically from the paper; data_points are approximate boundary estimates anchored on the two stated benchmarks (BM1: m_a=398 MeV, g=5.01e-11 GeV^-1; BM2: m_a=200 MeV, g=1.41e-12 GeV^-1) and text descriptions. Fermi-LAT flux upper limit 4.5e-10 erg/cm^2/s used. Paper also shows projections (stacked, x10 closer, future MeV missions) which are not included here. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.5, 7))",
+  "num_points": 7,
+  "elapsed_s": 110.51263308525085
+}

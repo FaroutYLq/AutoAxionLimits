@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "1603.06978",
+  "paper_title": "Fermi_bound",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5e-10,
+      5e-12
+    ],
+    [
+      5e-09,
+      5e-12
+    ],
+    [
+      1e-08,
+      1e-11
+    ],
+    [
+      2e-08,
+      1e-11
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.83,
+  "suggested_experiment_name": "Fermi-LAT_NGC1275",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Fermi-LAT search for photon-ALP oscillations in NGC 1275 (Perseus cluster). Astrophysical bound, not a DM haloscope, so no local DM density. Headline result: exclude g_agamma > 5e-12 GeV^-1 for 0.5<~m_a<~5 neV at 95% CL; g11>~1 for 5<~m_a<~10 neV. Exclusion region is complex (with an unexcluded 'hole' feature); data points approximate the lower envelope of the excluded region digitized from text (values in units g11 = g_agamma/1e-11 GeV^-1). No numerical table of limit contour provided in text. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.83, 4))",
+  "num_points": 4,
+  "elapsed_s": 140.03713417053223
+}

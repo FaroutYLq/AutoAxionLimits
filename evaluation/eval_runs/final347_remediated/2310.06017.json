@@ -1,0 +1,146 @@
+{
+  "arxiv_id": "2310.06017",
+  "paper_title": "Riding the dark matter wave: Novel limits on general dark photons from LISA Pathfinder",
+  "coupling_type": "VectorBL",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-19,
+      5.5e-25
+    ],
+    [
+      1.5e-19,
+      4.8e-25
+    ],
+    [
+      2.5e-19,
+      3.9999999999999997e-25
+    ],
+    [
+      3.8e-19,
+      3.3e-25
+    ],
+    [
+      4.2e-19,
+      2e-26
+    ],
+    [
+      5e-19,
+      1.2e-26
+    ],
+    [
+      6.5e-19,
+      6e-27
+    ],
+    [
+      8e-19,
+      3.5e-27
+    ],
+    [
+      1e-18,
+      2.2000000000000002e-27
+    ],
+    [
+      1.3e-18,
+      1.3e-27
+    ],
+    [
+      1.7e-18,
+      8.000000000000001e-28
+    ],
+    [
+      2.2e-18,
+      6.000000000000001e-28
+    ],
+    [
+      3e-18,
+      5e-28
+    ],
+    [
+      4e-18,
+      4.500000000000001e-28
+    ],
+    [
+      5e-18,
+      4.2e-28
+    ],
+    [
+      6e-18,
+      4.500000000000001e-28
+    ],
+    [
+      7.5e-18,
+      6.000000000000001e-28
+    ],
+    [
+      9e-18,
+      9.000000000000001e-28
+    ],
+    [
+      1.1e-17,
+      1.6000000000000001e-27
+    ],
+    [
+      1.3e-17,
+      4e-27
+    ],
+    [
+      1.45e-17,
+      1.5e-26
+    ],
+    [
+      1.6e-17,
+      6e-26
+    ],
+    [
+      1.75e-17,
+      9.999999999999999e-26
+    ],
+    [
+      2.5e-17,
+      9.999999999999999e-26
+    ],
+    [
+      5e-17,
+      9.999999999999999e-26
+    ],
+    [
+      1e-16,
+      9.999999999999999e-26
+    ],
+    [
+      3e-16,
+      9.999999999999999e-26
+    ],
+    [
+      7e-16,
+      9.999999999999999e-26
+    ],
+    [
+      1.5e-15,
+      9.999999999999999e-26
+    ],
+    [
+      2.5e-15,
+      9.999999999999999e-26
+    ],
+    [
+      3.5e-15,
+      9.999999999999999e-26
+    ],
+    [
+      4.5e-15,
+      9.999999999999999e-26
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "LISA Pathfinder (relative acceleration)",
+  "coupling_convention": "g_{B-L}, dimensionless gauge coupling as plotted on y-axis",
+  "notes": "Paper derives world-leading limits on gauged B-L dark photon dark matter using LISA Pathfinder auxiliary channel (SC-TM relative acceleration) April 2016 data. Main solid-line limits are from real data (new limit); forecasts (LPF/LISA) also shown. Fig. 5 y-axis is gauge coupling g_{B-L} = eps_{B-L}*e; Fig. 3/4 show rescaled coupling eps_{B-L}, eps_B. World-leading over 4e-19 eV < m < 3e-17 eV, peak ~5e-18 eV. Exact numerical limit values are not tabulated; the emitted data_points are rough estimates read from the exclusion figure and should be refined against digitized curves. DM density 0.4 GeV/cm^3 assumed. Method insensitive to kinetically-mixed (canonical) dark photon, hence VectorBL not generic DarkPhoton. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 32)) | Vision: Figure 5 of the paper. Y-axis is gauge coupling g_{B-L}, x-axis is vector boson mass in eV (log-log). The lower boundary of the exclusion region is traced from the combined LPF relative-acceleration (blue) region and the gray existing-limit region below it. The blue V-shaped feature dips to a minimum coupling ~4e-27 around 5e-18 eV. For masses above ~1.7e-17 eV the boundary is set by the pre-existing horizontal limit at ~1e-24 (Eot-Wash/MICROSCOPE region). Far left (<4e-19 eV) the boundary follows the gray region at ~3-5e-24. Dashed lines (STE-QUEST, Asteroids, LISA projections, MAGIS, Torsion balance) are projections/other constraints and were not traced. Top frequency ticks (mHz, Hz) are consistent with the eV mass scale. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.17)",
+  "num_points": 32,
+  "elapsed_s": 171.52991604804993
+}

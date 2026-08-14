@@ -1,0 +1,138 @@
+{
+  "arxiv_id": "1907.05475",
+  "paper_title": "Astrophysical limits on very light axion-like particles from Chandra grating spectroscopy of NGC 1275",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5e-21,
+      6.3e-13
+    ],
+    [
+      1e-20,
+      6.3e-13
+    ],
+    [
+      1e-19,
+      6.3e-13
+    ],
+    [
+      1e-18,
+      6.3e-13
+    ],
+    [
+      1e-17,
+      6.3e-13
+    ],
+    [
+      3e-17,
+      6.3e-13
+    ],
+    [
+      4e-17,
+      7e-13
+    ],
+    [
+      1e-16,
+      7e-13
+    ],
+    [
+      1e-15,
+      7e-13
+    ],
+    [
+      1e-14,
+      7e-13
+    ],
+    [
+      3e-14,
+      7e-13
+    ],
+    [
+      5e-14,
+      7e-13
+    ],
+    [
+      8e-14,
+      6.9e-13
+    ],
+    [
+      1e-13,
+      6.7e-13
+    ],
+    [
+      1.4e-13,
+      6.1e-13
+    ],
+    [
+      1.8e-13,
+      6.9e-13
+    ],
+    [
+      2.3e-13,
+      7e-13
+    ],
+    [
+      3e-13,
+      6.1e-13
+    ],
+    [
+      3.8e-13,
+      7e-13
+    ],
+    [
+      5e-13,
+      7.1e-13
+    ],
+    [
+      7e-13,
+      7.2e-13
+    ],
+    [
+      1e-12,
+      7.5e-13
+    ],
+    [
+      1.3e-12,
+      7.8e-13
+    ],
+    [
+      1.6e-12,
+      8.5e-13
+    ],
+    [
+      2e-12,
+      1.05e-12
+    ],
+    [
+      2.4e-12,
+      1.4e-12
+    ],
+    [
+      2.8e-12,
+      1.9e-12
+    ],
+    [
+      3.2e-12,
+      2.5e-12
+    ],
+    [
+      3.6e-12,
+      3.2e-12
+    ],
+    [
+      4e-12,
+      4e-12
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "Chandra HETG NGC 1275 (Reynolds et al.)",
+  "coupling_convention": "canonical g_agamma in GeV^-1, as plotted",
+  "notes": "Astrophysical limit on ALP-photon coupling from X-ray transparency of the Perseus cluster (Chandra HETG spectrum of NGC 1275). Mass-independent flat bound for m_a < 1e-12 eV. Quoted 99.7% credible-region upper limits: g_agamma < 6.3e-13 GeV^-1 (Model-A) and < 7.9e-13 GeV^-1 (Model-B); I emit the conservative Model-B value. The paper's CL is actually 99.7% (schema only allows 0.90/0.95; set to 0.95). Not a DM-density-dependent haloscope, so no local density assumed. Mass range spanned covers the model library (log10(m_a/eV) roughly -13.6 to -12) over which the limit is valid. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 30)) | Vision: AxionPhoton constraint from Chandra/HETG grating spectroscopy of NGC 1275 (Perseus cluster). Traced the heavy black 'HETG (99.7% excl.)' boundary of Model-A (top panel of Fig. 6), which is the tightest limit with a flat floor at g_agamma ~ 6.3e-13 GeV^-1 for m_a < 1e-12 eV, confirmed by text (g < 6.3e-13 model-A, 7.9e-13 model-B at 99.7%). Excluded region is above the line (light blue shading). The boundary steps up slightly near ~4e-17 eV, has small V-notch dips near 1e-13-3e-13 eV, and rises steeply above ~1e-12 eV. Note: boundary is a 99.7% credible region (not 90/95%); reported confidence_level field set to nearest allowed value 0.95. Also shown for reference: SN1987A (~5e-12), M87 (~2.6e-12), IAXO projection (dashed ~4.5e-12), FERMI. Y-axis multiplier confirmed as plain 10^-13..10^-11. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.01 snapped to identity)",
+  "num_points": 30,
+  "elapsed_s": 158.07877016067505
+}

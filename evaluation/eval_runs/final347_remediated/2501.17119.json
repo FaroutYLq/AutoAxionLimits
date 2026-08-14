@@ -1,0 +1,174 @@
+{
+  "arxiv_id": "2501.17119",
+  "paper_title": "First Axion-Like Particle Results from a Broadband Search for Wave-Like Dark Matter in the 44 to 52 $\u03bc$eV Range with a Coaxial Dish Antenna",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.425e-05,
+      4.7e-11
+    ],
+    [
+      4.435e-05,
+      3.8e-11
+    ],
+    [
+      4.45e-05,
+      3.4e-11
+    ],
+    [
+      4.47e-05,
+      4.3e-11
+    ],
+    [
+      4.49e-05,
+      3.7e-11
+    ],
+    [
+      4.51e-05,
+      3.9e-11
+    ],
+    [
+      4.53e-05,
+      4.2e-11
+    ],
+    [
+      4.55e-05,
+      3.5e-11
+    ],
+    [
+      4.57e-05,
+      4.4e-11
+    ],
+    [
+      4.59e-05,
+      3.7e-11
+    ],
+    [
+      4.62e-05,
+      3.4e-11
+    ],
+    [
+      4.64e-05,
+      4.5e-11
+    ],
+    [
+      4.66e-05,
+      3.6e-11
+    ],
+    [
+      4.68e-05,
+      4.6e-11
+    ],
+    [
+      4.7e-05,
+      3.6e-11
+    ],
+    [
+      4.72e-05,
+      3.5e-11
+    ],
+    [
+      4.74e-05,
+      4.1e-11
+    ],
+    [
+      4.76e-05,
+      3.6e-11
+    ],
+    [
+      4.78e-05,
+      4.3e-11
+    ],
+    [
+      4.8e-05,
+      3.6e-11
+    ],
+    [
+      4.82e-05,
+      4.5e-11
+    ],
+    [
+      4.84e-05,
+      3.6e-11
+    ],
+    [
+      4.86e-05,
+      3.8e-11
+    ],
+    [
+      4.88e-05,
+      4.4e-11
+    ],
+    [
+      4.9e-05,
+      3.5e-11
+    ],
+    [
+      4.92e-05,
+      4.7e-11
+    ],
+    [
+      4.94e-05,
+      3.6e-11
+    ],
+    [
+      4.96e-05,
+      3.9e-11
+    ],
+    [
+      4.98e-05,
+      4.5e-11
+    ],
+    [
+      5e-05,
+      3.6e-11
+    ],
+    [
+      5.02e-05,
+      4e-11
+    ],
+    [
+      5.04e-05,
+      3.5e-11
+    ],
+    [
+      5.06e-05,
+      4.3e-11
+    ],
+    [
+      5.08e-05,
+      3.7e-11
+    ],
+    [
+      5.1e-05,
+      4e-11
+    ],
+    [
+      5.12e-05,
+      4.4e-11
+    ],
+    [
+      5.14e-05,
+      3.8e-11
+    ],
+    [
+      5.16e-05,
+      4.2e-11
+    ],
+    [
+      5.175e-05,
+      4e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "GigaBREAD",
+  "coupling_convention": "g_agamma in GeV^-1, plotted directly on linear y-axis (x10^-11)",
+  "notes": "GigaBREAD dish-antenna ALP search, 44-52 ueV (10.7-12.5 GHz), 3.9 T, room temperature, 90% CL exclusion on g_agamma. Coupling type unambiguous (axion-photon, Eq.1 with F~F). Numerical limit values not tabulated in the text; the exclusion curve is only shown in Fig.3. Data points are order-of-magnitude estimates (~1e-10 GeV^-1) based on the reference normalization in Eq.2 and the claim of most-stringent laboratory bound in this mass range; actual plotted values should be digitized from Fig.3 for precision. Local DM density 0.45 GeV/cm^3 from Eq.2. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 39)) | Vision: Figure 3(a): GigaBREAD ALP-photon coupling limit, first dish antenna ALP result. Linear axes: x = ALP mass 44-54 ueV, y = |g_agamma| in units of 1e-11 GeV^-1. Green exclusion region spans ~44.2-51.8 ueV with a very jagged lower boundary oscillating between ~3.3e-11 and ~4.7e-11. Boundary traced from panel (a). 90% CL. rho_0 = 0.45 GeV/cm^3. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.92 snapped to identity)",
+  "num_points": 39,
+  "elapsed_s": 138.13683605194092
+}

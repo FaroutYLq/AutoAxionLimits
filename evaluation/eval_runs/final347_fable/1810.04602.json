@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "1810.04602",
+  "paper_title": "Evidence for light-by-light scattering and searches for axion-like particles in ultraperipheral PbPb collisions at $\\sqrt{s_\\mathrm{NN}} =$ 5.02 TeV",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5000000000.0,
+      0.001
+    ],
+    [
+      10000000000.0,
+      0.0004
+    ],
+    [
+      20000000000.0,
+      0.0002
+    ],
+    [
+      50000000000.0,
+      0.0001
+    ],
+    [
+      90000000000.0,
+      0.0001
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.45,
+  "suggested_experiment_name": "CMS_PbPb_LbL",
+  "coupling_convention": "g_agamma = 1/Lambda in GeV^-1 (approximate values estimated from Fig. 7 description and stated cross-section limits)",
+  "notes": "CMS ultraperipheral PbPb collision search for pseudoscalar ALPs via gamma-gamma -> a -> gamma-gamma, mass range m_a = 5-90 GeV. The paper sets 95% CL limits on the production cross section sigma(gg->a->gg) in the range 1500-20 nb, converted in the paper (Fig. 7) to limits on g_agamma = 1/Lambda. No numerical g_agamma values are provided in the text or tables; the emitted data_points are APPROXIMATE estimates of the observed exclusion curve (Fig. 7, photon-only coupling scenario aF~F/4Lambda) and should be replaced by a proper digitization of the published figure. Paper claims best limits over m_a = 5-50 GeV for photon-only coupling (and 5-10 GeV including hypercharge). Assumes 100% ALP branching to diphotons. This is a collider bound, not a dark matter search, so no local DM density is assumed. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.45, 5))",
+  "num_points": 5,
+  "elapsed_s": 123.38353514671326
+}

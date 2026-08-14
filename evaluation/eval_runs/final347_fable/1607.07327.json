@@ -1,0 +1,30 @@
+{
+  "arxiv_id": "1607.07327",
+  "paper_title": "Search for light scalar Dark Matter candidate with AURIGA detector",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      3.52e-12,
+      1e-05
+    ],
+    [
+      3.6e-12,
+      1e-05
+    ],
+    [
+      3.93e-12,
+      1e-05
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "AURIGA",
+  "coupling_convention": "dimensionless d_e (equivalently d_me; paper constrains d_i = dme + de assuming one coupling dominates)",
+  "notes": "AURIGA resonant-mass detector search for scalar (moduli) dark matter. Paper sets 95% C.L. upper limits d_i <~ 1e-5 on the coupling of moduli to ordinary matter over the sensitive band Delta_f = [850, 950] Hz (masses ~3.52e-12 to 3.93e-12 eV, using m = 4.136e-15 * f). The limit applies identically to the electromagnetic gauge modulus coupling d_e (ScalarPhoton) and the electron-mass modulus coupling d_me (ScalarElectron) since the observable depends on dme + de; ScalarPhoton chosen per pre-analysis hint, but ScalarElectron is equally valid, hence confidence capped at 0.5. Exact frequency-dependent limit curve is only in Fig. 5 (not numerically available); emitted points are the text-quoted flat ~1e-5 level across the band. Standard Halo Model with rho_DM = 0.3 GeV/cm^3 assumed. | selector: text over figure_vision (quality (1, 1, 1, 0, 1, 0, 0.5, 3)) | [CONVENTION REVIEW] declared coupling convention 'dimensionless d_e (equivalently d_me; paper constrains d_i = dme + de assuming one coupling dominates)' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 3,
+  "elapsed_s": 100.59710884094238
+}

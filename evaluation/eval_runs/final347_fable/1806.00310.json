@@ -1,0 +1,22 @@
+{
+  "arxiv_id": "1806.00310",
+  "paper_title": "Operation of a ferromagnetic axion haloscope at $m_a=58\\,\u03bc$eV",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5.8e-05,
+      4.9e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "QUAX_gaee_2018",
+  "coupling_convention": "dimensionless g_ae",
+  "notes": "First QUAX ferromagnetic haloscope prototype result: upper limit g_aee < 4.9e-10 at 95% C.L. for m_a = 58 ueV (14 GHz), assuming local DM density 0.45 GeV/cm^3. The exclusion (Fig. 8) spans a narrow ~3 MHz frequency band around 14 GHz from seven runs; only the best (minimum) coupling value is given numerically in text, so a single data point is reported. Axion wind (gradient) coupling to electron spins; sensitivity depends on daily-modulated wind direction (data taken at maximum of daily modulation). | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 1))",
+  "num_points": 1,
+  "elapsed_s": 104.65856218338013
+}

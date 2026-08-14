@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2306.11575",
+  "paper_title": "SNIPE",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.07e-15,
+      5e-06
+    ],
+    [
+      4.14e-15,
+      3e-06
+    ],
+    [
+      8.27e-15,
+      4e-06
+    ],
+    [
+      1.24e-14,
+      5e-06
+    ],
+    [
+      1.65e-14,
+      6e-06
+    ],
+    [
+      2.07e-14,
+      8e-06
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.72,
+  "suggested_experiment_name": "SNIPE_Hunt",
+  "coupling_convention": "dimensionless kinetic mixing epsilon",
+  "notes": "SNIPE Hunt magnetometer network searching for hidden-photon (kinetic mixing epsilon) and axion (g_agamma) dark matter via Earth-as-transducer magnetic signatures in 0.5-5 Hz range. Primary/headline result is HPDM kinetic mixing (best experimental bound in this frequency range), so DarkPhoton chosen. The paper ALSO sets AxionPhoton limits g_agamma ~ 6e-9 to 3e-8 GeV^-1 over the same mass range (m_a ~ 2e-15 to 2e-14 eV, Fig 12). Mass converted from Compton frequency via m=4.136e-15*f. Epsilon values (~few\u00d710^-6 to 10^-5) read approximately from Fig 6 averaged traces; not from a numerical table. Two independent scans (Scan-1, Scan-2) presented; values approximate the combined/averaged limit. Local DM density 0.3 GeV/cm^3. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 6,
+  "elapsed_s": 61.10964488983154
+}

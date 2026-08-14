@@ -1,0 +1,17 @@
+{
+  "arxiv_id": "1512.06165",
+  "paper_title": "Dark Matter Direct Detection with Accelerometers",
+  "coupling_type": "VectorBL",
+  "is_new_limit": false,
+  "is_projection": true,
+  "data_points": [],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "Accelerometer_DM_LLR_proj",
+  "coupling_convention": "dimensionless g_B-L",
+  "notes": "Proposal paper (projections only, no measured limit). Considers three couplings: B-L vector (VectorBL), Higgs-portal scalar (~ScalarNucleon/ScalarBaryon), and scalar coupled to electron mass (ScalarElectron). Main exclusion/sensitivity results are in Figs 2-4 (not machine-readable). Only a rough text-quoted projection is extractable: Lunar Laser Ranging reach g_B-L ~ 5e-26 for m < ~1e-21 eV. Coupling type ambiguous across VectorBL/ScalarBaryon/ScalarElectron, hence low confidence. Local DM density taken as 0.3 GeV/cm^3 as stated in text. | [VISION GATE A] is_projection=true but the vision notes say the traced curve is existing experiment 'staticep' \u2014 not the paper's own projected curve",
+  "num_points": 0,
+  "elapsed_s": 97.89381408691406
+}

@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2310.13891",
+  "paper_title": "First Results from a Broadband Search for Dark Photon Dark Matter in the $44$ to $52\\,\u03bc$eV range with a coaxial dish antenna",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.4e-05,
+      1e-12
+    ],
+    [
+      5.2e-05,
+      1e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "GigaBREAD",
+  "coupling_convention": "dimensionless kinetic mixing chi",
+  "notes": "Dark photon DM search 44-52 ueV (10.7-12.5 GHz) with GigaBREAD coaxial dish antenna. Excludes chi >~ 1e-12 at 90% CL across the range; exact curve varies slightly around 1e-12. Only text-level value quoted; approximated as flat 1e-12 line spanning 44-52 ueV. DM density 0.45 GeV/cm^3. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.8, 2))",
+  "num_points": 2,
+  "elapsed_s": 107.78988695144653
+}

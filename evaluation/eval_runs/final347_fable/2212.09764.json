@@ -1,0 +1,158 @@
+{
+  "arxiv_id": "2212.09764",
+  "paper_title": "SN1987A_gamma",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-11,
+      5.4e-12
+    ],
+    [
+      1.5e-11,
+      5.4e-12
+    ],
+    [
+      2e-11,
+      5.4e-12
+    ],
+    [
+      3e-11,
+      5.4e-12
+    ],
+    [
+      5e-11,
+      5.4e-12
+    ],
+    [
+      7e-11,
+      5.4e-12
+    ],
+    [
+      1e-10,
+      5.3e-12
+    ],
+    [
+      1.3e-10,
+      5.3e-12
+    ],
+    [
+      1.6e-10,
+      5.2e-12
+    ],
+    [
+      2e-10,
+      5.1e-12
+    ],
+    [
+      2.5e-10,
+      5e-12
+    ],
+    [
+      3e-10,
+      5e-12
+    ],
+    [
+      3.5e-10,
+      5.1e-12
+    ],
+    [
+      4e-10,
+      5.4e-12
+    ],
+    [
+      4.5e-10,
+      5.8e-12
+    ],
+    [
+      5e-10,
+      6.3e-12
+    ],
+    [
+      6e-10,
+      7.4e-12
+    ],
+    [
+      7e-10,
+      8.5e-12
+    ],
+    [
+      8e-10,
+      9.6e-12
+    ],
+    [
+      1e-09,
+      1.2e-11
+    ],
+    [
+      1.2e-09,
+      1.4e-11
+    ],
+    [
+      1.5e-09,
+      1.7e-11
+    ],
+    [
+      1.8e-09,
+      1.9e-11
+    ],
+    [
+      2e-09,
+      2.1e-11
+    ],
+    [
+      2.5e-09,
+      2.5e-11
+    ],
+    [
+      3e-09,
+      2.8e-11
+    ],
+    [
+      3.5e-09,
+      3.1e-11
+    ],
+    [
+      4e-09,
+      3.4e-11
+    ],
+    [
+      4.5e-09,
+      3.7e-11
+    ],
+    [
+      5e-09,
+      3.9e-11
+    ],
+    [
+      6e-09,
+      4.4e-11
+    ],
+    [
+      7e-09,
+      4.9e-11
+    ],
+    [
+      8e-09,
+      5.4e-11
+    ],
+    [
+      9e-09,
+      5.8e-11
+    ],
+    [
+      1e-08,
+      6.3e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "SN1987A gamma-rays (SMM/GRS, Hoof-Schulz update)",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on the y-axis",
+  "notes": "Hoof & Schulz (arXiv:2212.09764) update SN1987A gamma-ray (SMM/GRS) limits on the ALP-photon coupling using temporal information in a Poisson likelihood. Two regimes: (1) ALP-photon conversion in the Galactic magnetic field (J&F model) for ma ~1e-11 to 1e-8 eV, improved by factor ~1.4 over Payez et al. 2015 (rescaled); (2) ALP decay to gamma rays for ma ~10 eV to ~2e8 eV, essentially matching Jaeckel et al. 2018. No numerical table is provided; the data points above are approximate values reconstructed from the described figures (Fig. 3, 95% CL, lambda_P), text benchmarks (e.g. ma=1 MeV, g=2.26e-11 GeV^-1 and ma=1e-10 eV, g=6.55e-12 GeV^-1 both at Delta-chi2=25), and the stated 1.4x improvement over the rescaled Payez limit. Digitized curves are available on the authors' GitHub (sebhoof/snax) and AxionLimits; those should be used for precise values. Not a DM-density-dependent search (astrophysical bound), so dm_density is null. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 35)) | Vision: Traced the black solid 'This work (lambda_P)' 95% CL boundary in Fig. 3 left panel (ALP-photon conversion in Galactic magnetic field). Boundary is flat at g_agamma ~ 5.4e-12 GeV^-1 for m_a < ~4e-10 eV (consistent with the paper's headline limit), with a slight dip to ~5.0e-12 near 3e-10 eV, then rises roughly as a power law with small oscillatory wiggles up to ~6e-11 GeV^-1 at 1e-8 eV. The right panel of Fig. 3 shows the ALP-decay limit at higher masses (10 eV - 1e9 eV), not traced here per the axis calibration hint. Wiggle fine structure in the rising part is smoothed at the ~10-20% level. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.06 snapped to identity)",
+  "num_points": 35,
+  "elapsed_s": 133.60824131965637
+}

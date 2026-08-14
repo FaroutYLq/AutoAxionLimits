@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2310.13891",
+  "paper_title": "First Results from a Broadband Search for Dark Photon Dark Matter in the $44$ to $52\\,\u03bc$eV range with a coaxial dish antenna",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.4e-05,
+      1e-12
+    ],
+    [
+      5.2e-05,
+      1e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "GigaBREAD",
+  "coupling_convention": "dimensionless kinetic mixing chi",
+  "notes": "First results from GigaBREAD coaxial dish antenna (BREAD collaboration), 24 days of room-temperature data. Excludes chi >~ 1e-12 at 90% CL over 44-52 ueV (10.7-12.5 GHz). Paper labels the result 'GigaBREAD-0' in Fig. 4. No numerical table provided; limit encoded as approximately flat bound at chi = 1e-12 over the stated mass range per the abstract/conclusion text. Actual limit curve in Fig. 4 has fine structure not captured here. DM density assumed rho = 0.45 GeV/cm^3 per Eq. 1. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.8, 2))",
+  "num_points": 2,
+  "elapsed_s": 123.11941313743591
+}

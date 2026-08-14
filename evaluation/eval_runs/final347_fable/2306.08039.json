@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2306.08039",
+  "paper_title": "Dark Matter Search with a Resonantly-Coupled Hybrid Spin System",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      8.27e-17,
+      3e-10
+    ],
+    [
+      1.65e-14,
+      3e-10
+    ],
+    [
+      1.24e-14,
+      3e-09
+    ],
+    [
+      1.24e-13,
+      3e-09
+    ],
+    [
+      4.14e-13,
+      3.3e-08
+    ],
+    [
+      4.14e-12,
+      3.3e-06
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.65,
+  "suggested_experiment_name": "ChangE",
+  "coupling_convention": "gann in GeV^-1 (derivative coupling g_aNN as in H = g_aNN grad(a).I)",
+  "notes": "K-Rb-21Ne comagnetometer (ChangE collaboration) broadband search in SC and HSR regimes, covering 0.01-1000 Hz Compton frequencies (m_a ~ 4e-17 to 4e-12 eV). Sets 95% CL limits on both gann and gapp; AxionNeutron chosen as primary (strongest laboratory limits, surpassing astrophysics in parts of range). Values are in GeV^-1 (paper's y-axis convention), NOT dimensionless g_an. Data points reconstructed from explicit text statements: |gann| <= 3e-10 GeV^-1 for [0.02, 4] Hz (SC regime); ~3e-9 GeV^-1 flat for [3, 30] Hz (HSR); scaling as fa^2 for [30, 1000] Hz. Full tabulated limits (>10 million points) are in an external data repository [ref 38] not included here, so points are approximate envelope values. Paper also constrains gapp (best terrestrial in [0.02,5] and [16,700] Hz) and quadratic coupling g_quad^2; those are not extracted here. DM stochasticity accounted for via frequency-domain likelihood; rho_DM = 0.4 GeV/cm^3, Standard Halo Model. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 6,
+  "elapsed_s": 53.590587854385376
+}

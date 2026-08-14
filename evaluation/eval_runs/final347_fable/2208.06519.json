@@ -1,0 +1,22 @@
+{
+  "arxiv_id": "2208.06519",
+  "paper_title": "QuantumCyclotron",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.00061227643,
+      3.2e-11
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.9,
+  "suggested_experiment_name": "QuantumCyclotron",
+  "coupling_convention": "dimensionless kinetic mixing epsilon",
+  "notes": "Proof-of-principle dark photon dark matter search using a one-electron quantum cyclotron in a Penning trap at 148 GHz (m_A' = 0.612276 meV). Null result over 7.4 days gives epsilon < 3.2e-11 at 90% CL, ~75x better than previous XENON1T/cosmology bounds. The limit applies only in a very narrow band (~100-200 kHz around 148.048 GHz, i.e., delta-m ~ 1e-9 eV), so it is effectively a single mass point. The paper also presents a future sensitivity projection (n_e=10 electrons, spherical trap, 0.1-1 meV range), not included here as data since the measured limit is the primary result. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.9, 1))",
+  "num_points": 1,
+  "elapsed_s": 107.60131812095642
+}

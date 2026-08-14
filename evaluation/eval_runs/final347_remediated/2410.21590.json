@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "2410.21590",
+  "paper_title": "Pi in the Sky: Neutron Stars with Exceptionally Light QCD Axions",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2e-09,
+      5e-07
+    ],
+    [
+      0.001,
+      5e-07
+    ],
+    [
+      2e-09,
+      0.2
+    ],
+    [
+      0.001,
+      0.2
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.35,
+  "suggested_experiment_name": "NeutronStarAxionCondensation2025",
+  "coupling_convention": "epsilon = (m_a/m_a^QCD)^2 (dimensionless), NOT f_a in GeV",
+  "notes": "Paper derives astrophysical constraints on the 'exceptionally light QCD axion' parameter space (f_a-m_a plane, expressed via epsilon = (m_a/m_a^QCD)^2). Main result: excludes 5e-7 <~ epsilon <~ 0.2 for m_a >~ 2e-9 eV from neutron-star thermal relaxation, isolated NS cooling, and pulsar glitches. Tables IV/V/VII give min/max excluded epsilon for m_a >~ 1e-8 eV (conservative Scenario A: cooling 5.2e-7-0.068, thermal relaxation 2.2e-3-0.10, glitches 8.3e-3-0.17). The excluded region is a HORIZONTAL band in epsilon, essentially mass-independent for m_a >~ 1e-8 eV. Emitted data points represent the lower (5e-7) and upper (0.2) edges of the excluded epsilon band spanning the stated mass validity range; these are NOT f_a values. Converting epsilon to f_a requires m_a-dependent QCD relation and was not done here to avoid corrupting values. Astrophysical bound, no local DM density. This is the AxionMass/f_a-m_a plane but the natural variable is epsilon; downstream conversion may be needed. Low extraction confidence because clean tabulated (f_a, m_a) exclusion curves are not provided in text. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 10.5 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | [CONVENTION REVIEW] declared coupling convention 'epsilon = (m_a/m_a^QCD)^2 (dimensionless), NOT f_a in GeV' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 4,
+  "elapsed_s": 210.1486439704895
+}

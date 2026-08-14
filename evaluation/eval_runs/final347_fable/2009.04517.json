@@ -1,0 +1,182 @@
+{
+  "arxiv_id": "2009.04517",
+  "paper_title": "The State of the Art in Constraining Axion-to-Nucleon Coupling and Non-Newtonian Gravity from Laboratory Experiments",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-08,
+      3.3e-10
+    ],
+    [
+      3e-08,
+      3.3e-10
+    ],
+    [
+      1e-07,
+      3.3e-10
+    ],
+    [
+      3e-07,
+      3.4e-10
+    ],
+    [
+      6e-07,
+      3.6e-10
+    ],
+    [
+      8e-07,
+      4e-10
+    ],
+    [
+      1e-06,
+      5e-10
+    ],
+    [
+      1.1e-06,
+      8e-10
+    ],
+    [
+      1.2e-06,
+      1.5e-09
+    ],
+    [
+      1.3e-06,
+      4e-09
+    ],
+    [
+      1.4e-06,
+      1e-08
+    ],
+    [
+      1.5e-06,
+      2e-08
+    ],
+    [
+      2e-06,
+      2e-08
+    ],
+    [
+      5e-06,
+      2e-08
+    ],
+    [
+      1e-05,
+      2e-08
+    ],
+    [
+      3e-05,
+      2e-08
+    ],
+    [
+      6e-05,
+      2.1e-08
+    ],
+    [
+      0.0001,
+      2.3e-08
+    ],
+    [
+      0.0002,
+      3e-08
+    ],
+    [
+      0.0003,
+      4.5e-08
+    ],
+    [
+      0.0005,
+      8e-08
+    ],
+    [
+      0.0007,
+      1.5e-07
+    ],
+    [
+      0.001,
+      3e-07
+    ],
+    [
+      0.0013,
+      6e-07
+    ],
+    [
+      0.0017,
+      1.5e-06
+    ],
+    [
+      0.002,
+      1.7e-06
+    ],
+    [
+      0.003,
+      1.9e-06
+    ],
+    [
+      0.005,
+      2.1e-06
+    ],
+    [
+      0.01,
+      2.4e-06
+    ],
+    [
+      0.02,
+      2.9e-06
+    ],
+    [
+      0.05,
+      4.5e-06
+    ],
+    [
+      0.1,
+      7.5e-06
+    ],
+    [
+      0.2,
+      1.5e-05
+    ],
+    [
+      0.3,
+      2.5e-05
+    ],
+    [
+      0.4,
+      4e-05
+    ],
+    [
+      0.5,
+      6e-05
+    ],
+    [
+      1.0,
+      6e-05
+    ],
+    [
+      3.0,
+      6e-05
+    ],
+    [
+      10.0,
+      6e-05
+    ],
+    [
+      30.0,
+      6e-05
+    ],
+    [
+      100.0,
+      6e-05
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "Laboratory review: magnetometer / Cavendish-type / Casimir-less / molecular-hydrogen constraints on axion-nucleon coupling",
+  "coupling_convention": "coupling squared over 4pi, (g)^2/(4pi) (axis read-back)",
+  "notes": "This is a review article (Mostepanenko & Klimchitskaya, Universe 2020, arXiv:2009.04517) summarizing previously published constraints on axion-to-nucleon coupling g_an^2/(4pi) and Yukawa-type non-Newtonian gravity from Casimir force measurements, Casimir-less experiments, magnetometer measurements, Cavendish-type experiments, and molecular hydrogen beams. It presents no new original limits; all constraints are reproduced from earlier works (e.g. refs [26,37,56,57,76,77]). Constraints appear only as figure lines (Figures 6 and 8) with no numerical tables or explicit coupling values in the text, so no data points could be extracted. The relevant coupling is the generic axion-nucleon coupling (paper assumes g_an = g_ap), plotted as g_an^2/(4pi) vs axion mass from ~1e-10 eV to 200 eV; constraints derive from two-axion exchange (GUT axions). The paper also discusses CANNEX projections, but again only graphically. | [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of the combined constraints') rather than the paper's own single curve | selector: figure_vision (sole candidate) | declaration reconciled to axis read-back: 'coupling squared over 4pi, (g)^2/(4pi) (axis read-back)' (model declared 'g_an^2/(4*pi), dimensionless squared axion-nucleon coupling, exactly as plotted on the y-axis' \u2014 axis unit wins, #594 contract) | Vision: Traced the lower envelope of the combined constraints in Figure 8: 'm' magnetometer line (flat ~3.3e-10 up to ~1 ueV), 'gr' Cavendish-type line (flat ~2e-8 from ~1 ueV to ~1.7 meV, transition points explicitly stated in text), line 1 (Casimir-less experiment, ~1.7 meV to 0.5 eV), and 'H2' molecular hydrogen beam line (flat ~6e-5 above 0.5 eV, extending to 100 eV). Y-values are the plotted quantity g_an^2/(4pi), NOT the linear coupling g_an; no conversion applied per the plotted-values contract. The paper constrains a generic nucleon coupling; AxionNeutron chosen per disambiguation rule. gr-line rise shape cross-checked against Figure 10 which reproduces it on a finer scale. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.75 snapped to identity)",
+  "num_points": 41,
+  "elapsed_s": 184.2934868335724
+}

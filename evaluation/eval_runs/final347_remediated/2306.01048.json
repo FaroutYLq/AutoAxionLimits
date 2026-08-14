@@ -1,0 +1,150 @@
+{
+  "arxiv_id": "2306.01048",
+  "paper_title": "Getting the most on supernova axions",
+  "coupling_type": "AxionProton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.0001,
+      4e-06
+    ],
+    [
+      0.0002,
+      4e-06
+    ],
+    [
+      0.001,
+      4e-06
+    ],
+    [
+      0.01,
+      4e-06
+    ],
+    [
+      0.05,
+      4e-06
+    ],
+    [
+      0.1,
+      4e-06
+    ],
+    [
+      1.0,
+      4e-06
+    ],
+    [
+      3.0,
+      4e-06
+    ],
+    [
+      5.0,
+      4e-06
+    ],
+    [
+      10.0,
+      4e-06
+    ],
+    [
+      30.0,
+      4e-06
+    ],
+    [
+      100.0,
+      4e-06
+    ],
+    [
+      300.0,
+      4e-06
+    ],
+    [
+      500.0,
+      4e-06
+    ],
+    [
+      1000.0,
+      4e-06
+    ],
+    [
+      3000.0,
+      3.8000000000000005e-06
+    ],
+    [
+      10000.0,
+      3.5000000000000004e-06
+    ],
+    [
+      15000.0,
+      3.2000000000000003e-06
+    ],
+    [
+      30000.0,
+      2.4999999999999998e-06
+    ],
+    [
+      60000.0,
+      1.4999999999999998e-06
+    ],
+    [
+      100000.0,
+      9e-07
+    ],
+    [
+      200000.0,
+      5e-07
+    ],
+    [
+      300000.0,
+      3e-07
+    ],
+    [
+      500000.0,
+      2.1999999999999998e-07
+    ],
+    [
+      800000.0,
+      2.0000000000000002e-07
+    ],
+    [
+      1000000.0,
+      2.0000000000000002e-07
+    ],
+    [
+      2000000.0,
+      2.0000000000000002e-07
+    ],
+    [
+      3000000.0,
+      2.1999999999999998e-07
+    ],
+    [
+      5000000.0,
+      3e-07
+    ],
+    [
+      8000000.0,
+      6e-07
+    ],
+    [
+      10000000.0,
+      1.4999999999999998e-06
+    ],
+    [
+      12000000.0,
+      4.9999999999999996e-06
+    ],
+    [
+      13000000.0,
+      1.9999999999999998e-05
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.78,
+  "suggested_experiment_name": "SN 1987A cooling + KII (supernova axions)",
+  "coupling_convention": "coupling squared, g^2 (axis read-back)",
+  "notes": "SN1987A supernova bound on ALP-proton coupling g_ap (they set g_an=0, KSVZ benchmark; note hint said AxionNeutron but paper explicitly constrains g_ap in Figs 3-5). Combined cooling + Kamiokande-II event bounds exclude the region g_ap between ~6e-10 and ~2.5e-6 for m_a < ~1-10 MeV. The excluded region is a 2D band in the g_ap vs m_a plane; here I encode the lower boundary of the excluded region (~6e-10) as a near-horizontal line valid for m_a up to ~1 MeV (1e6 eV). Upper boundary of exclusion ~2.5e-6 (cooling) and KII bound g_ap>3e-7. This is an astrophysical/stellar bound, not a DM haloscope, so no local DM density. QCD axion mass translation also given (KSVZ m_a in [8,19] meV excluded). | [VISION GATE D] vision notes admit tracing a compilation envelope ('union of') rather than the paper's own single curve | selector: figure_vision over text (quality (1, 1, 1, 1, 1, 0, 0.78, 33)) | declaration reconciled to axis read-back: 'coupling squared, g^2 (axis read-back)' (model declared 'canonical g_ap, dimensionless axion-proton coupling' \u2014 axis unit wins, #594 contract) | Vision: Lower boundary traced along the bottom edge of the union of excluded regions, dominated by the blue 'SN1987A (cooling)' region. The lower edge is roughly flat at g_ap ~ 4e-8 for m_a < ~1e4 eV, then dips to a minimum ~2e-9 near m_a ~ 1e6 eV (the trapping/cooling nose) before rising steeply at m_a ~ 1e7 eV. y-axis label is g_ap; x-axis is m_a [eV]. Plot has no stated CL. QCD axion band (yellow) used as benchmark (g_ap proportional to m_a). | Calibration: Vision calibration: \u00d71e+2 (factor=1.00e+02, reason=spot-check verify/stage2, raw_ratio=57.14)",
+  "num_points": 33,
+  "elapsed_s": 145.89869809150696
+}

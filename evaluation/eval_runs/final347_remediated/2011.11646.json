@@ -1,0 +1,114 @@
+{
+  "arxiv_id": "2011.11646",
+  "paper_title": "Black hole superradiance of self-interacting scalar fields",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      2.2e-13,
+      0.001
+    ],
+    [
+      2.4e-13,
+      0.00030000000000000003
+    ],
+    [
+      2.6e-13,
+      8e-05
+    ],
+    [
+      2.9e-13,
+      2e-05
+    ],
+    [
+      3.3e-13,
+      6e-06
+    ],
+    [
+      4e-13,
+      2.5e-06
+    ],
+    [
+      5e-13,
+      1.6e-06
+    ],
+    [
+      6.5e-13,
+      1.3e-06
+    ],
+    [
+      8.5e-13,
+      1.2000000000000002e-06
+    ],
+    [
+      1.1e-12,
+      1.15e-06
+    ],
+    [
+      1.4e-12,
+      1.15e-06
+    ],
+    [
+      1.8e-12,
+      1.2000000000000002e-06
+    ],
+    [
+      2.3e-12,
+      1.3e-06
+    ],
+    [
+      2.9e-12,
+      1.5e-06
+    ],
+    [
+      3.4e-12,
+      2.1999999999999997e-06
+    ],
+    [
+      3.8e-12,
+      4e-06
+    ],
+    [
+      4.2e-12,
+      1.2e-05
+    ],
+    [
+      4.7e-12,
+      5e-05
+    ],
+    [
+      5.3e-12,
+      0.0002
+    ],
+    [
+      6e-12,
+      0.0008
+    ],
+    [
+      7e-12,
+      0.004
+    ],
+    [
+      8.2e-12,
+      0.02
+    ],
+    [
+      9.5e-12,
+      0.1
+    ],
+    [
+      1.1e-11,
+      0.5
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.35,
+  "suggested_experiment_name": "BH superradiance spin-down (X-ray binaries), self-interacting scalar",
+  "coupling_convention": "GeV/f (= 1 GeV divided by axion decay constant f), dimensionless as plotted on the y-axis; x-axis is axion mass mu in eV",
+  "notes": "This is a theoretical/phenomenological paper on black hole superradiance of self-interacting scalar (axion-like) fields. It maps out the dynamics in the axion mass (mu) vs self-coupling scale (f, i.e. f_a) parameter space and discusses observational SIGNATURES (GW annihilation/transition signals, BH spin-down, axion-wind NMR detection like CASPEr-Wind, and potential axion-photon signals). It does not present a clean, extractable numerical exclusion curve for a single coupling type: the results are projected detectabilities for BH-sourced axion waves and qualitative statements about LIGO/spin-measurement exclusions (e.g. gravitational-only masses 3-7e-13 eV would yield >10 signals). The pre-analysis hint of AxionMass reflects the mu-f plane, but no tabulated (mass, coupling) exclusion points are provided. Not a standard DM-density haloscope limit. Best treated as no reliably extractable limit data. | selector: figure_vision (sole candidate) | Vision: FIG. 10 (page 29). Plot axes are transposed relative to the standard AxionMass (f_a vs m_a) convention: x-axis = axion mass mu/eV (1e-13 to 1e-11 eV), y-axis = GeV/f (1e-19 to 1e-10, dimensionless). Values emitted exactly as plotted (y = GeV/f, i.e. inverse decay constant times GeV), NOT converted to f_a in GeV. The exclusion region is the union of BH spin-down constraint regions (light-to-dark blue shading) for several X-ray binaries (Cyg X-1, GRS 1915+105, M33, GRO J1655-40, LMC X-1). Lower boundary is approximate: the region extends near the bottom axis (~1e-19) for central masses ~5e-13 to 3e-12 eV, with near-vertical left cutoff around mu~2.3e-13 eV and a rising right edge toward mu~1e-11 eV. Dashed green diagonal is the QCD axion line; ALP DM band is horizontal. Extraction confidence is low due to the transposed/inverse-f axis and dense overlapping shaded regions. | Calibration: No calibration needed | Auto-corrected couplings: \u00d71e+13 (\u00d71.00e+13, rule=argmin|log10(median*f)-log10(anchor=3.2e-05)|)",
+  "num_points": 24,
+  "elapsed_s": 206.2137610912323
+}

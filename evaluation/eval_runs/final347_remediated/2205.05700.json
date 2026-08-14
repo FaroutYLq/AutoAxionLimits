@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2205.05700",
+  "paper_title": "First indirect detection constraints on axions in the Solar basin",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5000.0,
+      1.5e-11
+    ],
+    [
+      8000.0,
+      4e-12
+    ],
+    [
+      10000.0,
+      2.5e-12
+    ],
+    [
+      15000.0,
+      2e-12
+    ],
+    [
+      20000.0,
+      3e-12
+    ],
+    [
+      30000.0,
+      6e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "NuSTAR_SolarBasin_2022",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Indirect detection of keV axions in the Solar basin via X-ray decay observed by NuSTAR. This is a solar/astrophysical source (not a DM haloscope), so no local DM density applies. Fig. 2 shows the axion-photon coupling limit (g_aee=0) using Poisson, Yellin, and CLs methods; CLs is most stringent. Data points estimated from Fig. 2 (no numerical table provided); masses 5-30 keV converted to eV. Paper also constrains axion-electron coupling (Fig. 1, 3) via g_aee=me/f slice, but primary photon-only exclusion is AxionPhoton. Values are rough plot reads; strongest limit ~2e-12 GeV^-1, over an order of magnitude below HB star cooling (6.6e-11 GeV^-1). | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 6))",
+  "num_points": 6,
+  "elapsed_s": 157.29410576820374
+}

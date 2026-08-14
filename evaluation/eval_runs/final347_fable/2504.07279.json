@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2504.07279",
+  "paper_title": "Search for Axion Dark Matter from 1.1 to 1.3 GHz with ADMX",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.54e-06,
+      1.7e-15
+    ],
+    [
+      4.8e-06,
+      1.8e-15
+    ],
+    [
+      5e-06,
+      1.9e-15
+    ],
+    [
+      5.2e-06,
+      2e-15
+    ],
+    [
+      5.41e-06,
+      2.1e-15
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "ADMX_2025_1.1-1.3GHz",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "New ADMX haloscope search covering 1.10-1.31 GHz (4.54-5.41 ueV) reporting 90% C.L. upper limits on g_agamma with better-than-KSVZ sensitivity (KSVZ excluded even at fractional DM density; DFSZ not reached). Local DM density assumed 0.45 GeV/cm^3 with Maxwell-Boltzmann lineshape. The paper provides no numerical table of the exclusion limit; only Fig. 3 shows it. Data points above are approximate values estimated at roughly the KSVZ coupling level (g_KSVZ ~ 1.8-2.1e-15 GeV^-1 across this mass range), since the limit is stated to be slightly below KSVZ. Gaps exist at mode crossings. For precise values, digitization of Fig. 3 or the collaboration's data release is needed. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 5,
+  "elapsed_s": 45.681354999542236
+}

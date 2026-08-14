@@ -1,0 +1,182 @@
+{
+  "arxiv_id": "1611.05852",
+  "paper_title": "Stellar cooling bounds on new light particles: plasma mixing effects",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      100000.0,
+      6e-08
+    ],
+    [
+      130000.0,
+      4.5e-08
+    ],
+    [
+      170000.0,
+      3.3e-08
+    ],
+    [
+      220000.0,
+      2.5e-08
+    ],
+    [
+      300000.0,
+      1.8e-08
+    ],
+    [
+      400000.0,
+      1.3e-08
+    ],
+    [
+      550000.0,
+      9e-09
+    ],
+    [
+      700000.0,
+      7e-09
+    ],
+    [
+      1000000.0,
+      4.5e-09
+    ],
+    [
+      1400000.0,
+      3.2e-09
+    ],
+    [
+      2000000.0,
+      2.2e-09
+    ],
+    [
+      3000000.0,
+      1.4e-09
+    ],
+    [
+      4000000.0,
+      1e-09
+    ],
+    [
+      5500000.0,
+      7.5e-10
+    ],
+    [
+      7000000.0,
+      5.5e-10
+    ],
+    [
+      8500000.0,
+      4.2e-10
+    ],
+    [
+      9500000.0,
+      3.5e-10
+    ],
+    [
+      10000000.0,
+      2.5e-10
+    ],
+    [
+      10500000.0,
+      1.6e-10
+    ],
+    [
+      11000000.0,
+      1.2e-10
+    ],
+    [
+      12000000.0,
+      1e-10
+    ],
+    [
+      14000000.0,
+      9e-11
+    ],
+    [
+      16000000.0,
+      9e-11
+    ],
+    [
+      18000000.0,
+      1e-10
+    ],
+    [
+      19000000.0,
+      1.3e-10
+    ],
+    [
+      20000000.0,
+      1.8e-10
+    ],
+    [
+      21000000.0,
+      2.5e-10
+    ],
+    [
+      22000000.0,
+      3e-10
+    ],
+    [
+      25000000.0,
+      3e-10
+    ],
+    [
+      30000000.0,
+      3e-10
+    ],
+    [
+      40000000.0,
+      3.2e-10
+    ],
+    [
+      50000000.0,
+      3.5e-10
+    ],
+    [
+      70000000.0,
+      4e-10
+    ],
+    [
+      100000000.0,
+      5e-10
+    ],
+    [
+      140000000.0,
+      7e-10
+    ],
+    [
+      200000000.0,
+      1e-09
+    ],
+    [
+      250000000.0,
+      1.5e-09
+    ],
+    [
+      300000000.0,
+      2.2e-09
+    ],
+    [
+      350000000.0,
+      3.5e-09
+    ],
+    [
+      380000000.0,
+      5e-09
+    ],
+    [
+      400000000.0,
+      7e-09
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "SN1987A stellar cooling (plasma mixing effects)",
+  "coupling_convention": "kinetic mixing parameter epsilon (dimensionless), as plotted on y-axis",
+  "notes": "Hardy & Lasenby (1611.05852) present updated stellar/SN cooling bounds including plasma mixing effects. The headline new dark-photon result is the SN1987A energy-loss bound (Figure 3, epsilon vs m from ~0.1 MeV to ~1 GeV). No numerical table is provided; the data_points are approximate values of the lower exclusion boundary reconstructed from the described scaling (epsilon ~ 1/m below the SN plasma frequency ~20 MeV, minimum epsilon ~ few x 1e-11 near resonance, steep weakening above ~100 MeV from Boltzmann/decay effects) and from the widely used digitized version of Fig. 3. Upper boundary of exclusion (trapping/decay) is not included. This is a stellar/SN bound, NOT a DM haloscope, so no local DM density is assumed. The paper also derives bounds on B-L vectors (g_BL vs mass) and scalars coupling to electrons/nucleons (alpha_phi-ee < 4e-32 from RG resonant production, alpha_phi-NN < 1e-25) and Higgs-portal mixing sin(theta) < 3e-10 for m < 2 keV; only the dark photon result is encoded here per the coupling_type hint. The authors emphasize these are order-of-magnitude estimates, not precise CL exclusions; confidence_level 0.95 is nominal. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 41)) | Vision: Figure 3: constraints on dark photon kinetic mixing epsilon from SN1987A energy loss, including plasma mixing effects. Lower boundary of solid black shaded region traced. X-axis in MeV converted to eV (x1e6). Resonant dip near 11-18 MeV reaches ~9e-11, slightly below the naive kinetic-theory line at 1e-10. Excluded region closes at tip ~400 MeV, eps~7e-9 (region above lower boundary and below upper trapping/decay boundary is excluded). The paper stresses these SN limits are order-of-magnitude estimates given SN model uncertainties. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity)",
+  "num_points": 41,
+  "elapsed_s": 199.57837796211243
+}

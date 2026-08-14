@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2410.02218",
+  "paper_title": "ONIX",
+  "coupling_type": "AxionCPV",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-20,
+      1e-11
+    ],
+    [
+      1e-18,
+      1e-09
+    ],
+    [
+      1e-16,
+      1e-07
+    ],
+    [
+      1e-14,
+      1e-05
+    ],
+    [
+      1e-13,
+      4e-05
+    ],
+    [
+      3e-12,
+      0.0001
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.42,
+  "suggested_experiment_name": "ONIX_EuYSO",
+  "coupling_convention": "C_G/f_a in GeV^-1 (ALP-gluon coupling)",
+  "notes": "Search for oscillating P-odd T-odd nuclear Schiff moment of 153Eu in Eu:YSO crystal, constraining ALP-gluon coupling C_G/f_a in GeV^-1 over ~8 decades in mass (1e-20 to ~3e-12 eV). Result expressed as gluon coupling (CP-violating theta oscillation) not as neutron EDM d_n, so AxionCPV chosen over AxionEDM; convention is C_G/f_a in GeV^-1. Data points are approximate, read from Fig. 4 boundary (no numerical table given); values scale ~linearly with mass and are weakened at low mass by stochasticity correction. rho_DM=0.4 GeV/cm^3. 95% CL. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 3.6 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | [CONVENTION REVIEW] declared coupling convention 'C_G/f_a in GeV^-1 (ALP-gluon coupling)' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 6,
+  "elapsed_s": 221.77311277389526
+}

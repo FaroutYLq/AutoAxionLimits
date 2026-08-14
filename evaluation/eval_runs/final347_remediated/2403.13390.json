@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2403.13390",
+  "paper_title": "Search for Dark Matter Axions with Tunable TM_020 mode",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.138e-05,
+      1e-13
+    ],
+    [
+      2.179e-05,
+      1.02e-13
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.82,
+  "suggested_experiment_name": "CAPP_TM020_2024",
+  "coupling_convention": "g_agamma in GeV^-1 (computed from 12.0 x g_KSVZ over stated mass range)",
+  "notes": "Cavity haloscope using tunable TM020 mode over 21.38-21.79 ueV (5.17-5.27 GHz). 90% CL exclusion of g_agamma > 12.0 x g_KSVZ. Converted 12x KSVZ to absolute GeV^-1 using g_KSVZ ~ 8.4e-15 at these masses (m_a=5.69 ueV x 1e12/f_a; g=alpha/(2pi f_a)*1.92), giving ~1.0e-13 GeV^-1, consistent with abstract's 'approximately 10^-13'. Only a nearly-flat two-point limit extracted; full exclusion spectrum shape not tabulated in text. rho_a=0.45 GeV/cm^3 (KSVZ). Bayesian analysis gave 10.9x KSVZ. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.82, 2))",
+  "num_points": 2,
+  "elapsed_s": 208.92064690589905
+}

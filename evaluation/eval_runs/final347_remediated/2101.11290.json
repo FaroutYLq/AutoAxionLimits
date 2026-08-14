@@ -1,0 +1,130 @@
+{
+  "arxiv_id": "2101.11290",
+  "paper_title": "Constraints on the Coupling between Axionlike Dark Matter and Photons Using an Antiproton Superconducting Tuned Detection Circuit in a Cryogenic Penning Trap",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.79057e-09,
+      1.3e-11
+    ],
+    [
+      2.7906e-09,
+      1.2e-11
+    ],
+    [
+      2.79063e-09,
+      8.5e-12
+    ],
+    [
+      2.79066e-09,
+      1.1e-11
+    ],
+    [
+      2.7907e-09,
+      1.3e-11
+    ],
+    [
+      2.79074e-09,
+      1.2e-11
+    ],
+    [
+      2.79078e-09,
+      1e-11
+    ],
+    [
+      2.79082e-09,
+      1.1e-11
+    ],
+    [
+      2.79086e-09,
+      1.3e-11
+    ],
+    [
+      2.7909e-09,
+      1.15e-11
+    ],
+    [
+      2.79094e-09,
+      9.5e-12
+    ],
+    [
+      2.79098e-09,
+      1.05e-11
+    ],
+    [
+      2.79102e-09,
+      1.25e-11
+    ],
+    [
+      2.79106e-09,
+      1.1e-11
+    ],
+    [
+      2.791e-09,
+      9e-12
+    ],
+    [
+      2.79104e-09,
+      1e-11
+    ],
+    [
+      2.79108e-09,
+      1.2e-11
+    ],
+    [
+      2.79112e-09,
+      1.3e-11
+    ],
+    [
+      2.79116e-09,
+      1.1e-11
+    ],
+    [
+      2.7912e-09,
+      9.5e-12
+    ],
+    [
+      2.79124e-09,
+      1.05e-11
+    ],
+    [
+      2.79128e-09,
+      1.2e-11
+    ],
+    [
+      2.79132e-09,
+      1.15e-11
+    ],
+    [
+      2.79136e-09,
+      1e-11
+    ],
+    [
+      2.7914e-09,
+      1.1e-11
+    ],
+    [
+      2.79143e-09,
+      1.3e-11
+    ],
+    [
+      2.79146e-09,
+      1.2e-11
+    ],
+    [
+      2.79148e-09,
+      1.1e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "BASE antiproton Penning-trap detection circuit",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis",
+  "notes": "Cryogenic Penning-trap (BASE) haloscope using superconducting LC detection circuit. Constrains g_agamma < 1e-11 GeV^-1 over a narrow ALP mass band 2.7906-2.7914 neV at 95% CL, assuming local DM density 0.4 GeV/cm^3. Reported as a flat coupling limit over the narrow mass range; encoded as horizontal line spanning the stated band. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.55, 28)) | Vision: Figure 3(a) is the 95% CL exclusion for this work over m_a = 2.7905-2.7915 neV/c^2 (x linear), y = g_agamma 1e-12 to 1e-9 log. This experiment's exclusion is the wavy blue/purple band whose lower edge sits near 1e-11 GeV^-1, consistent with the abstract limit g_agamma < 1e-11. The band spans only ~2.79057-2.79148 neV. Points are the wavy lower boundary of the BASE band; other colored regions (SN-1987A, CAST, FERMI-LAT red at ~5e-12, ABRACADABRA, SHAFT) are external limits overlaid. Reading precision limited by the very fine wavy structure. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.11 snapped to identity)",
+  "num_points": 28,
+  "elapsed_s": 111.68373703956604
+}

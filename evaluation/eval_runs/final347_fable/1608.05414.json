@@ -1,0 +1,154 @@
+{
+  "arxiv_id": "1608.05414",
+  "paper_title": "Unifying inflation with the axion, dark matter, baryogenesis and the seesaw mechanism",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.9505,
+      0.002
+    ],
+    [
+      0.9505,
+      0.005
+    ],
+    [
+      0.9507,
+      0.01
+    ],
+    [
+      0.951,
+      0.02
+    ],
+    [
+      0.9513,
+      0.032
+    ],
+    [
+      0.9517,
+      0.045
+    ],
+    [
+      0.9522,
+      0.055
+    ],
+    [
+      0.953,
+      0.065
+    ],
+    [
+      0.954,
+      0.072
+    ],
+    [
+      0.955,
+      0.077
+    ],
+    [
+      0.956,
+      0.08
+    ],
+    [
+      0.9575,
+      0.083
+    ],
+    [
+      0.959,
+      0.085
+    ],
+    [
+      0.9605,
+      0.086
+    ],
+    [
+      0.962,
+      0.087
+    ],
+    [
+      0.964,
+      0.088
+    ],
+    [
+      0.966,
+      0.088
+    ],
+    [
+      0.968,
+      0.088
+    ],
+    [
+      0.97,
+      0.088
+    ],
+    [
+      0.9715,
+      0.087
+    ],
+    [
+      0.973,
+      0.085
+    ],
+    [
+      0.974,
+      0.083
+    ],
+    [
+      0.975,
+      0.08
+    ],
+    [
+      0.9758,
+      0.076
+    ],
+    [
+      0.9765,
+      0.071
+    ],
+    [
+      0.9772,
+      0.064
+    ],
+    [
+      0.9778,
+      0.055
+    ],
+    [
+      0.9782,
+      0.045
+    ],
+    [
+      0.9786,
+      0.034
+    ],
+    [
+      0.9789,
+      0.022
+    ],
+    [
+      0.979,
+      0.013
+    ],
+    [
+      0.9791,
+      0.007
+    ],
+    [
+      0.9791,
+      0.003
+    ],
+    [
+      0.9791,
+      0.002
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.2,
+  "suggested_experiment_name": "Planck TT + lowP + BKP (SMASH inflation, FIG. 1)",
+  "coupling_convention": "tensor-to-scalar ratio r (dimensionless, y-axis) vs scalar spectral index n_s (dimensionless, x-axis); NOT a mass-coupling plane",
+  "notes": "This is a theoretical model-building paper (SMASH: SM + Axion + Seesaw + Higgs portal inflation). It predicts an axion dark matter mass window of 50-200 ueV (f_A between 3e10 and 1.2e11 GeV) but does not present any new experimental exclusion limit or sensitivity projection on a coupling. The mass window is a theory prediction/target region to be probed by future experiments (MADMAX, ORPHEUS), not an exclusion bound. No coupling-vs-mass exclusion data to extract. | selector: figure_vision (sole candidate) | Vision: WARNING: The hint expected an AxionMass (f_a vs m_a) plot, but no such plot exists on these pages. The forced axis calibration (x: 0.945-0.982, y: 0.002-0.3 log) corresponds to FIG. 1, the r vs n_s inflationary constraint plot with Planck TT+lowP+BKP 95% CL contours. The traced boundary is the outer envelope of the pink 95% CL allowed region; points above it are excluded by CMB data. x-values are the dimensionless spectral index n_s (not eV), y-values are the tensor-to-scalar ratio r (not a coupling). The paper does state r < 0.07 at 95% CL from joint Planck+BICEP/Keck, and the lattice axion mass relation m_A = 57.2(10^11 GeV/f_A) ueV in the text, but no f_a-m_a exclusion figure is present. Coupling type set to null and confidence lowered accordingly. | Calibration: No calibration needed | Coupling from pre-classifier (AxionMass, conf=0.85)",
+  "num_points": 34,
+  "elapsed_s": 112.97331094741821
+}

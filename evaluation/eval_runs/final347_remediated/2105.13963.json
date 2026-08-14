@@ -1,0 +1,130 @@
+{
+  "arxiv_id": "2105.13963",
+  "paper_title": "First Constraints on Nuclear Coupling of Axionlike Particles from the Binary Neutron Star Gravitational Wave Event GW170817",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-20,
+      7.94e-06
+    ],
+    [
+      3.16e-20,
+      7.94e-06
+    ],
+    [
+      1e-19,
+      7.94e-06
+    ],
+    [
+      3.16e-19,
+      7.94e-06
+    ],
+    [
+      1e-18,
+      7.94e-06
+    ],
+    [
+      3.16e-18,
+      7.94e-06
+    ],
+    [
+      1e-17,
+      7.94e-06
+    ],
+    [
+      3.16e-17,
+      8.13e-06
+    ],
+    [
+      1e-16,
+      7.94e-06
+    ],
+    [
+      3.16e-16,
+      8.13e-06
+    ],
+    [
+      1e-15,
+      8.91e-06
+    ],
+    [
+      3.16e-15,
+      1e-05
+    ],
+    [
+      1e-14,
+      1.12e-05
+    ],
+    [
+      1.78e-14,
+      1.2e-05
+    ],
+    [
+      3.16e-14,
+      1.26e-05
+    ],
+    [
+      5.62e-14,
+      1.41e-05
+    ],
+    [
+      1e-13,
+      1.58e-05
+    ],
+    [
+      1.26e-13,
+      2e-05
+    ],
+    [
+      1.58e-13,
+      2.51e-05
+    ],
+    [
+      2e-13,
+      3.16e-05
+    ],
+    [
+      2.51e-13,
+      3.98e-05
+    ],
+    [
+      3.16e-13,
+      6.31e-05
+    ],
+    [
+      3.98e-13,
+      0.0001
+    ],
+    [
+      5.01e-13,
+      0.000158
+    ],
+    [
+      6.31e-13,
+      0.00025100000000000003
+    ],
+    [
+      7.94e-13,
+      0.000398
+    ],
+    [
+      1e-12,
+      0.000501
+    ],
+    [
+      1.26e-12,
+      0.0005620000000000001
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "GW170817 BNS inspiral (axion nuclear coupling)",
+  "coupling_convention": "f_a in GeV (axis read-back)",
+  "notes": "Constraint from GW170817 BNS inspiral on axions coupling to nuclear matter. Primary result is on the f_a - m_a plane (Fig. 1: Log10[GeV/f_a] vs Log10[m_a/eV]), so classified as AxionMass rather than a g_an coupling (paper does not express results as g_an). Excluded band: 1.6e16 GeV < f_a < 1e18 GeV for m_a <= 1e-11 eV, at 3 sigma confidence (closest allowed CL flag 0.95). Emitted line traces the lower/weakest f_a exclusion boundary (1.6e16 GeV) which extends to the massless limit. Upper cutoff f_a~1e18 GeV set by NS phase-transition condition. Not a dark-matter haloscope, so no local DM density. | selector: figure_vision over text (quality (0, 1, 1, 1, 2, 0, 0.4, 28)) | declaration reconciled to axis read-back: 'f_a in GeV (axis read-back)' (model declared 'plotted y = log10[gev/f_a]; emitted values are 10^(y) = (gev/f_a), dimensionless inverse decay constant. emitted x = m_a in ev = 10^(x-axis log10[m_a/ev]). axes are transposed/inverted relative to standard f_a-m_a plane.' \u2014 axis unit wins, #594 contract) | Vision: Fig. 1 exclusion is the blue GW170817 region, a band in f_a (1.6e16-1e18 GeV) for m_a below ~1e-11 eV. The y-axis is Log10[GeV/f_a] (inverse of f_a) and x-axis is Log10[m_a/eV] (mass), so the plot is transposed AND inverted relative to the canonical AxionMass f_a-vs-m_a plane. I traced the LOWER boundary of the blue region (bottom edge ~ f_a=1e18 GeV line at Log10[GeV/f_a]~-18, i.e. GeV/f_a~1e-18), flat for m_a<1e-13 eV then rising toward higher masses where the constraint weakens. Values emitted exactly as plotted (10^y for coupling, 10^x eV for mass) per plotted-values contract; downstream conversion should account for the transposed/inverted axes. Confidence lowered due to axis transposition/inversion and shaded-region reading, not coupling-type ambiguity (f_a/m_a identification is clear). | Calibration: Calibration reverted: \u00d71e+2 from spot-check verify/stage2 (raw_ratio=50.00) failed contract [vision calibration \u00d71e+2: reverted (R5 hard floor: median outside VALID_RANGES)] | Auto-corrected couplings: \u00d71e+13 (\u00d71.00e+13, rule=argmin|log10(median*f)-log10(anchor=3.2e-05)|) | [CONVENTION REVIEW] declared convertible convention 'f_a in GeV (axis read-back)' but emitted magnitude is out of the declared plane's plausible range; likely a mislabeled plane",
+  "num_points": 28,
+  "elapsed_s": 230.21570301055908
+}

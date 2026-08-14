@@ -1,0 +1,130 @@
+{
+  "arxiv_id": "1110.2895",
+  "paper_title": "Cosmological bounds on pseudo Nambu-Goldstone bosons",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      31.6,
+      -4.0
+    ],
+    [
+      100.0,
+      -4.0
+    ],
+    [
+      1000.0,
+      -4.0
+    ],
+    [
+      10000.0,
+      -4.0
+    ],
+    [
+      31600.0,
+      -4.0
+    ],
+    [
+      100000.0,
+      -4.0
+    ],
+    [
+      158000.0,
+      -4.0
+    ],
+    [
+      251000.0,
+      -4.0
+    ],
+    [
+      316000.0,
+      -3.5
+    ],
+    [
+      398000.0,
+      -2.5
+    ],
+    [
+      501000.0,
+      -1.2
+    ],
+    [
+      631000.0,
+      -0.2
+    ],
+    [
+      794000.0,
+      0.6
+    ],
+    [
+      1000000.0,
+      1.1
+    ],
+    [
+      1260000.0,
+      1.2
+    ],
+    [
+      1580000.0,
+      1.0
+    ],
+    [
+      2000000.0,
+      0.7
+    ],
+    [
+      2510000.0,
+      0.4
+    ],
+    [
+      3160000.0,
+      0.1
+    ],
+    [
+      3980000.0,
+      -0.3
+    ],
+    [
+      5010000.0,
+      -0.7
+    ],
+    [
+      7940000.0,
+      -1.1
+    ],
+    [
+      12600000.0,
+      -1.4
+    ],
+    [
+      31600000.0,
+      -1.5
+    ],
+    [
+      100000000.0,
+      -1.5
+    ],
+    [
+      1000000000.0,
+      -1.5
+    ],
+    [
+      10000000000.0,
+      -1.5
+    ],
+    [
+      100000000000.0,
+      -1.5
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.15,
+  "suggested_experiment_name": "Cosmological (BBN) bounds on ALP decays",
+  "coupling_convention": "Log10 of ALP lifetime tau in seconds (NOT a coupling). The y-axis of Fig. 6 is Log10 tau [s]; emitted values are these lifetimes as plotted.",
+  "notes": "Theory/review paper establishing cosmological bounds on ALPs with two-photon coupling g (GeV^-1) vs mass m_phi (eV), from BBN (D, 4He), N_eff (WMAP7), CMB spectral distortions, EBL/optical/X-ray/gamma-ray decay searches, and DM overclosure. Main results are the exclusion regions in Figs. 1 and 2 (mphi-g and mphi-tau planes), which are a complex patchwork of regions with characteristic slope g \u221d m^-3/2, not a single tabulated curve. No numerical table is provided, so precise (mass, coupling) pairs cannot be reliably extracted from text. The only analytic boundary given is the low-mass validity edge of the N_eff bound: g/GeV^-1 \u2273 10^-3 (eV/m_phi)^3/2 (Eq. 3.11). Coupling type is clearly AxionPhoton; data extraction quality is low because values live only in figures. | [VISION GATE D] vision notes admit tracing a compilation envelope ('union of') rather than the paper's own single curve | selector: figure_vision (sole candidate) | Vision: The flagged exclusion plot (Fig. 6) is a lifetime (Log10 tau [s]) vs mass (Log10 m_phi [MeV]) plot showing BBN constraints (deuterium underproduction D, helium overproduction 4He, photodissociation gamma-He/gamma-D, hadronic cascades, neutrino dilution Neff). It is NOT a g_agamma-vs-mass coupling plot; the paper's g_agamma exclusion curves are Figs. 1 and 2 (not among the images flagged as the exclusion plot). Because tau = 64*pi/(m^3 g^2), the plotted y-quantity is inversely related to g^2, so a naive treatment as a coupling is invalid. I traced the LOWER boundary of the union of the colored excluded regions: flat at Log10 tau ~ -4 (bottom) for masses up to ~10^5.3 eV (0.2 MeV), rising through the white unexcluded notch near m_phi ~ 1 MeV (peak Log10 tau ~ 1.2), then settling to ~ -1.5 at high mass. Values emitted are Log10 tau [s], not couplings. Extraction confidence is deliberately very low because the y-axis is a lifetime, not any coupling constant. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.67 snapped to identity) | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+  "num_points": 28,
+  "elapsed_s": 192.9284737110138
+}

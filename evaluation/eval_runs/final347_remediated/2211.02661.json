@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2211.02661",
+  "paper_title": "WhiteDwarfs",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.0,
+      5500000000.0
+    ],
+    [
+      0.0,
+      1.1e+16
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "WhiteDwarfs_MR",
+  "coupling_convention": "f_a in GeV (excluded decay-constant interval; NOT a canonical coupling line)",
+  "notes": "Paper bounds exceptionally light QCD axions via white-dwarf mass-radius relation (NOT axion-electron; the pre-analysis hint is wrong). The result lives on the axion parameter space plane of decay constant f (GeV) vs mass m_a (eV), Fig.1 - i.e. an AxionMass-type bound, driven by the axion-gluon/nucleon (sigma-term) coupling, independent of DM. The exclusion is a 2D region in {epsilon, f}, not a simple line. Clean quoted numbers: 2e-20 < epsilon < 2e-7 (negligible-gradient regime) and 5.5e9 < f/GeV < 1.1e16 (negligible-epsilon regime), both 95% CL; ZN model excludes 33<=N<=69. Emitted the f-interval endpoints (mass sentinel 0) since a proper boundary curve cannot be reliably reconstructed from text. m_a relates via m_a^2 = epsilon*m_pi^2*f_pi^2/f^2. Low extraction confidence due to 2D region and no digitized figure. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.3, 2))",
+  "num_points": 2,
+  "elapsed_s": 222.24480390548706
+}

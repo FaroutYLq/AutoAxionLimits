@@ -1,0 +1,126 @@
+{
+  "arxiv_id": "1910.08638",
+  "paper_title": "Extended Search for the Invisible Axion with the Axion Dark Matter Experiment",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.585e-06,
+      1e-15
+    ],
+    [
+      2.66e-06,
+      1e-15
+    ],
+    [
+      2.672e-06,
+      3e-16
+    ],
+    [
+      2.688e-06,
+      2.5e-16
+    ],
+    [
+      2.709e-06,
+      3e-16
+    ],
+    [
+      2.73e-06,
+      2.8e-16
+    ],
+    [
+      2.75e-06,
+      3e-16
+    ],
+    [
+      2.771e-06,
+      3e-16
+    ],
+    [
+      2.792e-06,
+      3.3e-16
+    ],
+    [
+      2.8e-06,
+      3.5e-16
+    ],
+    [
+      2.833e-06,
+      4e-16
+    ],
+    [
+      2.874e-06,
+      3.8e-16
+    ],
+    [
+      2.916e-06,
+      4e-16
+    ],
+    [
+      2.957e-06,
+      4e-16
+    ],
+    [
+      2.999e-06,
+      4e-16
+    ],
+    [
+      3.04e-06,
+      4e-16
+    ],
+    [
+      3.081e-06,
+      3.8e-16
+    ],
+    [
+      3.094e-06,
+      4e-16
+    ],
+    [
+      3.143e-06,
+      4.5e-16
+    ],
+    [
+      3.185e-06,
+      4.2e-16
+    ],
+    [
+      3.226e-06,
+      4.3e-16
+    ],
+    [
+      3.267e-06,
+      4.5e-16
+    ],
+    [
+      3.3e-06,
+      5e-16
+    ],
+    [
+      3.309e-06,
+      6e-16
+    ],
+    [
+      3.317e-06,
+      1e-15
+    ],
+    [
+      3.35e-06,
+      1.1e-15
+    ],
+    [
+      3.412e-06,
+      1.1e-15
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "ADMX",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted",
+  "notes": "ADMX cavity haloscope excludes DFSZ axion-photon coupling over 2.66-3.31 ueV (680-790 MHz), 90% CL. Exclusion presented only as a plot (Fig. 4) with no numerical table; the paper states DFSZ couplings are excluded across the range. Emitted data points are DFSZ-line g_agamma values computed from f_a via m_a=5.70 ueV(1e12 GeV/f_a) and g_agamma=(g_gamma*alpha)/(pi*f_a) with g_gamma=0.36 \u2014 approximate. Some mode-crossing gaps (Table I) are excluded from limits. Local density 0.45 GeV/cm^3 (Maxwell-Boltzmann) / 0.63 GeV/cm^3 (N-body) assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 27)) | Vision: Exclusion plot in fig_04.png. X-axis is frequency (625-825 MHz) with top axis axion mass (2.6-3.4 ueV); converted to eV using top mass axis. Y-axis g_agamma (GeV^-1), log scale 1e-16 to 1e-14. The paper's 'This work' (green) region reaches down close to the DFSZ line (~4e-16). Lower boundary traced combining ADMX (2018, orange, deepest on left) and This work (green). Blue segments (ADMX 2010) and gaps reach only ~1e-15. KSVZ line at ~1.1e-15, DFSZ at ~4.2e-16 at midpoint. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.88 snapped to identity)",
+  "num_points": 27,
+  "elapsed_s": 131.26737594604492
+}

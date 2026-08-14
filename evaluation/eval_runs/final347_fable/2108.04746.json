@@ -1,0 +1,158 @@
+{
+  "arxiv_id": "2108.04746",
+  "paper_title": "Constraints on scalar field dark matter from co-located Michelson interferometers",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.6e-12,
+      1.0000000000000002e-06
+    ],
+    [
+      1.8e-12,
+      1e-07
+    ],
+    [
+      2e-12,
+      1e-08
+    ],
+    [
+      2.5e-12,
+      3e-10
+    ],
+    [
+      3e-12,
+      3e-11
+    ],
+    [
+      4e-12,
+      1.0000000000000001e-11
+    ],
+    [
+      6e-12,
+      1.5e-11
+    ],
+    [
+      1e-11,
+      8e-12
+    ],
+    [
+      1.5e-11,
+      1.2e-11
+    ],
+    [
+      2e-11,
+      1.0000000000000001e-11
+    ],
+    [
+      3e-11,
+      5.0000000000000005e-12
+    ],
+    [
+      5e-11,
+      8e-12
+    ],
+    [
+      8e-11,
+      3e-12
+    ],
+    [
+      1e-10,
+      2e-12
+    ],
+    [
+      1.5e-10,
+      1e-12
+    ],
+    [
+      2e-10,
+      3.0000000000000003e-13
+    ],
+    [
+      3e-10,
+      1e-12
+    ],
+    [
+      4e-10,
+      2e-12
+    ],
+    [
+      6e-10,
+      1e-12
+    ],
+    [
+      8e-10,
+      3.0000000000000003e-13
+    ],
+    [
+      9e-10,
+      1e-13
+    ],
+    [
+      9.35e-10,
+      3e-14
+    ],
+    [
+      1e-09,
+      2e-13
+    ],
+    [
+      1.1e-09,
+      5e-13
+    ],
+    [
+      1.5e-09,
+      1e-12
+    ],
+    [
+      2e-09,
+      2e-12
+    ],
+    [
+      3e-09,
+      5.0000000000000005e-12
+    ],
+    [
+      5e-09,
+      1.0000000000000001e-11
+    ],
+    [
+      8e-09,
+      5.000000000000001e-11
+    ],
+    [
+      1e-08,
+      1.0000000000000002e-10
+    ],
+    [
+      2e-08,
+      5e-10
+    ],
+    [
+      3e-08,
+      2e-09
+    ],
+    [
+      5e-08,
+      1e-08
+    ],
+    [
+      7e-08,
+      1e-07
+    ],
+    [
+      1e-07,
+      1.0000000000000002e-06
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "Fermilab Holometer",
+  "coupling_convention": "Lambda_gamma^{-1} in GeV^-1 (inverse photon coupling scale), exactly as plotted on y-axis of Fig. 2 top-right (Basic Scalar scenario)",
+  "notes": "The paper (Fermilab Holometer, co-located Michelson interferometers) sets new 95% CL upper limits on scalar field dark matter couplings to photons (1/Lambda_gamma, i.e. ScalarPhoton/d_e-type) and electrons (1/Lambda_e, ScalarElectron/d_me-type) over the mass range 1.6e-12 to 1.0e-7 eV, assuming rho_local = 0.4 GeV/cm^3 (Basic Scalar scenario). However, all numerical limit values are presented only in Figure 2, with no table or explicit coupling values in the text, so no reliable (mass, coupling) pairs could be extracted. The paper constrains both photon and electron couplings; ScalarPhoton is chosen per the primary exclusion plot and pre-analysis hint, but ScalarElectron limits are equally reported. Limits are strongest (improving prior direct bounds by up to 3 orders of magnitude) in the 8.2e-9 to 6.2e-8 eV range and cover a previously unconstrained window 2.4e-11 to 4.3e-11 eV. | selector: figure_vision (sole candidate) | Vision: Paper constrains both Lambda_e^-1 (ScalarElectron, left panels) and Lambda_gamma^-1 (ScalarPhoton, right panels); per hint, the photon coupling (top-right, Basic Scalar scenario) was traced. Emitted values are Lambda_gamma^-1 in GeV^-1 as plotted, NOT converted to d_gamma (d_e); downstream conversion required (d_gamma ~ sqrt(4*pi*hbar*c)*M_Pl/Lambda). Mass range 1.6e-12 to 1.0e-7 eV as stated in text. Deep notch at 226 kHz (m=9.35e-10 eV) from beamsplitter mechanical resonance; boundary read from a spiky curve so intermediate values are an envelope approximation. rho_DM = 0.4 GeV/cm^3 assumed; 95% CL. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.05)",
+  "num_points": 35,
+  "elapsed_s": 134.08292484283447
+}

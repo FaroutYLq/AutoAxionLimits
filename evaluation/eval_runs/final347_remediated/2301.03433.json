@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2301.03433",
+  "paper_title": "Improved limits on the coupling of ultralight bosonic dark matter to photons from optical atomic clock comparisons",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.24e-21,
+      5e-09
+    ],
+    [
+      4.14e-21,
+      1.66e-08
+    ],
+    [
+      1e-20,
+      1.4e-08
+    ],
+    [
+      4.14e-20,
+      5.8e-07
+    ],
+    [
+      1e-19,
+      1.4e-07
+    ],
+    [
+      1e-18,
+      1.4e-06
+    ],
+    [
+      1e-17,
+      1.4e-05
+    ],
+    [
+      2e-17,
+      2.8e-05
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "PTB_YbSr_ClockComparison2023",
+  "coupling_convention": "d_e dimensionless (computed from 95% CL amplitude limits via paper Eq. 8; NOT read from a table)",
+  "notes": "Paper constrains scalar coupling d_e of ultralight DM to photons via oscillation of alpha, measured with Yb+ E3/E2 and E3/Sr optical clock comparisons over mass range ~1e-24 to 1e-17 eV. No numerical table of d_e vs mass is provided; the exclusion curve is only shown in Fig. 4. Data points here were COMPUTED from Eq. 8 using the stated amplitude constraints (~2e-17 for E3/E2, ~3x better for E3/Sr above 1e-20 eV), k_alpha=6.95 (E3/E2) and 6.01 (E3/Sr), and rho_DM=0.4 GeV/cm^3. In the flat-amplitude region d_e scales linearly with mass; below ~1/T (few 1e-21 eV) a 1/omega^2 amplitude scaling makes limits weaker. Values are approximate. Limits include factor-3 stochastic-fluctuation rescaling. 95% CL. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.5, 8))",
+  "num_points": 8,
+  "elapsed_s": 134.64654302597046
+}

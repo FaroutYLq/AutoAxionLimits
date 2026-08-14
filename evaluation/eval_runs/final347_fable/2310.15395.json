@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2310.15395",
+  "paper_title": "JWST",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.0,
+      2.4e-11
+    ],
+    [
+      2.15,
+      9.4e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "JWST_NIRSpec_BlankSky2023",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Janish & Pinetti (arXiv:2310.15395): search for a narrow DM decay line in JWST NIRSpec IFU blank-sky spectra (GN-z11 field). New observed 2sigma power-constrained limits on g_agamma over 0.8-3 eV, excluding g_agamma > 2.4e-11 GeV^-1 at m_a = 1 eV and > 9.4e-12 GeV^-1 at m_a = 2.15 eV (best point). Also limits on DM lifetime tau (< 6.7e26 s at ~0.86 eV excluded). Full exclusion curve is only in Fig. 2 (not digitizable from text); the two emitted points are explicit text values. Paper also gives projections ('current data' reach 3.7e-12, 15-yr reach 2e-12 GeV^-1), but the primary result is the measured limit, so is_projection=false. Assumes NFW halo (rho_s = 0.18 GeV/cm^3, r_s = 24 kpc) with D-factor ~7.5 GeV kpc/cm^3 for the line of sight; not a local-density haloscope assumption, so dm_density_assumed is null. Not a full-sky/table extraction, hence moderate confidence. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.7, 2))",
+  "num_points": 2,
+  "elapsed_s": 110.70527005195618
+}

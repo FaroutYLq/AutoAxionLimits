@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2503.04726",
+  "paper_title": "XRISM",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4000.0,
+      2.6e-17
+    ],
+    [
+      4600.0,
+      2.1e-17
+    ],
+    [
+      8000.0,
+      9.3e-18
+    ],
+    [
+      12000.0,
+      5.1e-18
+    ],
+    [
+      16000.0,
+      3.3e-18
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "XRISM_Centaurus2025",
+  "coupling_convention": "g_phigammagamma in GeV^-1, derived from lifetime limit via paper's Eq.(11) with q=2",
+  "notes": "Paper derives new 2-sigma exclusion limits on DM decay lifetime (qGamma)^-1 from 285 ks XRISM/Resolve observations of the Centaurus cluster (double narrow-line analysis, Fig. 3 left), recast into ALP-photon coupling g_phigammagamma vs m_phi in Fig. 4 (left panel, ~4-16 keV, y-axis ~1e-18 to 1e-16 GeV^-1). Exact limit curve values are only in figures; the sole explicit numerical text value is 1/(qGamma) ~ 4.7e19 yr at m ~ 4.6 keV (Fig. 2 caption). Data points here were computed from that lifetime value using the paper's ALP lifetime formula Gamma^-1 = 4.2e24 yr (1e-18 GeV^-1/g)^2 (keV/m)^3 with q=2, assuming an approximately mass-independent lifetime limit ~4.7e19 yr across the band; actual figure curve fluctuates, so values are approximate (factor ~2 uncertainty). NFW profiles assumed for Centaurus cluster (rho_s=0.025 GeV/cm^3) and Milky Way (rho_s=0.46 GeV/cm^3); this is a decay-line indirect-detection search, not a haloscope, so no local DM density field set. Paper also presents sterile-neutrino sin^2(2theta) recast and single-peak lifetime limits not encoded here. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.5, 5))",
+  "num_points": 5,
+  "elapsed_s": 127.60926699638367
+}

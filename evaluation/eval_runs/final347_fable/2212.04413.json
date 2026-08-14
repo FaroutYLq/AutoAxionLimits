@@ -1,0 +1,166 @@
+{
+  "arxiv_id": "2212.04413",
+  "paper_title": "Search for ultralight dark matter with spectroscopy of radio-frequency atomic transitions",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.03e-17,
+      5.2
+    ],
+    [
+      1.24e-17,
+      5.0
+    ],
+    [
+      1.65e-17,
+      5.0
+    ],
+    [
+      2.48e-17,
+      5.5
+    ],
+    [
+      4.14e-17,
+      6.2
+    ],
+    [
+      8.3e-17,
+      8.3
+    ],
+    [
+      1.65e-16,
+      13.0
+    ],
+    [
+      2.9e-16,
+      17.0
+    ],
+    [
+      4.1e-16,
+      21.0
+    ],
+    [
+      4.14e-16,
+      0.071
+    ],
+    [
+      5e-16,
+      0.086
+    ],
+    [
+      7e-16,
+      0.12
+    ],
+    [
+      1e-15,
+      0.17
+    ],
+    [
+      1.5e-15,
+      0.26
+    ],
+    [
+      2e-15,
+      0.34
+    ],
+    [
+      3e-15,
+      0.51
+    ],
+    [
+      5e-15,
+      0.86
+    ],
+    [
+      7e-15,
+      1.2
+    ],
+    [
+      1e-14,
+      1.7
+    ],
+    [
+      1.5e-14,
+      2.6
+    ],
+    [
+      2e-14,
+      3.4
+    ],
+    [
+      3e-14,
+      5.1
+    ],
+    [
+      5e-14,
+      8.6
+    ],
+    [
+      7e-14,
+      12.0
+    ],
+    [
+      1e-13,
+      17.0
+    ],
+    [
+      1.3e-13,
+      22.0
+    ],
+    [
+      1.6e-13,
+      27.0
+    ],
+    [
+      1.9e-13,
+      32.0
+    ],
+    [
+      2.05e-13,
+      35.0
+    ],
+    [
+      2.1e-13,
+      8.2
+    ],
+    [
+      2.5e-13,
+      9.8
+    ],
+    [
+      3e-13,
+      11.7
+    ],
+    [
+      4e-13,
+      15.6
+    ],
+    [
+      5e-13,
+      19.5
+    ],
+    [
+      6e-13,
+      23.0
+    ],
+    [
+      7e-13,
+      27.0
+    ],
+    [
+      8.3e-13,
+      32.0
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "Rb-Quartz/Dy-Quartz rf spectroscopy (Mainz UBDM search)",
+  "coupling_convention": "d_e, dimensionless linear scalar coupling to the electromagnetic field (alpha variation), exactly as plotted on the y-axis of Fig. 3a",
+  "notes": "Paper constrains MULTIPLE couplings: scalar d_e (alpha), d_me (electron mass), d_g (Lambda_QCD) from Rb/quartz and Dy/quartz comparisons, plus QCD axion-gluon coupling 1/f_phi. Pre-analysis hint suggested ScalarElectron, but the paper's headline, best-quantified result is the Dy/quartz bound on d_e (alpha coupling -> ScalarPhoton): text states delta_f/f ~ 8e-11 (flat over 2.5 mHz-200 Hz) => delta_alpha/alpha ~ 3e-17, improving previous d_e bounds by up to 3 orders of magnitude. Data points derived by me from Eq.(9): d_e = (delta_f/f)/(2e6) * M_Pl * m_phi / sqrt(2*rho_DM), with M_Pl=2.4e18 GeV, rho_DM=3e-6 eV^4 (~0.4 GeV/cm^3), including the paper's stated x4.4 stochastic degradation below 50 Hz (hence the step at m=2.07e-13 eV). Mass range from 2.5 mHz-200 Hz search band. Values are reconstructed from text formulae, not read from a table, and figures (Fig. 3) were not numerically available; treat as approximate. The d_me (ScalarElectron), d_g, and axion-gluon (1/f_phi) limits from the Rb/quartz comparison are separate results not extracted here since no numerical delta_f/f values for Experiment 1 are given in the text. | [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of the paper's own limits') rather than the paper's own single curve | selector: figure_vision over text (quality (0, 1, 1, 1, 1, 0, 0.6, 37)) | Vision: Fig. 3a shows d_e vs m_phi; excluded region above the curves. Traced the lower envelope of the paper's own limits: Rb/Quartz from 1e-17 eV (2.5 mHz) to 4.1e-16 eV (0.1 Hz), where the boundary drops ~2.5 decades to the Dy (present) line, which rises linearly (slope 1 in log-log, d_e ~ 1.7e14*m) up to 50 Hz (2.07e-13 eV) where the x4.4 stochastic correction ceases, giving a downward step by ~4.4, then continues to 32 at 8.3e-13 eV (200 Hz). Values cross-checked against Fig. 2 delta-f/f spectra and Eq. (9) (delta-f/f = 2e6 d_e phi/M_Pl, delta-alpha/alpha ~ 3e-17 for Dy). Curve readings from the small plot carry ~factor-2 uncertainty; mass positions accurate. 95% C.L. limits. | Calibration: No calibration needed | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+  "num_points": 37,
+  "elapsed_s": 345.5157198905945
+}

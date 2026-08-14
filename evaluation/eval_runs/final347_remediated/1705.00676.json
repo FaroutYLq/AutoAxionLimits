@@ -1,0 +1,102 @@
+{
+  "arxiv_id": "1705.00676",
+  "paper_title": "Axions, Instantons, and the Lattice",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.8e-05,
+      1.4
+    ],
+    [
+      2e-05,
+      1.2
+    ],
+    [
+      2.3e-05,
+      1.0
+    ],
+    [
+      2.7e-05,
+      0.85
+    ],
+    [
+      3e-05,
+      0.7
+    ],
+    [
+      3.4e-05,
+      0.6
+    ],
+    [
+      3.8e-05,
+      0.5
+    ],
+    [
+      4.3e-05,
+      0.45
+    ],
+    [
+      4.8e-05,
+      0.4
+    ],
+    [
+      5.5e-05,
+      0.35
+    ],
+    [
+      6e-05,
+      0.32
+    ],
+    [
+      6.8e-05,
+      0.28
+    ],
+    [
+      8.5e-05,
+      0.2
+    ],
+    [
+      0.0001,
+      0.17
+    ],
+    [
+      0.00012,
+      0.14
+    ],
+    [
+      0.00014,
+      0.115
+    ],
+    [
+      0.00016,
+      0.1
+    ],
+    [
+      0.00019,
+      0.08
+    ],
+    [
+      0.00022,
+      0.07
+    ],
+    [
+      0.00026,
+      0.06
+    ],
+    [
+      0.0003,
+      0.05
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.25,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.2,
+  "suggested_experiment_name": "Axions, Instantons and the Lattice (axion relic density, post-inflationary)",
+  "coupling_convention": "Omega (axion relic density fraction), dimensionless \u2014 the plotted y-axis quantity. NOTE: this is a relic-density band, not a coupling; x-axis is axion mass m_a in eV (converted from micro-eV), not f_a.",
+  "notes": "Theoretical paper reassessing uncertainties in the temperature-dependent topological susceptibility chi(T) and its impact on the axion relic density / zero-temperature axion mass. It provides relic-density formulas and mass-vs-misalignment-angle plots, but presents NO experimental exclusion limit or sensitivity projection on any coupling. The main result is a factor of 2-3 theoretical uncertainty in the axion mass for a given relic density; not an f_a-m_a exclusion bound. No extractable coupling-limit data. | selector: figure_vision (sole candidate) | Vision: This is a theory paper on the axion relic-density/mass relation, NOT a coupling exclusion measurement. Figure 1 (matching the given calibration: x=5-500 ueV log, y=Omega 0.05-1.5) plots relic density Omega vs axion mass m_a. The colored diagonal band (blue: ChPT anchor T2=100 MeV, green: T2=500 MeV) reflects instanton-computation uncertainty; the dashed line is the lattice F0(1.5) value. The traced boundary is the lower-right (bottom) edge of the outer green band. The plotted y-axis is Omega, NOT any coupling or f_a, so the AxionMass classification (from the hint) does not truly apply and no coupling can be extracted. Values emitted are (m_a in eV, Omega as plotted). Extraction confidence is low because this is not a coupling-vs-mass exclusion plot. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.38 snapped to identity)",
+  "num_points": 21,
+  "elapsed_s": 168.08153200149536
+}

@@ -1,0 +1,146 @@
+{
+  "arxiv_id": "2103.03783",
+  "paper_title": "Direct limits for scalar field dark matter from a gravitational-wave detector",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.03e-13,
+      1e-17
+    ],
+    [
+      2.05e-13,
+      5e-18
+    ],
+    [
+      2.07e-13,
+      1.3e-18
+    ],
+    [
+      2.48e-13,
+      9e-19
+    ],
+    [
+      2.9e-13,
+      8e-19
+    ],
+    [
+      3.31e-13,
+      4e-19
+    ],
+    [
+      3.72e-13,
+      2.3e-19
+    ],
+    [
+      4.14e-13,
+      1.25e-19
+    ],
+    [
+      4.96e-13,
+      9e-20
+    ],
+    [
+      6.2e-13,
+      7.5e-20
+    ],
+    [
+      7.44e-13,
+      4.5e-20
+    ],
+    [
+      8.27e-13,
+      4e-20
+    ],
+    [
+      1.03e-12,
+      3.1e-20
+    ],
+    [
+      1.24e-12,
+      3e-20
+    ],
+    [
+      1.45e-12,
+      3e-20
+    ],
+    [
+      1.65e-12,
+      3e-20
+    ],
+    [
+      1.86e-12,
+      3e-20
+    ],
+    [
+      2.07e-12,
+      3.1e-20
+    ],
+    [
+      2.48e-12,
+      4.2e-20
+    ],
+    [
+      2.9e-12,
+      5.3e-20
+    ],
+    [
+      3.31e-12,
+      6e-20
+    ],
+    [
+      3.72e-12,
+      6.8e-20
+    ],
+    [
+      4.14e-12,
+      7.5e-20
+    ],
+    [
+      4.96e-12,
+      9.6e-20
+    ],
+    [
+      6.2e-12,
+      1.3e-19
+    ],
+    [
+      8.27e-12,
+      2e-19
+    ],
+    [
+      1.03e-11,
+      2.8e-19
+    ],
+    [
+      1.24e-11,
+      3.8e-19
+    ],
+    [
+      1.65e-11,
+      6e-19
+    ],
+    [
+      2.07e-11,
+      9.4e-19
+    ],
+    [
+      2.48e-11,
+      1.35e-18
+    ],
+    [
+      2.5e-11,
+      5e-18
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "GEO600",
+  "coupling_convention": "Lambda_i^{-1} in GeV^-1 (inverse coupling energy scale for photon/electron coupling, exactly as plotted on the y-axis of Fig. 2); NOT converted to dimensionless d_e",
+  "notes": "First direct search for scalar field DM with a GW detector (GEO600 beamsplitter coupling). Paper sets essentially identical 95% CL limits on both the photon coupling Lambda_gamma and the electron-mass coupling Lambda_e (each assuming the other is zero), so this could equally be filed as ScalarElectron; ScalarPhoton chosen per pre-analysis hint. Numerical limit data are only available in figures (Figs. 2-3, 'available upon request'); the extracted points are from the explicit text statement 'limits up to Lambda_e, Lambda_gamma = 3e19 GeV for masses between 1e-13 and 1e-11 eV', encoded as a flat line at 1/(3e19 GeV) = 3.33e-20 GeV^-1 over that range. The full exclusion actually spans ~2e-13 to ~2.5e-11 eV (50 Hz - 6 kHz) with mass-dependent shape not captured here. Basic Scalar scenario assumes rho_local = 0.4 GeV/cm^3 (galactic halo); Dilaton/Modulus and Relaxion Halo scenarios also presented with different density assumptions. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.55, 32)) | Vision: Figure 2 (Basic Scalar scenario) green region 'This work' from GEO600 gravitational-wave detector spectral analysis. The green solid curve constrains BOTH Lambda_e^-1 and Lambda_gamma^-1 simultaneously (same boundary), so the coupling type could equally be ScalarPhoton (Lambda_gamma) or ScalarElectron (Lambda_e); hint suggests ScalarPhoton. Boundary calibrated using the text statement Lambda = 3e19 GeV best limit (Lambda^-1 = 3e-20 GeV^-1) for masses between 1e-13 and 1e-11 eV, with shape derived from the GEO600 amplitude spectrum (Fig. 1, 50 Hz - 6 kHz => 2.07e-13 to 2.5e-11 eV) scaled by mass. 95% CL, rho_GH = 0.4 GeV/cm^3. Emitted values are Lambda^-1 in GeV^-1 as plotted, per the plotted-values contract. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity)",
+  "num_points": 32,
+  "elapsed_s": 144.33958911895752
+}

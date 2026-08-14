@@ -1,0 +1,130 @@
+{
+  "arxiv_id": "2404.14476",
+  "paper_title": "Leading Axion-Photon Sensitivity with NuSTAR Observations of M82 and M87",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-13,
+      7e-13
+    ],
+    [
+      2e-13,
+      6.9e-13
+    ],
+    [
+      4e-13,
+      6.7e-13
+    ],
+    [
+      7e-13,
+      6.5e-13
+    ],
+    [
+      1e-12,
+      6.4e-13
+    ],
+    [
+      2e-12,
+      6.2e-13
+    ],
+    [
+      3e-12,
+      6.1e-13
+    ],
+    [
+      5e-12,
+      6.2e-13
+    ],
+    [
+      7e-12,
+      6.5e-13
+    ],
+    [
+      1e-11,
+      7.2e-13
+    ],
+    [
+      1.5e-11,
+      8.8e-13
+    ],
+    [
+      2e-11,
+      1.05e-12
+    ],
+    [
+      3e-11,
+      1.45e-12
+    ],
+    [
+      4e-11,
+      1.9e-12
+    ],
+    [
+      5e-11,
+      2.4e-12
+    ],
+    [
+      7e-11,
+      3.4e-12
+    ],
+    [
+      1e-10,
+      5.2e-12
+    ],
+    [
+      1.3e-10,
+      7e-12
+    ],
+    [
+      1.6e-10,
+      9e-12
+    ],
+    [
+      2e-10,
+      1.2e-11
+    ],
+    [
+      2.5e-10,
+      1.6e-11
+    ],
+    [
+      3e-10,
+      2.1e-11
+    ],
+    [
+      4e-10,
+      3e-11
+    ],
+    [
+      5e-10,
+      4.1e-11
+    ],
+    [
+      6e-10,
+      5.2e-11
+    ],
+    [
+      7e-10,
+      6.5e-11
+    ],
+    [
+      8.5e-10,
+      8.3e-11
+    ],
+    [
+      1e-09,
+      1.05e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "NuSTAR M82 (this work)",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted",
+  "notes": "Astrophysical (stellar Primakoff production + magnetic conversion) bound on axion-photon coupling from NuSTAR observations of M82. Main quoted 95% CL limit: |g_agamma| <= 6.4e-13 GeV^-1 for m_a <= 1e-10 eV (M82, strongest); M87 gives 8.4e-13 GeV^-1. Bound is essentially flat for low masses and rises above ~1e-10 eV up to ~1e-9 eV (exact mass-dependent curve only shown in Fig.2, not tabulated in text). Encoded flat portion as horizontal line spanning validity range. Not a DM haloscope, so no local DM density. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 28)) | Vision: Traced the M82 (this work) green 95% power-constrained upper limit, the leading/lowest boundary in Fig. 2. Text confirms massless-limit M82 limit |g_agamma| <~ 6.4e-13 GeV^-1 (M87 <~ 8.4e-13). Curve is flat near 6.4e-13 at low mass with a shallow minimum around 3-5e-12 eV, then rises steeply above ~1e-11 eV toward ~1e-10 GeV^-1 at 1e-9 eV. Excluded region is above the curve. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.83 snapped to identity)",
+  "num_points": 28,
+  "elapsed_s": 89.5590238571167
+}

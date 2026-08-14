@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2412.03660",
+  "paper_title": "M82_decay",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      30000.0,
+      1e-10
+    ],
+    [
+      50000.0,
+      3e-11
+    ],
+    [
+      100000.0,
+      1.2e-12
+    ],
+    [
+      316000.0,
+      7.5e-13
+    ],
+    [
+      500000.0,
+      1e-11
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.78,
+  "suggested_experiment_name": "NuSTAR_M82_decay",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Astrophysical bound (not DM haloscope) from NuSTAR observations of the starburst galaxy M82, constraining axion-photon coupling for radiatively decaying axions with masses ~30-500 keV. Benchmark stated in text: ma=316 keV, g12=0.75 (i.e. ga\u03b3=7.5e-13 GeV^-1). Bound reaches ga\u03b3 ~ 10^-12-10^-10 GeV^-1. Data points approximated from Fig. 2 exclusion contour and the quoted benchmark; the '30 keV' and '500 keV' endpoints are rougher estimates. No local DM density since this is a stellar/astrophysical production+decay bound. TS threshold 2.7 corresponds to 95% CL upper limit. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 5,
+  "elapsed_s": 38.249645948410034
+}

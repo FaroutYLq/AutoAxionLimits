@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2312.11003",
+  "paper_title": "Experimental search for invisible dark matter axions around 22 \u03bceV",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.186e-05,
+      7.95e-15
+    ],
+    [
+      2.2e-05,
+      8e-15
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "CAPP-12T",
+  "coupling_convention": "g_agamma in GeV^-1 (converted from the paper's stated limit of 0.93 x g_KSVZ using g_KSVZ = 3.91e-16 GeV^-1 x (m_a/ueV))",
+  "notes": "CAPP-12T multi-cell cavity haloscope search in a 12 T field. Null result excludes g_agamma >~ 0.93 x g_KSVZ at 90% CL over 21.86-22.00 ueV, assuming rho_a = 0.45 GeV/cm^3 and standard boosted Maxwell-Boltzmann halo lineshape. The emitted couplings are the KSVZ-relative limit converted to absolute GeV^-1 units at the two mass endpoints; the actual limit in Fig. 5 fluctuates bin-by-bin around this average value (average sigma = 0.16, total systematic uncertainty 4.7%). A mode crossing (TE313) occurs between 21.90 and 21.92 ueV. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 14.1 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 2,
+  "elapsed_s": 106.842111825943
+}

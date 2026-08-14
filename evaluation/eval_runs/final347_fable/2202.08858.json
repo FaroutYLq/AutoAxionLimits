@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2202.08858",
+  "paper_title": "Xray_1loop",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      6000.0,
+      2.3e-08
+    ],
+    [
+      10000.0,
+      3.8e-09
+    ],
+    [
+      30000.0,
+      8.1e-11
+    ],
+    [
+      100000.0,
+      1.2e-12
+    ],
+    [
+      300000.0,
+      1.8e-14
+    ],
+    [
+      1000000.0,
+      3.8e-16
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "Xray_1loop",
+  "coupling_convention": "dimensionless g_ae",
+  "notes": "Paper (Ferreira, Marsh, Muller 2202.08858) shows keV-MeV ALPs coupled to electrons decay a->2gamma via the 1-loop electron triangle, invalidating direct-detection DM limits and deriving stronger X-ray/gamma-ray indirect limits on g_ae for 6 keV < m_a < 1 MeV. NOT a dark photon paper (pre-analysis hint overridden). The emitted data points are the LIFETIME-CONSISTENCY boundary computed exactly from the paper's Eq.(5): tau=13.8 Gyr => g_ae = 1.2e-12*(100 keV/m_a)^3.5 (the dark-grey region in Fig. 2). The stronger X-ray/gamma-ray exclusion (light grey, from NuSTAR/XMM/INTEGRAL recast) is only shown graphically in Fig. 2 with no numerical table, so those stronger values could not be reliably extracted; the true X-ray limit lies ~2-5 orders of magnitude BELOW the emitted points at each mass. No DM density stated for the indirect bound; confidence_level is nominal (lifetime bound is a consistency condition, not a statistical CL). | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 5.2 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 6,
+  "elapsed_s": 122.31395030021667
+}

@@ -1,0 +1,166 @@
+{
+  "arxiv_id": "2102.00379",
+  "paper_title": "WhiteDwarfs",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1000.0,
+      1.2e-09
+    ],
+    [
+      1500.0,
+      1.2e-09
+    ],
+    [
+      2000.0,
+      1.2e-09
+    ],
+    [
+      3000.0,
+      1.2e-09
+    ],
+    [
+      5000.0,
+      1.2e-09
+    ],
+    [
+      7000.0,
+      1.2e-09
+    ],
+    [
+      10000.0,
+      1.2e-09
+    ],
+    [
+      15000.0,
+      1.25e-09
+    ],
+    [
+      20000.0,
+      1.25e-09
+    ],
+    [
+      30000.0,
+      1.3e-09
+    ],
+    [
+      50000.0,
+      1.35e-09
+    ],
+    [
+      70000.0,
+      1.4e-09
+    ],
+    [
+      100000.0,
+      1.5e-09
+    ],
+    [
+      120000.0,
+      1.6e-09
+    ],
+    [
+      150000.0,
+      1.8e-09
+    ],
+    [
+      180000.0,
+      2.1e-09
+    ],
+    [
+      200000.0,
+      2.4e-09
+    ],
+    [
+      220000.0,
+      2.8e-09
+    ],
+    [
+      250000.0,
+      3.4e-09
+    ],
+    [
+      280000.0,
+      4.3e-09
+    ],
+    [
+      300000.0,
+      5.2e-09
+    ],
+    [
+      320000.0,
+      6.5e-09
+    ],
+    [
+      350000.0,
+      9e-09
+    ],
+    [
+      370000.0,
+      1.2e-08
+    ],
+    [
+      400000.0,
+      1.8e-08
+    ],
+    [
+      420000.0,
+      2.5e-08
+    ],
+    [
+      450000.0,
+      4e-08
+    ],
+    [
+      470000.0,
+      6e-08
+    ],
+    [
+      490000.0,
+      9e-08
+    ],
+    [
+      500000.0,
+      1.1e-07
+    ],
+    [
+      510000.0,
+      1.5e-07
+    ],
+    [
+      520000.0,
+      2e-07
+    ],
+    [
+      530000.0,
+      2.8e-07
+    ],
+    [
+      540000.0,
+      4e-07
+    ],
+    [
+      550000.0,
+      6.5e-07
+    ],
+    [
+      555000.0,
+      9e-07
+    ],
+    [
+      560000.0,
+      1.2e-06
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "WD-IFMR (White Dwarf Initial-Final Mass Relation)",
+  "coupling_convention": "g_agamma in GeV^-1 as plotted on the y-axis of Figure 1",
+  "notes": "Paper (arXiv:2102.00379, Dolan/Hiskens/Volkas) derives a NEW stellar-evolution bound ('WD-IFMR') on the ALP-photon coupling g_agamma for keV-MeV mass ALPs using the white dwarf initial-final mass relation from double WD binaries, notably excluding part of the 'cosmological triangle'. The pre-analysis hint of AxionElectron is incorrect: the paper explicitly considers ALPs coupling EXCLUSIVELY to photons (Eq 1.1). No numerical table of the exclusion contour is given; the full limit is presented only in Figures 1 and 15. The emitted points are explicit excluded/sensitive parameter choices quoted in the text: 10 keV ALPs excluded at g=0.794e-10 GeV^-1; 316 keV ALPs at g=3.16e-9 GeV^-1 (IFMR falls outside DWD constraint, beyond HB bound); 630 keV at g=1e-5 GeV^-1 inside the cosmological triangle where the IFMR is shown sensitive. These sparse points approximate the contour shape only; the limit also relaxes at high g_agamma where the ALP decay length falls below the He-burning shell width (~0.007 R_sun). This is an astrophysical (stellar energy-loss) bound, not a DM haloscope, so no local DM density assumed. Bounds shown at 95% CL per Figure 1 caption. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.55, 37)) | Vision: Figure 1 of the paper (page 2) shows the m_a-g_agamma plane with the new 'WD-IFMR' constraint (green) alongside HB Stars, SN1987A cooling, SN1987A (a->gamma gamma) decay, and electron beam dump bounds, all at 95% CL. The WD-IFMR lower boundary was traced from the green region: approximately flat near g~1.2e-9 GeV^-1 for m_a = 1-100 keV, then rising steeply above ~200 keV (Boltzmann suppression of ALP production in the He-burning shell, T~tens of keV), with the region's rightmost extent (nose) near 550 keV. Supporting text: a 6 Msun star loses 16% of M_CO for 316 keV ALPs at g=1e-9 GeV^-1, consistent with the boundary passing near (300 keV, ~5e-9). The plot is small on the page, so the flat-region normalization (1e-9 vs 5e-10) carries ~factor-2 uncertainty; the steep rise location is read from the green region's bulge. Coupling type is unambiguous (Lagrangian Eq. 1.1 defines g_agamma), but data quality is plot-limited, hence extraction_confidence 0.55. No QCD axion (KSVZ/DFSZ) band visible in this mass range; benchmark uses the SN1987A cooling region lower edge instead. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=2.94 snapped to identity)",
+  "num_points": 37,
+  "elapsed_s": 222.61643600463867
+}

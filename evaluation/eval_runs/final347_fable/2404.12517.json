@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2404.12517",
+  "paper_title": "First results from the Axion Dark-Matter Birefringent Cavity (ADBC) experiment",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.09e-08,
+      1.9e-08
+    ],
+    [
+      4.33e-08,
+      1.9e-08
+    ],
+    [
+      4.93e-08,
+      1.9e-08
+    ],
+    [
+      5.06e-08,
+      1.9e-08
+    ],
+    [
+      5.44e-08,
+      1.9e-08
+    ],
+    [
+      5.67e-08,
+      1.9e-08
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "ADBC",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "First results from ADBC optical birefringent bow-tie cavity axion DM search. New measured 95% CL upper limits on g_agamma in three disjoint mass windows: 40.9-43.3 neV, 49.3-50.6 neV, and 54.4-56.7 neV (Compton frequencies 9.88-10.45, 11.92-12.22, 13.12-13.69 MHz). Only the AVERAGE sensitivity g_agamma <= 1.9e-8 GeV^-1 is given numerically in text; actual limit curve (Fig. 3) varies roughly 1e-9 to 1e-7 GeV^-1 within each band but is not tabulated. Data points encode the average limit across the three probed windows (pairs of points delimit each window; note windows are disjoint, not one continuous band). Assumes standard halo model with rho_DM = 0.3 GeV/cm^3. Paper also contains future projections (ADBC upgrade, single-photon readout) which are NOT included here. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.75, 6))",
+  "num_points": 6,
+  "elapsed_s": 86.149090051651
+}

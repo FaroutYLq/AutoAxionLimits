@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2210.10961",
+  "paper_title": "Axion Dark Matter Search around 4.55 $\u03bc$eV with Dine-Fischler-Srednicki-Zhitnitskii Sensitivity",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.51e-06,
+      6.2e-16
+    ],
+    [
+      4.59e-06,
+      6.2e-16
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "CAPP-12TB",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Haloscope axion dark matter search (CAPP-12TB) reaching DFSZ sensitivity. Excludes g_agamma down to ~6.2e-16 GeV^-1 over ma 4.51-4.59 ueV at 90% CL, assuming rho_a=0.45 GeV/cm^3 (100% local DM). Only the peak limit value is quoted numerically in text; the exclusion curve in Fig.4 varies roughly 2-6 x10^-16 GeV^-1 across the range. Encoded as horizontal line at the quoted 6.2e-16 GeV^-1 spanning the stated mass range. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+  "num_points": 2,
+  "elapsed_s": 91.32548093795776
+}

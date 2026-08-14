@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "1607.07327",
+  "paper_title": "Search for light scalar Dark Matter candidate with AURIGA detector",
+  "coupling_type": "ScalarElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      3.516e-12,
+      1e-05
+    ],
+    [
+      3.929e-12,
+      1e-05
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "AURIGA2016",
+  "coupling_convention": "dimensionless d_e",
+  "notes": "AURIGA resonant-mass detector searches for scalar moduli DM. The signal strain scales as (d_me + d_e), so the limit applies equally to the electromagnetic gauge modulus coupling d_e (ScalarPhoton) and the electron-mass modulus coupling d_me (ScalarElectron); the abstract and Fig.5 present d_e. Upper limit ~1e-5 at 95% C.L. across sensitive band f=[850,950] Hz (m_phi ~3.5-3.9e-12 eV, central 3.6e-12 eV). Values read from text as approximate flat bound ~1e-5; exact per-frequency curve is in Fig.5 (not tabulated). Coupling type ambiguous between ScalarPhoton and ScalarElectron since both are constrained identically, hence reduced confidence. | [VISION GATE B] vision notes assert the plotted axis belongs to ScalarElectron but the declared coupling is ScalarPhoton \u2014 wrong panel/curve traced | selector: text (sole candidate) | coupling type ScalarPhoton -> ScalarElectron by axis read-back 'dimensionless moduli coupling d_i (d_me)' (same confusable family, #625 Phase 3)",
+  "num_points": 2,
+  "elapsed_s": 101.29083228111267
+}

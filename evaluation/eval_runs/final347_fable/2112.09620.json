@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2112.09620",
+  "paper_title": "Earth as a transducer for axion dark-matter detection",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2e-18,
+      3e-09
+    ],
+    [
+      5e-18,
+      1e-09
+    ],
+    [
+      1e-17,
+      4e-10
+    ],
+    [
+      2e-17,
+      1.5e-10
+    ],
+    [
+      3e-17,
+      6.5e-11
+    ],
+    [
+      4e-17,
+      6.5e-11
+    ],
+    [
+      7e-17,
+      1e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.65,
+  "suggested_experiment_name": "SuperMAG_Axion",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Paper (arXiv:2112.09620, Arza et al.) presents new 95%-credible upper limits on the axion-photon coupling g_agamma from a search for an axion-DM-induced global magnetic field signal in SuperMAG magnetometer data, over 2e-18 eV < m_a < 7e-17 eV, assuming axion is all of DM with rho_dm = 0.3 GeV/cm^3. Text explicitly states the strongest smoothed limit g_agamma < 6.5e-11 GeV^-1 for 3e-17 eV < m_a < 4e-17 eV (comparable to CAST). Points outside this range are approximate values read from the described trend of Fig. 1 (limit weakens toward lower masses due to higher noise at lower frequencies); no numerical table is provided, so intermediate points carry ~factor-2 uncertainty. Limits include a 25% degradation factor for finite signal linewidth and account for stochastic axion amplitude fluctuations (Bayesian analysis). | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 7,
+  "elapsed_s": 43.476828813552856
+}

@@ -1,0 +1,178 @@
+{
+  "arxiv_id": "2002.01796",
+  "paper_title": "Axion and dark photon limits from Crab Nebula high energy gamma-rays",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.5e-08,
+      4.5e-10
+    ],
+    [
+      2.8e-08,
+      3.8e-10
+    ],
+    [
+      3.2e-08,
+      3.2e-10
+    ],
+    [
+      3.6e-08,
+      2.8e-10
+    ],
+    [
+      4.2e-08,
+      2.4e-10
+    ],
+    [
+      5e-08,
+      2.1e-10
+    ],
+    [
+      5.6e-08,
+      2.1e-10
+    ],
+    [
+      6.2e-08,
+      2.4e-10
+    ],
+    [
+      6.8e-08,
+      3e-10
+    ],
+    [
+      7.2e-08,
+      4e-10
+    ],
+    [
+      7.5e-08,
+      5.5e-10
+    ],
+    [
+      1e-07,
+      9.5e-10
+    ],
+    [
+      1.02e-07,
+      7e-10
+    ],
+    [
+      1.05e-07,
+      5.5e-10
+    ],
+    [
+      1.1e-07,
+      4.4e-10
+    ],
+    [
+      1.2e-07,
+      3.4e-10
+    ],
+    [
+      1.3e-07,
+      2.9e-10
+    ],
+    [
+      1.5e-07,
+      2.4e-10
+    ],
+    [
+      1.7e-07,
+      2.1e-10
+    ],
+    [
+      2e-07,
+      1.9e-10
+    ],
+    [
+      2.4e-07,
+      1.75e-10
+    ],
+    [
+      2.8e-07,
+      1.65e-10
+    ],
+    [
+      3.2e-07,
+      1.55e-10
+    ],
+    [
+      3.6e-07,
+      1.5e-10
+    ],
+    [
+      4e-07,
+      1.5e-10
+    ],
+    [
+      4.4e-07,
+      1.6e-10
+    ],
+    [
+      4.8e-07,
+      1.7e-10
+    ],
+    [
+      5.2e-07,
+      1.8e-10
+    ],
+    [
+      5.6e-07,
+      1.9e-10
+    ],
+    [
+      6e-07,
+      2.1e-10
+    ],
+    [
+      6.5e-07,
+      2.4e-10
+    ],
+    [
+      7e-07,
+      2.9e-10
+    ],
+    [
+      7.5e-07,
+      3.5e-10
+    ],
+    [
+      8e-07,
+      4.3e-10
+    ],
+    [
+      8.5e-07,
+      5.2e-10
+    ],
+    [
+      9e-07,
+      6.2e-10
+    ],
+    [
+      1e-06,
+      7.8e-10
+    ],
+    [
+      1.1e-06,
+      9e-10
+    ],
+    [
+      1.2e-06,
+      9.8e-10
+    ],
+    [
+      1.3e-06,
+      1e-09
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "Crab Nebula gamma-rays (Tibet ASgamma + HAWC + HEGRA + MAGIC)",
+  "coupling_convention": "g_agamma-gamma in GeV^-1, exactly as plotted on the y-axis of Fig. 3",
+  "notes": "Paper derives 95% C.L. exclusion limits on ALP-photon coupling from combined Tibet AS-gamma, HAWC, HEGRA and MAGIC observations of Crab Nebula sub-PeV gamma rays via photon-ALP oscillation in the Galactic magnetic field (Jansson-Farrar model, avg B_T ~1.3 uG). The text explicitly states g_agamma < 1.8e-10 GeV^-1 for ALP mass in the most constrained range 2e-7 to 6e-7 eV; encoded as a two-point flat bound over that range. Full exclusion contour (Fig. 3) extends over roughly 1e-9 to 1e-5 eV but numerical values are not provided outside the quoted range. The paper also constrains dark photon kinetic mixing (eps < ~1e-3 for mD 0.01-1 eV, assuming rho_DM = 0.3 GeV/cm^3), which would be a separate DarkPhoton entry; the primary/strongest result reported here is the AxionPhoton limit. Not a DM haloscope for the axion limit, so no DM density assumption applies. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 40)) | Vision: Traced from Fig. 3 (page 4): 95% C.L. exclusion contours in (m_a, g_agammagamma) plane from photon-ALP oscillation fits to Crab Nebula spectra. Region consists of two disjoint filled lobes: a small lobe at ~2.5-7.5e-8 eV (bottom ~2.1e-10 GeV^-1) and the main region at ~1e-7 to 1.3e-6 eV whose bottom tip reaches ~1.5e-10 GeV^-1 near 3.6-4e-7 eV; text quotes g < 1.8e-10 GeV^-1 for 2-6e-7 eV, consistent with trace. There is an unexcluded gap between ~7.5e-8 and ~1e-7 eV where the boundary returns to the plot top (1e-9). Fig. 4 (dark photon epsilon vs m_D) and Fig. 5 (ALP with HESS added) were not traced; Fig. 3 is the primary ALP result. No DM density assumption for the ALP oscillation limit (DM density 0.3 GeV/cm^3 only enters the dark photon scattering limit of Fig. 4). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.03 snapped to identity)",
+  "num_points": 40,
+  "elapsed_s": 201.46965503692627
+}

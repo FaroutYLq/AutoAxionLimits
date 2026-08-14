@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "1506.08082",
+  "paper_title": "OSQAR",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.0,
+      3.5e-08
+    ],
+    [
+      0.0002,
+      3.5e-08
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "OSQAR2015",
+  "coupling_convention": "g_Agamma in GeV^-1",
+  "notes": "OSQAR light-shining-through-wall experiment at CERN (2014 run, 9 T x 2x14.3 m LHC dipoles, 18.5 W 532 nm laser). Measured 95% CL exclusion: g_Agamma < 3.5e-8 GeV^-1 (pseudoscalar) and < 3.2e-8 GeV^-1 (scalar) for m_A < 2e-4 eV. Encoded as flat bound from the nearly-massless limit (mass 0) up to the stated validity edge 2e-4 eV. Not a dark matter haloscope, so no local DM density assumption. Full mass-dependent exclusion curve extends to ~1e-3 eV in Fig. 6 but numerical values beyond the flat region are not tabulated in the text. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.85, 2))",
+  "num_points": 2,
+  "elapsed_s": 116.3571572303772
+}

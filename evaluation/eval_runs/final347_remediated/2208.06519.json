@@ -1,0 +1,22 @@
+{
+  "arxiv_id": "2208.06519",
+  "paper_title": "QuantumCyclotron",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.00061227643,
+      3.2e-11
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.9,
+  "suggested_experiment_name": "QuantumCyclotron",
+  "coupling_convention": "dimensionless kinetic mixing epsilon",
+  "notes": "One-electron quantum cyclotron in Penning trap as meV dark photon dark matter detector. Measured limit epsilon < 3.2e-11 at m_A'=0.61227643 meV (148 GHz), 90% CL, ~75x better than prior XENON1T/cosmology bounds. Single narrow-band demonstration point. Projections (blue dashed curve in Fig 5b) for a dedicated apparatus over 0.1-1 meV are discussed but not tabulated numerically. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.9, 1))",
+  "num_points": 1,
+  "elapsed_s": 119.89239120483398
+}

@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2406.02546",
+  "paper_title": "Planck_unWISE",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.5e-13,
+      6e-08
+    ],
+    [
+      3e-13,
+      3e-08
+    ],
+    [
+      5.2e-13,
+      2.1e-08
+    ],
+    [
+      1e-12,
+      3e-08
+    ],
+    [
+      3e-12,
+      4e-08
+    ],
+    [
+      9.7e-12,
+      6e-08
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.82,
+  "suggested_experiment_name": "Planck_unWISE",
+  "coupling_convention": "dimensionless kinetic mixing epsilon (chi)",
+  "notes": "Dark photon kinetic mixing constraint from patchy dark screening of the CMB using Planck x unWISE cross-correlation. 95% CL upper limits on epsilon over mass range 1e-13 to ~1e-11 eV. Paper quotes epsilon < 4e-8 for most of the range, dipping to epsilon < 2.08e-8 (joint) at the most sensitive mass ~5.2e-13 eV. Data points are approximate readings of the joint exclusion curve (Fig. 3 / Fig. S12); exact tabulated values not provided. This is a cosmological bound (CMB photon-to-dark-photon conversion), not a DM haloscope, so no local DM density is assumed. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 6,
+  "elapsed_s": 39.012479066848755
+}

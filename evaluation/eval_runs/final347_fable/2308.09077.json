@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2308.09077",
+  "paper_title": "CAPP-7",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.9883e-05,
+      5.5e-15
+    ],
+    [
+      1.9926e-05,
+      5.5e-15
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "CAPP-7",
+  "coupling_convention": "g_agamma in GeV^-1 (converted from the paper's quoted 0.7x|g_KSVZ| using |g_KSVZ| ~ 3.9e-16 GeV^-1 per ueV of axion mass)",
+  "notes": "CAPP18T haloscope run 2 (2021), scan 4.8077-4.8181 GHz corresponding to axion mass 19.883-19.926 ueV. No axion signal found; 90% credibility level (Bayesian) upper bound quoted as ~0.7x|g_KSVZ| (~1.9x|g_DFSZ|) assuming boosted Maxwell-Boltzmann distribution and local DM density 0.45 GeV/cm^3 (100% axions). No numerical table of limits provided; the two emitted points are a flat line at 0.7x the KSVZ coupling (|g_KSVZ| ~ 7.8e-15 GeV^-1 at ~19.9 ueV), giving ~5.5e-15 GeV^-1. Actual limit curve in Fig. 4 varies with frequency; these values are representative of the quoted best bound. | [VISION GATE D] vision notes admit tracing a compilation envelope ('union of') rather than the paper's own single curve ; [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 14.2 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 2,
+  "elapsed_s": 116.99397492408752
+}

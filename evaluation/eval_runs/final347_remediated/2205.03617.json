@@ -1,0 +1,150 @@
+{
+  "arxiv_id": "2205.03617",
+  "paper_title": "Particle dispersion in the classical vector dark matter background",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-20,
+      2e-07
+    ],
+    [
+      1e-19,
+      2e-07
+    ],
+    [
+      1e-18,
+      1.8e-07
+    ],
+    [
+      1e-17,
+      1.6e-07
+    ],
+    [
+      1e-16,
+      1.4e-07
+    ],
+    [
+      1e-15,
+      1.2e-07
+    ],
+    [
+      3e-15,
+      1e-07
+    ],
+    [
+      1e-14,
+      8e-08
+    ],
+    [
+      3e-14,
+      2e-08
+    ],
+    [
+      1e-13,
+      5e-09
+    ],
+    [
+      3e-13,
+      2e-09
+    ],
+    [
+      1e-12,
+      5e-10
+    ],
+    [
+      3e-12,
+      1.0000000000000002e-10
+    ],
+    [
+      1e-11,
+      2.0000000000000002e-11
+    ],
+    [
+      3e-11,
+      3e-12
+    ],
+    [
+      1e-10,
+      3.0000000000000003e-13
+    ],
+    [
+      3e-10,
+      5e-14
+    ],
+    [
+      1e-09,
+      1.0000000000000002e-14
+    ],
+    [
+      3e-09,
+      6e-15
+    ],
+    [
+      1e-08,
+      4e-15
+    ],
+    [
+      1e-07,
+      2e-15
+    ],
+    [
+      1e-06,
+      1.5e-15
+    ],
+    [
+      1e-05,
+      1.5e-15
+    ],
+    [
+      0.0001,
+      2e-15
+    ],
+    [
+      0.001,
+      4e-15
+    ],
+    [
+      0.01,
+      1.0000000000000002e-14
+    ],
+    [
+      0.1,
+      3e-14
+    ],
+    [
+      1.0,
+      8.000000000000001e-14
+    ],
+    [
+      10.0,
+      2e-13
+    ],
+    [
+      100.0,
+      4e-13
+    ],
+    [
+      1000.0,
+      6.000000000000001e-13
+    ],
+    [
+      10000.0,
+      8e-13
+    ],
+    [
+      100000.0,
+      1e-12
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.42,
+  "suggested_experiment_name": "Dark photon DM compilation (DPDM + Sun/HB/RG + NS/SN1987A + BHSR)",
+  "coupling_convention": "kinetic mixing epsilon (chi), dimensionless, as plotted on y-axis",
+  "notes": "Theoretical paper deriving constraints on light gauge boson (dark photon, Lmu-Ltau, B-L) models from particle dispersion/normalization effects in a classical vector dark matter background. For the dark photon model (Fig. 6) two bounds apply: electron-mass measurement (Eq. 35, g_e < 3.3e-12 (m/1e-20 eV)) and electroweak-precision/normalization (Eq. 39, g_e < 6.6e-39 (m/1e-20 eV)^2). The emitted points are the stronger normalization (Z) line converted to kinetic mixing epsilon; both are mass-dependent power-law lines derived from analytic formulas, not a table. Coupling type is DarkPhoton (epsilon) for Fig. 6, but the paper also covers Lmu-Ltau and B-L models, hence reduced confidence. Local DM density assumed 0.3 GeV/cm^3 (2-sigma). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.42, 33)) | Vision: Figure 6 (dark photon model), y-axis is epsilon (kinetic mixing). This is the DarkPhoton plot matching the hint (Figure 5, the calibration's 'image 2', is the B-L model with g_BL = VectorBL). Traced lower envelope of combined excluded region (brown DPDM, orange gamma->gamma', purple Sun+HB+RG and NS+SN1987A). The narrow BHSR vertical band (m ~1e-14 to 1e-11 eV) that extends far below the envelope is NOT included as it is a separate vertical-band constraint. Deepest exclusion ~epsilon 1.5e-14 in the m~1e-6 to 1e-5 eV range. Values are visual reads on log-log axes; slope changes sampled more densely near the notch/valley. Moderate confidence due to overlapping shaded regions and log-axis reading uncertainty. | Calibration: Vision calibration: \u00d71e-1 (factor=1.00e-01, reason=spot-check verify/stage2, raw_ratio=0.20)",
+  "num_points": 33,
+  "elapsed_s": 280.376610994339
+}

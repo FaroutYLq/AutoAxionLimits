@@ -1,0 +1,130 @@
+{
+  "arxiv_id": "1708.02111",
+  "paper_title": "Stellar Recipes for Axion Hunters",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.0015,
+      1.9e-13
+    ],
+    [
+      0.0018,
+      1.85e-13
+    ],
+    [
+      0.0021,
+      1.82e-13
+    ],
+    [
+      0.0025,
+      1.8e-13
+    ],
+    [
+      0.0029,
+      1.75e-13
+    ],
+    [
+      0.0033,
+      1.6e-13
+    ],
+    [
+      0.0036,
+      1.35e-13
+    ],
+    [
+      0.004,
+      1.45e-13
+    ],
+    [
+      0.0045,
+      1.6e-13
+    ],
+    [
+      0.005,
+      1.75e-13
+    ],
+    [
+      0.0055,
+      1.9e-13
+    ],
+    [
+      0.006,
+      2.05e-13
+    ],
+    [
+      0.0065,
+      2.2e-13
+    ],
+    [
+      0.007,
+      2.4e-13
+    ],
+    [
+      0.0075,
+      2.6e-13
+    ],
+    [
+      0.008,
+      2.8e-13
+    ],
+    [
+      0.0085,
+      3e-13
+    ],
+    [
+      0.009,
+      3.2e-13
+    ],
+    [
+      0.0095,
+      3.4e-13
+    ],
+    [
+      0.01,
+      3.6e-13
+    ],
+    [
+      0.011,
+      4.4e-13
+    ],
+    [
+      0.012,
+      4.7e-13
+    ],
+    [
+      0.013,
+      5e-13
+    ],
+    [
+      0.014,
+      5.3e-13
+    ],
+    [
+      0.015,
+      5.6e-13
+    ],
+    [
+      0.016,
+      5.9e-13
+    ],
+    [
+      0.017,
+      6.1e-13
+    ],
+    [
+      0.018,
+      6.3e-13
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "Stellar cooling anomalies favored region (WD+RGB+HB, incl. SN1987A & NS CAS A)",
+  "coupling_convention": "sqrt(g_ae * g_agamma) in GeV^-1 \u2014 a PRODUCT coupling, emitted exactly as plotted on the y-axis (NOT the dimensionless g_ae alone)",
+  "notes": "This paper is a global fit of stellar cooling anomalies (white dwarfs, RGB, HB stars, NS) interpreted as axion emission. It reports PREFERRED (hinted) regions and best-fit values (e.g. gae = 1.6e-13 from WD+RGB, g_ae ~1.5e-13 combined), not new exclusion limits. It uses external SN1987A bounds (g_ap^2+g_an^2 < 3.6e-19) and shows IAXO/ARIADNE projections (which are other experiments' sensitivities, not this paper's own). No new observed exclusion limit or self-contained sensitivity projection is presented; the main results are model-dependent hint contours in the gae-gagamma / trkappa-fa planes. Not a haloscope DM search, so no local DM density. If a value must be recorded, the mass-independent (valid up to ~keV) best-fit axion-electron coupling is g_ae ~ 1.5-1.6e-13, but this is a hint, not a limit. | [VISION GATE D] vision notes admit tracing a compilation envelope ('union of') rather than the paper's own single curve | selector: figure_vision (sole candidate) | Vision: The calibration matches Figure 4 of the paper, which plots the 2-sigma FAVORED regions (colored blobs: DFSZ I green, DFSZ II cyan, A/J models brown/orange/black) of sqrt(g_ae*g_agamma) vs m_a. This is NOT a standard exclusion boundary \u2014 the region is the parameter space favored by stellar cooling anomalies, and the y-axis is a PRODUCT coupling sqrt(g_ae*g_agamma), not g_ae alone. Per the plotted-values contract, values are emitted exactly as plotted (GeV^-1 product). The traced curve is the lower envelope of the union of favored blobs; the black A/J(3,2,+1/6) blob dips lowest (~1.3e-13) near m_a~4e-3 eV. Confidence is low because (a) the plotted quantity is a product coupling not the canonical g_ae, and (b) it is a favored region rather than an exclusion limit. IAXO (solid blue) and IAXO+ (dashed purple) are projected sensitivity lines, not constraints. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=2.12 snapped to identity) | [CONVENTION REVIEW] declared coupling convention 'sqrt(g_ae * g_agamma) in GeV^-1 \u2014 a PRODUCT coupling, emitted exactly as plotted on the y-axis (NOT the dimensionless g_ae alone)' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 28,
+  "elapsed_s": 235.68958687782288
+}

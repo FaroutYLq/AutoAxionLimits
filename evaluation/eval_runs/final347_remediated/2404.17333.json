@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2404.17333",
+  "paper_title": "EuXFL",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      44.0,
+      0.000391
+    ],
+    [
+      340.0,
+      0.00031
+    ],
+    [
+      460.0,
+      0.000387
+    ],
+    [
+      1100.0,
+      0.000369
+    ],
+    [
+      2400.0,
+      0.000276
+    ]
+  ],
+  "data_source": "table",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.92,
+  "suggested_experiment_name": "EuXFEL_XLSW",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "X-ray light-shining-through-wall search at EuXFEL exploiting Primakoff conversion in Ge crystals. Laboratory bound (not DM haloscope), so no local DM density. Values are discrete off-Bragg mass points from Table I; first row is ma <~ 44 eV (Bragg-angle case), assigned mass 44 eV. Bounds are ga\u03b3\u03b3 upper limits at 90% CL. | selector: table (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 5,
+  "elapsed_s": 27.599474906921387
+}

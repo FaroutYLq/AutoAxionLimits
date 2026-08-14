@@ -1,0 +1,178 @@
+{
+  "arxiv_id": "quant-ph/0106045",
+  "paper_title": "New Developments in the Casimir Effect",
+  "coupling_type": "ScalarNucleon",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      90.2,
+      1579999.9999999998
+    ],
+    [
+      70.0,
+      100000.0
+    ],
+    [
+      55.6,
+      10000.0
+    ],
+    [
+      45.2,
+      1999.9999999999998
+    ],
+    [
+      35.1,
+      40.0
+    ],
+    [
+      27.9,
+      2.0
+    ],
+    [
+      22.1,
+      0.158
+    ],
+    [
+      17.6,
+      0.024999999999999998
+    ],
+    [
+      14.0,
+      0.005
+    ],
+    [
+      11.1,
+      0.001
+    ],
+    [
+      7.85,
+      0.000126
+    ],
+    [
+      5.56,
+      2.4999999999999998e-05
+    ],
+    [
+      3.94,
+      6.3e-06
+    ],
+    [
+      2.79,
+      2e-06
+    ],
+    [
+      1.97,
+      7.9e-07
+    ],
+    [
+      1.57,
+      3.1599999999999997e-07
+    ],
+    [
+      1.25,
+      6.3e-08
+    ],
+    [
+      0.989,
+      7.9e-09
+    ],
+    [
+      0.785,
+      1.58e-09
+    ],
+    [
+      0.624,
+      4.999999999999999e-10
+    ],
+    [
+      0.496,
+      1.9999999999999998e-10
+    ],
+    [
+      0.351,
+      4.9999999999999995e-11
+    ],
+    [
+      0.248,
+      1.2599999999999999e-11
+    ],
+    [
+      0.176,
+      3.16e-12
+    ],
+    [
+      0.125,
+      1e-12
+    ],
+    [
+      0.0785,
+      1.5799999999999998e-13
+    ],
+    [
+      0.0496,
+      3.16e-14
+    ],
+    [
+      0.0312,
+      6.3e-15
+    ],
+    [
+      0.0197,
+      1.5799999999999998e-15
+    ],
+    [
+      0.0125,
+      4e-16
+    ],
+    [
+      0.00785,
+      1e-16
+    ],
+    [
+      0.00496,
+      2.5e-17
+    ],
+    [
+      0.00312,
+      9.999999999999999e-18
+    ],
+    [
+      0.00197,
+      6.2999999999999996e-18
+    ],
+    [
+      0.0014,
+      4.9999999999999996e-18
+    ],
+    [
+      0.000989,
+      1.9999999999999998e-18
+    ],
+    [
+      0.0007,
+      3.16e-19
+    ],
+    [
+      0.000496,
+      6.3e-20
+    ],
+    [
+      0.000312,
+      2e-20
+    ],
+    [
+      0.000221,
+      1e-20
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "Casimir/vdW force constraints (Lamoreaux, Mohideen AFM, Cavendish-type) - Bordag-Mohideen-Mostepanenko review Fig. 28",
+  "coupling_convention": "alpha_G: dimensionless strength of Yukawa-type correction to Newtonian gravity (V = -(G m1 m2 / r)[1 + alpha_G exp(-r/lambda)]); emitted values are 10^(log|alpha_G|) as read from the y-axis; x converted from Yukawa range lambda via m = 1.973e-7 eV\u00b7m / lambda",
+  "notes": "This is a review paper (Bordag, Mohideen, Mostepanenko 2001) on the Casimir effect. Section 7 reviews constraints on Yukawa-type corrections to Newtonian gravity (fifth-force / ScalarNucleon-type limits in the alpha-lambda plane) derived from Casimir force measurements, but these constraints were published previously in refs [45-48]; the review presents no new limit of its own. The provided text contains no extractable numerical (mass, coupling) data points for the exclusion curves. The constraints are laboratory fifth-force bounds, not DM haloscope searches, so no local DM density is assumed. | selector: figure_vision (sole candidate) | Vision: Fig. 28 of the Casimir effect review plots log|alpha_G| vs log(lambda/1m). Lower envelope traced across: curve 3 (AFM vdW, lambda < ~4e-9 m), curve 6 (AFM Casimir gold surfaces, 4.3e-9 to 1.5e-7 m), curve 2 (Casimir between dielectrics), curves 4a/4b (Lamoreaux torsion pendulum), curve 1 (Cavendish-type, largest lambda). Region above the envelope is excluded. Confidence level of curves not explicitly stated as 95%, but constraints derived from experimental error bounds (assumed ~95%). Values read from a small unlabeled-grid plot, so ~half-decade uncertainty in alpha_G near steep segments. | Calibration: Calibration reverted: \u00d71e+1 from spot-check verify/stage2 (raw_ratio=5.00) failed contract [vision calibration \u00d71e+1: reverted (R5 hard floor: median outside VALID_RANGES)] | Auto-corrected couplings: \u00d71e-20 (\u00d71.00e-20, rule=argmin|log10(median*f)-log10(anchor=1.0e-15)|)",
+  "num_points": 40,
+  "elapsed_s": 193.34529995918274
+}

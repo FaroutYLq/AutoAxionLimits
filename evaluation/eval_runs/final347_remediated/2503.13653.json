@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2503.13653",
+  "paper_title": "Energy transfer by feebly interacting particles in supernovae: the trapping regime",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      3000000.0,
+      3e-06
+    ],
+    [
+      10000000.0,
+      1e-05
+    ],
+    [
+      30000000.0,
+      2e-05
+    ],
+    [
+      100000000.0,
+      2e-05
+    ],
+    [
+      300000000.0,
+      1e-05
+    ],
+    [
+      600000000.0,
+      3e-06
+    ],
+    [
+      1000000000.0,
+      1e-06
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.42,
+  "suggested_experiment_name": "SN_EnergyDeposition_Trapping",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Supernova energy-deposition (and cooling) bounds on axion-photon coupling in the trapping regime (Fig. 3). Astrophysical bound, no local DM density applies. The new result closes the parameter space from large couplings (diffusive heat transport ceiling). Data points are approximate reads of the energy-deposition exclusion boundary from Fig. 3 (ma ~ few MeV to ~1 GeV, ga\u03b3 ~ 1e-11 to 1e-4). Exact contour not tabulated in the paper; numbers are estimated from the plot and should be treated as approximate. Constraints shown for 1 B and 0.1 B explosion-energy thresholds. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 4.1 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 7,
+  "elapsed_s": 83.1173210144043
+}

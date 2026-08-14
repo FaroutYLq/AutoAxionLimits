@@ -1,0 +1,22 @@
+{
+  "arxiv_id": "1708.07521",
+  "paper_title": "The dark-matter axion mass",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.62e-05,
+      2.21e-05
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "KlaerMoore2017_AxionStrings",
+  "coupling_convention": "m_a in eV (mass), f_a in GeV (coupling slot)",
+  "notes": "Theoretical/numerical prediction (not an experimental exclusion) of the QCD dark-matter axion mass assuming axion = 100% of DM with post-inflationary PQ breaking (string network). Result: m_a = 26.2 +- 3.4 ueV, f_a = (2.21 +- 0.29)e11 GeV. Single point on the f_a - m_a plane. Encoded as [m_a in eV, f_a in GeV]. This is a prediction, not a measured coupling exclusion limit. | selector: text (sole candidate) | Auto-corrected couplings: \u00d71e-16 (\u00d71.00e-16, rule=argmin|log10(median*f)-log10(anchor=3.2e-05)|)",
+  "num_points": 1,
+  "elapsed_s": 62.3892080783844
+}

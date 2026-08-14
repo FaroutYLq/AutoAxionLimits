@@ -1,0 +1,22 @@
+{
+  "arxiv_id": "1906.00967",
+  "paper_title": "Buschmann20",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      227000000000.0,
+      2.52e-05
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "Buschmann20",
+  "coupling_convention": "f_a in GeV (x), m_a in eV (y)",
+  "notes": "Cosmological early-Universe axion simulation (post-inflation PQ breaking). Main result is a determination of the axion mass giving correct DM density: m_a = 25.2 +/- 11.0 ueV, corresponding to f_a = (2.27 +/- 0.33)e11 GeV. This is a preferred value on the f_a-m_a plane, not a conventional coupling exclusion limit. Fig. 4 gives Omega_a vs f_a (5e14-1e15 GeV in their unphysical box units), but the physical result is the single f_a/m_a determination reported here. Not a true exclusion contour, hence moderate confidence. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.5, 1))",
+  "num_points": 1,
+  "elapsed_s": 98.4563901424408
+}

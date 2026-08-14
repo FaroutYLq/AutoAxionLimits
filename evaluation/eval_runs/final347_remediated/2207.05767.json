@@ -1,0 +1,30 @@
+{
+  "arxiv_id": "2207.05767",
+  "paper_title": "FAST",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.14e-06,
+      1e-12
+    ],
+    [
+      5e-06,
+      1e-12
+    ],
+    [
+      6.2e-06,
+      1e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.72,
+  "suggested_experiment_name": "FAST_DPDM",
+  "coupling_convention": "dimensionless kinetic mixing epsilon (times (rho_A'/rho_DM)^0.5)",
+  "notes": "FAST radio telescope search for dark photon dark matter via local absorption. Observed 95% C.L. exclusion (solid red curve, Fig.1) reaches epsilon ~ 1e-12 over 1-1.5 GHz (4.14-6.2 ueV), ~1 order of magnitude stronger than CMB. Values read approximately from text/Fig.1; y-axis is epsilon*(rho_A'/rho_DM)^0.5 with rho_DM=0.3 GeV/cm^3. LOFAR/SKA1/FAST dashed curves are projections (not extracted here). O(10%) uncertainty stated. | [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of the solid red curve, ~1e-12 as stated in the text ('upper limits') rather than the paper's own single curve | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.72, 3))",
+  "num_points": 3,
+  "elapsed_s": 108.56540393829346
+}

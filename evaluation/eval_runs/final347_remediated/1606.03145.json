@@ -1,0 +1,102 @@
+{
+  "arxiv_id": "1606.03145",
+  "paper_title": "The topological susceptibility in finite temperature QCD and axion cosmology",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      100000000000.0,
+      2050.0
+    ],
+    [
+      130000000000.0,
+      1980.0
+    ],
+    [
+      160000000000.0,
+      1900.0
+    ],
+    [
+      200000000000.0,
+      1830.0
+    ],
+    [
+      250000000000.0,
+      1750.0
+    ],
+    [
+      300000000000.0,
+      1690.0
+    ],
+    [
+      400000000000.0,
+      1600.0
+    ],
+    [
+      500000000000.0,
+      1530.0
+    ],
+    [
+      650000000000.0,
+      1440.0
+    ],
+    [
+      800000000000.0,
+      1390.0
+    ],
+    [
+      1000000000000.0,
+      1330.0
+    ],
+    [
+      1300000000000.0,
+      1280.0
+    ],
+    [
+      1600000000000.0,
+      1240.0
+    ],
+    [
+      2000000000000.0,
+      1200.0
+    ],
+    [
+      2500000000000.0,
+      1170.0
+    ],
+    [
+      3000000000000.0,
+      1140.0
+    ],
+    [
+      4000000000000.0,
+      1100.0
+    ],
+    [
+      5000000000000.0,
+      1080.0
+    ],
+    [
+      6500000000000.0,
+      1050.0
+    ],
+    [
+      8000000000000.0,
+      1025.0
+    ],
+    [
+      10000000000000.0,
+      1000.0
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "HotQCD lattice topological susceptibility (this work)",
+  "coupling_convention": "T_osc (axion oscillation temperature) in MeV, lower edge of the 'this work' band; NOT m_a",
+  "notes": "Lattice QCD calculation of the topological susceptibility chi_t(T) used to derive a cosmological bound on the QCD axion decay constant assuming post-inflation PQ breaking and axion = 100% DM. The single quantitative result is f_a <= 1.2e12 GeV (~10-20% uncertainty from K-factor). The main figure (Fig. 6) is the f_a vs T_osc plane, NOT an f_a-m_a exclusion curve, and no coupling-vs-mass data table exists. There is no extractable (mass, coupling) exclusion curve; only a single upper bound on f_a. Not a haloscope/DM-density experiment, so no local DM density. Encoding as a coupling curve is not meaningful here, hence empty data_points and low confidence. | selector: figure_vision (sole candidate) | Vision: The exclusion plot (fig_06) shows f_a [x10^12 GeV] on x-axis (converted to GeV) vs T_osc [MeV] on y-axis, NOT the canonical f_a-m_a plane. Per the plotted-values contract, y-values are emitted as T_osc in MeV. The 'this work' orange band lower edge was traced. This is an allowed-region cosmology plot rather than a standard exclusion boundary; the true AxionMass (m_a vs f_a) plane is not directly plotted here. Confidence reduced accordingly. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.75 snapped to identity) | contract: median outside VALID_RANGES after corrections (flagged low confidence) | [CONVENTION REVIEW] declared coupling convention 'T_osc (axion oscillation temperature) in MeV, lower edge of the 'this work' band; NOT m_a' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 21,
+  "elapsed_s": 116.91420197486877
+}

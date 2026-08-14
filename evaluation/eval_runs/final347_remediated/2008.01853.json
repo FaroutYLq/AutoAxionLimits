@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "2008.01853",
+  "paper_title": "A quantum-enhanced search for dark matter axions",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.696e-05,
+      9.25e-15
+    ],
+    [
+      1.712e-05,
+      9.33e-15
+    ],
+    [
+      1.714e-05,
+      9.34e-15
+    ],
+    [
+      1.728e-05,
+      9.42e-15
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "HAYSTAC_2020_squeezed",
+  "coupling_convention": "g_agamma in GeV^-1 (converted from gamma = 1.38 x g_gamma^KSVZ using KSVZ g_gamma=-0.97 and m_a f_a relation)",
+  "notes": "HAYSTAC quantum-enhanced (squeezed state receiver) axion haloscope. Exclusion reported as g_gamma >= 1.38 x g_gamma^KSVZ over combined 16.96-17.12 and 17.14-17.28 ueV/c2 (4.100-4.140 & 4.145-4.178 GHz). Paper only gives coupling relative to KSVZ; I converted to g_agamma using KSVZ g_gamma=-0.97, alpha, and m_a[ueV]=5.70(1e12 GeV/f_a), giving g_KSVZ~6.7e-15 GeV^-1 and 1.38x ~9.3e-15 GeV^-1 across the narrow window. DM density 0.45 GeV/cm3 is standard HAYSTAC assumption (not explicitly restated here). 90% CL Bayesian exclusion. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 14.8 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 4,
+  "elapsed_s": 99.9693021774292
+}

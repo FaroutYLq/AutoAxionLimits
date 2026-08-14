@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2404.12517",
+  "paper_title": "First results from the Axion Dark-Matter Birefringent Cavity (ADBC) experiment",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.15e-08,
+      1.9e-08
+    ],
+    [
+      4.26e-08,
+      1.9e-08
+    ],
+    [
+      4.99e-08,
+      1.9e-08
+    ],
+    [
+      5.49e-08,
+      1.9e-08
+    ],
+    [
+      5.6e-08,
+      1.9e-08
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.72,
+  "suggested_experiment_name": "ADBC",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "ADBC birefringent optical cavity ALP search. Five datasets centered at cavity splitting frequencies 10.03, 10.30, 12.07, 13.27, 13.54 MHz (masses ~41.5-56 neV), covering ranges 40.9-43.3, 49.3-50.6, 54.4-56.7 neV. Average 95% CL limit g_agamma <= 1.9e-8 GeV^-1 applied at the five dataset masses; individual dataset limits vary somewhat (roughly 1e-8 to 1e-7 in Fig 3) but only the average is quoted numerically. Masses converted from quoted frequencies using m=4.136e-15*f. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.72, 5))",
+  "num_points": 5,
+  "elapsed_s": 127.23432493209839
+}

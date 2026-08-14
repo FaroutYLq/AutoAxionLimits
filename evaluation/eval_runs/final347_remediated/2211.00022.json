@@ -1,0 +1,150 @@
+{
+  "arxiv_id": "2211.00022",
+  "paper_title": "$A'$ view of the sunrise: Boosting helioscopes with angular information",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-06,
+      0.05
+    ],
+    [
+      2e-06,
+      0.04
+    ],
+    [
+      5e-06,
+      0.015
+    ],
+    [
+      1e-05,
+      0.005
+    ],
+    [
+      3e-05,
+      0.0015
+    ],
+    [
+      0.0001,
+      0.0004
+    ],
+    [
+      0.0003,
+      0.00013
+    ],
+    [
+      0.001,
+      4e-05
+    ],
+    [
+      0.003,
+      1.3e-05
+    ],
+    [
+      0.01,
+      4e-06
+    ],
+    [
+      0.025,
+      1.6e-06
+    ],
+    [
+      0.05,
+      4e-07
+    ],
+    [
+      0.1,
+      1e-07
+    ],
+    [
+      0.2,
+      2.5e-08
+    ],
+    [
+      0.3,
+      1.1e-08
+    ],
+    [
+      0.5,
+      4e-09
+    ],
+    [
+      1.0,
+      1e-09
+    ],
+    [
+      2.0,
+      3.2e-10
+    ],
+    [
+      3.0,
+      1.6e-10
+    ],
+    [
+      5.0,
+      7.3e-11
+    ],
+    [
+      10.0,
+      2.2e-11
+    ],
+    [
+      20.0,
+      7.1e-12
+    ],
+    [
+      30.0,
+      3.5e-12
+    ],
+    [
+      50.0,
+      1.6e-12
+    ],
+    [
+      100.0,
+      1.4e-12
+    ],
+    [
+      200.0,
+      1.4e-12
+    ],
+    [
+      300.0,
+      1.6e-12
+    ],
+    [
+      500.0,
+      2e-12
+    ],
+    [
+      1000.0,
+      4e-12
+    ],
+    [
+      2000.0,
+      3e-11
+    ],
+    [
+      3000.0,
+      1e-09
+    ],
+    [
+      4000.0,
+      1e-06
+    ],
+    [
+      5000.0,
+      0.001
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.68,
+  "suggested_experiment_name": "Hinode XRT (solar dark photon helioscope)",
+  "coupling_convention": "kinetic mixing epsilon (chi), dimensionless, exactly as plotted on y-axis",
+  "notes": "Solar dark photon helioscope (not a DM haloscope, so no local DM density). Constrains kinetic mixing epsilon vs DP mass m. Main results are two curves in the m-epsilon plane (Fig. 5/8): 'darks' (optimistic, data-driven background subtraction) and 'eclipse'. No numerical tables for the limit curves are provided; data points here are approximate readings/anchors from Table 1 (sensitivity to epsilon ~1e-9 at m=1 eV for darks, 4e-8 for eclipse) and Fig. 6 benchmark points (m=400 eV eps=6.1e-11, m=15 eV eps=1.2e-10 near exclusion). Points given are for the darks (optimistic) limit; resonant bump enhances sensitivity in 5-300 eV range. Values are approximate. 90% CL. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.68, 33)) | Vision: Figure 5 (fig_00.png) shows this work's constraints in the m-epsilon plane. The lower exclusion boundary is the envelope of the strongest limits: the solid blue 'Eclipse (November 13, 2012)' curve dominates at m < ~0.025 eV (slope ~ -1, epsilon ~ 4e-8/m), and the solid purple 'Darks, data-driven background subtraction' (the most optimistic darks limit, labeled 'HINODE: darks (optimistic)' in Fig 8) dominates at larger masses. Calibrated using Table 1 (fig_03): Eclipse sensitivity 4e-8 and Darks 1e-9 at m=1 eV; kink masses 2e-6 eV (eclipse) and 3e-2 eV (darks). Broad resonant dip reaches ~1.4e-12 near m~50-200 eV, then rises steeply near m~3-5 keV (detector max energy). Y-axis is dimensionless kinetic mixing (epsilon). Confidence limit 90% CL per text. Note: fig_04 (the histogram) was NOT the exclusion plot despite the hint; the correct plot is Figure 5. Values are visual reads interpolated with table anchors. | Calibration: No calibration needed",
+  "num_points": 33,
+  "elapsed_s": 332.3291530609131
+}

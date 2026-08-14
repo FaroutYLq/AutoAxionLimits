@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2306.11575",
+  "paper_title": "SNIPE",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.07e-15,
+      1e-05
+    ],
+    [
+      4.14e-15,
+      6e-06
+    ],
+    [
+      8.27e-15,
+      4e-06
+    ],
+    [
+      1e-14,
+      3.5e-06
+    ],
+    [
+      1.24e-14,
+      3e-06
+    ],
+    [
+      1.65e-14,
+      2.5e-06
+    ],
+    [
+      2.07e-14,
+      2e-06
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "SNIPE_Hunt",
+  "coupling_convention": "dimensionless kinetic mixing epsilon",
+  "notes": "SNIPE Hunt 2022 science run: network of unshielded magnetometers in wilderness locations searching for Earth-transducer signals of ultralight bosonic DM at Compton frequencies 0.5-5 Hz (mA' ~ 2e-15 to 2e-14 eV). Paper sets 95% credible upper limits on BOTH the hidden-photon kinetic mixing epsilon (Fig. 6) and the axion-photon coupling ga\u03b3 ~ 1e-8 GeV^-1 (Fig. 9); the kinetic-mixing limits are the headline result ('best experimental bounds to date in this frequency range'), so DarkPhoton is reported here. No numerical table is given; data points are approximate values read from the description of Fig. 6 (limits span ~1e-6 to 1e-5, weakening toward lower frequency; text anchor: injected epsilon=1e-5 at mA'=1e-14 eV gave limit ~1.4e-5). Assumes rho_DM = 0.3 GeV/cm^3. Extraction confidence reduced due to figure-only data; recommend digitizing Fig. 6 for precise values. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 7,
+  "elapsed_s": 50.60964894294739
+}

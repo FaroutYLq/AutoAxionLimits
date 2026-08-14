@@ -1,0 +1,166 @@
+{
+  "arxiv_id": "2110.06096",
+  "paper_title": "ADMX2021",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.647e-06,
+      1.5e-15
+    ],
+    [
+      2.668e-06,
+      1.48e-15
+    ],
+    [
+      2.689e-06,
+      1.45e-15
+    ],
+    [
+      2.73e-06,
+      1.42e-15
+    ],
+    [
+      2.751e-06,
+      1.38e-15
+    ],
+    [
+      2.771e-06,
+      1.35e-15
+    ],
+    [
+      2.792e-06,
+      1.3e-15
+    ],
+    [
+      2.804e-06,
+      8e-16
+    ],
+    [
+      2.812e-06,
+      4.6e-16
+    ],
+    [
+      2.821e-06,
+      4.5e-16
+    ],
+    [
+      2.854e-06,
+      4.3e-16
+    ],
+    [
+      2.895e-06,
+      4.2e-16
+    ],
+    [
+      2.937e-06,
+      4.3e-16
+    ],
+    [
+      2.978e-06,
+      4.4e-16
+    ],
+    [
+      3.061e-06,
+      4.5e-16
+    ],
+    [
+      3.102e-06,
+      4.6e-16
+    ],
+    [
+      3.143e-06,
+      4.7e-16
+    ],
+    [
+      3.226e-06,
+      4.8e-16
+    ],
+    [
+      3.309e-06,
+      5e-16
+    ],
+    [
+      3.392e-06,
+      5.1e-16
+    ],
+    [
+      3.474e-06,
+      5.2e-16
+    ],
+    [
+      3.557e-06,
+      5.4e-16
+    ],
+    [
+      3.64e-06,
+      5.5e-16
+    ],
+    [
+      3.723e-06,
+      5.6e-16
+    ],
+    [
+      3.805e-06,
+      5.65e-16
+    ],
+    [
+      3.846e-06,
+      5.7e-16
+    ],
+    [
+      3.888e-06,
+      5.7e-16
+    ],
+    [
+      3.929e-06,
+      5.75e-16
+    ],
+    [
+      3.971e-06,
+      5.8e-16
+    ],
+    [
+      4.012e-06,
+      5.85e-16
+    ],
+    [
+      4.053e-06,
+      5.9e-16
+    ],
+    [
+      4.095e-06,
+      6e-16
+    ],
+    [
+      4.136e-06,
+      6.5e-16
+    ],
+    [
+      4.157e-06,
+      7e-16
+    ],
+    [
+      4.178e-06,
+      8e-16
+    ],
+    [
+      4.199e-06,
+      1e-15
+    ],
+    [
+      4.219e-06,
+      1.2e-15
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.68,
+  "suggested_experiment_name": "ADMX 2021",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on the y-axis",
+  "notes": "ADMX haloscope search for QCD axion dark matter over 3.3-4.2 ueV. Paper reports 90% CL upper limits on g_agamma vs mass (Fig. 4) excluding KSVZ over 3.3-4.2 ueV and DFSZ over 3.9-4.1 ueV. No numeric table of limit values provided; the two emitted points are the KSVZ-model g_agamma at the mass-range endpoints (m_a=5.7 ueV*(1e12/f_a), g=alpha*g_gamma/(pi*f_a), g_gamma=-0.97), which represents the achieved exclusion level. Actual measured limit curve is somewhat below (DFSZ) in part of range and above (2x DFSZ) elsewhere; values approximate. DM density 0.45 GeV/cc (boosted MB); alternative 0.6 GeV/cc for N-body model. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.68, 37)) | Vision: Figure 4, 90% C.L. upper limits on g_agamma. X-axis is frequency (640-1020 MHz) converted to mass via m=4.136e-15*f; top axis confirms 2.6-4.2 ueV. Y-axis log scale with single tick 10^-15. Combined plot includes previous ADMX results (gray 2010, blue 2018, yellow 2019) and this work (red, 800-1020 MHz). Lower boundary is jagged; I traced the lower envelope of the colored region: shallow (~1.4e-15, near KSVZ) in the gray region at low frequency, dropping toward the DFSZ line (~4-6e-16) for the deep-coverage region, rising at the right edge. Text: KSVZ excluded 3.3-4.2 ueV, DFSZ excluded 3.9-4.1 ueV. DFSZ benchmark at 3.5 ueV ~ 5.1e-16. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=0.97 snapped to identity)",
+  "num_points": 37,
+  "elapsed_s": 236.1762228012085
+}

@@ -1,0 +1,174 @@
+{
+  "arxiv_id": "2003.13144",
+  "paper_title": "Limits from the Funk Experiment on the Mixing Strength of Hidden-Photon Dark Matter in the Visible and Near-Ultraviolet Wavelength Range",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.95,
+      2e-11
+    ],
+    [
+      2.0,
+      1.2e-11
+    ],
+    [
+      2.05,
+      6e-12
+    ],
+    [
+      2.1,
+      3.5e-12
+    ],
+    [
+      2.15,
+      2.2e-12
+    ],
+    [
+      2.2,
+      1.5e-12
+    ],
+    [
+      2.3,
+      1.15e-12
+    ],
+    [
+      2.4,
+      1e-12
+    ],
+    [
+      2.5,
+      9e-13
+    ],
+    [
+      2.6,
+      8.7e-13
+    ],
+    [
+      2.8,
+      8e-13
+    ],
+    [
+      3.0,
+      7.4e-13
+    ],
+    [
+      3.2,
+      7e-13
+    ],
+    [
+      3.4,
+      6.65e-13
+    ],
+    [
+      3.6,
+      6.8e-13
+    ],
+    [
+      3.8,
+      7.6e-13
+    ],
+    [
+      4.0,
+      8.7e-13
+    ],
+    [
+      4.2,
+      9.3e-13
+    ],
+    [
+      4.5,
+      9.5e-13
+    ],
+    [
+      4.8,
+      9.3e-13
+    ],
+    [
+      5.0,
+      9.2e-13
+    ],
+    [
+      5.3,
+      9e-13
+    ],
+    [
+      5.5,
+      8.9e-13
+    ],
+    [
+      5.8,
+      9e-13
+    ],
+    [
+      6.0,
+      9.3e-13
+    ],
+    [
+      6.3,
+      1e-12
+    ],
+    [
+      6.5,
+      1.05e-12
+    ],
+    [
+      6.8,
+      1.15e-12
+    ],
+    [
+      7.0,
+      1.25e-12
+    ],
+    [
+      7.3,
+      1.4e-12
+    ],
+    [
+      7.5,
+      1.55e-12
+    ],
+    [
+      7.8,
+      1.75e-12
+    ],
+    [
+      8.0,
+      2e-12
+    ],
+    [
+      8.1,
+      2.3e-12
+    ],
+    [
+      8.2,
+      2.7e-12
+    ],
+    [
+      8.3,
+      3.2e-12
+    ],
+    [
+      8.4,
+      4.5e-12
+    ],
+    [
+      8.5,
+      6e-12
+    ],
+    [
+      8.55,
+      7e-12
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.9,
+  "suggested_experiment_name": "FUNK",
+  "coupling_convention": "kinetic mixing chi, dimensionless (plot shows lg(chi); values converted as 10^(lg chi))",
+  "notes": "FUNK dish-antenna search for hidden-photon dark matter using a 14.56 m^2 spherical mirror and PMT. No signal observed; upper limit chi < 6.65e-13 at 95% C.L. quoted in text for the HP mass range 1.95-8.55 eV, encoded here as a flat two-point bound. The paper states a mass-resolved limit is tabulated in Appendix A (Figs. 23-24), but that table was not included in the provided content, so only the flat text-quoted value is extracted. Assumes HPs comprise all local DM with rho = 0.3 GeV/cm^3. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.9, 39)) | Vision: Figure 23 of the FUNK paper: red line is the FUNK 95% C.L. exclusion on kinetic mixing chi vs hidden-photon mass (linear x-axis 1-10 eV, log y-axis lg chi from -14 to -10). Text explicitly states chi <= 6.65e-13 at 95% C.L. over 1.95 < m/eV < 8.55, used to anchor the minimum of the traced curve. Steep endpoints at m=1.95 eV and m=8.55 eV are sampled densely. Other curves (Tokyo, DAMIC, Xenon10 solar, solar lifetime) are comparison limits and were not traced. Tabulated limit values exist in Appendix A of the paper but were not among the provided pages. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.97 snapped to identity)",
+  "num_points": 39,
+  "elapsed_s": 112.12192988395691
+}

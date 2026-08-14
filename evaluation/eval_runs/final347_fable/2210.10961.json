@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2210.10961",
+  "paper_title": "Axion Dark Matter Search around 4.55 $\u03bc$eV with Dine-Fischler-Srednicki-Zhitnitskii Sensitivity",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.51e-06,
+      6.2e-16
+    ],
+    [
+      4.59e-06,
+      6.2e-16
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "CAPP-12TB",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "CAPP-12TB haloscope search excluding g_agamma down to ~6.2e-16 GeV^-1 (DFSZ sensitivity) over 4.51-4.59 ueV at 90% CL, assuming axions are 100% of local DM with rho_a = 0.45 GeV/cm^3. The detailed frequency-dependent limit is only in Fig. 4 (values roughly 2-6 x 10^-16 GeV^-1 with a mode-crossing gap near 4.527 ueV); the emitted flat line uses the headline value from the abstract/text over the stated mass range. Standard halo model (boosted Maxwellian) signal shape assumed. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 15.2 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 2,
+  "elapsed_s": 82.86063122749329
+}

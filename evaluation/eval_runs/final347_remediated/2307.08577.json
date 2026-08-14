@@ -1,0 +1,110 @@
+{
+  "arxiv_id": "2307.08577",
+  "paper_title": "Dark matter detection using nuclear magnetization in magnet with hyperfine interaction",
+  "coupling_type": "AxionProton",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      5e-07,
+      4.5e-10
+    ],
+    [
+      7e-07,
+      4.5e-10
+    ],
+    [
+      1e-06,
+      4.5e-10
+    ],
+    [
+      1.5e-06,
+      4.4e-10
+    ],
+    [
+      2e-06,
+      4.4e-10
+    ],
+    [
+      3e-06,
+      4.4e-10
+    ],
+    [
+      5e-06,
+      4.3e-10
+    ],
+    [
+      7e-06,
+      4.3e-10
+    ],
+    [
+      1e-05,
+      4.3e-10
+    ],
+    [
+      1.5e-05,
+      4.2e-10
+    ],
+    [
+      2e-05,
+      4.2e-10
+    ],
+    [
+      3e-05,
+      4.2e-10
+    ],
+    [
+      5e-05,
+      4.1e-10
+    ],
+    [
+      7e-05,
+      4.1e-10
+    ],
+    [
+      0.0001,
+      4.1e-10
+    ],
+    [
+      0.00015,
+      4e-10
+    ],
+    [
+      0.0002,
+      4e-10
+    ],
+    [
+      0.0003,
+      4e-10
+    ],
+    [
+      0.0005,
+      4e-10
+    ],
+    [
+      0.0007,
+      4e-10
+    ],
+    [
+      0.001,
+      4e-10
+    ],
+    [
+      0.0015,
+      4e-10
+    ],
+    [
+      0.002,
+      4e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "SN1987A / neutron star cooling (astrophysical g_app constraint)",
+  "coupling_convention": "g_app (axion-proton coupling), dimensionless, as plotted on y-axis",
+  "notes": "Projection (SNR>=1) for 1 kg MnCO3 canted antiferromagnet with strong hyperfine interaction, 1-year exposure, T=0.1K. Paper explicitly states sensitivity to axion-PROTON coupling gapp (nuclear spin of 55Mn dominated by proton spin), NOT axion-neutron as the pre-analysis hint suggested; sigma_p=0.1, sigma_n=0. Nuclear-dominated mode covers ~500-600 MHz (m_a ~ 2e-6 eV) reaching gapp >~ 1e-11 (Fig 7). Paper also gives projections for axion-electron gaee ~ 1e-14 at ~1e-6 eV (Fig 8) and dark photon kinetic mixing epsilon (Fig 9), so multiple coupling types are covered; I selected the emphasized novel AxionProton channel. Data points are approximate, read from text (frequency->mass converted at 4.136e-15 eV/Hz); exact figure curves not available in provided text. rho_DM=0.4 GeV/cm^3. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 23)) | Vision: Figure 7 (page 29) shows sensitivity to axion-proton coupling g_app vs m_a for MnCO3. The actual EXCLUDED/constraint region is the gray astrophysical band (SN1987A solid line + NS cooling dashed line), whose lower boundary is a nearly flat horizontal line at g_app ~ 4e-10 across the full mass range 5e-7 to 2e-3 eV. The green (nuclear-dominated) and red/orange (electron-dominated) V-shaped features are FUTURE experimental projections, not existing constraints, so they are not traced. Top x-axis is frequency in Hz; bottom is m_a in eV. Blue KSVZ/DFSZ band is the theory prediction. | Calibration: No calibration needed",
+  "num_points": 23,
+  "elapsed_s": 251.53620791435242
+}

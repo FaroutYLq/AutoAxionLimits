@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2110.01582",
+  "paper_title": "New Constraints on Dark Photon Dark Matter with Superconducting Nanowire Detectors in an Optical Haloscope",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.7,
+      2e-12
+    ],
+    [
+      0.72,
+      1.3e-12
+    ],
+    [
+      0.75,
+      1e-12
+    ],
+    [
+      0.78,
+      1.3e-12
+    ],
+    [
+      0.8,
+      2e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "LAMPOST",
+  "coupling_convention": "dimensionless kinetic mixing epsilon",
+  "notes": "LAMPOST optical haloscope with SNSPD, dark photon DM search in 0.7-0.8 eV mass range. Limit epsilon >~ 1e-12 (90% CL). Data points read approximately from Fig. 4 (magenta shaded exclusion region); no numerical table provided. This is the measured 90% CL exclusion, not the projected 90% SDE curve. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 5,
+  "elapsed_s": 49.178017139434814
+}

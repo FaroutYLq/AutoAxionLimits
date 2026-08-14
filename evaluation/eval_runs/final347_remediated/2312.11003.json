@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2312.11003",
+  "paper_title": "Experimental search for invisible dark matter axions around 22 \u03bceV",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.186e-05,
+      8e-15
+    ],
+    [
+      2.2e-05,
+      8e-15
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "CAPP-12T",
+  "coupling_convention": "g_agamma in GeV^-1, converted from 0.93*g_KSVZ using KSVZ value ~8.6e-15 GeV^-1 at 22 ueV",
+  "notes": "Cavity haloscope (CAPP-12T) excluded axion-photon coupling ga\u03b3\u03b3 \u2273 0.93 \u00d7 g_KSVZ over 21.86-22.00 \u03bceV at 90% CL. Limit is essentially flat over this narrow mass range. KSVZ coupling at 22 \u03bceV estimated ~8.6e-15 GeV^-1 (C_a\u03b3=-1.92), so limit ~8.0e-15 GeV^-1. \u03c1_a=0.45 GeV/cm^3 assumed. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 14.1 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate)",
+  "num_points": 2,
+  "elapsed_s": 83.42871499061584
+}

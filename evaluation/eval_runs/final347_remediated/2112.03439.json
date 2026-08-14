@@ -1,0 +1,166 @@
+{
+  "arxiv_id": "2112.03439",
+  "paper_title": "A Model-Independent Radio Telescope Dark Matter Search in the L and S Bands",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5.5e-06,
+      1e-16
+    ],
+    [
+      5.56e-06,
+      3e-17
+    ],
+    [
+      5.62e-06,
+      1e-15
+    ],
+    [
+      5.71e-06,
+      4e-15
+    ],
+    [
+      5.79e-06,
+      1e-14
+    ],
+    [
+      5.87e-06,
+      3e-13
+    ],
+    [
+      5.96e-06,
+      1e-13
+    ],
+    [
+      6.04e-06,
+      2e-14
+    ],
+    [
+      6.12e-06,
+      3e-13
+    ],
+    [
+      6.2e-06,
+      1e-14
+    ],
+    [
+      6.91e-06,
+      1e-14
+    ],
+    [
+      7.03e-06,
+      3e-14
+    ],
+    [
+      7.16e-06,
+      2e-14
+    ],
+    [
+      7.28e-06,
+      8e-15
+    ],
+    [
+      7.44e-06,
+      5e-15
+    ],
+    [
+      7.57e-06,
+      1e-14
+    ],
+    [
+      7.69e-06,
+      8e-15
+    ],
+    [
+      7.78e-06,
+      5e-15
+    ],
+    [
+      8.15e-06,
+      1e-14
+    ],
+    [
+      8.27e-06,
+      5e-15
+    ],
+    [
+      8.4e-06,
+      1e-14
+    ],
+    [
+      8.52e-06,
+      3e-14
+    ],
+    [
+      8.64e-06,
+      1e-13
+    ],
+    [
+      8.77e-06,
+      5e-14
+    ],
+    [
+      8.89e-06,
+      3e-14
+    ],
+    [
+      9.39e-06,
+      1e-13
+    ],
+    [
+      9.47e-06,
+      5.000000000000001e-13
+    ],
+    [
+      9.51e-06,
+      2e-13
+    ],
+    [
+      1.042e-05,
+      1e-15
+    ],
+    [
+      1.05e-05,
+      3e-14
+    ],
+    [
+      1.059e-05,
+      5.000000000000001e-13
+    ],
+    [
+      1.065e-05,
+      1.0000000000000002e-12
+    ],
+    [
+      1.071e-05,
+      3e-13
+    ],
+    [
+      1.079e-05,
+      1e-13
+    ],
+    [
+      1.088e-05,
+      3e-14
+    ],
+    [
+      1.1e-05,
+      1e-14
+    ],
+    [
+      1.108e-05,
+      3.0000000000000002e-15
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.471,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "GBT L/S-band model-independent radio DM search (Keller et al.)",
+  "coupling_convention": "dark matter decay rate Lambda in s^-1 (solid line, 1-photon final state), plotted as on y-axis; NOT g_agamma",
+  "notes": "This is a model-independent radio-line dark matter search (Breakthrough Listen/GBT) that sets limits on the DM DECAY RATE lambda (~1e-32 s^-1) and the velocity-weighted ANNIHILATION cross section <sigma v> (~1e-30 cm^3 s^-1) over 1020-2700 MHz. It is explicitly model-independent and does NOT report an axion-photon coupling g_agamma or any coupling in the provided enum; therefore coupling_type is null. The y-axis of the exclusion plots (Fig. 8, 9) is lambda in s^-1 (or <sigma v> in cm^3 s^-1), not a coupling. The pre-analysis hint of AxionPhoton is overridden. Local density used: rho_NFW(rs)=0.471 GeV/cm^3 (Burkert 0.487). Photon energy relation h*nu = m_chi c^2/2, so masses would span ~8.4e-6 to 2.2e-5 eV, but no coupling mapping exists. No extractable coupling data points. | selector: figure_vision (sole candidate) | Vision: Figure 9(a): decay limits. Y-axis is decay rate Lambda [s^-1], range 1e-35 to 1e-30, ticks at each decade. X-axis is radio line frequency 1317-2700 MHz converted to DM mass via m[eV]=4.136e-9*f[MHz] (direct photon-energy conversion; note for a->2gamma the DM mass may be 2x this). Solid line traced = 1-photon final state; dashed = 2-photon. Red bands (1520-1650, 1890-1960, 2170-2260, 2310-2510 MHz) are excluded from analysis (high noise/damping) and skipped. This is a model-independent search reporting a decay rate, NOT a g_agamma coupling, so the coupling_type='AxionPhoton' is only nominal and extraction_confidence is low. The jagged limit line is a per-frequency-bin upper limit; boundary values are approximate readings from the log-scale plot. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity) | Auto-corrected couplings: \u00d71e+18 (\u00d71.00e+18, rule=argmin|log10(median*f)-log10(anchor=1.0e-14)|)",
+  "num_points": 37,
+  "elapsed_s": 160.81656622886658
+}

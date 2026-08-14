@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "1603.06978",
+  "paper_title": "Fermi_bound",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5e-10,
+      5e-12
+    ],
+    [
+      5e-09,
+      5e-12
+    ],
+    [
+      5e-09,
+      1e-11
+    ],
+    [
+      1e-08,
+      1e-11
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "FermiLAT_NGC1275",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Fermi-LAT search for spectral irregularities from photon-ALP oscillations in NGC 1275 (Perseus cluster) using 6 years of Pass 8 data. Excludes g_agamma > 5e-12 GeV^-1 for 0.5-5 neV, and g11 > ~1 (i.e. 1e-11 GeV^-1) for 5-10 neV, at 95% CL. This is an astrophysical propagation bound (magnetic field conversion), not a DM haloscope, so no local DM density assumption applies. Numerical values taken from explicit text statements; the full exclusion contour (including an unexcluded 'hole'-like feature around Ecrit ~1 GeV with 1.3<g11<4) is only in Fig. 2 and not tabulated, so the emitted points approximate the lower boundary of the excluded region. Fiducial cluster B-field: sigma_B = 10 uG, rmax = 500 kpc, eta = 0.5; limits vary +43%/-25% area under systematic variations. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.7, 4))",
+  "num_points": 4,
+  "elapsed_s": 160.76905012130737
+}

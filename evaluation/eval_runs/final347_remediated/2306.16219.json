@@ -1,0 +1,134 @@
+{
+  "arxiv_id": "2306.16219",
+  "paper_title": "The NANOGrav 15-year Data Set: Search for Signals from New Physics",
+  "coupling_type": "ScalarElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-24,
+      2e-07
+    ],
+    [
+      1.5e-24,
+      1.5e-07
+    ],
+    [
+      2.5e-24,
+      1.2e-07
+    ],
+    [
+      4e-24,
+      1e-07
+    ],
+    [
+      6e-24,
+      1.3e-07
+    ],
+    [
+      8e-24,
+      1e-07
+    ],
+    [
+      1.1e-23,
+      1.2e-07
+    ],
+    [
+      1.5e-23,
+      7e-08
+    ],
+    [
+      2e-23,
+      6e-08
+    ],
+    [
+      2.8e-23,
+      8e-08
+    ],
+    [
+      3.5e-23,
+      1e-07
+    ],
+    [
+      4e-23,
+      1.2e-07
+    ],
+    [
+      6e-23,
+      1.8e-07
+    ],
+    [
+      8e-23,
+      2.5e-07
+    ],
+    [
+      1.2e-22,
+      4e-07
+    ],
+    [
+      1.8e-22,
+      6e-07
+    ],
+    [
+      2.5e-22,
+      8e-07
+    ],
+    [
+      4e-22,
+      1.2e-06
+    ],
+    [
+      5e-22,
+      1.5e-06
+    ],
+    [
+      6e-22,
+      1.8e-06
+    ],
+    [
+      9e-22,
+      2.5e-06
+    ],
+    [
+      1.3e-21,
+      3.5e-06
+    ],
+    [
+      2e-21,
+      4e-06
+    ],
+    [
+      3e-21,
+      6e-06
+    ],
+    [
+      4.5e-21,
+      8e-06
+    ],
+    [
+      6e-21,
+      1e-05
+    ],
+    [
+      7e-21,
+      1.1e-05
+    ],
+    [
+      8e-21,
+      1.3e-05
+    ],
+    [
+      1e-20,
+      1.5e-05
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "NANOGrav 15-year (ULDM d_e constraint)",
+  "coupling_convention": "d_e, dimensionless (plotted directly on log y-axis)",
+  "notes": "NANOGrav 15-yr searches for ultralight scalar DM couplings (d_e, d_me, d_mu, d_g, etc.) via pulsar timing. Constraints presented only in Fig. 14/15 (95% CL, plotted vs frequency/mass ~10^-24 to 10^-20 eV) with no numerical values in text/tables, so no (mass,coupling) pairs are extractable. Paper covers MULTIPLE scalar couplings (electron, muon, gluon), making a single coupling_type ambiguous; ScalarElectron chosen per hint. Local DM density assumed 0.4 GeV/cm^3 (Table 1). | selector: figure_vision (sole candidate) | Vision: Traced red solid 'Correlated' curve in the d_e panel (top-middle) of Figure 14 of the NANOGrav 15-yr New-Physics paper. x=m_phi [eV], y=d_e (dimensionless). Excluded region is above the curve. Constraints assume ULDM is 100% of DM with rho=0.4 GeV/cm^3. CAUTION: the paper labels this coupling d_e (scalar coupling to photons / alpha variation), which per the task disambiguation corresponds to ScalarPhoton, but the text-analysis hint suggested ScalarElectron; genuine ambiguity between ScalarPhoton and ScalarElectron, hence low extraction confidence. The provided axis calibration (M_sun, 1e-3 to 1e13) corresponds instead to Figure 18 (fifth-force alpha_tilde, a Yukawa/nucleon quantity) and does NOT match the d_e/ScalarElectron hint. The red curve wiggles; values are the smoothed envelope. Minimum ~6e-8 near m_phi~2e-23 eV, rising to ~1.5e-5 at 1e-20 eV. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=2.50 snapped to identity)",
+  "num_points": 29,
+  "elapsed_s": 227.5409231185913
+}

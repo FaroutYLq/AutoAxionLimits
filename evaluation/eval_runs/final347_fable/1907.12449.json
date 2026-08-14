@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "1907.12449",
+  "paper_title": "WISPDMX",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2e-07,
+      1e-12
+    ],
+    [
+      8.602e-07,
+      1e-13
+    ],
+    [
+      8.646e-07,
+      1e-13
+    ],
+    [
+      1.3088e-06,
+      1e-13
+    ],
+    [
+      1.3358e-06,
+      1e-13
+    ],
+    [
+      1.882e-06,
+      1e-13
+    ],
+    [
+      1.8977e-06,
+      1e-13
+    ],
+    [
+      2.07e-06,
+      1e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "WISPDMX",
+  "coupling_convention": "dimensionless kinetic mixing chi",
+  "notes": "First science run of WISPDMX, a tunable 208 MHz HERA RF cavity haloscope searching for hidden photon dark matter (0.4 neV to 2.07 ueV). No exclusion-limit table is provided; numerical values are taken from the abstract/text: chi ~ 1e-13 within the resonant tuning ranges of the four cavity modes (TM010: 0.8602-0.8646 ueV, TE111: 1.3088-1.3358 ueV, TM020: 1.8820-1.8977 ueV) and chi ~ 1e-12 for the broadband range 0.2-2.07 ueV, with the limit steadily worsening below 0.2 ueV down to 0.4 neV (that rising portion not quantified in text, so not emitted). Values are order-of-magnitude from text, not digitized from Figs. 18/19, hence moderate extraction confidence. Assumes rho_DM = 0.3 GeV/cm^3, v_esc = 530 km/s; 95% CL. A candidate at 218.017 MHz (0.9016 ueV) was found but rejected as interference upon inspection. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 8,
+  "elapsed_s": 50.37402701377869
+}

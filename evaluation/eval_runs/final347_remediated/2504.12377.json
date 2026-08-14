@@ -1,0 +1,130 @@
+{
+  "arxiv_id": "2504.12377",
+  "paper_title": "Search for Axions in Magnetic White Dwarf Polarization at Lick and Keck Observatories",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-14,
+      1.7e-12
+    ],
+    [
+      1e-13,
+      1.7e-12
+    ],
+    [
+      1e-12,
+      1.7e-12
+    ],
+    [
+      1e-11,
+      1.7e-12
+    ],
+    [
+      1e-10,
+      1.7e-12
+    ],
+    [
+      1e-09,
+      1.7e-12
+    ],
+    [
+      5e-09,
+      1.7e-12
+    ],
+    [
+      1e-08,
+      1.65e-12
+    ],
+    [
+      3e-08,
+      1.65e-12
+    ],
+    [
+      6e-08,
+      1.7e-12
+    ],
+    [
+      1e-07,
+      1.75e-12
+    ],
+    [
+      1.5e-07,
+      1.85e-12
+    ],
+    [
+      2e-07,
+      2e-12
+    ],
+    [
+      2.5e-07,
+      2.3e-12
+    ],
+    [
+      3e-07,
+      2.7e-12
+    ],
+    [
+      4e-07,
+      3.5e-12
+    ],
+    [
+      5e-07,
+      4.5e-12
+    ],
+    [
+      6e-07,
+      5.8e-12
+    ],
+    [
+      7e-07,
+      7e-12
+    ],
+    [
+      8e-07,
+      8.5e-12
+    ],
+    [
+      1e-06,
+      1.1e-11
+    ],
+    [
+      1.3e-06,
+      1.6e-11
+    ],
+    [
+      1.6e-06,
+      2.3e-11
+    ],
+    [
+      2e-06,
+      3.5e-11
+    ],
+    [
+      2.5e-06,
+      5.2e-11
+    ],
+    [
+      3e-06,
+      7e-11
+    ],
+    [
+      3.5e-06,
+      9e-11
+    ],
+    [
+      4e-06,
+      1e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "MWD Polarization (Lick/Keck) J033320",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis",
+  "notes": "Astrophysical (non-DM) bound from magnetic white dwarf polarization at Lick/Keck. Best limit from MWD J033320: |g_agamma| < 1.7e-12 GeV^-1 (95% CL), nearly mass-independent for m_a < 2e-7 eV (signal suppressed at higher masses). Encoded as horizontal flat line spanning the low-mass validity range. Other MWDs give weaker limits (1.6e-11 to 4.2e-12). No dark matter assumption\u2014relativistic axions produced in stellar B-field. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 28)) | Vision: Traced the red curve (j033320+000720 Lick), the most constraining limit and this work's primary result. Flat bound ~1.7e-12 GeV^-1 for m_a below ~2e-7 eV (consistent with abstract/text), rising steeply above. X-axis spans 1e-14 to ~1e-5 eV with major ticks every 2 decades; Y-axis 1e-13 to 1e-10 GeV^-1. Other dashed curves (other MWDs) lie above the red curve and are weaker. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.93 snapped to identity)",
+  "num_points": 28,
+  "elapsed_s": 88.56632018089294
+}

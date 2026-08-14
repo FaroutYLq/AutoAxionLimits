@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "2212.02403",
+  "paper_title": "Search for ultralight axion dark matter in a side-band analysis of a 199Hg free-spin precession signal",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-16,
+      3.5e-06
+    ],
+    [
+      1e-15,
+      3.5e-05
+    ],
+    [
+      1e-14,
+      0.00035
+    ],
+    [
+      1e-13,
+      0.0035
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "PSI_HgM_sideband",
+  "coupling_convention": "g_aNN in GeV^-1 (axion-nucleon derivative coupling as defined in Eq. (3)/(13) of the paper; NOT converted to dimensionless g_an)",
+  "notes": "New 95% C.L. exclusion on axion-nucleon coupling g_aNN from sideband analysis of 199Hg free-spin-precession at PSI, covering 1e-16 eV < m_a < 1e-13 eV. Only the peak sensitivity g_aNN ~ 3.5e-6 GeV^-1 (at the low-frequency end near the carrier fHg=7.88 Hz sidebands) is given explicitly in text; no numerical table provided. The other data points are approximate, obtained by scaling linearly with axion frequency per Eq. (13) (g \u221d (fi - fHg)/amplitude with roughly flat noise floor), so they should be treated as an estimated envelope of the exclusion curve in Fig. 4. Note sensitivity gaps at multiples of fHg and a dip near 4 Hz are not captured. The 199Hg system is primarily sensitive to g_ann (factor ~10 weaker dependence on g_app), so AxionNeutron is appropriate. Coupling values are in GeV^-1; multiply by ~2*m_n (1.879 GeV) if dimensionless g_an is needed downstream. rho_DM = 0.4 GeV/cm^3 assumed (conservative lower bound). | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 4))",
+  "num_points": 4,
+  "elapsed_s": 120.79202508926392
+}

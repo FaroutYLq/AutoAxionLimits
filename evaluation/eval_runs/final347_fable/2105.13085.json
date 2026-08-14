@@ -1,0 +1,174 @@
+{
+  "arxiv_id": "2105.13085",
+  "paper_title": "Constraints on dark photon dark matter using data from LIGO's and Virgo's third observing run",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.136e-14,
+      8e-41
+    ],
+    [
+      4.55e-14,
+      2e-41
+    ],
+    [
+      4.963e-14,
+      8e-42
+    ],
+    [
+      5.377e-14,
+      3e-42
+    ],
+    [
+      5.79e-14,
+      1.5e-42
+    ],
+    [
+      6.204e-14,
+      8e-43
+    ],
+    [
+      6.618e-14,
+      4e-43
+    ],
+    [
+      7.445e-14,
+      1.5e-43
+    ],
+    [
+      8.272e-14,
+      5e-44
+    ],
+    [
+      9.099e-14,
+      2e-44
+    ],
+    [
+      1.034e-13,
+      8e-45
+    ],
+    [
+      1.158e-13,
+      4e-45
+    ],
+    [
+      1.241e-13,
+      2.5e-45
+    ],
+    [
+      1.448e-13,
+      1e-45
+    ],
+    [
+      1.654e-13,
+      5e-46
+    ],
+    [
+      1.861e-13,
+      3e-46
+    ],
+    [
+      2.068e-13,
+      1.5e-46
+    ],
+    [
+      2.275e-13,
+      8e-47
+    ],
+    [
+      2.482e-13,
+      6e-47
+    ],
+    [
+      2.895e-13,
+      5e-47
+    ],
+    [
+      3.309e-13,
+      4e-47
+    ],
+    [
+      3.722e-13,
+      3.5e-47
+    ],
+    [
+      4.136e-13,
+      3.2e-47
+    ],
+    [
+      4.963e-13,
+      3e-47
+    ],
+    [
+      6.204e-13,
+      3e-47
+    ],
+    [
+      8.272e-13,
+      3e-47
+    ],
+    [
+      1.034e-12,
+      3.2e-47
+    ],
+    [
+      1.241e-12,
+      3.5e-47
+    ],
+    [
+      1.448e-12,
+      4e-47
+    ],
+    [
+      1.654e-12,
+      4.5e-47
+    ],
+    [
+      2.068e-12,
+      6e-47
+    ],
+    [
+      2.482e-12,
+      8e-47
+    ],
+    [
+      2.895e-12,
+      1e-46
+    ],
+    [
+      3.309e-12,
+      1.2e-46
+    ],
+    [
+      4.136e-12,
+      1.8e-46
+    ],
+    [
+      4.963e-12,
+      2.2e-46
+    ],
+    [
+      6.204e-12,
+      3.5e-46
+    ],
+    [
+      7.445e-12,
+      6e-46
+    ],
+    [
+      8.272e-12,
+      1e-45
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "LIGO-Virgo O3 dark photon search",
+  "coupling_convention": "epsilon^2_95% \u2014 SQUARED dark photon U(1)_B coupling strength, exactly as plotted on the y-axis (not linear epsilon, not kinetic mixing chi)",
+  "notes": "LVK O3 search for dark photon dark matter coupled to baryon number U(1)_B, mass range ~1e-14 to 1e-11 eV (10-2000 Hz). Only the two best-point numerical values are quoted in text: cross-correlation method eps^2 ~ 2.65e-46 at m_A ~ 4.31e-13 eV; BSD excess-power method eps^2 ~ 2.4e-47 at m_A ~ 5.7e-13 eV. Full frequency-dependent limits are in Fig. 3 (not numerically extractable from text). Note this is a U(1)_B gauge boson coupling eps (relative to e), not kinetic mixing chi \u2014 enum lacks a U(1)_B category, so DarkPhoton is used per the hint; VectorBL was considered but paper's primary result is U(1)_B (B-L limits obtained by multiplying by 4). Local DM density value not explicitly stated in extracted text. To get eps, take sqrt of the emitted coupling values. | selector: figure_vision over text (quality (0, 1, 0, 1, 2, 0, 0.55, 39)) | Vision: Exclusion plot is Fig. 3 of the paper (fig_04.png), NOT fig_05.png (which is a PSD zoom near 1498.8 Hz). The paper constrains a U(1)_B (baryon-coupled) dark photon; y-axis is epsilon^2 at 95% CL, so values are SQUARED couplings and are emitted as plotted per the plotted-values contract. Lower boundary traced along the black BSD curve (more stringent than red cross-correlation), smoothing over narrow instrumental spikes (e.g. ~19 Hz, 60 Hz harmonics, ~500 Hz, ~1000 Hz violin modes). X values converted from frequency via m = 4.136e-15 * f, consistent with top mass axis (-13 to -11 in log10 eV). Coupling type marked DarkPhoton per hint, but note it is a baryon-number gauge coupling, not kinetic mixing; hence moderate confidence. Eotvos and MICROSCOPE comparison lines also shown; MICROSCOPE reads ~3e-46 at 100 Hz (4.1e-13 eV). | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity) | WARNING: median coupling 2.2e-46 outside range [1e-22, 1e+00]; no decade factor recovers it | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+  "num_points": 39,
+  "elapsed_s": 174.27124667167664
+}

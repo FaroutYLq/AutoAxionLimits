@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2303.00778",
+  "paper_title": "Stellar limits on scalars from electron-nucleus bremsstrahlung",
+  "coupling_type": "ScalarBaryon",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.001,
+      7e-13
+    ],
+    [
+      1000.0,
+      7e-13
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "WDLF_Bremsstrahlung",
+  "coupling_convention": "dimensionless Yukawa coupling g_B of a baryophilic scalar (alpha_B = g_B^2/4pi <= 3.4e-26 => g_B <= 7e-13)",
+  "notes": "Paper derives new stellar energy-loss bounds from the white-dwarf luminosity function via electron-nucleus bremsstrahlung. Main results: g_B < 7e-13 (alpha_B < 3.4e-26) for baryophilic scalars, g_L < 4e-16 (alpha_e < 1.2e-32) for leptophilic scalars, and Higgs-portal mixing sin(theta) < 1.9e-10, all at nominal 95% CL. Bounds are mass-independent for m_phi < ~1 keV; encoded as a flat line from 1e-3 eV to 1e3 eV (matching Fig. 3 range and stated validity m_phi <~ 1 keV). Extracted the baryophilic bound per the pre-analysis hint; the paper equally constrains the leptophilic coupling (ScalarElectron-like, g_L=4e-16), hence confidence <= 0.7. Not a dark-matter search, so no local DM density assumed. Paper notably corrects previous much stronger bounds (refs [25,26]) that missed the (me/mp)^2 suppression. | [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 2.4 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | [CONVENTION REVIEW] declared coupling convention 'dimensionless Yukawa coupling g_B of a baryophilic scalar (alpha_B = g_B^2/4pi <= 3.4e-26 => g_B <= 7e-13)' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 2,
+  "elapsed_s": 116.73689484596252
+}

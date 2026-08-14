@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "1804.05750",
+  "paper_title": "A Search for Invisible Axion Dark Matter with the Axion Dark Matter Experiment",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      2.66e-06,
+      3.9e-16
+    ],
+    [
+      2.72e-06,
+      4e-16
+    ],
+    [
+      2.75e-06,
+      4.05e-16
+    ],
+    [
+      2.81e-06,
+      4.13e-16
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "ADMX2018",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "ADMX Gen2 haloscope, 645-680 MHz (2.66-2.81 ueV). Excludes DFSZ axion-photon coupling for 100% DM at rho=0.45 GeV/cm^3 (Maxwellian). y-axis of Fig.4 in units of 10^-16 GeV^-1; exclusion limit reaches DFSZ line (~4e-16 GeV^-1). Data points approximate the DFSZ-level exclusion across the mass range since exact per-frequency values are not tabulated. N-body model uses rho=0.63 GeV/cc. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.8, 4))",
+  "num_points": 4,
+  "elapsed_s": 92.95884609222412
+}

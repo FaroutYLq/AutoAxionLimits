@@ -1,0 +1,30 @@
+{
+  "arxiv_id": "2404.00616",
+  "paper_title": "Prospects of nuclear-coupled-dark-matter detection via correlation spectroscopy of I$_2^+$ and Ca$^+$",
+  "coupling_type": "ScalarBaryon",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      1e-21,
+      1e-08
+    ],
+    [
+      1e-18,
+      1e-05
+    ],
+    [
+      1e-14,
+      0.1
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "I2_Ca_CorrelationSpectroscopy",
+  "coupling_convention": "dimensionless d_g (scalar coupling to gluons)",
+  "notes": "Projection (proposed experiment) for scalar ULDM coupling to gluons d_g via I2+/Ca+ correlation spectroscopy. Text states projected reach dg >~ 1e-5 * (m_phi/1e-18 eV) over mass range ~1e-21 to 1e-14 eV; data points computed from this linear scaling. Paper also projects axion decay constant fa (Fig 3b) which maps to AxionMass; d_g gluon coupling is here mapped to ScalarBaryon per enum note, but could alternatively be ScalarNucleon (nucleon-mass coupling) \u2014 hence reduced confidence. Data extracted from scaling relations in text, not a table. | [VISION GATE A] is_projection=true but the vision notes say the traced curve is existing experiment 'i2ca' \u2014 not the paper's own projected curve | selector: text (sole candidate) | [COUPLING REVIEW] axis 'GeV^-1 (inverse axion decay constant 1/f_a)' implies AxionMass but classified ScalarBaryon (cross-family contradiction \u2014 flagged, not overridden) | [CONVENTION REVIEW] declared coupling convention 'dimensionless d_g (scalar coupling to gluons)' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 3,
+  "elapsed_s": 132.46823906898499
+}

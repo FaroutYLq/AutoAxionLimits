@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2406.10337",
+  "paper_title": "Getting More Out of Black Hole Superradiance: a Statistically Rigorous Approach to Ultralight Boson Constraints from Black Hole Spin Measurements",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      6e-13,
+      0.095
+    ],
+    [
+      3e-12,
+      0.019
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.35,
+  "suggested_experiment_name": "BHSR_M33X7_IRAS09149_Hoof2025",
+  "coupling_convention": "f_a in GeV (from QCD axion relation Eq.12) vs m_a in eV; QCD-axion-line intersection of the 2D (mu, f^-1) exclusion for M33 X-7",
+  "notes": "Black hole superradiance constraints on ultralight boson mass mu and self-interaction/decay constant f (f^-1). Primary result is a 2D exclusion region in the (mu, f^-1 [GeV^-1]) plane (Fig. 4) for two BHs (stellar-mass M33 X-7 and SMBH IRAS 09149-6206), reported at 95% credible region. These contours are only available as plots and cannot be read numerically here. The cleanest text-based limit is the QCD-axion excluded mass band for M33 X-7: 0.6 peV < mu < 3 peV, which I converted to f_a using Eq.(12) mu = 5.691 neV x (1e15 GeV / f_a), giving f_a ~ 1.9e18-9.5e18 GeV. IRAS 09149-6206 constrains much lighter bosons around mu ~ 3e-19 eV (SMBH). This is an astrophysical bound, so no DM density assumption. Coupling type is genuinely ambiguous between AxionMass (f_a-m_a plane) and a decay-constant f^-1 [GeV^-1] representation; confidence kept low. Values are illustrative/derived, not from a table. | selector: text over figure_vision (quality (0, 1, 1, 1, 1, 0, 0.35, 2)) | Auto-corrected couplings: \u00d71e-20 (\u00d71.00e-20, rule=argmin|log10(median*f)-log10(anchor=3.2e-05)|)",
+  "num_points": 2,
+  "elapsed_s": 214.20409297943115
+}

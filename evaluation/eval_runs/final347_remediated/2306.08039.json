@@ -1,0 +1,138 @@
+{
+  "arxiv_id": "2306.08039",
+  "paper_title": "Dark Matter Search with a Resonantly-Coupled Hybrid Spin System",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      4.14e-17,
+      2e-09
+    ],
+    [
+      6.2e-17,
+      1.2e-09
+    ],
+    [
+      8.3e-17,
+      8e-10
+    ],
+    [
+      1.24e-16,
+      5e-10
+    ],
+    [
+      2.07e-16,
+      3.8e-10
+    ],
+    [
+      3.3e-16,
+      3.2e-10
+    ],
+    [
+      4.14e-16,
+      3e-10
+    ],
+    [
+      8.3e-16,
+      2.8e-10
+    ],
+    [
+      1.24e-15,
+      2.9e-10
+    ],
+    [
+      2.07e-15,
+      3.5e-10
+    ],
+    [
+      2.9e-15,
+      4.5e-10
+    ],
+    [
+      4.14e-15,
+      5.5e-10
+    ],
+    [
+      6.2e-15,
+      8e-10
+    ],
+    [
+      8.3e-15,
+      1.1e-09
+    ],
+    [
+      1.24e-14,
+      1.8e-09
+    ],
+    [
+      1.65e-14,
+      2.5e-09
+    ],
+    [
+      2.07e-14,
+      3e-09
+    ],
+    [
+      2.48e-14,
+      3e-09
+    ],
+    [
+      4.14e-14,
+      3e-09
+    ],
+    [
+      8.3e-14,
+      3.2e-09
+    ],
+    [
+      1.24e-13,
+      3.5e-09
+    ],
+    [
+      2.07e-13,
+      6e-09
+    ],
+    [
+      2.9e-13,
+      1.1e-08
+    ],
+    [
+      4.14e-13,
+      2e-08
+    ],
+    [
+      6.2e-13,
+      4.5e-08
+    ],
+    [
+      8.3e-13,
+      8e-08
+    ],
+    [
+      1.24e-12,
+      1.8e-07
+    ],
+    [
+      2.07e-12,
+      5e-07
+    ],
+    [
+      2.9e-12,
+      1.1e-06
+    ],
+    [
+      4.14e-12,
+      2.8e-06
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "Alkali-21Ne Hybrid Spin (SC+HSR)",
+  "coupling_convention": "g_ann (axion-neutron coupling) in GeV^-1, plotted as on y-axis",
+  "notes": "Broadband K-Rb-21Ne hybrid spin comagnetometer (ChangE collaboration) searching axion-nucleon couplings over Compton frequencies [0.01,1000] Hz. Paper reports BOTH axion-neutron (gann) and axion-proton (gapp) limits at 95% C.L.; chose AxionNeutron per hint and as the flagship result (gann <= 3e-10 GeV^-1 in [0.02,4] Hz via SC regime; ~3e-9 GeV^-1 in [3,30] Hz via HSR; scaling ~f^2 for [30,1000] Hz). Full tabulated data are in an external reference [38], not in the paper text, so points are APPROXIMATE reconstructions from stated text values. Couplings given in GeV^-1 (derivative coupling), NOT the dimensionless g_an convention - a factor of ~2*m_n conversion would be needed for the canonical dimensionless form. Frequencies converted to mass via m=4.136e-15*f. Local DM density 0.4 GeV/cm^3. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 30)) | Vision: Top panel of Fig. 4: axion-neutron coupling g_ann (GeV^-1) vs f_a (Hz). Lower boundary is composite of This work (SC) dark-blue curve (0.01-6 Hz, reaching ~3e-10 minimum near 0.1-0.3 Hz) and This work (HSR) brown/red curve (flat ~3e-9 over 3-30 Hz, rising ~f^2 to ~1e-5 at 1000 Hz). Mass axis converted via m_a[eV]=4.136e-15*f[Hz] consistent with top axis labels. g_ann is a dimensionful coupling (GeV^-1); emitted exactly as plotted per instructions. Values read from log-log plot, approximate. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.20 snapped to identity)",
+  "num_points": 30,
+  "elapsed_s": 159.15852999687195
+}

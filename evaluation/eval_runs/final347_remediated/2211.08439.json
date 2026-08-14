@@ -1,0 +1,17 @@
+{
+  "arxiv_id": "2211.08439",
+  "paper_title": "Towards an electrostatic storage ring for fundamental physics measurements",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": false,
+  "is_projection": true,
+  "data_points": [],
+  "data_source": "none",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.25,
+  "suggested_experiment_name": "ElectrostaticStorageRing2022",
+  "coupling_convention": "dimensionless g_ae",
+  "notes": "Conference proceeding describing a proposed electrostatic storage ring. Projected (not measured) sensitivities shown in Fig. 4 for axion-electron coupling (left panel, demonstrator) and axion-nucleon coupling (right panel, final stage with polarized Xe), covering mass range 1e-19 to 1e-9 eV. Also mentions dark photon DM. Pre-analysis hint of AxionEDM is misleading: the EDM part is a separate use case, while the DM projections are on axion-electron and axion-nucleon spin couplings. No numerical tables provided; the exclusion curves are only in a figure with unreadable axis tick placement, so no reliable data points could be extracted. Coupling type ambiguous between AxionElectron and AxionNeutron (two panels). | [VISION GATE A] is_projection=true but the vision notes say the traced curve is existing EXCLUSION \u2014 not the paper's own projected curve ; [VISION GATE D] vision notes admit tracing a compilation envelope ('ENVELOPE of the existing EXCLUSION curves') rather than the paper's own single curve",
+  "num_points": 0,
+  "elapsed_s": 130.0501527786255
+}

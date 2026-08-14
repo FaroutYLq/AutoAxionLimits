@@ -1,0 +1,138 @@
+{
+  "arxiv_id": "1707.07921",
+  "paper_title": "Limits on Axion Couplings from the first 80-day data of PandaX-II Experiment",
+  "coupling_type": "AxionElectron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.01,
+      4.35e-11
+    ],
+    [
+      0.015,
+      4.35e-11
+    ],
+    [
+      0.022,
+      4.35e-11
+    ],
+    [
+      0.033,
+      4.35e-11
+    ],
+    [
+      0.05,
+      4.35e-11
+    ],
+    [
+      0.075,
+      4.35e-11
+    ],
+    [
+      0.11,
+      4.35e-11
+    ],
+    [
+      0.17,
+      4.35e-11
+    ],
+    [
+      0.25,
+      4.35e-11
+    ],
+    [
+      0.37,
+      4.35e-11
+    ],
+    [
+      0.55,
+      4.35e-11
+    ],
+    [
+      0.83,
+      4.35e-11
+    ],
+    [
+      1.24,
+      4.35e-11
+    ],
+    [
+      1.86,
+      4.35e-11
+    ],
+    [
+      2.8,
+      4.35e-11
+    ],
+    [
+      4.2,
+      4.35e-11
+    ],
+    [
+      6.3,
+      4.35e-11
+    ],
+    [
+      9.4,
+      4.35e-11
+    ],
+    [
+      14.0,
+      4.35e-11
+    ],
+    [
+      21.0,
+      4.35e-11
+    ],
+    [
+      32.0,
+      4.35e-11
+    ],
+    [
+      48.0,
+      4.35e-11
+    ],
+    [
+      72.0,
+      4.35e-11
+    ],
+    [
+      108.0,
+      4.35e-11
+    ],
+    [
+      162.0,
+      4.3999999999999997e-11
+    ],
+    [
+      243.0,
+      4.3999999999999997e-11
+    ],
+    [
+      365.0,
+      4.5e-11
+    ],
+    [
+      548.0,
+      4.5999999999999996e-11
+    ],
+    [
+      750.0,
+      4.7999999999999996e-11
+    ],
+    [
+      1000.0,
+      5.1999999999999995e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.75,
+  "suggested_experiment_name": "PandaX-II (solar axion CBRD)",
+  "coupling_convention": "canonical g_Ae, dimensionless",
+  "notes": "PandaX-II constrains the axion-electron coupling g_Ae. Reported here is the solar-axion (CBRD) flat limit g_Ae <= 4.35e-12 for m_a from 1e-5 to 1 keV/c^2 (=1e-2 to 1e3 eV), stated as similar to LUX. NOTE: the paper is internally inconsistent about the number: abstract says 4.35e-12, main text says 4e-13, and the summary says 4.35e-11 (4.35e-12 chosen as consistent with 'similar to LUX' ~3.5e-12). Additional results not encoded here: (1) a 57Fe 14.4 keV monoenergetic solar-axion line reaching g_Ae ~6e-14 at m_a=10 keV; (2) galactic ALP (dark matter, rho=0.3 GeV/cm^3) limit ~few\u00d710^-13 (text: <=4e-13; summary: <4.3e-14) over m_a=1-25 keV, which is mass-dependent (Fig.4). The galactic part is the DM-search component justifying the 0.3 GeV/cm^3 density. Curves in Fig.3/Fig.4 not digitizable from text. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.75, 30)) | Vision: Figure 3 solar axion g_Ae vs axion mass. Traced PandaX-II solid red CBRD limit, which is essentially mass-independent at ~4.35e-12 (abstract value) for 1e-5 < m_A < 1 keV/c^2 (mass in eV: 0.01-1000). The paper also shows a separate 57Fe 14.4 keV diagonal line reaching 6e-14 at 10 keV (not traced here as it is a distinct signal channel). Text/OCR in figure captions inconsistently reads 4e-13 and 4.35e-11, but abstract clearly states 4.35e-12, matching the plotted position between the 1e-11 and 1e-12 gridlines. Axis calibration (x:1e-5 to 15 keV, y:3e-14 to 1e-9) matches Fig.3. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=10.00)",
+  "num_points": 30,
+  "elapsed_s": 151.88208603858948
+}

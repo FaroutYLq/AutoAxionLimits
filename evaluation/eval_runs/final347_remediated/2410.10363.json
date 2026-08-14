@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2410.10363",
+  "paper_title": "FASER",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      10000000.0,
+      0.0001
+    ],
+    [
+      80000000.0,
+      0.0001
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "FASER2024_ALP",
+  "coupling_convention": "g_agamma in GeV^-1 (ALP-photon coupling)",
+  "notes": "FASER search for light long-lived particles decaying to photon pairs (57.7 fb^-1, 13.6 TeV). This is a real observed (non-projection) collider limit, but the paper's PRIMARY, world-leading result is on the ALP-W coupling g_aWW (coupling to weak gauge bosons, in GeV^-1), which does NOT map to any enum value. Secondary interpretations include ALP-photon (g_agamma, AxionPhoton, GeV^-1), ALP-gluon, U(1)_B baryonic vector boson, up-philic scalar, 2HDM, and a dark-photon reinterpretation (kinetic mixing chi, DarkPhoton) in the appendix. I selected AxionPhoton from the ALP-photon interpretation (Fig 11 left), where the text states FASER probes ALP masses up to ~80 MeV with couplings down to ~1e-4 GeV^-1; data points are approximate (two-point lower-boundary from text, exact contour not tabulated). Coupling type is ambiguous across multiple models (hence low confidence); this is a collider bound, not a DM haloscope, so no local DM density. Note pre-analysis hinted DarkPhoton, which is only an appendix reinterpretation with even sparser numbers. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.4, 2))",
+  "num_points": 2,
+  "elapsed_s": 140.81475400924683
+}

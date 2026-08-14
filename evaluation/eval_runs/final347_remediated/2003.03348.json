@@ -1,0 +1,166 @@
+{
+  "arxiv_id": "2003.03348",
+  "paper_title": "Search for axion-like dark matter with ferromagnets",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.3e-11,
+      6e-10
+    ],
+    [
+      1.5e-11,
+      1.6e-10
+    ],
+    [
+      1.7e-11,
+      3e-10
+    ],
+    [
+      1.9e-11,
+      9e-11
+    ],
+    [
+      2.1e-11,
+      1.5e-10
+    ],
+    [
+      2.4e-11,
+      7e-11
+    ],
+    [
+      2.7e-11,
+      1.1e-10
+    ],
+    [
+      3e-11,
+      6.5e-11
+    ],
+    [
+      3.3e-11,
+      1e-10
+    ],
+    [
+      3.6e-11,
+      5.5e-11
+    ],
+    [
+      4e-11,
+      5e-11
+    ],
+    [
+      4.5e-11,
+      4.5e-11
+    ],
+    [
+      5e-11,
+      4.3e-11
+    ],
+    [
+      6e-11,
+      4.4e-11
+    ],
+    [
+      7e-11,
+      4.5e-11
+    ],
+    [
+      8e-11,
+      4.6e-11
+    ],
+    [
+      1e-10,
+      4.8e-11
+    ],
+    [
+      1.3e-10,
+      5e-11
+    ],
+    [
+      1.7e-10,
+      5.2e-11
+    ],
+    [
+      2.2e-10,
+      5.4e-11
+    ],
+    [
+      2.8e-10,
+      5.7e-11
+    ],
+    [
+      3.2e-10,
+      5.9e-11
+    ],
+    [
+      3.6e-10,
+      6e-11
+    ],
+    [
+      4.5e-10,
+      6.1e-11
+    ],
+    [
+      6e-10,
+      6.4e-11
+    ],
+    [
+      8e-10,
+      6.7e-11
+    ],
+    [
+      1e-09,
+      7e-11
+    ],
+    [
+      1.4e-09,
+      7.5e-11
+    ],
+    [
+      2e-09,
+      8e-11
+    ],
+    [
+      2.8e-09,
+      8.8e-11
+    ],
+    [
+      3.7e-09,
+      1e-10
+    ],
+    [
+      5e-09,
+      1.1e-10
+    ],
+    [
+      6.5e-09,
+      1.3e-10
+    ],
+    [
+      8e-09,
+      1.5e-10
+    ],
+    [
+      9.5e-09,
+      1.8e-10
+    ],
+    [
+      1.1e-08,
+      2.3e-10
+    ],
+    [
+      1.2e-08,
+      3e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "SHAFT (ferromagnetic toroid axion search)",
+  "coupling_convention": "canonical g_agamma in GeV^-1, as plotted on y-axis |g_agamma|",
+  "notes": "SHAFT ferromagnetic toroid haloscope, axion-like DM electromagnetic coupling g_agamma. Mass range 12 peV to 12 neV. Best limit 4.0e-11 GeV^-1 at 20 peV (95% CL). Data points reconstructed from text statements (best point, benchmark 0.7 neV/8.8e-10 point); full exclusion curve only available in Fig. 4(c), so intermediate values are approximate. DM density 0.45 GeV/cm^3, standard halo model v0=220 km/s. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 37)) | Vision: Exclusion plot is figure 5 panel (c), not image 6. Blue curve is lower boundary of excluded region; excluded above. Minimum sensitivity ~4.3e-11 GeV^-1 near mass ~5e-11 eV. Numerous narrow spikes (interference lines) at low mass and around 3.5e-10 and 3.7e-9 eV where the boundary jumps upward; sampled the envelope. Horizontal gray CAST line at ~6.6e-11 GeV^-1 used to calibrate the y-scale. ABRACADABRA limit (gray) also shown at higher mass but is not this experiment's boundary. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.81 snapped to identity)",
+  "num_points": 37,
+  "elapsed_s": 116.90762186050415
+}

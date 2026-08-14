@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "1811.10997",
+  "paper_title": "Constraining the photon coupling of ultra-light dark-matter axion-like particles by polarization variations of parsec-scale jets in active galaxies",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5e-23,
+      3e-13
+    ],
+    [
+      1e-22,
+      5e-13
+    ],
+    [
+      2e-22,
+      8e-13
+    ],
+    [
+      5e-22,
+      1.5e-12
+    ],
+    [
+      1e-21,
+      2.5e-12
+    ],
+    [
+      1.2e-21,
+      3e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 20.0,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "MOJAVE_VLBA_AGN_polarization",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "Constraint on axion-photon coupling from periodic EVPA (polarization angle) oscillations of parsec-scale AGN jets in MOJAVE VLBA data. 95% CL limit ~10^-12 GeV^-1 for m between 5e-23 and 1.2e-21 eV (Fig 6, kappa=1). Limit scales as ga\u03b3 \u221d m (from Eq 2.2), so weakens toward higher mass; data points approximate the Figure 6 curve. Assumed DM density \u03c1DM~20 GeV/cm^3 in elliptical galaxy centers (kappa=1); limits scale as \u03ba^1/2. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 6,
+  "elapsed_s": 42.00848317146301
+}

@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2412.09595",
+  "paper_title": "SuperKamiokande",
+  "coupling_type": "AxionProton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1000000.0,
+      2e-05
+    ],
+    [
+      10000000.0,
+      2e-05
+    ],
+    [
+      30000000.0,
+      2e-05
+    ],
+    [
+      50000000.0,
+      2e-05
+    ],
+    [
+      70000000.0,
+      2e-05
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.55,
+  "suggested_experiment_name": "SuperKamiokande_DiffuseSNALP",
+  "coupling_convention": "dimensionless g_ap (lower edge of excluded band)",
+  "notes": "Paper derives constraints on ALP-proton coupling g_ap from a diffuse galactic SN ALP flux detected via a p->p gamma in Super-Kamiokande. Excluded region spans g_ap ~2e-5 to ~2e-4 for m_a ~1-70 MeV, above SN1987A cooling bounds. Pre-analysis hint of AxionElectron is WRONG; this is clearly AxionProton (Can=0, Cap=-0.47 fixed). The exclusion is a closed band; I emit the lower boundary (~2e-5) as the primary new limit across 1-70 MeV. Upper boundary ~2e-4 (above which ALPs are trapped). HK results are projections (not included here). Values read from Fig 4/6 description, hence approximate. 95% C.L. from Wilks/profiled log-likelihood. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.55, 5))",
+  "num_points": 5,
+  "elapsed_s": 144.81813192367554
+}

@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "2212.04413",
+  "paper_title": "Search for ultralight dark matter with spectroscopy of radio-frequency atomic transitions",
+  "coupling_type": "ScalarPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.03e-17,
+      0.00137
+    ],
+    [
+      4.14e-16,
+      0.055
+    ],
+    [
+      4.14e-15,
+      0.55
+    ],
+    [
+      4.14e-14,
+      5.5
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "DyQuartz_UBDM_2022",
+  "coupling_convention": "dimensionless d_e, derived from delta_f/f ~ 8e-11 via Eq.(9)",
+  "notes": "Paper constrains several couplings: scalar d_e (alpha variation -> ScalarPhoton, best bound from Dy/quartz, Fig 3a), d_me (ScalarElectron), d_g (ScalarNucleon/QCD scale), and a quadratic QCD axion-gluon coupling 1/f_phi (Fig 4). The strongest/headline result is on d_e via the Dy electronic transition (K_alpha=2.6e6), improving previous oscillation searches by up to ~3 orders of magnitude. No numerical table of the exclusion curve is provided; data points here are DERIVED from the quoted Dy sensitivity delta_f/f ~ 8e-11 (giving delta_alpha/alpha ~ 3e-17) using d_e = (delta_f/f) M_Pl m_phi / (2e6 * sqrt(2 rho_DM)), with rho_DM = 3e-6 eV^4 and a stochastic weakening factor ~4.4 below ~50 Hz. Bound scales linearly with mass (weaker/larger d_e at higher mass, exceeding 1 above ~1e-13 eV). Mass range for scalar search: 1e-17 to 8.3e-13 eV. Values approximate; treat plot-level accuracy as low. Multiple coupling types present so confidence limited. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.4, 4))",
+  "num_points": 4,
+  "elapsed_s": 380.8604109287262
+}

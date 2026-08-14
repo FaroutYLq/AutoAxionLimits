@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "2411.13701",
+  "paper_title": "COBEFIRAS_Cyr",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-12,
+      3e-12
+    ],
+    [
+      1e-09,
+      3e-12
+    ],
+    [
+      1e-06,
+      3e-12
+    ],
+    [
+      0.0001,
+      3e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "COBE_FIRAS_AxionConversion_Cyr2024",
+  "coupling_convention": "g_agamma in GeV^-1, converted from the epsilon limit via Eq.(3c) assuming B0_rms = 1 nG (epsilon = g_agamma*B/(1e-10 GeV^-1 nG))",
+  "notes": "Paper revisits constraints on resonant axion-photon conversion from CMB spectral distortions (COBE/FIRAS reanalysis + CosmoTherm). This is an AxionPhoton (g_agamma) bound, NOT dark photon (the dark photon case is their companion work). Primary result plotted as epsilon vs m_a (Fig.11) and g_agamma vs m_a (Fig.13) over ma ~ 1e-13 to 1e-4 eV. The FIRAS constraint is roughly mass-independent in the mu/y era at epsilon ~ few x 1e-2 (they use epsilon~4e-2 as 'a bit above the FIRAS limit'). Converting to g_agamma requires an assumed primordial B-field; I used B0_rms = 1 nG (their quoted Planck upper bound) giving g_agamma ~ 3e-12 GeV^-1. Values are approximate plot/text reads, and scale linearly with B. Limits weaken (rise) at low mass with edges/features below ~1e-11 eV. PIXIE forecast ~2 orders of magnitude better. 95% c.l. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.4, 4))",
+  "num_points": 4,
+  "elapsed_s": 170.10745310783386
+}

@@ -1,0 +1,34 @@
+{
+  "arxiv_id": "2412.02232",
+  "paper_title": "Searches for signatures of ultra-light axion dark matter in polarimetry data of the European Pulsar Timing Array",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      6e-24,
+      5e-13
+    ],
+    [
+      8e-24,
+      5e-13
+    ],
+    [
+      3e-23,
+      2e-13
+    ],
+    [
+      5e-21,
+      2e-13
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "EPTA_Polarimetry_2024",
+  "coupling_convention": "g_agamma in GeV^-1",
+  "notes": "EPTA pulsar polarimetry birefringence search for ultra-light ALP dark matter constraining g_agamma over mass range 6e-24 to 5e-21 eV. Values extracted from text: frequentist best-sensitivity ~5e-13 GeV^-1 at 8e-24 eV (conclusions; note Sec V quotes 4e-14 GeV^-1, internal inconsistency), Bayesian conservative best 2e-13 GeV^-1 at 3e-23 eV. Actual limit curves are in Fig.7/Fig.10 (not numerically tabulated). DM density 0.4 GeV/cm^3 assumed. 95% C.L. | selector: text over figure_vision (quality (1, 1, 1, 1, 3, 0, 0.6, 4))",
+  "num_points": 4,
+  "elapsed_s": 107.51405715942383
+}

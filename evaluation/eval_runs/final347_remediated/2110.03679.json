@@ -1,0 +1,122 @@
+{
+  "arxiv_id": "2110.03679",
+  "paper_title": "3D template-based $Fermi$-LAT constraints on the diffuse supernova axion-like particle background",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-12,
+      3.5e-11
+    ],
+    [
+      2e-12,
+      3.5e-11
+    ],
+    [
+      5e-12,
+      3.5e-11
+    ],
+    [
+      1e-11,
+      3.5e-11
+    ],
+    [
+      2e-11,
+      3.5e-11
+    ],
+    [
+      5e-11,
+      3.5e-11
+    ],
+    [
+      1e-10,
+      3.5e-11
+    ],
+    [
+      1.5e-10,
+      3.5e-11
+    ],
+    [
+      2e-10,
+      3.6e-11
+    ],
+    [
+      3e-10,
+      3.8e-11
+    ],
+    [
+      4e-10,
+      4.2e-11
+    ],
+    [
+      5e-10,
+      4.7e-11
+    ],
+    [
+      7e-10,
+      5.7e-11
+    ],
+    [
+      1e-09,
+      7.3e-11
+    ],
+    [
+      1.3e-09,
+      9.2e-11
+    ],
+    [
+      1.6e-09,
+      1.1e-10
+    ],
+    [
+      2e-09,
+      1.4e-10
+    ],
+    [
+      2.5e-09,
+      1.8e-10
+    ],
+    [
+      3e-09,
+      2.2e-10
+    ],
+    [
+      4e-09,
+      3.1e-10
+    ],
+    [
+      5e-09,
+      4.1e-10
+    ],
+    [
+      6e-09,
+      5.2e-10
+    ],
+    [
+      7e-09,
+      6.5e-10
+    ],
+    [
+      8e-09,
+      8e-10
+    ],
+    [
+      9e-09,
+      9.5e-10
+    ],
+    [
+      9.5e-09,
+      1e-09
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "Fermi-LAT DSNALPB (3D template)",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted",
+  "notes": "Diffuse supernova ALP background constrained via 12 years of Fermi-LAT data. Benchmark 95% CL upper limit g_agamma < 3.76e-11 GeV^-1 for m_a << 10^-11 eV (mass-independent flat bound in this regime; encoded as horizontal line up to 10^-11 eV). Systematic scenario range spans [2.38, 7.04]e-11 GeV^-1. This is an astrophysical/stellar bound, not a DM haloscope, so no local DM density assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 26)) | Vision: Fig. 10: 95% CL upper limit (solid red) on g_agamma vs m_a assuming benchmark DSNALPB (f_fail-CC=20%). Boundary is the lower edge of the red excluded region. Flat plateau ~3.5e-11 GeV^-1 for m_a below ~2e-10 eV, consistent with text stating massless-ALP limit near [2.38,7.04]e-11 range. Rises steeply above ~5e-10 eV, reaching 1e-9 near 1e-8 eV. Black median/green-yellow bands lie essentially on the red line. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.82 snapped to identity)",
+  "num_points": 26,
+  "elapsed_s": 93.14904713630676
+}

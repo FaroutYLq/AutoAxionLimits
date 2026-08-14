@@ -1,0 +1,130 @@
+{
+  "arxiv_id": "2409.03814",
+  "paper_title": "POLONAISE",
+  "coupling_type": "VectorBL",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.1036e-13,
+      4e-20
+    ],
+    [
+      1.10365e-13,
+      3.5e-20
+    ],
+    [
+      1.1037e-13,
+      3.2e-20
+    ],
+    [
+      1.10375e-13,
+      3e-20
+    ],
+    [
+      1.1038e-13,
+      2.6e-20
+    ],
+    [
+      1.10385e-13,
+      2.1e-20
+    ],
+    [
+      1.1039e-13,
+      1.6e-20
+    ],
+    [
+      1.10395e-13,
+      1.2e-20
+    ],
+    [
+      1.104e-13,
+      9e-21
+    ],
+    [
+      1.10405e-13,
+      6.5e-21
+    ],
+    [
+      1.1041e-13,
+      5e-21
+    ],
+    [
+      1.10413e-13,
+      4.2e-21
+    ],
+    [
+      1.10416e-13,
+      3.6e-21
+    ],
+    [
+      1.1042e-13,
+      3e-21
+    ],
+    [
+      1.10423e-13,
+      3.2e-21
+    ],
+    [
+      1.10426e-13,
+      4e-21
+    ],
+    [
+      1.1043e-13,
+      5.5e-21
+    ],
+    [
+      1.10435e-13,
+      7.5e-21
+    ],
+    [
+      1.1044e-13,
+      1e-20
+    ],
+    [
+      1.10445e-13,
+      1.3e-20
+    ],
+    [
+      1.1045e-13,
+      1.7e-20
+    ],
+    [
+      1.10455e-13,
+      2.1e-20
+    ],
+    [
+      1.1046e-13,
+      2.6e-20
+    ],
+    [
+      1.10465e-13,
+      3e-20
+    ],
+    [
+      1.1047e-13,
+      3.4e-20
+    ],
+    [
+      1.10475e-13,
+      3.7e-20
+    ],
+    [
+      1.1048e-13,
+      4e-20
+    ],
+    [
+      1.10485e-13,
+      4.2e-20
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "POLONAISE",
+  "coupling_convention": "g_B-L, dimensionless gauge coupling as plotted on y-axis",
+  "notes": "First ULDM search with a magnetically levitated particle (Meissner-levitated sub-mm magnet). Constrains B-L gauge coupling in narrow mass range (1.10360-1.10485)e-13 eV (26.685-26.715 Hz). Best 90% CL limit g_B-L < 2.98e-21 at m~1.1042e-13 eV. Only three representative points given here spanning the narrow scanned band; full limit closely follows the median MC limit. Paper also gives projected (future) POLONAISE sensitivities in Fig.4 which are separate projections, not the measured result. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.8, 28)) | Vision: Figure 3: data-driven 90% CL limit on g_B-L vs m_DM. X-axis is LINEAR in units of 10^-13 eV/c^2 (ticks 1.10375, 1.10425, 1.10475; full range ~1.1036-1.10485e-13 eV). Y-axis log scale. The exclusion boundary is the jagged red 'Limit' line forming a V-shape with best constraint g_B-L ~= 2.98e-21 at m ~= 1.1042e-13 eV (f=26.6995 Hz), rising to ~4e-20 at edges. I traced the lower envelope of the oscillating red line. Static Eot-Wash (~1e-23) and MICROSCOPE (~2e-25) horizontal lines are also shown but are separate fifth-force constraints, not this ULDM limit. Fig 4 (image 1) shows only PROJECTIONS (short/medium/long term), not measured exclusion. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.56 snapped to identity)",
+  "num_points": 28,
+  "elapsed_s": 117.3495569229126
+}

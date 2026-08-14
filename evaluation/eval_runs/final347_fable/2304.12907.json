@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2304.12907",
+  "paper_title": "Production rates of dark photons and $Z'$ in the Sun and stellar cooling bounds",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.0001,
+      4.1e-10
+    ],
+    [
+      10000.0,
+      4.1e-10
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "SolarCooling_BL_LiXu2023",
+  "coupling_convention": "dimensionless g_BL (U(1)_{B-L} gauge coupling g_Z')",
+  "notes": "Paper derives stellar cooling (Solar, HB, RG) bounds on U(1) gauge bosons for dark photon, B-L, Lmu-Ltau, Le-Lmu(tau) models. Extracted the B-L solar cooling bound explicitly quoted in conclusions: gZ' < 4.1e-10 for mZ' <~ 10 keV, encoded as a flat two-point line over the low-mass plateau (figure range extends down to ~1e-4 eV). The bound criterion is dEloss/dt < 10% L_sun (an energy-loss argument, not a statistical CL; 0.95 is nominal). The paper also constrains Le-Lmu(tau) (gZ' < 3.9e-11) and dark photon kinetic mixing, but per the B-L hint and enum, VectorBL data is reported. Stronger RG/HB bounds exist only in figures (not digitized). No DM density assumed (Z' produced thermally in stars, not a haloscope). | [VISION GATE D] vision notes admit tracing a compilation envelope ('union of') rather than the paper's own single curve ; [TEXT-VISION DISAGREEMENT] vision trace differs from the in-range text anchor by 4.2 dex (> 2.0) over the shared mass range \u2014 likely wrong curve; deferred to text | selector: text (sole candidate) | coupling type VectorBL -> DarkPhoton by axis read-back 'kinetic mixing \u03b5 or gauge coupling g_Z', dimensionless (linear coupling, not squared)' (same confusable family, #625 Phase 3) | [CONVENTION REVIEW] declared coupling convention 'dimensionless g_BL (U(1)_{B-L} gauge coupling g_Z')' is not canonical and has no vetted auto-conversion; needs human review",
+  "num_points": 2,
+  "elapsed_s": 171.8798429965973
+}

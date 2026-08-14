@@ -1,0 +1,182 @@
+{
+  "arxiv_id": "1902.04644",
+  "paper_title": "Constraints on bosonic dark matter from ultralow-field nuclear magnetic resonance",
+  "coupling_type": "AxionNeutron",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.86e-16,
+      5.5e-05
+    ],
+    [
+      2.1e-16,
+      5.6e-05
+    ],
+    [
+      2.5e-16,
+      6.8e-05
+    ],
+    [
+      3e-16,
+      8.2e-05
+    ],
+    [
+      3.5e-16,
+      9.5e-05
+    ],
+    [
+      4.2e-16,
+      0.000115
+    ],
+    [
+      5e-16,
+      0.000135
+    ],
+    [
+      6e-16,
+      0.00016
+    ],
+    [
+      7e-16,
+      0.00019
+    ],
+    [
+      8e-16,
+      0.000215
+    ],
+    [
+      8.6e-16,
+      0.00023
+    ],
+    [
+      8.7e-16,
+      0.00045
+    ],
+    [
+      8.9e-16,
+      0.00024
+    ],
+    [
+      1e-15,
+      0.00027
+    ],
+    [
+      1.2e-15,
+      0.00032
+    ],
+    [
+      1.5e-15,
+      0.0004
+    ],
+    [
+      1.8e-15,
+      0.00048
+    ],
+    [
+      2.2e-15,
+      0.00058
+    ],
+    [
+      2.7e-15,
+      0.00071
+    ],
+    [
+      3.3e-15,
+      0.00086
+    ],
+    [
+      4e-15,
+      0.00105
+    ],
+    [
+      5e-15,
+      0.0013
+    ],
+    [
+      6e-15,
+      0.00155
+    ],
+    [
+      6.8e-15,
+      0.00175
+    ],
+    [
+      7e-15,
+      0.003
+    ],
+    [
+      7.3e-15,
+      0.00185
+    ],
+    [
+      8e-15,
+      0.00205
+    ],
+    [
+      8.8e-15,
+      0.00225
+    ],
+    [
+      8.95e-15,
+      0.0038
+    ],
+    [
+      9.3e-15,
+      0.00235
+    ],
+    [
+      1.05e-14,
+      0.00265
+    ],
+    [
+      1.2e-14,
+      0.003
+    ],
+    [
+      1.4e-14,
+      0.0035
+    ],
+    [
+      1.7e-14,
+      0.0042
+    ],
+    [
+      2e-14,
+      0.0049
+    ],
+    [
+      2.4e-14,
+      0.0059
+    ],
+    [
+      2.8e-14,
+      0.0068
+    ],
+    [
+      3.2e-14,
+      0.0077
+    ],
+    [
+      3.6e-14,
+      0.0086
+    ],
+    [
+      4e-14,
+      0.0095
+    ],
+    [
+      4.1e-14,
+      0.01
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.4,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "CASPEr-ZULF",
+  "coupling_convention": "g_aNN in GeV^-1 (ALP wind-nucleon linear coupling, as plotted on y-axis of Fig. 3)",
+  "notes": "CASPEr-ZULF sideband search (Garcon et al. 2019, arXiv:1902.04644). New measured 90% CL exclusion on the ALP wind nucleon coupling g_aNN over masses 1.8e-16 to 7.85e-14 eV (45 mHz - 19 Hz). No numerical table is given; data points are reconstructed from Fig. 3 axis ranges and the stated 1/omega modulation-index sensitivity scaling, so coupling values are approximate (order-of-magnitude reliable, shape reliable; sharp sensitivity-loss spikes at 0.21, 1.69, 2.16 Hz not modeled). Paper assumes equal proton/neutron coupling -> AxionNeutron chosen per generic-nucleon rule. Paper also sets limits on quadratic wind coupling g_quad and dark-photon gdEDM/gdMDM couplings (not extracted here), plus a Phase II projection (~1e5 better) shown as dashed lines only. rho_DM = 0.4 GeV/cm^3 assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 41)) | Vision: Traced the red CASPEr-ZULF exclusion region lower boundary from Fig. 3 (ALP wind-nucleon linear coupling, thermally polarized sample, 850 x 30s acquisitions, 90% CL). Mass range confirmed by text: 1.86e-16 to ~7.85e-14 eV (plot right edge at ~4.1e-14 eV / 10 Hz). Boundary rises roughly linearly (slope ~1) on log-log plot from g_aNN ~5e-5 GeV^-1 at 1.86e-16 eV to ~1e-2 GeV^-1 at the right edge. Sharp sensitivity-loss spikes included at Compton frequencies 0.21, 1.69, 2.16 Hz (masses ~8.7e-16, 7.0e-15, 8.9e-15 eV) as described in the text. Coupling is to nucleons (g_aNN); per protocol, generic nucleon coupling mapped to AxionNeutron. Note y-axis units are GeV^-1, not dimensionless. Fig. 4 (quadratic coupling g_quad) and dark-photon results (Fig. 5) not traced. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.14 snapped to identity)",
+  "num_points": 41,
+  "elapsed_s": 199.6315541267395
+}

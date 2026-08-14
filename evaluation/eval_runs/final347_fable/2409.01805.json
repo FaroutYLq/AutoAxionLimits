@@ -1,0 +1,162 @@
+{
+  "arxiv_id": "2409.01805",
+  "paper_title": "Search for sub-eV axion-like particles in a quasi-parallel stimulated resonant photon-photon collider with \"coronagraphy\"",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.0027,
+      0.1
+    ],
+    [
+      0.0035,
+      0.03
+    ],
+    [
+      0.0045,
+      0.01
+    ],
+    [
+      0.0059,
+      0.003
+    ],
+    [
+      0.0077,
+      0.001
+    ],
+    [
+      0.01,
+      0.0003
+    ],
+    [
+      0.014,
+      0.0001
+    ],
+    [
+      0.019,
+      3e-05
+    ],
+    [
+      0.027,
+      1e-05
+    ],
+    [
+      0.038,
+      3e-06
+    ],
+    [
+      0.05,
+      1.4e-06
+    ],
+    [
+      0.055,
+      1e-06
+    ],
+    [
+      0.065,
+      8e-07
+    ],
+    [
+      0.075,
+      6.8e-07
+    ],
+    [
+      0.09,
+      6e-07
+    ],
+    [
+      0.1,
+      5.7e-07
+    ],
+    [
+      0.12,
+      5.5e-07
+    ],
+    [
+      0.15,
+      5.45e-07
+    ],
+    [
+      0.17,
+      5.5e-07
+    ],
+    [
+      0.19,
+      5.8e-07
+    ],
+    [
+      0.21,
+      6.5e-07
+    ],
+    [
+      0.23,
+      8e-07
+    ],
+    [
+      0.25,
+      1.2e-06
+    ],
+    [
+      0.27,
+      2e-06
+    ],
+    [
+      0.29,
+      4e-06
+    ],
+    [
+      0.31,
+      8e-06
+    ],
+    [
+      0.33,
+      1.8e-05
+    ],
+    [
+      0.35,
+      4e-05
+    ],
+    [
+      0.37,
+      0.0001
+    ],
+    [
+      0.39,
+      0.00025
+    ],
+    [
+      0.41,
+      0.0008
+    ],
+    [
+      0.43,
+      0.0025
+    ],
+    [
+      0.44,
+      0.006
+    ],
+    [
+      0.45,
+      0.015
+    ],
+    [
+      0.46,
+      0.04
+    ],
+    [
+      0.47,
+      0.1
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "SAPPHIRES02",
+  "coupling_convention": "g/M in GeV^-1 (ALP-photon coupling g_agamma), as plotted on y-axis",
+  "notes": "SAPPHIRES02 laser-based stimulated resonant photon-photon collider (four-wave mixing in vacuum) search for sub-eV ALPs. Null result; 95% CL exclusion regions set in the g/M vs m plane for both scalar and pseudoscalar ALPs (Figs. 10-11). Only one explicit numerical value is given in the text: the most sensitive point g/M = 5.45e-7 GeV^-1 at m = 0.15 eV for pseudoscalar ALPs; the full exclusion curve spans roughly 1e-3 to ~1 eV but is only shown graphically, so a single point is extracted. This is a purely laboratory bound, fully independent of cosmological/astrophysical assumptions \u2014 no DM density assumed. The paper also presents a scalar-ALP exclusion, but the headline pseudoscalar result (AxionPhoton) is reported here. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 36)) | Vision: FIG. 11 shows the SAPPHIRES02 (this work) 95% CL upper limit for pseudoscalar ALP exchange via stimulated resonant photon-photon collisions (red hatched region). The text explicitly gives the most sensitive point g/M = 5.45e-7 GeV^-1 at m = 0.15 eV, which anchors the y-axis calibration of the traced curve. The exclusion is laboratory-based (no DM density assumption). Left branch traced from ~2.7e-3 eV at g/M=1e-1 down to the minimum; right branch rises steeply, exiting the plot top near 0.47 eV. Other regions (LSW blue, VMB gray, Helioscope green) are prior experiments and were not traced. | Calibration: No calibration needed (benchmark KSVZ raw_ratio=1.92 snapped to identity)",
+  "num_points": 36,
+  "elapsed_s": 115.24908018112183
+}

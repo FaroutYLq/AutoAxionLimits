@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "1608.01994",
+  "paper_title": "Absorption of light dark matter in semiconductors",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": true,
+  "data_points": [
+    [
+      0.01,
+      1e-14
+    ],
+    [
+      0.05,
+      2e-15
+    ],
+    [
+      0.2,
+      4e-15
+    ],
+    [
+      0.6,
+      1e-15
+    ],
+    [
+      1.0,
+      3e-16
+    ],
+    [
+      10.0,
+      8e-17
+    ],
+    [
+      100.0,
+      3e-16
+    ],
+    [
+      1000.0,
+      1e-15
+    ],
+    [
+      10000.0,
+      1e-14
+    ]
+  ],
+  "data_source": "none",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.4,
+  "suggested_experiment_name": "SemiconductorAbsorption_GeSi",
+  "coupling_convention": "dimensionless kinetic mixing kappa (same as chi)",
+  "notes": "Hochberg, Lin & Zurek (arXiv:1608.01994), absorption of bosonic DM in Ge/Si semiconductors. Primary results are 90% CL PROJECTED reach curves for 1 kg-yr Ge and Si exposures (Fig. 2 for kinetically mixed hidden photon, Fig. 3 for pseudoscalar g_aee). The paper ALSO derives new recast observed limits from CDMSlite (Ge, m_V > 56 eV), DAMIC (Si, m_V > 100 eV), and an updated Xenon100 low-threshold analysis (50-700 eV). Coupling type set to DarkPhoton per the headline Fig. 2 result; the pseudoscalar (AxionElectron, g_aee) results in Fig. 3 are a secondary result not encoded here. No numerical coupling values are given in tables or text; the data_points above are APPROXIMATE reconstructions of the 1 kg-yr Ge halo-DM projection curve (multi-phonon excitation for 0.01-0.2 eV, electron excitation for >0.6 eV; dips near 100 eV and 1 keV from cosmogenic backgrounds) and should be treated as rough. rho_DM = 0.3 GeV/cm^3 explicitly assumed for halo DM absorption. | [VISION GATE A] is_projection=true but the vision notes say the traced curve is existing experiment 'electron' \u2014 not the paper's own projected curve ; [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of the two solid halo-DM curves') rather than the paper's own single curve | selector: none (sole candidate)",
+  "num_points": 9,
+  "elapsed_s": 163.85587787628174
+}

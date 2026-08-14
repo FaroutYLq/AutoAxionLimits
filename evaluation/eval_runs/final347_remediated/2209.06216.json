@@ -1,0 +1,150 @@
+{
+  "arxiv_id": "2209.06216",
+  "paper_title": "The Irreducible Axion Background",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      10.0,
+      4e-11
+    ],
+    [
+      15.0,
+      3e-11
+    ],
+    [
+      20.0,
+      2.5e-11
+    ],
+    [
+      50.0,
+      1.2e-11
+    ],
+    [
+      100.0,
+      7e-12
+    ],
+    [
+      200.0,
+      4e-12
+    ],
+    [
+      500.0,
+      1.8e-12
+    ],
+    [
+      700.0,
+      1.3e-12
+    ],
+    [
+      1000.0,
+      9e-13
+    ],
+    [
+      2000.0,
+      5e-13
+    ],
+    [
+      5000.0,
+      2e-13
+    ],
+    [
+      10000.0,
+      1e-13
+    ],
+    [
+      15000.0,
+      7e-14
+    ],
+    [
+      20000.0,
+      5e-14
+    ],
+    [
+      30000.0,
+      3e-14
+    ],
+    [
+      40000.0,
+      1.5e-14
+    ],
+    [
+      50000.0,
+      5e-15
+    ],
+    [
+      60000.0,
+      2e-15
+    ],
+    [
+      65000.0,
+      4e-15
+    ],
+    [
+      70000.0,
+      8e-15
+    ],
+    [
+      100000.0,
+      8e-14
+    ],
+    [
+      150000.0,
+      5e-14
+    ],
+    [
+      300000.0,
+      3e-14
+    ],
+    [
+      500000.0,
+      2e-14
+    ],
+    [
+      800000.0,
+      1.2e-14
+    ],
+    [
+      1200000.0,
+      8e-15
+    ],
+    [
+      1800000.0,
+      5e-15
+    ],
+    [
+      2000000.0,
+      4.5e-15
+    ],
+    [
+      3000000.0,
+      3e-15
+    ],
+    [
+      6000000.0,
+      1.8e-15
+    ],
+    [
+      12000000.0,
+      1.2e-15
+    ],
+    [
+      25000000.0,
+      1.5e-15
+    ],
+    [
+      35000000.0,
+      3e-15
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.45,
+  "suggested_experiment_name": "Irreducible Axion Background (freeze-in relic, T_RH=5 MeV, photophilic)",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on y-axis",
+  "notes": "Cosmological/astrophysical constraint derived by recasting DM-decay searches (X-ray, CRB, CMB) onto an irreducible freeze-in axion relic. Paper presents TWO main results: photophilic axion g_agamma (Fig.1) and photophobic axion g_aee (Fig.2). I extracted the photophilic (AxionPhoton) branch per the hint. Only explicit numerical text value available: at m_a=10 keV, g_agamma <= 8.1e-14 GeV^-1. The full exclusion curve spans 100 eV - 100 MeV but numerical curve points are only in figures (not machine-readable here). Note the companion photophobic bound is g_aee <= 8.0e-15 at 100 keV (AxionElectron). Not a haloscope, so no local DM density. Confidence reduced because only a single data point could be reliably extracted and two coupling types are featured. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.45, 33)) | Vision: Figure 1 (photophilic axion) traced; y-axis g_a\u03b3\u03b3 [GeV^-1], x-axis m_a [keV] converted to eV. The excluded region is a composite of X-ray (mustard), CRB (green), CMB (velvet) and astrophysical (gray) constraints; I traced the lower envelope of the filled exclusion. The X-ray region descends diagonally to a spike near ~60 keV, then the CMB velvet region forms the boundary at higher masses (dashed extension included). The solid/dashed/dotted orange lines are FUTURE sensitivity projections (10^29/30/31 s) and were not used as the boundary. Blue contours are F_a fraction, not couplings, so no benchmark line reading. Jagged real-data edges make values approximate. Note: prompt said 'image 2' but the g_agamma plot matching the given calibration is Figure 1. | Calibration: No calibration needed",
+  "num_points": 33,
+  "elapsed_s": 225.41236519813538
+}

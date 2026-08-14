@@ -1,0 +1,162 @@
+{
+  "arxiv_id": "2008.03305",
+  "paper_title": "Xray-SuperStarClusters",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-13,
+      3.6e-12
+    ],
+    [
+      2e-13,
+      3.6e-12
+    ],
+    [
+      3e-13,
+      3.6e-12
+    ],
+    [
+      5e-13,
+      3.6e-12
+    ],
+    [
+      1e-12,
+      3.6e-12
+    ],
+    [
+      2e-12,
+      3.6e-12
+    ],
+    [
+      3e-12,
+      3.6e-12
+    ],
+    [
+      5e-12,
+      3.6e-12
+    ],
+    [
+      7e-12,
+      3.6e-12
+    ],
+    [
+      1e-11,
+      3.5e-12
+    ],
+    [
+      1.3e-11,
+      3.4e-12
+    ],
+    [
+      1.6e-11,
+      3.2e-12
+    ],
+    [
+      2e-11,
+      3e-12
+    ],
+    [
+      2.5e-11,
+      2.9e-12
+    ],
+    [
+      3e-11,
+      2.9e-12
+    ],
+    [
+      3.5e-11,
+      3e-12
+    ],
+    [
+      4e-11,
+      3.2e-12
+    ],
+    [
+      5e-11,
+      3.6e-12
+    ],
+    [
+      6e-11,
+      4.2e-12
+    ],
+    [
+      7e-11,
+      4.8e-12
+    ],
+    [
+      8e-11,
+      5.5e-12
+    ],
+    [
+      9e-11,
+      6.2e-12
+    ],
+    [
+      1e-10,
+      7e-12
+    ],
+    [
+      1.3e-10,
+      9e-12
+    ],
+    [
+      1.6e-10,
+      1.1e-11
+    ],
+    [
+      2e-10,
+      1.4e-11
+    ],
+    [
+      2.5e-10,
+      1.7e-11
+    ],
+    [
+      3e-10,
+      2.1e-11
+    ],
+    [
+      3.5e-10,
+      2.4e-11
+    ],
+    [
+      4e-10,
+      2.8e-11
+    ],
+    [
+      5e-10,
+      3.5e-11
+    ],
+    [
+      6e-10,
+      4.2e-11
+    ],
+    [
+      7e-10,
+      5e-11
+    ],
+    [
+      8e-10,
+      5.7e-11
+    ],
+    [
+      9e-10,
+      6.4e-11
+    ],
+    [
+      1e-09,
+      7.2e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.85,
+  "suggested_experiment_name": "NuSTAR Super Star Clusters (Quintuplet + Wd1)",
+  "coupling_convention": "g_agamma in GeV^-1, 95% C.L. joint upper limit (Quintuplet + Wd1)",
+  "notes": "Dessert, Foster & Safdi (arXiv:2008.03305): NuSTAR 10-80 keV search for axions produced via Primakoff process in Wolf-Rayet stars of the Quintuplet and Westerlund 1 super star clusters, converting to X-rays in Galactic magnetic fields (JF12 fiducial model). Joint 95% power-constrained limit g_agamma < 3.6e-12 GeV^-1 for m_a <= 5e-11 eV, encoded as a flat bound over the low-mass plateau (Fig. 3 x-axis spans ~1e-13 to 1e-9 eV; limit weakens above ~5e-11 eV but those values are only available graphically). Not a dark-matter search, so no local DM density assumption. Full mass-dependent limit data available in supplementary GitHub repo (bsafdi/axionSSC). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.85, 36)) | Vision: Figure 3 shows 95% upper limits on g_agamma vs m_a from NuSTAR X-ray searches for axions produced in the Quintuplet and Wd1 super star clusters and converting in Galactic magnetic fields. Traced the joint (red) 95% limit combining both clusters; text quotes g_agamma < 3.6e-12 GeV^-1 for m_a < 5e-11 eV. Limit is flat at low mass (not a DM search; no density assumption), has a mild dip near m_a ~ 2-3e-11 eV, then rises roughly linearly with mass above ~5e-11 eV, reaching ~7e-11 GeV^-1 (the CAST level) at m_a = 1e-9 eV. Also shown in the plot: CAST (6.6e-11 GeV^-1), SN1987a (~5e-12), and NGC 1275 reference curves. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.67 snapped to identity)",
+  "num_points": 36,
+  "elapsed_s": 136.2609348297119
+}

@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "1903.05101",
+  "paper_title": "Detecting Dark Matter with Superconducting Nanowires",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.8,
+      5e-09
+    ],
+    [
+      1.0,
+      3e-09
+    ],
+    [
+      1.5,
+      3.5e-09
+    ],
+    [
+      2.0,
+      4e-09
+    ],
+    [
+      3.0,
+      5e-09
+    ],
+    [
+      5.0,
+      7e-09
+    ],
+    [
+      8.0,
+      1e-08
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.45,
+  "suggested_experiment_name": "SNSPD_WSi_Nanowire",
+  "coupling_convention": "dimensionless kinetic mixing kappa",
+  "notes": "Paper (Hochberg et al., arXiv:1903.05101) reports a NEW 95% C.L. bound on relic dark photon absorption (kinetic mixing kappa vs m_V) from a 4.3 ng WSi superconducting nanowire prototype with 0.8 eV threshold and 10^4 s exposure with zero dark counts (blue 'Bound WSi' curve in Fig. 4). The paper also reports a new DM-electron scattering bound (sigma_e, Fig. 3) and various future projections (NbN/WSi kg-yr etc.), but the headline result is the dark photon absorption bound, matching the pre-analysis hint. No numerical table is provided; the emitted data points are approximate values reconstructed from the described figure (bound spans ~0.8 eV threshold up to a few eV, kappa at the few x10^-9 level), hence the reduced extraction confidence. DM density explicitly assumed rho_DM = 0.3 GeV/cm^3. Recommend digitizing Fig. 4 for precise values. | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.45, 7))",
+  "num_points": 7,
+  "elapsed_s": 165.78332591056824
+}

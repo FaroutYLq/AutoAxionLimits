@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2206.08845",
+  "paper_title": "Searching for Invisible Axion Dark Matter with an 18T Magnet Haloscope",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.9764e-05,
+      1.159e-14
+    ],
+    [
+      1.9771e-05,
+      1.16e-14
+    ],
+    [
+      1.9772e-05,
+      2.088e-14
+    ],
+    [
+      1.9863e-05,
+      2.097e-14
+    ],
+    [
+      1.9863e-05,
+      1.321e-14
+    ],
+    [
+      1.989e-05,
+      1.322e-14
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.45,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.8,
+  "suggested_experiment_name": "CAPP18T",
+  "coupling_convention": "g_agamma in GeV^-1, converted from paper-quoted multiples of |g_KSVZ| using g_KSVZ = 3.911e-16 * (m_a/ueV) GeV^-1 (E/N=0, |E/N-1.92|=1.92)",
+  "notes": "First results from the CAPP18T haloscope (18 T HTS magnet, JPC amplifier), scanning 4.7789-4.8094 GHz (19.764-19.890 ueV). Paper quotes limits as multiples of KSVZ coupling: 1.5x KSVZ for 19.764-19.771 ueV, 2.7x KSVZ for 19.772-19.863 ueV (shallow scan), 1.7x KSVZ for 19.863-19.890 ueV, all at 90% CL assuming rho_a = 0.45 GeV/cm^3 and boosted Maxwell-Boltzmann halo model. Emitted values are three piecewise-flat segments converted to absolute g_agamma in GeV^-1. Full frequency-dependent exclusion curve (Fig. 5) not available as a table; notches at 4.77912, 4.77947, 4.78159, 4.78191 GHz are excluded from the limit but not encoded here. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 6,
+  "elapsed_s": 51.27057099342346
+}

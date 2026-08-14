@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2406.10337",
+  "paper_title": "Getting More Out of Black Hole Superradiance: a Statistically Rigorous Approach to Ultralight Boson Constraints from Black Hole Spin Measurements",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      9.49e+18,
+      6e-13
+    ],
+    [
+      1.9e+18,
+      3e-12
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.3,
+  "suggested_experiment_name": "BHSR_M33X7_IRAS09149",
+  "coupling_convention": "pairs are [f_a in GeV, m_a in eV]; f_a computed from the paper's QCD axion relation mu = 5.691 neV * (1e15 GeV / f)",
+  "notes": "Paper derives Bayesian black-hole superradiance constraints on ultralight boson mass mu and self-coupling f^-1 from spin measurements of M33 X-7 (tau_BH=3 Myr) and, for the first time, the SMBH IRAS 09149-6206 (tau_BH=450 Myr). Main results are 2D 95% credible exclusion regions in the (mu, f^-1) plane (Fig. 4), whose contours are not tabulated numerically in the text. The only explicit numerical exclusion is along the QCD axion line: 0.6 peV < mu < 3 peV excluded at 95% CI (M33 X-7, both equilibrium and bosenova scenarios; lower end set by the prior f < M_Planck). Emitted points trace this QCD-axion-line exclusion on the f_a-m_a plane. IRAS 09149-6206 additionally probes mu ~ 3e-19 eV region but no explicit numerical bounds are quoted. Not a DM haloscope; no local DM density assumption. Superradiance sets LOWER limits on f^-1 (upper limits on f), complementary to lab searches. | selector: text over figure_vision (quality (0, 1, 1, 1, 1, 0, 0.5, 2)) | contract: median outside VALID_RANGES after corrections (flagged low confidence)",
+  "num_points": 2,
+  "elapsed_s": 166.58637595176697
+}

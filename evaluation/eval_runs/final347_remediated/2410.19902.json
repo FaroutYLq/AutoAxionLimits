@@ -1,0 +1,134 @@
+{
+  "arxiv_id": "2410.19902",
+  "paper_title": "A Universal Bound on QCD Axions from Supernovae",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-20,
+      9.09e-09
+    ],
+    [
+      1e-17,
+      9.09e-09
+    ],
+    [
+      1e-14,
+      9.09e-09
+    ],
+    [
+      1e-11,
+      9.09e-09
+    ],
+    [
+      1e-09,
+      9.09e-09
+    ],
+    [
+      1e-07,
+      9.09e-09
+    ],
+    [
+      1e-05,
+      9.09e-09
+    ],
+    [
+      0.0001,
+      9.09e-09
+    ],
+    [
+      0.001,
+      9.09e-09
+    ],
+    [
+      0.01,
+      9.09e-09
+    ],
+    [
+      0.02,
+      9.09e-09
+    ],
+    [
+      0.03,
+      9.09e-09
+    ],
+    [
+      0.04,
+      9.09e-09
+    ],
+    [
+      0.053,
+      9.09e-09
+    ],
+    [
+      0.06,
+      1.03e-08
+    ],
+    [
+      0.08,
+      1.37e-08
+    ],
+    [
+      0.1,
+      1.72e-08
+    ],
+    [
+      0.15,
+      2.57e-08
+    ],
+    [
+      0.2,
+      3.43e-08
+    ],
+    [
+      0.3,
+      5.15e-08
+    ],
+    [
+      0.5,
+      8.58e-08
+    ],
+    [
+      0.7,
+      1.2e-07
+    ],
+    [
+      1.0,
+      1.72e-07
+    ],
+    [
+      1.5,
+      2.57e-07
+    ],
+    [
+      2.0,
+      3.43e-07
+    ],
+    [
+      3.0,
+      5.15e-07
+    ],
+    [
+      5.0,
+      8.58e-07
+    ],
+    [
+      7.0,
+      1.2e-06
+    ],
+    [
+      10.0,
+      1.72e-06
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.72,
+  "suggested_experiment_name": "SN 1987A model-independent QCD axion bound (This work)",
+  "coupling_convention": "1/f_a in GeV^-1 (inverse axion decay constant) as plotted on y-axis; x-axis is m_a in eV",
+  "notes": "Model-independent SN1987A cooling bound on the QCD axion. Main result: f_a > 1.1e8 GeV, equivalently m_a < 5.3e-2 eV, quoted at 68% C.L. (paper states 68%, not 90/95%; forced to 0.90 by enum). Exclusion plot Fig.5 is 1/f_a vs m_a plane, so AxionMass is appropriate. The bound is a single point on the QCD axion line (excluded region m_a > 5.3e-2 eV / f_a < 1.1e8 GeV). Astrophysical bound, so no DM density assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.72, 29)) | Vision: Fig. 5: 1/f_a [GeV^-1] vs m_a [eV], both log scale. The red 'This work' region is the 68% C.L. excluded region from SN1987A. Bound: f_a > 1.1e8 GeV (1/f_a < 9.1e-9 GeV^-1), m_a < 5.3e-2 eV. Lower boundary is horizontal at 1/f_a=9.1e-9 for m_a below the corner (5.3e-2 eV), then rises along the QCD axion line (m_a*f_a ~ 5.8e6 eV*GeV) toward higher masses. Note: the plot's y-axis is 1/f_a rather than m_a itself; values emitted as plotted per contract. Coupling type AxionMass (f_a-m_a plane). This is the primary and only exclusion plot; other shaded regions (Solar core, White dwarfs, Neutron star cooling, etc.) are from other references. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=0.97 snapped to identity)",
+  "num_points": 29,
+  "elapsed_s": 162.6233651638031
+}

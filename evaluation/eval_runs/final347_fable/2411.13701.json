@@ -1,0 +1,166 @@
+{
+  "arxiv_id": "2411.13701",
+  "paper_title": "Revisiting Constraints on Resonant Axion-Photon Conversions from CMB Spectral Distortions",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      5.1e-14,
+      1.2e-13
+    ],
+    [
+      7.1e-14,
+      1.1000000000000001e-13
+    ],
+    [
+      1e-13,
+      1.1000000000000001e-13
+    ],
+    [
+      1.5e-13,
+      9.5e-14
+    ],
+    [
+      2.3e-13,
+      8.1e-14
+    ],
+    [
+      3.1e-13,
+      1e-13
+    ],
+    [
+      4.2e-13,
+      7.899999999999999e-14
+    ],
+    [
+      5.9e-13,
+      9.7e-14
+    ],
+    [
+      8.3e-13,
+      1.1000000000000001e-13
+    ],
+    [
+      1e-12,
+      1.2e-13
+    ],
+    [
+      1.1e-12,
+      3.4e-13
+    ],
+    [
+      1.7e-12,
+      3.8999999999999995e-13
+    ],
+    [
+      3.2e-12,
+      4.9e-13
+    ],
+    [
+      6.1e-12,
+      6.1e-13
+    ],
+    [
+      1e-11,
+      7.499999999999999e-13
+    ],
+    [
+      1.7e-11,
+      1.2e-12
+    ],
+    [
+      3.3e-11,
+      2.2e-12
+    ],
+    [
+      6.2e-11,
+      4.2e-12
+    ],
+    [
+      1e-10,
+      6.9e-12
+    ],
+    [
+      1.8e-10,
+      1.2999999999999999e-11
+    ],
+    [
+      3.4e-10,
+      2.2999999999999998e-11
+    ],
+    [
+      6.4e-10,
+      3.3e-11
+    ],
+    [
+      1e-09,
+      4.1e-11
+    ],
+    [
+      1.8e-09,
+      4.7999999999999996e-11
+    ],
+    [
+      3.4e-09,
+      4.3999999999999997e-11
+    ],
+    [
+      1e-08,
+      3.8e-11
+    ],
+    [
+      3.6e-08,
+      3.6e-11
+    ],
+    [
+      1e-07,
+      3.6e-11
+    ],
+    [
+      3e-07,
+      3.6e-11
+    ],
+    [
+      1e-06,
+      3.6e-11
+    ],
+    [
+      3e-06,
+      3.8e-11
+    ],
+    [
+      1e-05,
+      4.3999999999999997e-11
+    ],
+    [
+      2.1e-05,
+      5.9e-11
+    ],
+    [
+      3.9e-05,
+      9.7e-11
+    ],
+    [
+      6e-05,
+      1.9e-10
+    ],
+    [
+      8e-05,
+      3.5000000000000003e-10
+    ],
+    [
+      0.0001,
+      6e-10
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "COBE/FIRAS CMB spectral distortions (resonant axion-photon conversion)",
+  "coupling_convention": "f * g_agamma in GeV^-1 exactly as plotted on the y-axis of Fig. 13 (FIRAS curve assuming B0_rms = 1 nG; f is the O(1) fudge factor relating the transverse B-field to B0_rms)",
+  "notes": "Paper re-derives COBE/FIRAS CMB spectral distortion constraints on resonant CMB-photon-to-axion conversion using CosmoTherm, plus PIXIE forecasts (~2 orders of magnitude improvement). The fundamental constraint is on epsilon = g_agamma*B0/(1e-10 GeV^-1 nG); text states epsilon ~= 4e-2 is 'a bit above the COBE/FIRAS limit for most of the relevant masses', and constraints are roughly mass-independent across the mu/y eras (ma ~ 1e-13 to 1e-4 eV, per Figs. 11 and 13 axis ranges). I encoded this as an approximately flat bound g_agamma ~ 4e-12 GeV^-1 assuming B0_rms = 1 nG; the limit scales linearly as 1/B0_rms and includes a fudge factor f in Fig. 13, so it is strongly assumption-dependent. Fig. 11/13 contain mass-dependent structure at low masses (multiple conversions, features near ma ~ 1e-12 eV) that could not be read precisely from the text, hence moderate extraction confidence. Additional Neff bound: epsilon < 0.26 (95% c.l.). Not a dark-matter haloscope, so no local DM density assumed. | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.6, 37)) | Vision: Paper's main results are Fig. 11 (epsilon vs m_a) and Fig. 13 (f*g_agamma vs m_a). I traced the blue solid FIRAS curve in Fig. 13 for B0_rms = 1 nG, the present-day (95% c.l.) constraint; PIXIE curves are forecasts and dashed/dash-dot curves assume weaker B-fields (0.1, 0.01 nG). The constraint depends linearly on the assumed primordial B-field amplitude, so it is model-dependent (not a DM-density-based bound; conversion of CMB photons into axions). Features: small wiggles below 1e-12 eV, a jump at m_a ~ 1e-12 eV (mentioned in text), a plateau at ~4e-12 GeV^-1 from 1e-9 to 1e-5 eV, and a steep rise approaching 1e-4 eV where distortions thermalize. Extraction confidence moderate due to fine features and the blue line partially overlapping the black 'other constraints' contour in the plateau region. | Calibration: Vision calibration: \u00d71e+1 (factor=1.00e+01, reason=spot-check verify/stage2, raw_ratio=5.80)",
+  "num_points": 37,
+  "elapsed_s": 333.3840880393982
+}

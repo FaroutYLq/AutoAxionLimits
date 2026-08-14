@@ -1,0 +1,126 @@
+{
+  "arxiv_id": "1903.05101",
+  "paper_title": "WSi_Nanowire",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      0.65,
+      3.2e-09
+    ],
+    [
+      0.68,
+      3.2e-09
+    ],
+    [
+      0.72,
+      3.2e-09
+    ],
+    [
+      0.76,
+      3.3e-09
+    ],
+    [
+      0.8,
+      3.3e-09
+    ],
+    [
+      0.85,
+      3.3e-09
+    ],
+    [
+      0.9,
+      3.3e-09
+    ],
+    [
+      0.95,
+      3.4e-09
+    ],
+    [
+      1.0,
+      3.4e-09
+    ],
+    [
+      1.05,
+      3.5e-09
+    ],
+    [
+      1.1,
+      3.5e-09
+    ],
+    [
+      1.2,
+      3.6e-09
+    ],
+    [
+      1.3,
+      3.7e-09
+    ],
+    [
+      1.4,
+      3.8e-09
+    ],
+    [
+      1.5,
+      3.9e-09
+    ],
+    [
+      1.6,
+      4e-09
+    ],
+    [
+      1.7,
+      4.1e-09
+    ],
+    [
+      1.8,
+      4.2e-09
+    ],
+    [
+      1.9,
+      4.3e-09
+    ],
+    [
+      2.0,
+      4.4e-09
+    ],
+    [
+      2.15,
+      4.5e-09
+    ],
+    [
+      2.3,
+      4.6e-09
+    ],
+    [
+      2.45,
+      4.7e-09
+    ],
+    [
+      2.6,
+      4.8e-09
+    ],
+    [
+      2.75,
+      4.9e-09
+    ],
+    [
+      2.9,
+      5e-09
+    ],
+    [
+      3.0,
+      5.1e-09
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.78,
+  "suggested_experiment_name": "WSi SNSPD (Bound WSi)",
+  "coupling_convention": "kinetic mixing kappa, dimensionless, as plotted on y-axis",
+  "notes": "Paper reports a new 95% C.L. bound on relic dark photon absorption (kinetic mixing kappa vs dark photon mass m_V) from a 4.3 ng WSi superconducting nanowire prototype with 0.8 eV threshold over 10^4 s, claimed as strongest terrestrial constraint on sub-eV to few-eV dark photons ('Bound WSi' blue curve in Fig. 4). Other curves in Figs. 3-4 are projections. No numerical table is given; the two data points are rough estimates of the exclusion region (~0.8-4 eV, kappa ~1e-12) inferred from text since the figure axis numbers are not machine-readable. DM density rho_DM = 0.3 GeV/cm^3 stated in absorption rate formula. Fig. 3 concerns DM-electron scattering cross section (separate observable); the extracted limit here is the dark photon absorption bound. | selector: figure_vision over none (quality (1, 0, 1, 1, 2, 0, 0.78, 27)) | Vision: Figure 4 'Dark photon absorption'. The new 95% C.L. bound placed by the 4.3 ng prototype WSi SNSPD device (no dark counts in 10^4 s, 0.8 eV threshold) is the solid blue 'Bound WSi' curve. Excluded region is above the curve. Curve is nearly flat at kappa ~3-5e-9 over the visible mass range ~0.65-3 eV, rising gently toward higher mass. Y-axis top tick is 10^-9; the blue curve sits ~0.5 decade above it. Other curves in the plot (black WSi kg-yr, magenta NbN, dotted material projections, shaded stellar/SuperCDMS/DAMIC/SENSEI regions) are projections or other-experiment constraints, not the bound placed by this work. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.05 snapped to identity)",
+  "num_points": 27,
+  "elapsed_s": 126.22038793563843
+}

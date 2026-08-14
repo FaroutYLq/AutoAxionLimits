@@ -1,0 +1,22 @@
+{
+  "arxiv_id": "2110.10497",
+  "paper_title": "Search for dark photons using a multilayer dielectric haloscope equipped with a single-photon avalanche diode",
+  "coupling_type": "DarkPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1.61,
+      6.86e-11
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": 0.3,
+  "confidence_level": 0.9,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "MuDHI",
+  "coupling_convention": "dimensionless kinetic mixing chi",
+  "notes": "MuDHI multilayer dielectric haloscope at NYU Abu Dhabi searching for dark photon dark matter around 1.5 eV. 90% CL exclusion on kinetic mixing chi; the only explicit numerical value in the text is the minimum chi = 6.86e-11 at m_X = 1.61 eV/c^2. The full exclusion curve (Fig. 11) spans roughly 1.1-2.5 eV with boost-factor peaks concentrated in 1.4-1.8 eV, but no table of values is provided; digitized data reportedly available at the authors' GitHub repo. Appendix A states an assumed local DM density of 0.3 GeV/cm^3 for the flux formula used in setting limits (Eq. 17 quotes 0.45 GeV/cm^3 as a reference normalization only). | selector: text over figure_vision (quality (1, 1, 1, 1, 1, 0, 0.7, 1))",
+  "num_points": 1,
+  "elapsed_s": 115.27234625816345
+}

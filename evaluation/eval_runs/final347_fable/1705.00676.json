@@ -1,0 +1,154 @@
+{
+  "arxiv_id": "1705.00676",
+  "paper_title": "Axions, Instantons, and the Lattice",
+  "coupling_type": "AxionMass",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      7.5e-06,
+      2.0
+    ],
+    [
+      8.19e-06,
+      1.789
+    ],
+    [
+      8.94e-06,
+      1.6
+    ],
+    [
+      9.77e-06,
+      1.431
+    ],
+    [
+      1.067e-05,
+      1.28
+    ],
+    [
+      1.165e-05,
+      1.145
+    ],
+    [
+      1.272e-05,
+      1.024
+    ],
+    [
+      1.39e-05,
+      0.916
+    ],
+    [
+      1.518e-05,
+      0.819
+    ],
+    [
+      1.658e-05,
+      0.733
+    ],
+    [
+      1.811e-05,
+      0.655
+    ],
+    [
+      1.978e-05,
+      0.586
+    ],
+    [
+      2.16e-05,
+      0.524
+    ],
+    [
+      2.359e-05,
+      0.469
+    ],
+    [
+      2.576e-05,
+      0.419
+    ],
+    [
+      2.814e-05,
+      0.375
+    ],
+    [
+      3.073e-05,
+      0.335
+    ],
+    [
+      3.356e-05,
+      0.3
+    ],
+    [
+      3.665e-05,
+      0.268
+    ],
+    [
+      4.003e-05,
+      0.24
+    ],
+    [
+      4.372e-05,
+      0.215
+    ],
+    [
+      4.775e-05,
+      0.192
+    ],
+    [
+      5.215e-05,
+      0.172
+    ],
+    [
+      5.695e-05,
+      0.154
+    ],
+    [
+      6.22e-05,
+      0.137
+    ],
+    [
+      6.793e-05,
+      0.123
+    ],
+    [
+      7.419e-05,
+      0.11
+    ],
+    [
+      8.102e-05,
+      0.0983
+    ],
+    [
+      8.849e-05,
+      0.0879
+    ],
+    [
+      9.664e-05,
+      0.0786
+    ],
+    [
+      0.0001055,
+      0.0703
+    ],
+    [
+      0.0001153,
+      0.0629
+    ],
+    [
+      0.0001259,
+      0.0563
+    ],
+    [
+      0.0001375,
+      0.0503
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.5,
+  "suggested_experiment_name": "Axion relic density (misalignment, post-inflationary PQ breaking)",
+  "coupling_convention": "Omega, axion relic density (dimensionless density parameter) exactly as plotted on the y-axis; x-axis is axion mass m_a converted from ueV to eV",
+  "notes": "Theory paper assessing uncertainties in the temperature-dependent topological susceptibility chi(T) (instanton vs lattice QCD) and their impact on the QCD axion relic density from misalignment. It relates relic density to zero-temperature axion mass and misalignment angle (e.g., ma ~ 30 ueV benchmarks, Figs. 1-2), but presents NO experimental exclusion limit, no sensitivity projection, and no bound on any axion coupling or on the f_a-m_a plane. The results are relic-density predictions with a factor 2-3 uncertainty in ma, not constraints. Therefore no extractable limit data. | selector: figure_vision (sole candidate) | Vision: This is not a laboratory exclusion plot but a theoretical relic-density prediction (Fig. 1 of the paper): Omega vs m_a with blue (T2=100 MeV) and green (T2=500 MeV) bands reflecting instanton-computation uncertainty. Traced the LOWER edge of the combined band (blue band lower edge, running just below/along the dashed lattice line). Region above the band at fixed mass corresponds to DM overproduction for masses below the crossing with the dotted Omega_DM=0.258 line (~30-60 ueV). Hint suggested AxionMass (f_a vs m_a), but the actual plotted axes are m_a [ueV] vs Omega; per the plotted-values contract, y values are emitted as Omega, unconverted. Boundary is a straight power law on log-log (slope ~ -1.28), so uniform log sampling used. Benchmark: dashed lattice line crosses Omega_DM=0.258 at m_a ~ 32 ueV. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.00 snapped to identity)",
+  "num_points": 34,
+  "elapsed_s": 133.1645359992981
+}

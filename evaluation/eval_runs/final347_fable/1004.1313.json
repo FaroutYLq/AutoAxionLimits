@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "1004.1313",
+  "paper_title": "New ALPS Results on Hidden-Sector Lightweights",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-05,
+      6.5e-08
+    ],
+    [
+      0.0001,
+      6.5e-08
+    ],
+    [
+      0.0003,
+      6.5e-08
+    ],
+    [
+      0.0005,
+      7.5e-08
+    ],
+    [
+      0.0007,
+      1e-07
+    ],
+    [
+      0.0009,
+      1.6e-07
+    ],
+    [
+      0.00116,
+      3e-07
+    ],
+    [
+      0.0015,
+      3e-07
+    ],
+    [
+      0.002,
+      5e-07
+    ]
+  ],
+  "data_source": "text",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.6,
+  "suggested_experiment_name": "ALPS",
+  "coupling_convention": "g_agamma (pseudoscalar g-) in GeV^-1, derived from the quoted 95% CL conversion-probability limit P=2.25e-25 via Eq.(5) with B=5 T, l=4.3 m, omega=2.33 eV; higher-mass points estimated from Fig. 4 shape and gas-run limits",
+  "notes": "ALPS (2010) LSW experiment at DESY. Paper reports 95% CL limits on photon-WISP-photon conversion probability (Table 1: 2.25e-25 for pseudoscalar vacuum run, 10.8e-25 for gas run) rather than tabulated coupling values. The flat low-mass limit g- ~ 6.5e-8 GeV^-1 was computed analytically from P_single = sqrt(2.25e-25) = (g*B*l/2)^2 with B*l = 21.3 GeV; the rise and gap coverage near m ~ 1.2e-3 eV (first coherence node, filled by Ar gas run with n-1 = 5e-8) are approximate reads of Fig. 4. Paper also constrains scalar ALPs (g+), hidden photons (chi vs m_gamma', best lab bound near meV, excluding chi ~ 1e-6 except tiny gap at 0.18 meV), and minicharged particles; only the pseudoscalar ALP-photon result is extracted per the hint. Purely laboratory bound, no DM density assumption. | selector: text (sole candidate) | axis-peek for confusable-family text read (#625 Phase 3c)",
+  "num_points": 9,
+  "elapsed_s": 63.65980792045593
+}

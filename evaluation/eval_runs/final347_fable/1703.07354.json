@@ -1,0 +1,174 @@
+{
+  "arxiv_id": "1703.07354",
+  "paper_title": "A New Bound on Axion-Like Particles",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-14,
+      1.5e-12
+    ],
+    [
+      1.5e-14,
+      1.5e-12
+    ],
+    [
+      2.2e-14,
+      1.5e-12
+    ],
+    [
+      3e-14,
+      1.5e-12
+    ],
+    [
+      3.8e-14,
+      1.52e-12
+    ],
+    [
+      5e-14,
+      1.6e-12
+    ],
+    [
+      6e-14,
+      1.7e-12
+    ],
+    [
+      7e-14,
+      1.8e-12
+    ],
+    [
+      8.5e-14,
+      1.9e-12
+    ],
+    [
+      1e-13,
+      1.95e-12
+    ],
+    [
+      1.2e-13,
+      1.9e-12
+    ],
+    [
+      1.5e-13,
+      1.86e-12
+    ],
+    [
+      1.8e-13,
+      1.85e-12
+    ],
+    [
+      2.2e-13,
+      1.83e-12
+    ],
+    [
+      2.7e-13,
+      1.8e-12
+    ],
+    [
+      3.3e-13,
+      1.78e-12
+    ],
+    [
+      4e-13,
+      1.72e-12
+    ],
+    [
+      5e-13,
+      1.62e-12
+    ],
+    [
+      6e-13,
+      1.52e-12
+    ],
+    [
+      6.6e-13,
+      1.48e-12
+    ],
+    [
+      7.5e-13,
+      1.7e-12
+    ],
+    [
+      8.5e-13,
+      1.9e-12
+    ],
+    [
+      1e-12,
+      2.1e-12
+    ],
+    [
+      1.2e-12,
+      2.3e-12
+    ],
+    [
+      1.5e-12,
+      2.5e-12
+    ],
+    [
+      1.8e-12,
+      2.9e-12
+    ],
+    [
+      2.2e-12,
+      3.5e-12
+    ],
+    [
+      2.6e-12,
+      4.4e-12
+    ],
+    [
+      3e-12,
+      5.5e-12
+    ],
+    [
+      3.5e-12,
+      7e-12
+    ],
+    [
+      4e-12,
+      8.5e-12
+    ],
+    [
+      4.7e-12,
+      9.2e-12
+    ],
+    [
+      5.5e-12,
+      8e-12
+    ],
+    [
+      6.5e-12,
+      6.3e-12
+    ],
+    [
+      7.5e-12,
+      5.7e-12
+    ],
+    [
+      8.5e-12,
+      6.5e-12
+    ],
+    [
+      9.5e-12,
+      8.5e-12
+    ],
+    [
+      1.05e-11,
+      1.1e-11
+    ],
+    [
+      1.2e-11,
+      1.4e-11
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.7,
+  "suggested_experiment_name": "Chandra M87 X-ray spectroscopy",
+  "coupling_convention": "g_agamma in GeV^-1, as plotted on the y-axis of Figure 6",
+  "notes": "Marsh et al. (arXiv:1703.07354): astrophysical ALP-photon conversion limit from absence of spectral irregularities in Chandra X-ray spectrum of the M87 AGN in the Virgo cluster. Not a DM haloscope, so no local DM density assumed. Headline conservative bound (B0=35 uG model, robust to magnetic field modeling): g_agamma < 2.6e-12 GeV^-1 at 95% CL, mass-independent for m_a <= 1e-13 eV; encoded as a flat two-point line spanning down to very low mass (bound valid for all m_a below 1e-13 eV, weakening above and losing to SN1987A near 3e-12 eV). Stronger baseline model bounds also quoted: 1.49e-12 (B0=31.5 uG) and 1.17e-12 (B0=40 uG) GeV^-1. Full mass-dependent exclusion is in Figure 6 (not numerically tabulated in text). | selector: figure_vision over text (quality (1, 1, 1, 1, 2, 0, 0.7, 39)) | Vision: Traced the M87 (95% c.l.) lower boundary from Figure 6 (fig_01.png); colored regions above are excluded. Low-mass plateau matches the paper's quoted bound g_agamma < 1.49e-12 GeV^-1 for m_a <~ 1e-12 eV (eq. 5.3, B0=31.5 uG). Reference lines: CAST ~8.8e-11, SN1987A ~5.3e-12, IAXO ~3.3e-12, Hydra A ~9e-12 GeV^-1. The high-mass (>3e-12 eV) part of the 95% boundary is harder to disentangle from the 68% and 99.7% contours and the dip near 6-8e-12 eV; those points carry larger uncertainty. Figure 7 (fig_02.png) is a profile-likelihood best-fit contour plot, not the exclusion limit. Constraint is astrophysical (ALP-photon conversion in Virgo cluster B-field), no DM density assumption. | Calibration: No calibration needed (spot-check verify/stage2 raw_ratio=1.01 snapped to identity)",
+  "num_points": 39,
+  "elapsed_s": 170.70428085327148
+}

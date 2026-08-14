@@ -1,0 +1,138 @@
+{
+  "arxiv_id": "1201.5902",
+  "paper_title": "WISPy Cold Dark Matter",
+  "coupling_type": "AxionPhoton",
+  "is_new_limit": true,
+  "is_projection": false,
+  "data_points": [
+    [
+      1e-09,
+      1e-10
+    ],
+    [
+      1e-08,
+      1e-10
+    ],
+    [
+      1e-07,
+      1e-10
+    ],
+    [
+      1e-06,
+      1e-10
+    ],
+    [
+      1e-05,
+      1e-10
+    ],
+    [
+      0.0001,
+      1e-10
+    ],
+    [
+      0.001,
+      1e-10
+    ],
+    [
+      0.01,
+      1e-10
+    ],
+    [
+      0.1,
+      1e-10
+    ],
+    [
+      1.0,
+      1e-10
+    ],
+    [
+      3.16,
+      1e-10
+    ],
+    [
+      5.6,
+      7.9e-11
+    ],
+    [
+      10.0,
+      6.3e-11
+    ],
+    [
+      17.8,
+      4.5e-11
+    ],
+    [
+      31.6,
+      3.16e-11
+    ],
+    [
+      56.0,
+      2.2e-11
+    ],
+    [
+      100.0,
+      1.58e-11
+    ],
+    [
+      178.0,
+      7.9e-12
+    ],
+    [
+      316.0,
+      3.16e-12
+    ],
+    [
+      562.0,
+      6.3e-13
+    ],
+    [
+      1000.0,
+      1e-13
+    ],
+    [
+      1778.0,
+      3.2e-14
+    ],
+    [
+      3162.0,
+      1e-14
+    ],
+    [
+      10000.0,
+      1e-15
+    ],
+    [
+      31600.0,
+      1.58e-16
+    ],
+    [
+      100000.0,
+      3.16e-17
+    ],
+    [
+      316000.0,
+      5e-18
+    ],
+    [
+      1000000.0,
+      1e-18
+    ],
+    [
+      3160000.0,
+      2e-19
+    ],
+    [
+      10000000.0,
+      5e-20
+    ]
+  ],
+  "data_source": "figure_vision",
+  "dm_density_assumed": null,
+  "confidence_level": 0.95,
+  "extraction_confidence": 0.45,
+  "suggested_experiment_name": "WISPy CDM (ALP compilation: CAST+Sumico, ALPS, HB, EBL, X-rays)",
+  "coupling_convention": "g_agamma in GeV^-1, plotted as Log10 g",
+  "notes": "Theory/review paper on WISP cold dark matter (ALPs and hidden photons) produced via the misalignment mechanism. It maps out cosmologically allowed DM parameter regions in the m-g plane rather than presenting a new measured exclusion limit. The exclusion contours shown (ALPS, CAST+Sumico, HB, EBL, X-rays, haloscopes) are recasts of existing experimental/astrophysical bounds, not a new measurement. No extractable numerical exclusion table is provided; couplings discussed only qualitatively (e.g. g~1e-11 to 1e-21 GeV^-1). Not a new limit. | [VISION GATE D] vision notes admit tracing a compilation envelope ('envelope of the excluded region: a roughly flat CAST+Sumico bound at g~1e-10 GeV^-1 for m < ~1 eV, transitioning near m~10-1000 eV into the steeply descending EBL/X-ray ALP-decay bounds') rather than the paper's own single curve | selector: figure_vision (sole candidate) | Vision: Figure 1 of 'WISPy Cold Dark Matter' is a compilation plot with many overlapping regions (ALPS, CAST+Sumico, HB experimental bounds plus EBL/X-ray/haloscope DM-based constraints). I traced the LOWER envelope of the excluded region: a roughly flat CAST+Sumico bound at g~1e-10 GeV^-1 for m < ~1 eV, transitioning near m~10-1000 eV into the steeply descending EBL/X-ray ALP-decay bounds (slope ~ -1.5 to -1.7 on log-log, consistent with decay-rate scaling g^2 m^3). Axis calibration: x from Log m=-9 to ~7, y from Log g=-5 to -20. Reading precision is limited because multiple exclusion regions overlap; confidence is moderate. The benchmark 'Axion models' band value is a rough estimate. | Calibration: No calibration needed",
+  "num_points": 30,
+  "elapsed_s": 273.4642128944397
+}
