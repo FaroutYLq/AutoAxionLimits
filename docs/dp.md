@@ -231,3 +231,5 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+
+- **DAMIC_M_2025**: [Direct and Indirect searches for DM-electron interactions in sub-GeV DM models](https://arxiv.org/abs/2608.26467)
