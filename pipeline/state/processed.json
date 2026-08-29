@@ -30,13 +30,15 @@
     "2608.15240",
     "2608.14183",
     "2608.12068",
-    "2608.08602"
+    "2608.08602",
+    "2608.07718"
   ],
   "failed_ids": {
     "2608.24677": "Mass range [1.00e+06, 1.00e+10] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
     "2608.24456": "Mass range [0.00e+00, 1.00e-24] eV outside valid range [1e-24, 1e+12] for AxionPhoton \u2014 likely a unit conversion error",
     "2608.15275": "Mass range [1.90e+09, 3.20e+09] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
     "2608.12079": "Mass range [1.00e+07, 2.00e+09] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
-    "2608.10633": "Inserting method into AxionPhoton produced invalid Python (invalid syntax at line 2063); aborting to avoid corrupting PlotFuncs.py."
+    "2608.10633": "Inserting method into AxionPhoton produced invalid Python (invalid syntax at line 2063); aborting to avoid corrupting PlotFuncs.py.",
+    "2608.08602": "git checkout master failed (rc=128):\nfatal: 'master' is already used by worktree at '/Users/lanqingyuan/Documents/GitHub/AutoAxionLimits'\n"
   }
 }
