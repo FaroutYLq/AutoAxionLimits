@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-07-08T11:11:47.740000+00:00",
+  "last_run": "2026-09-04T21:34:14.730866+00:00",
   "processed_ids": [
     "2607.02232",
     "2607.02026",
@@ -22,7 +22,48 @@
     "2606.26253",
     "2606.26240",
     "2606.25840",
-    "2607.19319"
+    "2607.19319",
+    "2608.26467",
+    "2608.24960",
+    "2608.20482",
+    "2608.15656",
+    "2608.15240",
+    "2608.14183",
+    "2608.12068",
+    "2608.08602",
+    "2608.07718",
+    "2609.00123",
+    "2608.29159",
+    "2608.05284",
+    "2608.05272",
+    "2608.05082",
+    "2608.05034",
+    "2608.00589",
+    "2608.00348",
+    "2607.29682",
+    "2607.29205",
+    "2609.02868",
+    "2609.02467",
+    "2607.27346",
+    "2607.27312",
+    "2608.19225",
+    "2607.26133",
+    "2607.24524",
+    "2607.22816",
+    "2607.22813",
+    "2607.20282",
+    "2607.19329",
+    "2607.18647"
   ],
-  "failed_ids": {}
+  "failed_ids": {
+    "2608.24677": "Mass range [1.00e+06, 1.00e+10] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
+    "2608.24456": "Mass range [0.00e+00, 1.00e-24] eV outside valid range [1e-24, 1e+12] for AxionPhoton \u2014 likely a unit conversion error",
+    "2608.15275": "Mass range [1.90e+09, 3.20e+09] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
+    "2608.12079": "Mass range [1.00e+07, 2.00e+09] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
+    "2608.10633": "Inserting method into AxionPhoton produced invalid Python (invalid syntax at line 2063); aborting to avoid corrupting PlotFuncs.py.",
+    "2608.07142": "Coupling range [3.16e-44, 1.00e+00] outside valid range [1e-22, 1e+00] for DarkPhoton \u2014 likely a unit conversion error",
+    "2607.29149": "Mass range [2.60e+22, 3.80e+22] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
+    "2607.29131": "Coupling range [4.50e-25, 5.00e-23] outside valid range [1e-22, 1e+00] for DarkPhoton \u2014 likely a unit conversion error",
+    "2607.22452": "Mass range [0.00e+00, 7.50e+08] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error"
+  }
 }
