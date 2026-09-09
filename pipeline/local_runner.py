@@ -134,6 +134,10 @@ def execute(directory, manifest, arguments):
     write_json(directory / "run.json", manifest)
     env = os.environ.copy()
     env["AAL_BACKEND"] = manifest["backend"]
+    # A benchmark may leave this override exported. A local operational run
+    # must not write its escalation queue into another checkout or evaluation.
+    env["AAL_CONVENTION_QUEUE"] = str(checkout / "pipeline/state/convention_queue.json")
+    env.pop("GITHUB_OUTPUT", None)
     argv = [sys.executable, "-u", "-m", module, *arguments]
     print(f"Run directory: {directory}\nBase commit: {manifest['base_commit']}\n"
           f"Backend: {manifest['backend']}\nLog: {log_path}", flush=True)

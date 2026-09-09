@@ -15,6 +15,8 @@ from pathlib import Path
 name = {"orchestrator": "processed.json", "preprint_checker": "preprint_versions.json",
         "backfill": "backfill_state.json"}[__spec__.name.split(".")[-1]]
 print("backend=" + os.environ["AAL_BACKEND"])
+if "--queue" in sys.argv:
+    Path(os.environ["AAL_CONVENTION_QUEUE"]).write_text('{"entries": ["local"]}')
 if "--dry-run" not in sys.argv:
     Path("pipeline/state", name).write_text(json.dumps({"completed": ["paper-1"]}))
     print("PR created: https://github.com/example/fixture/pull/17")
@@ -91,6 +93,16 @@ def test_nonzero_exit_retains_progress_and_can_resume(tmp_path, repository):
     assert json.loads(after["processed.json"])["completed"] == ["paper-1"]
     runner.prepare(directory, "daily", repository[0], "HEAD", "claude-cli")
     assert (directory / "checkout").exists()
+
+
+def test_inherited_queue_override_cannot_write_outside_clone(tmp_path, repository, monkeypatch):
+    outside = tmp_path / "external-queue.json"
+    outside.write_text("preserve external state")
+    monkeypatch.setenv("AAL_CONVENTION_QUEUE", str(outside))
+    directory, manifest = prepare(tmp_path, repository)
+    assert runner.execute(directory, manifest, ["--queue"]) == 0
+    assert outside.read_text() == "preserve external state"
+    assert json.loads((directory / "checkout/pipeline/state/convention_queue.json").read_text())["entries"] == ["local"]
 
 
 def test_restore_only_owned_file_from_remote_state_branch(tmp_path, repository):

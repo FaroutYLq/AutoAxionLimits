@@ -45,6 +45,8 @@ pipelines switch back to that branch between papers. Git objects are shared with
 the source repository to avoid copying its large history. Keep the source object
 store available while retaining runs. A local lock prevents concurrent use of the
 same run directory; it does not coordinate independent runs or GitHub Actions.
+The child always uses the clone's convention queue, overriding any inherited
+`AAL_CONVENTION_QUEUE` from a benchmark, and does not write to `GITHUB_OUTPUT`.
 
 By default runs live under `~/.local/state/autoaxionlimits/runs` (or
 `$XDG_STATE_HOME/autoaxionlimits/runs`). The runner retains `checkout/`, `run.json`, per-attempt logs, and before/after JSON
