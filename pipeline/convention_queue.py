@@ -17,6 +17,8 @@ the updated snapshot back.
 
 from __future__ import annotations
 
+from .run_context import state_writer
+
 import json
 import os
 import re
@@ -78,6 +80,7 @@ def load_queue(path: Path = QUEUE_PATH) -> dict:
     return _empty_queue()
 
 
+@state_writer
 def save_queue(queue: dict, path: Path = QUEUE_PATH) -> None:
     """Atomic write via .tmp rename (mirrors monitor.save_state)."""
     tmp = path.with_suffix(".tmp")

@@ -19,6 +19,11 @@ requires a human to review and merge the PR.
 
 The daily and weekly workflows also support `workflow_dispatch` for manual triggering.
 
+For local use, follow [setup and skill usage](local-pipelines.md). The shared
+runner uses `straxion`, keeps each run in a separate clone, and retains progress
+for resumption. A `--dry-run` performs extraction without creating science PRs
+or changing saved pipeline state; it can still use model calls and download files.
+
 ---
 
 ## Pipeline 1: Daily arXiv Digest
@@ -33,13 +38,9 @@ found, it extracts the data and opens a PR that adds the limit to the repo.
    `physics.ins-det`) for papers submitted in the last 3 days matching tracked keywords.
 2. **Pre-filter** — cheap local keyword match against `ARXIV_KEYWORDS` in
    `pipeline/config.py` to skip obviously irrelevant papers before calling Claude.
-3. **Extract** — two-stage Claude extraction:
-   - *Stage 1 (text)*: sends sanitized PDF text to Claude; asks for coupling
-     type, data points (mass [eV], coupling), DM density assumption, and a
-     suggested experiment name.
-   - *Stage 2 (vision)*: fallback when Stage 1 returns no data points, reports
-     `is_new_limit=False`, or confidence < 0.4. Renders PDF pages to PNG and
-     asks Claude to trace the exclusion boundary from the plot.
+3. **Extract** — reads sanitized paper text and relevant figures, checks
+   coupling conventions and data quality, and selects a candidate extraction.
+   Projected sensitivities are skipped by the daily digest.
 4. **Review** — applies deterministic physical corrections (see below), then
    asks Claude to generate a `PlotFuncs.py` static method following the exact
    style of existing methods.
@@ -52,13 +53,13 @@ found, it extracts the data and opens a PR that adds the limit to the repo.
    opens a PR titled:
    - `Add {Experiment} {CouplingType} limit (arXiv:{id})` — normal
    - `[LOW CONFIDENCE] Add ...` — extraction confidence < 60 %
-   - `[PROJECTION] Add ...` — sensitivity projection rather than observed limit
 
 ### State file: `pipeline/state/processed.json`
 
-Records every arXiv ID that has been processed (successfully or not). The
-Actions workflow commits this file back to `master` after each run so the next
-run does not re-process the same papers.
+Records handled papers and paper-specific failures. The Actions workflow saves
+progress on `chore/update-pipeline-state` through a reusable PR and restores it
+on the next run; it does not push directly to `master`. Availability failures
+leave the current paper eligible for retry. Previews do not save state.
 
 ```json
 {
@@ -84,7 +85,10 @@ and opens a PR if the numerical data changed.
 2. **Check version** — queries the arXiv API for the latest version number and
    whether the paper has a `journal_ref` (i.e. is no longer a preprint).
 3. **Decision logic**:
-   - *Published* (`journal_ref` present): mark as published, stop tracking.
+   - *Already verified as published*: stop tracking.
+   - *Newly published*: verify the results, even if the version is unchanged;
+     propose removal for review if no usable limit data remains.
+   - *Withdrawn*: propose removal for human review, before setting a baseline.
    - *First time seen*: record current version as baseline — no PR created.
    - *Version unchanged*: update `last_checked` timestamp only.
    - *New version*: download the new PDF, run the extraction agent, compare
@@ -96,7 +100,8 @@ and opens a PR if the numerical data changed.
 ### State file: `pipeline/state/preprint_versions.json`
 
 Records the known version and publication status of every tracked paper. The
-Actions workflow commits this file back to `master` after each run.
+Actions workflow saves and restores progress through the reusable
+`chore/update-preprint-state` PR branch. Previews do not save state.
 
 ```json
 {
@@ -217,8 +222,9 @@ historical backfill.
 
 ## Physical Corrections
 
-Corrections are defined in `pipeline/config.py` under `PHYSICAL_CORRECTIONS`
-and applied deterministically before any data is written.
+Correction metadata is defined in `pipeline/config.py` under
+`PHYSICAL_CORRECTIONS`. Density rescaling is applied by the plotting method;
+stored data retains the paper's density convention.
 
 ### DM density rescaling
 
@@ -227,10 +233,12 @@ local dark matter density ρ_DM. This repo uses **ρ_repo = 0.45 GeV/cm³**. Whe
 a paper assumes a different value ρ_paper, the coupling is rescaled:
 
 ```
-coupling_corrected = coupling_paper × sqrt(ρ_repo / ρ_paper)
+coupling_plotted = coupling_paper × sqrt(ρ_paper / ρ_repo)
 ```
 
-This is applied automatically only when:
+The plotting method applies this once; it is not baked into the data file.
+It applies automatically only when:
+
 - Claude reports a `dm_density_assumed` value for the paper, **and**
 - the coupling type has a `dm_density` entry in `PHYSICAL_CORRECTIONS`
   (i.e. haloscope/DM-search types: DarkPhoton, AxionPhoton, AxionElectron,
@@ -314,16 +322,16 @@ git clone https://github.com/<your-username>/AutoAxionLimits.git
 cd AutoAxionLimits
 
 # Point origin at your fork, upstream at the original repo
-git remote rename origin upstream   # cajohare/AxionLimits → upstream
-git remote add origin https://github.com/<your-username>/AutoAxionLimits.git
+git remote add upstream https://github.com/cajohare/AxionLimits.git
 ```
 
 ### 2. Install dependencies
 
-Python 3.11 or later is required.
+Python 3.11 or later is required. For local work, use the `straxion` environment.
 
 ```bash
-pip install -r requirements_pipeline.txt
+conda activate straxion
+python -m pip install -r requirements_pipeline.txt
 ```
 
 Pipeline dependencies (`requirements_pipeline.txt`):
@@ -464,8 +472,10 @@ add push-triggered workflows.
 ```
 Add {ExperimentName} {CouplingType} limit (arXiv:{id})
 [LOW CONFIDENCE] Add ...    ← extraction confidence < 60%
-[PROJECTION] Add ...        ← sensitivity projection
 ```
+
+Projected sensitivities open no daily PR (`[PROJECTION]` remains for the
+weekly and backfill paths).
 
 Body includes: paper title and link, data source (table / text / vision),
 mass and coupling range, corrections applied, corrections flagged for review,
