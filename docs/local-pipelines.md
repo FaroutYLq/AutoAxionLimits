@@ -1,9 +1,10 @@
 # Local pipeline skills
 
-The daily, weekly and backfill skills share `scripts/run_pipeline.sh` and
-`pipeline/local_runner.py`. Claude reads their definitions in `.claude/skills`;
-Codex discovers the same definitions through `.agents/skills` symlinks. Convention
-triage remains a separate Claude/GPD workflow and is not ported by this runner.
+Use the daily, weekly or backfill skill in Claude Code or Codex to find papers,
+preview changes, or propose updates for review. Both agents use the same runner.
+Convention triage remains a separate Claude/GPD workflow.
+
+[Project overview](../README.md) · [Pipeline details](pipeline.md) · [Model backends](../pipeline/BACKENDS.md)
 
 ## Before running
 
