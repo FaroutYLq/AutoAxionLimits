@@ -17,6 +17,7 @@ from pathlib import Path
 import anthropic
 
 from .client_factory import make_client
+from .run_context import preview_run
 from .config import MAX_PAPERS_PER_RUN
 from .extractor import (
     CLAUDE_MODEL,
@@ -70,6 +71,7 @@ def preflight_api_check(client: anthropic.Anthropic) -> None:
         logger.warning("API preflight inconclusive (continuing): %s", e)
 
 
+@preview_run
 def main(
     days_back: int = 3,
     dry_run: bool = False,

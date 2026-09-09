@@ -24,6 +24,7 @@ import anthropic
 import httpx
 
 from .client_factory import make_client
+from .run_context import preview_run, state_writer
 from .config import (
     ARXIV_KEYWORDS,
     BACKFILL_DEFAULT_MIN_CITATIONS,
@@ -81,6 +82,7 @@ def load_backfill_state() -> dict:
     }
 
 
+@state_writer
 def save_backfill_state(state: dict) -> None:
     tmp = BACKFILL_STATE_PATH.with_suffix(".tmp")
     BACKFILL_STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -621,6 +623,7 @@ def _process_candidate(
 # Main entrypoint
 # ---------------------------------------------------------------------------
 
+@preview_run
 def main(
     date_from: str | None = None,
     date_to: str | None = None,

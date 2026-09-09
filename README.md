@@ -23,7 +23,11 @@ AAL_BACKEND=claude-cli python -m pipeline.orchestrator --dry-run   # preview, no
 AAL_BACKEND=claude-cli python -m pipeline.orchestrator             # real run
 ```
 
-Or, from inside a Claude Code session, just run the matching skill — `/daily-arxiv-digest`, `/weekly-preprint-check`, or `/backfill-extraction` — which handles worktree isolation and state restore for you. (Runs need network + keychain access, so don't sandbox them.)
+Or use the matching skill in Claude Code or Codex: `daily-arxiv-digest`,
+`weekly-preprint-check`, or `backfill-extraction`. They share a runner that
+activates `straxion`, isolates each run in a separate clone, restores its state,
+and retains logs and recovery files. See [local pipeline skills](docs/local-pipelines.md)
+for preview, resume, backend selection, and state publication.
 
 ---
 

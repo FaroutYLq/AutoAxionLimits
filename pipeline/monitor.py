@@ -17,6 +17,7 @@ from typing import Optional
 import arxiv
 
 from .config import ARXIV_CATEGORIES, ARXIV_KEYWORDS
+from .run_context import state_writer
 
 logger = logging.getLogger(__name__)
 
@@ -266,6 +267,7 @@ def load_state(path: Path = STATE_PATH) -> dict:
     }
 
 
+@state_writer
 def save_state(state: dict, path: Path = STATE_PATH) -> None:
     """Atomic write via .tmp rename."""
     tmp = path.with_suffix(".tmp")

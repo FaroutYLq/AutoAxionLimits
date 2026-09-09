@@ -24,9 +24,10 @@ backfill pipelines can run on a Pro/Max subscription with no API key. Enable it:
 AAL_BACKEND=claude-cli python -m pipeline.orchestrator --dry-run
 ```
 
-The in-session skills wrap this with worktree isolation and state-branch
-handling — prefer them for real runs: `/daily-arxiv-digest`,
-`/weekly-preprint-check`, `/backfill-extraction`.
+The in-session skills wrap this with an isolated clone and state-branch
+handling — prefer them for real runs: `daily-arxiv-digest`,
+`weekly-preprint-check`, `backfill-extraction`. They work in Claude Code and
+Codex through the same [local runner](../docs/local-pipelines.md).
 
 ### What the CLI client does
 

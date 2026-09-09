@@ -26,6 +26,7 @@ from .extractor import (
     run_extraction_agent,
 )
 from .client_factory import make_client
+from .run_context import preview_run, state_writer
 from .pr_creator import create_feature_branch, stage_and_commit_files
 from .reviewer import ReviewResult, apply_corrections, format_data_file
 
@@ -55,6 +56,7 @@ def load_version_state(path: Path = STATE_PATH) -> dict:
     return {"schema_version": 1, "last_checked": None, "files": {}}
 
 
+@state_writer
 def save_version_state(state: dict, path: Path = STATE_PATH) -> None:
     tmp = path.with_suffix(".tmp")
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -504,6 +506,7 @@ def summarise_changes(
 # Main weekly check
 # ---------------------------------------------------------------------------
 
+@preview_run
 def run_weekly_check(
     repo_root: Path = REPO_ROOT,
     dry_run: bool = False,

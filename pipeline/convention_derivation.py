@@ -32,6 +32,8 @@ caller falls back to today's flag-and-queue behaviour.
 
 from __future__ import annotations
 
+from .run_context import state_writer
+
 import json
 import logging
 import math
@@ -176,6 +178,7 @@ def _load_cache(path: Path = CACHE_PATH) -> dict:
     return {"version": 1, "entries": {}}
 
 
+@state_writer
 def _save_cache(cache: dict, path: Path = CACHE_PATH) -> None:
     try:
         path.parent.mkdir(parents=True, exist_ok=True)

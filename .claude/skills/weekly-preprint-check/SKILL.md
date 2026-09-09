@@ -1,67 +1,31 @@
 ---
 name: weekly-preprint-check
-description: Run the AutoAxionLimits weekly preprint checker on the Claude Code subscription (no ANTHROPIC_API_KEY). Scans existing data files for updated arXiv preprint versions with changed results and opens PRs; flags published papers that yield no data. Use when the user asks to run the weekly preprint/version check locally.
+description: Run or preview the AutoAxionLimits weekly preprint checker locally. Use to check existing limits for revised arXiv versions, publication transitions or withdrawals; supports Claude CLI and Anthropic API backends.
 ---
 
-# Weekly preprint checker (subscription backend)
+# Weekly preprint check
 
-Runs `pipeline.preprint_checker` with the headless-`claude` transport
-(`AAL_BACKEND=claude-cli`), billing to the Claude Code subscription. **Identical
-methodology to the API/CI run**; only the transport differs.
+Read [the shared local-run procedure](../../../docs/local-pipelines.md) before
+running. Preserve the pipeline's existing comparison and removal-review rules.
 
-## Guardrails
-- Only *opens* PRs (`[NEEDS REVIEW]` flags and updated-limit proposals); never merge them — the user does.
-- Confirm before the state-branch push (step 6).
-- Run in a throwaway worktree, never the user's checkout.
+Run from the repository containing this skill:
 
-## Preconditions (stop if any fails)
-1. `gh auth status` green.
-2. `claude --version` works and is logged in to a Pro/Max subscription.
-3. LaTeX installed (`which pdflatex`).
-4. `git fetch origin` succeeds.
+```bash
+bash scripts/run_pipeline.sh run weekly -- --dry-run
+```
 
-## Procedure
+This checks the existing data files; it has no paper-count flag. Preview still
+uses network/model calls but creates no science PRs and leaves version state
+unchanged. For an authorized real run omit `--dry-run`; reuse a previous run with
+`--run-dir /path/to/run` before `--`. Do not require a duplicate preview when the
+user has already requested a real check.
 
-**Important:** run every `python -m pipeline...` / `claude -p` command with the
-shell sandbox **disabled** (needs network + keychain OAuth). Re-run
-non-sandboxed on "Not logged in"/network errors.
+Use `--init-only` only when the user wants to establish a version baseline. It
+writes state without opening science PRs; combining it with `--dry-run` previews
+that baseline without saving it. Do not use initialization as an update check.
 
-1. **Worktree:**
-   ```bash
-   git fetch origin master
-   WT="$(mktemp -d)/aal-weekly"
-   git worktree add "$WT" origin/master
-   cd "$WT"
-   ```
-2. **Restore preprint-version baseline** from its state branch (mirrors CI):
-   ```bash
-   git fetch origin chore/update-preprint-state \
-     && git checkout FETCH_HEAD -- pipeline/state/preprint_versions.json \
-     || echo "no state branch yet; using master baseline"
-   ```
-3. **Dry run first:**
-   ```bash
-   AAL_BACKEND=claude-cli python -m pipeline.preprint_checker --dry-run
-   ```
-   Report which files would be checked / updated before the real run.
-4. **Real run:**
-   ```bash
-   AAL_BACKEND=claude-cli python -m pipeline.preprint_checker
-   ```
-   (First-ever setup only: `--init-only` populates the version baseline with no
-   PRs.) Exit code 2 = subscription/auth unavailable; nothing changed — stop.
-5. **Collect results:** `gh pr list --repo FaroutYLq/AutoAxionLimits --author @me`.
-6. **State push-back — ASK FIRST.** The run updated
-   `pipeline/state/preprint_versions.json`. Show the diff, then on approval:
-   ```bash
-   git add pipeline/state/preprint_versions.json
-   git commit -m "chore: update preprint state"
-   git push -f origin HEAD:chore/update-preprint-state
-   ```
-   Open/reuse the single state PR. Skip if CI may be pushing the same branch.
-7. **Cleanup:** `cd` back and `git worktree remove "$WT"`.
-
-## Summary to give the user
-Files checked, updated-limit PRs opened (URLs), `[NEEDS REVIEW]` flags raised,
-and whether the state branch was pushed. Exit code 2 → subscription/auth
-unavailable, no state changed.
+Publish the owned version state using the shared procedure when within scope.
+Never merge update or removal proposals. Report checked files, changes and
+withdrawal/removal flags from the log, PR URLs from this run, exit status, state
+publication status and recovery directory. An availability failure can follow
+already completed work; inspect saved state before describing what changed.
