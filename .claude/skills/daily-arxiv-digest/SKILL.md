@@ -23,8 +23,10 @@ with a preview if the user has already requested a real run.
 
 For an authorized real run, omit `--dry-run`. If continuing a preview, reuse its
 printed directory with `--run-dir /path/to/run` before `--`; keep the intended
-paper arguments. Use the shared procedure to publish the processed-paper state
-when within the user's requested scope. Never merge scientific proposals.
+paper arguments. Before `publish-state`, run `state-diff`, show the user the owned-state diff and
+ask for an explicit yes; never publish a preview. Run every launcher command with
+the shell sandbox disabled.
+Never merge scientific proposals.
 
 Report the exact paper scope, backend, exit status, PR URLs from this run,
 skips/failures from its log, state publication status and recovery directory.

@@ -16,12 +16,24 @@ Convention triage remains a separate Claude/GPD workflow.
   The runner honors `AAL_BACKEND`, otherwise defaults to `claude-cli`. It does not
   change model selection, prompts or numerical guards. Check CLI login with
   `claude auth status`; use `gh auth status` for remote access and real PR runs.
-  Never print credentials. Network and, for CLI authentication, keychain access
-  must be available under the host's execution policy.
-- The runner copies the selected **committed** revision (`--ref HEAD` by default).
-  Uncommitted code and data are not copied. To run updated production code, fetch
-  `origin/master` and select `--ref origin/master`; to validate an implementation,
-  commit it on its development branch and select that revision.
+  Never print credentials. In Claude Code, run every launcher command with the
+  shell sandbox **disabled**: the Claude CLI reads its OAuth token from the macOS
+  keychain and the run needs network access. A sandboxed run aborts at the
+  preflight ping with exit 2 ("Not logged in"); re-run it non-sandboxed before
+  treating exit 2 as a usage-window outage.
+- The runner runs the **committed** revision it fetches as remote `master`, the
+  production code, regardless of which branch the source checkout is on.
+  Uncommitted code and data are never copied. `--ref <revision>` runs another
+  committed revision for validation; a revision that is not already on remote
+  master may only be previewed (`--dry-run`), because science PRs branch from the
+  run's master and would carry its unmerged commits. `--allow-unmerged-ref`
+  overrides that deliberately.
+- The child does not inherit `AAL_*` or `EXTRACTOR_MODEL`/`REVIEWER_MODEL`
+  overrides a benchmark shell may have left exported (operational knobs such as
+  `AAL_CLI_TIMEOUT` and the download caches pass through). The runner prints what
+  it ignored and the pipeline logs the resolved models at startup. Pass an
+  explicit override with `--env NAME=VALUE` before `--`; it is recorded in
+  `run.json`.
 - A request for a real pipeline run includes its ordinary science proposal PRs.
   A request for a preview or discovery does not authorize extraction/publication
   beyond that scope. Preserve prior authorization; do not require repeated
@@ -37,9 +49,10 @@ bash scripts/run_pipeline.sh run daily --run-dir /path/printed/by/runner -- --ma
 
 Runner options go **before** `--`; existing pipeline arguments go **after** it.
 `--run-dir` reuses an existing clone, baseline, and queue. Keep the same backend
-when resuming. A fresh run restores only its owned state file from its state
-branch. A missing branch uses the source baseline; network/auth/read errors stop
-setup instead of silently pretending that the branch is absent.
+when resuming (the runner enforces it). A fresh run restores its owned state
+files (table below) from their state branches. A missing branch or file uses the
+master baseline; network/auth errors stop setup instead of silently pretending
+that the branch is absent.
 
 Each run uses a separate local clone with its own `master`, because the existing
 pipelines switch back to that branch between papers. Git objects are shared with
@@ -48,6 +61,10 @@ store available while retaining runs. A local lock prevents concurrent use of th
 same run directory; it does not coordinate independent runs or GitHub Actions.
 The child always uses the clone's convention queue, overriding any inherited
 `AAL_CONVENTION_QUEUE` from a benchmark, and does not write to `GITHUB_OUTPUT`.
+Ctrl-C interrupts the pipeline (SIGINT to its process group, up to 30 s to
+finish the current step; a second Ctrl-C kills it) and records the attempt as
+`interrupted`; the pipeline withdraws the processed mark of a paper whose PR
+was never created, so it is retried rather than silently retired.
 
 By default runs live under `~/.local/state/autoaxionlimits/runs` (or
 `$XDG_STATE_HOME/autoaxionlimits/runs`). The runner retains `checkout/`, `run.json`, per-attempt logs, and before/after JSON
@@ -71,27 +88,35 @@ and preserve the changes before returning that clone to its local master.
 
 ## Publish state
 
-For an authorized real run, inspect the changed-state report and owned state diff
-before publishing. Continue without another permission question when publication
-is already in scope. For a preview-only request, do not publish.
+Publication pushes to a shared branch and opens a PR, so it is a separate
+side-effect from the run. **Always show the owned-state diff and ask first**,
+even when the run itself was authorized: a successful run does not prove its
+bookkeeping is right (a paper recorded as processed without a PR would never be
+retried). Never publish a preview.
 
 ```bash
+bash scripts/run_pipeline.sh state-diff /path/printed/by/runner
 bash scripts/run_pipeline.sh publish-state /path/printed/by/runner
 ```
 
 | Pipeline | Owned state | Reused PR branch |
 | --- | --- | --- |
-| Daily | `processed.json` | `chore/update-pipeline-state` |
+| Daily | `processed.json`, `convention_queue.json` | `chore/update-pipeline-state` |
 | Weekly | `preprint_versions.json` | `chore/update-preprint-state` |
 | Backfill | `backfill_state.json` | `chore/update-backfill-state` |
+| Backfill | `processed.json`, `convention_queue.json` | `chore/update-pipeline-state` |
 
-Publication builds a commit from the remote master recorded at setup plus **only** the
-owned state file. Science changes and other state files are excluded. It opens or
-reuses a PR against master, and never merges it. A push lease requires the remote
-state branch to match the baseline restored at setup (or the last successful
-publication). If another run advances it, publication stops and retains local
-progress. Inspect both states and reconcile deliberately; never retry with an
-unconditional force push or just update the expected lease to bypass the check.
+For each branch, publication merges the owned files onto the branch's current tip
+(three-way: the copy restored at setup, this run's copy, the tip's copy) and pushes
+with a lease on that tip, so a GitHub Actions run that advanced the branch in the
+meantime is absorbed rather than rejected. Lists merge as keyed sets: backfill
+queue consumption is honoured, and no other file ever loses entries. The commit
+contains **only** the owned files on top of the tip (or remote master when the
+branch is new); science changes and other state files are excluded. It opens or
+reuses a PR against master and never merges it. If the tip moves while
+publication is in progress, it stops without pushing; simply retry. The runner
+refuses to publish while the clone is off master (an interrupted paper) and
+refuses to bypass the lease with an unconditional force push.
 
 Keep recovery files until progress is published or intentionally retained
 elsewhere. The runner never deletes a checkout automatically. Scheduling stays

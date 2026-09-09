@@ -24,7 +24,9 @@ Use `--init-only` only when the user wants to establish a version baseline. It
 writes state without opening science PRs; combining it with `--dry-run` previews
 that baseline without saving it. Do not use initialization as an update check.
 
-Publish the owned version state using the shared procedure when within scope.
+Before `publish-state`, run `state-diff`, show the user the owned-state diff and
+ask for an explicit yes; never publish a preview. Run every launcher command with
+the shell sandbox disabled.
 Never merge update or removal proposals. Report checked files, changes and
 withdrawal/removal flags from the log, PR URLs from this run, exit status, state
 publication status and recovery directory. An availability failure can follow

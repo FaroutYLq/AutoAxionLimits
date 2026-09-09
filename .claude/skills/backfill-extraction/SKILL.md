@@ -32,7 +32,9 @@ Avoid a second discovery in the same run: discovery replaces the queue. Pause on
 subscription/auth failure; inspect the log and queue, then resume when available.
 Do not schedule additional runs unless requested.
 
-Publish the owned backfill queue using the shared procedure when within scope.
+Before `publish-state`, run `state-diff`, show the user the owned-state diff and
+ask for an explicit yes; never publish a preview. Run every launcher command with
+the shell sandbox disabled.
 Never merge scientific proposals. Report discovered/processed/skipped counts,
 PR URLs from this run, remaining queue, backend, exit status, state publication
 status and recovery directory. Retain unprocessed candidates and recovery files.
