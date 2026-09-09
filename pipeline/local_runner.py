@@ -188,13 +188,31 @@ def _resolve_scalar(path, base, ours, theirs, prefer_ours):
         f"{theirs!r}, both changed from {'<absent>' if base is _ABSENT else repr(base)}")
 
 
+def _merge_withdrawal(ours, theirs, path):
+    """Withdrawal belongs to a paper version; a later version can reinstate it."""
+    our_version = ours.get("known_version")
+    their_version = theirs.get("known_version")
+    if (type(our_version) is int and type(their_version) is int
+            and our_version != their_version):
+        newer = ours if our_version > their_version else theirs
+        # Absence is intentional when the checker cleared the flag.
+        return newer.get("withdrawn", _ABSENT)
+    if ours.get("withdrawn", False) == theirs.get("withdrawn", False):
+        return ours.get("withdrawn", _ABSENT)
+    raise StateConflict(
+        f"{'/'.join(map(str, path))}/withdrawn: withdrawal status differs without "
+        f"a newer known_version (this run: {our_version!r}, state branch: {their_version!r})")
+
+
 def merge_state(base, ours, theirs, *, allow_delete=False, prefer_ours=False, path=()):
     """Three-way merge of JSON state with per-field rules (see MAX_FIELDS etc.).
 
     Dict keys merge recursively; lists are keyed sets (cache_key / arxiv_id for
     dict items) merged the same way. Removals relative to *base* are honoured
     only with *allow_delete* (queue consumption); otherwise the result is a
-    union. A scalar both sides changed differently, with no monotone rule and
+    union. In preprint file records, withdrawal follows the newer version,
+    including flag removal on reinstatement; ambiguous status is a conflict.
+    A scalar both sides changed differently, with no monotone rule and
     no *prefer_ours*, raises StateConflict rather than guessing.
     """
     if ours == theirs:
@@ -203,8 +221,15 @@ def merge_state(base, ours, theirs, *, allow_delete=False, prefer_ours=False, pa
     if isinstance(ours, dict) and isinstance(theirs, dict):
         base = base if isinstance(base, dict) else {}
         result = {}
+        versioned_withdrawal = (len(path) == 2 and path[0] == "files"
+                               and ("withdrawn" in ours or "withdrawn" in theirs))
+        if versioned_withdrawal:
+            withdrawn = _merge_withdrawal(ours, theirs, path)
         for key in dict.fromkeys([*theirs, *ours]):
-            if key in ours and key in theirs:
+            if key == "withdrawn" and versioned_withdrawal:
+                if withdrawn is not _ABSENT:
+                    result[key] = withdrawn
+            elif key in ours and key in theirs:
                 result[key] = merge_state(base.get(key, _ABSENT), ours[key], theirs[key],
                                           path=(*path, key), **options)
             elif key in ours:

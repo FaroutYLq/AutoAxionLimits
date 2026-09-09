@@ -31,11 +31,13 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from types import SimpleNamespace
 
 import arxiv
 import pytest
 
 from pipeline import preprint_checker as pc
+from pipeline.local_runner import merge_state
 
 
 # ---------------------------------------------------------------------------
@@ -283,6 +285,46 @@ def test_unknown_withdrawal_status_does_not_flag(monkeypatch, harness):
     entry = harness["read"]()
     assert "withdrawn" not in entry
     assert entry["known_version"] == 2
+
+
+def _reinstate_and_merge(monkeypatch, harness):
+    """Run the real checker, then reconcile with an unchanged state branch."""
+    harness["seed"]({"arxiv_id": _ARXIV_ID, "known_version": 2,
+                     "last_checked": "2026-08-05T00:00:00+00:00",
+                     "published": False, "withdrawn": True})
+    base = json.loads(harness["state_file"].read_text())
+    monkeypatch.setattr(pc, "batch_get_latest_versions",
+                        lambda *a, **kw: {_ARXIV_ID: (3, False, _fake_paper(3))})
+    monkeypatch.setattr(pc, "is_withdrawn", lambda *a, **kw: False)
+    monkeypatch.setattr(pc, "is_published", lambda *a, **kw: False)
+    monkeypatch.setattr(pc, "download_pdf", lambda *a, **kw: Path("unused.pdf"))
+    monkeypatch.setattr(pc, "run_extraction_agent", lambda *a, **kw: SimpleNamespace(
+        data_points=[(1, 2)], is_projection=False, extraction_confidence=0.9))
+    monkeypatch.setattr(pc, "apply_corrections", lambda *a: ([(1, 2)], [], []))
+    monkeypatch.setattr(pc, "data_has_changed", lambda *a: False)
+    pc.run_weekly_check()
+    ours = json.loads(harness["state_file"].read_text())
+    assert ours["files"][_FILE]["known_version"] == 3
+    assert "withdrawn" not in ours["files"][_FILE]
+    merged = merge_state(base, ours, base)
+    harness["state_file"].write_text(json.dumps(merged))
+    return merged
+
+
+def test_reinstatement_survives_state_merge(monkeypatch, harness):
+    merged = _reinstate_and_merge(monkeypatch, harness)
+    assert not merged["files"][_FILE].get("withdrawn")
+
+
+def test_new_withdrawal_after_reinstatement_opens_removal_pr(monkeypatch, harness):
+    _reinstate_and_merge(monkeypatch, harness)
+    monkeypatch.setattr(pc, "batch_get_latest_versions",
+                        lambda *a, **kw: {_ARXIV_ID: (4, False, _fake_paper(4))})
+    monkeypatch.setattr(pc, "is_withdrawn", lambda *a, **kw: True)
+    pc.run_weekly_check()
+    assert len(harness["flag_prs"]) == 1
+    assert harness["flag_prs"][0]["withdrawn"] is True
+    assert harness["flag_prs"][0]["new_version"] == 4
 
 
 # ---------------------------------------------------------------------------

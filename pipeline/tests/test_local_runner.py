@@ -305,6 +305,27 @@ def test_irreconcilable_remote_change_stops_publication_without_pushing(tmp_path
     assert json.loads((checkout / "pipeline/state/preprint_versions.json").read_text()) == {"files": {"f": {"note": "ours"}}}
 
 
+@pytest.mark.parametrize("remote_version", [2, 3])
+def test_publish_reinstatement_keeps_flag_cleared(tmp_path, repository, monkeypatch, remote_version):
+    source, remote = repository
+    filename = "preprint_versions.json"
+    branch = runner.PREPRINT_STATE
+    base = {"files": {"f": {"known_version": 2, "withdrawn": True}}}
+    push_state(source, branch, {filename: json.dumps(base)})
+    directory, _ = prepare(tmp_path, repository, "weekly")
+    path = directory / "checkout/pipeline/state" / filename
+    # Local reinstatement is newer than either an unchanged or advanced remote.
+    path.write_text(json.dumps({"files": {"f": {"known_version": 4}}}))
+    if remote_version != 2:
+        push_state(source, branch, {filename: json.dumps({
+            "files": {"f": {"known_version": remote_version, "withdrawn": True}}})})
+    fake_gh(monkeypatch)
+    runner.publish_state(directory)
+    published = json.loads(git(remote, "show", f"{branch}:pipeline/state/{filename}"))
+    assert published == {"files": {"f": {"known_version": 4}}}
+    assert json.loads(path.read_text()) == published
+
+
 def test_lagging_branch_copy_never_regresses_convention_status(tmp_path, repository, monkeypatch):
     """The branch copy of the queue can lag master (triage merged in between);
     publishing must not roll a promoted convention back to queued."""
@@ -479,6 +500,23 @@ class TestMergeState:
         theirs = {"files": {"f": {"known_version": 3, "last_checked": "t1", "published": True, "withdrawn": True}}}
         assert runner.merge_state(base, ours, theirs) == {"files": {"f": {
             "known_version": 3, "last_checked": "t2", "published": True, "withdrawn": True}}}
+
+    @pytest.mark.parametrize("reverse", [False, True])
+    @pytest.mark.parametrize("newer_flag", [{}, {"withdrawn": False}, {"withdrawn": True}])
+    def test_withdrawal_follows_newer_version_on_either_side(self, reverse, newer_flag):
+        older = {"files": {"f": {"known_version": 2,
+                                  "withdrawn": not newer_flag.get("withdrawn", False)}}}
+        newer = {"files": {"f": {"known_version": 3, **newer_flag}}}
+        ours, theirs = (older, newer) if reverse else (newer, older)
+        assert runner.merge_state(older, ours, theirs) == newer
+
+    @pytest.mark.parametrize("version", [3, None])
+    def test_ambiguous_withdrawal_is_a_conflict(self, version):
+        base = {"files": {"f": {"known_version": 2, "withdrawn": True}}}
+        ours = {"files": {"f": {"known_version": version}}}
+        theirs = {"files": {"f": {"known_version": version, "withdrawn": True}}}
+        with pytest.raises(runner.StateConflict, match="files/f/withdrawn"):
+            runner.merge_state(base, ours, theirs)
 
     def test_both_sides_changing_a_free_scalar_is_a_conflict(self):
         with pytest.raises(runner.StateConflict, match="files/f/journal_ref"):

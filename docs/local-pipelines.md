@@ -116,9 +116,11 @@ For each branch, publication merges the owned files onto the branch's current ti
 with a lease on that tip, so a GitHub Actions run that advanced the branch in the
 meantime is absorbed rather than rejected. The rules are state-specific: lists
 merge as keyed sets (backfill queue consumption is honoured, no other file ever
-loses entries); versions, timestamps and counts take the larger value and
-`published`/`withdrawn` flags only ever turn on, so a lagging copy on either side
-cannot roll progress back; a convention status only advances along the triage
+loses entries); versions, timestamps and counts take the larger value, and
+`published` flags only ever turn on. Withdrawal status follows the newer paper
+version, including clearing the flag when a paper is reinstated; conflicting
+withdrawal states without a newer version stop publication for review.
+A convention status only advances along the triage
 lifecycle and this run's copy (master's triage results plus the new flags) is
 authoritative for the queue. A value both sides changed differently with no such
 rule stops publication with the conflicting path named and nothing pushed;
