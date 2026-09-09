@@ -192,6 +192,15 @@ def _normalize_coupling_type(raw: str) -> str:
 CLAUDE_MODEL = os.environ.get(
     "REVIEWER_MODEL", os.environ.get("EXTRACTOR_MODEL", "claude-opus-4-8"))
 
+
+def describe_models() -> str:
+    """One line naming the resolved extractor/reviewer models and backend, logged
+    at every entrypoint start so an inherited model override is visible in the
+    run log (never trust the environment alone)."""
+    from .extractor import CLAUDE_MODEL as extractor_model
+    return (f"models: extractor={extractor_model} reviewer={CLAUDE_MODEL} "
+            f"backend={os.environ.get('AAL_BACKEND') or 'api'}")
+
 REPO_ROOT = Path(__file__).parent.parent
 
 # ---------------------------------------------------------------------------

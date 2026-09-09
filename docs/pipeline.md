@@ -472,8 +472,10 @@ add push-triggered workflows.
 ```
 Add {ExperimentName} {CouplingType} limit (arXiv:{id})
 [LOW CONFIDENCE] Add ...    ← extraction confidence < 60%
-[PROJECTION] Add ...        ← sensitivity projection
 ```
+
+Projected sensitivities open no daily PR (`[PROJECTION]` remains for the
+weekly and backfill paths).
 
 Body includes: paper title and link, data source (table / text / vision),
 mass and coupling range, corrections applied, corrections flagged for review,

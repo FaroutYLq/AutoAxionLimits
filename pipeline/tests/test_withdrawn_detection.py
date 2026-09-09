@@ -162,8 +162,12 @@ def harness(monkeypatch, tmp_path):
             return json.loads(state_file.read_text())
         return {"schema_version": 1, "last_checked": None, "files": {}}
 
+    # Route through the real (``@state_writer``-decorated) saver so a dry run
+    # suppresses the write here exactly as it does in production.
+    real_save = pc.save_version_state
+
     def save_state(state, path=None):
-        state_file.write_text(json.dumps(state, indent=2))
+        real_save(state, state_file)
 
     monkeypatch.setattr(pc, "load_version_state", load_state)
     monkeypatch.setattr(pc, "save_version_state", save_state)
@@ -194,6 +198,7 @@ def harness(monkeypatch, tmp_path):
         json.dumps({"schema_version": 1, "last_checked": None, "files": {_FILE: entry}}, indent=2)
     )
     calls["read"] = lambda: json.loads(state_file.read_text())["files"][_FILE]
+    calls["exists"] = state_file.exists
     return calls
 
 
@@ -242,6 +247,11 @@ def test_dry_run_opens_no_pr(monkeypatch, harness):
     monkeypatch.setattr(pc, "is_withdrawn", lambda aid, **kw: True)
     pc.run_weekly_check(repo_root=Path("."), dry_run=True)
     assert harness["flag_prs"] == []
+    # A preview must leave the version state untouched, so the withdrawal is
+    # still detected (and flagged) by the next real run.
+    assert not harness["exists"]()
+    pc.run_weekly_check(repo_root=Path("."), dry_run=False)
+    assert len(harness["flag_prs"]) == 1
     assert harness["read"]()["withdrawn"] is True
 
 

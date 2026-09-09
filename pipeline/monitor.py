@@ -294,6 +294,16 @@ def mark_processed(state: dict, arxiv_id: str, reason: str = "success") -> None:
     logger.info("Marked %s as processed (%s)", arxiv_id, reason)
 
 
+def unmark_processed(state: dict, arxiv_id: str) -> None:
+    """Withdraw a processed mark whose PR never materialised (interrupt or
+    push/PR failure after ``mark_processed``), so the paper is retried rather
+    than silently retired without review."""
+    ids = state.setdefault("processed_ids", [])
+    if arxiv_id in ids:
+        ids.remove(arxiv_id)
+        logger.info("Withdrew processed mark for %s (no PR was created)", arxiv_id)
+
+
 def mark_failed(state: dict, arxiv_id: str, error: str) -> None:
     state.setdefault("failed_ids", {})
     state["failed_ids"][arxiv_id] = error

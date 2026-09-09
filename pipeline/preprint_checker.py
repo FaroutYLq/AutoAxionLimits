@@ -28,7 +28,7 @@ from .extractor import (
 from .client_factory import make_client
 from .run_context import preview_run, state_writer
 from .pr_creator import create_feature_branch, stage_and_commit_files
-from .reviewer import ReviewResult, apply_corrections, format_data_file
+from .reviewer import ReviewResult, apply_corrections, describe_models, format_data_file
 
 if TYPE_CHECKING:  # pragma: no cover
     from .removal import RemovalReport
@@ -522,6 +522,7 @@ def run_weekly_check(
     4. Save state.
     """
     client = make_client(preflight=True)
+    logger.info("Weekly check %s", describe_models())
 
     state = load_version_state()
     file_arxiv_map = scan_data_files_for_arxiv_ids(repo_root)
