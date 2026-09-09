@@ -39,7 +39,13 @@ from .monitor import (
     unmark_processed,
 )
 from .plot_regen import execute_notebook, execute_notebook_highlighted, get_notebook_plot_names
-from .pr_creator import create_feature_branch, stage_and_commit_files, create_pull_request, checkout_branch
+from .pr_creator import (
+    PublicationError,
+    checkout_branch,
+    create_feature_branch,
+    create_pull_request,
+    stage_and_commit_files,
+)
 from .reviewer import ReviewResult, describe_models, run_reviewer_agent, write_repo_files
 
 logger = logging.getLogger(__name__)
@@ -49,6 +55,7 @@ REPO_ROOT = Path(__file__).parent.parent
 # Exit code for API-availability aborts (#648): distinct from generic 1 so the
 # workflow log makes the cause obvious.
 EXIT_FATAL_API = 2
+EXIT_PUBLICATION_FAILED = 3
 
 
 def preflight_api_check(client: anthropic.Anthropic) -> None:
@@ -131,6 +138,19 @@ def main(
             state["last_run"] = datetime.now(timezone.utc).isoformat()
             save_state(state)
             sys.exit(EXIT_FATAL_API)
+        except PublicationError as e:
+            # Same contract for a git/gh failure after extraction: the paper
+            # has no PR, so it stays eligible for retry (neither processed nor
+            # failed) and the run aborts red rather than burning extraction on
+            # papers that will hit the same broken push/PR step.
+            logger.error(
+                "Publication failed for %s — aborting run WITHOUT marking it "
+                "processed or failed (%d papers completed before): %s",
+                paper_id, processed_count, e,
+            )
+            state["last_run"] = datetime.now(timezone.utc).isoformat()
+            save_state(state)
+            sys.exit(EXIT_PUBLICATION_FAILED)
         except Exception as e:
             logger.exception("Failed to process %s: %s", paper_id, e)
             mark_failed(state, paper_id, str(e))
@@ -257,6 +277,8 @@ def _process_paper(paper, paper_id: str, client: anthropic.Anthropic, state: dic
         pr_url = create_pull_request(branch, review, extraction, REPO_ROOT,
                                      highlight_files=highlight_files)
         logger.info("PR created: %s", pr_url)
+    except Exception as e:
+        raise PublicationError(f"{paper_id} on branch {branch}: {e}") from e
     finally:
         # Always return to master so subsequent papers branch from the right base
         checkout_branch("master", REPO_ROOT)

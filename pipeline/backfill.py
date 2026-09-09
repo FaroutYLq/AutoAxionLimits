@@ -43,6 +43,7 @@ from .monitor import (
 )
 from .plot_regen import execute_notebook, execute_notebook_highlighted, get_notebook_plot_names
 from .pr_creator import (
+    PublicationError,
     checkout_branch,
     create_feature_branch,
     create_pull_request_preprint,
@@ -616,20 +617,30 @@ def _process_candidate(
         created = True
         return True
     except Exception as e:
-        logger.error("PR creation failed for %s: %s", arxiv_id, e)
-        backfill_state.setdefault("skipped_ids", {})[arxiv_id] = f"pr_error: {e}"
-        return False
+        raise PublicationError(f"{arxiv_id} on branch {branch}: {e}") from e
     finally:
         checkout_branch("master", REPO_ROOT)
         if not created:
             # Both states were marked above so they ride in the PR commit; a
             # paper with no PR must not stay marked processed (Ctrl-C included).
+            # The caller re-queues the candidate and saves the backfill state.
             ids = backfill_state.setdefault("processed_ids", [])
             if arxiv_id in ids:
                 ids.remove(arxiv_id)
-            save_backfill_state(backfill_state)
             unmark_processed_global(processed_state, arxiv_id)
             save_processed_state(processed_state)
+
+
+def _requeue(state: dict, queue: list, candidate: dict) -> None:
+    """Put an unfinished candidate back at the head of the queue and persist."""
+    if not any(c.get("arxiv_id") == candidate.get("arxiv_id") for c in queue):
+        queue.insert(0, candidate)
+    state["queue"] = queue
+    save_backfill_state(state)
+
+
+EXIT_FATAL_API = 2
+EXIT_PUBLICATION_FAILED = 3
 
 
 # ---------------------------------------------------------------------------
@@ -748,14 +759,25 @@ def main(
             # #648: availability outage — put the candidate back at the head
             # of the queue, persist, and abort the workflow red so nothing is
             # silently burned.
-            queue.insert(0, candidate)
-            state["queue"] = queue
-            save_backfill_state(state)
+            _requeue(state, queue, candidate)
             logger.error(
                 "API availability error on %s — candidate re-queued, "
                 "aborting run: %s", arxiv_id, e,
             )
-            sys.exit(2)
+            sys.exit(EXIT_FATAL_API)
+        except PublicationError as e:
+            # A git/gh failure after extraction is a property of the run too:
+            # re-queue at the head (the paper has no PR) and abort red rather
+            # than burning extraction on candidates that will fail the same way.
+            _requeue(state, queue, candidate)
+            logger.error("Publication failed for %s — candidate re-queued, aborting run: %s",
+                         arxiv_id, e)
+            sys.exit(EXIT_PUBLICATION_FAILED)
+        except BaseException:
+            # Ctrl-C / SIGTERM mid-paper: the popped candidate must survive in
+            # the saved queue, or --resume silently drops it.
+            _requeue(state, queue, candidate)
+            raise
         if created:
             prs_created += 1
         papers_processed += 1

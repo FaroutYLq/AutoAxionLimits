@@ -23,6 +23,15 @@ REPO_ROOT = Path(__file__).parent.parent
 # Git / gh helpers
 # ---------------------------------------------------------------------------
 
+class PublicationError(RuntimeError):
+    """The science commit/push/PR step failed after a successful extraction.
+
+    Like an API-availability error (#648) this is a property of the run's git/gh
+    environment, not of the paper: callers must leave the paper eligible for
+    retry (not processed, not failed, re-queued) rather than retire it.
+    """
+
+
 def _run_git(args: list[str], cwd: Path = REPO_ROOT) -> str:
     cmd = ["git"] + args
     result = subprocess.run(cmd, cwd=str(cwd), capture_output=True, text=True)
