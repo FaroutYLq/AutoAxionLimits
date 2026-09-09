@@ -163,13 +163,17 @@ def test_state_publication_excludes_science_and_other_state(tmp_path, repository
     assert len(calls) == (1 if existing else 2)
 
 
-def test_stale_lease_rejects_remote_race_and_preserves_local_state(tmp_path, repository, monkeypatch):
+@pytest.mark.parametrize("existing_branch", [False, True])
+def test_stale_lease_rejects_remote_race_and_preserves_local_state(tmp_path, repository, monkeypatch, existing_branch):
+    source, remote = repository
+    branch = runner.PIPELINES["daily"][2]
+    if existing_branch:
+        git(source, "push", "origin", f"HEAD:refs/heads/{branch}")
     directory, manifest = prepare(tmp_path, repository)
     checkout = directory / "checkout"
     content = '{"completed": ["local-paper"]}'
     (checkout / "pipeline/state/processed.json").write_text(content)
-    source, remote = repository
-    branch = manifest["state_branch"]
+    git(source, "commit", "--allow-empty", "-m", "concurrent run")
     git(source, "push", "origin", f"HEAD:refs/heads/{branch}")
     remote_before = git(remote, "rev-parse", branch)
     calls = fake_gh(monkeypatch)
