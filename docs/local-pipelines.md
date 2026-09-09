@@ -16,10 +16,10 @@ Convention triage remains a separate Claude/GPD workflow.
   The runner honors `AAL_BACKEND`, otherwise defaults to `claude-cli`. It does not
   change model selection, prompts or numerical guards. Check CLI login with
   `claude auth status`; use `gh auth status` for remote access and real PR runs.
-  Never print credentials. In Claude Code, run every launcher command with the
-  shell sandbox **disabled**: the Claude CLI reads its OAuth token from the macOS
-  keychain and the run needs network access. A sandboxed run aborts at the
-  preflight ping with exit 2 ("Not logged in"); re-run it non-sandboxed before
+  Never print credentials. The launcher needs network access and, for the CLI
+  backend, macOS keychain access; in Claude Code that means these commands must
+  run outside the shell sandbox, which the user grants. A sandboxed run aborts
+  at the preflight ping with exit 2 ("Not logged in"): rule that out before
   treating exit 2 as a usage-window outage.
 - The runner runs the **committed** revision it fetches as remote `master`, the
   production code, regardless of which branch the source checkout is on.
@@ -33,7 +33,8 @@ Convention triage remains a separate Claude/GPD workflow.
   `AAL_CLI_TIMEOUT` and the download caches pass through). The runner prints what
   it ignored and the pipeline logs the resolved models at startup. Pass an
   explicit override with `--env NAME=VALUE` before `--`; it is recorded in
-  `run.json`.
+  `run.json` (values whose name looks like a credential are redacted, and
+  `--env` is not the place for secrets).
 - A request for a real pipeline run includes its ordinary science proposal PRs.
   A request for a preview or discovery does not authorize extraction/publication
   beyond that scope. Preserve prior authorization; do not require repeated
@@ -80,19 +81,22 @@ convention queue and derived-convention cache. It creates no science PRs.
 Downloads/logs may still be written. `backfill --discover-only` normally saves a
 queue; add `--dry-run` to preview discovery without saving it.
 
-Exit 2 signals an availability failure in the pipeline; earlier completed work
-may already be saved. Other nonzero exits require inspecting the log. Keep the
-run directory, inspect saved progress, and resume after resolving the cause.
+Exit 2 signals an availability failure in the pipeline and exit 3 a publication
+failure (the science push or PR step failed after extraction); in both cases the
+current paper is left eligible for retry (daily: neither processed nor failed;
+backfill: back at the head of the saved queue) and earlier completed work is
+already saved. Other nonzero exits require inspecting the log. Keep the run
+directory, inspect saved progress, and resume after resolving the cause.
 If a crash leaves the clone on a feature branch, the runner refuses reuse: inspect
 and preserve the changes before returning that clone to its local master.
 
 ## Publish state
 
 Publication pushes to a shared branch and opens a PR, so it is a separate
-side-effect from the run. **Always show the owned-state diff and ask first**,
-even when the run itself was authorized: a successful run does not prove its
-bookkeeping is right (a paper recorded as processed without a PR would never be
-retried). Never publish a preview.
+side-effect from running. **Always show the owned-state diff first** (a
+successful run does not prove its bookkeeping is right). Then ask, unless the
+user explicitly authorized publishing the state in the same request; never infer
+publication from a request to run, and never publish a preview.
 
 ```bash
 bash scripts/run_pipeline.sh state-diff /path/printed/by/runner
@@ -103,14 +107,22 @@ bash scripts/run_pipeline.sh publish-state /path/printed/by/runner
 | --- | --- | --- |
 | Daily | `processed.json`, `convention_queue.json` | `chore/update-pipeline-state` |
 | Weekly | `preprint_versions.json` | `chore/update-preprint-state` |
+| Weekly | `convention_queue.json` | `chore/update-pipeline-state` |
 | Backfill | `backfill_state.json` | `chore/update-backfill-state` |
 | Backfill | `processed.json`, `convention_queue.json` | `chore/update-pipeline-state` |
 
 For each branch, publication merges the owned files onto the branch's current tip
 (three-way: the copy restored at setup, this run's copy, the tip's copy) and pushes
 with a lease on that tip, so a GitHub Actions run that advanced the branch in the
-meantime is absorbed rather than rejected. Lists merge as keyed sets: backfill
-queue consumption is honoured, and no other file ever loses entries. The commit
+meantime is absorbed rather than rejected. The rules are state-specific: lists
+merge as keyed sets (backfill queue consumption is honoured, no other file ever
+loses entries); versions, timestamps and counts take the larger value and
+`published`/`withdrawn` flags only ever turn on, so a lagging copy on either side
+cannot roll progress back; a convention status only advances along the triage
+lifecycle and this run's copy (master's triage results plus the new flags) is
+authoritative for the queue. A value both sides changed differently with no such
+rule stops publication with the conflicting path named and nothing pushed;
+inspect both copies, edit the run's file, and retry. The commit
 contains **only** the owned files on top of the tip (or remote master when the
 branch is new); science changes and other state files are excluded. It opens or
 reuses a PR against master and never merges it. If the tip moves while

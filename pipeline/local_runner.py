@@ -35,20 +35,23 @@ class Owned(NamedTuple):
     branch: str
     restore: bool = True        # restore the branch copy as this run's baseline
     allow_delete: bool = False  # removals (consumed queue items) survive a merge
+    prefer_ours: bool = False   # this run's copy is authoritative on disagreement
 
 
 PIPELINE_STATE = "chore/update-pipeline-state"
 PREPRINT_STATE = "chore/update-preprint-state"
 BACKFILL_STATE = "chore/update-backfill-state"
 # The convention queue is append-only bookkeeping shared by every extraction
-# path: never restored (a stale branch copy must not regress master's triage
-# results when the state PR merges), always published by union.
-CONVENTION_QUEUE = Owned("convention_queue.json", PIPELINE_STATE, restore=False)
+# path (daily, weekly and backfill all run the extraction agent). It is never
+# restored and this run's copy (master's triage results plus the new flags) is
+# authoritative on disagreement: the branch copy can lag master, and a lagging
+# copy must never regress a promoted convention to queued.
+CONVENTION_QUEUE = Owned("convention_queue.json", PIPELINE_STATE, restore=False, prefer_ours=True)
 PIPELINES = {
     "daily": ("pipeline.orchestrator",
               [Owned("processed.json", PIPELINE_STATE), CONVENTION_QUEUE]),
     "weekly": ("pipeline.preprint_checker",
-               [Owned("preprint_versions.json", PREPRINT_STATE)]),
+               [Owned("preprint_versions.json", PREPRINT_STATE), CONVENTION_QUEUE]),
     # Backfill also advances the daily processed-papers file (backfill.py
     # marks both); restoring it from the daily branch is what lets
     # build_known_ids() skip papers the daily digest already proposed.
@@ -65,6 +68,7 @@ NETWORK_TIMEOUT = 900
 ENV_PASSTHROUGH = {"AAL_CLI_BINARY", "AAL_CLI_TIMEOUT", "AAL_CLI_VISION_TIMEOUT",
                    "AAL_PDF_CACHE", "AAL_SOURCE_CACHE"}
 ENV_SCRUBBED_NAMES = {"EXTRACTOR_MODEL", "REVIEWER_MODEL"}
+SENSITIVE_ENV = re.compile(r"KEY|TOKEN|SECRET|PASS|CREDENTIAL|AUTH", re.IGNORECASE)
 _ABSENT = object()
 
 
@@ -130,6 +134,22 @@ def read_state_file(checkout, commit, filename):
     return result.stdout
 
 
+class StateConflict(RuntimeError):
+    """Both sides changed the same value differently and no rule can combine them."""
+
+
+# Field rules applied at any depth. Monotone fields take the larger (or
+# smaller) value so a lagging copy on either side can never roll progress
+# back; booleans OR (published/withdrawn are one-way); a convention status
+# only ever advances along the triage lifecycle.
+MAX_FIELDS = {"schema_version", "known_version", "last_checked", "last_run", "last_seen", "count"}
+MIN_FIELDS = {"first_seen"}
+STATUS_RANK = {"queued": 0, "needs_human": 1, "unconvertible": 2, "promoted": 3}
+# Free-text bookkeeping (error/skip reasons) is never worth blocking a
+# publication: this run's wording wins.
+OURS_WIN_CONTAINERS = {"failed_ids", "skipped_ids"}
+
+
 def _merge_key(item):
     if isinstance(item, dict):
         for key in ("cache_key", "arxiv_id"):
@@ -141,23 +161,52 @@ def _merge_key(item):
     return ("scalar", item)
 
 
-def merge_state(base, ours, theirs, *, allow_delete=False):
-    """Three-way merge of JSON state. Lists are keyed sets (by cache_key /
-    arxiv_id for dict items), dict keys merge recursively, and a scalar changed
-    on both sides keeps ours. Removals relative to *base* are honoured only
-    when *allow_delete* is set (queue consumption); otherwise the result is a
-    union so a lagging remote copy can never drop entries."""
-    if ours == theirs or theirs == base:
+def _same_kind(ours, theirs):
+    return (isinstance(ours, bool) == isinstance(theirs, bool)
+            and ((isinstance(ours, (int, float)) and isinstance(theirs, (int, float)))
+                 or (isinstance(ours, str) and isinstance(theirs, str))))
+
+
+def _resolve_scalar(path, base, ours, theirs, prefer_ours):
+    key = path[-1] if path else None
+    if isinstance(ours, bool) and isinstance(theirs, bool):
+        return ours or theirs
+    if key in MAX_FIELDS and _same_kind(ours, theirs):
+        return max(ours, theirs)
+    if key in MIN_FIELDS and _same_kind(ours, theirs):
+        return min(ours, theirs)
+    if key == "status" and ours in STATUS_RANK and theirs in STATUS_RANK:
+        return max(ours, theirs, key=STATUS_RANK.get)
+    if prefer_ours or any(part in OURS_WIN_CONTAINERS for part in path):
+        return ours
+    if theirs == base:
         return ours
     if ours == base:
         return theirs
+    raise StateConflict(
+        f"{'/'.join(map(str, path)) or '<root>'}: this run has {ours!r}, the state branch has "
+        f"{theirs!r}, both changed from {'<absent>' if base is _ABSENT else repr(base)}")
+
+
+def merge_state(base, ours, theirs, *, allow_delete=False, prefer_ours=False, path=()):
+    """Three-way merge of JSON state with per-field rules (see MAX_FIELDS etc.).
+
+    Dict keys merge recursively; lists are keyed sets (cache_key / arxiv_id for
+    dict items) merged the same way. Removals relative to *base* are honoured
+    only with *allow_delete* (queue consumption); otherwise the result is a
+    union. A scalar both sides changed differently, with no monotone rule and
+    no *prefer_ours*, raises StateConflict rather than guessing.
+    """
+    if ours == theirs:
+        return ours
+    options = dict(allow_delete=allow_delete, prefer_ours=prefer_ours)
     if isinstance(ours, dict) and isinstance(theirs, dict):
         base = base if isinstance(base, dict) else {}
         result = {}
         for key in dict.fromkeys([*theirs, *ours]):
             if key in ours and key in theirs:
                 result[key] = merge_state(base.get(key, _ABSENT), ours[key], theirs[key],
-                                          allow_delete=allow_delete)
+                                          path=(*path, key), **options)
             elif key in ours:
                 if not (allow_delete and key in base):  # else deleted by them
                     result[key] = ours[key]
@@ -172,14 +221,14 @@ def merge_state(base, ours, theirs, *, allow_delete=False):
         for key in dict.fromkeys([*their_items, *our_items]):
             if key in our_items and key in their_items:
                 result.append(merge_state(base_items.get(key, _ABSENT), our_items[key],
-                                          their_items[key], allow_delete=allow_delete))
+                                          their_items[key], path=(*path, key[1]), **options))
             elif key in our_items:
                 if not (allow_delete and key in base_items):
                     result.append(our_items[key])
             elif not (allow_delete and key in base_items):
                 result.append(their_items[key])
         return result
-    return ours
+    return _resolve_scalar(path, base, ours, theirs, prefer_ours)
 
 
 @contextmanager
@@ -287,7 +336,9 @@ def child_environment(parent, checkout, backend, overrides=()):
         name, separator, value = item.partition("=")
         if not separator or not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", name):
             raise ValueError(f"--env expects NAME=VALUE, got {item!r}")
-        env[name] = applied[name] = value
+        env[name] = value
+        # Recorded for provenance, never as a credential store.
+        applied[name] = "<redacted>" if SENSITIVE_ENV.search(name) else value
     env["AAL_BACKEND"] = backend
     # A benchmark may leave this override exported. A local operational run
     # must not write its escalation queue into another checkout or evaluation.
@@ -436,9 +487,14 @@ def publish_state(directory):
                 merged[owned.file] = ours_text
                 continue
             baseline = manifest["baseline_state"].get(owned.file)
-            value = merge_state(json.loads(baseline) if baseline is not None else _ABSENT,
-                                json.loads(ours_text), json.loads(theirs_text),
-                                allow_delete=owned.allow_delete)
+            try:
+                value = merge_state(json.loads(baseline) if baseline is not None else _ABSENT,
+                                    json.loads(ours_text), json.loads(theirs_text),
+                                    allow_delete=owned.allow_delete, prefer_ours=owned.prefer_ours)
+            except StateConflict as conflict:
+                raise RuntimeError(
+                    f"{owned.file} cannot be reconciled with {branch} automatically ({conflict}). "
+                    f"Inspect both copies, edit the run's file, then retry; nothing was pushed") from conflict
             merged[owned.file] = ours_text if value == json.loads(ours_text) else json.dumps(value, indent=2) + "\n"
             if merged[owned.file] != ours_text:
                 print(f"Merged {owned.file} with the concurrent update on {branch}", flush=True)

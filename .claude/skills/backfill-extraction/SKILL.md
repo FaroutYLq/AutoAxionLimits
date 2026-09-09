@@ -32,9 +32,10 @@ Avoid a second discovery in the same run: discovery replaces the queue. Pause on
 subscription/auth failure; inspect the log and queue, then resume when available.
 Do not schedule additional runs unless requested.
 
-Before `publish-state`, run `state-diff`, show the user the owned-state diff and
-ask for an explicit yes; never publish a preview. Run every launcher command with
-the shell sandbox disabled.
+Before `publish-state`, run `state-diff` and show the user the owned-state diff;
+ask unless they explicitly authorized publishing state in this request, and never
+publish a preview. Launcher commands need network and keychain access (outside
+the shell sandbox, with the user's permission).
 Never merge scientific proposals. Report discovered/processed/skipped counts,
 PR URLs from this run, remaining queue, backend, exit status, state publication
 status and recovery directory. Retain unprocessed candidates and recovery files.

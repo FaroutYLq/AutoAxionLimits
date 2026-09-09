@@ -23,9 +23,10 @@ with a preview if the user has already requested a real run.
 
 For an authorized real run, omit `--dry-run`. If continuing a preview, reuse its
 printed directory with `--run-dir /path/to/run` before `--`; keep the intended
-paper arguments. Before `publish-state`, run `state-diff`, show the user the owned-state diff and
-ask for an explicit yes; never publish a preview. Run every launcher command with
-the shell sandbox disabled.
+paper arguments. Before `publish-state`, run `state-diff` and show the user the owned-state diff;
+ask unless they explicitly authorized publishing state in this request, and never
+publish a preview. Launcher commands need network and keychain access (outside
+the shell sandbox, with the user's permission).
 Never merge scientific proposals.
 
 Report the exact paper scope, backend, exit status, PR URLs from this run,

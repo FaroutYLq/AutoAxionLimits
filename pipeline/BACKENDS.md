@@ -55,10 +55,11 @@ Codex through the same [local runner](../docs/local-pipelines.md).
 
 ### Constraints & caveats
 
-- **Runs must not be sandboxed.** The subprocess needs network access and reads
-  the subscription OAuth token from the macOS keychain; in Claude Code run the
-  launcher with the shell sandbox disabled, or the preflight ping fails with
-  "Not logged in" (exit 2) and looks like a usage-window outage.
+- **Execution access.** The subprocess needs network access and reads the
+  subscription OAuth token from the macOS keychain; in Claude Code that means the
+  launcher must run outside the shell sandbox, which the user grants. Otherwise
+  the preflight ping fails with "Not logged in" (exit 2) and looks like a
+  usage-window outage.
 - **Subscription rate windows.** A large backfill can exhaust the usage window — throttle
   with `--max-papers` and `--resume` (window exhaustion aborts cleanly, exit 2,
   candidate re-queued).

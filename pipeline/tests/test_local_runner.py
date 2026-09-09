@@ -127,6 +127,15 @@ def test_inherited_queue_override_cannot_write_outside_clone(tmp_path, repositor
     assert json.loads((directory / "checkout/pipeline/state/convention_queue.json").read_text())["entries"] == ["local"]
 
 
+def test_explicit_env_credentials_are_redacted_in_manifest_and_output(tmp_path, repository, capsys):
+    directory, manifest = prepare(tmp_path, repository)
+    assert runner.execute(directory, manifest, ["--dry-run"],
+                          env_overrides=["MY_API_KEY=hunter2", "EXTRACTOR_MODEL=m"]) == 0
+    assert manifest["attempts"][-1]["env_overrides"] == {"MY_API_KEY": "<redacted>", "EXTRACTOR_MODEL": "m"}
+    assert "hunter2" not in capsys.readouterr().out
+    assert "hunter2" not in (directory / "run.json").read_text()
+
+
 def test_benchmark_environment_is_scrubbed_and_explicit_env_recorded(tmp_path, repository, monkeypatch):
     # A benchmark shell leaves model/extraction overrides exported; a real run
     # must not inherit them silently, while operational knobs pass through.
@@ -280,6 +289,45 @@ def test_concurrent_remote_update_is_merged_not_rejected(tmp_path, repository, m
     assert json.loads(saved["baseline_state"]["processed.json"]) == published
 
 
+def test_irreconcilable_remote_change_stops_publication_without_pushing(tmp_path, repository, monkeypatch):
+    source, remote = repository
+    push_state(source, runner.PREPRINT_STATE, {"preprint_versions.json": '{"files": {"f": {"note": "base"}}}'})
+    directory, manifest = prepare(tmp_path, repository, "weekly")
+    checkout = directory / "checkout"
+    (checkout / "pipeline/state/preprint_versions.json").write_text('{"files": {"f": {"note": "ours"}}}')
+    concurrent = push_state(source, runner.PREPRINT_STATE,
+                            {"preprint_versions.json": '{"files": {"f": {"note": "theirs"}}}'})
+    calls = fake_gh(monkeypatch)
+    with pytest.raises(RuntimeError, match="cannot be reconciled.*files/f/note"):
+        runner.publish_state(directory)
+    assert git(remote, "rev-parse", runner.PREPRINT_STATE) == concurrent
+    assert calls == []
+    assert json.loads((checkout / "pipeline/state/preprint_versions.json").read_text()) == {"files": {"f": {"note": "ours"}}}
+
+
+def test_lagging_branch_copy_never_regresses_convention_status(tmp_path, repository, monkeypatch):
+    """The branch copy of the queue can lag master (triage merged in between);
+    publishing must not roll a promoted convention back to queued."""
+    source, remote = repository
+    push_state(source, DAILY, {"convention_queue.json":
+                               '{"entries": [{"cache_key": "k", "status": "queued", "count": 3}]}'})
+    # Master (hence the clone) already carries the promotion.
+    (source / "pipeline/state/convention_queue.json").write_text(
+        '{"entries": [{"cache_key": "k", "status": "promoted", "count": 1}]}')
+    git(source, "add", "pipeline/state/convention_queue.json")
+    git(source, "commit", "-m", "triage promoted k")
+    git(source, "push", "origin", "master")
+    directory, manifest = prepare(tmp_path, repository)
+    checkout = directory / "checkout"
+    (checkout / "pipeline/state/convention_queue.json").write_text(
+        '{"entries": [{"cache_key": "k", "status": "promoted", "count": 1}, {"cache_key": "new", "status": "queued", "count": 1}]}')
+    fake_gh(monkeypatch)
+    runner.publish_state(directory)
+    published = json.loads(git(remote, "show", f"{DAILY}:pipeline/state/convention_queue.json"))
+    assert published["entries"] == [{"cache_key": "k", "status": "promoted", "count": 3},
+                                    {"cache_key": "new", "status": "queued", "count": 1}]
+
+
 def test_tip_moving_during_publication_is_rejected_and_local_state_kept(tmp_path, repository, monkeypatch):
     source, remote = repository
     stale = push_state(source, DAILY, {"processed.json": '{"completed": ["old"]}'})
@@ -359,6 +407,11 @@ def test_reuse_rejects_wrong_pipeline_backend_or_feature_branch(tmp_path, reposi
         runner.prepare(directory, "daily", repository[0], None, "claude-cli")
 
 
+def test_every_extraction_pipeline_owns_the_convention_queue():
+    for pipeline in runner.PIPELINES:
+        assert runner.CONVENTION_QUEUE in runner.owned_files(pipeline), pipeline
+
+
 def test_run_directory_lock_rejects_overlap(tmp_path):
     with runner.run_lock(tmp_path):
         with pytest.raises(RuntimeError, match="Another operation"):
@@ -412,13 +465,42 @@ class TestMergeState:
         assert runner.merge_state(base, ours, theirs) == {
             "processed_ids": ["a", "ci", "local"],
             "failed_ids": {"a": "x", "ci2": "y"},  # union: no removals without allow_delete
-            "last_run": "t1",  # both changed a scalar: ours wins
+            "last_run": "t2",  # monotone: the later timestamp wins regardless of side
         }
 
     def test_unchanged_side_yields_the_other(self):
         assert runner.merge_state({"a": 1}, {"a": 1}, {"a": 2}) == {"a": 2}
         assert runner.merge_state({"a": 1}, {"a": 3}, {"a": 1}) == {"a": 3}
         assert runner.merge_state(runner._ABSENT, {"a": 1}, {"b": 2}) == {"b": 2, "a": 1}
+
+    def test_versions_timestamps_and_flags_are_monotone(self):
+        base = {"files": {"f": {"known_version": 1, "last_checked": "t0", "published": False}}}
+        ours = {"files": {"f": {"known_version": 2, "last_checked": "t2", "published": False}}}
+        theirs = {"files": {"f": {"known_version": 3, "last_checked": "t1", "published": True, "withdrawn": True}}}
+        assert runner.merge_state(base, ours, theirs) == {"files": {"f": {
+            "known_version": 3, "last_checked": "t2", "published": True, "withdrawn": True}}}
+
+    def test_both_sides_changing_a_free_scalar_is_a_conflict(self):
+        with pytest.raises(runner.StateConflict, match="files/f/journal_ref"):
+            runner.merge_state({"files": {"f": {"journal_ref": "c"}}},
+                               {"files": {"f": {"journal_ref": "o"}}},
+                               {"files": {"f": {"journal_ref": "t"}}})
+        # Error/skip reasons are free text: this run's wording wins, no conflict.
+        assert runner.merge_state({"failed_ids": {}}, {"failed_ids": {"x": "a"}},
+                                  {"failed_ids": {"x": "b"}}) == {"failed_ids": {"x": "a"}}
+
+    def test_convention_status_only_advances_and_ours_is_authoritative(self):
+        base = {"entries": [{"cache_key": "k", "status": "promoted", "count": 1, "pr_url": "u1"}]}
+        ours = {"entries": [{"cache_key": "k", "status": "promoted", "count": 1, "pr_url": "u1"},
+                            {"cache_key": "new", "status": "queued"}]}
+        lagging = {"entries": [{"cache_key": "k", "status": "queued", "count": 3, "pr_url": "u0"}]}
+        merged = runner.merge_state(base, ours, lagging, prefer_ours=True)
+        assert merged["entries"][0] == {"cache_key": "k", "status": "promoted", "count": 3, "pr_url": "u1"}
+        assert merged["entries"][1] == {"cache_key": "new", "status": "queued"}
+        # And a genuine remote advance is kept even when we are unchanged.
+        advanced = {"entries": [{"cache_key": "k", "status": "promoted", "count": 1, "pr_url": "u1"},
+                                {"cache_key": "ci", "status": "needs_human"}]}
+        assert runner.merge_state(base, base, advanced, prefer_ours=True) == advanced
 
     def test_queue_consumption_survives_with_allow_delete(self):
         item = lambda i: {"arxiv_id": i, "title": f"t{i}"}
@@ -436,7 +518,7 @@ class TestMergeState:
         theirs = {"entries": [{"cache_key": "k", "count": 3, "arxiv_ids": ["a", "c"]},
                               {"cache_key": "new", "count": 1}]}
         merged = runner.merge_state(base, ours, theirs)
-        assert merged["entries"][0] == {"cache_key": "k", "count": 2, "arxiv_ids": ["a", "c", "b"]}
+        assert merged["entries"][0] == {"cache_key": "k", "count": 3, "arxiv_ids": ["a", "c", "b"]}
         assert merged["entries"][1] == {"cache_key": "new", "count": 1}
 
     def test_nested_file_map_merges_per_key(self):
