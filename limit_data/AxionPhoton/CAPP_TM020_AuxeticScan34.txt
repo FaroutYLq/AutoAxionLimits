@@ -1,0 +1,11 @@
+# Extended High-Mass Axion Search with an Auxetically Tuned Higher-Order-Mode Cavity
+# arXiv: https://arxiv.org/abs/2609.09717
+# Coupling type: AxionPhoton
+# Extracted from: text
+# Confidence level: 0.9
+# Extraction confidence: 0.70
+# mass [eV]    g_agamma [GeV^-1]
+2.061000e-05   1.000000e+00
+2.061000e-05   1.460000e-14
+2.095000e-05   1.460000e-14
+2.095000e-05   1.000000e+00
