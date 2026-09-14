@@ -1,0 +1,12 @@
+# Constraints on Galactic Dark Photons from a DALI Prototype
+# arXiv: https://arxiv.org/abs/2609.12775
+# Coupling type: DarkPhoton
+# Extracted from: text
+# Confidence level: 0.9
+# Extraction confidence: 0.75
+# mass [eV]    kinetic mixing chi
+2.848200e-05   1.000000e+00
+2.848200e-05   1.300000e-13
+2.854480e-05   6.800000e-14
+2.861020e-05   1.300000e-13
+2.861020e-05   1.000000e+00
