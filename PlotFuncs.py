@@ -4291,18 +4291,6 @@ class DarkPhoton():
             plt.text(0.6e-14,0.8e-5,r'{\bf SNIPE}',fontsize=fs,color='w',rotation=-42,rotation_mode='anchor',ha='center',va='center',path_effects=line_background(1.5,'k'),clip_on=True)
         return
 
-    @staticmethod
-    def DALI_PoP(ax, col='crimson', fs=15, text_on=True, lw=1.5):
-        y2 = ax.get_ylim()[1]
-        dat = loadtxt("limit_data/DarkPhoton/DALI_PoP.txt",ndmin=2)
-        plt.fill_between(dat[:,0],dat[:,1],y2=y2,edgecolor=None,facecolor=col,zorder=1)
-        plt.plot(dat[:,0],dat[:,1],color='k',alpha=1,zorder=1,lw=lw)
-        if text_on:
-            plt.text(dat[0,0],dat[0,1]*0.5,r'{\bf DALI-PoP}',fontsize=fs,color=col,rotation=0,
-                rotation_mode='anchor',ha='center',va='center',clip_on=True)
-        return
-
-
 
 
 

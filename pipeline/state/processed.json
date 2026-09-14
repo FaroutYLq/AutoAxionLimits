@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-09-04T21:34:14.730866+00:00",
+  "last_run": "2026-09-14T20:47:13.295501+00:00",
   "processed_ids": [
     "2607.02232",
     "2607.02026",
@@ -55,7 +55,6 @@
     "2607.19329",
     "2607.18647",
     "2609.12877",
-    "2609.12775",
     "2609.10671",
     "2609.09717"
   ],
@@ -69,6 +68,6 @@
     "2607.29149": "Mass range [2.60e+22, 3.80e+22] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
     "2607.29131": "Coupling range [4.50e-25, 5.00e-23] outside valid range [1e-22, 1e+00] for DarkPhoton \u2014 likely a unit conversion error",
     "2607.22452": "Mass range [0.00e+00, 7.50e+08] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
-    "2609.12775": "git checkout master failed (rc=128):\nfatal: 'master' is already used by worktree at '/Users/lanqingyuan/Documents/GitHub/AutoAxionLimits'\n"
+    "2609.09015": "Mass range [1.00e+08, 3.00e+10] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error"
   }
 }
