@@ -1,0 +1,12 @@
+# Search for Axion Dark Matter around \texorpdfstring{$15.6\,μ\text{eV}$}{15.6 microeV} with a Broadly Tunable High-Temperature Superconducting Cavity
+# arXiv: https://arxiv.org/abs/2609.08144
+# Coupling type: AxionPhoton
+# Extracted from: text
+# Confidence level: 0.9
+# Extraction confidence: 0.70
+# mass [eV]    g_agamma [GeV^-1]
+1.530000e-05   1.000000e+00
+1.530000e-05   1.020000e-14
+1.560000e-05   7.900000e-15
+1.585000e-05   1.050000e-14
+1.585000e-05   1.000000e+00
