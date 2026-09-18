@@ -172,7 +172,7 @@ def test_extractor_wires_record_convention_flag():
     import pipeline.extractor as ex
     import pipeline.convention_queue as cq
     assert ex.record_convention_flag is cq.record_convention_flag
-    src = __import__("inspect").getsource(ex.run_extraction_agent)
+    src = __import__("inspect").getsource(ex.finalize_extraction)
     assert "record_convention_flag(" in src, "flag site no longer records to queue"
 
 

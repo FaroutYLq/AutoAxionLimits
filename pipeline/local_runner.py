@@ -66,7 +66,11 @@ NETWORK_TIMEOUT = 900
 # silently (the model confound is invisible in the science PR). Operational
 # knobs that do not alter extraction output pass through.
 ENV_PASSTHROUGH = {"AAL_CLI_BINARY", "AAL_CLI_TIMEOUT", "AAL_CLI_VISION_TIMEOUT",
-                   "AAL_PDF_CACHE", "AAL_SOURCE_CACHE"}
+                   "AAL_PDF_CACHE", "AAL_SOURCE_CACHE",
+                   # agent-stage operational knobs (the stage SELECTOR
+                   # AAL_EXTRACTOR is methodology and stays scrubbed; pass it
+                   # explicitly with --env when a run must use the staged path)
+                   "AAL_AGENT_TIMEOUT", "AAL_AGENT_MAX_BUDGET_USD", "AAL_AGENT_LOGS"}
 ENV_SCRUBBED_NAMES = {"EXTRACTOR_MODEL", "REVIEWER_MODEL"}
 SENSITIVE_ENV = re.compile(r"KEY|TOKEN|SECRET|PASS|CREDENTIAL|AUTH", re.IGNORECASE)
 _ABSENT = object()

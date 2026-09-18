@@ -18,6 +18,8 @@ on:
 # in CI to control cost; unset/override locally for Opus runs.
 env:
   EXTRACTOR_MODEL: claude-fable-5  # switched per #733 A/B probe (2026-07-17); reviewer stays Opus (not A/B-validated)
+  AAL_EXTRACTOR: agent  # generic-agent extraction stage (AxionLimitBench: 56% vs 19% success at 10%); 'pipeline' = staged path
+  AAL_AGENT_MAX_BUDGET_USD: '5'
   REVIEWER_MODEL: claude-opus-4-8
 
 jobs:
@@ -50,6 +52,18 @@ jobs:
 
       - name: Install pipeline dependencies
         run: pip install -r requirements_pipeline.txt
+
+      # Agent extraction stage (AAL_EXTRACTOR=agent, default): one headless
+      # Claude Code session per paper, billed to ANTHROPIC_API_KEY. The agent
+      # digitises vector figures with its own code, so it needs the CLI,
+      # ghostscript (EPS figures) and the python image stack from
+      # requirements_pipeline.txt. Set AAL_EXTRACTOR=pipeline to run the
+      # staged text -> vision pipeline instead.
+      - name: Install Claude Code CLI and ghostscript (agent extraction stage)
+        run: |
+          sudo apt-get install -y -qq ghostscript
+          npm install -g @anthropic-ai/claude-code
+          claude --version
 
       # FIX #547: carry the tracked-versions baseline forward without merging.
       # State PRs are never auto-merged (human-in-the-loop), so master's
