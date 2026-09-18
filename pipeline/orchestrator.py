@@ -253,8 +253,11 @@ def _process_paper(paper, paper_id: str, client: anthropic.Anthropic, state: dic
         review.data_file_path,
         review.plotfuncs_file,
         review.notebook_path,
-        review.docs_file,
     ]
+    # Docs are optional: some couplings have no docs page yet, and the reviewer
+    # leaves a missing one untouched, so never git-add a path that does not exist.
+    if (REPO_ROOT / review.docs_file).exists():
+        changed_files.append(review.docs_file)
     # Include plot files actually produced by the notebook
     plot_names = get_notebook_plot_names(review.notebook_path, REPO_ROOT)
     for name in plot_names:

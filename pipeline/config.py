@@ -46,7 +46,7 @@ COUPLING_TYPES = {
         "plotfuncs_file": "PlotFuncs.py",
         "data_dir": "limit_data/AxionProton",
         "notebooks": ["AxionProton.ipynb"],
-        "docs_file": "docs/aprot.md",
+        "docs_file": "docs/app.md",
         "axes": {"x": "mass [eV]", "y": "g_ap"},
     },
     "AxionEDM": {
@@ -62,7 +62,7 @@ COUPLING_TYPES = {
         "plotfuncs_file": "PlotFuncs.py",
         "data_dir": "limit_data/AxionCPV",
         "notebooks": ["AxionCPV.ipynb"],
-        "docs_file": "docs/acpv.md",
+        "docs_file": "docs/cp.md",
         "axes": {"x": "mass [eV]", "y": "coupling"},
     },
     "AxionMass": {
@@ -86,7 +86,7 @@ COUPLING_TYPES = {
         "plotfuncs_file": "PlotFuncs_ScalarVector.py",
         "data_dir": "limit_data/ScalarPhoton",
         "notebooks": ["Scalars.ipynb"],
-        "docs_file": "docs/scalar.md",
+        "docs_file": "docs/phie.md",
         "axes": {"x": "mass [eV]", "y": "d_e"},
     },
     "ScalarElectron": {
@@ -94,7 +94,7 @@ COUPLING_TYPES = {
         "plotfuncs_file": "PlotFuncs_ScalarVector.py",
         "data_dir": "limit_data/ScalarElectron",
         "notebooks": ["Scalars.ipynb"],
-        "docs_file": "docs/scalar.md",
+        "docs_file": "docs/phime.md",
         "axes": {"x": "mass [eV]", "y": "d_e"},
     },
     "ScalarBaryon": {
@@ -118,7 +118,7 @@ COUPLING_TYPES = {
         "plotfuncs_file": "PlotFuncs_ScalarVector.py",
         "data_dir": "limit_data/VectorB-L",
         "notebooks": ["Vectors.ipynb"],
-        "docs_file": "docs/vector.md",
+        "docs_file": "docs/gBL.md",
         "axes": {"x": "mass [eV]", "y": "g_BL"},
     },
 }
