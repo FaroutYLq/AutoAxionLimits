@@ -328,3 +328,16 @@ def test_inverse_fa_read_is_not_decade_snapped():
     out, note = ex._validate_extracted_range(list(pts), "AxionMass")
     assert out == pts
     assert "Auto-correct" not in note
+
+
+def test_collider_alp_trace_passes_reviewer_hard_range():
+    """2607.07800 (Belle II ALP -> gamma gamma, 0.17-9.8 GeV, g_agamma up to
+    7e-3 GeV^-1): a correct collider trace must not be rejected as a unit
+    error by the reviewer's min/max window (it was, on the first unattended
+    production run)."""
+    from pipeline.reviewer import validate_data_ranges
+    pts = [(1.75e8, 8.0e-5), (3.05e8, 9.0e-5), (9.78e9, 7.4e-3)]
+    validate_data_ranges(pts, "AxionPhoton")          # must not raise
+    validate_data_ranges([(5e7, 1e-3), (5e10, 1e-2)], "DarkPhoton")
+    with pytest.raises(ValueError):
+        validate_data_ranges([(1e-6, 10.0)], "AxionPhoton")   # a real blunder still fails
