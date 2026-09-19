@@ -6,14 +6,19 @@ task card above still holds, with the following changes and additions.
 
 ### Sources
 
-- Besides the paper and its e-print you MAY use the paper's own official data
-  release: its HEPData record (https://www.hepdata.net, search by arXiv id), or
-  a Zenodo / GitHub data release the paper itself links. A file published by
-  the authors beats any digitisation: use it, set `data_source` to
-  `ancillary_file`, and name the record in `notes`.
-- You must still NOT consult limit compilations (AxionLimits, cajohare,
-  DarkCast) or other papers' data. The compilation you are feeding is
-  AxionLimits itself; copying from it is circular and is reported to the
+- The benchmark's ban on secondary sources does NOT apply here. You MAY use
+  web search, HEPData (https://www.hepdata.net, search by arXiv id), Zenodo or
+  GitHub data releases the paper links, and other papers, for example to
+  check a convention or a unit. A file published by the authors themselves
+  beats any digitisation: use it, set `data_source` to `ancillary_file`, and
+  name the record in `notes`.
+- The curve you report must be derived from THIS paper's own content (its
+  figures, tables, text, e-print or data release). You may look at a limit
+  compilation (AxionLimits, DarkCast) to see how it records similar limits,
+  but never copy a compilation's file as your answer: the compilation you are
+  feeding is AxionLimits itself, and on an updated preprint it may already
+  hold this paper's earlier version, which is exactly what your extraction
+  must be compared against. Any compilation access is reported to the
   reviewer.
 
 ### Extra output fields (add them to `result.json`)

@@ -92,6 +92,7 @@ def test_task_card_is_the_benchmark_card():
     assert text.startswith("# AxionLimitBench task card")
     assert "## Production additions" in text
     assert '"alternatives"' in text and "overlay.png" in text
+    assert "web search" in text and "never copy a compilation" in text
 
 
 def test_drifted_card_refuses(monkeypatch, tmp_path):
@@ -109,7 +110,7 @@ def test_argv_lockdown():
                          max_budget_usd=5.0, effort=None)
     assert argv[:2] == ["claude", "-p"]
     assert argv[argv.index("--tools") + 1] == ag.ALLOWED_TOOLS
-    assert "Task" not in ag.ALLOWED_TOOLS and "WebSearch" not in ag.ALLOWED_TOOLS
+    assert "Task" not in ag.ALLOWED_TOOLS and "WebSearch" in ag.ALLOWED_TOOLS
     assert argv[argv.index("--setting-sources") + 1] == ""
     assert "--strict-mcp-config" in argv and "--no-session-persistence" in argv
     assert "--dangerously-skip-permissions" in argv
@@ -117,11 +118,10 @@ def test_argv_lockdown():
     assert argv[argv.index("--append-system-prompt") + 1] == "CARD"
     settings = json.loads(argv[argv.index("--settings") + 1])
     deny = settings["permissions"]["deny"]
-    assert "WebSearch" in deny
-    assert "WebFetch(domain:cajohare.github.io)" in deny
     assert "Bash(git push:*)" in deny and "Bash(gh:*)" in deny
-    # production allows the paper's own data release hosts
-    assert not any("hepdata" in d or "zenodo" in d or "github.com" in d for d in deny)
+    # production does not fence the web (user decision 2026-09-19): no
+    # WebSearch / WebFetch / host denials at all
+    assert not any(d.startswith(("WebSearch", "WebFetch")) for d in deny)
 
 
 def test_child_env_cli_scrubs_key(monkeypatch):
@@ -290,7 +290,7 @@ def test_missing_cli_is_fatal(paper, pdf, monkeypatch):
         ex.run_extraction_agent(paper, pdf, client=object())
 
 
-def test_compilation_use_is_reported_and_capped(tmp_path, paper, pdf, monkeypatch):
+def test_compilation_use_is_reported_not_capped(tmp_path, paper, pdf, monkeypatch):
     fetch = json.dumps({"type": "assistant", "message": {"content": [
         {"type": "tool_use", "name": "WebFetch",
          "input": {"url": "https://cajohare.github.io/AxionLimits/"}}]}})
@@ -299,7 +299,8 @@ def test_compilation_use_is_reported_and_capped(tmp_path, paper, pdf, monkeypatc
                     f"echo '{fetch}'\necho '{_result_event()}'\n")
     monkeypatch.setenv("AAL_CLI_BINARY", cli)
     res = ex.run_extraction_agent(paper, pdf, client=object())
-    assert "[COMPILATION CONSULTED]" in res.notes and res.extraction_confidence <= 0.5
+    assert "[COMPILATION CONSULTED]" in res.notes
+    assert res.extraction_confidence == GOOD_RESULT["extraction_confidence"]
 
 
 def test_dispatch_pipeline_env_skips_agent(paper, pdf, monkeypatch):

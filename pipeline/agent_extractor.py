@@ -12,13 +12,14 @@ production extraction stage.
 Design
 ------
 * One headless ``claude -p`` session per paper, in a throwaway working
-  directory containing only ``paper.pdf``. Seven built-in tools (Read, Write,
-  Edit, Bash, Glob, Grep, WebFetch); WebSearch and the limit compilations are
-  denied at the permission layer, git push / gh at the Bash layer.
+  directory containing only ``paper.pdf``. Eight built-in tools (Read, Write,
+  Edit, Bash, Glob, Grep, WebFetch, WebSearch); git push / gh are denied at
+  the Bash layer. Unlike the benchmark, production does not fence the web:
+  a new paper is in no compilation, and the transcript is kept for audit.
 * The system prompt is the AxionLimitBench task card VERBATIM
   (``agent_task_card.md``, sha256 pinned to the benchmark's ``docs/TASK.md``)
-  plus a short production section (``agent_task_card_production.md``: the
-  paper's own HEPData / data release is allowed, and the agent adds
+  plus a short production section (``agent_task_card_production.md``: web
+  search, HEPData and data releases are allowed, and the agent adds
   ``alternatives``, ``headline_check``, ``polarization_assumption`` and an
   ``overlay.png`` for the human reviewer). Production therefore runs the
   benchmarked system, and the card's provenance is recorded in every result.
@@ -98,28 +99,28 @@ RATE_MARKERS = (
     "rate limit", "too many requests", "429", "overloaded", "529",
     "service unavailable",
 )
-# Limit compilations: consulting one is reported to the reviewer (the task
-# card forbids it; production does not disqualify, the benchmark did).
+# Limit compilations: consulting one is reported to the reviewer as
+# information (the benchmark forbade it for fairness; production allows it,
+# the card only forbids COPYING a compilation's file as the answer).
 COMPILATION_PATTERNS = (
     "cajohare", "axionlimits", "cajohare.github.io", "darkcast",
 )
 NETWORK_INDICATORS = ("http://", "https://", "curl ", "wget ", "git clone",
                       "urlopen", "requests.get", "fetch(")
 
-# Permission deny-list handed to the CLI. Production allows HEPData, Zenodo
-# and GitHub (the paper's own data release) but never the compilation, never
-# web search, and never a push or a gh call from inside the session.
+# Permission deny-list handed to the CLI. Production allows the open web
+# (search, HEPData, data releases, even the compilation: a new paper is in
+# none of them, and the transcript is kept for audit) but never a push or a
+# gh call from inside the session.
 SETTINGS = {
     "permissions": {
         "deny": [
-            "WebSearch",
-            "WebFetch(domain:cajohare.github.io)",
             "Bash(git push:*)",
             "Bash(gh:*)",
         ]
     }
 }
-ALLOWED_TOOLS = "Read,Write,Edit,Bash,Glob,Grep,WebFetch"
+ALLOWED_TOOLS = "Read,Write,Edit,Bash,Glob,Grep,WebFetch,WebSearch"
 
 # result.json fields carried into the stage result (task card schema plus the
 # production extras).
@@ -563,12 +564,12 @@ def run_agent_extraction(paper, pdf_path: Path, client) -> ExtractionResult:
     if problems:
         stage["notes"] = (stage.get("notes") or "") + " | schema: " + "; ".join(problems)
     if session.meta.get("compilation_consulted"):
+        # Informational for the reviewer (no confidence cap): the card lets
+        # the agent consult a compilation but never copy its file.
         stage["notes"] = ((stage.get("notes") or "")
                           + " | [COMPILATION CONSULTED] the agent reached "
                           + ", ".join(session.meta["compilation_consulted"])
                           + "; check the curve is the paper's own")
-        stage["extraction_confidence"] = min(
-            float(stage.get("extraction_confidence") or 0.0), 0.5)
     if session.meta.get("timed_out"):
         stage["notes"] = (stage.get("notes") or "") + " | agent session timed out; result.json as left"
     stage["notes"] = ((stage.get("notes") or "")
