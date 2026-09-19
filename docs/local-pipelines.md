@@ -140,3 +140,35 @@ refuses to bypass the lease with an unconditional force push.
 Keep recovery files until progress is published or intentionally retained
 elsewhere. The runner never deletes a checkout automatically. Scheduling stays
 with GitHub Actions or an explicitly requested automation.
+
+## Unattended schedule (launchd, subscription)
+
+Production runs on this Mac through the Claude Code subscription, not GitHub
+Actions (the Actions schedules are disabled; they would need an API key).
+`scripts/scheduled_run.sh daily|weekly` is the unattended entry point: it
+fast-forwards its own checkout to remote master, runs the pipeline through
+`run_pipeline.sh` with `--backend claude-cli`, then shows the owned-state diff
+and runs `publish-state` (lease-protected chore branch + PR). Nothing prompts.
+Science PRs are opened by the pipeline and never merged here. A `--dry-run`
+publishes nothing. Logs: `~/.aal_bench/scheduler/logs/<date>-<kind>.log`.
+
+Install the jobs from a dedicated clone kept on master (never from a working
+checkout: the script fast-forwards it on every run):
+
+```bash
+git clone https://github.com/FaroutYLq/AutoAxionLimits.git ~/.aal_bench/scheduler/AutoAxionLimits
+bash ~/.aal_bench/scheduler/AutoAxionLimits/scripts/install_launchd.sh
+```
+
+`com.autoaxionlimits.daily` fires at 05:00 local and `com.autoaxionlimits.weekly`
+on Mondays at 06:00 (`scripts/launchd/*.plist`; edit and re-run the installer to
+change). A missed slot (Mac asleep) runs at the next wake. Requirements on the
+Mac: `claude` logged in to the subscription (`claude auth status`), `gh auth
+status` green, `gs` (ghostscript) and the `straxion` env with
+`requirements_pipeline.txt` installed. Test a job without publishing:
+
+```bash
+bash ~/.aal_bench/scheduler/AutoAxionLimits/scripts/scheduled_run.sh daily --dry-run --arxiv-id 2607.19319
+```
+
+Remove with `scripts/install_launchd.sh --remove`.
