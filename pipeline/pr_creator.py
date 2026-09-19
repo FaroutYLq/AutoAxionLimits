@@ -140,6 +140,34 @@ def stage_and_commit_files(
     logger.info("Committed: %s", commit_message[:60])
 
 
+def agent_review_section(extraction: ExtractionResult) -> str:
+    """Markdown the human reviewer needs from the agent extraction stage:
+    the alternatives the agent saw in the paper, its headline cross-check,
+    and any compilation-consulted / fallback flags. Empty for the staged
+    pipeline (no such fields)."""
+    parts: list[str] = []
+    alts = list(getattr(extraction, "alternatives", None) or [])
+    if alts:
+        parts.append("## Alternatives the agent saw in the paper\n\n"
+                     "The curve above is the agent's pick of the paper's main result. "
+                     "A curator might instead have chosen:\n\n"
+                     + "\n".join(f"- {a}" for a in alts) + "\n\n")
+    hc = getattr(extraction, "headline_check", None)
+    if isinstance(hc, dict) and hc:
+        parts.append("## Headline cross-check\n\n"
+                     f"- Paper quotes: `{hc.get('quoted')}` at mass `{hc.get('mass_eV')}` eV\n"
+                     f"- Traced curve at that mass: `{hc.get('traced')}`\n\n")
+    notes = extraction.notes or ""
+    flags = [f for f in ("[COMPILATION CONSULTED]", "[AGENT FALLBACK]", "[CONVENTION REVIEW]",
+                         "timed out") if f in notes]
+    if flags:
+        parts.append("## Extraction flags\n\n"
+                     + "\n".join(f"- `{f}`" for f in flags)
+                     + "\n\n<details><summary>Extractor notes</summary>\n\n"
+                     f"{notes}\n\n</details>\n\n")
+    return "".join(parts)
+
+
 # ---------------------------------------------------------------------------
 # PR creation — daily digest
 # ---------------------------------------------------------------------------
@@ -215,6 +243,7 @@ def create_pull_request(
         f"## Data Summary\n\n{range_summary}\n"
         f"## Physical Corrections Applied\n\n{corrections_md}\n\n"
         f"## Corrections Flagged for Human Review\n\n{flagged_md}\n\n"
+        f"{agent_review_section(extraction)}"
         f"## Files Changed\n\n"
         f"- `{review.data_file_path}`\n"
         f"- `{review.plotfuncs_file}` (new method `{review.plotfuncs_class}.{review.experiment_name}`)\n"

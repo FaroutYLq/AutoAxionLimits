@@ -271,6 +271,13 @@ class ExtractionResult:
     abstract: str = ""
     notes: str = ""                        # Free-form notes from Claude
     coupling_convention: Optional[str] = None  # model-declared convention/units of the EMITTED data_points (#536/#587)
+    # Agent-stage extras (AAL_EXTRACTOR=agent): other curves/couplings a curator
+    # might have chosen (for the human reviewer), the paper's quoted headline
+    # number vs the traced curve, and on-disk artifacts of the session
+    # (transcript, result.json, overlay.png) keyed by name.
+    alternatives: list = field(default_factory=list)
+    headline_check: Optional[dict] = None
+    artifacts: dict = field(default_factory=dict)
 
 
 # ---------------------------------------------------------------------------
@@ -1910,6 +1917,51 @@ def run_extraction_agent(
     pdf_path: Path,
     client: anthropic.Anthropic,
 ) -> ExtractionResult:
+    """Extraction entry point used by every pipeline (daily / weekly / backfill /
+    eval). Dispatches on ``AAL_EXTRACTOR``:
+
+    * ``agent`` (default): one headless Claude Code session per paper with the
+      AxionLimitBench task card (``pipeline/agent_extractor.py``). The agent
+      reads the PDF and the paper's own e-print, digitises vector figures with
+      its own code and writes ``result.json``; the deterministic tail guards
+      (gauge-group relabel, range validation, convention screen) then run in
+      :func:`finalize_extraction` exactly as for the staged pipeline.
+    * ``pipeline``: the staged text -> vision -> select pipeline
+      (:func:`run_staged_extraction`), the pre-2026-09 production path.
+
+    An agent *infrastructure* failure (no ``result.json`` after a crash or
+    timeout) falls back to the staged pipeline when ``AAL_EXTRACTOR_FALLBACK``
+    is not ``0``; an availability error (auth, billing, subscription window,
+    silent model substitution) is :class:`FatalAPIError` and propagates (#648).
+    An agent *abstention* is an answer and never falls back.
+    """
+    from .agent_extractor import (
+        AgentInfraError,
+        fallback_enabled,
+        resolve_extractor,
+        run_agent_extraction,
+    )
+    if resolve_extractor() == "agent":
+        try:
+            return run_agent_extraction(paper, pdf_path, client)
+        except AgentInfraError as e:
+            if not fallback_enabled():
+                raise
+            logger.warning(
+                "Agent extraction infrastructure failure for %s (%s); falling "
+                "back to the staged pipeline", paper.get_short_id(), e,
+            )
+            result = run_staged_extraction(paper, pdf_path, client)
+            result.notes = (result.notes or "") + f" | [AGENT FALLBACK] {e}"
+            return result
+    return run_staged_extraction(paper, pdf_path, client)
+
+
+def run_staged_extraction(
+    paper: arxiv.Result,
+    pdf_path: Path,
+    client: anthropic.Anthropic,
+) -> ExtractionResult:
     """Run two-stage extraction: text first, vision fallback."""
     # get_short_id() keeps the category prefix on old-style ids
     # (e.g. 'hep-ph/0307284'); a naive entry_id.split('/')[-1] drops it,
@@ -2252,6 +2304,28 @@ def run_extraction_agent(
             logger.warning("Axis-peek failed for %s: %s", arxiv_id, e)
     apply_axis_crosscheck(stage1_result, _cc_ct, _axis_unit, arxiv_id)
 
+    return finalize_extraction(
+        paper, arxiv_id, arxiv_url, stage1_result, data_points,
+        pre_ct=pre_ct, pre_conf=pre_conf, client=client,
+    )
+
+
+def finalize_extraction(
+    paper,
+    arxiv_id: str,
+    arxiv_url: str,
+    stage1_result: dict,
+    data_points: list,
+    *,
+    pre_ct: str | None,
+    pre_conf: float,
+    client,
+) -> ExtractionResult:
+    """Deterministic tail shared by the staged pipeline and the agent stage:
+    gauge-group relabel, range validation (decade snaps), the R5 hard floor,
+    the convention-review screens with the escalation queue, and assembly of
+    the :class:`ExtractionResult`. Everything here is a pure function of the
+    model's own declared outputs (plus the optional inline convention tier)."""
     # --- Gauge-group type correction (U(1)_B / U(1)_{B-L} vector DM) ---------
     # A gauged baryonic vector boson is plotted as a bare dimensionless epsilon,
     # so the axis cross-check above cannot fire — the disambiguator is the gauge

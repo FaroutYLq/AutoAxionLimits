@@ -15,3 +15,9 @@ matplotlib>=3.7.0
 # degrade to a no-op and the pipeline falls back to the pure-LLM axis path.
 opencv-python-headless>=4.8.0
 pytesseract>=0.3.10
+# Agent extraction stage (pipeline/agent_extractor.py): the headless Claude Code
+# session digitises figures with its own code; the task card promises it
+# numpy, scipy, pymupdf, matplotlib, PIL, cv2 and skimage (plus ghostscript for
+# EPS, installed by the workflows and by `brew install ghostscript` locally).
+pillow>=10.0.0
+scikit-image>=0.22.0

@@ -28,6 +28,11 @@ Convention triage remains a separate Claude/GPD workflow.
   master may only be previewed (`--dry-run`), because science PRs branch from the
   run's master and would carry its unmerged commits. `--allow-unmerged-ref`
   overrides that deliberately.
+- The extraction stage is the generic agent by default (`AAL_EXTRACTOR=agent`,
+  see `pipeline/BACKENDS.md`): every backend, including `--backend api`, needs
+  the `claude` CLI on PATH (`claude --version`) plus `ghostscript` (`gs`) for
+  EPS figures. To run the staged pipeline instead pass
+  `--env AAL_EXTRACTOR=pipeline`.
 - The child does not inherit `AAL_*` or `EXTRACTOR_MODEL`/`REVIEWER_MODEL`
   overrides a benchmark shell may have left exported (operational knobs such as
   `AAL_CLI_TIMEOUT` and the download caches pass through). The runner prints what

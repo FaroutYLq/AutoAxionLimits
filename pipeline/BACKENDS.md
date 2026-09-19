@@ -68,3 +68,22 @@ Codex through the same [local runner](../docs/local-pipelines.md).
 - **Vision fidelity** may differ slightly from the API path (the CLI Read tool
   can recompress large PNGs). Validate with a side-by-side eval-subset parity
   run before trusting CLI-backend extractions for real limits.
+
+
+# Extraction stage (`AAL_EXTRACTOR`)
+
+Orthogonal to the transport: which *system* produces the curve.
+
+| `AAL_EXTRACTOR` | Stage | Notes |
+|---|---|---|
+| unset / `agent` (default) | [`agent_extractor.py`](agent_extractor.py): one headless `claude -p` session per paper with the AxionLimitBench task card | needs the `claude` CLI on PATH (subscription login under `AAL_BACKEND=claude-cli`, or `ANTHROPIC_API_KEY` otherwise), `ghostscript` for EPS figures, and the python image stack in `requirements_pipeline.txt` |
+| `pipeline` | the staged text -> vision -> select pipeline (`run_staged_extraction`) | the pre-2026-09 production path; bit-identical to before |
+
+Both stages end in the same deterministic tail (`finalize_extraction`) and feed
+the same reviewer and PR gate. Knobs: `AAL_AGENT_MAX_BUDGET_USD` (5),
+`AAL_AGENT_TIMEOUT` (1800 s), `AAL_AGENT_EFFORT` (CLI default),
+`AAL_AGENT_LOGS` (`pipeline/logs/agent`), `AAL_EXTRACTOR_FALLBACK` (1: an
+agent crash/timeout with no `result.json` falls back to the staged pipeline;
+an abstention never does). The task card core is pinned to the benchmark's
+`docs/TASK.md` by sha256, so a production run is the benchmarked system; see
+`CLAUDE.md` for the evidence and the contracts.
