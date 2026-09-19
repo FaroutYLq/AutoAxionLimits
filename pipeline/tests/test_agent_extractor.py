@@ -315,3 +315,15 @@ def test_dispatch_rejects_unknown_extractor(monkeypatch):
     monkeypatch.setenv("AAL_EXTRACTOR", "magic")
     with pytest.raises(ValueError):
         ag.resolve_extractor()
+
+
+# ------------------------------------------------------- shared guard tail
+
+def test_inverse_fa_read_is_not_decade_snapped():
+    """The task card's canonical AxionMass plane is 1/f_a [GeV^-1]; a correct
+    read at ~6e-17 GeV^-1 (f_a = 1.6e16 GeV, 2105.13963) must pass the shared
+    range guard untouched (it was snapped x1e12 by the old 1e-12 floor)."""
+    pts = [(1e-20, 6.4e-17), (1e-15, 6.4e-17), (1e-11, 2.0e-17)]
+    out, note = ex._validate_extracted_range(list(pts), "AxionMass")
+    assert out == pts
+    assert "Auto-correct" not in note

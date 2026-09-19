@@ -339,7 +339,12 @@ VALID_RANGES = {
     # snapped them into the window, corrupting 5 superradiance papers in
     # full346 (2012.12790, 2302.00685, 2303.09865, 2406.10337, 2412.20932 —
     # post-full346 Lever 4). Floor widened to match the fa-plane data domain.
-    "AxionMass":     {"mass": (1e-24, 1e+18), "coupling": (1e-12, 1e+3)},
+    # AxionMass is multi-plane (repo: normalised f_a_norm ~1e-5..1e2 and
+    # m_a-vs-f_a theory files; task card: canonical 1/f_a [GeV^-1]). A correct
+    # 1/f_a read sits at 1e-19..1e-9 GeV^-1 (f_a up to ~1e19 GeV = M_Pl), and
+    # the old 1e-12 floor decade-snapped such a read by x1e12 (2105.13963,
+    # agent-stage validation 2026-09-18: 0.004 -> 12.0 dex). Floor at 1e-20.
+    "AxionMass":     {"mass": (1e-24, 1e+18), "coupling": (1e-20, 1e+3)},
     # MonopoleDipole g_s*g_p products reach ~7e-40 in the repo's own data
     # (Sun/Moon fifth-force limits); the old 1e-30 floor hard-floor-flagged
     # CORRECT extractions (2011.07100 median ~1e-31, 2302.09096 ~1e-34) and
