@@ -318,7 +318,9 @@ PHYSICAL_CORRECTIONS = {
 # reported as eV, coupling missing a 10^-14 prefactor).
 # Ranges are intentionally generous to avoid false rejections.
 VALID_RANGES = {
-    "DarkPhoton":    {"mass": (1e-24, 1e+9), "coupling": (1e-22, 1e0)},
+    # DarkPhoton collider searches (LHCb, CMS, Belle II dark-photon -> l+l-)
+    # reach ~100 GeV; the repo's own INTEGRAL.txt already ends at 1e10 eV.
+    "DarkPhoton":    {"mass": (1e-24, 1e+11), "coupling": (1e-22, 1e0)},
     # AxionPhoton spans ultralight haloscopes to COLLIDER ALP searches (LHC/CMS/
     # ATLAS reach ~TeV), so the mass window extends to 1e12 eV. The old 1e9 (1 GeV)
     # ceiling flagged correct collider masses (e.g. 2008.05355 6-100 GeV,
@@ -326,7 +328,12 @@ VALID_RANGES = {
     # mass auto-corrector then collapsed by ~14 dex via a spurious Hz->eV factor
     # (#587 P-B). Other coupling types keep the tighter 1e9 ceiling until a
     # legitimate collider paper for them appears.
-    "AxionPhoton":   {"mass": (1e-24, 1e+12), "coupling": (1e-25, 1e-3)},
+    # Collider ALP -> gamma gamma limits (Belle II, BESIII, LEP, LHC) sit at
+    # g_agamma ~ 1e-4..1e-1 GeV^-1: the old 1e-3 ceiling made the reviewer's
+    # hard range check REJECT a correct Belle II trace (2607.07800, 8e-5..7e-3,
+    # first unattended run 2026-09-19). The repo's collider files close their
+    # fill regions at 1e3, so 1e0 still catches a genuine decade blunder.
+    "AxionPhoton":   {"mass": (1e-24, 1e+12), "coupling": (1e-25, 1e0)},
     "AxionElectron": {"mass": (1e-24, 1e+9), "coupling": (1e-20, 1e0)},
     "AxionNeutron":  {"mass": (1e-24, 1e+9), "coupling": (1e-20, 1e0)},
     "AxionProton":   {"mass": (1e-24, 1e+9), "coupling": (1e-20, 1e0)},
