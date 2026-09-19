@@ -75,7 +75,8 @@
     "2607.14492",
     "2607.13637",
     "2607.11589",
-    "2607.10730"
+    "2607.10730",
+    "2607.07800"
   ],
   "failed_ids": {
     "2608.24677": "Mass range [1.00e+06, 1.00e+10] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
@@ -90,7 +91,6 @@
     "2609.09015": "Mass range [1.00e+08, 3.00e+10] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
     "2609.15600": "Mass range [3.00e+07, 2.00e+10] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
     "2609.06153": "Mass range [1.00e+08, 4.00e+09] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
-    "2609.05204": "Mass range [5.00e+07, 5.00e+10] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
-    "2607.07800": "Coupling range [8.04e-05, 7.43e-03] outside valid range [1e-25, 1e-03] for AxionPhoton \u2014 likely a unit conversion error"
+    "2609.05204": "Mass range [5.00e+07, 5.00e+10] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error"
   }
 }
