@@ -16,7 +16,11 @@
 set -uo pipefail
 KIND=${1:?usage: scheduled_run.sh daily|weekly [pipeline args...]}
 shift
-export PATH="/opt/homebrew/bin:/usr/local/bin:/opt/anaconda3/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+# /Library/TeX/texbin first: the notebooks render text with usetex + Palatino,
+# and a launchd job has no shell PATH (first real run 2026-09-19: plot
+# regeneration failed with "pplr7t.tfm not found" and the science PR showed
+# the stale committed plot).
+export PATH="/Library/TeX/texbin:/opt/homebrew/bin:/usr/local/bin:/opt/anaconda3/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export CONDA_EXE="${CONDA_EXE:-/opt/anaconda3/bin/conda}"
 # Subscription billing only: a stray key would silently flip the session to
 # API billing; CLAUDECODE would make the CLI think it is nested.

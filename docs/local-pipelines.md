@@ -164,8 +164,9 @@ bash ~/.aal_bench/scheduler/AutoAxionLimits/scripts/install_launchd.sh
 on Mondays at 06:00 (`scripts/launchd/*.plist`; edit and re-run the installer to
 change). A missed slot (Mac asleep) runs at the next wake. Requirements on the
 Mac: `claude` logged in to the subscription (`claude auth status`), `gh auth
-status` green, `gs` (ghostscript) and the `straxion` env with
-`requirements_pipeline.txt` installed. Test a job without publishing:
+status` green, `gs` (ghostscript), a full MacTeX in `/Library/TeX/texbin` (the
+notebooks need Palatino via `usetex`; BasicTeX lacks it) and the `straxion` env
+with `requirements_pipeline.txt` installed. Test a job without publishing:
 
 ```bash
 bash ~/.aal_bench/scheduler/AutoAxionLimits/scripts/scheduled_run.sh daily --dry-run --arxiv-id 2607.19319
