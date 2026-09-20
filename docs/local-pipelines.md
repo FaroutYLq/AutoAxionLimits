@@ -173,3 +173,12 @@ bash ~/.aal_bench/scheduler/AutoAxionLimits/scripts/scheduled_run.sh daily --dry
 ```
 
 Remove with `scripts/install_launchd.sh --remove`.
+
+The job never prompts: it is a plain launchd process, not a Claude Code chat,
+so no permission dialog can appear. If you see a permission prompt for a daily
+run, it comes from a Claude Code session (for example a Claude app scheduled
+task that invokes the `daily-arxiv-digest` skill); keep only one scheduler, the
+launchd job. A run that fails before changing anything (exit 1, no state change,
+no PR: an import error or arXiv unreachable at wake-up) is retried once after
+`AAL_SCHED_RETRY_DELAY` seconds (default 120); exit 2/3 and partial runs are not
+retried, their state is published as usual.
