@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_checked": "2026-07-06T13:44:32.991445+00:00",
+  "last_checked": "2026-09-21T11:00:15.281388+00:00",
   "files": {
     "limit_data/AxionEDM/BBN.txt": {
       "arxiv_id": "1401.6460",
@@ -41,19 +41,19 @@
     "limit_data/AxionEDM/Projections/CASPEr-electric-PhaseI.txt": {
       "arxiv_id": "1711.08999",
       "known_version": 3,
-      "last_checked": "2026-07-06T13:44:32.991445+00:00",
+      "last_checked": "2026-09-21T11:00:15.281388+00:00",
       "published": false
     },
     "limit_data/AxionEDM/Projections/CASPEr-electric-PhaseII.txt": {
       "arxiv_id": "1711.08999",
       "known_version": 3,
-      "last_checked": "2026-07-06T13:44:32.991445+00:00",
+      "last_checked": "2026-09-21T11:00:15.281388+00:00",
       "published": false
     },
     "limit_data/AxionEDM/Projections/CASPEr-electric-PhaseIII.txt": {
       "arxiv_id": "1711.08999",
       "known_version": 3,
-      "last_checked": "2026-07-06T13:44:32.991445+00:00",
+      "last_checked": "2026-09-21T11:00:15.281388+00:00",
       "published": false
     },
     "limit_data/AxionEDM/Projections/PolarisationHaloscope_discover.txt": {
@@ -71,7 +71,7 @@
     "limit_data/AxionEDM/Projections/StorageRingEDM.txt": {
       "arxiv_id": "1711.08999",
       "known_version": 3,
-      "last_checked": "2026-07-06T13:44:32.991445+00:00",
+      "last_checked": "2026-09-21T11:00:15.281388+00:00",
       "published": false
     },
     "limit_data/AxionEDM/RbQuartz.txt": {
@@ -83,7 +83,7 @@
     "limit_data/AxionEDM/SN1987A.txt": {
       "arxiv_id": "2410.19902",
       "known_version": 2,
-      "last_checked": "2026-07-06T13:44:32.991445+00:00",
+      "last_checked": "2026-09-21T11:00:15.281388+00:00",
       "published": false
     },
     "limit_data/AxionEDM/nEDM.txt": {
@@ -100,8 +100,8 @@
     },
     "limit_data/AxionElectron/FermionicAxionInterferometer.txt": {
       "arxiv_id": "2311.16364",
-      "known_version": 2,
-      "last_checked": "2026-07-06T13:44:32.991445+00:00",
+      "known_version": 3,
+      "last_checked": "2026-09-21T11:00:15.281388+00:00",
       "published": false
     },
     "limit_data/AxionElectron/GERDA.txt": {
