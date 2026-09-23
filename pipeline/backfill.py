@@ -522,8 +522,11 @@ def _process_candidate(
         review.data_file_path,
         review.plotfuncs_file,
         review.notebook_path,
-        review.docs_file,
     ]
+    # Docs are optional: some couplings have no docs page yet, and the reviewer
+    # leaves a missing one untouched, so never git-add a path that does not exist.
+    if (REPO_ROOT / review.docs_file).exists():
+        changed_files.append(review.docs_file)
     plot_names = get_notebook_plot_names(review.notebook_path, REPO_ROOT)
     for name in plot_names:
         for p in [f"plots/{name}.pdf", f"plots/plots_png/{name}.png"]:
