@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "arxiv_id": "2609.07908",
+  "decision": "approve",
+  "summary": "New 2026 CASPEr-electric measured exclusion on the axion-nuclear EDM coupling g_d. Identity, novelty, 95% CL, units/density conventions, numerical envelope (~4e-4 GeV^-2), three disjoint mass windows (m=hf), upward one-sided shading, and labeling all agree with the paper (abstract, conclusion, Fig. 7).",
+  "artifact_sha256": {
+    "limit_data/AxionEDM/CASPEr_Electric_2026.txt": "ef4a61cbb2d9c4d849e95baf3e72b284fe6b4f71370283dd0412c5da8c6ad3cb",
+    "PlotFuncs.py": "8c817c6f582de9f3d89cb75a430fbb72e91bf629ad6279e01fdfaa0360d5d4cd",
+    "AxionEDM.ipynb": "248535ecbdeae2cea1c74f6f9176646e7c63010e9338ffa465bea1030db6cc6b",
+    "plots/AxionEDM.pdf": "5270c28fa831460a05288e749e04f109a2eb2b5955c2839d3809136fa89563a8",
+    "plots/plots_png/AxionEDM.png": "08e5f388b0803cc8dcf56d972d78aaab5bd650f80433a6c3cd5f324fc901ba6a",
+    "plots/AxionEDM_with_Projections.pdf": "5bde5fcc2110f99dea2589272062f413367ab88d70deb5e2bd9323d7f843f742",
+    "plots/plots_png/AxionEDM_with_Projections.png": "e4cfc2eb32c3419b5bc45f5904f730e6a22095e90fa69ba6c5cecb8f4b7750be",
+    "plots/AxionEDM_highlighted.pdf": "573512a7f9e8de8be0718defb5966b5624e56cb9a63887bd48fc5238db815f25",
+    "plots/plots_png/AxionEDM_highlighted.png": "2f6b552514ed044bf430bcabf7d1c4e1aea0ffdf26c8b4e9e538dbd5debc75b4"
+  },
+  "history": [
+    {
+      "attempt": 0,
+      "verdict": {
+        "decision": "approve",
+        "summary": "New 2026 CASPEr-electric measured exclusion on the axion-nuclear EDM coupling g_d. Identity, novelty, 95% CL, units/density conventions, numerical envelope (~4e-4 GeV^-2), three disjoint mass windows (m=hf), upward one-sided shading, and labeling all agree with the paper (abstract, conclusion, Fig. 7).",
+        "checks": {
+          "result_identity": {
+            "status": "pass",
+            "evidence": "Paper 2609.07908 abstract/Sec. I-II: ALP dark matter via axion-nuclear EDM coupling g_d on 207Pb; AxionEDM class and g_d [GeV^-2] convention match. Exclusion (not a candidate/best-fit)."
+          },
+          "novelty": {
+            "status": "pass",
+            "evidence": "Conclusion (p.9-10): first Gen-2 CASPEr-e measured 95% CL exclusion at 19-22 neV, distinct from the older 'CASPEr-electric' entry already in the compilation. is_projection=false; Fig. 7 is a new measured result."
+          },
+          "confidence_level": {
+            "status": "pass",
+            "evidence": "Abstract and Conclusion explicitly state '95% confidence' limit (3.355-sigma for a 5-sigma detection, Fig. 5 caption). confidence_level=0.95 is paper-supported, not a placeholder."
+          },
+          "conventions": {
+            "status": "pass",
+            "evidence": "g_d [GeV^-2] on GeV^-2 axis; mass = h*f verified (4.6 MHz->19.0 neV, 5.29 MHz->21.9 neV) matching Fig. 7 top axis; rho_DM=0.47 GeV/cm^3 = 3.6e-42 GeV^4 matches p.1; EDM coupling needs no polarization. Fill keeps paper-native values; no improper raw overlay conversion."
+          },
+          "numerical_agreement": {
+            "status": "pass",
+            "evidence": "Data minima ~3.78-4.2e-4 GeV^-2 match Fig. 7 scalloped lower envelope (~4e-4) and the quoted |g_d|<4e-4. Three extracted bands coincide with Fig. 7's three frequency segments; no points emitted in the gaps."
+          },
+          "highlight_target": {
+            "status": "pass",
+            "evidence": "Highlighted PNG shows only the new result in color: a thin red column shading continuously UPWARD from the black scalloped lower boundary (~4e-4) to the frame top (fill_between to ax.get_ylim()[1]), consistent with a one-sided upper bound. No invented endpoint bands, no wrong-side shading, no unrelated co-highlight."
+          },
+          "visibility": {
+            "status": "pass",
+            "evidence": "Mass (~1.9-2.2e-8 eV) and coupling (4e-4 to 1e-2) are on-screen; labeled 'CASPEr-electric (2026)'. Limit is genuinely narrow and sits within SN1987A, but is drawn on top (zorder 31) and properly isolated in the highlighted view; boundaries interpretable."
+          }
+        },
+        "findings": [
+          {
+            "category": "plot",
+            "severity": "advisory",
+            "description": "In the full compilation view the new limit is a near-invisible sliver because it is extremely narrow in mass and lies entirely under the stronger SN1987A region.",
+            "evidence": "AxionEDM.png: only a thin crimson mark plus label near m~2e-8 over the green SN1987A region; highlighted view resolves it correctly.",
+            "requested_change": "Optional: no change required; if desired, a mass-zoomed inset/axis (x ~ 1.8e-8..2.3e-8) would reveal the scalloped structure. Not blocking."
+          }
+        ]
+      },
+      "session": {
+        "model": "claude-opus-4-8",
+        "models_billed": [
+          "claude-opus-4-8"
+        ],
+        "inspected_files": [
+          "extraction.json",
+          "limit_data/AxionEDM/CASPEr_Electric_2026.txt",
+          "paper.pdf",
+          "plots/plots_png/AxionEDM.png",
+          "plots/plots_png/AxionEDM_highlighted.png",
+          "proposal.json"
+        ],
+        "prompt_sha256": "c09db0cab31936a30a50d07b8f7b6f91fd684ce77d5450a63ea9c2be8777f33d"
+      },
+      "evidence_sha256": {
+        "AxionEDM.ipynb": "49cdd78bed7ce23238224ed1395b820603335d4675f1deb1f74724fc78d0d22f",
+        "PlotFuncs.py": "8c817c6f582de9f3d89cb75a430fbb72e91bf629ad6279e01fdfaa0360d5d4cd",
+        "extraction.json": "a00f03a8a075a7494aed2dce32cd75994cfbb04ebe4b372a6bda92bc03460c54",
+        "limit_data/AxionEDM/CASPEr_Electric_2026.txt": "ef4a61cbb2d9c4d849e95baf3e72b284fe6b4f71370283dd0412c5da8c6ad3cb",
+        "paper.pdf": "f1cf4a4078e55b0bd80226d794704ea0352fe6755ddfae6f9393eb15dbd20a08",
+        "plots/plots_png/AxionEDM.png": "08e5f388b0803cc8dcf56d972d78aaab5bd650f80433a6c3cd5f324fc901ba6a",
+        "plots/plots_png/AxionEDM_highlighted.png": "2f6b552514ed044bf430bcabf7d1c4e1aea0ffdf26c8b4e9e538dbd5debc75b4",
+        "proposal.json": "1dabfa5596c85960e951a49ba62f9180a79011719916588294c340fd87c943fc"
+      }
+    }
+  ]
+}

@@ -36,3 +36,5 @@ It must be noted that this plot and the 1/fa plot are, at best, challenging to i
 * BBN (axion assumed to be dark matter): [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionEDM/BBN.txt), [reference](https://arxiv.org/abs/1401.6460)
 * Planck+BAO thermal ALP bound: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionEDM/SN1987A.txt), [reference](https://arxiv.org/abs/2205.01637)
 * SN1987A: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionEDM/SN1987A.txt), [reference](https://arxiv.org/abs/2410.19902)
+
+- **CASPEr_Electric_2026**: [Solid-state nuclear magnetic resonance search for axion-like dark matter with broadband SQUID magnetometry](https://arxiv.org/abs/2609.07908)
