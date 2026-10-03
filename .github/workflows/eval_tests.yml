@@ -102,7 +102,7 @@ jobs:
         # for the P1 axis-OCR tests. All such tests self-skip if a dep is ever
         # unavailable, so the job stays green.
         # nbformat is needed by the pipeline reviewer/notebook tests (no API).
-        run: pip install numpy scipy pytest anthropic arxiv httpx opencv-python-headless pytesseract pillow matplotlib pymupdf nbformat
+        run: pip install numpy scipy pytest anthropic arxiv httpx opencv-python-headless pytesseract pillow matplotlib pymupdf nbformat nbconvert ipykernel
       - name: Run metric unit tests
         run: python -m pytest evaluation/tests/ -v
       - name: Run pipeline unit tests (no API — reviewer/pr_creator/plot_regen)

@@ -38,7 +38,7 @@ from .monitor import (
     STATE_PATH,
     unmark_processed,
 )
-from .plot_regen import execute_notebook, execute_notebook_highlighted, get_notebook_plot_names
+from .plot_regen import generate_review_plots, PlotGenerationError
 from .pr_creator import (
     PublicationError,
     checkout_branch,
@@ -138,7 +138,7 @@ def main(
             state["last_run"] = datetime.now(timezone.utc).isoformat()
             save_state(state)
             sys.exit(EXIT_FATAL_API)
-        except PublicationError as e:
+        except (PublicationError, PlotGenerationError) as e:
             # Same contract for a git/gh failure after extraction: the paper
             # has no PR, so it stays eligible for retry (neither processed nor
             # failed) and the run aborts red rather than burning extraction on
@@ -225,19 +225,9 @@ def _process_paper(paper, paper_id: str, client: anthropic.Anthropic, state: dic
     # Write all repo files
     write_repo_files(review, REPO_ROOT)
 
-    # Regenerate plot(s)
-    nb_ok, nb_err = execute_notebook(review.notebook_path, REPO_ROOT)
-    if not nb_ok:
-        logger.warning("Notebook execution failed for %s: %s", review.notebook_path, nb_err[-500:])
-        # Continue — PR still valuable even without regenerated plot
-
-    # Generate highlighted plot (new limit in colour, everything else grey)
-    hl_ok, hl_err, highlight_files = execute_notebook_highlighted(
-        review.notebook_path, review.notebook_call, REPO_ROOT,
-        data_file_path=review.data_file_path,
-    )
-    if not hl_ok:
-        logger.warning("Highlighted plot generation failed: %s", hl_err[-500:])
+    # Rendering is part of publication: never publish inherited/stale images.
+    plot_files, highlight_files = generate_review_plots(
+        review.notebook_path, review.notebook_call, REPO_ROOT, review.data_file_path)
 
     # Git branch, commit, PR
     branch = create_feature_branch(paper_id, review.experiment_name, REPO_ROOT)
@@ -256,12 +246,7 @@ def _process_paper(paper, paper_id: str, client: anthropic.Anthropic, state: dic
         review.docs_file,
     ]
     # Include plot files actually produced by the notebook
-    plot_names = get_notebook_plot_names(review.notebook_path, REPO_ROOT)
-    for name in plot_names:
-        for p in [f"plots/{name}.pdf", f"plots/plots_png/{name}.png"]:
-            if (REPO_ROOT / p).exists():
-                changed_files.append(p)
-    # Include highlighted plot files
+    changed_files.extend(plot_files)
     changed_files.extend(highlight_files)
 
     commit_msg = (
@@ -275,7 +260,7 @@ def _process_paper(paper, paper_id: str, client: anthropic.Anthropic, state: dic
     try:
         stage_and_commit_files(changed_files, commit_msg, REPO_ROOT)
         pr_url = create_pull_request(branch, review, extraction, REPO_ROOT,
-                                     highlight_files=highlight_files)
+                                     highlight_files=highlight_files, plot_files=plot_files)
         logger.info("PR created: %s", pr_url)
     except Exception as e:
         raise PublicationError(f"{paper_id} on branch {branch}: {e}") from e

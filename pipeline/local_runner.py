@@ -372,6 +372,8 @@ def child_environment(parent, checkout, backend, overrides=()):
     # A benchmark may leave this override exported. A local operational run
     # must not write its escalation queue into another checkout or evaluation.
     env["AAL_CONVENTION_QUEUE"] = str(checkout / "pipeline/state/convention_queue.json")
+    # The launcher path otherwise shadows this checkout in Jupyter kernels.
+    env["PYTHONPATH"] = str(checkout.resolve())
     env.pop("GITHUB_OUTPUT", None)
     return env, scrubbed, applied
 

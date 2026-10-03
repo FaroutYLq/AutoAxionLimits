@@ -5,7 +5,9 @@ Headless notebook execution via nbconvert.
 from __future__ import annotations
 
 import copy
+import ast
 import logging
+import os
 import subprocess
 import sys
 import tempfile
@@ -17,6 +19,143 @@ import re
 logger = logging.getLogger(__name__)
 
 REPO_ROOT = Path(__file__).parent.parent
+
+
+class PlotGenerationError(RuntimeError):
+    """A review cannot be published without freshly generated comparison plots."""
+
+
+def notebook_environment(repo_root: Path) -> dict[str, str]:
+    """Jupyter puts inherited PYTHONPATH ahead of cwd: pin imports to this run."""
+    env = os.environ.copy()
+    root = str(repo_root.resolve())
+    paths = [p for p in env.get("PYTHONPATH", "").split(os.pathsep) if p and p != root]
+    env["PYTHONPATH"] = os.pathsep.join([root, *paths])
+    return env
+
+
+def _output_snapshot(repo_root: Path, paths: list[str]) -> dict[str, int | None]:
+    return {rel: (repo_root / rel).stat().st_mtime_ns
+            if (repo_root / rel).exists() else None for rel in paths}
+
+
+def generate_review_plots(notebook_path: str, notebook_call: str, repo_root: Path,
+                          data_file_path: str) -> tuple[list[str], list[str]]:
+    """Require successful renders and fresh full/highlighted PDF+PNG pairs.
+
+    Check before creating a branch or marking a paper processed, so renderer
+    outages remain retryable and inherited images never masquerade as results.
+    """
+    expected = [rel for name in get_notebook_plot_names(notebook_path, repo_root)
+                for rel in (f"plots/{name}.pdf", f"plots/plots_png/{name}.png")]
+    before = _output_snapshot(repo_root, expected)
+    ok, err = execute_notebook(notebook_path, repo_root)
+    if not ok:
+        raise PlotGenerationError(f"Full plot failed for {notebook_path}: {err[-2000:]}")
+    normal = _collect_fresh_outputs(repo_root, expected, before)
+    ok, err, highlighted = execute_notebook_highlighted(
+        notebook_path, notebook_call, repo_root, data_file_path=data_file_path)
+    if not ok or not highlighted:
+        raise PlotGenerationError(f"Highlighted plot failed for {notebook_path}: {err[-2000:]}")
+    required = [p.replace("_highlighted.", ".") for p in highlighted]
+    missing = sorted(set(required) - set(normal))
+    if missing or not any(p.endswith(".png") for p in highlighted):
+        raise PlotGenerationError(f"Missing fresh comparison outputs: {missing or highlighted}")
+    return normal, highlighted
+
+
+def find_plot_target(data_file_path: str, repo_root: Path) -> tuple[str, str]:
+    """Resolve an existing data file to its actual method and notebook call.
+
+    File and method names can differ (JWST_Pinetti.txt uses AxionPhoton.JWST).
+    Fail explicitly if no direct plotted call exists rather than inventing one.
+    """
+    from .config import COUPLING_TYPES
+    methods = []
+    tree = ast.parse((repo_root / "PlotFuncs.py").read_text())
+    for cls in tree.body:
+        if not isinstance(cls, ast.ClassDef):
+            continue
+        for method in cls.body:
+            if isinstance(method, ast.FunctionDef) and any(
+                isinstance(n, ast.Constant) and n.value == data_file_path
+                for n in ast.walk(method)
+            ):
+                methods.append(f"{cls.name}.{method.name}")
+    coupling = Path(data_file_path).parts[1]
+    # A legacy group may load the same data as a newer dedicated method.
+    methods.sort(key=lambda name: name.rsplit(".", 1)[-1] != Path(data_file_path).stem)
+    for method in methods:
+        for notebook in COUPLING_TYPES.get(coupling, {}).get("notebooks", []):
+            path = repo_root / notebook
+            if not path.exists():
+                continue
+            for cell in json.loads(path.read_text()).get("cells", []):
+                if cell.get("cell_type") != "code":
+                    continue
+                source = "".join(cell.get("source", []))
+                if "MySaveFig(" not in source:
+                    continue
+                for line in source.splitlines():
+                    if line.strip().startswith(method + "("):
+                        return notebook, line.strip()
+    # Some notebooks draw groups: DarkMatterDecay() calls JWST(), for example.
+    # Keep the precise limit as the highlight target, never the whole group.
+    for method in methods:
+        parents = _calling_methods(method, repo_root)
+        for notebook in COUPLING_TYPES.get(coupling, {}).get("notebooks", []):
+            path = repo_root / notebook
+            if not path.exists():
+                continue
+            for cell in json.loads(path.read_text()).get("cells", []):
+                source = "".join(cell.get("source", []))
+                if cell.get("cell_type") == "code" and "MySaveFig(" in source and any(
+                    line.strip().startswith(parent + "(")
+                    for line in source.splitlines() for parent in parents
+                ):
+                    return notebook, f"{method}(ax)"
+    raise PlotGenerationError(f"No plotted notebook call found for {data_file_path}")
+
+
+def _calling_methods(target: str, repo_root: Path) -> set[str]:
+    """Class methods that transitively call the exact target (cycle safe)."""
+    tree = ast.parse((repo_root / "PlotFuncs.py").read_text())
+    calls = {}
+    for cls in tree.body:
+        if isinstance(cls, ast.ClassDef):
+            for method in cls.body:
+                if isinstance(method, ast.FunctionDef):
+                    calls[f"{cls.name}.{method.name}"] = {
+                        ast.unparse(n.func) for n in ast.walk(method) if isinstance(n, ast.Call)}
+    found = {target}
+    while True:
+        expanded = found | {name for name, children in calls.items() if children & found}
+        if expanded == found:
+            return found - {target}
+        found = expanded
+
+
+def _expose_grouped_target(nb: dict, notebook_call: str, repo_root: Path) -> dict:
+    """Re-draw a grouped limit only in the temporary highlighted notebook."""
+    call = notebook_call.strip()
+    if any(call == line.strip() for cell in nb.get("cells", [])
+           if cell.get("cell_type") == "code"
+           for line in "".join(cell.get("source", [])).splitlines()):
+        return nb
+    parents = _calling_methods(call.split("(", 1)[0], repo_root)
+    nb = copy.deepcopy(nb)
+    for cell in nb.get("cells", []):
+        if cell.get("cell_type") != "code":
+            continue
+        lines = "".join(cell.get("source", [])).splitlines(keepends=True)
+        if not any(line.strip().startswith(parent + "(") for line in lines for parent in parents):
+            continue
+        for idx, line in enumerate(lines):
+            if line.strip().startswith("MySaveFig("):
+                lines.insert(idx, call + "\n")
+                cell["source"] = lines
+                return nb
+    return nb
 
 
 def get_notebook_plot_names(notebook_path: str, repo_root: Path = REPO_ROOT) -> list[str]:
@@ -36,7 +175,7 @@ def get_notebook_plot_names(notebook_path: str, repo_root: Path = REPO_ROOT) -> 
         if cell.get("cell_type") != "code":
             continue
         source = "".join(cell.get("source", []))
-        for m in re.finditer(r"MySaveFig\s*\(\s*\w+\s*,\s*['\"]([^'\"]+)['\"]", source):
+        for m in re.finditer(r"(?m)^[ \t]*MySaveFig\s*\(\s*\w+\s*,\s*['\"]([^'\"]+)['\"]", source):
             names.append(m.group(1))
     return names
 
@@ -64,11 +203,14 @@ def execute_notebook(
         notebook_path,
     ]
     logger.info("Executing notebook: %s", notebook_path)
+    expected = [f"plots/{name}.pdf" for name in get_notebook_plot_names(notebook_path, repo_root)]
+    before = _output_snapshot(repo_root, expected)
     result = subprocess.run(
         cmd,
         cwd=str(repo_root),
         capture_output=True,
         text=True,
+        env=notebook_environment(repo_root),
     )
     if result.returncode == 0:
         logger.info("Notebook %s executed successfully", notebook_path)
@@ -79,6 +221,10 @@ def execute_notebook(
             result.returncode,
             result.stderr[-2000:],
         )
+    if result.returncode == 0:
+        missing = set(expected) - set(_collect_fresh_outputs(repo_root, expected, before))
+        if not expected or missing:
+            return False, f"Notebook produced no fresh plots or missed outputs: {sorted(missing)}"
     return result.returncode == 0, result.stderr
 
 
@@ -358,11 +504,11 @@ def _collect_fresh_outputs(
     produced: list[str] = []
     for rel in expected:
         p = repo_root / rel
-        if not p.exists():
+        if not p.exists() or p.stat().st_size == 0:
             continue
         if before.get(rel) is not None and p.stat().st_mtime_ns == before[rel]:
             logger.warning(
-                "Highlighted output %s was not regenerated (stale pre-run copy); excluding it",
+                "Plot output %s was not regenerated (stale pre-run copy); excluding it",
                 rel,
             )
             continue
@@ -395,6 +541,7 @@ def execute_notebook_highlighted(
     except Exception as exc:
         return False, f"Cannot read notebook: {exc}", []
 
+    nb = _expose_grouped_target(nb, notebook_call, repo_root)
     nb, highlight_plots = _build_highlight_notebook(nb, notebook_call, data_file_path)
 
     if not highlight_plots:
@@ -425,7 +572,8 @@ def execute_notebook_highlighted(
             tmp_name,
         ]
         logger.info("Executing highlighted notebook: %s", tmp_name)
-        result = subprocess.run(cmd, cwd=str(repo_root), capture_output=True, text=True)
+        result = subprocess.run(cmd, cwd=str(repo_root), capture_output=True, text=True,
+                                env=notebook_environment(repo_root))
 
         if result.returncode == 0:
             logger.info("Highlighted notebook executed successfully")
@@ -439,7 +587,10 @@ def execute_notebook_highlighted(
         # never stale pre-run copies (see _collect_fresh_outputs).
         produced = _collect_fresh_outputs(repo_root, expected, before)
 
-        return result.returncode == 0, result.stderr, produced
+        missing = sorted(set(expected) - set(produced))
+        if result.returncode != 0 or missing:
+            return False, result.stderr + f"\nMissing fresh highlighted outputs: {missing}", []
+        return True, result.stderr, produced
     finally:
         # Clean up temporary notebook
         if tmp_nb_path.exists():
