@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "arxiv_id": "2609.08504",
+  "decision": "approve",
+  "summary": "The new axion-electron bound g_ae < 1.49e-13 at 95% C.L. from the distance-independent TRGB-RGBB method (Levasseur et al. 2026) is correctly identified, genuinely new, confidence-supported, convention-consistent, and numerically matches the paper (abstract, Sec.7, Fig.14). The new limit's defining boundary is shown and labeled. Only minor, non-blocking display issues remain (label crowding vs. the existing omega-Cen entry and shared crimson color with Solar nu in the highlighted view).",
+  "artifact_sha256": {
+    "limit_data/AxionElectron/RGB_Levasseur_2026.txt": "4612ae2440b75643b465abb034ee69d4019015dc47c3faaeb9be1d84a0dfdc71",
+    "PlotFuncs.py": "ed6ea34f2feb69ff70de4b33d1407a379da76fd0e6641104635125a987ddced5",
+    "AxionElectron.ipynb": "be95bf2520232958542fb10ee0f61d7e4ca4bfd9da58a50a36c4b0840ccc393c",
+    "plots/AxionElectron.pdf": "134c3766ec42e896ac0652ef9d0d634923bf6455cbec0d44452bc1779685e1a3",
+    "plots/plots_png/AxionElectron.png": "3fa18918204b5b17b168024d8567fe879c06630056cd2bbcbeb6d54b280903b8",
+    "plots/AxionElectron_with_Projections.pdf": "5cb9277fd928959e6ac0795827b2299c88361a9ce888da757b2e5af38c3899ca",
+    "plots/plots_png/AxionElectron_with_Projections.png": "989aa39ca5c3d8f9261a5dc20e1d3b959a08e2bdea660afb8992aad4e12ba636",
+    "plots/AxionElectron_UndergroundDetectorsCloseup.pdf": "4382e4952103e4a57d2c3f32ec09fc7a2816dc9efba3311ac50e8bf70e2fe3e5",
+    "plots/plots_png/AxionElectron_UndergroundDetectorsCloseup.png": "8d2dce26b7ab052f0f28db11cfdbb4130320cd03db5437da311e34c90bc0d914",
+    "plots/AxionElectron_highlighted.pdf": "41ec095840674ce32a1324b2688109120d28bb0fc32cd2e1b873f9432dfae4f1",
+    "plots/plots_png/AxionElectron_highlighted.png": "ea80c868156fde0fe67de119ccbdac40a8dda7692afd80dee4653fdd5139ebeb"
+  },
+  "history": [
+    {
+      "attempt": 0,
+      "verdict": {
+        "decision": "approve",
+        "summary": "The new axion-electron bound g_ae < 1.49e-13 at 95% C.L. from the distance-independent TRGB-RGBB method (Levasseur et al. 2026) is correctly identified, genuinely new, confidence-supported, convention-consistent, and numerically matches the paper (abstract, Sec.7, Fig.14). The new limit's defining boundary is shown and labeled. Only minor, non-blocking display issues remain (label crowding vs. the existing omega-Cen entry and shared crimson color with Solar nu in the highlighted view).",
+        "checks": {
+          "result_identity": {
+            "status": "pass",
+            "evidence": "Paper title and abstract (p.1): constraint on axion-electron coupling g_ae from RGB stars. extraction coupling_type=AxionElectron, g_ae dimensionless. Exclusion (is_projection=false), new measured bound. Matches."
+          },
+          "novelty": {
+            "status": "pass",
+            "evidence": "2026 preprint presenting a NEW distance-independent (TRGB-RGBB magnitude difference) method on 47 Tuc, NGC 362, M5 yielding a new combined 95% bound (abstract; Sec.3,7). Distinct independent measurement, not an old bound re-quoted. Note: slightly weaker than existing Red giants (omega-Cen) ~1.3e-13, but a genuine new measurement."
+          },
+          "confidence_level": {
+            "status": "pass",
+            "evidence": "Abstract and Sec.7 (p.12): explicit '95% C.L. upper limit of 1.49', a Bayesian 95% upper credible bound with uniform g13 prior (Fig.14). extraction confidence_level=0.95 is paper-supported, not a default/placeholder."
+          },
+          "conventions": {
+            "status": "pass",
+            "evidence": "g_ae standard dimensionless (p.2). Axion treated massless/light; production suppressed near core thermal energy T~8.6 keV (p.2). Mass-independent flat line in eV; data file 1.49e-13 with no density/polarization needed. Upper cutoff 1e4 eV is extractor's representation choice (~core temperature), reasonable; lower start 1e-11 eV is a representation choice."
+          },
+          "numerical_agreement": {
+            "status": "pass",
+            "evidence": "Data points fixed at g_ae=1.49e-13, matching the headline 95% WL2011 combined bound (abstract; Sec.7 p.12; Fig.14 dashed line at g13=1.49). MARCS alternative 1.62 and per-cluster 1.99/1.92/2.03 also consistent with the paper."
+          },
+          "highlight_target": {
+            "status": "pass",
+            "evidence": "Highlighted PNG shows the new RGB limit's defining lower boundary at ~1.49e-13 spanning 1e-11 to 1e4 eV with the red 'R(GB)' label at bottom-left, matching the data. Correct target accented. (Advisory: the pre-existing crimson 'Solar nu' region shares the accent color and also appears red.)"
+          },
+          "visibility": {
+            "status": "pass",
+            "evidence": "Boundary at 1.49e-13 is on-screen across the relevant mass range and labeled 'RGB'. (Advisory: nearly coincident with existing Red giants omega-Cen ~1.3e-13, so the full-view label is cramped/partly clipped; interpretable via the highlighted view.)"
+          }
+        },
+        "findings": [
+          {
+            "category": "plot",
+            "severity": "advisory",
+            "description": "In the highlighted view, the pre-existing 'Solar nu' exclusion shares the crimson highlight color and also renders red, so it is co-accented alongside the new RGB limit.",
+            "evidence": "AxionElectron_highlighted.png shows a large stepped red region matching the Solar nu shape (flat ~8e-9 then rising to ~7e-6 at THz with QUAX vertical features) in addition to the RGB boundary at 1.49e-13.",
+            "requested_change": "Optionally assign the new RGB limit a highlight color distinct from the compilation's crimson so only the new result is accented."
+          },
+          {
+            "category": "plot",
+            "severity": "advisory",
+            "description": "New bound (1.49e-13) is nearly coincident with and slightly weaker than the existing Red giants (omega-Cen) entry (~1.3e-13); the full-view 'RGB' label is crowded/partly obscured.",
+            "evidence": "AxionElectron.png: only 'R' is visible at the far-left ~1e-13, overlapping 'Red giants (omega-Cen)' text.",
+            "requested_change": "Optionally reposition/resize the RGB label for legibility; no scientific change needed."
+          },
+          {
+            "category": "science",
+            "severity": "advisory",
+            "description": "The flat line's mass extent (1e-11 to 1e4 eV) is the extractor's representation choice, not stated by the paper.",
+            "evidence": "extraction notes acknowledge the 1e4 eV upper cutoff is chosen (~core temperature 8.6 keV, p.2); paper quotes no explicit mass range.",
+            "requested_change": "None required; the choice is physically reasonable, but curators should be aware the endpoints are conventions, not paper values."
+          }
+        ]
+      },
+      "session": {
+        "model": "claude-opus-4-8",
+        "models_billed": [
+          "claude-opus-4-8"
+        ],
+        "inspected_files": [
+          "extraction.json",
+          "limit_data/AxionElectron/RGB_Levasseur_2026.txt",
+          "paper.pdf",
+          "plots/plots_png/AxionElectron.png",
+          "plots/plots_png/AxionElectron_highlighted.png",
+          "proposal.json"
+        ],
+        "prompt_sha256": "a1e911dbcb105d90034494aa79bbd59317c8f524185bd718d94b4a4efdcf81a8"
+      },
+      "evidence_sha256": {
+        "AxionElectron.ipynb": "eaffa3f3a4947a88b394c4f85c7b7a83b03882e9a2b1f86c9aae16e63e92dcea",
+        "PlotFuncs.py": "ed6ea34f2feb69ff70de4b33d1407a379da76fd0e6641104635125a987ddced5",
+        "extraction.json": "01613406ee9f350eff1d4121610fa114ff996b14e599ddbf684e65d4a37de248",
+        "limit_data/AxionElectron/RGB_Levasseur_2026.txt": "4612ae2440b75643b465abb034ee69d4019015dc47c3faaeb9be1d84a0dfdc71",
+        "paper.pdf": "d63dd3ddec8335561f6dac7dd834b58f03b90d89ee4182ae8fa09241ee155809",
+        "plots/plots_png/AxionElectron.png": "3fa18918204b5b17b168024d8567fe879c06630056cd2bbcbeb6d54b280903b8",
+        "plots/plots_png/AxionElectron_highlighted.png": "ea80c868156fde0fe67de119ccbdac40a8dda7692afd80dee4653fdd5139ebeb",
+        "proposal.json": "d2ac4360ef29713ba97fa9705e806d2720993d8dfa3e1e5e81798813567c40f2"
+      }
+    }
+  ]
+}
