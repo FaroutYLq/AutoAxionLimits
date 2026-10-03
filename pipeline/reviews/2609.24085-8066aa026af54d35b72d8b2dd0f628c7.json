@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "arxiv_id": "2609.24085",
+  "decision": "approve",
+  "summary": "The FRBPA (Full) 95% credible upper limit on g_agamma from Fig. 3 is correctly identified as a genuinely new measured bound (first FRB polarization array), with units, confidence, and representative tabulated points matching the paper's abstract and figure; the highlighted plot shades the correct one-sided upper-limit region with a legible label and no unrelated co-highlighting.",
+  "artifact_sha256": {
+    "limit_data/AxionPhoton/FRBPA_2026.txt": "23ab0612ef66ac714e2afa78eadc73131114a9b79a67395f2ca67a4e4203cc05",
+    "PlotFuncs.py": "4923dd466213741fc7ca379caf563a6dd3f7fa5254afdd913882944259faf50c",
+    "AxionPhoton_Ultralight.ipynb": "16d1caa406334f4cdaed7d218a2dbc91251483d6fcfb5616a875db9f57b33488",
+    "plots/AxionPhoton_Ultralight.pdf": "04b5e580d11c9b0fb6b25586affb278f4ae8b5f1ed91da9eea5b510bbb35035b",
+    "plots/plots_png/AxionPhoton_Ultralight.png": "012695e0d3792d8b7050fcd2675a4308ae25f9f357fb7278182e8e21ae971590",
+    "plots/AxionPhoton_Ultralight_with_Projections.pdf": "ed389e3f8215898362258423d877af97b898305187d1854edafc40daeb3000d7",
+    "plots/plots_png/AxionPhoton_Ultralight_with_Projections.png": "4f65ee071545d39e5154ffd5e506bed8d6cca22e28654f15bec760b9fd3c5771",
+    "plots/AxionPhoton_Ultralight_with_Projections_AltColours.pdf": "2e11cb4a90dbc725059a10c41b9b24f283c026b0c1fdab2b68204bcd8471a59c",
+    "plots/plots_png/AxionPhoton_Ultralight_with_Projections_AltColours.png": "d124edab8174b70d4c785c2b23b956c05aeb3a9d402614c2307f42f6f11f990c",
+    "plots/AxionPhoton_Ultralight_highlighted.pdf": "fc98332177f47596bc2790b31aad55dde854f8912c6e997d894a737e951768b7",
+    "plots/plots_png/AxionPhoton_Ultralight_highlighted.png": "aa1923c60658a30969f5010da0a04e0df47a5add96a743d6d11d8a08232fc16c",
+    "plots/AxionPhoton_Ultralight_with_Projections_highlighted.pdf": "96211121c23af6a0565c34425f7e42060d156c3363d96bd75f87c7b2eae624d0",
+    "plots/plots_png/AxionPhoton_Ultralight_with_Projections_highlighted.png": "ec7c868b790aa93532d113ebedc7227c6be35a78d473132993684df61c42cfed"
+  },
+  "history": [
+    {
+      "attempt": 0,
+      "verdict": {
+        "decision": "approve",
+        "summary": "The FRBPA (Full) 95% credible upper limit on g_agamma from Fig. 3 is correctly identified as a genuinely new measured bound (first FRB polarization array), with units, confidence, and representative tabulated points matching the paper's abstract and figure; the highlighted plot shades the correct one-sided upper-limit region with a legible label and no unrelated co-highlighting.",
+        "checks": {
+          "result_identity": {
+            "status": "pass",
+            "evidence": "AxionPhoton, g_agamma [GeV^-1] vs m_a [eV]. Headline is the thick red 'FRBPA (Full)' 95% upper-limit curve in the upper panel of Fig. 3 (p.13), the full-correlation joint analysis of three repeating FRBs. Matches paper subject (cosmic birefringence, Chern-Simons coupling)."
+          },
+          "novelty": {
+            "status": "pass",
+            "evidence": "New measured exclusion (not projection; is_projection=false). Paper (Sep 2026) presents 'constraints from an FRBPA for the first time' (p.2) and places new 95% credible upper limits (abstract). FRBPA is weaker than existing compilation limits in this range but is a genuinely new, distinct measured bound; extraction selected the combined FRBPA curve explicitly."
+          },
+          "confidence_level": {
+            "status": "pass",
+            "evidence": "Abstract states '95% credible upper limits on the Chern-Simons coupling'; Fig. 3 caption (p.13) says '95% upper limits'. Extraction uses confidence_level=0.95, directly supported, not a placeholder."
+          },
+          "conventions": {
+            "status": "pass",
+            "evidence": "Mass in eV, g in GeV^-1 consistent with paper. DM density: paper rho_0=0.4 GeV/cm^3 (Eq. 2.5, p.4); plotting method rescales to repo 0.45 via sqrt(0.4/0.45)=0.9428 (g ~ 1/sqrt(rho)), correct direction (higher density -> stronger/smaller limit). Data stored paper-native. Minor approximation noted in advisory finding."
+          },
+          "numerical_agreement": {
+            "status": "pass",
+            "evidence": "Endpoints verified against abstract: 1e-23 eV -> 2.5469e-13 (10^-12.59) vs quoted 10^-12.6; 1e-18 eV -> 1.343e-8 (10^-7.87) vs quoted 10^-7.9. Non-monotonic bump at 5.6e-19 eV (2.1e-8) matches the BF peak feature described p.12-13. Overall staircase shape matches the red FRBPA (Full) curve in Fig. 3."
+          },
+          "highlight_target": {
+            "status": "pass",
+            "evidence": "In both highlighted PNGs only the FRBPA red region is accented. It shades continuously UPWARD from the curve to the plot top (correct one-sided upper-limit direction). The fill terminates near ~2e-19 eV because the limit weakens above the plot's top (10^-9), physically correct; no invented endpoint stripes or second boundary. Left edge is the data start at 1e-23 eV."
+          },
+          "visibility": {
+            "status": "pass",
+            "evidence": "Highlighted view shows the full relevant range (1e-23 to ~2e-19 eV on-screen) with legible 'FRBPA' label at lower-left. Curve boundary interpretable. In the full compilation view the limit is occluded by stronger existing limits (Planck/PSR J0437/PPTA), which is expected for a weaker new limit; highlighted view provides identification."
+          }
+        },
+        "findings": [
+          {
+            "category": "science",
+            "severity": "advisory",
+            "description": "The repo applies a uniform sqrt(0.4/0.45) density rescaling to the whole curve, but the paper's signal (Eq. 2.5, p.4) is a two-component model combining the Earth term (rho_0=0.4) and source gNFW host densities (~0.4-2.2 GeV/cm^3, marginalized). A single-density rescale is an approximation.",
+            "evidence": "Eq. 2.5 and Sec. 3.4 (p.10): source densities comparable to local; paper states the full two-component superposition must be used, not a source- or Earth-dominated form.",
+            "requested_change": "None required; the ~6% correction is within extraction precision and is documented in the data header. Consider noting the two-component approximation in the entry comment."
+          }
+        ]
+      },
+      "session": {
+        "model": "claude-opus-4-8",
+        "models_billed": [
+          "claude-opus-4-8"
+        ],
+        "inspected_files": [
+          "extraction.json",
+          "limit_data/AxionPhoton/FRBPA_2026.txt",
+          "paper.pdf",
+          "plots/plots_png/AxionPhoton_Ultralight.png",
+          "plots/plots_png/AxionPhoton_Ultralight_highlighted.png",
+          "plots/plots_png/AxionPhoton_Ultralight_with_Projections.png",
+          "plots/plots_png/AxionPhoton_Ultralight_with_Projections_highlighted.png",
+          "proposal.json"
+        ],
+        "prompt_sha256": "c09db0cab31936a30a50d07b8f7b6f91fd684ce77d5450a63ea9c2be8777f33d"
+      },
+      "evidence_sha256": {
+        "AxionPhoton_Ultralight.ipynb": "4af677f27e733ebfa0f656f389d09272da5a31f0eb4d379c3d80cce92f3e6bf4",
+        "PlotFuncs.py": "4923dd466213741fc7ca379caf563a6dd3f7fa5254afdd913882944259faf50c",
+        "extraction.json": "c177e02ceab5e1ccb6bf9366c2006ac7730818de1bec9de7d83535c3da78f625",
+        "limit_data/AxionPhoton/FRBPA_2026.txt": "23ab0612ef66ac714e2afa78eadc73131114a9b79a67395f2ca67a4e4203cc05",
+        "paper.pdf": "b43c2c91ac22b83b35d6454386f0157dc974b663d6f73b7d536b6010927147f9",
+        "plots/plots_png/AxionPhoton_Ultralight.png": "012695e0d3792d8b7050fcd2675a4308ae25f9f357fb7278182e8e21ae971590",
+        "plots/plots_png/AxionPhoton_Ultralight_highlighted.png": "aa1923c60658a30969f5010da0a04e0df47a5add96a743d6d11d8a08232fc16c",
+        "plots/plots_png/AxionPhoton_Ultralight_with_Projections.png": "4f65ee071545d39e5154ffd5e506bed8d6cca22e28654f15bec760b9fd3c5771",
+        "plots/plots_png/AxionPhoton_Ultralight_with_Projections_highlighted.png": "ec7c868b790aa93532d113ebedc7227c6be35a78d473132993684df61c42cfed",
+        "previous-data.txt": "23ab0612ef66ac714e2afa78eadc73131114a9b79a67395f2ca67a4e4203cc05",
+        "proposal.json": "904cb66de311b5d91dfb4312a5e7df4fc84ec4fb138d4c5b4fdbf9df662b4a15"
+      }
+    }
+  ]
+}
