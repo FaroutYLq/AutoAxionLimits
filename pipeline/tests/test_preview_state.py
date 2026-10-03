@@ -158,7 +158,8 @@ def test_weekly_preview_does_not_hide_next_real_update(monkeypatch, tmp_path, mo
                         lambda ids: {"2601.00001": (2, mode == "published_no_data", object())})
     monkeypatch.setattr(preprint_checker, "is_withdrawn", lambda aid: mode == "withdrawn")
     monkeypatch.setattr(preprint_checker, "is_published", lambda paper: False)
-    monkeypatch.setattr(preprint_checker, "download_pdf", lambda *args: Path("unused"))
+    pdf = tmp_path / "paper.pdf"; pdf.write_bytes(b"%PDF fixture")
+    monkeypatch.setattr(preprint_checker, "download_pdf", lambda *args: pdf)
     monkeypatch.setattr(preprint_checker, "run_extraction_agent", lambda *args: SimpleNamespace(
         data_points=[] if mode == "published_no_data" else [(1, 2)],
         is_projection=False, extraction_confidence=0.9))

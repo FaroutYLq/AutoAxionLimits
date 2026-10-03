@@ -42,6 +42,7 @@ from .monitor import (
     STATE_PATH as PROCESSED_STATE_PATH,
 )
 from .plot_regen import generate_review_plots, PlotGenerationError
+from .publication_review import review_for_publication, verify_approval
 from .pr_creator import (
     PublicationError,
     checkout_branch,
@@ -449,6 +450,12 @@ def _process_candidate(
             backfill_state.setdefault("skipped_ids", {})[arxiv_id] = f"extraction_error: {e}"
             return False
 
+        return _publish_candidate(candidate, extraction, pdf_path, client,
+                                  backfill_state, processed_state, dry_run)
+
+
+def _publish_candidate(candidate, extraction, pdf_path, client, backfill_state, processed_state, dry_run):
+    arxiv_id = candidate['arxiv_id']
     if not extraction.is_new_limit:
         logger.info("%s: not a new limit", arxiv_id)
         backfill_state.setdefault("skipped_ids", {})[arxiv_id] = "not_new_limit"
@@ -498,6 +505,11 @@ def _process_candidate(
     # Rendering is part of publication: never publish inherited/stale images.
     plot_files, highlight_files = generate_review_plots(
         review.notebook_path, review.notebook_call, REPO_ROOT, review.data_file_path)
+    approval = review_for_publication(
+        extraction=extraction, paper_pdf=pdf_path, proposal=dict(vars(review), operation='new_limit'),
+        repo_root=REPO_ROOT, plot_files=plot_files, highlight_files=highlight_files)
+    plot_files, highlight_files = approval.plot_files, approval.highlight_files
+    verify_approval(approval, REPO_ROOT)
 
     # Git branch, commit, PR
     branch = create_feature_branch(arxiv_id, review.experiment_name, REPO_ROOT)
@@ -518,6 +530,7 @@ def _process_candidate(
     ]
     changed_files.extend(plot_files)
     changed_files.extend(highlight_files)
+    changed_files.append(approval.report_path)
 
     commit_msg = (
         f"Add {review.experiment_name} {extraction.coupling_type} limit\n\n"
@@ -568,6 +581,7 @@ def _process_candidate(
         f"- `{review.plotfuncs_file}` (new method `{review.plotfuncs_class}.{review.experiment_name}`)\n"
         f"- `{review.notebook_path}`\n"
         f"- `{review.docs_file}`\n\n"
+        f"{approval.section(branch)}"
         f"{plot_section}"
         f"---\n"
         f"> Discovered via historical backfill (INSPIRE-HEP search). "
@@ -577,6 +591,7 @@ def _process_candidate(
 
     created = False
     try:
+        verify_approval(approval, REPO_ROOT)
         stage_and_commit_files(changed_files, commit_msg, REPO_ROOT)
         pr_url = create_pull_request_preprint(branch, title, body, REPO_ROOT)
         logger.info("PR created: %s", pr_url)

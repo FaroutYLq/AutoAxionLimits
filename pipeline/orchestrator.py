@@ -39,6 +39,7 @@ from .monitor import (
     unmark_processed,
 )
 from .plot_regen import generate_review_plots, PlotGenerationError
+from .publication_review import review_for_publication, verify_approval
 from .pr_creator import (
     PublicationError,
     checkout_branch,
@@ -176,6 +177,11 @@ def _process_paper(paper, paper_id: str, client: anthropic.Anthropic, state: dic
         pdf_path = download_pdf(paper_id, Path(tmpdir))
         extraction = run_extraction_agent(paper, pdf_path, client)
 
+        _publish_extraction(paper_id, extraction, pdf_path, client, state, dry_run)
+
+
+def _publish_extraction(paper_id, extraction, pdf_path, client, state, dry_run):
+    """Keep source PDF alive through rendering and independent publication review."""
     if not extraction.is_new_limit:
         logger.info("%s: not a new limit (is_new_limit=False)", paper_id)
         mark_processed(state, paper_id, reason="not_new_limit")
@@ -228,6 +234,11 @@ def _process_paper(paper, paper_id: str, client: anthropic.Anthropic, state: dic
     # Rendering is part of publication: never publish inherited/stale images.
     plot_files, highlight_files = generate_review_plots(
         review.notebook_path, review.notebook_call, REPO_ROOT, review.data_file_path)
+    approval = review_for_publication(
+        extraction=extraction, paper_pdf=pdf_path, proposal=dict(vars(review), operation='new_limit'),
+        repo_root=REPO_ROOT, plot_files=plot_files, highlight_files=highlight_files)
+    plot_files, highlight_files = approval.plot_files, approval.highlight_files
+    verify_approval(approval, REPO_ROOT)
 
     # Git branch, commit, PR
     branch = create_feature_branch(paper_id, review.experiment_name, REPO_ROOT)
@@ -248,6 +259,7 @@ def _process_paper(paper, paper_id: str, client: anthropic.Anthropic, state: dic
     # Include plot files actually produced by the notebook
     changed_files.extend(plot_files)
     changed_files.extend(highlight_files)
+    changed_files.append(approval.report_path)
 
     commit_msg = (
         f"Add {review.experiment_name} {extraction.coupling_type} limit\n\n"
@@ -258,9 +270,10 @@ def _process_paper(paper, paper_id: str, client: anthropic.Anthropic, state: dic
     )
     pr_url = None
     try:
+        verify_approval(approval, REPO_ROOT)
         stage_and_commit_files(changed_files, commit_msg, REPO_ROOT)
         pr_url = create_pull_request(branch, review, extraction, REPO_ROOT,
-                                     highlight_files=highlight_files, plot_files=plot_files)
+                                     highlight_files=highlight_files, plot_files=plot_files, approval=approval)
         logger.info("PR created: %s", pr_url)
     except Exception as e:
         raise PublicationError(f"{paper_id} on branch {branch}: {e}") from e

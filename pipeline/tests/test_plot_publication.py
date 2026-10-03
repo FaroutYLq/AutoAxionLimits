@@ -146,7 +146,7 @@ def test_preprint_render_failure_restores_data_before_any_publication(tmp_path, 
     monkeypatch.setattr(pr_creator, '_run_git', lambda *a: pytest.fail('must not publish'))
     with pytest.raises(plots.PlotGenerationError):
         pc._create_update_pr(tmp_path, 'limit_data/DarkPhoton/Test.txt', '2601.00001', 1, 2,
-                             SimpleNamespace(coupling_type='DarkPhoton'), [(1, 2)], [], [], 'changed', object())
+                             SimpleNamespace(coupling_type='DarkPhoton'), b'%PDF fixture', [(1, 2)], [], [], 'changed', object())
     assert path.read_text() == 'original data'
 
 
@@ -164,7 +164,8 @@ def test_weekly_plot_failure_keeps_old_version_retryable(tmp_path, monkeypatch, 
     monkeypatch.setattr(pc, 'batch_get_latest_versions', lambda ids: {'2601.00001': (2, False, object())})
     monkeypatch.setattr(pc, 'is_withdrawn', lambda aid: False)
     monkeypatch.setattr(pc, 'is_published', lambda paper: False)
-    monkeypatch.setattr(pc, 'download_pdf', lambda *a: Path('unused'))
+    pdf = tmp_path / 'paper.pdf'; pdf.write_bytes(b'%PDF fixture')
+    monkeypatch.setattr(pc, 'download_pdf', lambda *a: pdf)
     monkeypatch.setattr(pc, 'run_extraction_agent', lambda *a: SimpleNamespace(
         data_points=[(1, 2)], is_projection=False, extraction_confidence=0.9))
     monkeypatch.setattr(pc, 'apply_corrections', lambda result: ([(1, 2)], [], []))
@@ -186,3 +187,22 @@ def test_runner_replaces_launcher_pythonpath_with_checkout(tmp_path, monkeypatch
     from pipeline.local_runner import child_environment
     env, _, _ = child_environment({'PYTHONPATH': '/old/launcher', 'PATH': '/bin'}, tmp_path, 'claude-cli')
     assert env['PYTHONPATH'] == str(tmp_path.resolve())
+
+
+@pytest.mark.parametrize("failure", ["science", "unavailable"])
+def test_weekly_independent_review_failure_restores_data_and_never_publishes(tmp_path,monkeypatch,failure):
+    from pipeline import preprint_checker as pc, pr_creator
+    from pipeline.publication_review import PublicationReviewError
+    from pipeline.extractor import FatalAPIError
+    path=tmp_path/'limit_data/DarkPhoton/Test.txt';path.parent.mkdir(parents=True);path.write_text('original')
+    monkeypatch.setattr(pc,'format_data_file',lambda *a:'proposed')
+    monkeypatch.setattr(pc,'find_plot_target',lambda *a:('DarkPhoton.ipynb','DarkPhoton.Test(ax)'))
+    monkeypatch.setattr(pc,'generate_review_plots',lambda *a:(['full.png'],['highlight.png']))
+    kind=PublicationReviewError if failure=='science' else FatalAPIError
+    def blocked(**kw):raise kind('Independent review blocked')
+    monkeypatch.setattr(pc,'review_for_publication',blocked)
+    monkeypatch.setattr(pr_creator,'_run_git',lambda *a:pytest.fail('must not publish'))
+    with pytest.raises(kind):
+        pc._create_update_pr(tmp_path,'limit_data/DarkPhoton/Test.txt','2601.00001',1,2,
+            SimpleNamespace(coupling_type='DarkPhoton'),b'%PDF fixture',[(1,2)],[],[],'changed',object())
+    assert path.read_text()=='original'

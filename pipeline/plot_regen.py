@@ -439,8 +439,13 @@ def _build_highlight_notebook(
                 f'lw=1.5, zorder=1000, alpha=0.85)\n'
             )
         indent = lines[target][: len(lines[target]) - len(lines[target].lstrip())]
-        block = f"_HIGHLIGHT_ACTIVE = True\n{hl_call}\n{spike_code}_HIGHLIGHT_ACTIVE = False"
-        lines[target : target + 1] = [indent + ln for ln in block.split("\n")]
+        label = ""
+        end = target + 1
+        if end < len(lines) and lines[end].endswith("# AAL publication label"):
+            label = lines[end].strip() + "\n"
+            end += 1
+        block = f"_HIGHLIGHT_ACTIVE = True\n{hl_call}\n{spike_code}{label}_HIGHLIGHT_ACTIVE = False"
+        lines[target : end] = [indent + ln for ln in block.split("\n")]
         source = "\n".join(lines)
         logger.info(
             "Highlight wraps %r (line %d of notebook cell %d)", call_line, target, cell_idx

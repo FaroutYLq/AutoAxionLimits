@@ -12,6 +12,7 @@ from typing import Optional
 
 from .extractor import ExtractionResult
 from .plot_regen import PlotGenerationError
+from .publication_review import ApprovedPublication, verify_approval
 from .reviewer import ReviewResult
 
 logger = logging.getLogger(__name__)
@@ -198,8 +199,10 @@ def create_pull_request(
     repo_root: Path = REPO_ROOT,
     highlight_files: list[str] | None = None,
     plot_files: list[str] | None = None,
+    approval: ApprovedPublication | None = None,
 ) -> str:
-    """Push branch and open a GitHub PR. Returns the PR URL."""
+    """Push only artifacts approved by an independent agent, then create the PR."""
+    verify_approval(approval, repo_root)
 
     # PR title
     prefix = ""
@@ -252,6 +255,7 @@ def create_pull_request(
         f"- `{review.plotfuncs_file}` (new method `{review.plotfuncs_class}.{review.experiment_name}`)\n"
         f"- `{review.notebook_path}`\n"
         f"- `{review.docs_file}`\n\n"
+        f"{approval.section(branch_name)}"
         f"{plot_section}"
         f"---\n"
         f"> All updates are PRs — nothing merges automatically. "

@@ -87,3 +87,57 @@ agent crash/timeout with no `result.json` falls back to the staged pipeline;
 an abstention never does). The task card core is pinned to the benchmark's
 `docs/TASK.md` by sha256, so a production run is the benchmarked system; see
 `CLAUDE.md` for the evidence and the contracts.
+
+
+## Independent publication review
+
+Every real daily, backfill, and changed-data preprint PR now requires a separate
+agent to approve its source evidence and freshly rendered full/highlighted
+images. Dry runs do not invoke this publication stage. Withdrawal/removal flags
+retain their existing human-review workflow.
+
+The reviewer starts a fresh Claude CLI session outside the checkout, with only
+Read/Glob/Grep tools, no project settings or MCP servers. It receives the paper
+PDF, extraction metadata, proposed data and plotting source, notebook source,
+and corresponding full/highlighted PNGs. Successful tool reads of the PDF, data,
+metadata and both images are required; naming an image in the final answer is
+not evidence of inspection. The review card is
+[publication_review_card.md](publication_review_card.md).
+
+Scientific judgments belong to the agent: result identity, novelty, statistical
+confidence, physical conventions, representative numerical agreement, correct
+highlighting and visual clarity. Code enforces evidence availability, structured
+and consistent decisions, and matching artifact hashes; it does not supply a
+numerical threshold or substitute for those judgments.
+
+An agent can approve, request a display repair, or require human review. Display
+repairs use a separate read-only agent that proposes axes, supported styling
+arguments or one label. The driver applies these bounded choices, renders again,
+and starts a fresh independent reviewer. There are at most two repair cycles.
+Data, confidence claims and physical transformations cannot be repaired through
+this path. Unsupported repairs, scientific uncertainty, exhausted repair cycles,
+missing evidence, invalid decisions and CLI failures block publication. There is
+no fallback that skips agent approval.
+
+Approved reports (including findings, inspected files, prompt/model provenance,
+evidence hashes and repair history) are committed under `pipeline/reviews/` and
+linked in the PR. The driver verifies the report and approved artifact hashes
+before committing/publishing. Local evidence packets, full CLI transcripts and
+blocked findings remain under `pipeline/logs/publication_review/`. Review failure
+leaves the paper/version eligible for retry and aborts the run with a failure;
+inspect `failure.json` and `review.json` there before resuming a blocked paper.
+Scientific decisions still require human adjudication and PR merge review.
+
+The CLI is required even with `AAL_EXTRACTOR=pipeline`; it uses the same billing
+environment as agent extraction (`AAL_BACKEND=claude-cli` removes the API key;
+otherwise the configured API credentials are inherited). Configure:
+
+| Variable | Default | Meaning |
+|---|---|---|
+| `PUBLICATION_REVIEW_MODEL` | reviewer model (`claude-opus-4-8`) | independent reviewer and display-repair model |
+| `AAL_PUBLICATION_REVIEW_TIMEOUT` | `600` | timeout in seconds per session |
+| `AAL_PUBLICATION_REVIEW_BUDGET` | `5` | CLI dollar budget per session; at most five sessions per candidate |
+
+The local runner passes timeout/budget through. Set a model override explicitly
+with its `--env PUBLICATION_REVIEW_MODEL=...` option; inherited model overrides
+are scrubbed to keep scheduled production runs on the configured default.
