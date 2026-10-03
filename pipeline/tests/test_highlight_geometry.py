@@ -27,7 +27,8 @@ MySaveFig(fig,'test')
 """
         nb={'cells':[{'cell_type':'code','source':source.splitlines(keepends=True),'metadata':{},'outputs':[]}]}
         patched,_=_build_highlight_notebook(nb,'Example.Limit(ax)',str(path))
-        ns={'plt':plt,'Example':SimpleNamespace(Limit=method),'MySaveFig':lambda *a:None}
+        # Some production notebooks shadow builtins through NumPy wildcard imports.
+        ns={'max':np.max,'plt':plt,'Example':SimpleNamespace(Limit=method),'MySaveFig':lambda *a:None}
         for cell in patched['cells']:exec(''.join(cell['source']),ns)
         ns['fig'].canvas.draw()
         return ns['fig'],ns['ax']

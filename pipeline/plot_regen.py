@@ -319,6 +319,7 @@ def _emphasize_new_artists(ax, before):
     # Restyle the method's actual artists. Never reconstruct exclusions from
     # raw table rows: that loses transformations, direction and topology.
     import math as _math
+    import builtins as _builtins
     from matplotlib.lines import Line2D as _Line2D
     from matplotlib.text import Text as _Text
     from matplotlib import patheffects as _pe
@@ -327,14 +328,14 @@ def _emphasize_new_artists(ax, before):
         raise RuntimeError('Target method produced no artists to highlight')
     background = [a.get_zorder() for a in ax.get_children()
                   if id(a) in before and _math.isfinite(a.get_zorder())]
-    base = max(background, default=0) + 10
+    base = _builtins.max(background, default=0) + 10
     orders = sorted({a.get_zorder() for a in artists})
     for artist in artists:
         # Keep the target's internal layering, entirely above the background.
         artist.set_zorder(base + orders.index(artist.get_zorder()))
         if isinstance(artist, _Line2D) and len(artist.get_xdata()) == len(artist.get_ydata()) == 1:
             artist.set_marker('o')
-            artist.set_markersize(max(artist.get_markersize(), 8))
+            artist.set_markersize(_builtins.max(artist.get_markersize(), 8))
         if isinstance(artist, _Text):
             artist.set_zorder(base + len(orders) + 1)
             artist.set_color('darkred')
