@@ -1,0 +1,30 @@
+# Constraints on Axion-like Dark Matter from Cosmic Birefringence with a Polarization Array of Repeating Fast Radio Bursts
+# arXiv: https://arxiv.org/abs/2609.24085
+# Coupling type: AxionPhoton
+# Extracted from: figure_vector
+# Confidence level: 0.95
+# Extraction confidence: 0.95
+# Corrections applied:
+#   DM density: paper=0.4 GeV/cm³ → repo=0.45 GeV/cm³; data stored paper-native, plotting method applies sqrt(0.4/0.45)=0.9428 (chi ∝ 1/sqrt(rho))
+# mass [eV]    g_agamma [GeV^-1]
+1.000000e-23   2.546900e-13
+1.778300e-23   4.732300e-13
+3.162300e-23   7.160000e-13
+5.623400e-23   1.085200e-12
+1.000000e-22   1.530100e-12
+1.778300e-22   2.114300e-12
+3.162300e-22   2.994900e-12
+5.623400e-22   5.293700e-12
+1.000000e-21   2.346300e-11
+1.778300e-21   2.919300e-11
+3.162300e-21   2.969600e-11
+5.623400e-21   6.532700e-11
+1.000000e-20   5.665500e-11
+1.778300e-20   1.289800e-10
+3.162300e-20   1.821100e-10
+5.623400e-20   3.691600e-10
+1.000000e-19   5.373700e-10
+1.778300e-19   6.536400e-10
+3.162300e-19   2.022900e-09
+5.623400e-19   2.102100e-08
+1.000000e-18   1.343000e-08

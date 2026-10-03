@@ -2059,6 +2059,19 @@ class AxionPhoton():
         if text_on:
             plt.text(text_shift[0]*4e-20,text_shift[1]*0.7e-15,r'{\bf Twisted Anyon Cavity}',fontsize=fs,color=text_col,rotation=rotation,ha='center',va='top',clip_on=True,path_effects=path_effects)
         return
+
+    @staticmethod
+    def FRBPA_2026(ax, col='crimson', fs=15, text_on=True, lw=1.5):
+        y2 = ax.get_ylim()[1]
+        dat = loadtxt("limit_data/AxionPhoton/FRBPA_2026.txt",ndmin=2)
+        dat[:,1] = dat[:,1]*sqrt(0.4/0.45)  # DM density 0.4->0.45 GeV/cm^3 (chi ~ 1/sqrt(rho))
+        plt.fill_between(dat[:,0],dat[:,1],y2=y2,edgecolor=None,facecolor=col,zorder=1)
+        plt.plot(dat[:,0],dat[:,1],color='k',alpha=1,zorder=1,lw=lw)
+        if text_on:
+            plt.text(dat[0,0],dat[0,1]*1.5,r'{\bf FRBPA}',fontsize=fs,color=col,rotation=0,
+                rotation_mode='anchor',ha='center',va='center',clip_on=True)
+        return
+
     
 #==============================================================================#
 
