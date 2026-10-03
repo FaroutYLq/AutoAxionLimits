@@ -3089,6 +3089,25 @@ class AxionEDM():
         plt.text(text_pos[0],text_pos[1],r'{\bf Polarisation \newline haloscope}',color=col,alpha=0.6,fontsize=fs,rotation=text_rot,clip_on=True)
         return
 
+    @staticmethod
+    def CASPEr_Electric_2026(ax, col='crimson', fs=15, text_on=True, lw=1.5):
+        dat = loadtxt("limit_data/AxionEDM/CASPEr_Electric_2026.txt", ndmin=2)
+        # Fig. 7: three measured scan windows; no exclusion in the gaps.
+        # Values remain in paper-native g_d [GeV^-2] at rho_DM=0.47 GeV/cm^3.
+        for low, high in [(1.889310e-8, 1.971580e-8),
+                          (1.980050e-8, 2.055430e-8),
+                          (2.164170e-8, 2.188630e-8)]:
+            segment = dat[(dat[:, 0] >= low) & (dat[:, 0] <= high)]
+            ax.fill_between(segment[:, 0], segment[:, 1], ax.get_ylim()[1],
+                            facecolor=col, edgecolor='none', zorder=31)
+            ax.plot(segment[:, 0], segment[:, 1], color='k', lw=lw, zorder=32)
+        if text_on:
+            ax.text(5e-8, 1.5e-3, r'{\bf CASPEr-electric (2026)}',
+                    fontsize=fs, color=col, ha='left', va='center', zorder=33,
+                    bbox=dict(facecolor='white', edgecolor='none', alpha=0.9), clip_on=True)
+        return
+
+
 
 #==============================================================================#
 
