@@ -231,3 +231,5 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+
+- **Electron_g_2_constraint_on_dark_photon_mixing_dark_monopole_model**: [Electron and monopole properties in a dark matter model](https://arxiv.org/abs/2610.02083)
