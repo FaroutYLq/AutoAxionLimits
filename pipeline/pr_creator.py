@@ -11,7 +11,8 @@ from pathlib import Path
 from typing import Optional
 
 from .extractor import ExtractionResult
-from .plot_regen import get_notebook_plot_names
+from .plot_regen import PlotGenerationError
+from .publication_review import ApprovedPublication, verify_approval
 from .reviewer import ReviewResult
 
 logger = logging.getLogger(__name__)
@@ -168,6 +169,25 @@ def agent_review_section(extraction: ExtractionResult) -> str:
     return "".join(parts)
 
 
+def plot_review_section(ref: str, experiment: str, plot_files: list[str],
+                        highlight_files: list[str]) -> str:
+    """Only link matching full and highlighted images validated by the renderer."""
+    highlighted = [p for p in highlight_files if p.endswith(".png")]
+    if not highlighted:
+        raise PlotGenerationError("Cannot publish a science PR without a fresh highlighted PNG")
+    sections = []
+    for path in highlighted:
+        full = path.replace("_highlighted.", ".")
+        if full not in plot_files:
+            raise PlotGenerationError(f"Cannot publish a stale full plot: {full}")
+        base = f"https://raw.githubusercontent.com/FaroutYLq/AutoAxionLimits/{ref}"
+        sections.append(
+            f"![{experiment} highlighted]({base}/{path})\n\n"
+            f"<details><summary>Full plot with all colours</summary>\n\n"
+            f"![Full limits]({base}/{full})\n\n</details>\n\n")
+    return "## Highlighted Plot (new or updated limit in colour)\n\n" + "".join(sections)
+
+
 # ---------------------------------------------------------------------------
 # PR creation — daily digest
 # ---------------------------------------------------------------------------
@@ -178,9 +198,11 @@ def create_pull_request(
     extraction: ExtractionResult,
     repo_root: Path = REPO_ROOT,
     highlight_files: list[str] | None = None,
+    plot_files: list[str] | None = None,
+    approval: ApprovedPublication | None = None,
 ) -> str:
-    """Push branch and open a GitHub PR. Returns the PR URL."""
-    _run_git(["push", "-u", "origin", branch_name], repo_root)
+    """Push only artifacts approved by an independent agent, then create the PR."""
+    verify_approval(approval, repo_root)
 
     # PR title
     prefix = ""
@@ -212,26 +234,10 @@ def create_pull_request(
         else ""
     )
 
-    # Use the first plot name produced by the selected notebook; fall back to coupling name
-    # GitHub PR descriptions don't resolve relative image paths — use absolute raw URL
-    plot_names = get_notebook_plot_names(review.notebook_path, repo_root)
-    plot_stem = plot_names[0] if plot_names else coupling
-    plot_png = f"https://raw.githubusercontent.com/FaroutYLq/AutoAxionLimits/{branch_name}/plots/plots_png/{plot_stem}.png"
+    plot_section = plot_review_section(branch_name, review.experiment_name,
+                                       plot_files or [], highlight_files or [])
 
-    # Highlighted plot: new limit in colour, everything else grey
-    highlight_png_files = [f for f in (highlight_files or []) if f.endswith(".png")]
-    if highlight_png_files:
-        hl_stem = Path(highlight_png_files[0]).name
-        hl_png = f"https://raw.githubusercontent.com/FaroutYLq/AutoAxionLimits/{branch_name}/plots/plots_png/{hl_stem}"
-        plot_section = (
-            f"## Highlighted Plot (new limit in colour)\n\n"
-            f"![{review.experiment_name} highlighted]({hl_png})\n\n"
-            f"<details><summary>Full plot with all colours</summary>\n\n"
-            f"![{coupling} limits]({plot_png})\n\n"
-            f"</details>\n\n"
-        )
-    else:
-        plot_section = f"## Plot\n\n![{coupling} limits]({plot_png})\n\n"
+    _run_git(["push", "-u", "origin", branch_name], repo_root)
 
     body = (
         f"## New Limit: {review.experiment_name}\n\n"
@@ -249,6 +255,7 @@ def create_pull_request(
         f"- `{review.plotfuncs_file}` (new method `{review.plotfuncs_class}.{review.experiment_name}`)\n"
         f"- `{review.notebook_path}`\n"
         f"- `{review.docs_file}`\n\n"
+        f"{approval.section(branch_name)}"
         f"{plot_section}"
         f"---\n"
         f"> All updates are PRs — nothing merges automatically. "

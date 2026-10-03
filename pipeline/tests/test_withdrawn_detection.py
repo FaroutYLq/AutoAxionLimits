@@ -297,7 +297,8 @@ def _reinstate_and_merge(monkeypatch, harness):
                         lambda *a, **kw: {_ARXIV_ID: (3, False, _fake_paper(3))})
     monkeypatch.setattr(pc, "is_withdrawn", lambda *a, **kw: False)
     monkeypatch.setattr(pc, "is_published", lambda *a, **kw: False)
-    monkeypatch.setattr(pc, "download_pdf", lambda *a, **kw: Path("unused.pdf"))
+    pdf = harness["state_file"].parent / "paper.pdf"; pdf.write_bytes(b"%PDF fixture")
+    monkeypatch.setattr(pc, "download_pdf", lambda *a, **kw: pdf)
     monkeypatch.setattr(pc, "run_extraction_agent", lambda *a, **kw: SimpleNamespace(
         data_points=[(1, 2)], is_projection=False, extraction_confidence=0.9))
     monkeypatch.setattr(pc, "apply_corrections", lambda *a: ([(1, 2)], [], []))

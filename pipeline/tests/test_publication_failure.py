@@ -47,9 +47,12 @@ def _stub_extraction_chain(monkeypatch, module, publish=None):
     monkeypatch.setattr(module, "run_extraction_agent", lambda *args: _extraction())
     monkeypatch.setattr(module, "run_reviewer_agent", lambda *args: _review())
     monkeypatch.setattr(module, "write_repo_files", lambda *args: None)
-    monkeypatch.setattr(module, "execute_notebook", lambda *args: (True, ""))
-    monkeypatch.setattr(module, "execute_notebook_highlighted", lambda *args, **kw: (True, "", []))
-    monkeypatch.setattr(module, "get_notebook_plot_names", lambda *args: [])
+    monkeypatch.setattr(module, "generate_review_plots", lambda *a, **kw: (
+        ['plots/plots_png/DarkPhoton.png'], ['plots/plots_png/DarkPhoton_highlighted.png']))
+    monkeypatch.setattr(module, "review_for_publication", lambda **kw: SimpleNamespace(
+        plot_files=kw['plot_files'], highlight_files=kw['highlight_files'],
+        report_path='pipeline/reviews/fixture.json', section=lambda ref: 'Reviewed'))
+    monkeypatch.setattr(module, "verify_approval", lambda *a: None)
     monkeypatch.setattr(module, "create_feature_branch", lambda *args: "pipeline/arxiv-fixture")
     monkeypatch.setattr(module, "checkout_branch", lambda branch, root: None)
     monkeypatch.setattr(module, "stage_and_commit_files", publish or (lambda *args: None))
@@ -163,3 +166,51 @@ def test_worker_raises_publication_error_after_withdrawing_marks(monkeypatch, tm
     with pytest.raises(PublicationError, match="push rejected"):
         orchestrator._process_paper(SimpleNamespace(id="2601.00001"), "2601.00001", object(), state, False)
     assert state["processed_ids"] == []
+
+
+@pytest.mark.parametrize("message", ["full render failed", "highlight missing", "stale output"])
+def test_daily_plot_failure_aborts_before_publication_and_stays_retryable(monkeypatch, tmp_path, message):
+    from pipeline.plot_regen import PlotGenerationError
+    path, papers = wire_daily(monkeypatch, tmp_path, _raise(AssertionError("must not commit")))
+    monkeypatch.setattr(orchestrator, "generate_review_plots", _raise(PlotGenerationError(message)))
+    with pytest.raises(SystemExit) as error:
+        orchestrator.main()
+    assert error.value.code == orchestrator.EXIT_PUBLICATION_FAILED
+    state = json.loads(path.read_text())
+    assert state["processed_ids"] == [] and state["failed_ids"] == {}
+
+
+def test_backfill_plot_failure_requeues_candidate(monkeypatch, tmp_path):
+    from pipeline.plot_regen import PlotGenerationError
+    path, processed, queue = wire_backfill(monkeypatch, tmp_path, _raise(AssertionError("must not commit")))
+    monkeypatch.setattr(backfill, "generate_review_plots", _raise(PlotGenerationError("missing image")))
+    with pytest.raises(SystemExit) as error:
+        backfill.main(resume=True, max_papers=2)
+    assert error.value.code == backfill.EXIT_PUBLICATION_FAILED
+    state = json.loads(path.read_text())
+    assert state["queue"] == queue
+    assert state["processed_ids"] == [] and state["skipped_ids"] == {}
+
+
+@pytest.mark.parametrize("module_name", ["daily", "backfill"])
+@pytest.mark.parametrize("failure", ["science", "unavailable"])
+def test_independent_review_failure_keeps_candidate_retryable(monkeypatch, tmp_path, module_name, failure):
+    from pipeline.publication_review import PublicationReviewError
+    from pipeline.extractor import FatalAPIError
+    error = PublicationReviewError("Unsupported confidence") if failure == "science" else FatalAPIError("Reviewer unavailable")
+    module = orchestrator if module_name == "daily" else backfill
+    if module_name == "daily":
+        path, papers = wire_daily(monkeypatch, tmp_path, _raise(AssertionError("must not commit")))
+    else:
+        path, processed, queue = wire_backfill(monkeypatch, tmp_path, _raise(AssertionError("must not commit")))
+    monkeypatch.setattr(module, "review_for_publication", _raise(error))
+    with pytest.raises(SystemExit) as result:
+        module.main() if module_name == "daily" else module.main(resume=True, max_papers=2)
+    assert result.value.code == (module.EXIT_PUBLICATION_FAILED if failure == "science" else module.EXIT_FATAL_API)
+    state = json.loads(path.read_text())
+    assert state["processed_ids"] == []
+    if module_name == "daily":
+        assert state["failed_ids"] == {} and len(monitor.filter_new_papers(papers, state)) == 2
+    else:
+        assert state["skipped_ids"] == {} and state["queue"] == queue
+        assert json.loads(processed.read_text())["processed_ids"] == []

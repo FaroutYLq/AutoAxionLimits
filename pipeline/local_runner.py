@@ -70,8 +70,9 @@ ENV_PASSTHROUGH = {"AAL_CLI_BINARY", "AAL_CLI_TIMEOUT", "AAL_CLI_VISION_TIMEOUT"
                    # agent-stage operational knobs (the stage SELECTOR
                    # AAL_EXTRACTOR is methodology and stays scrubbed; pass it
                    # explicitly with --env when a run must use the staged path)
-                   "AAL_AGENT_TIMEOUT", "AAL_AGENT_MAX_BUDGET_USD", "AAL_AGENT_LOGS"}
-ENV_SCRUBBED_NAMES = {"EXTRACTOR_MODEL", "REVIEWER_MODEL"}
+                   "AAL_AGENT_TIMEOUT", "AAL_AGENT_MAX_BUDGET_USD", "AAL_AGENT_LOGS",
+                   "AAL_PUBLICATION_REVIEW_TIMEOUT", "AAL_PUBLICATION_REVIEW_BUDGET"}
+ENV_SCRUBBED_NAMES = {"EXTRACTOR_MODEL", "REVIEWER_MODEL", "PUBLICATION_REVIEW_MODEL"}
 SENSITIVE_ENV = re.compile(r"KEY|TOKEN|SECRET|PASS|CREDENTIAL|AUTH", re.IGNORECASE)
 _ABSENT = object()
 
@@ -372,6 +373,8 @@ def child_environment(parent, checkout, backend, overrides=()):
     # A benchmark may leave this override exported. A local operational run
     # must not write its escalation queue into another checkout or evaluation.
     env["AAL_CONVENTION_QUEUE"] = str(checkout / "pipeline/state/convention_queue.json")
+    # The launcher path otherwise shadows this checkout in Jupyter kernels.
+    env["PYTHONPATH"] = str(checkout.resolve())
     env.pop("GITHUB_OUTPUT", None)
     return env, scrubbed, applied
 
