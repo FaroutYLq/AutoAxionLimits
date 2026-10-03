@@ -2471,8 +2471,9 @@ class AxionElectron():
         plt.fill_between(dat[:,0],dat[:,1],y2=y2,edgecolor=None,facecolor=col,zorder=1)
         plt.plot(dat[:,0],dat[:,1],color='k',alpha=1,zorder=1,lw=lw)
         if text_on:
-            plt.text(dat[0,0]*1.1,dat[0,1]*1.5,r'{\bf RGB}',fontsize=fs,color=col,rotation=0,
-                rotation_mode='anchor',ha='center',va='center',clip_on=True)
+            plt.text(1e-8,4e-13,r'{\bf RGB\ (Levasseur\ 2026)}',fontsize=fs,color='darkred',rotation=0,
+                rotation_mode='anchor',ha='left',va='bottom',clip_on=True,zorder=2001,
+                bbox=dict(facecolor='white',edgecolor='none',alpha=0.9))
         return
 
 #==============================================================================#
