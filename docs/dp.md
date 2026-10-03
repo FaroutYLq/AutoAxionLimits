@@ -231,3 +231,5 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+
+- **RedDwarfs_2026**: [Dark Photons from Red Dwarfs](https://arxiv.org/abs/2606.25779)
