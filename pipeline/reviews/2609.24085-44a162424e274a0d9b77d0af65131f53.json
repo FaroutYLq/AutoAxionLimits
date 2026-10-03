@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "arxiv_id": "2609.24085",
+  "decision": "approve",
+  "summary": "The FRBPA_2026 entry faithfully reproduces the 95% credible upper limit (FRBPA Full, Fig. 3 upper panel) on g_a\u03b3\u03b3 from arXiv 2609.24085. Correct particle/coupling/axes, supported 95% confidence, genuine new exclusion (first FRBPA result, not a projection), representative points agree with the figure and abstract values, and the highlighted plots correctly accent the new region.",
+  "artifact_sha256": {
+    "limit_data/AxionPhoton/FRBPA_2026.txt": "23ab0612ef66ac714e2afa78eadc73131114a9b79a67395f2ca67a4e4203cc05",
+    "PlotFuncs.py": "4923dd466213741fc7ca379caf563a6dd3f7fa5254afdd913882944259faf50c",
+    "AxionPhoton_Ultralight.ipynb": "091cf74bec2115070aa9f0da9a141b9d57e06fc3b71971738a78dabf8351c0eb",
+    "plots/AxionPhoton_Ultralight.pdf": "15fbae8e5dcc3f2c4aca203caa1b35b4c4ac3518f592253142eb0d5904f6e287",
+    "plots/plots_png/AxionPhoton_Ultralight.png": "012695e0d3792d8b7050fcd2675a4308ae25f9f357fb7278182e8e21ae971590",
+    "plots/AxionPhoton_Ultralight_with_Projections.pdf": "1e75bbd91a6213706c3fe31afcfcf7f1314bc67a56b89e49522c2ba21f3eba40",
+    "plots/plots_png/AxionPhoton_Ultralight_with_Projections.png": "4f65ee071545d39e5154ffd5e506bed8d6cca22e28654f15bec760b9fd3c5771",
+    "plots/AxionPhoton_Ultralight_with_Projections_AltColours.pdf": "fb2499725c32d4af46a5d51cbcd09e9cef6fe0f42565e288027c42ce5183f80e",
+    "plots/plots_png/AxionPhoton_Ultralight_with_Projections_AltColours.png": "d124edab8174b70d4c785c2b23b956c05aeb3a9d402614c2307f42f6f11f990c",
+    "plots/AxionPhoton_Ultralight_highlighted.pdf": "3eb42e44f9b8887a0038e142c712ec0f13b64136f8a66920ec170afa14eb6400",
+    "plots/plots_png/AxionPhoton_Ultralight_highlighted.png": "0e69d5655898f7c4b7dd4c2917634b3e5784cae72bbbdc0dcc6db6156e21b9ab",
+    "plots/AxionPhoton_Ultralight_with_Projections_highlighted.pdf": "cede7c0a3c07b3f25701ce4367798110d199020da667c9191ddafb3504f31dbe",
+    "plots/plots_png/AxionPhoton_Ultralight_with_Projections_highlighted.png": "94b3a4dc8be7beffe7463c5d38bc0e51649e792ef1cf0685cdec4c3908b7aaee"
+  },
+  "history": [
+    {
+      "attempt": 0,
+      "verdict": {
+        "decision": "approve",
+        "summary": "The FRBPA_2026 entry faithfully reproduces the 95% credible upper limit (FRBPA Full, Fig. 3 upper panel) on g_a\u03b3\u03b3 from arXiv 2609.24085. Correct particle/coupling/axes, supported 95% confidence, genuine new exclusion (first FRBPA result, not a projection), representative points agree with the figure and abstract values, and the highlighted plots correctly accent the new region.",
+        "checks": {
+          "result_identity": {
+            "status": "pass",
+            "evidence": "Paper (title p.1, Sec.4) constrains the axion-photon Chern-Simons coupling g_a\u03b3\u03b3 vs ALDM mass; extraction targets the 'FRBPA (Full)' thick red solid 95% upper-limit curve in the upper panel of Figure 3 (p.13). Coupling type AxionPhoton, g_a\u03b3\u03b3[GeV^-1] vs m_a[eV], matching the compilation plot axes."
+          },
+          "novelty": {
+            "status": "pass",
+            "evidence": "First presentation of an FRB Polarization Array constraint (Sec.4.2, p.12: 'present the constraints from an FRBPA for the first time'). Full-correlation joint analysis of three repeaters is distinct from the prior FRB 20220912A result (Wang et al. 2025, ref 106) shown separately in Fig. 3. is_projection=false; Fig. 3 is an exclusion, consistent with the proposal."
+          },
+          "confidence_level": {
+            "status": "pass",
+            "evidence": "Abstract (p.1): '95% credible upper limits on the Chern-Simons coupling'; Fig. 3 caption (p.13): '95% upper limits'. Stated 0.95 is paper-supported, not a default/placeholder."
+          },
+          "conventions": {
+            "status": "pass",
+            "evidence": "Units g_a\u03b3\u03b3[GeV^-1], m_a[eV] match paper and plot. DM density: paper rho_0=0.4 GeV/cm\u00b3 (Eq.2.5, p.9), repo stores native and rescales by sqrt(0.4/0.45)=0.9428 in PlotFuncs (chi \u221d 1/sqrt(rho)); direction correct (higher rho -> lower g limit). Birefringence is topological so no polarization-fraction conversion needed (null is appropriate). Highlighted overlay uses the same method, not a raw-data bypass."
+          },
+          "numerical_agreement": {
+            "status": "pass",
+            "evidence": "Low-mass point 10^-23 eV = 2.547e-13 \u2248 10^-12.59 vs abstract 10^-12.6 (<2%). Endpoint 10^-18 eV = 1.343e-8 = 10^-7.87 vs abstract 10^-7.9. Spike at 5.6e-19 eV (2.1e-8) matches the BF peak the paper flags at m_a=5.6\u00d710^-19 eV and the jagged high-mass rise in Fig. 3. Mid points (10^-21:2.3e-11, 10^-20:5.7e-11) consistent with the Fig. 3 FRBPA curve shape."
+          },
+          "highlight_target": {
+            "status": "pass",
+            "evidence": "Highlighted PNGs (AxionPhoton_Ultralight_highlighted.png and _with_Projections_highlighted.png) accent exactly one red region: the FRBPA limit starting at ~2.5e-13 at 10^-23 eV and rising to the top near ~2-3e-19 eV, matching the extracted curve. No unrelated limit is highlighted."
+          },
+          "visibility": {
+            "status": "pass",
+            "evidence": "Mass range 10^-23 to 10^-18 eV and coupling range are fully on-screen; 'FRBPA' label present. In the full compilation the limit is weaker than existing bounds (Sec.4.2) so it is largely subsumed, but the highlighted views make the new region clearly interpretable."
+          }
+        },
+        "findings": [
+          {
+            "category": "science",
+            "severity": "advisory",
+            "description": "The repo density rescaling treats the whole limit as \u221d1/sqrt(rho_0) (local Earth density), but the paper's signal (Eq.2.5, p.9) combines a local Earth term (rho_0=0.4) and comparable simulation-calibrated host source terms (Sec.3.4, p.10), so strictly only the Earth term scales with rho_0.",
+            "evidence": "PlotFuncs applies dat[:,1]*sqrt(0.4/0.45); paper Eq.2.5 and Sec.3.4 emphasize source and Earth contributions are comparable.",
+            "requested_change": "None required \u2014 the 0.4\u21920.45 correction is ~6%, below extraction scatter and consistent with the compilation's uniform normalization convention; noted for transparency."
+          },
+          {
+            "category": "plot",
+            "severity": "advisory",
+            "description": "In the non-highlighted full compilation the small red 'FRBPA' label at ~10^-23 eV overlaps the PSR J1937-4715 region and is hard to read.",
+            "evidence": "AxionPhoton_Ultralight.png shows faint red 'FRBPA' text near 10^-23 eV amid blue PTA regions; clearly visible only in highlighted views.",
+            "requested_change": "Optional: adjust label position/size for legibility; not blocking since the limit is legitimately subsumed by stronger existing bounds."
+          }
+        ]
+      },
+      "session": {
+        "model": "claude-opus-4-8",
+        "models_billed": [
+          "claude-opus-4-8"
+        ],
+        "inspected_files": [
+          "extraction.json",
+          "limit_data/AxionPhoton/FRBPA_2026.txt",
+          "paper.pdf",
+          "plots/plots_png/AxionPhoton_Ultralight.png",
+          "plots/plots_png/AxionPhoton_Ultralight_highlighted.png",
+          "plots/plots_png/AxionPhoton_Ultralight_with_Projections.png",
+          "plots/plots_png/AxionPhoton_Ultralight_with_Projections_highlighted.png",
+          "proposal.json"
+        ],
+        "prompt_sha256": "a1e911dbcb105d90034494aa79bbd59317c8f524185bd718d94b4a4efdcf81a8"
+      },
+      "evidence_sha256": {
+        "AxionPhoton_Ultralight.ipynb": "2b1bb8c95142ba67383873d7ea6b78bcc061aa0a667522b0d9e2769f7167a593",
+        "PlotFuncs.py": "4923dd466213741fc7ca379caf563a6dd3f7fa5254afdd913882944259faf50c",
+        "extraction.json": "c177e02ceab5e1ccb6bf9366c2006ac7730818de1bec9de7d83535c3da78f625",
+        "limit_data/AxionPhoton/FRBPA_2026.txt": "23ab0612ef66ac714e2afa78eadc73131114a9b79a67395f2ca67a4e4203cc05",
+        "paper.pdf": "b43c2c91ac22b83b35d6454386f0157dc974b663d6f73b7d536b6010927147f9",
+        "plots/plots_png/AxionPhoton_Ultralight.png": "012695e0d3792d8b7050fcd2675a4308ae25f9f357fb7278182e8e21ae971590",
+        "plots/plots_png/AxionPhoton_Ultralight_highlighted.png": "0e69d5655898f7c4b7dd4c2917634b3e5784cae72bbbdc0dcc6db6156e21b9ab",
+        "plots/plots_png/AxionPhoton_Ultralight_with_Projections.png": "4f65ee071545d39e5154ffd5e506bed8d6cca22e28654f15bec760b9fd3c5771",
+        "plots/plots_png/AxionPhoton_Ultralight_with_Projections_highlighted.png": "94b3a4dc8be7beffe7463c5d38bc0e51649e792ef1cf0685cdec4c3908b7aaee",
+        "proposal.json": "f213ca873bff4177dcc8bdaf95e24ca659d1d83b99a6fceda852b7af414c3160"
+      }
+    }
+  ]
+}

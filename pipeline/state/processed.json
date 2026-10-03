@@ -184,7 +184,8 @@
     "1709.07852",
     "1604.06800",
     "2202.11716",
-    "1608.01994"
+    "1608.01994",
+    "2609.24085"
   ],
   "failed_ids": {
     "2608.24677": "Mass range [1.00e+06, 1.00e+10] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
