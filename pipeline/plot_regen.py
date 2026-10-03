@@ -314,6 +314,32 @@ def _patched_arrow(self, *args, **kwargs):
         kwargs['alpha'] = 0.0
     return _orig_arrow(self, *args, **kwargs)
 
+
+def _emphasize_new_artists(ax, before):
+    # Restyle the method's actual artists. Never reconstruct exclusions from
+    # raw table rows: that loses transformations, direction and topology.
+    import math as _math
+    from matplotlib.lines import Line2D as _Line2D
+    from matplotlib.text import Text as _Text
+    from matplotlib import patheffects as _pe
+    artists = [a for a in ax.get_children() if id(a) not in before]
+    if not artists:
+        raise RuntimeError('Target method produced no artists to highlight')
+    background = [a.get_zorder() for a in ax.get_children()
+                  if id(a) in before and _math.isfinite(a.get_zorder())]
+    base = max(background, default=0) + 10
+    orders = sorted({a.get_zorder() for a in artists})
+    for artist in artists:
+        # Keep the target's internal layering, entirely above the background.
+        artist.set_zorder(base + orders.index(artist.get_zorder()))
+        if isinstance(artist, _Line2D) and len(artist.get_xdata()) == len(artist.get_ydata()) == 1:
+            artist.set_marker('o')
+            artist.set_markersize(max(artist.get_markersize(), 8))
+        if isinstance(artist, _Text):
+            artist.set_zorder(base + len(orders) + 1)
+            artist.set_color('darkred')
+            artist.set_path_effects([_pe.withStroke(linewidth=3, foreground='white')])
+
 _mpl_axes.Axes.fill_between = _patched_fill_between
 _mpl_axes.Axes.fill = _patched_fill
 _mpl_axes.Axes.plot = _patched_plot
@@ -363,8 +389,8 @@ def _build_highlight_notebook(
     Pure transform of a notebook dict for highlighted-plot generation.
 
     Injects the grey-out monkey-patch cell, wraps the current run's call with
-    ``_HIGHLIGHT_ACTIVE = True/False`` (plus a bright overlay of
-    *data_file_path*), renames the target cell's MySaveFig outputs to
+    ``_HIGHLIGHT_ACTIVE = True/False``, promotes its actual artists above
+    the background, renames the target cell's MySaveFig outputs to
     ``*_highlighted``, and disables MySaveFig in every other cell.
 
     Targeting is line-exact and last-occurrence: the target cell may already
@@ -379,9 +405,9 @@ def _build_highlight_notebook(
     nb = copy.deepcopy(nb)
     call_line = notebook_call.strip()
 
-    # Build the highlighted call: force bright red colour and thick edges,
-    # then overlay a prominent marker so the limit is unmissable even for
-    # single-point data files. _build_highlight_call de-dupes any existing
+    # Build the highlighted call with bright red colour and thick edges.
+    # Restyling actual artists preserves the method's scientific geometry.
+    # _build_highlight_call de-dupes any existing
     # col=/lw= so the injected kwargs never collide (SyntaxError).
     hl_call = _build_highlight_call(call_line)
 
@@ -415,36 +441,18 @@ def _build_highlight_notebook(
                 cell_idx, len(call_idxs), call_line,
             )
 
-        # Wrap the new limit call so it draws in bright red.
-        # Re-draw the limit data as a bright overlay so it is unmissable.
-        # For multi-point limits draw a single continuous fill_between;
-        # for single-point limits draw a spike with finite width.
-        spike_code = ""
-        if data_file_path:
-            spike_code = (
-                f'import numpy as _hl_np\n'
-                f'_hl_dat = _hl_np.loadtxt("{data_file_path}", ndmin=2)\n'
-                f'_hl_y2 = ax.get_ylim()[1]\n'
-                f'if len(_hl_dat) > 2:\n'
-                f'    ax.fill_between(_hl_dat[:,0], _hl_dat[:,1], y2=_hl_y2,\n'
-                f'        facecolor="red", edgecolor="darkred", '
-                f'lw=1.5, zorder=1000, alpha=0.85)\n'
-                f'else:\n'
-                f'    for _hl_row in _hl_dat:\n'
-                f'        _hl_m, _hl_g = _hl_row[0], _hl_row[1]\n'
-                f'        _hl_w = _hl_m * 0.15\n'
-                f'        ax.fill_between([_hl_m - _hl_w, _hl_m + _hl_w],\n'
-                f'            [_hl_g, _hl_g], y2=_hl_y2,\n'
-                f'            facecolor="red", edgecolor="darkred", '
-                f'lw=1.5, zorder=1000, alpha=0.85)\n'
-            )
+        # Capture and promote the actual target artists, including annotations.
+        # A two-row table may describe a continuous bound; raw-data overlays
+        # cannot infer its topology or any physical conversions in the method.
         indent = lines[target][: len(lines[target]) - len(lines[target].lstrip())]
         label = ""
         end = target + 1
         if end < len(lines) and lines[end].endswith("# AAL publication label"):
             label = lines[end].strip() + "\n"
             end += 1
-        block = f"_HIGHLIGHT_ACTIVE = True\n{hl_call}\n{spike_code}{label}_HIGHLIGHT_ACTIVE = False"
+        block = (f"_hl_before = {{id(a) for a in ax.get_children()}}\n"
+                 f"_HIGHLIGHT_ACTIVE = True\n{hl_call}\n{label}"
+                 f"_HIGHLIGHT_ACTIVE = False\n_emphasize_new_artists(ax, _hl_before)")
         lines[target : end] = [indent + ln for ln in block.split("\n")]
         source = "\n".join(lines)
         logger.info(
