@@ -39,8 +39,18 @@ accurately presented. Evaluate these seven checks:
    tolerance or certify a whole curve from a plausible-looking contour.
 6. highlight_target: the highlighted region is this proposed result and the
    corresponding full view shows it correctly. No unrelated limit is accented.
+   Check the exclusion's direction and topology at representative fixed masses:
+   does a one-sided upper bound shade continuously upward, or does occlusion
+   make it look like a finite band? Are endpoint stripes or other apparent
+   boundaries actually supported by the paper? Wrong-side shading, invented
+   edges, background occlusion, and unrelated co-highlighting are BLOCKING plot
+   defects, not advisory styling preferences. A correctly placed lower boundary
+   alone is insufficient. Trace an apparent second boundary to the source.
 7. visibility: relevant mass/coupling range is on-screen; label identifies the
    result; boundaries, narrow/single-point limits, and overlaps are interpretable.
+   A label obscured enough to prevent identification is blocking. A two-row table
+   can encode endpoints of a continuous curve; do not assume isolated masses.
+   A preferred nonzero best-fit value does not establish a two-sided exclusion.
 
 Return exactly this shape:
 {
