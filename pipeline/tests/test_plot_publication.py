@@ -150,7 +150,8 @@ def test_preprint_render_failure_restores_data_before_any_publication(tmp_path, 
     assert path.read_text() == 'original data'
 
 
-def test_weekly_plot_failure_keeps_old_version_retryable(tmp_path, monkeypatch):
+@pytest.mark.parametrize("interrupted", [False, True])
+def test_weekly_plot_failure_keeps_old_version_retryable(tmp_path, monkeypatch, interrupted):
     from pipeline import preprint_checker as pc
     filename = 'limit_data/DarkPhoton/Test.txt'
     state = {'files': {filename: {'known_version': 1, 'published': False}}}
@@ -170,11 +171,14 @@ def test_weekly_plot_failure_keeps_old_version_retryable(tmp_path, monkeypatch):
     monkeypatch.setattr(pc, 'data_has_changed', lambda *a: True)
     monkeypatch.setattr(pc, 'summarise_changes', lambda *a: 'changed')
     def fail(**kw):
+        if interrupted:
+            raise KeyboardInterrupt()
         raise plots.PlotGenerationError('renderer failed')
     monkeypatch.setattr(pc, '_create_update_pr', fail)
-    with pytest.raises(SystemExit) as error:
+    with pytest.raises(KeyboardInterrupt if interrupted else SystemExit) as error:
         pc.run_weekly_check(tmp_path)
-    assert error.value.code == 3
+    if not interrupted:
+        assert error.value.code == 3
     assert saved[-1]['files'][filename]['known_version'] == 1
 
 

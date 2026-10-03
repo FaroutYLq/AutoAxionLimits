@@ -840,10 +840,12 @@ def run_weekly_check(
                     new_paper=new_paper,
                     published=published,
                 )
-            except Exception as e:
+            except BaseException as e:
                 # A failed render/publication must not hide this version next week.
                 state["files"][file_path] = previous_entry
                 save_version_state(state)
+                if not isinstance(e, Exception):
+                    raise
                 logger.error("Failed to create update PR for %s (left retryable): %s", arxiv_id, e)
                 raise SystemExit(3) from e
         else:
