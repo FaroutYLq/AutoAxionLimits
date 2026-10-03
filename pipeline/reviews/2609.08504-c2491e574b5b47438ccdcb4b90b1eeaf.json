@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "arxiv_id": "2609.08504",
+  "decision": "approve",
+  "summary": "New 95% C.L. axion-electron bound g_ae < 1.49e-13 from RGB TRGB-RGBB differential method is correctly identified, matches abstract/Fig.14, uses standard dimensionless g_ae with no conversion, and the highlighted one-sided upper bound shades continuously upward with a legible label.",
+  "artifact_sha256": {
+    "limit_data/AxionElectron/RGB_Levasseur_2026.txt": "2600da4c802e6c99caf04286398a6b0b38766c29d3c0a464a0dbcf66a13a3012",
+    "PlotFuncs.py": "62c9289e607fc14aa50fdb0bc9a7f4a3c6c214b9b9ed44adefba7f85fb50aed5",
+    "AxionElectron.ipynb": "c6b6b23dfc40afaf3b769bbaef1de973db22ac6a0ec7482ca975b24b3f8bfbc9",
+    "plots/AxionElectron.pdf": "5b2cb5d44ae61f8d96c6be4a0dacb0c8d05e7ee4a9ffce968a76ac12024ce756",
+    "plots/plots_png/AxionElectron.png": "e5ad612db46c1bfc65b60500e874976d39d4b2f1d5861dec84962c7f8d210b45",
+    "plots/AxionElectron_with_Projections.pdf": "bf45df9e9b77aa6fd41a96dc56067a266e197455b456396fc48313b18b18255d",
+    "plots/plots_png/AxionElectron_with_Projections.png": "989aa39ca5c3d8f9261a5dc20e1d3b959a08e2bdea660afb8992aad4e12ba636",
+    "plots/AxionElectron_UndergroundDetectorsCloseup.pdf": "0e88b0fcebeead408425e7d6ef965acf68e1cd60391c8299835b9ec5f9f386b6",
+    "plots/plots_png/AxionElectron_UndergroundDetectorsCloseup.png": "8d2dce26b7ab052f0f28db11cfdbb4130320cd03db5437da311e34c90bc0d914",
+    "plots/AxionElectron_highlighted.pdf": "89bea7c5a41a1e1d494af24cecdf51bf347074d4240d1a8facf1e68bb70dd0fb",
+    "plots/plots_png/AxionElectron_highlighted.png": "2a31d4a3473610526cd8220c76b8595896e299016f6123b2834c046e8f87cab8"
+  },
+  "history": [
+    {
+      "attempt": 0,
+      "verdict": {
+        "decision": "approve",
+        "summary": "New 95% C.L. axion-electron bound g_ae < 1.49e-13 from RGB TRGB-RGBB differential method is correctly identified, matches abstract/Fig.14, uses standard dimensionless g_ae with no conversion, and the highlighted one-sided upper bound shades continuously upward with a legible label.",
+        "checks": {
+          "result_identity": {
+            "status": "pass",
+            "evidence": "Title/abstract (p.1) and Sec.7/p.12: Levasseur, Straniero & Caputo 2026, AxionElectron coupling g_ae from RGB stars (TRGB-RGBB). Coupling_type AxionElectron matches."
+          },
+          "novelty": {
+            "status": "pass",
+            "evidence": "Abstract (p.1) and Sec.8 derive a new measured bound via a novel distance-independent differential observable; is_projection=false. Proposal records the combined WL2011 95% value. Though comparable to existing Red-giant (omega Cen) bounds, it is a genuine new independent measurement."
+          },
+          "confidence_level": {
+            "status": "pass",
+            "evidence": "95% C.L. upper limit explicitly stated: abstract 'a 95% C.L. upper limit of 1.49', Sec.7/p.12 'combined 95% C.L. upper limit of 1.49', and Fig.14 legend '95% upper limit = 1.49'. Not inferred/placeholder."
+          },
+          "conventions": {
+            "status": "pass",
+            "evidence": "Paper defines g13 = g_ae/1e-13; standard dimensionless g_ae, no unit/density/polarization conversion needed. Mass-independent light-axion bound consistent with axion treated as effectively massless (Sec.2 core T~8.6 keV). Plot method fills a flat line at 1.49e-13 with no transformation."
+          },
+          "numerical_agreement": {
+            "status": "pass",
+            "evidence": "Data file value 1.49e-13 matches abstract headline (g13=1.49), Sec.7 text (p.12) and Fig.14 ('95% upper limit = 1.49'). Flat curve at 1.49e-13 across both endpoints (1e-11, 1e4 eV)."
+          },
+          "highlight_target": {
+            "status": "pass",
+            "evidence": "Highlighted PNG shows the RGB (Levasseur 2026) region shading continuously upward from g_ae~1.49e-13 to the top of the plot across ~1e-11 to 1e4 eV - correct one-sided upper-bound topology, no finite band from occlusion, no wrong-side shading, no unrelated co-highlight. Label matches this result."
+          },
+          "visibility": {
+            "status": "pass",
+            "evidence": "Full plot shows mass range (1e-11 to 1e4 eV) and coupling ~1.49e-13 on-screen with legible 'RGB (Levasseur 2026)' label; boundary interpretable despite proximity to existing Red giants (omega Cen)/XENONnT bands."
+          }
+        },
+        "findings": [
+          {
+            "category": "plot",
+            "severity": "advisory",
+            "description": "The right-hand vertical boundary at 1e4 eV is the extractor's chosen plotting extent (approx core temperature), not a mass limit measured in the paper.",
+            "evidence": "Data header and extraction notes state 'mass endpoints are plotting extents, not measured mass limits'; the paper (Sec.2) quotes no explicit mass range. Disclosed and physically motivated.",
+            "requested_change": "None required; consider noting the mass cutoff is an applicability estimate if desired."
+          }
+        ]
+      },
+      "session": {
+        "model": "claude-opus-4-8",
+        "models_billed": [
+          "claude-opus-4-8"
+        ],
+        "inspected_files": [
+          "extraction.json",
+          "limit_data/AxionElectron/RGB_Levasseur_2026.txt",
+          "paper.pdf",
+          "plots/plots_png/AxionElectron.png",
+          "plots/plots_png/AxionElectron_highlighted.png",
+          "proposal.json"
+        ],
+        "prompt_sha256": "c09db0cab31936a30a50d07b8f7b6f91fd684ce77d5450a63ea9c2be8777f33d"
+      },
+      "evidence_sha256": {
+        "AxionElectron.ipynb": "2bbc081e76bd7608cbfc496077a0640dda8eef9863d07d399e73ac1730637e4e",
+        "PlotFuncs.py": "62c9289e607fc14aa50fdb0bc9a7f4a3c6c214b9b9ed44adefba7f85fb50aed5",
+        "extraction.json": "01613406ee9f350eff1d4121610fa114ff996b14e599ddbf684e65d4a37de248",
+        "limit_data/AxionElectron/RGB_Levasseur_2026.txt": "2600da4c802e6c99caf04286398a6b0b38766c29d3c0a464a0dbcf66a13a3012",
+        "paper.pdf": "d63dd3ddec8335561f6dac7dd834b58f03b90d89ee4182ae8fa09241ee155809",
+        "plots/plots_png/AxionElectron.png": "e5ad612db46c1bfc65b60500e874976d39d4b2f1d5861dec84962c7f8d210b45",
+        "plots/plots_png/AxionElectron_highlighted.png": "2a31d4a3473610526cd8220c76b8595896e299016f6123b2834c046e8f87cab8",
+        "previous-data.txt": "4612ae2440b75643b465abb034ee69d4019015dc47c3faaeb9be1d84a0dfdc71",
+        "proposal.json": "12391c1a7e2178e0ad49a972bec42aa305a5cdf19b0a6269aedb7a10d06fb081"
+      }
+    }
+  ]
+}
