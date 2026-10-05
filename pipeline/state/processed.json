@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run": "2026-10-04T13:45:54.624153+00:00",
+  "last_run": "2026-10-05T14:19:58.023203+00:00",
   "processed_ids": [
     "2607.02232",
     "2607.02026",
@@ -110,7 +110,10 @@
     "2609.30318",
     "2609.22438",
     "2609.20801",
-    "2609.12776"
+    "2609.12776",
+    "2610.02667",
+    "2610.02250",
+    "2609.10116"
   ],
   "failed_ids": {
     "2608.24677": "Mass range [1.00e+06, 1.00e+10] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
@@ -127,6 +130,7 @@
     "2609.06153": "Mass range [1.00e+08, 4.00e+09] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
     "2609.05204": "Mass range [5.00e+07, 5.00e+10] eV outside valid range [1e-24, 1e+09] for DarkPhoton \u2014 likely a unit conversion error",
     "2607.07800": "Coupling range [8.04e-05, 7.43e-03] outside valid range [1e-25, 1e-03] for AxionPhoton \u2014 likely a unit conversion error",
-    "2609.35968": "Coupling range [5.21e-26, 7.01e-23] outside valid range [1e-22, 1e+00] for DarkPhoton \u2014 likely a unit conversion error"
+    "2609.35968": "Coupling range [5.21e-26, 7.01e-23] outside valid range [1e-22, 1e+00] for DarkPhoton \u2014 likely a unit conversion error",
+    "2609.08504": "Mass range [1.00e-30, 1.00e+04] eV outside valid range [1e-24, 1e+09] for AxionElectron \u2014 likely a unit conversion error"
   }
 }
