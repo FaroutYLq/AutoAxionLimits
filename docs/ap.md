@@ -319,3 +319,7 @@
 * NOMAD: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionPhoton/NOMAD.txt), [reference](https://www.sciencedirect.com/science/article/abs/pii/S0370269300003750?via%3Dihub)
 * OPAL: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionPhoton/OPAL.txt), [reference](https://arxiv.org/abs/1607.06083)
 * PrimEx: [limit](https://github.com/cajohare/AxionLimits/raw/master/limit_data/AxionPhoton/PrimEx.txt), [reference](https://arxiv.org/abs/1903.03586)
+
+- **AxionLimits_compilation_ADMX_CAPP_RBF_UF_QUAX_ORGAN_haloscopes_MUSE_DESI_HST_CMB_ionization_solar_basin_Leo_T**: [Small-instanton effects in an atlas of KSVZ axion models](https://arxiv.org/abs/2608.08602)
+
+- **UChicago_PBG_Haloscope**: [Axion dark matter search with a photonic bandgap cavity haloscope and dielectric tuning rod over 10.25-10.45 GHz](https://arxiv.org/abs/2608.07718)
