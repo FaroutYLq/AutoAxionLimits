@@ -231,3 +231,5 @@ These have been recast using the scheme detailed in [arXiv:2105.04565](https://a
 
 ## Black hole superradiance
 * Cardoso et al: [reference](https://arxiv.org/abs/1801.01420)
+
+- **GigaBREAD_FixedPol_2026**: [First broadband search for fixed-polarization dark photon dark matter with GigaBREAD](https://arxiv.org/abs/2611.07426)
