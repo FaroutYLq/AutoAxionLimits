@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "arxiv_id": "2611.07426",
+  "decision": "approve",
+  "summary": "The proposed GigaBREAD_FixedPol_2026 dark-photon limit faithfully represents the first fixed-polarization DP exclusion from arXiv 2611.07426. All conventions (0.45 GeV/cm3 density per Eq. 3, dimensionless kinetic mixing chi, 44-52 ueV range), the 90% CL (explicitly supported by Eqs. 26/29 and Figs. 3-4), novelty (new combined 2023+2024 fixed-pol analysis, Fig. 6 orange region), numerical values (~8e-13 to 1e-12 matching Figs. 5/6 and the chi~1e-12 headline), and the highlight target all check out.",
+  "artifact_sha256": {
+    "limit_data/DarkPhoton/GigaBREAD_FixedPol_2026.txt": "06e1df4faca89f9d76f1448b07dc0905836b3b261fc33f3b26c55aa309b7ab52",
+    "PlotFuncs.py": "a86c4660e470907a460e61efecfa40a285c1ad977f1b38956a3a3a195453244c",
+    "DarkPhoton.ipynb": "c18954fe15d943c2a6805d9ef081d473d1815aaca3c6bb2e07938afd811abd3e",
+    "plots/DarkPhoton.pdf": "c88796286f0581187deafd7b5bb8c27f519b7bc9671d3009a60f18af5bd8426b",
+    "plots/plots_png/DarkPhoton.png": "783f35e18f5d41680b70f70eff5838d334eb65a495b3563c3e6b73e980c5f140",
+    "plots/DarkPhoton_Haloscopes_Closeup.pdf": "6a7aa7a2e31e078416d408f306e2b7f6867f6bd1e71b45f46e69b6ea8998165e",
+    "plots/plots_png/DarkPhoton_Haloscopes_Closeup.png": "99b25804bc54a3d758232d05da1b1c0d95e8d0b8d283b1fc6df638916c636bde",
+    "plots/DarkPhoton_with_Projections.pdf": "a2c9665c5f7952c9a1afa8b89ff77211f8980aa18f2221ed549d8917b7146460",
+    "plots/plots_png/DarkPhoton_with_Projections.png": "8304f484a1c0b20aad4d95f398e5457106e6d00ae6d8cd5e5ce89d331eb04594",
+    "plots/DarkPhoton_Simplified.pdf": "3824bdbb7f3c109304da3a4814e6d3c754f3b09db045405e21708fbb0cddefe4",
+    "plots/plots_png/DarkPhoton_Simplified.png": "815e5f54803628d7287ec594a0fded6213f77e9453f5dd6991c2c146fb657bdb",
+    "plots/DarkPhoton_JustPhotonSearches.pdf": "1642ec31b2f11a0abb2352533c3cd2de7b650904362486aafd6529612a8a565e",
+    "plots/plots_png/DarkPhoton_JustPhotonSearches.png": "fd95bcf6d6bca203859f30ae6320574ea9a69287d61f5948ebb56f88b832e3d1",
+    "plots/DarkPhoton_blank.pdf": "a5366467d01add44d5daaa638f73a9a574da7c77ee1ba05230b3c04c6d087ea3",
+    "plots/plots_png/DarkPhoton_blank.png": "83548dade931b6df9f8c869d7649abbc7aa7f8c8223211599f719c08b3d99593",
+    "plots/DarkPhoton_PhotonSearches_and_StellarBounds.pdf": "3ea93e7a83223bcbd907decf85be2c6db08117cfac7545fc94433a4d5034eb46",
+    "plots/plots_png/DarkPhoton_PhotonSearches_and_StellarBounds.png": "031c5c26446c0c37c1bb094b974f43f3aa1be863aa3a00186cdb422551a8f49b",
+    "plots/DarkPhoton_Semicomplete.pdf": "147cf431b15471609fc73190d103d182588dfbac368ec2e067d894ee39668bd4",
+    "plots/plots_png/DarkPhoton_Semicomplete.png": "b513386cb331be87582784270b85df4380aefd0245becc8965260bf7bb64567b",
+    "plots/DarkPhoton_highlighted.pdf": "64da3848f7e8d9db30dd9f32e15f17508c3269ee6a3c66f0da47370dbbb9d668",
+    "plots/plots_png/DarkPhoton_highlighted.png": "5bf66fbffd5159253f38dc5d174fc54b923fa4069b059487bd9ffa42b7167b80"
+  },
+  "history": [
+    {
+      "attempt": 0,
+      "verdict": {
+        "decision": "approve",
+        "summary": "The proposed GigaBREAD_FixedPol_2026 dark-photon limit faithfully represents the first fixed-polarization DP exclusion from arXiv 2611.07426. All conventions (0.45 GeV/cm3 density per Eq. 3, dimensionless kinetic mixing chi, 44-52 ueV range), the 90% CL (explicitly supported by Eqs. 26/29 and Figs. 3-4), novelty (new combined 2023+2024 fixed-pol analysis, Fig. 6 orange region), numerical values (~8e-13 to 1e-12 matching Figs. 5/6 and the chi~1e-12 headline), and the highlight target all check out.",
+        "checks": {
+          "result_identity": {
+            "status": "pass",
+            "evidence": "Title and abstract (p.1): dark photon kinetic mixing chi exclusion, GigaBREAD. extraction.json coupling_type=DarkPhoton, convention 'kinetic mixing chi'. Correct particle/coupling/paper; exclusion not projection."
+          },
+          "novelty": {
+            "status": "pass",
+            "evidence": "First fixed-polarization DP search (abstract p.1); Fig. 6 right (p.10) orange 'GigaBREAD: This work' is the new combined 2023+2024 analysis, distinct from blue 'fixed-pol rescaled (previous)'. Text p.9-10 confirms a genuinely new measured bound ~20% stronger than prior rescaling. is_new_limit=true, is_projection=false."
+          },
+          "confidence_level": {
+            "status": "pass",
+            "evidence": "90% CL explicitly supported: Eq. 29 Bayesian 90% credible upper limit (p.8), frequentist Monte-Carlo-calibrated 90% CL Neyman construction (p.8), global 90% thresholds in Figs. 3-4 (p.7). Not a default/placeholder. extraction confidence_level=0.9."
+          },
+          "conventions": {
+            "status": "pass",
+            "evidence": "Density 0.45 GeV/cm3 (Eq. 3, p.3) matches dm_density_assumed=0.45. Kinetic mixing chi dimensionless. Fixed-polarization (polarization-matched likelihood) is the paper's central method (Sec. II-III). Mass 44-52 ueV = 4.4-5.2e-5 eV matches data file. Plot method fill_between uses the final limit curve directly; no physical conversion to bypass."
+          },
+          "numerical_agreement": {
+            "status": "pass",
+            "evidence": "Traced chi ~8.41e-13 at 48 ueV vs quoted headline chi~1e-12 (abstract). Endpoints: 4.42e-5 eV -> 8.56e-13, 5.16e-5 eV -> 7.19e-13. Fig. 6 right (p.10) orange band bottom sits ~8e-13-1e-12; Fig. 5 fixed-pol curves (2023-only) 0.8-1.1e-12, combined being slightly stronger. Consistent at stated precision."
+          },
+          "highlight_target": {
+            "status": "pass",
+            "evidence": "DarkPhoton_highlighted.png shows a single narrow dark-red vertical band at ~10^-4.3 eV (44-52 ueV) reaching ~8e-13, matching the data file; no unrelated limit accented. Full view shows the same region with red 'GigaBREAD' label."
+          },
+          "visibility": {
+            "status": "pass",
+            "evidence": "Relevant mass (44-52 ueV) and coupling (~8e-13) range on-screen in both views; 'GigaBREAD' label present (placed near top per the method's text at dat[0] cap, standard for narrow vertical limits); band interpretable, clearly isolated in highlighted view."
+          }
+        },
+        "findings": []
+      },
+      "session": {
+        "model": "claude-opus-4-8",
+        "models_billed": [
+          "claude-opus-4-8"
+        ],
+        "inspected_files": [
+          "extraction.json",
+          "limit_data/DarkPhoton/GigaBREAD_FixedPol_2026.txt",
+          "paper.pdf",
+          "plots/plots_png/DarkPhoton.png",
+          "plots/plots_png/DarkPhoton_highlighted.png",
+          "proposal.json"
+        ],
+        "prompt_sha256": "a1e911dbcb105d90034494aa79bbd59317c8f524185bd718d94b4a4efdcf81a8"
+      },
+      "evidence_sha256": {
+        "DarkPhoton.ipynb": "cf3d659df79e87cfb9851e9b60e891de87fe0c826e57b2b0dd6f3cb05ee909cf",
+        "PlotFuncs.py": "a86c4660e470907a460e61efecfa40a285c1ad977f1b38956a3a3a195453244c",
+        "extraction.json": "c21c58169e0baa146f3094e5e3d2e9f9c18c2fd88bbe71cd4e1309406fbd47b5",
+        "limit_data/DarkPhoton/GigaBREAD_FixedPol_2026.txt": "06e1df4faca89f9d76f1448b07dc0905836b3b261fc33f3b26c55aa309b7ab52",
+        "paper.pdf": "5c606cc65525a40056ae28a6af4ce8d0476d3afec18432ce440baa347d3a30a3",
+        "plots/plots_png/DarkPhoton.png": "783f35e18f5d41680b70f70eff5838d334eb65a495b3563c3e6b73e980c5f140",
+        "plots/plots_png/DarkPhoton_highlighted.png": "5bf66fbffd5159253f38dc5d174fc54b923fa4069b059487bd9ffa42b7167b80",
+        "proposal.json": "85387b14e9b51e59427a07b0c60a599910958f87afc55bb0ece6905489d175f0"
+      }
+    }
+  ]
+}
