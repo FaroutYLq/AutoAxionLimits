@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "arxiv_id": "2611.13090",
+  "decision": "approve",
+  "summary": "Proposal faithfully reproduces the paper's first observed 95% power-constrained upper limit on g_agamma from SPHEREx (Fig. 3 black curve). Identity, novelty, confidence, conventions (incl. documented 0.4->0.45 GeV/cm^3 density rescaling), numerical headline/feature agreement, highlight target, and visibility all check out.",
+  "artifact_sha256": {
+    "limit_data/AxionPhoton/SPHEREx_2026.txt": "42ac37e233bd158eef51cc2f48075873b9aa2311878c3a3fa4909fbf1e5b22a8",
+    "PlotFuncs.py": "c1716dd9833bf90fe0510c4525803257b8506852d3b1066ead796dd5d7471758",
+    "AxionPhoton.ipynb": "67744ea10c3bef44d645d67561ed9c1c8a251fbeac56bd0575d3c10ae47a7684",
+    "plots/AxionPhoton.pdf": "7260165f52a2290e8a9f1891565af3ddd68b806750a209bdbe6f35849aa031b1",
+    "plots/plots_png/AxionPhoton.png": "b854294c4566aeb04e4f1c3e59642773585f223490a62faf2f93b13810ea671d",
+    "plots/AxionPhoton_with_Projections.pdf": "cd302286802c6878a7ed09ec59512c38a42c621ae67fecd8cc1d194bc91cb858",
+    "plots/plots_png/AxionPhoton_with_Projections.png": "a94811c339c535871f2e9bb3f5fa6c7cd70dd2be356c4ef4bcd8706e36714215",
+    "plots/AxionPhoton_Rescaled.pdf": "e4d83c673efa9a697b32ba33a25895b68a0599b10769f15c3fa0083e50cbc964",
+    "plots/plots_png/AxionPhoton_Rescaled.png": "44e42d581f76161c389d09bd62b8f7b40d0d9d9552fb30c6fd79b823a60d160b",
+    "plots/AxionPhoton_Rescaled_NoProjections.pdf": "b3a3700c38c2cd23afd97c8cfdfb0f98a680fb0a280e5d27709e1af4246def36",
+    "plots/plots_png/AxionPhoton_Rescaled_NoProjections.png": "431ca8847001c21ef96e76620e60ba744c3944eb8fb257fc2eac03482ad334b0",
+    "plots/AxionPhoton_highlighted.pdf": "acb8d9f57a9a1fa72d75984c218d59b81cdf1ddc1a49ce0724818b09c82eca25",
+    "plots/plots_png/AxionPhoton_highlighted.png": "5b5e8c574e014cfabbeb9df2961ec6b4734cd96c60ce238acdab1e586f91dbf9"
+  },
+  "history": [
+    {
+      "attempt": 0,
+      "verdict": {
+        "decision": "approve",
+        "summary": "Proposal faithfully reproduces the paper's first observed 95% power-constrained upper limit on g_agamma from SPHEREx (Fig. 3 black curve). Identity, novelty, confidence, conventions (incl. documented 0.4->0.45 GeV/cm^3 density rescaling), numerical headline/feature agreement, highlight target, and visibility all check out.",
+        "checks": {
+          "result_identity": {
+            "status": "pass",
+            "evidence": "Paper title 'First constraints on ALPs with SPHEREx data'; AxionPhoton g_agamma [GeV^-1]; proposal uses the observed 95% PCL upper limit = black curve of Fig. 3 (p.7). Matches coupling_type and curve."
+          },
+          "novelty": {
+            "status": "pass",
+            "evidence": "First ALP-DM search with SPHEREx (abstract, Sec.5 conclusions). is_new_limit=true, is_projection=false. Observed limit used, not the Cramer-Rao bound or 25-mo forecast (both correctly listed as alternatives, not proposed)."
+          },
+          "confidence_level": {
+            "status": "pass",
+            "evidence": "Sec.4 and Fig.3 caption: '95% power-constrained upper limit'; Sec.3.3 sets one-sided 95% via Delta chi^2=2.71. confidence_level=0.95 is measured, not default."
+          },
+          "conventions": {
+            "status": "pass",
+            "evidence": "Mass eV, g GeV^-1 per Fig.3 axes. NFW rho_s=0.566, r_s=14.46 kpc (p.4) implies local rho~0.4; plotting method applies g*sqrt(0.4/0.45)=0.9428 to repo 0.45 standard (correct sign). Decay signal: polarization null is appropriate."
+          },
+          "numerical_agreement": {
+            "status": "pass",
+            "evidence": "Headline 2.10e-11 at 0.606 eV -> data[0.606219]=2.10366e-11 (paper-native). Range 0.496-3.32 eV -> 0.49551-3.32278. He I 1.083um spike m~2.29 eV -> 5.194e-10 matches Fig.3 peak; 3.3um PAH m~0.75 -> 1.258e-10. Abstract median 4.16e-11 consistent."
+          },
+          "highlight_target": {
+            "status": "pass",
+            "evidence": "Highlighted PNG shows a single red filled region at m~0.5-3.3 eV, g~2-8e-11 (fill up to y-top, black outline tracing the curve) = SPHEREx location; no unrelated limit accented; full view consistent."
+          },
+          "visibility": {
+            "status": "pass",
+            "evidence": "Axis range covers m~0.5-3.3 eV and g~2-8e-11. Limit is competitive (tightest ~1.8-2e-11 dips below globular-cluster/CAST boundary), partially visible in full plot and clearly interpretable in the highlighted panel; label 'SPHEREx' set at curve start."
+          }
+        },
+        "findings": []
+      },
+      "session": {
+        "model": "claude-opus-4-8",
+        "models_billed": [
+          "claude-opus-4-8"
+        ],
+        "inspected_files": [
+          "extraction.json",
+          "limit_data/AxionPhoton/SPHEREx_2026.txt",
+          "paper.pdf",
+          "plots/plots_png/AxionPhoton.png",
+          "plots/plots_png/AxionPhoton_highlighted.png",
+          "proposal.json"
+        ],
+        "prompt_sha256": "a1e911dbcb105d90034494aa79bbd59317c8f524185bd718d94b4a4efdcf81a8"
+      },
+      "evidence_sha256": {
+        "AxionPhoton.ipynb": "1c07531f3c244443c172984a90c63110a66e19c9b90c5e133bbfffd88a1d9581",
+        "PlotFuncs.py": "c1716dd9833bf90fe0510c4525803257b8506852d3b1066ead796dd5d7471758",
+        "extraction.json": "4e5097f6ee19c20e58b75462d06ab67b24f37892c0d6011ac306226429c481c6",
+        "limit_data/AxionPhoton/SPHEREx_2026.txt": "42ac37e233bd158eef51cc2f48075873b9aa2311878c3a3fa4909fbf1e5b22a8",
+        "paper.pdf": "feb372cfb8f0883befc494c5a0f0446fa0a7ce3a3f374442b81ddbf710ad2b16",
+        "plots/plots_png/AxionPhoton.png": "b854294c4566aeb04e4f1c3e59642773585f223490a62faf2f93b13810ea671d",
+        "plots/plots_png/AxionPhoton_highlighted.png": "5b5e8c574e014cfabbeb9df2961ec6b4734cd96c60ce238acdab1e586f91dbf9",
+        "proposal.json": "68c96672f25c3f00d1438f23a47e7e1f6fad778f63044d4ea064d4c84fe24d99"
+      }
+    }
+  ]
+}
