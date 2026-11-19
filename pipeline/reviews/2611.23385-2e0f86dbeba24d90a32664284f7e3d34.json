@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "arxiv_id": "2611.23385",
+  "decision": "approve",
+  "summary": "The entry is the observed 95% C.L. |g_a\u03b3\u03b3| limit from a\u2192\u03b3\u03b3 H\u03b1 non-observation in Leo T (Fig. 2 right panel, conservative Burkert curve). Particle/coupling/axes/convention match the paper, the 95% C.L. is explicitly stated (not a placeholder), representative tabulated points agree with the source curve, and the highlighted region correctly accents only this new, improving constraint.",
+  "artifact_sha256": {
+    "limit_data/AxionPhoton/LeoTHalpha_2026.txt": "ab105844f671a8dc427f27c9ff12aa96e80483c83da13e75034cfcdde54c5626",
+    "PlotFuncs.py": "e1025e0dd491080591a6ce1aec4cb3d5c0f56641028eb553488546e3acb03a4c",
+    "AxionPhoton.ipynb": "a75af37b1a1b0009ef99f2041a14e47e8daaa4946749fe834d87063be5299c41",
+    "plots/AxionPhoton.pdf": "ae6deb0cd19752773ed670005bac963fadbf033191e9d0385742443b7dcfe278",
+    "plots/plots_png/AxionPhoton.png": "e761814a31909126a4cd21d6dc42164d5e7f2d1b4ab57b2640fc845e093bf5d6",
+    "plots/AxionPhoton_with_Projections.pdf": "a7003dc34fa6ddf328f7595e428d530602ae2e162cc8a8289c377eb1e551efaa",
+    "plots/plots_png/AxionPhoton_with_Projections.png": "a94811c339c535871f2e9bb3f5fa6c7cd70dd2be356c4ef4bcd8706e36714215",
+    "plots/AxionPhoton_Rescaled.pdf": "e4a9d07b3681fe49f0d32c57cf757e35d3c23b81233a32813a305a9858738dc9",
+    "plots/plots_png/AxionPhoton_Rescaled.png": "44e42d581f76161c389d09bd62b8f7b40d0d9d9552fb30c6fd79b823a60d160b",
+    "plots/AxionPhoton_Rescaled_NoProjections.pdf": "d6bbcee2b8dc6f5840e8fd706b71e18077686ba6c7aec9cbb9673ccce4c8bbec",
+    "plots/plots_png/AxionPhoton_Rescaled_NoProjections.png": "431ca8847001c21ef96e76620e60ba744c3944eb8fb257fc2eac03482ad334b0",
+    "plots/AxionPhoton_highlighted.pdf": "01305586b4eabe0e2e2a668519d4e23055ea94f6c2acf2e360ff76484f523ba2",
+    "plots/plots_png/AxionPhoton_highlighted.png": "e090b9855aad322605b84f39e8d3520f18d0711444bc75d443a6caebc5269a1c"
+  },
+  "history": [
+    {
+      "attempt": 0,
+      "verdict": {
+        "decision": "approve",
+        "summary": "The entry is the observed 95% C.L. |g_a\u03b3\u03b3| limit from a\u2192\u03b3\u03b3 H\u03b1 non-observation in Leo T (Fig. 2 right panel, conservative Burkert curve). Particle/coupling/axes/convention match the paper, the 95% C.L. is explicitly stated (not a placeholder), representative tabulated points agree with the source curve, and the highlighted region correctly accents only this new, improving constraint.",
+        "checks": {
+          "result_identity": {
+            "status": "pass",
+            "evidence": "Fig. 2 right panel (p.4) titled '95% C.L. limits on axion-photon coupling |g_a\u03b3\u03b3| from a\u2192\u03b3\u03b3 ... from MUSE/VLT H\u03b1 observations of Leo T'. Extraction coupling_type AxionPhoton, g_agamma [GeV^-1] vs mass [eV], matches the right panel (not the left g_aee panel)."
+          },
+          "novelty": {
+            "status": "pass",
+            "evidence": "Paper is a new measurement (is_projection=false) presenting solid observed H\u03b1 exclusion; body (p.4) states it improves XION/CMB/HST and 'our limits lie up to two orders of magnitude below HST dwarf-galaxy bounds.' Distinct from the pre-existing blue 'Leo T' heating limit already in the compilation; reported curve is the solid observed one, not the dotted ELT/HARMONI projection."
+          },
+          "confidence_level": {
+            "status": "pass",
+            "evidence": "Fig. 2 caption 'Figure 2. 95% C.L. limits...' and p.3 'We require the flux ... not to exceed the aperture-integrated 95% C.L. limit'. confidence_level=0.95 is paper-supported."
+          },
+          "conventions": {
+            "status": "pass",
+            "evidence": "Eq. (S1) L \u2283 \u2212(1/4) g_a\u03b3\u03b3 a F F\u0303 is the canonical convention. Axes eV / GeV^-1 match Fig. 2 right. Limit scales with Leo T DM profile (Burkert \u03c10=5.4 GeV/cm^3), not local density, so dm_density/polarization null is appropriate. Plot method fills from curve up to y2 (excluded above), consistent with an upper-bound exclusion."
+          },
+          "numerical_agreement": {
+            "status": "pass",
+            "evidence": "Vs Fig. 2 right: 497 eV\u21927.99e-15 matches curve bottom ~8e-15; 101.5 eV\u21923.35e-14; 52.8 eV\u21927.94e-14 track the solid H\u03b1 curve. Lyman-series dip (Ly-\u03b2, 24.18 eV)\u21927.99e-14 consistent with Fig. 4 and text 'up to two orders below HST (~1e-11)'. Conservative Burkert branch chosen (NFW stronger by ~1.24)."
+          },
+          "highlight_target": {
+            "status": "pass",
+            "evidence": "Highlighted PNG shows a single red region spanning ~24\u2013500 eV from panel top down to ~8e-15, labelled 'Leo' (clipped 'Leo T H\u03b1'), coinciding with the extracted data; the full view shows the same region correctly. No unrelated limit accented."
+          },
+          "visibility": {
+            "status": "pass",
+            "evidence": "Region 24\u2013500 eV, ~8e-15 to above 1e-11, fully on-screen and visible as a red band with identifying label. Narrow Lyman dips at 24\u201327 eV are not resolvable on the full 1e-12\u20131e7 eV log axis, but this is inherent to the compilation scale and the data file preserves them."
+          }
+        },
+        "findings": []
+      },
+      "session": {
+        "model": "claude-opus-4-8",
+        "models_billed": [
+          "claude-opus-4-8"
+        ],
+        "inspected_files": [
+          "extraction.json",
+          "limit_data/AxionPhoton/LeoTHalpha_2026.txt",
+          "paper.pdf",
+          "plots/plots_png/AxionPhoton.png",
+          "plots/plots_png/AxionPhoton_highlighted.png",
+          "proposal.json"
+        ],
+        "prompt_sha256": "a1e911dbcb105d90034494aa79bbd59317c8f524185bd718d94b4a4efdcf81a8"
+      },
+      "evidence_sha256": {
+        "AxionPhoton.ipynb": "7fe66881e721f6a00b8aaf9d40cf84be402c443340777a71b69bd9dc651584c9",
+        "PlotFuncs.py": "e1025e0dd491080591a6ce1aec4cb3d5c0f56641028eb553488546e3acb03a4c",
+        "extraction.json": "6678ddcaefd45f8e666e1346afb6b94d2be59d6e8870bb3a02b3ae3a81fa60c7",
+        "limit_data/AxionPhoton/LeoTHalpha_2026.txt": "ab105844f671a8dc427f27c9ff12aa96e80483c83da13e75034cfcdde54c5626",
+        "paper.pdf": "d16aa2fdf80608c448604f993b758679d17dfb998b94ef196b5427ea8950bd70",
+        "plots/plots_png/AxionPhoton.png": "e761814a31909126a4cd21d6dc42164d5e7f2d1b4ab57b2640fc845e093bf5d6",
+        "plots/plots_png/AxionPhoton_highlighted.png": "e090b9855aad322605b84f39e8d3520f18d0711444bc75d443a6caebc5269a1c",
+        "proposal.json": "a285e071f811d5931fb3049c548100b55b82c5494e101e7c80f4f00c735f8bab"
+      }
+    }
+  ]
+}
