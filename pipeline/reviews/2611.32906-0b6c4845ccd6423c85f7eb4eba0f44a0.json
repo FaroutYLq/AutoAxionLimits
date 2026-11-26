@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "arxiv_id": "2611.32906",
+  "decision": "approve",
+  "summary": "The crimson 'NuSTAR M82' region reproduces the blue 'Resonant: omega*=45 keV' 95% upper limit of Figure 8 (the paper's new DM-assisted AMR result), with correct particle/coupling/axes, a paper-supported 95% CL (delta-chi2=2.71), faithful conventions, and good numerical agreement at sampled points. Highlight and visibility are correct.",
+  "artifact_sha256": {
+    "limit_data/AxionPhoton/NuSTAR_M82_AMR_2026.txt": "0beb73b888f6529182e0ba8c65e9a4b766e201ac3991573c5b9ab0efdab7098e",
+    "PlotFuncs.py": "963a470259a203a9c585ffad94cc821595b7135c455e8125b7829f9702fbd7f4",
+    "AxionPhoton_Ultralight.ipynb": "0405b2db19407f5535e22f97b410d7816d1d3d5b874826ddd1a05167afcc0c3e",
+    "plots/AxionPhoton_Ultralight.pdf": "60ad5be79a26af52577e7bd5bcce9940cdee11bcd9e4d0b737089ed2168c3b74",
+    "plots/plots_png/AxionPhoton_Ultralight.png": "8516311b8a83949cdf31f73584c9aaf3edc8ad1d9579fc7b3aae1624dba3f3c9",
+    "plots/AxionPhoton_Ultralight_with_Projections.pdf": "77d3616d007bb437535a85004b9ac387f95216aaa712b575f4cecde1252c00da",
+    "plots/plots_png/AxionPhoton_Ultralight_with_Projections.png": "b4d4fb5b8f64960a60d2054c073ac7ad834244b702c21251fd25c6cb4707d214",
+    "plots/AxionPhoton_Ultralight_with_Projections_AltColours.pdf": "fdb5092a6ac6de37ffb9f696dff046d51a1f1414a76f62d08d19aa88e94f7f93",
+    "plots/plots_png/AxionPhoton_Ultralight_with_Projections_AltColours.png": "d124edab8174b70d4c785c2b23b956c05aeb3a9d402614c2307f42f6f11f990c",
+    "plots/AxionPhoton_Ultralight_highlighted.pdf": "6072d8721554023e7b769fe43675b9696af13ae8f96d1ac9ced89bdcf8bb7606",
+    "plots/plots_png/AxionPhoton_Ultralight_highlighted.png": "bad8c076edb2dbea773e2169c4a385db93ffd29192a7b470f17d9ac0f4fa7687",
+    "plots/AxionPhoton_Ultralight_with_Projections_highlighted.pdf": "6d3152200f92a2796c57961cc87b87f72595ceab0cbb4a7524e165da68d627d5",
+    "plots/plots_png/AxionPhoton_Ultralight_with_Projections_highlighted.png": "aac3813507ee492eaa8c5d04e7c45e3b05dafbb4501104681c062c31c68243eb"
+  },
+  "history": [
+    {
+      "attempt": 0,
+      "verdict": {
+        "decision": "approve",
+        "summary": "The crimson 'NuSTAR M82' region reproduces the blue 'Resonant: omega*=45 keV' 95% upper limit of Figure 8 (the paper's new DM-assisted AMR result), with correct particle/coupling/axes, a paper-supported 95% CL (delta-chi2=2.71), faithful conventions, and good numerical agreement at sampled points. Highlight and visibility are correct.",
+        "checks": {
+          "result_identity": {
+            "status": "pass",
+            "evidence": "Fig. 8 (p.22) and Sec. 4.1 (p.20): 95% upper limit on axion-photon coupling g_Hgamma vs heavy-axion mass m_H from NuSTAR M82 X-ray data. AxionPhoton coupling, exclusion (is_projection=false). Extraction selected the blue resonant curve, the paper's headline new result, not the dashed nonresonant re-derivation."
+          },
+          "novelty": {
+            "status": "pass",
+            "evidence": "Genuinely new exclusion: a DM-assisted (AMR) resonant recast of NuSTAR M82 X-ray data producing a new 95% bound that, per p.23, 'beats' the ordinary nonresonant NuSTAR M82 limit for m_H >~ 1.2e-10 eV. The extractor correctly rejected the dashed nonresonant curve (Ning & Safdi re-derivation) as the alternative."
+          },
+          "confidence_level": {
+            "status": "pass",
+            "evidence": "Fig. 8 caption and p.21: '95% upper limit is where chi2 rises by 2.71 above its minimum' (correct 1-dof 95% CL). In-panel label '95% upper limits'. Supported, not a default/placeholder; data file header 0.95 matches."
+          },
+          "conventions": {
+            "status": "pass",
+            "evidence": "Fig. 8 axes are g_Hgamma [GeV^-1] vs m_H [eV], 1e-11 to ~8e-9 eV; extraction units/range identical. plotfuncs method does a plain fill_between with no unit/density/polarization transform, consistent with a direct g-vs-m curve; dm_density_assumed/polarization null is appropriate (the DM density enters the physics, not either plotted axis)."
+          },
+          "numerical_agreement": {
+            "status": "pass",
+            "evidence": "Blue curve sampled vs extraction: m_H=1e-11 -> ~3.6e-12 (ext 3.65e-12); minimum near m_H~3.2e-10 -> ~1.59e-12 (ext 1.591e-12 at 3.18e-10); m_H~1e-9 -> ~6.1e-12 (ext 6.09e-12); right endpoint m_H~8e-9 -> ~1.19e-10 (ext 1.19e-10). The local bump near 1e-10 is reproduced. No single headline number is quoted in text, consistent with notes."
+          },
+          "highlight_target": {
+            "status": "pass",
+            "evidence": "Highlighted PNGs show the red region confined to the new curve's m_H range (1e-11-8e-9 eV) at g~1.6e-12-1.2e-10 GeV^-1, matching Fig. 8's blue curve. No unrelated limit is accented."
+          },
+          "visibility": {
+            "status": "pass",
+            "evidence": "Full view x-range to 1e-8 eV, y to 1e-9 GeV^-1 contains the whole curve; label 'NuSTAR M82' present; the genuinely new excluded strip (deeper reach near m_H~3e-10) is visible below existing grey bounds in the highlighted view; boundaries interpretable."
+          }
+        },
+        "findings": [
+          {
+            "category": "science",
+            "severity": "advisory",
+            "description": "Below m_H ~ 1.2e-10 eV the plotted resonant curve is weaker (higher g) than the ordinary nonresonant NuSTAR M82 bound, and the paper (p.23) cautions that the rising low-mass suppression tail 'depends on extrapolating the adopted DM profile beyond its established validity and should not be interpreted as a reliable prediction of stronger suppression.' Plotting the full curve is conservative (a weaker bound there) and faithful to the paper, so not blocking, but reviewers should note the sub-1.2e-10 portion adds no new exclusion beyond existing bounds.",
+            "evidence": "Fig. 8 shows blue above dashed for m_H < ~1.2e-10; p.23 'Comparison with existing bounds' and 'rising tail' caveat.",
+            "requested_change": "None required; optionally note in docs that only m_H >~ 1.2e-10 eV improves on the ordinary NuSTAR M82 limit."
+          },
+          {
+            "category": "plot",
+            "severity": "advisory",
+            "description": "The on-plot label reads 'NuSTAR M82', identical to the conventional (nonresonant, Ning & Safdi) NuSTAR M82 limit; the internal name NuSTAR_M82_AMR_2026 distinguishes it but the visible label does not, risking confusion with the standard bound.",
+            "evidence": "plotfuncs text label '{\\bf NuSTAR M82}'; alternatives field notes the nonresonant curve is a re-derivation of the Ning & Safdi NuSTAR M82 analysis.",
+            "requested_change": "Optionally clarify the on-plot label (e.g. 'NuSTAR M82 (AMR)') to distinguish the DM-assisted resonant result from the standard NuSTAR M82 limit."
+          }
+        ]
+      },
+      "session": {
+        "model": "claude-opus-4-8",
+        "models_billed": [
+          "claude-opus-4-8"
+        ],
+        "inspected_files": [
+          "extraction.json",
+          "limit_data/AxionPhoton/NuSTAR_M82_AMR_2026.txt",
+          "paper.pdf",
+          "plots/plots_png/AxionPhoton_Ultralight.png",
+          "plots/plots_png/AxionPhoton_Ultralight_highlighted.png",
+          "plots/plots_png/AxionPhoton_Ultralight_with_Projections.png",
+          "plots/plots_png/AxionPhoton_Ultralight_with_Projections_highlighted.png",
+          "proposal.json"
+        ],
+        "prompt_sha256": "a1e911dbcb105d90034494aa79bbd59317c8f524185bd718d94b4a4efdcf81a8"
+      },
+      "evidence_sha256": {
+        "AxionPhoton_Ultralight.ipynb": "b3fbab3992453e6be27ce3b3bc3fd7b558af2dbea023cb3ce31ba763bd05a289",
+        "PlotFuncs.py": "963a470259a203a9c585ffad94cc821595b7135c455e8125b7829f9702fbd7f4",
+        "extraction.json": "4079fbc975b2ccd180485d1b8ad029ee702b2c252e126db332e15975b47fbb7b",
+        "limit_data/AxionPhoton/NuSTAR_M82_AMR_2026.txt": "0beb73b888f6529182e0ba8c65e9a4b766e201ac3991573c5b9ab0efdab7098e",
+        "paper.pdf": "80fce2c511712f1c263c2063b265ca5b603fc2e43bbcf5a8736cdbbf98ef172f",
+        "plots/plots_png/AxionPhoton_Ultralight.png": "8516311b8a83949cdf31f73584c9aaf3edc8ad1d9579fc7b3aae1624dba3f3c9",
+        "plots/plots_png/AxionPhoton_Ultralight_highlighted.png": "bad8c076edb2dbea773e2169c4a385db93ffd29192a7b470f17d9ac0f4fa7687",
+        "plots/plots_png/AxionPhoton_Ultralight_with_Projections.png": "b4d4fb5b8f64960a60d2054c073ac7ad834244b702c21251fd25c6cb4707d214",
+        "plots/plots_png/AxionPhoton_Ultralight_with_Projections_highlighted.png": "aac3813507ee492eaa8c5d04e7c45e3b05dafbb4501104681c062c31c68243eb",
+        "proposal.json": "c894c4e5f3be5f8ee974483a1f7d9a94615a8117a0d62772a1a69da54b6e06c7"
+      }
+    }
+  ]
+}
