@@ -1073,6 +1073,43 @@
       "last_seen": "2026-07-17T04:24:38Z",
       "count": 1,
       "status": "queued"
+    },
+    {
+      "cache_key": "axionphoton::g agamma axion photon coupling g a gamma gamma in gev 1 exactly as plotted on the y axis",
+      "coupling_type": "AxionPhoton",
+      "declared_convention": "g_agamma (axion-photon coupling g_{a\\gamma\\gamma}) in GeV^-1, exactly as plotted on the y-axis",
+      "arxiv_id": "2611.34927",
+      "arxiv_ids": [
+        "2611.34927"
+      ],
+      "sample_points": [
+        [
+          4.1e-15,
+          4.8e-14
+        ],
+        [
+          8.3e-15,
+          5.8e-14
+        ],
+        [
+          1.4e-14,
+          6.6e-14
+        ],
+        [
+          2.1e-14,
+          7.4e-14
+        ],
+        [
+          4.1e-14,
+          8.9e-14
+        ]
+      ],
+      "target_repo_file": null,
+      "pr_url": null,
+      "first_seen": "2026-11-26T15:20:31Z",
+      "last_seen": "2026-11-26T15:20:31Z",
+      "count": 1,
+      "status": "queued"
     }
   ]
 }
