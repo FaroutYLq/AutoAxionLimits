@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "arxiv_id": "2611.32905",
+  "decision": "approve",
+  "summary": "New 95% C.L. TeV-transparency axion-photon exclusion from Fig. 4 of 2611.32905, correctly extracted in eV/GeV^-1 with canonical g_agamma convention. Representative points (g~2.3e-11 at ~10 eV; ~5e-12 at 10^3 eV) agree with the paper's figure and its 'competitive around m_a~10 eV' statement. Highlight and full views show the result faithfully.",
+  "artifact_sha256": {
+    "limit_data/AxionPhoton/TeVTransparency_2026.txt": "29517ec08c4431d15c373d738ca583c51b47878b45c520d52212c385b6fe9536",
+    "PlotFuncs.py": "fe13d8c71f110e12fb74426af30cc1ef0b597b5195d818ec3a8ebd75f57cbcb4",
+    "AxionPhoton.ipynb": "a5cfc5bafa7216a87038b19e49fed7742b59a3fd93445137de17cc7cbb2acb2a",
+    "plots/AxionPhoton.pdf": "e1cea73ed451849be666d183e2dc7e742c13ed73374340dc56913e69297b85ec",
+    "plots/plots_png/AxionPhoton.png": "06efbe2603b5f14b0231fb5b1672ce52cc1526f7a78223d345864dc583522e83",
+    "plots/AxionPhoton_with_Projections.pdf": "51dcb47fc5772a0d410ee2bd97c3d2bc4cc2fd41bf19f4f85bd854cebd53c305",
+    "plots/plots_png/AxionPhoton_with_Projections.png": "a94811c339c535871f2e9bb3f5fa6c7cd70dd2be356c4ef4bcd8706e36714215",
+    "plots/AxionPhoton_Rescaled.pdf": "9bf2430a681569af1a6d35202b538bfe13f2681504e5453d1e508f28d402f5c1",
+    "plots/plots_png/AxionPhoton_Rescaled.png": "44e42d581f76161c389d09bd62b8f7b40d0d9d9552fb30c6fd79b823a60d160b",
+    "plots/AxionPhoton_Rescaled_NoProjections.pdf": "387a90d376441fe4a425a804453c74737a98810c68b23810bdd693803c427c69",
+    "plots/plots_png/AxionPhoton_Rescaled_NoProjections.png": "431ca8847001c21ef96e76620e60ba744c3944eb8fb257fc2eac03482ad334b0",
+    "plots/AxionPhoton_highlighted.pdf": "58063028e6cfc5cfb5a07d9c835dc853b8654c73e02d3cff1f689ae18a91d4ed",
+    "plots/plots_png/AxionPhoton_highlighted.png": "34ed2f4d0c2b0a66f69093144ab5363d1d9eadb74a8ac9e7ce5c4a9e867310c3"
+  },
+  "history": [
+    {
+      "attempt": 0,
+      "verdict": {
+        "decision": "approve",
+        "summary": "New 95% C.L. TeV-transparency axion-photon exclusion from Fig. 4 of 2611.32905, correctly extracted in eV/GeV^-1 with canonical g_agamma convention. Representative points (g~2.3e-11 at ~10 eV; ~5e-12 at 10^3 eV) agree with the paper's figure and its 'competitive around m_a~10 eV' statement. Highlight and full views show the result faithfully.",
+        "checks": {
+          "result_identity": {
+            "status": "pass",
+            "evidence": "Paper Fig. 4 (p.5) + Eq. 10: axion-photon coupling g_agamma vs m_a, 95% C.L. exclusion from TeV gamma-ray transparency (LHAASO GRB221009A + Greaux EBL). Extraction coupling_type AxionPhoton, g_agamma[GeV^-1] vs mass[eV] \u2014 matches."
+          },
+          "novelty": {
+            "status": "pass",
+            "evidence": "Abstract and text (p.1-2): 'first TeV-transparency bounds' and 'derive the competitive limit on the axion-photon coupling'. These are exclusions (regions above boundaries), not projections (is_projection=false). A genuine new measured bound."
+          },
+          "confidence_level": {
+            "status": "pass",
+            "evidence": "Fig. 4 titled '95% C.L. Exclusion Region' (p.5) and p.3 'We quote separate 95% exclusions based on the broad-band EBL reconstruction... and on the LHAASO spectrum'. Extraction confidence_level 0.95 is directly supported, not a placeholder."
+          },
+          "conventions": {
+            "status": "pass",
+            "evidence": "Eq. 10 defines L = -(g_agamma/4) a F Fdual (canonical); units m_a[eV], g_agamma[GeV^-1] match AxionLimits. Bound assumes axions = all DM at recombination (p.5), a cosmological-abundance assumption independent of local halo density, so dm_density_assumed=null is appropriate. Plot method only fill_between above the traced g(m) curve; no hidden density/unit transform bypassed."
+          },
+          "numerical_agreement": {
+            "status": "pass",
+            "evidence": "m_a=10.7 eV -> g=2.26e-11 matches paper's 'competitive around m_a~10 eV' (notes g~2.5e-11). Left edge (0.102 eV, 1.9e-8) and right edge (985 eV, 4.6e-12) consistent with Fig. 4 envelope descending ~10^-8 -> ~5e-12 (blue Greaux floor at high mass). Monotonic descent matches min(LHAASO,Greaux) envelope. Per-point tracing limited by the small embedded raster, but all representative anchors agree."
+          },
+          "highlight_target": {
+            "status": "pass",
+            "evidence": "Highlighted PNG shows one red 'TeV Transparency' region (m_a 0.1-10^3, boundary 10^-8 down to ~5e-12), matching the extracted curve; no unrelated limit accented. Corresponding full view draws the same region."
+          },
+          "visibility": {
+            "status": "pass",
+            "evidence": "Full AxionPhoton.png: region on-screen over m_a 0.1-10^3 eV with 'TeV Transparency' label at top; overlap with CAST/Solar nu is expected for an independent bound. Highlighted view renders boundaries clearly and interpretably."
+          }
+        },
+        "findings": []
+      },
+      "session": {
+        "model": "claude-opus-4-8",
+        "models_billed": [
+          "claude-opus-4-8"
+        ],
+        "inspected_files": [
+          "extraction.json",
+          "limit_data/AxionPhoton/TeVTransparency_2026.txt",
+          "paper.pdf",
+          "plots/plots_png/AxionPhoton.png",
+          "plots/plots_png/AxionPhoton_highlighted.png",
+          "proposal.json"
+        ],
+        "prompt_sha256": "a1e911dbcb105d90034494aa79bbd59317c8f524185bd718d94b4a4efdcf81a8"
+      },
+      "evidence_sha256": {
+        "AxionPhoton.ipynb": "2d149647d3ea73d2538e46640dd4d2d14e034842a492313be933540f702ec224",
+        "PlotFuncs.py": "fe13d8c71f110e12fb74426af30cc1ef0b597b5195d818ec3a8ebd75f57cbcb4",
+        "extraction.json": "66d5bf322b6b09db6ac467f934dbc4d92f05db7493cb4545724cd13ed900e820",
+        "limit_data/AxionPhoton/TeVTransparency_2026.txt": "29517ec08c4431d15c373d738ca583c51b47878b45c520d52212c385b6fe9536",
+        "paper.pdf": "d8d8395367ed8bb24f138b43ecf804f2a6cef1f21537ad8273246098492e6162",
+        "plots/plots_png/AxionPhoton.png": "06efbe2603b5f14b0231fb5b1672ce52cc1526f7a78223d345864dc583522e83",
+        "plots/plots_png/AxionPhoton_highlighted.png": "34ed2f4d0c2b0a66f69093144ab5363d1d9eadb74a8ac9e7ce5c4a9e867310c3",
+        "proposal.json": "5e1741bf24dd8dcd6223a9c8a3d996903190825a2a0633a1cfcb84c2a2ad3051"
+      }
+    }
+  ]
+}
